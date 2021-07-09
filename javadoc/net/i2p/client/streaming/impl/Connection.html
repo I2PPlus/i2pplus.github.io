@@ -1,0 +1,1625 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Connection - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.streaming.impl, class: Connection">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10,"i77":10,"i78":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Connection.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.client.streaming.impl</a></div>
+<h1 title="Class Connection" class="title">Class Connection</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.client.streaming.impl.Connection</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">Connection</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Maintain the state controlling a streaming connection between two
+ destinations.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Connection.ConEvent.html" title="class in net.i2p.client.streaming.impl">Connection.ConEvent</a></span></code></th>
+<td class="colLast">
+<div class="block">fired to reschedule event notification</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Connection.ResendPacketEvent.html" title="class in net.i2p.client.streaming.impl">Connection.ResendPacketEvent</a></span></code></th>
+<td class="colLast">
+<div class="block">This is not normally scheduled.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Connection.RetransmitEvent.html" title="class in net.i2p.client.streaming.impl">Connection.RetransmitEvent</a></span></code></th>
+<td class="colLast">
+<div class="block">A single retransmit timer for all packets.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DISCONNECT_TIMEOUT">DISCONNECT_TIMEOUT</a></span></code></th>
+<td class="colLast">
+<div class="block">Wait up to 5 minutes after disconnection so we can ack/close packets.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FAST_RETRANSMIT_THRESHOLD">FAST_RETRANSMIT_THRESHOLD</a></span></code></th>
+<td class="colLast">
+<div class="block">If we have been explicitly NACKed three times, retransmit the packet even if
+ there are other packets in flight.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_RESEND_DELAY">MAX_RESEND_DELAY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_WINDOW_SIZE">MAX_WINDOW_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_RESEND_DELAY">MIN_RESEND_DELAY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.client.streaming.impl.ConnectionManager,net.i2p.client.I2PSession,net.i2p.client.streaming.impl.SchedulerChooser,net.i2p.util.SimpleTimer2,net.i2p.client.streaming.impl.PacketQueue,net.i2p.client.streaming.impl.ConnectionPacketHandler,net.i2p.client.streaming.impl.ConnectionOptions,boolean)">Connection</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a>&nbsp;manager,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="SchedulerChooser.html" title="class in net.i2p.client.streaming.impl">SchedulerChooser</a>&nbsp;chooser,
+<a href="../../../util/SimpleTimer2.html" title="class in net.i2p.util">SimpleTimer2</a>&nbsp;timer,
+<a href="PacketQueue.html" title="class in net.i2p.client.streaming.impl">PacketQueue</a>&nbsp;queue,
+<a href="ConnectionPacketHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionPacketHandler</a>&nbsp;handler,
+<a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a>&nbsp;opts,
+boolean&nbsp;isInbound)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ackImmediately()">ackImmediately</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ackPackets(long,long%5B%5D)">ackPackets</a></span>&#8203;(long&nbsp;ackThrough,
+long[]&nbsp;nacks)</code></th>
+<td class="colLast">
+<div class="block">Process the acks and nacks received in a packet</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#closeReceived()">closeReceived</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Notify that a close was received.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnect(boolean)">disconnect</a></span>&#8203;(boolean&nbsp;cleanDisconnect)</code></th>
+<td class="colLast">
+<div class="block">Must be called when we are done with this connection.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnect(boolean,boolean)">disconnect</a></span>&#8203;(boolean&nbsp;cleanDisconnect,
+boolean&nbsp;removeFromConMgr)</code></th>
+<td class="colLast">
+<div class="block">Must be called when we are done with this connection.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnectComplete()">disconnectComplete</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Must be called when we are done with this connection.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eventOccurred()">eventOccurred</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAckedPackets()">getAckedPackets</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how many packets have we sent and the other side has ACKed?</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCloseReceivedOn()">getCloseReceivedOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCloseSentOn()">getCloseSentOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCongestionWindowEnd()">getCongestionWindowEnd</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnectionError()">getConnectionError</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnectionManager()">getConnectionManager</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreatedOn()">getCreatedOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDisconnectScheduledOn()">getDisconnectScheduledOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHardDisconnected()">getHardDisconnected</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHighestAckedThrough()">getHighestAckedThrough</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="MessageInputStream.html" title="class in net.i2p.client.streaming.impl">MessageInputStream</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInputStream()">getInputStream</a></span>()</code></th>
+<td class="colLast">
+<div class="block">stream that the local peer receives data on</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsConnected()">getIsConnected</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Always true at the start, even if we haven't gotten a reply on an
+  outbound connection.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastActivityOn()">getLastActivityOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastSendId()">getLastSendId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What was the last packet Id sent to the peer?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastSendTime()">getLastSendTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">When did we last send anything to the peer?</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetime()">getLifetime</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetimeBytesReceived()">getLifetimeBytesReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetimeBytesSent()">getLifetimeBytesSent</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetimeDupMessagesReceived()">getLifetimeDupMessagesReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetimeDupMessagesSent()">getLifetimeDupMessagesSent</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLocalPort()">getLocalPort</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextOutboundPacketNum()">getNextOutboundPacketNum</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextSendTime()">getNextSendTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Time when the scheduler next want to send a packet, or -1 if
+ never.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code><a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptions()">getOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the current ConnectionOptions.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code><a href="MessageOutputStream.html" title="class in net.i2p.client.streaming.impl">MessageOutputStream</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOutputStream()">getOutputStream</a></span>()</code></th>
+<td class="colLast">
+<div class="block">stream that the local peer sends data to the remote peer on</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="ConnectionPacketHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionPacketHandler</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPacketHandler()">getPacketHandler</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPort()">getPort</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The remote port.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReceiveStreamId()">getReceiveStreamId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The stream ID of a peer connection that sends data to us, or zero if unknown.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemotePeer()">getRemotePeer</a></span>()</code></th>
+<td class="colLast">
+<div class="block">who are we talking with</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code><a href="../../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemoteSPK()">getRemoteSPK</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The key to verify signatures with.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResetReceived()">getResetReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResetSent()">getResetSent</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResetSentOn()">getResetSentOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSendStreamId()">getSendStreamId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What stream do we send data to the peer on?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSession()">getSession</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code><a href="I2PSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketFull</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSocket()">getSocket</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSSThresh()">getSSThresh</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnackedPacketsReceived()">getUnackedPacketsReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnackedPacketsSent()">getUnackedPacketsSent</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how many packets have we sent but not yet received an ACK for?</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementBytesReceived(int)">incrementBytesReceived</a></span>&#8203;(int&nbsp;bytes)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementBytesSent(int)">incrementBytesSent</a></span>&#8203;(int&nbsp;bytes)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementDupMessagesReceived(int)">incrementDupMessagesReceived</a></span>&#8203;(int&nbsp;msgs)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementDupMessagesSent(int)">incrementDupMessagesSent</a></span>&#8203;(int&nbsp;msgs)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementUnackedPacketsReceived()">incrementUnackedPacketsReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isChoked()">isChoked</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is the other side choking us?</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInbound()">isInbound</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>(package private) <a href="Connection.ResendPacketEvent.html" title="class in net.i2p.client.streaming.impl">Connection.ResendPacketEvent</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newResendPacketEvent(net.i2p.client.streaming.impl.PacketLocal)">newResendPacketEvent</a></span>&#8203;(<a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&nbsp;packet)</code></th>
+<td class="colLast">
+<div class="block">A new ResendPacketEvent.</div>
+</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyCloseSent()">notifyCloseSent</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Notify that a close was sent.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyLastPacketAcked()">notifyLastPacketAcked</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Notify that a close that we sent, and all previous packets, were acked.</div>
+</td>
+</tr>
+<tr class="altColor" id="i56">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#packetReceived()">packetReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i57">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#packetSendChoke(long)">packetSendChoke</a></span>&#8203;(long&nbsp;timeoutMs)</code></th>
+<td class="colLast">
+<div class="block">This doesn't "send a choke".</div>
+</td>
+</tr>
+<tr class="altColor" id="i58">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetReceived()">resetReceived</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Notify that a reset was received.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i59">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#schedule(net.i2p.util.SimpleTimer.TimedEvent,long)">schedule</a></span>&#8203;(<a href="../../../util/SimpleTimer.TimedEvent.html" title="interface in net.i2p.util">SimpleTimer.TimedEvent</a>&nbsp;event,
+long&nbsp;msToWait)</code></th>
+<td class="colLast">
+<div class="block">Schedule something on our timer.</div>
+</td>
+</tr>
+<tr class="altColor" id="i60">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduleConnectionEvent(long)">scheduleConnectionEvent</a></span>&#8203;(long&nbsp;msToWait)</code></th>
+<td class="colLast">
+<div class="block">Called from SchedulerImpl</div>
+</td>
+</tr>
+<tr class="rowColor" id="i61">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendAvailable()">sendAvailable</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Flush any data that we can.</div>
+</td>
+</tr>
+<tr class="altColor" id="i62">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendPacket(net.i2p.client.streaming.impl.PacketLocal)">sendPacket</a></span>&#8203;(<a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&nbsp;packet)</code></th>
+<td class="colLast">
+<div class="block">This sends all 'normal' packets (acks and data) for the first time.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i63">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChoked(boolean)">setChoked</a></span>&#8203;(boolean&nbsp;on)</code></th>
+<td class="colLast">
+<div class="block">Set or clear if we are being choked by the other side.</div>
+</td>
+</tr>
+<tr class="altColor" id="i64">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChoking(boolean)">setChoking</a></span>&#8203;(boolean&nbsp;on)</code></th>
+<td class="colLast">
+<div class="block">Set or clear if we are choking the other side.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i65">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCongestionWindowEnd(long)">setCongestionWindowEnd</a></span>&#8203;(long&nbsp;endMsg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i66">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConnectionError(java.lang.String)">setConnectionError</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;err)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i67">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastSendId(long)">setLastSendId</a></span>&#8203;(long&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Set the packet Id that was sent to a peer.</div>
+</td>
+</tr>
+<tr class="altColor" id="i68">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNextSendTime(long)">setNextSendTime</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">
+<div class="block">If the next send time is currently &gt;= 0 (i.e.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i69">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOptions(net.i2p.client.streaming.impl.ConnectionOptions)">setOptions</a></span>&#8203;(<a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a>&nbsp;opts)</code></th>
+<td class="colLast">
+<div class="block">Set the ConnectionOptions.</div>
+</td>
+</tr>
+<tr class="altColor" id="i70">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReceiveStreamId(long)">setReceiveStreamId</a></span>&#8203;(long&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i71">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRemotePeer(net.i2p.data.Destination)">setRemotePeer</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i72">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRemoteTransientSPK(net.i2p.data.SigningPublicKey)">setRemoteTransientSPK</a></span>&#8203;(<a href="../../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;transientSPK)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i73">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSendStreamId(long)">setSendStreamId</a></span>&#8203;(long&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i74">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSocket(net.i2p.client.streaming.impl.I2PSocketFull)">setSocket</a></span>&#8203;(<a href="I2PSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketFull</a>&nbsp;socket)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i75">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i76">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateShareOpts()">updateShareOpts</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i77">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#waitForConnect()">waitForConnect</a></span>()</code></th>
+<td class="colLast">
+<div class="block">wait until a connection is made or the connection fails within the
+ timeout period, setting the error accordingly.</div>
+</td>
+</tr>
+<tr class="altColor" id="i78">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#windowAdjusted()">windowAdjusted</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Notify all threads waiting in packetSendChoke()</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_RESEND_DELAY">MAX_RESEND_DELAY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_RESEND_DELAY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.MAX_RESEND_DELAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_RESEND_DELAY">MIN_RESEND_DELAY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_RESEND_DELAY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.MIN_RESEND_DELAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DISCONNECT_TIMEOUT">DISCONNECT_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DISCONNECT_TIMEOUT</span></div>
+<div class="block">Wait up to 5 minutes after disconnection so we can ack/close packets.
+  Roughly equal to the TIME-WAIT time in RFC 793, where the recommendation is 4 minutes (2 * MSL)</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.DISCONNECT_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_CONNECT_TIMEOUT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.DEFAULT_CONNECT_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_WINDOW_SIZE">MAX_WINDOW_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_WINDOW_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.MAX_WINDOW_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FAST_RETRANSMIT_THRESHOLD">FAST_RETRANSMIT_THRESHOLD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">FAST_RETRANSMIT_THRESHOLD</span></div>
+<div class="block">If we have been explicitly NACKed three times, retransmit the packet even if
+ there are other packets in flight.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.Connection.FAST_RETRANSMIT_THRESHOLD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.client.streaming.impl.ConnectionManager,net.i2p.client.I2PSession,net.i2p.client.streaming.impl.SchedulerChooser,net.i2p.util.SimpleTimer2,net.i2p.client.streaming.impl.PacketQueue,net.i2p.client.streaming.impl.ConnectionPacketHandler,net.i2p.client.streaming.impl.ConnectionOptions,boolean)">Connection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Connection</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a>&nbsp;manager,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="SchedulerChooser.html" title="class in net.i2p.client.streaming.impl">SchedulerChooser</a>&nbsp;chooser,
+<a href="../../../util/SimpleTimer2.html" title="class in net.i2p.util">SimpleTimer2</a>&nbsp;timer,
+<a href="PacketQueue.html" title="class in net.i2p.client.streaming.impl">PacketQueue</a>&nbsp;queue,
+<a href="ConnectionPacketHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionPacketHandler</a>&nbsp;handler,
+<a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a>&nbsp;opts,
+boolean&nbsp;isInbound)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>opts</code> - may be null</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSSThresh()">getSSThresh</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getSSThresh</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNextOutboundPacketNum()">getNextOutboundPacketNum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getNextOutboundPacketNum</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="packetSendChoke(long)">packetSendChoke</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">packetSendChoke</span>&#8203;(<span class="arguments">long&nbsp;timeoutMs)</span>
+                        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></span></div>
+<div class="block">This doesn't "send a choke". Rather, it blocks if the outbound window is full,
+ thus choking the sender that calls this.
+
+ Block until there is an open outbound packet slot or the write timeout
+ expires.
+ PacketLocal is the only caller, generally with -1.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timeoutMs</code> - 0 or negative means wait forever, 5 minutes max</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the packet should be sent, false for a fatal error
+         will return false after 5 minutes even if timeoutMs is &lt;= 0.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="windowAdjusted()">windowAdjusted</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">windowAdjusted</span>()</div>
+<div class="block">Notify all threads waiting in packetSendChoke()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ackImmediately()">ackImmediately</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">ackImmediately</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendAvailable()">sendAvailable</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendAvailable</span>()</div>
+<div class="block">Flush any data that we can. Non-blocking.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendPacket(net.i2p.client.streaming.impl.PacketLocal)">sendPacket</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendPacket</span>&#8203;(<span class="arguments"><a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&nbsp;packet)</span></div>
+<div class="block">This sends all 'normal' packets (acks and data) for the first time.
+  Retransmits are done in ResendPacketEvent below.
+  Resets, pings, and pongs are done elsewhere in this class,
+  or in ConnectionManager or ConnectionHandler.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ackPackets(long,long[])">ackPackets</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&gt;</span>&nbsp;<span class="memberName">ackPackets</span>&#8203;(<span class="arguments">long&nbsp;ackThrough,
+long[]&nbsp;nacks)</span></div>
+<div class="block">Process the acks and nacks received in a packet</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>List of packets acked for the first time, or null if none</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="eventOccurred()">eventOccurred</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">eventOccurred</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyCloseSent()">notifyCloseSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyCloseSent</span>()</div>
+<div class="block">Notify that a close was sent.
+  Called by CPH.
+  May be called multiple times... but shouldn't be.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="closeReceived()">closeReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">closeReceived</span>()</div>
+<div class="block">Notify that a close was received.
+  Called by CPH.
+  May be called multiple times.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyLastPacketAcked()">notifyLastPacketAcked</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyLastPacketAcked</span>()</div>
+<div class="block">Notify that a close that we sent, and all previous packets, were acked.
+  Called by CPH. Only call this once.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="resetReceived()">resetReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">resetReceived</span>()</div>
+<div class="block">Notify that a reset was received.
+  May be called multiple times.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getResetReceived()">getResetReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getResetReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isInbound()">isInbound</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isInbound</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsConnected()">getIsConnected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsConnected</span>()</div>
+<div class="block">Always true at the start, even if we haven't gotten a reply on an
+  outbound connection. Only set to false on disconnect.
+  For outbound, use getHighestAckedThrough() &gt;= 0 also,
+  to determine if the connection is up.
+
+  In general, this is true until either:
+  - CLOSE received and CLOSE sent and our CLOSE is acked
+  - RESET received or sent
+  - closed on the socket side</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHardDisconnected()">getHardDisconnected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getHardDisconnected</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getResetSent()">getResetSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getResetSent</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getResetSentOn()">getResetSentOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getResetSentOn</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 if not sent</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDisconnectScheduledOn()">getDisconnectScheduledOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getDisconnectScheduledOn</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 if not scheduled</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnect(boolean)">disconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnect</span>&#8203;(<span class="arguments">boolean&nbsp;cleanDisconnect)</span></div>
+<div class="block">Must be called when we are done with this connection.
+  Enters TIME-WAIT if necessary, and removes from connection manager.
+  May be called multiple times.
+  This closes the socket side.
+  In normal operation, this is called when a CLOSE has been received,
+  AND a CLOSE has been sent, AND EITHER:
+  received close before sent close AND our CLOSE has been acked
+  OR
+  received close after sent close.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cleanDisconnect</code> - if true, normal close; if false, send a RESET</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnect(boolean,boolean)">disconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnect</span>&#8203;(<span class="arguments">boolean&nbsp;cleanDisconnect,
+boolean&nbsp;removeFromConMgr)</span></div>
+<div class="block">Must be called when we are done with this connection.
+  May be called multiple times.
+  This closes the socket side.
+  In normal operation, this is called when a CLOSE has been received,
+  AND a CLOSE has been sent, AND EITHER:
+  received close before sent close AND our CLOSE has been acked
+  OR
+  received close after sent close.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cleanDisconnect</code> - if true, normal close; if false, send a RESET</dd>
+<dd><code>removeFromConMgr</code> - if true, enters TIME-WAIT if necessary.
+                          if false, MUST call disconnectComplete() later.
+                          Should always be true unless called from ConnectionManager.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnectComplete()">disconnectComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnectComplete</span>()</div>
+<div class="block">Must be called when we are done with this connection.
+  Final disconnect. Remove from conn manager.
+  May be called multiple times.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="scheduleConnectionEvent(long)">scheduleConnectionEvent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">scheduleConnectionEvent</span>&#8203;(<span class="arguments">long&nbsp;msToWait)</span></div>
+<div class="block">Called from SchedulerImpl</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23 moved here so we can use our timer</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="schedule(net.i2p.util.SimpleTimer.TimedEvent,long)">schedule</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">schedule</span>&#8203;(<span class="arguments"><a href="../../../util/SimpleTimer.TimedEvent.html" title="interface in net.i2p.util">SimpleTimer.TimedEvent</a>&nbsp;event,
+long&nbsp;msToWait)</span></div>
+<div class="block">Schedule something on our timer.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRemotePeer()">getRemotePeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">getRemotePeer</span>()</div>
+<div class="block">who are we talking with</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>peer Destination or null if unset</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setRemotePeer(net.i2p.data.Destination)">setRemotePeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setRemotePeer</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRemoteSPK()">getRemoteSPK</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">getRemoteSPK</span>()</div>
+<div class="block">The key to verify signatures with.
+  The transient SPK if previously received,
+  else getRemotePeer().getSigningPublicKey() if previously received,
+  else null.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>peer Destination or null if unset</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setRemoteTransientSPK(net.i2p.data.SigningPublicKey)">setRemoteTransientSPK</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setRemoteTransientSPK</span>&#8203;(<span class="arguments"><a href="../../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;transientSPK)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>transientSPK</code> - null ok</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSendStreamId()">getSendStreamId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getSendStreamId</span>()</div>
+<div class="block">What stream do we send data to the peer on?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-global stream sending ID, or 0 if unknown</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSendStreamId(long)">setSendStreamId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSendStreamId</span>&#8203;(<span class="arguments">long&nbsp;id)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - 0 to 0xffffffff</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already set to nonzero</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReceiveStreamId()">getReceiveStreamId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getReceiveStreamId</span>()</div>
+<div class="block">The stream ID of a peer connection that sends data to us, or zero if unknown.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>receive stream ID, or 0 if unknown</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setReceiveStreamId(long)">setReceiveStreamId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReceiveStreamId</span>&#8203;(<span class="arguments">long&nbsp;id)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - 0 to 0xffffffff</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already set to nonzero</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastSendTime()">getLastSendTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastSendTime</span>()</div>
+<div class="block">When did we last send anything to the peer?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Last time we sent data</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastSendId()">getLastSendId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastSendId</span>()</div>
+<div class="block">What was the last packet Id sent to the peer?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The last sent packet ID</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastSendId(long)">setLastSendId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLastSendId</span>&#8203;(<span class="arguments">long&nbsp;id)</span></div>
+<div class="block">Set the packet Id that was sent to a peer.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - The packet ID</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptions()">getOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a></span>&nbsp;<span class="memberName">getOptions</span>()</div>
+<div class="block">Retrieve the current ConnectionOptions.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the current ConnectionOptions, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setOptions(net.i2p.client.streaming.impl.ConnectionOptions)">setOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setOptions</span>&#8203;(<span class="arguments"><a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a>&nbsp;opts)</span></div>
+<div class="block">Set the ConnectionOptions.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>opts</code> - ConnectionOptions non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConnectionManager()">getConnectionManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a></span>&nbsp;<span class="memberName">getConnectionManager</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSession()">getSession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">getSession</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSocket()">getSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="I2PSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketFull</a></span>&nbsp;<span class="memberName">getSocket</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSocket(net.i2p.client.streaming.impl.I2PSocketFull)">setSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSocket</span>&#8203;(<span class="arguments"><a href="I2PSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketFull</a>&nbsp;socket)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPort()">getPort</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPort</span>()</div>
+<div class="block">The remote port.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Default I2PSession.PORT_UNSPECIFIED (0) or PORT_ANY (0)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLocalPort()">getLocalPort</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getLocalPort</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Default I2PSession.PORT_UNSPECIFIED (0) or PORT_ANY (0)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConnectionError()">getConnectionError</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getConnectionError</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setConnectionError(java.lang.String)">setConnectionError</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setConnectionError</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;err)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetime()">getLifetime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetime</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPacketHandler()">getPacketHandler</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ConnectionPacketHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionPacketHandler</a></span>&nbsp;<span class="memberName">getPacketHandler</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetimeBytesSent()">getLifetimeBytesSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetimeBytesSent</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetimeBytesReceived()">getLifetimeBytesReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetimeBytesReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetimeDupMessagesSent()">getLifetimeDupMessagesSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetimeDupMessagesSent</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetimeDupMessagesReceived()">getLifetimeDupMessagesReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetimeDupMessagesReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementBytesSent(int)">incrementBytesSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementBytesSent</span>&#8203;(<span class="arguments">int&nbsp;bytes)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementDupMessagesSent(int)">incrementDupMessagesSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementDupMessagesSent</span>&#8203;(<span class="arguments">int&nbsp;msgs)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementBytesReceived(int)">incrementBytesReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementBytesReceived</span>&#8203;(<span class="arguments">int&nbsp;bytes)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementDupMessagesReceived(int)">incrementDupMessagesReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementDupMessagesReceived</span>&#8203;(<span class="arguments">int&nbsp;msgs)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNextSendTime()">getNextSendTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getNextSendTime</span>()</div>
+<div class="block">Time when the scheduler next want to send a packet, or -1 if
+ never.  This should be set when we want to send on timeout, for
+ instance, or want to delay an ACK.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the next time the scheduler will want to send a packet, or -1 if never.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setNextSendTime(long)">setNextSendTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setNextSendTime</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+<div class="block">If the next send time is currently &gt;= 0 (i.e. not "never"),
+  this may make the next time sooner but will not make it later.
+  If the next send time is currently &lt; 0 (i.e. "never"),
+  this will set it to the time specified, but not later than
+  options.getSendAckDelay() from now (1000 ms)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setChoking(boolean)">setChoking</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setChoking</span>&#8203;(<span class="arguments">boolean&nbsp;on)</span></div>
+<div class="block">Set or clear if we are choking the other side.
+  If on is true or the value has changed, this will call ackImmediately().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>on</code> - true for choking</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.29</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setChoked(boolean)">setChoked</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setChoked</span>&#8203;(<span class="arguments">boolean&nbsp;on)</span></div>
+<div class="block">Set or clear if we are being choked by the other side.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>on</code> - true for choked</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.29</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isChoked()">isChoked</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isChoked</span>()</div>
+<div class="block">Is the other side choking us?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>if choked</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.29</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAckedPackets()">getAckedPackets</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getAckedPackets</span>()</div>
+<div class="block">how many packets have we sent and the other side has ACKed?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Count of how many packets ACKed.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCreatedOn()">getCreatedOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCreatedOn</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCloseSentOn()">getCloseSentOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCloseSentOn</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 if not sent</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCloseReceivedOn()">getCloseReceivedOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCloseReceivedOn</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 if not received</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updateShareOpts()">updateShareOpts</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">updateShareOpts</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementUnackedPacketsReceived()">incrementUnackedPacketsReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementUnackedPacketsReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUnackedPacketsReceived()">getUnackedPacketsReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getUnackedPacketsReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUnackedPacketsSent()">getUnackedPacketsSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getUnackedPacketsSent</span>()</div>
+<div class="block">how many packets have we sent but not yet received an ACK for?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Count of packets in-flight.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCongestionWindowEnd()">getCongestionWindowEnd</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCongestionWindowEnd</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setCongestionWindowEnd(long)">setCongestionWindowEnd</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setCongestionWindowEnd</span>&#8203;(<span class="arguments">long&nbsp;endMsg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHighestAckedThrough()">getHighestAckedThrough</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getHighestAckedThrough</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the highest outbound packet we have recieved an ack for</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastActivityOn()">getLastActivityOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastActivityOn</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="packetReceived()">packetReceived</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">packetReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="waitForConnect()">waitForConnect</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">waitForConnect</span>()</div>
+<div class="block">wait until a connection is made or the connection fails within the
+ timeout period, setting the error accordingly.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInputStream()">getInputStream</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="MessageInputStream.html" title="class in net.i2p.client.streaming.impl">MessageInputStream</a></span>&nbsp;<span class="memberName">getInputStream</span>()</div>
+<div class="block">stream that the local peer receives data on</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the inbound message stream, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOutputStream()">getOutputStream</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="MessageOutputStream.html" title="class in net.i2p.client.streaming.impl">MessageOutputStream</a></span>&nbsp;<span class="memberName">getOutputStream</span>()</div>
+<div class="block">stream that the local peer sends data to the remote peer on</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the outbound message stream, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="newResendPacketEvent(net.i2p.client.streaming.impl.PacketLocal)">newResendPacketEvent</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="Connection.ResendPacketEvent.html" title="class in net.i2p.client.streaming.impl">Connection.ResendPacketEvent</a></span>&nbsp;<span class="memberName">newResendPacketEvent</span>&#8203;(<span class="arguments"><a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a>&nbsp;packet)</span></div>
+<div class="block">A new ResendPacketEvent.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Connection.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

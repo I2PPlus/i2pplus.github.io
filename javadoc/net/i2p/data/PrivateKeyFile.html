@@ -1,0 +1,907 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PrivateKeyFile - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data, class: PrivateKeyFile">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":9,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":9,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":9,"i24":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PrivateKeyFile.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data</a></div>
+<h1 title="Class PrivateKeyFile" class="title">Class PrivateKeyFile</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.data.PrivateKeyFile</div>
+</div>
+<section class="description">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="router/RouterPrivateKeyFile.html" title="class in net.i2p.data.router">RouterPrivateKeyFile</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">PrivateKeyFile</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">This helper class reads and writes files in the
+ same "eepPriv.dat" format used by the client code.
+ The format is:
+<pre>
+  - Destination (387 bytes if no certificate, otherwise longer)
+     - Public key (256 bytes)
+     - Signing Public key (128 bytes)
+     - Cert. type (1 byte)
+     - Cert. length (2 bytes)
+     - Certificate if length != 0
+  - Private key (256 bytes)
+  - Signing Private key (20 bytes, or length specified by key certificate)
+  - As of 0.9.38, if the Signing Private Key is all zeros,
+    the offline signature section (see proposal 123):
+     - Expires timestamp (4 bytes, seconds since epoch, rolls over in 2106)
+     - Sig type of transient public key (2 bytes)
+     - Transient Signing Public key (length as specified by transient sig type)
+     - Signature of Signed Public key by offline key (length as specified by destination sig type)
+     - Transient Signing Private key (length as specified by transient sig type)
+
+ Total: 663 or more bytes
+</pre></div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>welterde, zzz</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dest">dest</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#file">file</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#privKey">privKey</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#signingPrivKey">signingPrivKey</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File,net.i2p.client.I2PClient)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="../client/I2PClient.html" title="interface in net.i2p.client">I2PClient</a>&nbsp;client)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File,net.i2p.client.I2PSession)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File,net.i2p.data.Destination,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File,net.i2p.data.PublicKey,net.i2p.data.SigningPublicKey,net.i2p.data.Certificate,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spubkey,
+<a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File,net.i2p.data.PublicKey,net.i2p.data.SigningPublicKey,net.i2p.data.Certificate,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey,byte%5B%5D)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spubkey,
+<a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk,
+byte[]&nbsp;padding)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.InputStream)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">Can't be used for writing</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">PrivateKeyFile</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;file)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkSignature(net.i2p.data.Signature,byte%5B%5D,net.i2p.data.SigningPublicKey)">checkSignature</a></span>&#8203;(<a href="Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;s,
+byte[]&nbsp;data,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createIfAbsent()">createIfAbsent</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Create with the default signature type if nonexistent.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createIfAbsent(net.i2p.crypto.SigType)">createIfAbsent</a></span>&#8203;(<a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Create with the specified signature type if nonexistent.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#estimateHashCashTime(int)">estimateHashCashTime</a></span>&#8203;(int&nbsp;hashEffort)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDestination()">getDestination</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If the destination is not set, read it in from the file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineExpiration()">getOfflineExpiration</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineSignature()">getOfflineSignature</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrivKey()">getPrivKey</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSigningPrivKey()">getSigningPrivKey</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTransientSigningPrivKey()">getTransientSigningPrivKey</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTransientSigningPubKey()">getTransientSigningPubKey</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffline()">isOffline</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does this session have offline and transient keys?</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Create a new PrivateKeyFile, or modify an existing one, with various
+  types of Certificates.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#open()">open</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#open(java.util.Properties)">open</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCertType(int)">setCertType</a></span>&#8203;(int&nbsp;t)</code></th>
+<td class="colLast">
+<div class="block">Change cert type - caller must also call write().</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDestination(net.i2p.data.Destination)">setDestination</a></span>&#8203;(<a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHashCashCert(int)">setHashCashCert</a></span>&#8203;(int&nbsp;effort)</code></th>
+<td class="colLast">
+<div class="block">change to hashcash cert - caller must also call write()</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setKeyCert(net.i2p.crypto.SigType)">setKeyCert</a></span>&#8203;(<a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Change cert type - caller must also call write().</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOfflineData(long,net.i2p.data.SigningPublicKey,net.i2p.data.Signature,net.i2p.data.SigningPrivateKey)">setOfflineData</a></span>&#8203;(long&nbsp;expires,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;transientPub,
+<a href="Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;sig,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;transientPriv)</code></th>
+<td class="colLast">
+<div class="block">Side effect - zeroes out the current signing private key</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSignedCert(net.i2p.data.PrivateKeyFile)">setSignedCert</a></span>&#8203;(<a href="PrivateKeyFile.html" title="class in net.i2p.data">PrivateKeyFile</a>&nbsp;pkf2)</code></th>
+<td class="colLast">
+<div class="block">sign this dest by dest found in pkf2 - caller must also call write()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateKeyPairs()">validateKeyPairs</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Verify that the PublicKey matches the PrivateKey, and
+  the SigningPublicKey matches the SigningPrivateKey.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Destination)">verifySignature</a></span>&#8203;(<a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</code></th>
+<td class="colLast">
+<div class="block">Sample code to verify a 3rd party signature.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write()">write</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Copied from I2PClientImpl.createDestination()</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="file">file</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">file</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dest">dest</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">dest</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="privKey">privKey</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></span>&nbsp;<span class="memberName">privKey</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="signingPrivKey">signingPrivKey</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></span>&nbsp;<span class="memberName">signingPrivKey</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;file)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File,net.i2p.client.I2PClient)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="../client/I2PClient.html" title="interface in net.i2p.client">I2PClient</a>&nbsp;client)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File,net.i2p.client.I2PSession)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File,net.i2p.data.Destination,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk)</span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - on mismatch of spubkey and spk types</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File,net.i2p.data.PublicKey,net.i2p.data.SigningPublicKey,net.i2p.data.Certificate,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spubkey,
+<a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk)</span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - on mismatch of spubkey and spk types</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File,net.i2p.data.PublicKey,net.i2p.data.SigningPublicKey,net.i2p.data.Certificate,net.i2p.data.PrivateKey,net.i2p.data.SigningPrivateKey,byte[])">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spubkey,
+<a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert,
+<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;pk,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;spk,
+byte[]&nbsp;padding)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>padding</code> - null OK, must be non-null if spubkey length &lt; 128</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - on mismatch of spubkey and spk types</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.InputStream)">PrivateKeyFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PrivateKeyFile</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span>
+               throws <span class="exceptions"><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Can't be used for writing</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">Create a new PrivateKeyFile, or modify an existing one, with various
+  types of Certificates.
+
+  Changing a Certificate does not change the public or private keys.
+  But it does change the Destination Hash, which effectively makes it
+  a new Destination. In other words, don't change the Certificate on
+  a Destination you've already registered in a hosts.txt key add form.
+
+  Copied and expanded from that in Destination.java</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createIfAbsent()">createIfAbsent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">createIfAbsent</span>()
+                           throws <span class="exceptions"><a href="../I2PException.html" title="class in net.i2p">I2PException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Create with the default signature type if nonexistent.
+
+  Also reads in the file to get the privKey and signingPrivKey,
+  which aren't available from I2PClient.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PException.html" title="class in net.i2p">I2PException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createIfAbsent(net.i2p.crypto.SigType)">createIfAbsent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">createIfAbsent</span>&#8203;(<span class="arguments"><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</span>
+                           throws <span class="exceptions"><a href="../I2PException.html" title="class in net.i2p">I2PException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Create with the specified signature type if nonexistent.
+
+  Also reads in the file to get the privKey and signingPrivKey,
+  which aren't available from I2PClient.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PException.html" title="class in net.i2p">I2PException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDestination()">getDestination</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">getDestination</span>()
+                           throws <span class="exceptions"><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">If the destination is not set, read it in from the file.
+  Also sets the local privKey and signingPrivKey.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDestination(net.i2p.data.Destination)">setDestination</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDestination</span>&#8203;(<span class="arguments"><a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setCertType(int)">setCertType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></span>&nbsp;<span class="memberName">setCertType</span>&#8203;(<span class="arguments">int&nbsp;t)</span></div>
+<div class="block">Change cert type - caller must also call write().
+ Side effect - creates new Destination object.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setKeyCert(net.i2p.crypto.SigType)">setKeyCert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></span>&nbsp;<span class="memberName">setKeyCert</span>&#8203;(<span class="arguments"><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</span></div>
+<div class="block">Change cert type - caller must also call write().
+ Side effect - creates new Destination object.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setHashCashCert(int)">setHashCashCert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></span>&nbsp;<span class="memberName">setHashCashCert</span>&#8203;(<span class="arguments">int&nbsp;effort)</span></div>
+<div class="block">change to hashcash cert - caller must also call write()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSignedCert(net.i2p.data.PrivateKeyFile)">setSignedCert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></span>&nbsp;<span class="memberName">setSignedCert</span>&#8203;(<span class="arguments"><a href="PrivateKeyFile.html" title="class in net.i2p.data">PrivateKeyFile</a>&nbsp;pkf2)</span></div>
+<div class="block">sign this dest by dest found in pkf2 - caller must also call write()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPrivKey()">getPrivKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></span>&nbsp;<span class="memberName">getPrivKey</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSigningPrivKey()">getSigningPrivKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></span>&nbsp;<span class="memberName">getSigningPrivKey</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isOffline()">isOffline</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isOffline</span>()</div>
+<div class="block">Does this session have offline and transient keys?</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setOfflineData(long,net.i2p.data.SigningPublicKey,net.i2p.data.Signature,net.i2p.data.SigningPrivateKey)">setOfflineData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setOfflineData</span>&#8203;(<span class="arguments">long&nbsp;expires,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;transientPub,
+<a href="Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;sig,
+<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;transientPriv)</span></div>
+<div class="block">Side effect - zeroes out the current signing private key</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOfflineExpiration()">getOfflineExpiration</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getOfflineExpiration</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Java time (ms) or 0 if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOfflineSignature()">getOfflineSignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">getOfflineSignature</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTransientSigningPubKey()">getTransientSigningPubKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">getTransientSigningPubKey</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTransientSigningPrivKey()">getTransientSigningPrivKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></span>&nbsp;<span class="memberName">getTransientSigningPrivKey</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="open()">open</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">open</span>()
+                throws <span class="exceptions"><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="open(java.util.Properties)">open</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">open</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</span>
+                throws <span class="exceptions"><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../client/I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="write()">write</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">write</span>()
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Copied from I2PClientImpl.createDestination()</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="validateKeyPairs()">validateKeyPairs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">validateKeyPairs</span>()</div>
+<div class="block">Verify that the PublicKey matches the PrivateKey, and
+  the SigningPublicKey matches the SigningPrivateKey.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="estimateHashCashTime(int)">estimateHashCashTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">estimateHashCashTime</span>&#8203;(<span class="arguments">int&nbsp;hashEffort)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Destination)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</span></div>
+<div class="block">Sample code to verify a 3rd party signature.
+  This just goes through all the hosts.txt files and tries everybody.
+  You need to be in the $I2P directory or have a local hosts.txt for this to work.
+  Doubt this is what you want as it is super-slow, and what good is
+  a signing scheme where anybody is allowed to sign?
+
+  In a real application you would make a list of approved signers,
+  do a naming lookup to get their Destinations, and try those only.
+  Or do a netDb lookup of the Hash in the Certificate, do a reverse
+  naming lookup to see if it is allowed, then verify the Signature.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="checkSignature(net.i2p.data.Signature,byte[],net.i2p.data.SigningPublicKey)">checkSignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">checkSignature</span>&#8203;(<span class="arguments"><a href="Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;s,
+byte[]&nbsp;data,
+<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PrivateKeyFile.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

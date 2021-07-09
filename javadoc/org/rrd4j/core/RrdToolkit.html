@@ -1,0 +1,883 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RrdToolkit - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.core, class: RrdToolkit">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdToolkit.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.core</a></div>
+<h1 title="Class RrdToolkit" class="title">Class RrdToolkit</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.rrd4j.core.RrdToolkit</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">RrdToolkit</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Class used to perform various complex operations on RRD files. Use an instance of the
+ RrdToolkit class to:
+
+ <ul>
+ <li>add datasource to a RRD file.
+ <li>add archive to a RRD file.
+ <li>remove datasource from a RRD file.
+ <li>remove archive from a RRD file.
+ </ul>
+
+ All these operations can be performed on the copy of the original RRD file, or on the
+ original file itself (with possible backup file creation).
+ <p>
+ <b><u>IMPORTANT</u></b>: NEVER use methods found in this class on 'live' RRD files
+ (files which are currently in use).</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addArchive(java.lang.String,java.lang.String,org.rrd4j.core.ArcDef)">addArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="ArcDef.html" title="class in org.rrd4j.core">ArcDef</a>&nbsp;newArchive)</code></th>
+<td class="colLast">
+<div class="block">Creates a new RRD file with one more archive in it.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addArchive(java.lang.String,org.rrd4j.core.ArcDef,boolean)">addArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="ArcDef.html" title="class in org.rrd4j.core">ArcDef</a>&nbsp;newArchive,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Adds one more archive to a RRD file.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDatasource(java.lang.String,java.lang.String,org.rrd4j.core.DsDef)">addDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;newDatasource)</code></th>
+<td class="colLast">
+<div class="block">Creates a new RRD file with one more datasource in it.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDatasource(java.lang.String,org.rrd4j.core.DsDef,boolean)">addDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;newDatasource,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Adds one more datasource to a RRD file.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDatasources(java.lang.String,java.lang.Iterable,boolean)">addDatasources</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Iterable</a>&lt;<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&gt;&nbsp;newDatasources,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Adds datasources to a RRD file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDatasources(java.lang.String,java.lang.String,java.lang.Iterable)">addDatasources</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Iterable</a>&lt;<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&gt;&nbsp;newDatasources)</code></th>
+<td class="colLast">
+<div class="block">Creates a new RRD file with one more datasource in it.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forceZerosForNans(java.lang.String,java.lang.String)">forceZerosForNans</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Updates single or all datasource names in the specified RRD file
+ by appending '!' (if not already present).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCanonicalPaths(java.lang.String,java.lang.String,boolean)">getCanonicalPaths</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;directory,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;extension,
+boolean&nbsp;resursive)</code></th>
+<td class="colLast">
+<div class="block">Returns list of canonical file names with the specified extension in the given directory.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeArchive(java.lang.String,java.lang.String,org.rrd4j.ConsolFun,int)">removeArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</code></th>
+<td class="colLast">
+<div class="block">Creates a new RRD file with one archive removed.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeArchive(java.lang.String,org.rrd4j.ConsolFun,int,boolean)">removeArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Removes one archive from a RRD file.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeDatasource(java.lang.String,java.lang.String,boolean)">removeDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Removes single datasource from a RRD file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeDatasource(java.lang.String,java.lang.String,java.lang.String)">removeDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Creates a new RRD file with one datasource removed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renameDatasource(java.lang.String,java.lang.String,java.lang.String)">renameDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;oldDsName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newDsName)</code></th>
+<td class="colLast">
+<div class="block">Renames single datasource in the given RRD file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resizeArchive(java.lang.String,java.lang.String,org.rrd4j.ConsolFun,int,int)">resizeArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;numSteps,
+int&nbsp;newRows)</code></th>
+<td class="colLast">
+<div class="block">Creates new RRD file based on the existing one, but with a different
+ size (number of rows) for a single archive.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resizeArchive(java.lang.String,org.rrd4j.ConsolFun,int,int,boolean)">resizeArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;numSteps,
+int&nbsp;newRows,
+boolean&nbsp;saveBackup)</code></th>
+<td class="colLast">
+<div class="block">Modifies existing RRD file, by resizing its chosen archive.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setArcXff(java.lang.String,org.rrd4j.ConsolFun,int,double)">setArcXff</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps,
+double&nbsp;newXff)</code></th>
+<td class="colLast">
+<div class="block">Sets single archive's X-files factor to a new value.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsHeartbeat(java.lang.String,int,long)">setDsHeartbeat</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+int&nbsp;dsIndex,
+long&nbsp;newHeartbeat)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource heartbeat to a new value.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsHeartbeat(java.lang.String,java.lang.String,long)">setDsHeartbeat</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+long&nbsp;newHeartbeat)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource heartbeat to a new value.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsMaxValue(java.lang.String,java.lang.String,double,boolean)">setDsMaxValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMaxValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource max value to a new value.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsMinMaxValue(java.lang.String,java.lang.String,double,double,boolean)">setDsMinMaxValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMinValue,
+double&nbsp;newMaxValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Updates valid value range for the given datasource.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsMinValue(java.lang.String,java.lang.String,double,boolean)">setDsMinValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMinValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource min value to a new value</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#split(java.lang.String)">split</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath)</code></th>
+<td class="colLast">
+<div class="block">Splits single RRD file with several datasources into a number of smaller RRD files
+ with a single datasource in it.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDatasource(java.lang.String,java.lang.String,org.rrd4j.core.DsDef)">addDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;newDatasource)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a new RRD file with one more datasource in it. RRD file is created based on the
+ existing one (the original RRD file is not modified at all). All data from
+ the original RRD file is copied to the new one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to import data from (will not be modified)</dd>
+<dd><code>destPath</code> - path to a new RRD file (will be created)</dd>
+<dd><code>newDatasource</code> - Datasource definition to be added to the new RRD file</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDatasources(java.lang.String,java.lang.String,java.lang.Iterable)">addDatasources</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addDatasources</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Iterable</a>&lt;<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&gt;&nbsp;newDatasources)</span>
+                           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a new RRD file with one more datasource in it. RRD file is created based on the
+ existing one (the original RRD file is not modified at all). All data from
+ the original RRD file is copied to the new one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to import data from (will not be modified)</dd>
+<dd><code>destPath</code> - path to a new RRD file (will be created)</dd>
+<dd><code>newDatasources</code> - Datasource definitions to be added to the new RRD file</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDatasource(java.lang.String,org.rrd4j.core.DsDef,boolean)">addDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;newDatasource,
+boolean&nbsp;saveBackup)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Adds one more datasource to a RRD file.</p>
+ <p>WARNING: This method is potentially dangerous! It will modify your RRD file.
+ It is highly recommended to preserve the original RRD file (<i>saveBackup</i>
+ should be set to <code>true</code>). The backup file will be created in the same
+ directory as the original one with <code>.bak</code> extension added to the
+ original name.</p>
+ <p>Before applying this method, be sure that the specified RRD file is not in use
+ (not open)</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to add datasource to.</dd>
+<dd><code>newDatasource</code> - Datasource definition to be added to the RRD file</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                      false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDatasources(java.lang.String,java.lang.Iterable,boolean)">addDatasources</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addDatasources</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Iterable</a>&lt;<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&gt;&nbsp;newDatasources,
+boolean&nbsp;saveBackup)</span>
+                           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Adds datasources to a RRD file.</p>
+ <p>WARNING: This method is potentially dangerous! It will modify your RRD file.
+ It is highly recommended to preserve the original RRD file (<i>saveBackup</i>
+ should be set to <code>true</code>). The backup file will be created in the same
+ directory as the original one with <code>.bak</code> extension added to the
+ original name.</p>
+ <p>Before applying this method, be sure that the specified RRD file is not in use
+ (not open)</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to add datasource to.</dd>
+<dd><code>newDatasources</code> - Datasource definitions to be added to the RRD file</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                      false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeDatasource(java.lang.String,java.lang.String,java.lang.String)">removeDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+                             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a new RRD file with one datasource removed. RRD file is created based on the
+ existing one (the original RRD file is not modified at all). All remaining data from
+ the original RRD file is copied to the new one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to import data from (will not be modified)</dd>
+<dd><code>destPath</code> - path to a new RRD file (will be created)</dd>
+<dd><code>dsName</code> - Name of the Datasource to be removed from the new RRD file</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeDatasource(java.lang.String,java.lang.String,boolean)">removeDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName,
+boolean&nbsp;saveBackup)</span>
+                             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Removes single datasource from a RRD file.</p>
+ <p>WARNING: This method is potentially dangerous! It will modify your RRD file.
+ It is highly recommended to preserve the original RRD file (<i>saveBackup</i>
+ should be set to <code>true</code>). The backup file will be created in the same
+ directory as the original one with <code>.bak</code> extension added to the
+ original name.</p>
+ <p>Before applying this method, be sure that the specified RRD file is not in use
+ (not open)</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to remove datasource from.</dd>
+<dd><code>dsName</code> - Name of the Datasource to be removed from the RRD file</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                   false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="renameDatasource(java.lang.String,java.lang.String,java.lang.String)">renameDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">renameDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;oldDsName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newDsName)</span>
+                             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Renames single datasource in the given RRD file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to a RRD file</dd>
+<dd><code>oldDsName</code> - Old datasource name</dd>
+<dd><code>newDsName</code> - New datasource name</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="forceZerosForNans(java.lang.String,java.lang.String)">forceZerosForNans</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">forceZerosForNans</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+                             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Updates single or all datasource names in the specified RRD file
+ by appending '!' (if not already present). Datasources with names ending with '!'
+ will never store NaNs in RRA archives (zero value will be used instead). Might be useful
+ from time to time</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to a RRD file</dd>
+<dd><code>dsName</code> - Datasource name or null if you want to rename all datasources</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Number of datasources successfully renamed</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addArchive(java.lang.String,java.lang.String,org.rrd4j.core.ArcDef)">addArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="ArcDef.html" title="class in org.rrd4j.core">ArcDef</a>&nbsp;newArchive)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a new RRD file with one more archive in it. RRD file is created based on the
+ existing one (the original RRD file is not modified at all). All data from
+ the original RRD file is copied to the new one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to import data from (will not be modified)</dd>
+<dd><code>destPath</code> - path to a new RRD file (will be created)</dd>
+<dd><code>newArchive</code> - Archive definition to be added to the new RRD file</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addArchive(java.lang.String,org.rrd4j.core.ArcDef,boolean)">addArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="ArcDef.html" title="class in org.rrd4j.core">ArcDef</a>&nbsp;newArchive,
+boolean&nbsp;saveBackup)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Adds one more archive to a RRD file.</p>
+ <p>WARNING: This method is potentially dangerous! It will modify your RRD file.
+ It is highly recommended to preserve the original RRD file (<i>saveBackup</i>
+ should be set to <code>true</code>). The backup file will be created in the same
+ directory as the original one with <code>.bak</code> extension added to the
+ original name.</p>
+ <p>Before applying this method, be sure that the specified RRD file is not in use
+ (not open)</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to add datasource to.</dd>
+<dd><code>newArchive</code> - Archive definition to be added to the RRD file</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                   false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeArchive(java.lang.String,java.lang.String,org.rrd4j.ConsolFun,int)">removeArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a new RRD file with one archive removed. RRD file is created based on the
+ existing one (the original RRD file is not modified at all). All relevant data from
+ the original RRD file is copied to the new one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to import data from (will not be modified)</dd>
+<dd><code>destPath</code> - path to a new RRD file (will be created)</dd>
+<dd><code>consolFun</code> - Consolidation function of Archive which should be removed</dd>
+<dd><code>steps</code> - Number of steps for Archive which should be removed</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeArchive(java.lang.String,org.rrd4j.ConsolFun,int,boolean)">removeArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps,
+boolean&nbsp;saveBackup)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Removes one archive from a RRD file.</p>
+ <p>WARNING: This method is potentially dangerous! It will modify your RRD file.
+ It is highly recommended to preserve the original RRD file (<i>saveBackup</i>
+ should be set to <code>true</code>). The backup file will be created in the same
+ directory as the original one with <code>.bak</code> extension added to the
+ original name.</p>
+ <p>Before applying this method, be sure that the specified RRD file is not in use
+ (not open)</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - path to a RRD file to add datasource to.</dd>
+<dd><code>consolFun</code> - Consolidation function of Archive which should be removed</dd>
+<dd><code>steps</code> - Number of steps for Archive which should be removed</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                   false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsHeartbeat(java.lang.String,java.lang.String,long)">setDsHeartbeat</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsHeartbeat</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+long&nbsp;newHeartbeat)</span>
+                           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource heartbeat to a new value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>datasourceName</code> - Name of the datasource in the specified RRD file</dd>
+<dd><code>newHeartbeat</code> - New datasource heartbeat</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsHeartbeat(java.lang.String,int,long)">setDsHeartbeat</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsHeartbeat</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+int&nbsp;dsIndex,
+long&nbsp;newHeartbeat)</span>
+                           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource heartbeat to a new value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>dsIndex</code> - Index of the datasource in the specified RRD file</dd>
+<dd><code>newHeartbeat</code> - New datasource heartbeat</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsMinValue(java.lang.String,java.lang.String,double,boolean)">setDsMinValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsMinValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMinValue,
+boolean&nbsp;filterArchivedValues)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource min value to a new value</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>datasourceName</code> - Name of the datasource in the specified RRD file</dd>
+<dd><code>newMinValue</code> - New min value for the datasource</dd>
+<dd><code>filterArchivedValues</code> - set to <code>true</code> if archived values less than
+                             <code>newMinValue</code> should be set to NaN; set to false, otherwise.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsMaxValue(java.lang.String,java.lang.String,double,boolean)">setDsMaxValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsMaxValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMaxValue,
+boolean&nbsp;filterArchivedValues)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource max value to a new value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>datasourceName</code> - Name of the datasource in the specified RRD file</dd>
+<dd><code>newMaxValue</code> - New max value for the datasource</dd>
+<dd><code>filterArchivedValues</code> - set to <code>true</code> if archived values greater than
+                             <code>newMaxValue</code> should be set to NaN; set to false, otherwise.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsMinMaxValue(java.lang.String,java.lang.String,double,double,boolean)">setDsMinMaxValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsMinMaxValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;datasourceName,
+double&nbsp;newMinValue,
+double&nbsp;newMaxValue,
+boolean&nbsp;filterArchivedValues)</span>
+                             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Updates valid value range for the given datasource.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>datasourceName</code> - Name of the datasource in the specified RRD file</dd>
+<dd><code>newMinValue</code> - New min value for the datasource</dd>
+<dd><code>newMaxValue</code> - New max value for the datasource</dd>
+<dd><code>filterArchivedValues</code> - set to <code>true</code> if archived values outside
+                             of the specified min/max range should be replaced with NaNs.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setArcXff(java.lang.String,org.rrd4j.ConsolFun,int,double)">setArcXff</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setArcXff</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps,
+double&nbsp;newXff)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets single archive's X-files factor to a new value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to existing RRD file (will be updated)</dd>
+<dd><code>consolFun</code> - Consolidation function of the target archive</dd>
+<dd><code>steps</code> - Number of steps of the target archive</dd>
+<dd><code>newXff</code> - New X-files factor for the target archive</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="resizeArchive(java.lang.String,java.lang.String,org.rrd4j.ConsolFun,int,int)">resizeArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">resizeArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destPath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;numSteps,
+int&nbsp;newRows)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates new RRD file based on the existing one, but with a different
+ size (number of rows) for a single archive. The archive to be resized
+ is identified by its consolidation function and the number of steps.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to the source RRD file (will not be modified)</dd>
+<dd><code>destPath</code> - Path to the new RRD file (will be created)</dd>
+<dd><code>consolFun</code> - Consolidation function of the archive to be resized</dd>
+<dd><code>numSteps</code> - Number of steps of the archive to be resized</dd>
+<dd><code>newRows</code> - New archive size (number of archive rows)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="resizeArchive(java.lang.String,org.rrd4j.ConsolFun,int,int,boolean)">resizeArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">resizeArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath,
+<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;numSteps,
+int&nbsp;newRows,
+boolean&nbsp;saveBackup)</span>
+                          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Modifies existing RRD file, by resizing its chosen archive. The archive to be resized
+ is identified by its consolidation function and the number of steps.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to the RRD file (will be modified)</dd>
+<dd><code>consolFun</code> - Consolidation function of the archive to be resized</dd>
+<dd><code>numSteps</code> - Number of steps of the archive to be resized</dd>
+<dd><code>newRows</code> - New archive size (number of archive rows)</dd>
+<dd><code>saveBackup</code> - true, if backup of the original file should be created;
+                   false, otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="split(java.lang.String)">split</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">split</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourcePath)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Splits single RRD file with several datasources into a number of smaller RRD files
+ with a single datasource in it. All archived values are preserved. If
+ you have a RRD file named 'traffic.rrd' with two datasources, 'in' and 'out', this
+ method will create two files (with a single datasource, in the same directory)
+ named 'in-traffic.rrd' and 'out-traffic.rrd'.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourcePath</code> - Path to a RRD file with multiple datasources defined</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCanonicalPaths(java.lang.String,java.lang.String,boolean)">getCanonicalPaths</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getCanonicalPaths</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;directory,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;extension,
+boolean&nbsp;resursive)</span>
+                                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns list of canonical file names with the specified extension in the given directory. This
+ method is not RRD related, but might come handy to create a quick list of all RRD files
+ in the given directory.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>directory</code> - Source directory</dd>
+<dd><code>extension</code> - File extension (like ".rrd", ".jrb", ".rrd.jrb")</dd>
+<dd><code>resursive</code> - true if all subdirectories should be traversed for the same extension, false otherwise</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Array of sorted canonical file names with the given extension</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdToolkit.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

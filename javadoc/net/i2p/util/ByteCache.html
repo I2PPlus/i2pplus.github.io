@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ByteCache - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.util, class: ByteCache">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":10,"i3":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ByteCache.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.util</a></div>
+<h1 title="Class ByteCache" class="title">Class ByteCache</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="TryCache.html" title="class in net.i2p.util">net.i2p.util.TryCache</a>&lt;<a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&gt;
+<div class="inheritance">net.i2p.util.ByteCache</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public final class <span class="typeNameLabel">ByteCache</span>
+extends <a href="TryCache.html" title="class in net.i2p.util">TryCache</a>&lt;<a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&gt;</pre>
+<div class="block">Cache the objects frequently used to reduce memory churn.  The ByteArray
+ should be held onto as long as the  data referenced in it is needed.
+
+ For small arrays where the management of valid bytes in ByteArray
+ and prezeroing isn't required, use SimpleByteArray instead.
+
+ Heap size control - survey of usage:
+
+  <pre>
+        Size    Max     MaxMem  From
+
+        1K      32      32K     tunnel TrivialPreprocessor
+changed to 512 since we disabled resize()
+        1K      512     512K    tunnel FragmentHandler
+        1K      512     512K    I2NP TunnelDataMessage
+        1K      512     512K    tunnel FragmentedMessage
+
+        1572    64      100K    UDP InboundMessageState
+
+        1730    128     216K    streaming MessageOutputStream
+
+        4K      32      128K    I2PTunnelRunner
+
+        8K      8       64K     I2PTunnel HTTPResponseOutputStream
+
+        16K     16      256K    I2PSnark
+
+        32K     4       128K    SAM StreamSession
+        32K     10      320K    SAM v2StreamSession
+        32K     64      2M      UDP OMS
+        32K     128     4M      streaming MessageInputStream
+
+        36K     64      2.25M   streaming PacketQueue
+
+        40K     8       320K    DataHelper decompress
+
+        64K     64      4M      UDP MessageReceiver - disabled in 0.7.14
+  </pre></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="inheritedList">
+<h2>Nested classes/interfaces inherited from class&nbsp;net.i2p.util.<a href="TryCache.html" title="class in net.i2p.util">TryCache</a></h2>
+<a id="nested.classes.inherited.from.class.net.i2p.util.TryCache">
+</a><code><a href="TryCache.ObjectFactory.html" title="interface in net.i2p.util">TryCache.ObjectFactory</a>&lt;<a href="TryCache.ObjectFactory.html" title="type parameter in TryCache.ObjectFactory">T</a>&gt;</code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.util.<a href="TryCache.html" title="class in net.i2p.util">TryCache</a></h3>
+<a id="fields.inherited.from.class.net.i2p.util.TryCache">
+</a><code><a href="TryCache.html#_lastUnderflow">_lastUnderflow</a>, <a href="TryCache.html#capacity">capacity</a>, <a href="TryCache.html#items">items</a>, <a href="TryCache.html#lock">lock</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearAll()">clearAll</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clear everything (memory pressure)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>static <a href="ByteCache.html" title="class in net.i2p.util">ByteCache</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstance(int,int)">getInstance</a></span>&#8203;(int&nbsp;cacheSize,
+int&nbsp;size)</code></th>
+<td class="colLast">
+<div class="block">Get a cache responsible for objects of the given size.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#release(net.i2p.data.ByteArray)">release</a></span>&#8203;(<a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&nbsp;entry)</code></th>
+<td class="colLast">
+<div class="block">Put this structure back onto the available cache for reuse</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#release(net.i2p.data.ByteArray,boolean)">release</a></span>&#8203;(<a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&nbsp;entry,
+boolean&nbsp;shouldZero)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.util.<a href="TryCache.html" title="class in net.i2p.util">TryCache</a></h3>
+<a id="methods.inherited.from.class.net.i2p.util.TryCache">
+</a><code><a href="TryCache.html#acquire()">acquire</a>, <a href="TryCache.html#clear()">clear</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstance(int,int)">getInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="ByteCache.html" title="class in net.i2p.util">ByteCache</a></span>&nbsp;<span class="memberName">getInstance</span>&#8203;(<span class="arguments">int&nbsp;cacheSize,
+int&nbsp;size)</span></div>
+<div class="block">Get a cache responsible for objects of the given size.
+ Warning, if you store the result in a static field, the cleaners will
+ not operate after a restart on Android, as the old context's SimpleTimer2 will have shut down.
+ TODO tie this to the context or clean up all calls.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cacheSize</code> - how large we want the cache to grow
+                  (number of objects, NOT memory size)
+                  before discarding released objects.
+                  Since 0.7.14, a limit of 1MB / size is enforced
+                  for the typical 128MB max memory JVM</dd>
+<dd><code>size</code> - how large should the objects cached be?</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearAll()">clearAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clearAll</span>()</div>
+<div class="block">Clear everything (memory pressure)</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.14</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="release(net.i2p.data.ByteArray)">release</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">release</span>&#8203;(<span class="arguments"><a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&nbsp;entry)</span></div>
+<div class="block">Put this structure back onto the available cache for reuse</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TryCache.html#release(T)">release</a></code>&nbsp;in class&nbsp;<code><a href="TryCache.html" title="class in net.i2p.util">TryCache</a>&lt;<a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="release(net.i2p.data.ByteArray,boolean)">release</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">release</span>&#8203;(<span class="arguments"><a href="../data/ByteArray.html" title="class in net.i2p.data">ByteArray</a>&nbsp;entry,
+boolean&nbsp;shouldZero)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ByteCache.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

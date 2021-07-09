@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>SHA1 - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.crypto, class: SHA1">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SHA1.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.crypto</a></div>
+<h1 title="Class SHA1" class="title">Class SHA1</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">java.security.MessageDigestSpi</a>
+<div class="inheritance"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">java.security.MessageDigest</a>
+<div class="inheritance">net.i2p.crypto.SHA1</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></code></dd>
+</dl>
+<hr>
+<pre>public final class <span class="typeNameLabel">SHA1</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></pre>
+<div class="block">NOTE: As of 0.8.7, use getInstance() instead of new SHA1(), which will
+ return the JVM's MessageDigest if it is faster.
+
+ <p>The FIPS PUB 180-2 standard specifies four secure hash algorithms (SHA-1,
+ SHA-256, SHA-384 and SHA-512) for computing a condensed representation of
+ electronic data (message).  When a message of any length &lt; 2^^64 bits (for
+ SHA-1 and SHA-256) or &lt; 2^^128 bits (for SHA-384 and SHA-512) is input to
+ an algorithm, the result is an output called a message digest.  The message
+ digests range in length from 160 to 512 bits, depending on the algorithm.
+ Secure hash algorithms are typically used with other cryptographic
+ algorithms, such as digital signature algorithms and keyed-hash message
+ authentication codes, or in the generation of random numbers (bits).</p>
+
+ <p>The four hash algorithms specified in this "SHS" standard are called
+ secure because, for a given algorithm, it is computationally infeasible
+ 1) to find a message that corresponds to a given message digest, or 2)
+ to find two different messages that produce the same message digest.  Any
+ change to a message will, with a very high probability, result in a
+ different message digest.  This will result in a verification failure when
+ the secure hash algorithm is used with a digital signature algorithm or a
+ keyed-hash message authentication algorithm.</p>
+
+ <p>A "SHS change notice" adds a SHA-224 algorithm for interoperability,
+ which, like SHA-1 and SHA-256, operates on 512-bit blocks and 32-bit words,
+ but truncates the final digest and uses distinct initialization values.</p>
+
+ <p><b>References:</b></p>
+ <ol>
+   <li> NIST FIPS PUB 180-2, "Secure Hash Signature Standard (SHS) with
+      change notice", National Institute of Standards and Technology (NIST),
+      2002 August 1, and U.S. Department of Commerce, August 26.<br>
+      <a href="http://csrc.ncsl.nist.gov/CryptoToolkit/Hash.html">
+      http://csrc.ncsl.nist.gov/CryptoToolkit/Hash.html</a>
+   <li> NIST FIPS PUB 180-1, "Secure Hash Standard",
+      U.S. Department of Commerce, May 1993.<br>
+      <a href="http://www.itl.nist.gov/div897/pubs/fip180-1.htm">
+      http://www.itl.nist.gov/div897/pubs/fip180-1.htm</a></li>
+   <li> Bruce Schneier, "Section 18.7 Secure Hash Algorithm (SHA)",
+      <cite>Applied Cryptography, 2nd edition</cite>, <br>
+      John Wiley &amp; Sons, 1996</li>
+ </ol></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HASH_LENGTH">HASH_LENGTH</a></span></code></th>
+<td class="colLast">
+<div class="block">This implementation returns a fixed-size digest.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">SHA1</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Creates a SHA1 object with default initial state.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clone()">clone</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clones this object.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineDigest()">engineDigest</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Completes the hash computation by performing final operations
+ such as padding.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineDigest(byte%5B%5D,int,int)">engineDigest</a></span>&#8203;(byte[]&nbsp;hashvalue,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">
+<div class="block">Completes the hash computation by performing final operations
+ such as padding.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineGetDigestLength()">engineGetDigestLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the digest length in bytes.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineReset()">engineReset</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Reset athen initialize the digest context.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineUpdate(byte)">engineUpdate</a></span>&#8203;(byte&nbsp;input)</code></th>
+<td class="colLast">
+<div class="block">Updates the digest using the specified byte.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineUpdate(byte%5B%5D,int,int)">engineUpdate</a></span>&#8203;(byte[]&nbsp;input,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">
+<div class="block">Updates the digest using the specified array of bytes,
+ starting at the specified offset.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstance()">getInstance</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init()">init</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Initialize the digest context.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></h3>
+<a id="methods.inherited.from.class.java.security.MessageDigest">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#digest()" title="class or interface in java.security" class="externalLink">digest</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#digest(byte%5B%5D)" title="class or interface in java.security" class="externalLink">digest</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#digest(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">digest</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getAlgorithm()" title="class or interface in java.security" class="externalLink">getAlgorithm</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getDigestLength()" title="class or interface in java.security" class="externalLink">getDigestLength</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getInstance(java.lang.String)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getInstance(java.lang.String,java.lang.String)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getInstance(java.lang.String,java.security.Provider)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#getProvider()" title="class or interface in java.security" class="externalLink">getProvider</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#isEqual(byte%5B%5D,byte%5B%5D)" title="class or interface in java.security" class="externalLink">isEqual</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#reset()" title="class or interface in java.security" class="externalLink">reset</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#toString()" title="class or interface in java.security" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#update(byte)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#update(byte%5B%5D)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#update(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#update(java.nio.ByteBuffer)" title="class or interface in java.security" class="externalLink">update</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></h3>
+<a id="methods.inherited.from.class.java.security.MessageDigestSpi">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineUpdate(java.nio.ByteBuffer)" title="class or interface in java.security" class="externalLink">engineUpdate</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="HASH_LENGTH">HASH_LENGTH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">HASH_LENGTH</span></div>
+<div class="block">This implementation returns a fixed-size digest.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.crypto.SHA1.HASH_LENGTH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">SHA1</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">SHA1</span>()</div>
+<div class="block">Creates a SHA1 object with default initial state.
+ NOTE: Use getInstance() to get the fastest implementation.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstance()">getInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></span>&nbsp;<span class="memberName">getInstance</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the fastest digest, either new SHA1() or MessageDigest.getInstance("SHA-1")</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.7</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clone()">clone</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">clone</span>()
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></span></div>
+<div class="block">Clones this object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true#clone()" title="class or interface in java.security" class="externalLink">clone</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineGetDigestLength()">engineGetDigestLength</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">engineGetDigestLength</span>()</div>
+<div class="block">Returns the digest length in bytes.
+
+ Can be used to allocate your own output buffer when
+ computing multiple digests.
+
+ Overrides the protected abstract method of
+ <code>java.security.MessageDigestSpi</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineGetDigestLength()" title="class or interface in java.security" class="externalLink">engineGetDigestLength</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the digest length in bytes.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineReset()">engineReset</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineReset</span>()</div>
+<div class="block">Reset athen initialize the digest context.
+
+ Overrides the protected abstract method of
+ <code>java.security.MessageDigestSpi</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineReset()" title="class or interface in java.security" class="externalLink">engineReset</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="init()">init</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">init</span>()</div>
+<div class="block">Initialize the digest context.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineUpdate(byte)">engineUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineUpdate</span>&#8203;(<span class="arguments">byte&nbsp;input)</span></div>
+<div class="block">Updates the digest using the specified byte.
+ Requires internal buffering, and may be slow.
+
+ Overrides the protected abstract method of
+ java.security.MessageDigestSpi.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineUpdate(byte)" title="class or interface in java.security" class="externalLink">engineUpdate</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - the byte to use for the update.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineUpdate(byte[],int,int)">engineUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineUpdate</span>&#8203;(<span class="arguments">byte[]&nbsp;input,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+<div class="block">Updates the digest using the specified array of bytes,
+ starting at the specified offset.
+
+ Input length can be any size. May require internal buffering,
+ if input blocks are not multiple of 64 bytes.
+
+ Overrides the protected abstract method of
+ java.security.MessageDigestSpi.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineUpdate(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">engineUpdate</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>input</code> - the array of bytes to use for the update.</dd>
+<dd><code>offset</code> - the offset to start from in the array of bytes.</dd>
+<dd><code>len</code> - the number of bytes to use, starting at offset.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineDigest()">engineDigest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">engineDigest</span>()</div>
+<div class="block">Completes the hash computation by performing final operations
+ such as padding. Computes the final hash and returns the final
+ value as a byte[20] array. Once engineDigest has been called,
+ the engine will be automatically reset as specified in the
+ JavaSecurity MessageDigest specification.
+
+ For faster operations with multiple digests, allocate your own
+ array and use engineDigest(byte[], int offset, int len).
+
+ Overrides the protected abstract method of
+ java.security.MessageDigestSpi.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineDigest()" title="class or interface in java.security" class="externalLink">engineDigest</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the length of the digest stored in the output buffer.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineDigest(byte[],int,int)">engineDigest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">engineDigest</span>&#8203;(<span class="arguments">byte[]&nbsp;hashvalue,
+int&nbsp;offset,
+int&nbsp;len)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/DigestException.html?is-external=true" title="class or interface in java.security" class="externalLink">DigestException</a></span></div>
+<div class="block">Completes the hash computation by performing final operations
+ such as padding. Once engineDigest has been called, the engine
+ will be automatically reset (see engineReset).
+
+ Overrides the protected abstract method of
+ java.security.MessageDigestSpi.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true#engineDigest(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">engineDigest</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigestSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigestSpi</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hashvalue</code> - the output buffer in which to store the digest.</dd>
+<dd><code>offset</code> - offset to start from in the output buffer</dd>
+<dd><code>len</code> - number of bytes within buf allotted for the digest.
+             Both this default implementation and the SUN provider
+             do not return partial digests.  The presence of this
+             parameter is solely for consistency in our API's.
+             If the value of this parameter is less than the
+             actual digest length, the method will throw a
+             DigestException.  This parameter is ignored if its
+             value is greater than or equal to the actual digest
+             length.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the length of the digest stored in the output buffer.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/DigestException.html?is-external=true" title="class or interface in java.security" class="externalLink">DigestException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SHA1.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>FragmentHandler - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.tunnel, class: FragmentHandler">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/FragmentHandler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.tunnel</a></div>
+<h1 title="Class FragmentHandler" class="title">Class FragmentHandler</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.tunnel.FragmentHandler</div>
+</div>
+<section class="description">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="RouterFragmentHandler.html" title="class in net.i2p.router.tunnel">RouterFragmentHandler</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">FragmentHandler</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Handle fragments at the endpoint of a tunnel, peeling off fully completed
+ I2NPMessages when they arrive, and dropping fragments if they take too long
+ to arrive.
+
+ From tunnel-alt.html:
+
+<p>When the gateway wants to deliver data through the tunnel, it first
+gathers zero or more <a href="i2np.html">I2NP</a> messages, selects how much padding will be used,
+fragments it across the necessary number of 1KB tunnel messages, and decides how
+each I2NP message should be handled by the tunnel endpoint, encoding that
+data into the raw tunnel payload:</p>
+<ul>
+<li>The 4 byte Tunnel ID</li>
+<li>The 16 byte IV</li>
+<li>the first 4 bytes of the SHA256 of (the remaining preprocessed data concatenated
+    with the IV), using the IV as will be seen on the tunnel endpoint (for
+    outbound tunnels), or the IV as was seen on the tunnel gateway (for inbound
+    tunnels) (see below for IV processing).</li>
+<li>0 or more bytes containing random nonzero integers</li>
+<li>1 byte containing 0x00</li>
+<li>a series of zero or more { instructions, message } pairs</li>
+</ul>
+
+<p>Note that the padding, if any, must be before the instruction/message pairs.
+there is no provision for padding at the end.</p>
+
+<p>The instructions are encoded with a single control byte, followed by any
+necessary additional information.  The first bit in that control byte determines
+how the remainder of the header is interpreted - if it is not set, the message
+is either not fragmented or this is the first fragment in the message.  If it is
+set, this is a follow on fragment.</p>
+
+<p>With the first (leftmost or MSB) bit being 0, the instructions are:</p>
+<ul>
+<li>1 byte control byte:<pre>
+      bit 0: is follow on fragment?  (1 = true, 0 = false, must be 0)
+   bits 1-2: delivery type
+             (0x0 = LOCAL, 0x01 = TUNNEL, 0x02 = ROUTER)
+      bit 3: delay included?  (1 = true, 0 = false) (unimplemented)
+      bit 4: fragmented?  (1 = true, 0 = false)
+      bit 5: extended options?  (1 = true, 0 = false) (unimplemented)
+   bits 6-7: reserved</pre></li>
+<li>if the delivery type was TUNNEL, a 4 byte tunnel ID</li>
+<li>if the delivery type was TUNNEL or ROUTER, a 32 byte router hash</li>
+<li>if the delay included flag is true, a 1 byte value (unimplemented):<pre>
+      bit 0: type (0 = strict, 1 = randomized)
+   bits 1-7: delay exponent (2^value minutes)</pre></li>
+<li>if the fragmented flag is true, a 4 byte message ID</li>
+<li>if the extended options flag is true (unimplemented):<pre>
+   = a 1 byte option size (in bytes)
+   = that many bytes</pre></li>
+<li>2 byte size of the I2NP message or this fragment</li>
+</ul>
+
+<p>If the first bit being 1, the instructions are:</p>
+<ul>
+<li>1 byte control byte:<pre>
+      bit 0: is follow on fragment?  (1 = true, 0 = false, must be 1)
+   bits 1-6: fragment number
+      bit 7: is last? (1 = true, 0 = false)</pre></li>
+<li>4 byte message ID (same one defined in the first fragment)</li>
+<li>2 byte size of this fragment</li>
+</ul>
+
+<p>The I2NP message is encoded in its standard form, and the
+preprocessed payload must be padded to a multiple of 16 bytes.
+The total size, including the tunnel ID and IV, is 1028 bytes.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="FragmentHandler.DefragmentedReceiver.html" title="interface in net.i2p.router.tunnel">FragmentHandler.DefragmentedReceiver</a></span></code></th>
+<td class="colLast">
+<div class="block">Receive messages out of the tunnel endpoint.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_context">_context</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../util/Log.html" title="class in net.i2p.util">Log</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_log">_log</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MASK_EXTENDED">MASK_EXTENDED</a></span></code></th>
+<td class="colLast">
+<div class="block">are there follow up headers? UNIMPLEMENTED</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MASK_FRAGMENTED">MASK_FRAGMENTED</a></span></code></th>
+<td class="colLast">
+<div class="block">is this the first of a fragmented message?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MASK_IS_SUBSEQUENT">MASK_IS_SUBSEQUENT</a></span></code></th>
+<td class="colLast">
+<div class="block">is this a follw up byte?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MASK_TYPE">MASK_TYPE</a></span></code></th>
+<td class="colLast">
+<div class="block">how should this be delivered.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_DEFRAGMENT_TIME">MAX_DEFRAGMENT_TIME</a></span></code></th>
+<td class="colLast">
+<div class="block">don't wait more than this long to completely receive a fragmented message</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_LOCAL">TYPE_LOCAL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_ROUTER">TYPE_ROUTER</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_TUNNEL">TYPE_TUNNEL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_UNDEF">TYPE_UNDEF</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.tunnel.FragmentHandler.DefragmentedReceiver)">FragmentHandler</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="FragmentHandler.DefragmentedReceiver.html" title="interface in net.i2p.router.tunnel">FragmentHandler.DefragmentedReceiver</a>&nbsp;receiver)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCompleteCount()">getCompleteCount</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFailedCount()">getFailedCount</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#noteCompletion(long)">noteCompletion</a></span>&#8203;(long&nbsp;messageId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#noteFailure(long,java.lang.String)">noteFailure</a></span>&#8203;(long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#noteReception(long,int,java.lang.Object)">noteReception</a></span>&#8203;(long&nbsp;messageId,
+int&nbsp;fragmentId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveTunnelMessage(byte%5B%5D,int,int)">receiveTunnelMessage</a></span>&#8203;(byte[]&nbsp;preprocessed,
+int&nbsp;offset,
+int&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Receive the raw preprocessed message at the endpoint, parsing out each
+ of the fragments, using those to fill various FragmentedMessages, and
+ sending the resulting I2NPMessages where necessary.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="_context">_context</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></span>&nbsp;<span class="memberName">_context</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_log">_log</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../../util/Log.html" title="class in net.i2p.util">Log</a></span>&nbsp;<span class="memberName">_log</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_DEFRAGMENT_TIME">MAX_DEFRAGMENT_TIME</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">MAX_DEFRAGMENT_TIME</span></div>
+<div class="block">don't wait more than this long to completely receive a fragmented message</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MASK_IS_SUBSEQUENT">MASK_IS_SUBSEQUENT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">MASK_IS_SUBSEQUENT</span></div>
+<div class="block">is this a follw up byte?</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.MASK_IS_SUBSEQUENT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MASK_TYPE">MASK_TYPE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">MASK_TYPE</span></div>
+<div class="block">how should this be delivered.  shift this 5 the right and get TYPE_*</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.MASK_TYPE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MASK_FRAGMENTED">MASK_FRAGMENTED</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">MASK_FRAGMENTED</span></div>
+<div class="block">is this the first of a fragmented message?</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.MASK_FRAGMENTED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MASK_EXTENDED">MASK_EXTENDED</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">MASK_EXTENDED</span></div>
+<div class="block">are there follow up headers? UNIMPLEMENTED</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.MASK_EXTENDED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_LOCAL">TYPE_LOCAL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">short</span>&nbsp;<span class="memberName">TYPE_LOCAL</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.TYPE_LOCAL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_TUNNEL">TYPE_TUNNEL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">short</span>&nbsp;<span class="memberName">TYPE_TUNNEL</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.TYPE_TUNNEL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_ROUTER">TYPE_ROUTER</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">short</span>&nbsp;<span class="memberName">TYPE_ROUTER</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.TYPE_ROUTER">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_UNDEF">TYPE_UNDEF</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">short</span>&nbsp;<span class="memberName">TYPE_UNDEF</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.FragmentHandler.TYPE_UNDEF">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.tunnel.FragmentHandler.DefragmentedReceiver)">FragmentHandler</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">FragmentHandler</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="FragmentHandler.DefragmentedReceiver.html" title="interface in net.i2p.router.tunnel">FragmentHandler.DefragmentedReceiver</a>&nbsp;receiver)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveTunnelMessage(byte[],int,int)">receiveTunnelMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">receiveTunnelMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;preprocessed,
+int&nbsp;offset,
+int&nbsp;length)</span></div>
+<div class="block">Receive the raw preprocessed message at the endpoint, parsing out each
+ of the fragments, using those to fill various FragmentedMessages, and
+ sending the resulting I2NPMessages where necessary.  The received
+ fragments are all verified.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ok (false if corrupt)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCompleteCount()">getCompleteCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getCompleteCount</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFailedCount()">getFailedCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getFailedCount</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="noteReception(long,int,java.lang.Object)">noteReception</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">noteReception</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+int&nbsp;fragmentId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;status)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="noteCompletion(long)">noteCompletion</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">noteCompletion</span>&#8203;(<span class="arguments">long&nbsp;messageId)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="noteFailure(long,java.lang.String)">noteFailure</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">noteFailure</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/FragmentHandler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router.client - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.client">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router.client</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+Implements the router side of the I2CP interface,
+which is the API for applications to send and receive data through the router.
+The client side of the interface is implemented in net.i2p.client.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></th>
+<td class="colLast">
+<div class="block">Bridge the router and the client - managing state for a client.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ClientListenerRunner.html" title="class in net.i2p.router.client">ClientListenerRunner</a></th>
+<td class="colLast">
+<div class="block">Listen for connections on the specified port, and toss them onto the client manager's
+ set of connections once they are established.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientManager.html" title="class in net.i2p.router.client">ClientManager</a></th>
+<td class="colLast">
+<div class="block">Coordinate connections and various tasks</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ClientManagerFacadeImpl.html" title="class in net.i2p.router.client">ClientManagerFacadeImpl</a></th>
+<td class="colLast">
+<div class="block">Base impl of the client facade</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientMessageEventListener.html" title="class in net.i2p.router.client">ClientMessageEventListener</a></th>
+<td class="colLast">
+<div class="block">Receive events from the client and handle them accordingly (updating the runner when
+ necessary)</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ClientWriterRunner.html" title="class in net.i2p.router.client">ClientWriterRunner</a></th>
+<td class="colLast">
+<div class="block">Async writer class so that if a client app hangs, they wont take down the
+ whole router with them (since otherwise the JobQueue would block until
+ the client reads from their i2cp socket, causing all sorts of bad things to
+ happen)
+
+ For external I2CP connections only.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="CreateSessionJob.html" title="class in net.i2p.router.client">CreateSessionJob</a></th>
+<td class="colLast">
+<div class="block">Given an established connection, walk through the process of establishing the
+ lease set.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2CPMessageQueueImpl.html" title="class in net.i2p.router.client">I2CPMessageQueueImpl</a></th>
+<td class="colLast">
+<div class="block">Contains the methods to talk to a router or client via I2CP,
+ when both are in the same JVM.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="LeaseRequestState.html" title="class in net.i2p.router.client">LeaseRequestState</a></th>
+<td class="colLast">
+<div class="block">Bundle up the data points necessary when asynchronously requesting a lease
+ from a client</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="LookupDestJob.html" title="class in net.i2p.router.client">LookupDestJob</a></th>
+<td class="colLast">
+<div class="block">Look up the lease of a hash, to convert it to a Destination for the client.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageReceivedJob.html" title="class in net.i2p.router.client">MessageReceivedJob</a></th>
+<td class="colLast">
+<div class="block">Async job to notify the client that a new message is available for them,
+ or just send it directly if specified.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="QueuedClientConnectionRunner.html" title="class in net.i2p.router.client">QueuedClientConnectionRunner</a></th>
+<td class="colLast">
+<div class="block">Zero-copy in-JVM.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ReportAbuseJob.html" title="class in net.i2p.router.client">ReportAbuseJob</a></th>
+<td class="colLast">
+<div class="block">Async job to send an abuse message to the client</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RequestLeaseSetJob.html" title="class in net.i2p.router.client">RequestLeaseSetJob</a></th>
+<td class="colLast">
+<div class="block">Async job to walk the client through generating a lease set.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SSLClientListenerRunner.html" title="class in net.i2p.router.client">SSLClientListenerRunner</a></th>
+<td class="colLast">
+<div class="block">SSL version of ClientListenerRunner</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>I2PTunnelUDPClientBase - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.i2ptunnel.udpTunnel, class: I2PTunnelUDPClientBase">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PTunnelUDPClientBase.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.i2ptunnel.udpTunnel</a></div>
+<h1 title="Class I2PTunnelUDPClientBase" class="title">Class I2PTunnelUDPClientBase</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../../util/EventDispatcherImpl.html" title="class in net.i2p.util">net.i2p.util.EventDispatcherImpl</a>
+<div class="inheritance"><a href="../I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelTask</a>
+<div class="inheritance">net.i2p.i2ptunnel.udpTunnel.I2PTunnelUDPClientBase</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../udp/Sink.html" title="interface in net.i2p.i2ptunnel.udp">Sink</a></code>, <code><a href="../udp/Source.html" title="interface in net.i2p.i2ptunnel.udp">Source</a></code>, <code><a href="../../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a></code></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="../socks/SOCKSUDPTunnel.html" title="class in net.i2p.i2ptunnel.socks">SOCKSUDPTunnel</a></code>, <code><a href="../streamr/StreamrConsumer.html" title="class in net.i2p.i2ptunnel.streamr">StreamrConsumer</a></code></dd>
+</dl>
+<hr>
+<pre>public abstract class <span class="typeNameLabel">I2PTunnelUDPClientBase</span>
+extends <a href="../I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a>
+implements <a href="../udp/Source.html" title="interface in net.i2p.i2ptunnel.udp">Source</a>, <a href="../udp/Sink.html" title="interface in net.i2p.i2ptunnel.udp">Sink</a></pre>
+<div class="block">Base client class that sets up an I2P Datagram client destination.
+ The UDP side is not implemented here, as there are at least
+ two possibilities:
+
+ 1) UDP side is a "server"
+    Example: Streamr Consumer
+    - Configure a destination host and port
+    - External application sends no data
+    - Extending class must have a constructor with host and port arguments
+
+ 2) UDP side is a client/server
+    Example: SOCKS UDP (DNS requests?)
+    - configure an inbound port and a destination host and port
+    - External application sends and receives data
+    - Extending class must have a constructor with host and 2 port arguments
+
+ So the implementing class must create a UDPSource and/or UDPSink,
+ and must call setSink().</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>zzz with portions from welterde's streamr</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_clientId">_clientId</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_context">_context</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#l">l</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href="../I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
+<a id="fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
+</a><code><a href="../I2PTunnelTask.html#open">open</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelUDPClientBase</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destination,
+<a href="../Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href="../../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href="../I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close(boolean)">close</a></span>&#8203;(boolean&nbsp;forced)</code></th>
+<td class="colLast">
+<div class="block">I2PTunnelTask Methods
+
+ Classes should override to close UDP side as well</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(net.i2p.data.Destination,byte%5B%5D)">send</a></span>&#8203;(<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+byte[]&nbsp;data)</code></th>
+<td class="colLast">
+<div class="block">Sink Methods</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSink(net.i2p.i2ptunnel.udp.Sink)">setSink</a></span>&#8203;(<a href="../udp/Sink.html" title="interface in net.i2p.i2ptunnel.udp">Sink</a>&nbsp;s)</code></th>
+<td class="colLast">
+<div class="block">Source Methods
+
+  Sets the receiver of the UDP datagrams from I2P
+  Subclass must call this after constructor
+  and before start()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
+<td class="colLast">
+<div class="block">start the source</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startRunning()">startRunning</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Actually start working on outgoing connections.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href="../I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
+<a id="methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
+</a><code><a href="../I2PTunnelTask.html#connected(net.i2p.client.I2PSession)">connected</a>, <a href="../I2PTunnelTask.html#destroy()">destroy</a>, <a href="../I2PTunnelTask.html#disconnected(net.i2p.client.I2PSession)">disconnected</a>, <a href="../I2PTunnelTask.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a>, <a href="../I2PTunnelTask.html#getId()">getId</a>, <a href="../I2PTunnelTask.html#getTunnel()">getTunnel</a>, <a href="../I2PTunnelTask.html#isOpen()">isOpen</a>, <a href="../I2PTunnelTask.html#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a>, <a href="../I2PTunnelTask.html#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a>, <a href="../I2PTunnelTask.html#routerDisconnected()">routerDisconnected</a>, <a href="../I2PTunnelTask.html#setId(int)">setId</a>, <a href="../I2PTunnelTask.html#setName(java.lang.String)">setName</a>, <a href="../I2PTunnelTask.html#setTunnel(net.i2p.i2ptunnel.I2PTunnel)">setTunnel</a>, <a href="../I2PTunnelTask.html#toString()">toString</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.util.<a href="../../util/EventDispatcherImpl.html" title="class in net.i2p.util">EventDispatcherImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.util.EventDispatcherImpl">
+</a><code><a href="../../util/EventDispatcherImpl.html#attachEventDispatcher(net.i2p.util.EventDispatcher)">attachEventDispatcher</a>, <a href="../../util/EventDispatcherImpl.html#detachEventDispatcher(net.i2p.util.EventDispatcher)">detachEventDispatcher</a>, <a href="../../util/EventDispatcherImpl.html#getEventDispatcher()">getEventDispatcher</a>, <a href="../../util/EventDispatcherImpl.html#getEvents()">getEvents</a>, <a href="../../util/EventDispatcherImpl.html#getEventValue(java.lang.String)">getEventValue</a>, <a href="../../util/EventDispatcherImpl.html#ignoreEvents()">ignoreEvents</a>, <a href="../../util/EventDispatcherImpl.html#notifyEvent(java.lang.String,java.lang.Object)">notifyEvent</a>, <a href="../../util/EventDispatcherImpl.html#unIgnoreEvents()">unIgnoreEvents</a>, <a href="../../util/EventDispatcherImpl.html#waitEventValue(java.lang.String)">waitEventValue</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="_context">_context</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">_context</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="l">l</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a></span>&nbsp;<span class="memberName">l</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_CONNECT_TIMEOUT">DEFAULT_CONNECT_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">DEFAULT_CONNECT_TIMEOUT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.i2ptunnel.udpTunnel.I2PTunnelUDPClientBase.DEFAULT_CONNECT_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_clientId">_clientId</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">_clientId</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelUDPClientBase</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelUDPClientBase</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;destination,
+<a href="../Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href="../../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href="../I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
+                                  badly that we cant create a socketManager</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="startRunning()">startRunning</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startRunning</span>()</div>
+<div class="block">Actually start working on outgoing connections.
+ Classes should override to start UDP side as well.
+
+ Not specified in I2PTunnelTask but used in both
+ I2PTunnelClientBase and I2PTunnelServer so let's
+ implement it here too.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close(boolean)">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">close</span>&#8203;(<span class="arguments">boolean&nbsp;forced)</span></div>
+<div class="block">I2PTunnelTask Methods
+
+ Classes should override to close UDP side as well</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PTunnelTask.html#close(boolean)">close</a></code>&nbsp;in class&nbsp;<code><a href="../I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSink(net.i2p.i2ptunnel.udp.Sink)">setSink</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSink</span>&#8203;(<span class="arguments"><a href="../udp/Sink.html" title="interface in net.i2p.i2ptunnel.udp">Sink</a>&nbsp;s)</span></div>
+<div class="block">Source Methods
+
+  Sets the receiver of the UDP datagrams from I2P
+  Subclass must call this after constructor
+  and before start()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../udp/Source.html#setSink(net.i2p.i2ptunnel.udp.Sink)">setSink</a></code>&nbsp;in interface&nbsp;<code><a href="../udp/Source.html" title="interface in net.i2p.i2ptunnel.udp">Source</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="start()">start</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
+<div class="block">start the source</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../udp/Source.html#start()">start</a></code>&nbsp;in interface&nbsp;<code><a href="../udp/Source.html" title="interface in net.i2p.i2ptunnel.udp">Source</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="send(net.i2p.data.Destination,byte[])">send</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">send</span>&#8203;(<span class="arguments"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+byte[]&nbsp;data)</span></div>
+<div class="block">Sink Methods</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../udp/Sink.html#send(net.i2p.data.Destination,byte%5B%5D)">send</a></code>&nbsp;in interface&nbsp;<code><a href="../udp/Sink.html" title="interface in net.i2p.i2ptunnel.udp">Sink</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>to</code> - - ignored if configured for a single destination
+ (we use the dest specified in the constructor)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang" class="externalLink">RuntimeException</a></code> - if session is closed</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PTunnelUDPClientBase.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

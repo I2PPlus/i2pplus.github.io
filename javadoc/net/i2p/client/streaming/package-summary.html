@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.client.streaming - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.streaming">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.client.streaming</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>API, interfaces, and factory for a TCP-like (reliable, authenticated, in order) set of sockets for 
+communicating over the IP-like (unreliable, unauthenticated, unordered) I2P
+messages.
+Note that this class is split across two jars, streaming.jar and ministreaming.jar.
+The interfaces are in ministreaming.jar, but the
+real work gets done in streaming.jar. Clients must have both jars
+in their classpath.
+Most clients will require (only) streaming.jar, ministreaming.jar, and i2p.jar
+in their classpath to communicate with the router.
+</p>
+
+<p>When an application wants to use streams, it must fetch an <a href="I2PSocketManager.html" title="interface in net.i2p.client.streaming"><code>I2PSocketManager</code></a> from the <a href="I2PSocketManagerFactory.html" title="class in net.i2p.client.streaming"><code>I2PSocketManagerFactory</code></a>, which in turn builds its own
+<a href="../I2PSession.html" title="interface in net.i2p.client"><code>I2PSession</code></a> internally.  All communication over that 
+<a href="../I2PSession.html" title="interface in net.i2p.client"><code>I2PSession</code></a> is handled by the <a href="I2PSocketManager.html" title="interface in net.i2p.client.streaming"><code>I2PSocketManager</code></a>, as it imposes its own formatting on
+the raw messages sent and received.  If an application wants to receive streams
+from other clients on the network, it should access the blocking <a href="I2PServerSocket.html#accept()"><code>I2PServerSocket.accept()</code></a> method, which will provide an
+<a href="I2PSocket.html" title="interface in net.i2p.client.streaming"><code>I2PSocket</code></a> when a new one is available.  If an
+application wants to create a new stream to a peer, it should do so with the
+appropriate <a href="I2PSocketManager.html#connect(net.i2p.data.Destination,net.i2p.client.streaming.I2PSocketOptions)"><code>I2PSocketManager.connect(net.i2p.data.Destination, net.i2p.client.streaming.I2PSocketOptions)</code></a> call.</p>
+
+<p>This package also contains the I2PSocketEepGet utility, which is an HTTP client
+that uses an existing I2PSocketManager.</p>
+
+<p>There is a simple pair of demo applications available in the test directory -
+net.i2p.client.streaming.StreamSinkServer listens to a destination and dumps 
+the data from all sockets it accepts to individual files, while
+net.i2p.client.streaming.StreamSinkClient connects to a particular destination
+and sends a specific amount of random data then disconnects.</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PServerSocket.html" title="interface in net.i2p.client.streaming">I2PServerSocket</a></th>
+<td class="colLast">
+<div class="block">Streaming server socket returned by <a href="I2PSocketManager.html#getServerSocket()"><code>I2PSocketManager.getServerSocket()</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></th>
+<td class="colLast">
+<div class="block">Streaming socket returned by <a href="I2PSocketManager.html#connect(net.i2p.data.Destination)"><code>I2PSocketManager.connect(Destination)</code></a>.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocket.SocketErrorListener.html" title="interface in net.i2p.client.streaming">I2PSocket.SocketErrorListener</a></th>
+<td class="colLast">
+<div class="block">Deprecated, unimplemented, does nothing.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></th>
+<td class="colLast">
+<div class="block">Centralize the coordination and multiplexing of the local client's streaming.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></th>
+<td class="colLast">
+<div class="block">Define the configuration for streaming and verifying data on the socket.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="IncomingConnectionFilter.html" title="interface in net.i2p.client.streaming">IncomingConnectionFilter</a></th>
+<td class="colLast">
+<div class="block">Something that filters incoming streaming connections.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StatefulConnectionFilter.html" title="interface in net.i2p.client.streaming">StatefulConnectionFilter</a></th>
+<td class="colLast">
+<div class="block">A ConnectionFilter that may hold state, can be started and stopped</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="AcceptingChannel.html" title="class in net.i2p.client.streaming">AcceptingChannel</a></th>
+<td class="colLast">
+<div class="block">As this does not (yet) extend ServerSocketChannel it cannot be returned by StandardServerSocket.getChannel(),
+  until we implement an I2P SocketAddress class.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocketAddress.html" title="class in net.i2p.client.streaming">I2PSocketAddress</a></th>
+<td class="colLast">
+<div class="block">A SocketAddress (Destination + port) so we can have SocketChannels.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketEepGet.html" title="class in net.i2p.client.streaming">I2PSocketEepGet</a></th>
+<td class="colLast">
+<div class="block">Fetch a URL using a socket from the supplied I2PSocketManager.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocketManagerFactory.html" title="class in net.i2p.client.streaming">I2PSocketManagerFactory</a></th>
+<td class="colLast">
+<div class="block">Simplify the creation of I2PSession and transient I2P Destination objects if
+ necessary to create a socket manager.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketManagerFull.html" title="class in net.i2p.client.streaming">I2PSocketManagerFull</a></th>
+<td class="colLast">Deprecated.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Exception Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Exception</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketException.html" title="class in net.i2p.client.streaming">I2PSocketException</a></th>
+<td class="colLast">
+<div class="block">An I2P-specific IOException thrown from input and output streams,
+  with a stored status code to be used for programmatic responses.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterRestartException.html" title="class in net.i2p.client.streaming">RouterRestartException</a></th>
+<td class="colLast">
+<div class="block">An I2PException thrown from I2PServerSocket.accept()
+  when the router is restarting.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

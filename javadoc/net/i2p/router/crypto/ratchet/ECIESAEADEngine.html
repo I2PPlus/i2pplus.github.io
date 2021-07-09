@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ECIESAEADEngine - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.crypto.ratchet, class: ECIESAEADEngine">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ECIESAEADEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.crypto.ratchet</a></div>
+<h1 title="Class ECIESAEADEngine" class="title">Class ECIESAEADEngine</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.crypto.ratchet.ECIESAEADEngine</div>
+</div>
+<section class="description">
+<hr>
+<pre>public final class <span class="typeNameLabel">ECIESAEADEngine</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Handles the actual ECIES+AEAD encryption and decryption scenarios using the
+ supplied keys and data.
+
+ No, this does not extend ElGamalAESEngine or AEADEngine or CryptixAEADEngine.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_NS_AGE">MAX_NS_AGE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">ECIESAEADEngine</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">Caller MUST call startup() to get threaded generation.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decrypt(byte%5B%5D,net.i2p.data.PrivateKey,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.MuxedSKM)">decrypt</a></span>&#8203;(byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;elgKey,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;ecKey,
+<a href="MuxedSKM.html" title="class in net.i2p.router.crypto.ratchet">MuxedSKM</a>&nbsp;keyManager)</code></th>
+<td class="colLast">
+<div class="block">Try to decrypt the message with one or both of the given private keys</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decrypt(byte%5B%5D,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decrypt</a></span>&#8203;(byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</code></th>
+<td class="colLast">
+<div class="block">Decrypt the message using the given private key
+ and using tags from the specified key manager.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) <a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decryptFast(byte%5B%5D,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decryptFast</a></span>&#8203;(byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</code></th>
+<td class="colLast">
+<div class="block">NSR/ES only.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) <a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decryptSlow(byte%5B%5D,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decryptSlow</a></span>&#8203;(byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</code></th>
+<td class="colLast">
+<div class="block">NS only.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>(package private) static <a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#doDH(net.i2p.data.PrivateKey,net.i2p.data.PublicKey)">doDH</a></span>&#8203;(<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;privkey,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encrypt(net.i2p.router.message.CloveSet,net.i2p.data.PublicKey)">encrypt</a></span>&#8203;(<a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;target)</code></th>
+<td class="colLast">
+<div class="block">Encrypt the data to the target using the given key from an anonymous source,
+ for netdb lookups.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encrypt(net.i2p.router.message.CloveSet,net.i2p.data.PublicKey,net.i2p.data.Destination,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM,net.i2p.router.crypto.ratchet.ReplyCallback)">encrypt</a></span>&#8203;(<a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;target,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;priv,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager,
+<a href="ReplyCallback.html" title="interface in net.i2p.router.crypto.ratchet">ReplyCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Encrypt the data to the target using the given key and deliver the specified tags
+ No new session key
+ This is the one called from GarlicMessageBuilder and is the primary entry point.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encrypt(net.i2p.router.message.CloveSet,net.i2p.data.SessionKey,net.i2p.router.crypto.ratchet.RatchetSessionTag)">encrypt</a></span>&#8203;(<a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;key,
+<a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</code></th>
+<td class="colLast">
+<div class="block">Create an Existing Session Message to an anonymous target
+ using the given session key and tag, for netdb DSM/DSRM replies.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Cannot be restarted</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startup()">startup</a></span>()</code></th>
+<td class="colLast">
+<div class="block">May be called multiple times</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_NS_AGE">MAX_NS_AGE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">MAX_NS_AGE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.crypto.ratchet.ECIESAEADEngine.MAX_NS_AGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">ECIESAEADEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">ECIESAEADEngine</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</span></div>
+<div class="block">Caller MUST call startup() to get threaded generation.
+  Will still work without, will just generate inline.
+
+  startup() is called from RatchetSKM constructor so it's deferred until we need it.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="startup()">startup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startup</span>()</div>
+<div class="block">May be called multiple times</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+<div class="block">Cannot be restarted</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="decrypt(byte[],net.i2p.data.PrivateKey,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.MuxedSKM)">decrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></span>&nbsp;<span class="memberName">decrypt</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;elgKey,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;ecKey,
+<a href="MuxedSKM.html" title="class in net.i2p.router.crypto.ratchet">MuxedSKM</a>&nbsp;keyManager)</span>
+                 throws <span class="exceptions"><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Try to decrypt the message with one or both of the given private keys</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>elgKey</code> - must be ElG, non-null</dd>
+<dd><code>ecKey</code> - must be EC, non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>decrypted data or null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="decrypt(byte[],net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></span>&nbsp;<span class="memberName">decrypt</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</span>
+                 throws <span class="exceptions"><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Decrypt the message using the given private key
+ and using tags from the specified key manager.
+ This works according to the
+ ECIES+AEAD algorithm in the data structure spec.
+
+ Warning - use the correct SessionKeyManager. Clients should instantiate their own.
+ Clients using I2PAppContext.sessionKeyManager() may be correlated with the router,
+ unless you are careful to use different keys.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>decrypted data or null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="decryptFast(byte[],net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decryptFast</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></span>&nbsp;<span class="memberName">decryptFast</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</span>
+              throws <span class="exceptions"><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">NSR/ES only. For MuxedEngine use only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>decrypted data or null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="decryptSlow(byte[],net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM)">decryptSlow</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a></span>&nbsp;<span class="memberName">decryptSlow</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;targetPrivateKey,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager)</span>
+              throws <span class="exceptions"><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">NS only. For MuxedEngine use only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>decrypted data or null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encrypt(net.i2p.router.message.CloveSet,net.i2p.data.PublicKey,net.i2p.data.Destination,net.i2p.data.PrivateKey,net.i2p.router.crypto.ratchet.RatchetSKM,net.i2p.router.crypto.ratchet.ReplyCallback)">encrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">encrypt</span>&#8203;(<span class="arguments"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;target,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;priv,
+<a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a>&nbsp;keyManager,
+<a href="ReplyCallback.html" title="interface in net.i2p.router.crypto.ratchet">ReplyCallback</a>&nbsp;callback)</span></div>
+<div class="block">Encrypt the data to the target using the given key and deliver the specified tags
+ No new session key
+ This is the one called from GarlicMessageBuilder and is the primary entry point.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>target</code> - public key to which the data should be encrypted.</dd>
+<dd><code>to</code> - ignored if priv is null</dd>
+<dd><code>priv</code> - local private key to encrypt with, from the leaseset
+             may be null for anonymous (N-in-IK)</dd>
+<dd><code>keyManager</code> - ignored if priv is null</dd>
+<dd><code>callback</code> - may be null, if non-null an ack will be requested (except NS/NSR),
+                 ignored if priv is null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>encrypted data or null on failure</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encrypt(net.i2p.router.message.CloveSet,net.i2p.data.SessionKey,net.i2p.router.crypto.ratchet.RatchetSessionTag)">encrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">encrypt</span>&#8203;(<span class="arguments"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;key,
+<a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</span></div>
+<div class="block">Create an Existing Session Message to an anonymous target
+ using the given session key and tag, for netdb DSM/DSRM replies.
+ Called from MessageWrapper.
+
+ No datetime, no next key, no acks, no ack requests.
+ n=0, ad=null.
+
+ <pre>
+  - 8 byte SessionTag
+  - payload
+  - 16 byte MAC
+ </pre></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>encrypted data or null on failure</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encrypt(net.i2p.router.message.CloveSet,net.i2p.data.PublicKey)">encrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">encrypt</span>&#8203;(<span class="arguments"><a href="../../message/CloveSet.html" title="class in net.i2p.router.message">CloveSet</a>&nbsp;cloves,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;target)</span></div>
+<div class="block">Encrypt the data to the target using the given key from an anonymous source,
+ for netdb lookups.
+ Called from MessageWrapper.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>target</code> - public key to which the data should be encrypted.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>encrypted data or null on failure</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="doDH(net.i2p.data.PrivateKey,net.i2p.data.PublicKey)">doDH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></span>&nbsp;<span class="memberName">doDH</span>&#8203;(<span class="arguments"><a href="../../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;privkey,
+<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pubkey)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ECIESAEADEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

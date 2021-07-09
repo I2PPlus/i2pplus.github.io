@@ -1,0 +1,615 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>KeyCertificate - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data, class: KeyCertificate">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KeyCertificate.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data</a></div>
+<h1 title="Class KeyCertificate" class="title">Class KeyCertificate</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="DataStructureImpl.html" title="class in net.i2p.data">net.i2p.data.DataStructureImpl</a>
+<div class="inheritance"><a href="Certificate.html" title="class in net.i2p.data">net.i2p.data.Certificate</a>
+<div class="inheritance">net.i2p.data.KeyCertificate</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a></code>, <code><a href="DataStructure.html" title="interface in net.i2p.data">DataStructure</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">KeyCertificate</span>
+extends <a href="Certificate.html" title="class in net.i2p.data">Certificate</a></pre>
+<div class="block">This certificate type gets its own class because it's going to be used a lot.
+
+ Format is: 2 byte sig type, 2 byte crypto type, excess sig data, excess crypto data.
+
+ The crypto type is assumed to be always 0x0000 (ElG) for now.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../serialized-form.html#net.i2p.data.KeyCertificate">Serialized Form</a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ECDSA256_PAYLOAD">ECDSA256_PAYLOAD</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#Ed25519_PAYLOAD">Ed25519_PAYLOAD</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ELG_ECDSA256_CERT">ELG_ECDSA256_CERT</a></span></code></th>
+<td class="colLast">
+<div class="block">An immutable ElG/ECDSA-P256 certificate.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ELG_Ed25519_CERT">ELG_Ed25519_CERT</a></span></code></th>
+<td class="colLast">
+<div class="block">An immutable ElG/Ed25519 certificate.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HEADER_LENGTH">HEADER_LENGTH</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.<a href="Certificate.html" title="class in net.i2p.data">Certificate</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.Certificate">
+</a><code><a href="Certificate.html#_payload">_payload</a>, <a href="Certificate.html#_type">_type</a>, <a href="Certificate.html#CERTIFICATE_LENGTH_SIGNED_WITH_HASH">CERTIFICATE_LENGTH_SIGNED_WITH_HASH</a>, <a href="Certificate.html#CERTIFICATE_TYPE_HASHCASH">CERTIFICATE_TYPE_HASHCASH</a>, <a href="Certificate.html#CERTIFICATE_TYPE_HIDDEN">CERTIFICATE_TYPE_HIDDEN</a>, <a href="Certificate.html#CERTIFICATE_TYPE_KEY">CERTIFICATE_TYPE_KEY</a>, <a href="Certificate.html#CERTIFICATE_TYPE_MULTIPLE">CERTIFICATE_TYPE_MULTIPLE</a>, <a href="Certificate.html#CERTIFICATE_TYPE_NULL">CERTIFICATE_TYPE_NULL</a>, <a href="Certificate.html#CERTIFICATE_TYPE_SIGNED">CERTIFICATE_TYPE_SIGNED</a>, <a href="Certificate.html#NULL_CERT">NULL_CERT</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(byte%5B%5D)">KeyCertificate</a></span>&#8203;(byte[]&nbsp;payload)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.SigType)">KeyCertificate</a></span>&#8203;(<a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">A KeyCertificate with crypto type 0 (ElGamal)
+  and the signature type as specified.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.SigType,net.i2p.crypto.EncType)">KeyCertificate</a></span>&#8203;(<a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type,
+<a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a>&nbsp;etype)</code></th>
+<td class="colLast">
+<div class="block">A KeyCertificate with crypto type
+  and the signature type as specified.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.data.Certificate)">KeyCertificate</a></span>&#8203;(<a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert)</code></th>
+<td class="colLast">
+<div class="block">Up-convert a cert to this class</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.data.SigningPublicKey)">KeyCertificate</a></span>&#8203;(<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</code></th>
+<td class="colLast">
+<div class="block">A KeyCertificate with crypto type 0 (ElGamal)
+  and the signature type and extra data from the given public key.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.data.SigningPublicKey,net.i2p.data.PublicKey)">KeyCertificate</a></span>&#8203;(<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pk)</code></th>
+<td class="colLast">
+<div class="block">A KeyCertificate with enc type from the given public key,
+  and the signature type and extra data from the given public key.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCryptoTypeCode()">getCryptoTypeCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncType()">getEncType</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExtraKeyData()">getExtraKeyData</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Signing Key extra data, if any, is first in the array.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExtraSigningKeyData()">getExtraSigningKeyData</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Signing Key extra data, if any.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSigType()">getSigType</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSigTypeCode()">getSigTypeCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toKeyCertificate()">toKeyCertificate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Up-convert this to a KeyCertificate</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="Certificate.html" title="class in net.i2p.data">Certificate</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.Certificate">
+</a><code><a href="Certificate.html#create(byte%5B%5D,int)">create</a>, <a href="Certificate.html#create(java.io.InputStream)">create</a>, <a href="Certificate.html#equals(java.lang.Object)">equals</a>, <a href="Certificate.html#getCertificateType()">getCertificateType</a>, <a href="Certificate.html#getPayload()">getPayload</a>, <a href="Certificate.html#hashCode()">hashCode</a>, <a href="Certificate.html#readBytes(byte%5B%5D,int)">readBytes</a>, <a href="Certificate.html#readBytes(java.io.InputStream)">readBytes</a>, <a href="Certificate.html#setCertificateType(int)">setCertificateType</a>, <a href="Certificate.html#setPayload(byte%5B%5D)">setPayload</a>, <a href="Certificate.html#size()">size</a>, <a href="Certificate.html#writeBytes(byte%5B%5D,int)">writeBytes</a>, <a href="Certificate.html#writeBytes(java.io.OutputStream)">writeBytes</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="DataStructureImpl.html" title="class in net.i2p.data">DataStructureImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.DataStructureImpl">
+</a><code><a href="DataStructureImpl.html#calculateHash()">calculateHash</a>, <a href="DataStructureImpl.html#fromBase64(java.lang.String)">fromBase64</a>, <a href="DataStructureImpl.html#fromByteArray(byte%5B%5D)">fromByteArray</a>, <a href="DataStructureImpl.html#read(java.io.InputStream,byte%5B%5D)">read</a>, <a href="DataStructureImpl.html#toBase64()">toBase64</a>, <a href="DataStructureImpl.html#toByteArray()">toByteArray</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="HEADER_LENGTH">HEADER_LENGTH</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">HEADER_LENGTH</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.data.KeyCertificate.HEADER_LENGTH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="Ed25519_PAYLOAD">Ed25519_PAYLOAD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">Ed25519_PAYLOAD</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.22 pkg private for Certificate.create()</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ECDSA256_PAYLOAD">ECDSA256_PAYLOAD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">ECDSA256_PAYLOAD</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.22 pkg private for Certificate.create()</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ELG_ECDSA256_CERT">ELG_ECDSA256_CERT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></span>&nbsp;<span class="memberName">ELG_ECDSA256_CERT</span></div>
+<div class="block">An immutable ElG/ECDSA-P256 certificate.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ELG_Ed25519_CERT">ELG_Ed25519_CERT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></span>&nbsp;<span class="memberName">ELG_Ed25519_CERT</span></div>
+<div class="block">An immutable ElG/Ed25519 certificate.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.22</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(byte[])">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments">byte[]&nbsp;payload)</span>
+               throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>payload</code> - 4 bytes minimum if non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.data.SigningPublicKey)">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments"><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</span></div>
+<div class="block">A KeyCertificate with crypto type 0 (ElGamal)
+  and the signature type and extra data from the given public key.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>spk</code> - non-null data non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.data.SigningPublicKey,net.i2p.data.PublicKey)">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments"><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk,
+<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;pk)</span></div>
+<div class="block">A KeyCertificate with enc type from the given public key,
+  and the signature type and extra data from the given public key.
+  EncType lengths greater than 256 not supported.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>spk</code> - non-null data non-null</dd>
+<dd><code>pk</code> - non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.42</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.crypto.SigType)">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments"><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</span></div>
+<div class="block">A KeyCertificate with crypto type 0 (ElGamal)
+  and the signature type as specified.
+  Payload is created.
+  If type.getPubkeyLen() is greater than 128, caller MUST
+  fill in the extra key data in the payload.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.crypto.SigType,net.i2p.crypto.EncType)">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments"><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type,
+<a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a>&nbsp;etype)</span></div>
+<div class="block">A KeyCertificate with crypto type
+  and the signature type as specified.
+  Payload is created.
+  If type.getPubkeyLen() is greater than 128, caller MUST
+  fill in the extra key data in the payload.
+  EncType lengths greater than 256 not supported.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - non-null</dd>
+<dd><code>etype</code> - non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.42</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.data.Certificate)">KeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KeyCertificate</span>&#8203;(<span class="arguments"><a href="Certificate.html" title="class in net.i2p.data">Certificate</a>&nbsp;cert)</span>
+               throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Up-convert a cert to this class</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cert</code> - payload 4 bytes minimum if non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if cert type != CERTIFICATE_TYPE_KEY</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSigTypeCode()">getSigTypeCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getSigTypeCode</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>-1 if unset</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCryptoTypeCode()">getCryptoTypeCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getCryptoTypeCode</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>-1 if unset</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSigType()">getSigType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../crypto/SigType.html" title="enum in net.i2p.crypto">SigType</a></span>&nbsp;<span class="memberName">getSigType</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if unset or unknown</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEncType()">getEncType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a></span>&nbsp;<span class="memberName">getEncType</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if unset or unknown</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.42</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getExtraKeyData()">getExtraKeyData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getExtraKeyData</span>()</div>
+<div class="block">Signing Key extra data, if any, is first in the array.
+  Crypto Key extra data, if any, is second in the array,
+  at offset max(0, getSigType().getPubkeyLen() - 128)</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if unset or none</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getExtraSigningKeyData()">getExtraSigningKeyData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getExtraSigningKeyData</span>()</div>
+<div class="block">Signing Key extra data, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if unset or none</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink">UnsupportedOperationException</a></code> - if the sig type is unsupported</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toKeyCertificate()">toKeyCertificate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="KeyCertificate.html" title="class in net.i2p.data">KeyCertificate</a></span>&nbsp;<span class="memberName">toKeyCertificate</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="Certificate.html#toKeyCertificate()">Certificate</a></code></span></div>
+<div class="block">Up-convert this to a KeyCertificate</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="Certificate.html#toKeyCertificate()">toKeyCertificate</a></code>&nbsp;in class&nbsp;<code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="Certificate.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="Certificate.html" title="class in net.i2p.data">Certificate</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KeyCertificate.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

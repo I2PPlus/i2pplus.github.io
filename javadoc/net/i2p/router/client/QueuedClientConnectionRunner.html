@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>QueuedClientConnectionRunner - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.client, class: QueuedClientConnectionRunner">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/QueuedClientConnectionRunner.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.client</a></div>
+<h1 title="Class QueuedClientConnectionRunner" class="title">Class QueuedClientConnectionRunner</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">net.i2p.router.client.ClientConnectionRunner</a>
+<div class="inheritance">net.i2p.router.client.QueuedClientConnectionRunner</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">QueuedClientConnectionRunner</span>
+extends <a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></pre>
+<div class="block">Zero-copy in-JVM.
+ While super() starts both a reader and a writer thread, we only need a reader thread here.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>zzz</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.client.<a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.client.ClientConnectionRunner">
+</a><code><a href="ClientConnectionRunner.html#_context">_context</a>, <a href="ClientConnectionRunner.html#_log">_log</a>, <a href="ClientConnectionRunner.html#_manager">_manager</a>, <a href="ClientConnectionRunner.html#_reader">_reader</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.client.ClientManager,net.i2p.internal.I2CPMessageQueue)">QueuedClientConnectionRunner</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="ClientManager.html" title="class in net.i2p.router.client">ClientManager</a>&nbsp;manager,
+<a href="../../internal/I2CPMessageQueue.html" title="class in net.i2p.internal">I2CPMessageQueue</a>&nbsp;queue)</code></th>
+<td class="colLast">
+<div class="block">Create a new runner with the given queues</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#doSend(net.i2p.data.i2cp.I2CPMessage)">doSend</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">Actually send the I2CPMessage to the client.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClientVersion()">getClientVersion</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The client version.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setClientVersion(java.lang.String)">setClientVersion</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;version)</code></th>
+<td class="colLast">
+<div class="block">Does nothing.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startRunning()">startRunning</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Starts the reader thread.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopRunning()">stopRunning</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Calls super() to stop the reader, and sends a poison message to the client.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeMessage(net.i2p.data.i2cp.I2CPMessage)">writeMessage</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">In super(), doSend queues it to the writer thread and
+  the writer thread calls writeMessage() to write to the output stream.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.client.<a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.client.ClientConnectionRunner">
+</a><code><a href="ClientConnectionRunner.html#ackSendMessage(net.i2p.data.i2cp.SessionId,net.i2p.data.i2cp.MessageId,long)">ackSendMessage</a>, <a href="ClientConnectionRunner.html#createListener()">createListener</a>, <a href="ClientConnectionRunner.html#disconnectClient(java.lang.String)">disconnectClient</a>, <a href="ClientConnectionRunner.html#disconnectClient(java.lang.String,int)">disconnectClient</a>, <a href="ClientConnectionRunner.html#disconnected()">disconnected</a>, <a href="ClientConnectionRunner.html#distributeMessage(net.i2p.data.i2cp.SendMessageMessage)">distributeMessage</a>, <a href="ClientConnectionRunner.html#failLeaseRequest(net.i2p.router.client.LeaseRequestState)">failLeaseRequest</a>, <a href="ClientConnectionRunner.html#getConfig(net.i2p.data.Hash)">getConfig</a>, <a href="ClientConnectionRunner.html#getConfig(net.i2p.data.i2cp.SessionId)">getConfig</a>, <a href="ClientConnectionRunner.html#getDestHash()">getDestHash</a>, <a href="ClientConnectionRunner.html#getDestHash(net.i2p.data.i2cp.SessionId)">getDestHash</a>, <a href="ClientConnectionRunner.html#getDestination(net.i2p.data.i2cp.SessionId)">getDestination</a>, <a href="ClientConnectionRunner.html#getDestinations()">getDestinations</a>, <a href="ClientConnectionRunner.html#getIsDead()">getIsDead</a>, <a href="ClientConnectionRunner.html#getLeaseRequest(net.i2p.data.Hash)">getLeaseRequest</a>, <a href="ClientConnectionRunner.html#getLeaseSet(net.i2p.data.Hash)">getLeaseSet</a>, <a href="ClientConnectionRunner.html#getNextMessageId()">getNextMessageId</a>, <a href="ClientConnectionRunner.html#getPayload(net.i2p.data.i2cp.MessageId)">getPayload</a>, <a href="ClientConnectionRunner.html#getPrimaryConfig()">getPrimaryConfig</a>, <a href="ClientConnectionRunner.html#getSessionId(net.i2p.data.Hash)">getSessionId</a>, <a href="ClientConnectionRunner.html#getSessionIds()">getSessionIds</a>, <a href="ClientConnectionRunner.html#getSessionKeyManager()">getSessionKeyManager</a>, <a href="ClientConnectionRunner.html#isDead()">isDead</a>, <a href="ClientConnectionRunner.html#leaseSetCreated(net.i2p.data.LeaseSet)">leaseSetCreated</a>, <a href="ClientConnectionRunner.html#receiveMessage(net.i2p.data.Destination,net.i2p.data.Destination,net.i2p.data.Payload)">receiveMessage</a>, <a href="ClientConnectionRunner.html#receiveMessage(net.i2p.data.Hash,net.i2p.data.Destination,net.i2p.data.Payload)">receiveMessage</a>, <a href="ClientConnectionRunner.html#registerEncryptedLS(net.i2p.data.Hash)">registerEncryptedLS</a>, <a href="ClientConnectionRunner.html#removePayload(net.i2p.data.i2cp.MessageId)">removePayload</a>, <a href="ClientConnectionRunner.html#removeSession(net.i2p.data.i2cp.SessionId)">removeSession</a>, <a href="ClientConnectionRunner.html#reportAbuse(net.i2p.data.Destination,java.lang.String,int)">reportAbuse</a>, <a href="ClientConnectionRunner.html#requestLeaseSet(net.i2p.data.Hash,net.i2p.data.LeaseSet,long,net.i2p.router.Job,net.i2p.router.Job)">requestLeaseSet</a>, <a href="ClientConnectionRunner.html#sessionEstablished(net.i2p.data.i2cp.SessionConfig)">sessionEstablished</a>, <a href="ClientConnectionRunner.html#setPayload(net.i2p.data.i2cp.MessageId,net.i2p.data.Payload)">setPayload</a>, <a href="ClientConnectionRunner.html#setSessionId(net.i2p.data.Hash,net.i2p.data.i2cp.SessionId)">setSessionId</a>, <a href="ClientConnectionRunner.html#updateMessageDeliveryStatus(net.i2p.data.Destination,net.i2p.data.i2cp.MessageId,long,int)">updateMessageDeliveryStatus</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.client.ClientManager,net.i2p.internal.I2CPMessageQueue)">QueuedClientConnectionRunner</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">QueuedClientConnectionRunner</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="ClientManager.html" title="class in net.i2p.router.client">ClientManager</a>&nbsp;manager,
+<a href="../../internal/I2CPMessageQueue.html" title="class in net.i2p.internal">I2CPMessageQueue</a>&nbsp;queue)</span></div>
+<div class="block">Create a new runner with the given queues</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="startRunning()">startRunning</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startRunning</span>()</div>
+<div class="block">Starts the reader thread. Does not call super().</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#startRunning()">startRunning</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopRunning()">stopRunning</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopRunning</span>()</div>
+<div class="block">Calls super() to stop the reader, and sends a poison message to the client.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#stopRunning()">stopRunning</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeMessage(net.i2p.data.i2cp.I2CPMessage)">writeMessage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">writeMessage</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;msg)</span></div>
+<div class="block">In super(), doSend queues it to the writer thread and
+  the writer thread calls writeMessage() to write to the output stream.
+  Since we have no writer thread this shouldn't happen.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#writeMessage(net.i2p.data.i2cp.I2CPMessage)">writeMessage</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="doSend(net.i2p.data.i2cp.I2CPMessage)">doSend</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">doSend</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;msg)</span>
+     throws <span class="exceptions"><a href="../../data/i2cp/I2CPMessageException.html" title="class in net.i2p.data.i2cp">I2CPMessageException</a></span></div>
+<div class="block">Actually send the I2CPMessage to the client.
+ Nonblocking.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#doSend(net.i2p.data.i2cp.I2CPMessage)">doSend</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../data/i2cp/I2CPMessageException.html" title="class in net.i2p.data.i2cp">I2CPMessageException</a></code> - if queue full or on other errors</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setClientVersion(java.lang.String)">setClientVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setClientVersion</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;version)</span></div>
+<div class="block">Does nothing. Client version is the core version.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#setClientVersion(java.lang.String)">setClientVersion</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.7</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClientVersion()">getClientVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getClientVersion</span>()</div>
+<div class="block">The client version.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="ClientConnectionRunner.html#getClientVersion()">getClientVersion</a></code>&nbsp;in class&nbsp;<code><a href="ClientConnectionRunner.html" title="class in net.i2p.router.client">ClientConnectionRunner</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>CoreVersion.PUBLISHED_VERSION</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.7</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/QueuedClientConnectionRunner.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

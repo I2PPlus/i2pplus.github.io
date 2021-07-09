@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PersistentDataStore - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.networkdb.kademlia, class: PersistentDataStore">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":9,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PersistentDataStore.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.networkdb.kademlia</a></div>
+<h1 title="Class PersistentDataStore" class="title">Class PersistentDataStore</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">net.i2p.router.networkdb.kademlia.TransientDataStore</a>
+<div class="inheritance">net.i2p.router.networkdb.kademlia.PersistentDataStore</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">PersistentDataStore</span>
+extends <a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></pre>
+<div class="block">Write out keys to disk when we get them and periodically read ones we don't know
+ about into memory, with newly read routers are also added to the routing table.
+
+ Public only for access to static methods by startup classes</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DIR_PREFIX">DIR_PREFIX</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/FileFilter.html?is-external=true" title="class or interface in java.io" class="externalLink">FileFilter</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#RI_FILTER">RI_FILTER</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.networkdb.kademlia.<a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.networkdb.kademlia.TransientDataStore">
+</a><code><a href="TransientDataStore.html#_context">_context</a>, <a href="TransientDataStore.html#_log">_log</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,java.lang.String,net.i2p.router.networkdb.kademlia.KademliaNetworkDatabaseFacade)">PersistentDataStore</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dbDir,
+<a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a>&nbsp;facade)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(net.i2p.data.Hash)">get</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(net.i2p.data.Hash,boolean)">get</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+boolean&nbsp;persist)</code></th>
+<td class="colLast">
+<div class="block">Prepare for having only a partial set in memory and the rest on disk</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterInfoFile(net.i2p.router.RouterContext,net.i2p.data.Hash)">getRouterInfoFile</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash)</code></th>
+<td class="colLast">
+<div class="block">The persistent RI file for a hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) static <a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterInfoHash(java.lang.String)">getRouterInfoHash</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</code></th>
+<td class="colLast">
+<div class="block">Package private for installer BundleRouterInfos</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInitialized()">isInitialized</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry)">put</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;data)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,boolean)">put</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;data,
+boolean&nbsp;persist)</code></th>
+<td class="colLast">
+<div class="block">for PersistentDataStore only - don't use here</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(net.i2p.data.Hash)">remove</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(net.i2p.data.Hash,boolean)">remove</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+boolean&nbsp;persist)</code></th>
+<td class="colLast">
+<div class="block">for PersistentDataStore only - don't use here</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rescan()">rescan</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#restart()">restart</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.networkdb.kademlia.<a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.networkdb.kademlia.TransientDataStore">
+</a><code><a href="TransientDataStore.html#countLeaseSets()">countLeaseSets</a>, <a href="TransientDataStore.html#getEntries()">getEntries</a>, <a href="TransientDataStore.html#getKeys()">getKeys</a>, <a href="TransientDataStore.html#getMapEntries()">getMapEntries</a>, <a href="TransientDataStore.html#isKnown(net.i2p.data.Hash)">isKnown</a>, <a href="TransientDataStore.html#size()">size</a>, <a href="TransientDataStore.html#toString()">toString</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="DIR_PREFIX">DIR_PREFIX</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DIR_PREFIX</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.PersistentDataStore.DIR_PREFIX">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="RI_FILTER">RI_FILTER</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/FileFilter.html?is-external=true" title="class or interface in java.io" class="externalLink">FileFilter</a></span>&nbsp;<span class="memberName">RI_FILTER</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.34</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,java.lang.String,net.i2p.router.networkdb.kademlia.KademliaNetworkDatabaseFacade)">PersistentDataStore</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PersistentDataStore</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dbDir,
+<a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a>&nbsp;facade)</span>
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dbDir</code> - relative path</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="isInitialized()">isInitialized</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isInitialized</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#isInitialized()">isInitialized</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#isInitialized()">isInitialized</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stop()">stop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stop</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#stop()">stop</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#stop()">stop</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="restart()">restart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">restart</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#restart()">restart</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#restart()">restart</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rescan()">rescan</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">rescan</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#rescan()">rescan</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#rescan()">rescan</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get(net.i2p.data.Hash)">get</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></span>&nbsp;<span class="memberName">get</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#get(net.i2p.data.Hash)">get</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#get(net.i2p.data.Hash)">get</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get(net.i2p.data.Hash,boolean)">get</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></span>&nbsp;<span class="memberName">get</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+boolean&nbsp;persist)</span></div>
+<div class="block">Prepare for having only a partial set in memory and the rest on disk</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#get(net.i2p.data.Hash,boolean)">get</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#get(net.i2p.data.Hash,boolean)">get</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>persist</code> - if false, call super only, don't access disk</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(net.i2p.data.Hash)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#remove(net.i2p.data.Hash)">remove</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#remove(net.i2p.data.Hash)">remove</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(net.i2p.data.Hash,boolean)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+boolean&nbsp;persist)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="TransientDataStore.html#remove(net.i2p.data.Hash,boolean)">TransientDataStore</a></code></span></div>
+<div class="block">for PersistentDataStore only - don't use here</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#remove(net.i2p.data.Hash,boolean)">remove</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#remove(net.i2p.data.Hash,boolean)">remove</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry)">put</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">put</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;data)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry)">put</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry)">put</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+<dd><code>data</code> - must be validated before here</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,boolean)">put</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">put</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;data,
+boolean&nbsp;persist)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="TransientDataStore.html#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,boolean)">TransientDataStore</a></code></span></div>
+<div class="block">for PersistentDataStore only - don't use here</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStore.html#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,boolean)">put</a></code>&nbsp;in interface&nbsp;<code><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="TransientDataStore.html#put(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,boolean)">put</a></code>&nbsp;in class&nbsp;<code><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRouterInfoFile(net.i2p.router.RouterContext,net.i2p.data.Hash)">getRouterInfoFile</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getRouterInfoFile</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash)</span></div>
+<div class="block">The persistent RI file for a hash.
+  This is available before the netdb subsystem is running, so we can delete our old RI.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, should be absolute, does not necessarily exist</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRouterInfoHash(java.lang.String)">getRouterInfoHash</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getRouterInfoHash</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</span></div>
+<div class="block">Package private for installer BundleRouterInfos</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PersistentDataStore.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

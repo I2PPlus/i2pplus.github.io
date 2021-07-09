@@ -1,0 +1,715 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Datasource - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.core, class: Datasource">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Datasource.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.core</a></div>
+<h1 title="Class Datasource" class="title">Class Datasource</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.rrd4j.core.Datasource</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&gt;</code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">Datasource</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&gt;</pre>
+<div class="block"><p>Class to represent single datasource within RRD. Each datasource object holds the
+ following information: datasource definition (once set, never changed) and
+ datasource state variables (changed whenever RRD gets updated).</p>
+ <p>Normally, you don't need to manipulate Datasource objects directly, it's up to
+ Rrd4j framework to do it for you.</p></div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Sasa Markovic</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.rrd4j.core.RrdDb,org.rrd4j.core.DataImporter,int)">Datasource</a></span>&#8203;(<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;parentDb,
+<a href="DataImporter.html" title="class in org.rrd4j.core">DataImporter</a>&nbsp;reader,
+int&nbsp;dsIndex)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.rrd4j.core.RrdDb,org.rrd4j.core.DsDef)">Datasource</a></span>&#8203;(<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;parentDb,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;dsDef)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#appendXml(org.rrd4j.core.XmlWriter)">appendXml</a></span>&#8203;(<a href="XmlWriter.html" title="class in org.rrd4j.core">XmlWriter</a>&nbsp;writer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyStateTo(org.rrd4j.core.Datasource)">copyStateTo</a></span>&#8203;(<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&nbsp;datasource)</code></th>
+<td class="colLast">
+<div class="block">copyStateTo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dump()">dump</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAccumValue()">getAccumValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns value this datasource accumulated so far.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDsIndex()">getDsIndex</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns index of this Datasource object in the RRD.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeartbeat()">getHeartbeat</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns datasource heartbeat</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastValue()">getLastValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns last known value of the datasource.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaxValue()">getMaxValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns maximal allowed value for this datasource.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinValue()">getMinValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns minimal allowed value for this datasource.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns datasource name.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNanSeconds()">getNanSeconds</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the number of accumulated NaN seconds.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdAllocator()">getRrdAllocator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Required to implement RrdUpdater interface.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdBackend()">getRrdBackend</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the underlying storage (backend) object which actually performs all
+ I/O operations.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="../DsType.html" title="enum in org.rrd4j">DsType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns datasource type (GAUGE, COUNTER, DERIVE, ABSOLUTE).</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#process(long,double)">process</a></span>&#8203;(long&nbsp;newTime,
+double&nbsp;newValue)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsName(java.lang.String)">setDsName</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newDsName)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource name to a new value</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDsType(org.rrd4j.DsType)">setDsType</a></span>&#8203;(<a href="../DsType.html" title="enum in org.rrd4j">DsType</a>&nbsp;newDsType)</code></th>
+<td class="colLast">
+<div class="block">Setter for the field <code>dsType</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHeartbeat(long)">setHeartbeat</a></span>&#8203;(long&nbsp;heartbeat)</code></th>
+<td class="colLast">
+<div class="block">Sets datasource heartbeat to a new value.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMaxValue(double,boolean)">setMaxValue</a></span>&#8203;(double&nbsp;maxValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Sets maximum allowed value for this datasource.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMinMaxValue(double,double,boolean)">setMinMaxValue</a></span>&#8203;(double&nbsp;minValue,
+double&nbsp;maxValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Sets min/max values allowed for this datasource.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMinValue(double,boolean)">setMinValue</a></span>&#8203;(double&nbsp;minValue,
+boolean&nbsp;filterArchivedValues)</code></th>
+<td class="colLast">
+<div class="block">Sets minimum allowed value for this datasource.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.rrd4j.core.RrdDb,org.rrd4j.core.DsDef)">Datasource</a></h3>
+<div class="memberSignature"><span class="memberName">Datasource</span>&#8203;(<span class="arguments"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;parentDb,
+<a href="DsDef.html" title="class in org.rrd4j.core">DsDef</a>&nbsp;dsDef)</span>
+    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.rrd4j.core.RrdDb,org.rrd4j.core.DataImporter,int)">Datasource</a></h3>
+<div class="memberSignature"><span class="memberName">Datasource</span>&#8203;(<span class="arguments"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;parentDb,
+<a href="DataImporter.html" title="class in org.rrd4j.core">DataImporter</a>&nbsp;reader,
+int&nbsp;dsIndex)</span>
+    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="dump()">dump</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">dump</span>()
+     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getName</span>()
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns datasource name.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource name</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getType()">getType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../DsType.html" title="enum in org.rrd4j">DsType</a></span>&nbsp;<span class="memberName">getType</span>()
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns datasource type (GAUGE, COUNTER, DERIVE, ABSOLUTE).</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource type.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHeartbeat()">getHeartbeat</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getHeartbeat</span>()
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns datasource heartbeat</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource heartbeat</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMinValue()">getMinValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getMinValue</span>()
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns minimal allowed value for this datasource.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Minimal value allowed.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMaxValue()">getMaxValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getMaxValue</span>()
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns maximal allowed value for this datasource.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Maximal value allowed.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastValue()">getLastValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getLastValue</span>()
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns last known value of the datasource.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Last datasource value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAccumValue()">getAccumValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getAccumValue</span>()
+                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns value this datasource accumulated so far.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Accumulated datasource value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNanSeconds()">getNanSeconds</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getNanSeconds</span>()
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns the number of accumulated NaN seconds.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Accumulated NaN seconds.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="process(long,double)">process</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">process</span>&#8203;(<span class="arguments">long&nbsp;newTime,
+double&nbsp;newValue)</span>
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="appendXml(org.rrd4j.core.XmlWriter)">appendXml</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">appendXml</span>&#8203;(<span class="arguments"><a href="XmlWriter.html" title="class in org.rrd4j.core">XmlWriter</a>&nbsp;writer)</span>
+        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyStateTo(org.rrd4j.core.Datasource)">copyStateTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">copyStateTo</span>&#8203;(<span class="arguments"><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&nbsp;datasource)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>copyStateTo.</p>
+
+ Copies object's internal state to another Datasource object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#copyStateTo(T)">copyStateTo</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>datasource</code> - a <a href="RrdUpdater.html" title="interface in org.rrd4j.core"><code>RrdUpdater</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDsIndex()">getDsIndex</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getDsIndex</span>()
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns index of this Datasource object in the RRD.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource index in the RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setHeartbeat(long)">setHeartbeat</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setHeartbeat</span>&#8203;(<span class="arguments">long&nbsp;heartbeat)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource heartbeat to a new value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>heartbeat</code> - New heartbeat value</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if invalid (non-positive) heartbeat value is specified.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsName(java.lang.String)">setDsName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsName</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newDsName)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets datasource name to a new value</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newDsName</code> - New datasource name</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDsType(org.rrd4j.DsType)">setDsType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDsType</span>&#8203;(<span class="arguments"><a href="../DsType.html" title="enum in org.rrd4j">DsType</a>&nbsp;newDsType)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Setter for the field <code>dsType</code>.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newDsType</code> - a <a href="../DsType.html" title="enum in org.rrd4j"><code>DsType</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMinValue(double,boolean)">setMinValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setMinValue</span>&#8203;(<span class="arguments">double&nbsp;minValue,
+boolean&nbsp;filterArchivedValues)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets minimum allowed value for this datasource. If <code>filterArchivedValues</code>
+ argument is set to true, all archived values less then <code>minValue</code> will
+ be fixed to NaN.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>minValue</code> - New minimal value. Specify <code>Double.NaN</code> if no minimal
+                             value should be set</dd>
+<dd><code>filterArchivedValues</code> - true, if archived datasource values should be fixed;
+                             false, otherwise.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if invalid minValue was supplied (not less then maxValue)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMaxValue(double,boolean)">setMaxValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setMaxValue</span>&#8203;(<span class="arguments">double&nbsp;maxValue,
+boolean&nbsp;filterArchivedValues)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets maximum allowed value for this datasource. If <code>filterArchivedValues</code>
+ argument is set to true, all archived values greater then <code>maxValue</code> will
+ be fixed to NaN.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxValue</code> - New maximal value. Specify <code>Double.NaN</code> if no max
+                             value should be set.</dd>
+<dd><code>filterArchivedValues</code> - true, if archived datasource values should be fixed;
+                             false, otherwise.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if invalid maxValue was supplied (not greater then minValue)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMinMaxValue(double,double,boolean)">setMinMaxValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setMinMaxValue</span>&#8203;(<span class="arguments">double&nbsp;minValue,
+double&nbsp;maxValue,
+boolean&nbsp;filterArchivedValues)</span>
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets min/max values allowed for this datasource. If <code>filterArchivedValues</code>
+ argument is set to true, all archived values less then <code>minValue</code> or
+ greater then <code>maxValue</code> will be fixed to NaN.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>minValue</code> - New minimal value. Specify <code>Double.NaN</code> if no min
+                             value should be set.</dd>
+<dd><code>maxValue</code> - New maximal value. Specify <code>Double.NaN</code> if no max
+                             value should be set.</dd>
+<dd><code>filterArchivedValues</code> - true, if archived datasource values should be fixed;
+                             false, otherwise.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if invalid min/max values were supplied</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdBackend()">getRrdBackend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></span>&nbsp;<span class="memberName">getRrdBackend</span>()</div>
+<div class="block">Returns the underlying storage (backend) object which actually performs all
+ I/O operations.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdBackend()">getRrdBackend</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>I/O backend object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdAllocator()">getRrdAllocator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></span>&nbsp;<span class="memberName">getRrdAllocator</span>()</div>
+<div class="block">Required to implement RrdUpdater interface. You should never call this method directly.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdAllocator()">getRrdAllocator</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Allocator object</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Datasource.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

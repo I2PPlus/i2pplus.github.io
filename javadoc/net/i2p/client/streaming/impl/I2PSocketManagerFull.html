@@ -1,0 +1,1031 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>I2PSocketManagerFull - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.streaming.impl, class: I2PSocketManagerFull">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":42,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PSocketManagerFull.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.client.streaming.impl</a></div>
+<h1 title="Class I2PSocketManagerFull" class="title">Class I2PSocketManagerFull</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.client.streaming.impl.I2PSocketManagerFull</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">I2PSocketManagerFull</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></pre>
+<div class="block">Centralize the coordination and multiplexing of the local client's streaming.
+ There should be one I2PSocketManager for each I2PSession, and if an application
+ is sending and receiving data through the streaming library using an
+ I2PSocketManager, it should not attempt to call I2PSession's setSessionListener
+ or receive any messages with its .receiveMessage
+
+ This is what I2PSocketManagerFactory.createManager() returns.
+ Direct instantiation by others is deprecated.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="inheritedList">
+<h2>Nested classes/interfaces inherited from interface&nbsp;net.i2p.client.streaming.<a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></h2>
+<a id="nested.classes.inherited.from.class.net.i2p.client.streaming.I2PSocketManager">
+</a><code><a href="../I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static <a href="PcapWriter.html" title="class in net.i2p.client.streaming.impl">PcapWriter</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pcapWriter">pcapWriter</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_PCAP">PROP_PCAP</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">I2PSocketManagerFull</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use 4-arg constructor</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String,net.i2p.client.streaming.IncomingConnectionFilter)">I2PSocketManagerFull</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="../IncomingConnectionFilter.html" title="interface in net.i2p.client.streaming">IncomingConnectionFilter</a>&nbsp;connectionFilter)</code></th>
+<td class="colLast">
+<div class="block">This is what I2PSocketManagerFactory.createManager() returns.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">addDisconnectListener</a></span>&#8203;(<a href="../I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a>&nbsp;lsnr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</code></th>
+<td class="colLast">
+<div class="block">For a server, you must call connect() on the returned object.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildOptions()">buildOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Create a copy of the current options, to be used in a setDefaultOptions() call.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildOptions(java.util.Properties)">buildOptions</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</code></th>
+<td class="colLast">
+<div class="block">Create a modified copy of the current options, to be used in a setDefaultOptions() call.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(net.i2p.data.Destination)">connect</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Create a new connected socket.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect(net.i2p.data.Destination,net.i2p.client.streaming.I2PSocketOptions)">connect</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+<a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Create a new connected socket.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connectToSocket(net.i2p.data.Destination)">connectToSocket</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Like connect() but returns a real Socket, and throws only IOE,
+  for easier porting of apps.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connectToSocket(net.i2p.data.Destination,int)">connectToSocket</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;timeout)</code></th>
+<td class="colLast">
+<div class="block">Like connect() but returns a real Socket, and throws only IOE,
+  for easier porting of apps.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroySocketManager()">destroySocketManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Destroy the socket manager, freeing all the associated resources.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAcceptTimeout()">getAcceptTimeout</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnectionManager()">getConnectionManager</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDefaultOptions()">getDefaultOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Current options, not a copy, setters may be used to make changes.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For logging / diagnostics only</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="../I2PServerSocket.html" title="interface in net.i2p.client.streaming">I2PServerSocket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getServerSocket()">getServerSocket</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns non-null socket.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSession()">getSession</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net" class="externalLink">ServerSocket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStandardServerSocket()">getStandardServerSocket</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Like getServerSocket but returns a real ServerSocket for easier porting of apps.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubsessions()">getSubsessions</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String)">init</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use 4-arg constructor</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isDestroyed()">isDestroyed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Has the socket manager been destroyed?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#listSockets()">listSockets</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve a set of currently connected I2PSockets, either initiated locally or remotely.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ping(net.i2p.data.Destination,int,int,long)">ping</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;localPort,
+int&nbsp;remotePort,
+long&nbsp;timeoutMs)</code></th>
+<td class="colLast">
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ping(net.i2p.data.Destination,int,int,long,byte%5B%5D)">ping</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;localPort,
+int&nbsp;remotePort,
+long&nbsp;timeoutMs,
+byte[]&nbsp;payload)</code></th>
+<td class="colLast">
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ping(net.i2p.data.Destination,long)">ping</a></span>&#8203;(<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+long&nbsp;timeoutMs)</code></th>
+<td class="colLast">
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSocket()">receiveSocket</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The accept() call.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">removeDisconnectListener</a></span>&#8203;(<a href="../I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a>&nbsp;lsnr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></span>&#8203;(<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">
+<div class="block">Remove the subsession</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAcceptTimeout(long)">setAcceptTimeout</a></span>&#8203;(long&nbsp;ms)</code></th>
+<td class="colLast">
+<div class="block">How long should we wait for the client to .accept() a socket before
+ sending back a NACK/Close?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDefaultOptions(net.i2p.client.streaming.I2PSocketOptions)">setDefaultOptions</a></span>&#8203;(<a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Update the options on a running socket manager.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">For logging / diagnostics only</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="pcapWriter">pcapWriter</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType"><a href="PcapWriter.html" title="class in net.i2p.client.streaming.impl">PcapWriter</a></span>&nbsp;<span class="memberName">pcapWriter</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_PCAP">PROP_PCAP</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_PCAP</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.client.streaming.impl.I2PSocketManagerFull.PROP_PCAP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">I2PSocketManagerFull</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PSocketManagerFull</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use 4-arg constructor</div>
+</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink">UnsupportedOperationException</a></code> - always</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String,net.i2p.client.streaming.IncomingConnectionFilter)">I2PSocketManagerFull</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PSocketManagerFull</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="../IncomingConnectionFilter.html" title="interface in net.i2p.client.streaming">IncomingConnectionFilter</a>&nbsp;connectionFilter)</span></div>
+<div class="block">This is what I2PSocketManagerFactory.createManager() returns.
+ Direct instantiation by others is deprecated.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>context</code> - non-null</dd>
+<dd><code>session</code> - non-null</dd>
+<dd><code>opts</code> - may be null</dd>
+<dd><code>name</code> - non-null</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="init(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String)">init</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">init</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use 4-arg constructor</div>
+</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../I2PSocketManager.html#init(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String)">I2PSocketManager</a></code></span></div>
+<div class="block">Deprecated - Factory will initialize.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#init(net.i2p.I2PAppContext,net.i2p.client.I2PSession,java.util.Properties,java.lang.String)">init</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink">UnsupportedOperationException</a></code> - always</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildOptions()">buildOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></span>&nbsp;<span class="memberName">buildOptions</span>()</div>
+<div class="block">Create a copy of the current options, to be used in a setDefaultOptions() call.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#buildOptions()">buildOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildOptions(java.util.Properties)">buildOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></span>&nbsp;<span class="memberName">buildOptions</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</span></div>
+<div class="block">Create a modified copy of the current options, to be used in a setDefaultOptions() call.
+
+  As of 0.9.19, defaults in opts are honored.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#buildOptions(java.util.Properties)">buildOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>opts</code> - The new options, may be null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSession()">getSession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">getSession</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getSession()">getSession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the session, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">addSubsession</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</span>
+                         throws <span class="exceptions"><a href="../../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">For a server, you must call connect() on the returned object.
+  Connecting the primary session does NOT connect any subsessions.
+  If the primary session is not connected, connecting a subsession will connect the primary session first.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>privateKeyStream</code> - null for transient, if non-null must have same encryption keys as primary session
+                          and different signing keys</dd>
+<dd><code>opts</code> - subsession options if any, may be null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new subsession, non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeSubsession</span>&#8203;(<span class="arguments"><a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<div class="block">Remove the subsession</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSubsessions()">getSubsessions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</span>&nbsp;<span class="memberName">getSubsessions</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getSubsessions()">getSubsessions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of subsessions, non-null, does not include the primary session</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConnectionManager()">getConnectionManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a></span>&nbsp;<span class="memberName">getConnectionManager</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSocket()">receiveSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></span>&nbsp;<span class="memberName">receiveSocket</span>()
+                        throws <span class="exceptions"><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/ConnectException.html?is-external=true" title="class or interface in java.net" class="externalLink">ConnectException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/SocketTimeoutException.html?is-external=true" title="class or interface in java.net" class="externalLink">SocketTimeoutException</a></span></div>
+<div class="block">The accept() call.
+
+ This only listens on the primary session. There is no way to get
+ incoming connections on a subsession.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>connected I2PSocket, or null through 0.9.16, non-null as of 0.9.17</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a></code> - if session is closed</dd>
+<dd><code><a href="../RouterRestartException.html" title="class in net.i2p.client.streaming">RouterRestartException</a></code> - (extends I2PException) if the router is apparently restarting, since 0.9.34</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/ConnectException.html?is-external=true" title="class or interface in java.net" class="externalLink">ConnectException</a></code> - (since 0.9.17; I2PServerSocket interface always declared it)</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/SocketTimeoutException.html?is-external=true" title="class or interface in java.net" class="externalLink">SocketTimeoutException</a></code> - if a timeout was previously set with setSoTimeout and the timeout has been reached.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ping(net.i2p.data.Destination,long)">ping</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">ping</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+long&nbsp;timeoutMs)</span></div>
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.  This call blocks.
+
+ Uses the ports from the default options.
+
+ TODO There is no way to ping on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#ping(net.i2p.data.Destination,long)">ping</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - </dd>
+<dd><code>timeoutMs</code> - timeout in ms, greater than zero</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true on success, false on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ping(net.i2p.data.Destination,int,int,long)">ping</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">ping</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;localPort,
+int&nbsp;remotePort,
+long&nbsp;timeoutMs)</span></div>
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.  This call blocks.
+
+ Uses the ports specified.
+
+ TODO There is no way to ping on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#ping(net.i2p.data.Destination,int,int,long)">ping</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - Destination to ping</dd>
+<dd><code>localPort</code> - 0 - 65535</dd>
+<dd><code>remotePort</code> - 0 - 65535</dd>
+<dd><code>timeoutMs</code> - timeout in ms, greater than zero</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success or failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ping(net.i2p.data.Destination,int,int,long,byte[])">ping</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">ping</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;localPort,
+int&nbsp;remotePort,
+long&nbsp;timeoutMs,
+byte[]&nbsp;payload)</span></div>
+<div class="block">Ping the specified peer, returning true if they replied to the ping within
+ the timeout specified, false otherwise.  This call blocks.
+
+ Uses the ports specified.
+
+ TODO There is no way to ping on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#ping(net.i2p.data.Destination,int,int,long,byte%5B%5D)">ping</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - Destination to ping</dd>
+<dd><code>localPort</code> - 0 - 65535</dd>
+<dd><code>remotePort</code> - 0 - 65535</dd>
+<dd><code>timeoutMs</code> - timeout in ms, greater than zero</dd>
+<dd><code>payload</code> - to include in the ping</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the payload received in the pong, zero-length if none, null on failure or timeout</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setAcceptTimeout(long)">setAcceptTimeout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setAcceptTimeout</span>&#8203;(<span class="arguments">long&nbsp;ms)</span></div>
+<div class="block">How long should we wait for the client to .accept() a socket before
+ sending back a NACK/Close?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#setAcceptTimeout(long)">setAcceptTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ms</code> - milliseconds to wait, maximum</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAcceptTimeout()">getAcceptTimeout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getAcceptTimeout</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getAcceptTimeout()">getAcceptTimeout</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDefaultOptions(net.i2p.client.streaming.I2PSocketOptions)">setDefaultOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDefaultOptions</span>&#8203;(<span class="arguments"><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a>&nbsp;options)</span></div>
+<div class="block">Update the options on a running socket manager.
+  Parameters in the I2PSocketOptions interface may be changed directly
+  with the setters; no need to use this method for those.
+  This does NOT update the underlying I2CP or tunnel options; use getSession().updateOptions() for that.
+
+  TODO There is no way to update the options on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#setDefaultOptions(net.i2p.client.streaming.I2PSocketOptions)">setDefaultOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - as created from a call to buildOptions(properties), non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDefaultOptions()">getDefaultOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a></span>&nbsp;<span class="memberName">getDefaultOptions</span>()</div>
+<div class="block">Current options, not a copy, setters may be used to make changes.
+
+  TODO There is no facility to specify the session.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getDefaultOptions()">getDefaultOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getServerSocket()">getServerSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PServerSocket.html" title="interface in net.i2p.client.streaming">I2PServerSocket</a></span>&nbsp;<span class="memberName">getServerSocket</span>()</div>
+<div class="block">Returns non-null socket.
+  This method does not throw exceptions, but methods on the returned socket
+  may throw exceptions if the socket or socket manager is closed.
+
+  This only listens on the primary session. There is no way to get
+  incoming connections on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getServerSocket()">getServerSocket</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStandardServerSocket()">getStandardServerSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net" class="externalLink">ServerSocket</a></span>&nbsp;<span class="memberName">getStandardServerSocket</span>()
+                                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Like getServerSocket but returns a real ServerSocket for easier porting of apps.
+
+  This only listens on the primary session. There is no way to get
+  incoming connections on a subsession.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getStandardServerSocket()">getStandardServerSocket</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="connect(net.i2p.data.Destination,net.i2p.client.streaming.I2PSocketOptions)">connect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></span>&nbsp;<span class="memberName">connect</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+<a href="../I2PSocketOptions.html" title="interface in net.i2p.client.streaming">I2PSocketOptions</a>&nbsp;options)</span>
+                  throws <span class="exceptions"><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/NoRouteToHostException.html?is-external=true" title="class or interface in java.net" class="externalLink">NoRouteToHostException</a></span></div>
+<div class="block">Create a new connected socket. Blocks until the socket is created,
+ unless the connectDelay option (i2p.streaming.connectDelay) is
+ set and greater than zero. If so this will return immediately,
+ and the client may quickly write initial data to the socket and
+ this data will be bundled in the SYN packet.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#connect(net.i2p.data.Destination,net.i2p.client.streaming.I2PSocketOptions)">connect</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - Destination to connect to</dd>
+<dd><code>options</code> - I2P socket options to be used for connecting, may be null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>I2PSocket if successful</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/NoRouteToHostException.html?is-external=true" title="class or interface in java.net" class="externalLink">NoRouteToHostException</a></code> - if the peer is not found or not reachable</dd>
+<dd><code><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a></code> - if there is some other I2P-related problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="connect(net.i2p.data.Destination)">connect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a></span>&nbsp;<span class="memberName">connect</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</span>
+                  throws <span class="exceptions"><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/NoRouteToHostException.html?is-external=true" title="class or interface in java.net" class="externalLink">NoRouteToHostException</a></span></div>
+<div class="block">Create a new connected socket. Blocks until the socket is created,
+ unless the connectDelay option (i2p.streaming.connectDelay) is
+ set and greater than zero in the default options. If so this will return immediately,
+ and the client may quickly write initial data to the socket and
+ this data will be bundled in the SYN packet.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#connect(net.i2p.data.Destination)">connect</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - Destination to connect to</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>I2PSocket if successful</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/NoRouteToHostException.html?is-external=true" title="class or interface in java.net" class="externalLink">NoRouteToHostException</a></code> - if the peer is not found or not reachable</dd>
+<dd><code><a href="../../../I2PException.html" title="class in net.i2p">I2PException</a></code> - if there is some other I2P-related problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="connectToSocket(net.i2p.data.Destination)">connectToSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></span>&nbsp;<span class="memberName">connectToSocket</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Like connect() but returns a real Socket, and throws only IOE,
+  for easier porting of apps.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#connectToSocket(net.i2p.data.Destination)">connectToSocket</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="connectToSocket(net.i2p.data.Destination,int)">connectToSocket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></span>&nbsp;<span class="memberName">connectToSocket</span>&#8203;(<span class="arguments"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;peer,
+int&nbsp;timeout)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Like connect() but returns a real Socket, and throws only IOE,
+  for easier porting of apps.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#connectToSocket(net.i2p.data.Destination,int)">connectToSocket</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timeout</code> - ms if &gt; 0, forces blocking (disables connectDelay)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destroySocketManager()">destroySocketManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">destroySocketManager</span>()</div>
+<div class="block">Destroy the socket manager, freeing all the associated resources.  This
+ method will block until all the managed sockets are closed.
+
+ CANNOT be restarted.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#destroySocketManager()">destroySocketManager</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isDestroyed()">isDestroyed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isDestroyed</span>()</div>
+<div class="block">Has the socket manager been destroyed?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#isDestroyed()">isDestroyed</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="listSockets()">listSockets</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&gt;</span>&nbsp;<span class="memberName">listSockets</span>()</div>
+<div class="block">Retrieve a set of currently connected I2PSockets, either initiated locally or remotely.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#listSockets()">listSockets</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>set of currently connected I2PSockets</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getName</span>()</div>
+<div class="block">For logging / diagnostics only</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setName(java.lang.String)">setName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setName</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="block">For logging / diagnostics only</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#setName(java.lang.String)">setName</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">addDisconnectListener</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addDisconnectListener</span>&#8203;(<span class="arguments"><a href="../I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a>&nbsp;lsnr)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#addDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">addDisconnectListener</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">removeDisconnectListener</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeDisconnectListener</span>&#8203;(<span class="arguments"><a href="../I2PSocketManager.DisconnectListener.html" title="interface in net.i2p.client.streaming">I2PSocketManager.DisconnectListener</a>&nbsp;lsnr)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSocketManager.html#removeDisconnectListener(net.i2p.client.streaming.I2PSocketManager.DisconnectListener)">removeDisconnectListener</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PSocketManagerFull.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

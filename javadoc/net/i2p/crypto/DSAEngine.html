@@ -1,0 +1,613 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DSAEngine - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.crypto, class: DSAEngine">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":9,"i1":42,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DSAEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.crypto</a></div>
+<h1 title="Class DSAEngine" class="title">Class DSAEngine</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.crypto.DSAEngine</div>
+</div>
+<section class="description">
+<hr>
+<pre>public final class <span class="typeNameLabel">DSAEngine</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Sign and verify using DSA-SHA1 and other signature algorithms.
+  Also contains methods to sign and verify using a SHA-256 Hash.
+
+  The primary implementation is code from TheCryto.
+  As of 0.8.7, also included is an alternate implementation using java.security libraries, which
+  is slightly slower. This implementation could in the future be easily modified
+  to use a new signing algorithm from java.security when we change the signing algorithm.
+
+  Params and rv's changed from Hash to SHA1Hash for version 0.8.1
+  Hash variants of sign() and verifySignature() restored in 0.8.3, required by Syndie.
+
+  As of 0.9.9, certain methods support RSA and ECDSA keys and signatures, i.e. all types
+  specified in SigType. The type is specified by the getType() method in
+  Signature, SigningPublicKey, and SigningPrivateKey. See Javadocs for individual
+  methods for the supported types. Methods encountering an unsupported type
+  will throw an IllegalArgumentException.
+
+  EdDSA support added in 0.9.15</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext)">DSAEngine</a></span>&#8203;(<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>static <a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateHash(byte%5B%5D,int,int)">calculateHash</a></span>&#8203;(byte[]&nbsp;source,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateHash(java.io.InputStream)">calculateHash</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>static <a href="DSAEngine.html" title="class in net.i2p.crypto">DSAEngine</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstance()">getInstance</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(byte%5B%5D,int,int,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;length,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Sign using any key type as of 0.9.12 (DSA-SHA1 only prior to that)</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(byte%5B%5D,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(byte[]&nbsp;data,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Sign using any key type.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(java.io.InputStream,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Sign using DSA-SHA1 ONLY.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.crypto.SHA1Hash,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(<a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Sign using DSA-SHA1 ONLY.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.data.Hash,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Nonstandard.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.data.SimpleDataStructure,java.security.PrivateKey,net.i2p.crypto.SigType)">sign</a></span>&#8203;(<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PrivateKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PrivateKey</a>&nbsp;privKey,
+<a href="SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Generic signature type.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.data.SimpleDataStructure,net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</code></th>
+<td class="colLast">
+<div class="block">Generic signature type.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,byte%5B%5D,int,int,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+byte[]&nbsp;signedData,
+int&nbsp;offset,
+int&nbsp;size,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Verify using any sig type as of 0.9.12 (DSA only prior to that)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,byte%5B%5D,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+byte[]&nbsp;signedData,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Verify using any sig type.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,java.io.InputStream,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Verify using DSA-SHA1 ONLY</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,net.i2p.crypto.SHA1Hash,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Verify using DSA-SHA1 ONLY</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,net.i2p.data.Hash,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Nonstandard.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,net.i2p.data.SimpleDataStructure,java.security.PublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PublicKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PublicKey</a>&nbsp;pubKey)</code></th>
+<td class="colLast">
+<div class="block">Generic signature type.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.Signature,net.i2p.data.SimpleDataStructure,net.i2p.data.SigningPublicKey)">verifySignature</a></span>&#8203;(<a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</code></th>
+<td class="colLast">
+<div class="block">Generic signature type.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext)">DSAEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">DSAEngine</span>&#8203;(<span class="arguments"><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstance()">getInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="DSAEngine.html" title="class in net.i2p.crypto">DSAEngine</a></span>&nbsp;<span class="memberName">getInstance</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,byte[],net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+byte[]&nbsp;signedData,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Verify using any sig type.
+  Uses TheCrypto code for DSA-SHA1 unless configured to use the java.security libraries.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,byte[],int,int,net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+byte[]&nbsp;signedData,
+int&nbsp;offset,
+int&nbsp;size,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Verify using any sig type as of 0.9.12 (DSA only prior to that)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,java.io.InputStream,net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Verify using DSA-SHA1 ONLY</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,net.i2p.crypto.SHA1Hash,net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Verify using DSA-SHA1 ONLY</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA-1 hash, NOT a SHA-256 hash</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,net.i2p.data.Hash,net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Nonstandard.
+  Used by Syndie.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3 (restored, was removed in 0.8.1 and 0.8.2)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,net.i2p.data.SimpleDataStructure,net.i2p.data.SigningPublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;verifyingKey)</span></div>
+<div class="block">Generic signature type.
+
+  Warning, nonstandard for EdDSA, double-hashes, not recommended.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA1Hash, Hash, Hash384, or Hash512</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.Signature,net.i2p.data.SimpleDataStructure,java.security.PublicKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a>&nbsp;signature,
+<a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PublicKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PublicKey</a>&nbsp;pubKey)</span></div>
+<div class="block">Generic signature type.
+  If you have a Java pubkey, use this, so you don't lose the key parameters,
+  which may be different than the ones defined in SigType.
+
+  Warning, nonstandard for EdDSA, double-hashes, not recommended.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA1Hash, Hash, Hash384, or Hash512</dd>
+<dd><code>pubKey</code> - Java key</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(byte[],net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Sign using any key type.
+  Uses TheCrypto code unless configured to use the java.security libraries.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(byte[],int,int,net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;length,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Sign using any key type as of 0.9.12 (DSA-SHA1 only prior to that)</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(java.io.InputStream,net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Sign using DSA-SHA1 ONLY.
+  Reads the stream until EOF. Does not close the stream.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.crypto.SHA1Hash,net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Sign using DSA-SHA1 ONLY.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA-1 hash, NOT a SHA-256 hash</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.data.Hash,net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Nonstandard.
+  Used by Syndie.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3 (restored, was removed in 0.8.1 and 0.8.2)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.data.SimpleDataStructure,net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;signingKey)</span></div>
+<div class="block">Generic signature type.
+
+  Warning, nonstandard for EdDSA, double-hashes, not recommended.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA1Hash, Hash, Hash384, or Hash512</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.data.SimpleDataStructure,java.security.PrivateKey,net.i2p.crypto.SigType)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&nbsp;hash,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PrivateKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PrivateKey</a>&nbsp;privKey,
+<a href="SigType.html" title="enum in net.i2p.crypto">SigType</a>&nbsp;type)</span></div>
+<div class="block">Generic signature type.
+  If you have a Java privkey, use this, so you don't lose the key parameters,
+  which may be different than the ones defined in SigType.
+
+  Warning, nonstandard for EdDSA, double-hashes, not recommended.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hash</code> - SHA1Hash, Hash, Hash384, or Hash512</dd>
+<dd><code>privKey</code> - Java key</dd>
+<dd><code>type</code> - returns a Signature of this type</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="calculateHash(java.io.InputStream)">calculateHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a></span>&nbsp;<span class="memberName">calculateHash</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<div class="block">Reads the stream until EOF. Does not close the stream.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>hash SHA-1 hash, NOT a SHA-256 hash</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="calculateHash(byte[],int,int)">calculateHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="SHA1Hash.html" title="class in net.i2p.crypto">SHA1Hash</a></span>&nbsp;<span class="memberName">calculateHash</span>&#8203;(<span class="arguments">byte[]&nbsp;source,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>hash SHA-1 hash, NOT a SHA-256 hash</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DSAEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

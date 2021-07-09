@@ -1,0 +1,817 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>EdDSAEngine - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.crypto.eddsa, class: EdDSAEngine">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":42,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EdDSAEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.crypto.eddsa</a></div>
+<h1 title="Class EdDSAEngine" class="title">Class EdDSAEngine</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">java.security.SignatureSpi</a>
+<div class="inheritance"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true" title="class or interface in java.security" class="externalLink">java.security.Signature</a>
+<div class="inheritance">net.i2p.crypto.eddsa.EdDSAEngine</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="RedDSAEngine.html" title="class in net.i2p.crypto.eddsa">RedDSAEngine</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">EdDSAEngine</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true" title="class or interface in java.security" class="externalLink">Signature</a></pre>
+<div class="block">Signing and verification for EdDSA.
+<p>
+ The EdDSA sign and verify algorithms do not interact well with
+ the Java Signature API, as one or more update() methods must be
+ called before sign() or verify(). Using the standard API,
+ this implementation must copy and buffer all data passed in
+ via update().
+</p><p>
+ This implementation offers two ways to avoid this copying,
+ but only if all data to be signed or verified is available
+ in a single byte array.
+</p><p>
+Option 1:
+</p><ol>
+<li>Call initSign() or initVerify() as usual.
+</li><li>Call setParameter(ONE_SHOT_MODE)
+</li><li>Call update(byte[]) or update(byte[], int, int) exactly once
+</li><li>Call sign() or verify() as usual.
+</li><li>If doing additional one-shot signs or verifies with this object, you must
+         call setParameter(ONE_SHOT_MODE) each time
+</li></ol>
+
+<p>
+Option 2:
+</p><ol>
+<li>Call initSign() or initVerify() as usual.
+</li><li>Call one of the signOneShot() or verifyOneShot() methods.
+</li><li>If doing additional one-shot signs or verifies with this object,
+         just call signOneShot() or verifyOneShot() again.
+</li></ol></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>str4d</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#digest">digest</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/security/spec/AlgorithmParameterSpec.html?is-external=true" title="class or interface in java.security.spec" class="externalLink">AlgorithmParameterSpec</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ONE_SHOT_MODE">ONE_SHOT_MODE</a></span></code></th>
+<td class="colLast">
+<div class="block">To efficiently sign or verify data in one shot, pass this to setParameters()
+  after initSign() or initVerify() but BEFORE THE FIRST AND ONLY
+  update(data) or update(data, off, len).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SIGNATURE_ALGORITHM">SIGNATURE_ALGORITHM</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true" title="class or interface in java.security" class="externalLink">Signature</a></h3>
+<a id="fields.inherited.from.class.java.security.Signature">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#SIGN" title="class or interface in java.security" class="externalLink">SIGN</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#state" title="class or interface in java.security" class="externalLink">state</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#UNINITIALIZED" title="class or interface in java.security" class="externalLink">UNINITIALIZED</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#VERIFY" title="class or interface in java.security" class="externalLink">VERIFY</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></h3>
+<a id="fields.inherited.from.class.java.security.SignatureSpi">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#appRandom" title="class or interface in java.security" class="externalLink">appRandom</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">EdDSAEngine</a></span>()</code></th>
+<td class="colLast">
+<div class="block">No specific EdDSA-internal hash requested, allows any EdDSA key.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.security.MessageDigest)">EdDSAEngine</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a>&nbsp;digest)</code></th>
+<td class="colLast">
+<div class="block">Specific EdDSA-internal hash requested, only matching keys will be allowed.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#digestInitSign(net.i2p.crypto.eddsa.EdDSAPrivateKey)">digestInitSign</a></span>&#8203;(<a href="EdDSAPrivateKey.html" title="class in net.i2p.crypto.eddsa">EdDSAPrivateKey</a>&nbsp;privKey)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineGetParameter(java.lang.String)">engineGetParameter</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;param)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineInitSign(java.security.PrivateKey)">engineInitSign</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PrivateKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PrivateKey</a>&nbsp;privateKey)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineInitVerify(java.security.PublicKey)">engineInitVerify</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/security/PublicKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PublicKey</a>&nbsp;publicKey)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineSetParameter(java.lang.String,java.lang.Object)">engineSetParameter</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;param,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">replaced with <a href="#engineSetParameter(java.security.spec.AlgorithmParameterSpec)">this</a></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineSetParameter(java.security.spec.AlgorithmParameterSpec)">engineSetParameter</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/security/spec/AlgorithmParameterSpec.html?is-external=true" title="class or interface in java.security.spec" class="externalLink">AlgorithmParameterSpec</a>&nbsp;spec)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>protected byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineSign()">engineSign</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineUpdate(byte)">engineUpdate</a></span>&#8203;(byte&nbsp;b)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineUpdate(byte%5B%5D,int,int)">engineUpdate</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;off,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#engineVerify(byte%5B%5D)">engineVerify</a></span>&#8203;(byte[]&nbsp;sigBytes)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#signOneShot(byte%5B%5D)">signOneShot</a></span>&#8203;(byte[]&nbsp;data)</code></th>
+<td class="colLast">
+<div class="block">To efficiently sign all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#signOneShot(byte%5B%5D,int,int)">signOneShot</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len)</code></th>
+<td class="colLast">
+<div class="block">To efficiently sign all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOneShot(byte%5B%5D,byte%5B%5D)">verifyOneShot</a></span>&#8203;(byte[]&nbsp;data,
+byte[]&nbsp;signature)</code></th>
+<td class="colLast">
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOneShot(byte%5B%5D,byte%5B%5D,int,int)">verifyOneShot</a></span>&#8203;(byte[]&nbsp;data,
+byte[]&nbsp;signature,
+int&nbsp;sigoff,
+int&nbsp;siglen)</code></th>
+<td class="colLast">
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOneShot(byte%5B%5D,int,int,byte%5B%5D)">verifyOneShot</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len,
+byte[]&nbsp;signature)</code></th>
+<td class="colLast">
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOneShot(byte%5B%5D,int,int,byte%5B%5D,int,int)">verifyOneShot</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len,
+byte[]&nbsp;signature,
+int&nbsp;sigoff,
+int&nbsp;siglen)</code></th>
+<td class="colLast">
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true" title="class or interface in java.security" class="externalLink">Signature</a></h3>
+<a id="methods.inherited.from.class.java.security.Signature">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#clone()" title="class or interface in java.security" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getAlgorithm()" title="class or interface in java.security" class="externalLink">getAlgorithm</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getInstance(java.lang.String)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getInstance(java.lang.String,java.lang.String)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getInstance(java.lang.String,java.security.Provider)" title="class or interface in java.security" class="externalLink">getInstance</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getParameter(java.lang.String)" title="class or interface in java.security" class="externalLink">getParameter</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getParameters()" title="class or interface in java.security" class="externalLink">getParameters</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#getProvider()" title="class or interface in java.security" class="externalLink">getProvider</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#initSign(java.security.PrivateKey)" title="class or interface in java.security" class="externalLink">initSign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#initSign(java.security.PrivateKey,java.security.SecureRandom)" title="class or interface in java.security" class="externalLink">initSign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#initVerify(java.security.cert.Certificate)" title="class or interface in java.security" class="externalLink">initVerify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#initVerify(java.security.PublicKey)" title="class or interface in java.security" class="externalLink">initVerify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#setParameter(java.lang.String,java.lang.Object)" title="class or interface in java.security" class="externalLink">setParameter</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#setParameter(java.security.spec.AlgorithmParameterSpec)" title="class or interface in java.security" class="externalLink">setParameter</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#sign()" title="class or interface in java.security" class="externalLink">sign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#sign(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">sign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#toString()" title="class or interface in java.security" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#update(byte)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#update(byte%5B%5D)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#update(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#update(java.nio.ByteBuffer)" title="class or interface in java.security" class="externalLink">update</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#verify(byte%5B%5D)" title="class or interface in java.security" class="externalLink">verify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/Signature.html?is-external=true#verify(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">verify</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.security.<a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></h3>
+<a id="methods.inherited.from.class.java.security.SignatureSpi">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineGetParameters()" title="class or interface in java.security" class="externalLink">engineGetParameters</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineInitSign(java.security.PrivateKey,java.security.SecureRandom)" title="class or interface in java.security" class="externalLink">engineInitSign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineSign(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">engineSign</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineUpdate(java.nio.ByteBuffer)" title="class or interface in java.security" class="externalLink">engineUpdate</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineVerify(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">engineVerify</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="SIGNATURE_ALGORITHM">SIGNATURE_ALGORITHM</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">SIGNATURE_ALGORITHM</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.crypto.eddsa.EdDSAEngine.SIGNATURE_ALGORITHM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="digest">digest</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a></span>&nbsp;<span class="memberName">digest</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ONE_SHOT_MODE">ONE_SHOT_MODE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/spec/AlgorithmParameterSpec.html?is-external=true" title="class or interface in java.security.spec" class="externalLink">AlgorithmParameterSpec</a></span>&nbsp;<span class="memberName">ONE_SHOT_MODE</span></div>
+<div class="block">To efficiently sign or verify data in one shot, pass this to setParameters()
+  after initSign() or initVerify() but BEFORE THE FIRST AND ONLY
+  update(data) or update(data, off, len). The data reference will be saved
+  and then used in sign() or verify() without copying the data.
+  Violate these rules and you will get a SignatureException.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">EdDSAEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">EdDSAEngine</span>()</div>
+<div class="block">No specific EdDSA-internal hash requested, allows any EdDSA key.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.security.MessageDigest)">EdDSAEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">EdDSAEngine</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html?is-external=true" title="class or interface in java.security" class="externalLink">MessageDigest</a>&nbsp;digest)</span></div>
+<div class="block">Specific EdDSA-internal hash requested, only matching keys will be allowed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>digest</code> - the hash algorithm that keys must have to sign or verify.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineInitSign(java.security.PrivateKey)">engineInitSign</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineInitSign</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/PrivateKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PrivateKey</a>&nbsp;privateKey)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidKeyException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidKeyException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineInitSign(java.security.PrivateKey)" title="class or interface in java.security" class="externalLink">engineInitSign</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidKeyException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidKeyException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="digestInitSign(net.i2p.crypto.eddsa.EdDSAPrivateKey)">digestInitSign</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">digestInitSign</span>&#8203;(<span class="arguments"><a href="EdDSAPrivateKey.html" title="class in net.i2p.crypto.eddsa">EdDSAPrivateKey</a>&nbsp;privKey)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineInitVerify(java.security.PublicKey)">engineInitVerify</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineInitVerify</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/PublicKey.html?is-external=true" title="class or interface in java.security" class="externalLink">PublicKey</a>&nbsp;publicKey)</span>
+                         throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidKeyException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidKeyException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineInitVerify(java.security.PublicKey)" title="class or interface in java.security" class="externalLink">engineInitVerify</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidKeyException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidKeyException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineUpdate(byte)">engineUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineUpdate</span>&#8203;(<span class="arguments">byte&nbsp;b)</span>
+                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineUpdate(byte)" title="class or interface in java.security" class="externalLink">engineUpdate</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if in one-shot mode</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineUpdate(byte[],int,int)">engineUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineUpdate</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;off,
+int&nbsp;len)</span>
+                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineUpdate(byte%5B%5D,int,int)" title="class or interface in java.security" class="externalLink">engineUpdate</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if one-shot rules are violated</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineSign()">engineSign</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">engineSign</span>()
+                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineSign()" title="class or interface in java.security" class="externalLink">engineSign</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineVerify(byte[])">engineVerify</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">engineVerify</span>&#8203;(<span class="arguments">byte[]&nbsp;sigBytes)</span>
+                        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineVerify(byte%5B%5D)" title="class or interface in java.security" class="externalLink">engineVerify</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="signOneShot(byte[])">signOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">signOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently sign all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data)
+  sig = sign()
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - the message to be signed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the signature</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="signOneShot(byte[],int,int)">signOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">signOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently sign all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data, off, len)
+  sig = sign()
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - byte array containing the message to be signed</dd>
+<dd><code>off</code> - the start of the message inside data</dd>
+<dd><code>len</code> - the length of the message</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the signature</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOneShot(byte[],byte[])">verifyOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifyOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+byte[]&nbsp;signature)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data)
+  ok = verify(signature)
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - the message that was signed</dd>
+<dd><code>signature</code> - of the message</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the signature is valid, false otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOneShot(byte[],int,int,byte[])">verifyOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifyOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len,
+byte[]&nbsp;signature)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data, off, len)
+  ok = verify(signature)
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - byte array containing the message that was signed</dd>
+<dd><code>off</code> - the start of the message inside data</dd>
+<dd><code>len</code> - the length of the message</dd>
+<dd><code>signature</code> - of the message</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the signature is valid, false otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOneShot(byte[],byte[],int,int)">verifyOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifyOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+byte[]&nbsp;signature,
+int&nbsp;sigoff,
+int&nbsp;siglen)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data)
+  ok = verify(signature, sigoff, siglen)
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - the message that was signed</dd>
+<dd><code>signature</code> - byte array containing the signature</dd>
+<dd><code>sigoff</code> - the start of the signature</dd>
+<dd><code>siglen</code> - the length of the signature</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the signature is valid, false otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOneShot(byte[],int,int,byte[],int,int)">verifyOneShot</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifyOneShot</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;off,
+int&nbsp;len,
+byte[]&nbsp;signature,
+int&nbsp;sigoff,
+int&nbsp;siglen)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></span></div>
+<div class="block">To efficiently verify all the data in one shot, if it is available,
+  use this method, which will avoid copying the data.
+
+ Same as:
+<pre>
+  setParameter(ONE_SHOT_MODE)
+  update(data, off, len)
+  ok = verify(signature, sigoff, siglen)
+</pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - byte array containing the message that was signed</dd>
+<dd><code>off</code> - the start of the message inside data</dd>
+<dd><code>len</code> - the length of the message</dd>
+<dd><code>signature</code> - byte array containing the signature</dd>
+<dd><code>sigoff</code> - the start of the signature</dd>
+<dd><code>siglen</code> - the length of the signature</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the signature is valid, false otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureException.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureException</a></code> - if update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineSetParameter(java.security.spec.AlgorithmParameterSpec)">engineSetParameter</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineSetParameter</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/spec/AlgorithmParameterSpec.html?is-external=true" title="class or interface in java.security.spec" class="externalLink">AlgorithmParameterSpec</a>&nbsp;spec)</span>
+                           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidAlgorithmParameterException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidAlgorithmParameterException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineSetParameter(java.security.spec.AlgorithmParameterSpec)" title="class or interface in java.security" class="externalLink">engineSetParameter</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/InvalidAlgorithmParameterException.html?is-external=true" title="class or interface in java.security" class="externalLink">InvalidAlgorithmParameterException</a></code> - if spec is ONE_SHOT_MODE and update() already called</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ONE_SHOT_MODE"><code>ONE_SHOT_MODE</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineSetParameter(java.lang.String,java.lang.Object)">engineSetParameter</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">engineSetParameter</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;param,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;value)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">replaced with <a href="#engineSetParameter(java.security.spec.AlgorithmParameterSpec)">this</a></div>
+</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineSetParameter(java.lang.String,java.lang.Object)" title="class or interface in java.security" class="externalLink">engineSetParameter</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="engineGetParameter(java.lang.String)">engineGetParameter</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">engineGetParameter</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;param)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true#engineGetParameter(java.lang.String)" title="class or interface in java.security" class="externalLink">engineGetParameter</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/SignatureSpi.html?is-external=true" title="class or interface in java.security" class="externalLink">SignatureSpi</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EdDSAEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

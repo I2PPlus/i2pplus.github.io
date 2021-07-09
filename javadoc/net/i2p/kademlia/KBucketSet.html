@@ -1,0 +1,548 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>KBucketSet - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.kademlia, class: KBucketSet">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KBucketSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.kademlia</a></div>
+<h1 title="Class KBucketSet" class="title">Class KBucketSet&lt;T extends <a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.kademlia.KBucketSet&lt;T&gt;</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">KBucketSet&lt;T extends <a href="../data/SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">In-memory storage of buckets sorted by the XOR metric from the base (us)
+ passed in via the constructor.
+ This starts with one bucket covering the whole key space, and
+ may eventually be split to a max of the number of bits in the data type
+ (160 for SHA1Hash or 256 for Hash),
+ times 2**(B-1) for Kademlia value B.
+
+ Refactored from net.i2p.router.networkdb.kademlia</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2 in i2psnark, moved to core in 0.9.10</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,T,int,int)">KBucketSet</a></span>&#8203;(<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;us,
+int&nbsp;max,
+int&nbsp;b)</code></th>
+<td class="colLast">
+<div class="block">Use the default trim strategy, which removes a random entry.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,T,int,int,net.i2p.kademlia.KBucketTrimmer)">KBucketSet</a></span>&#8203;(<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;us,
+int&nbsp;max,
+int&nbsp;b,
+<a href="KBucketTrimmer.html" title="interface in net.i2p.kademlia">KBucketTrimmer</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;trimmer)</code></th>
+<td class="colLast">
+<div class="block">Use the supplied trim strategy.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(T)">add</a></span>&#8203;(<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) <a href="KBucketSet.html" title="type parameter in KBucketSet">T</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateRandomKey(net.i2p.kademlia.KBucket)">generateRandomKey</a></span>&#8203;(<a href="KBucket.html" title="interface in net.i2p.kademlia">KBucket</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;bucket)</code></th>
+<td class="colLast">
+<div class="block">Generate a random key to go within this bucket
+  Package private for testing only.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAll()">getAll</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAll(java.util.Set)">getAll</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAll(net.i2p.kademlia.SelectionCollector)">getAll</a></span>&#8203;(<a href="SelectionCollector.html" title="interface in net.i2p.kademlia">SelectionCollector</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;collector)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucket.html" title="interface in net.i2p.kademlia">KBucket</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBuckets()">getBuckets</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returned list is a copy of the bucket list, closest first,
+  with the actual buckets (not a copy).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClosest(int)">getClosest</a></span>&#8203;(int&nbsp;max)</code></th>
+<td class="colLast">
+<div class="block">The keys closest to us.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClosest(int,java.util.Collection)">getClosest</a></span>&#8203;(int&nbsp;max,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</code></th>
+<td class="colLast">
+<div class="block">The keys closest to us.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClosest(T,int)">getClosest</a></span>&#8203;(<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key,
+int&nbsp;max)</code></th>
+<td class="colLast">
+<div class="block">The keys closest to the key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClosest(T,int,java.util.Collection)">getClosest</a></span>&#8203;(<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key,
+int&nbsp;max,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</code></th>
+<td class="colLast">
+<div class="block">The keys closest to the key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExploreKeys(long)">getExploreKeys</a></span>&#8203;(long&nbsp;age)</code></th>
+<td class="colLast">
+<div class="block">For every bucket that hasn't been updated in this long,
+  or isn't close to full,
+  generate a random key that would be a member of that bucket.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRange(T)">getRange</a></span>&#8203;(<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">The number of bits minus 1 (range number) for the xor of the key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(T)">remove</a></span>&#8203;(<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;entry)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The current number of entries.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.data.SimpleDataStructure,int,int)">
+</a><a id="&lt;init&gt;(net.i2p.I2PAppContext,T,int,int)">KBucketSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KBucketSet</span>&#8203;(<span class="arguments"><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;us,
+int&nbsp;max,
+int&nbsp;b)</span></div>
+<div class="block">Use the default trim strategy, which removes a random entry.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>us</code> - the local identity (typically a SHA1Hash or Hash)
+           The class must have a zero-argument constructor.</dd>
+<dd><code>max</code> - the Kademlia value "k", the max per bucket, k &gt;= 4</dd>
+<dd><code>b</code> - the Kademlia value "b", split buckets an extra 2**(b-1) times,
+           b &gt; 0, use 1 for bittorrent, Kademlia paper recommends 5</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.data.SimpleDataStructure,int,int,net.i2p.kademlia.KBucketTrimmer)">
+</a><a id="&lt;init&gt;(net.i2p.I2PAppContext,T,int,int,net.i2p.kademlia.KBucketTrimmer)">KBucketSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KBucketSet</span>&#8203;(<span class="arguments"><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;us,
+int&nbsp;max,
+int&nbsp;b,
+<a href="KBucketTrimmer.html" title="interface in net.i2p.kademlia">KBucketTrimmer</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;trimmer)</span></div>
+<div class="block">Use the supplied trim strategy.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="add(net.i2p.data.SimpleDataStructure)">
+</a><a id="add(T)">add</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">add</span>&#8203;(<span class="arguments"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;peer)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the peer is new to the bucket it goes in, or false if it was
+  already in it. Always returns false on an attempt to add ourselves.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="size()">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
+<div class="block">The current number of entries.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(net.i2p.data.SimpleDataStructure)">
+</a><a id="remove(T)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;entry)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clear()">clear</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAll()">getAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getAll</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy in a new set</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAll(java.util.Set)">getAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getAll</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy in a new set</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAll(net.i2p.kademlia.SelectionCollector)">getAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">getAll</span>&#8203;(<span class="arguments"><a href="SelectionCollector.html" title="interface in net.i2p.kademlia">SelectionCollector</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;collector)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClosest(int)">getClosest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getClosest</span>&#8203;(<span class="arguments">int&nbsp;max)</span></div>
+<div class="block">The keys closest to us.
+  Returned list will never contain us.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, closest first</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClosest(int,java.util.Collection)">getClosest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getClosest</span>&#8203;(<span class="arguments">int&nbsp;max,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</span></div>
+<div class="block">The keys closest to us.
+  Returned list will never contain us.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, closest first</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClosest(net.i2p.data.SimpleDataStructure,int)">
+</a><a id="getClosest(T,int)">getClosest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getClosest</span>&#8203;(<span class="arguments"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key,
+int&nbsp;max)</span></div>
+<div class="block">The keys closest to the key.
+  Returned list will never contain us.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, closest first</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClosest(net.i2p.data.SimpleDataStructure,int,java.util.Collection)">
+</a><a id="getClosest(T,int,java.util.Collection)">getClosest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getClosest</span>&#8203;(<span class="arguments"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key,
+int&nbsp;max,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;toIgnore)</span></div>
+<div class="block">The keys closest to the key.
+  Returned list will never contain us.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, closest first</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBuckets()">getBuckets</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucket.html" title="interface in net.i2p.kademlia">KBucket</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&gt;</span>&nbsp;<span class="memberName">getBuckets</span>()</div>
+<div class="block">Returned list is a copy of the bucket list, closest first,
+  with the actual buckets (not a copy).
+
+  Primarily for testing. You shouldn't ever need to get all the buckets.
+  Use getClosest() or getAll() instead to get the keys.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRange(net.i2p.data.SimpleDataStructure)">
+</a><a id="getRange(T)">getRange</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getRange</span>&#8203;(<span class="arguments"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&nbsp;key)</span></div>
+<div class="block">The number of bits minus 1 (range number) for the xor of the key.
+  Package private for testing only. Others shouldn't need this.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 to max-1 or -1 for us</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getExploreKeys(long)">getExploreKeys</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;</span>&nbsp;<span class="memberName">getExploreKeys</span>&#8203;(<span class="arguments">long&nbsp;age)</span></div>
+<div class="block">For every bucket that hasn't been updated in this long,
+  or isn't close to full,
+  generate a random key that would be a member of that bucket.
+  The returned keys may be searched for to "refresh" the buckets.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, closest first</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="generateRandomKey(net.i2p.kademlia.KBucket)">generateRandomKey</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="KBucketSet.html" title="type parameter in KBucketSet">T</a></span>&nbsp;<span class="memberName">generateRandomKey</span>&#8203;(<span class="arguments"><a href="KBucket.html" title="interface in net.i2p.kademlia">KBucket</a>&lt;<a href="KBucketSet.html" title="type parameter in KBucketSet">T</a>&gt;&nbsp;bucket)</span></div>
+<div class="block">Generate a random key to go within this bucket
+  Package private for testing only. Others shouldn't need this.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KBucketSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

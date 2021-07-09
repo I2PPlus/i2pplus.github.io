@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DecayingHashSet - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.util, class: DecayingHashSet">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DecayingHashSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.util</a></div>
+<h1 title="Class DecayingHashSet" class="title">Class DecayingHashSet</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">net.i2p.router.util.DecayingBloomFilter</a>
+<div class="inheritance">net.i2p.router.util.DecayingHashSet</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">DecayingHashSet</span>
+extends <a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></pre>
+<div class="block">Double buffered hash set.
+ Since DecayingBloomFilter was instantiated 4 times for a total memory usage
+ of 8MB, it seemed like we could do a lot better, given these usage stats
+ on a class L router:
+
+      ./router/java/src/net/i2p/router/tunnel/BuildMessageProcessor.java:
+           32 bytes, peak 10 entries in 1m
+           (320 peak entries seen on fast router)
+
+      ./router/java/src/net/i2p/router/transport/udp/InboundMessageFragments.java:
+           4 bytes, peak 150 entries in 10s
+           (1600 peak entries seen on fast router)
+
+      ./router/java/src/net/i2p/router/MessageValidator.java:
+           8 bytes, peak 1K entries in 2m
+           (36K peak entries seen on fast router)
+
+      ./router/java/src/net/i2p/router/tunnel/BloomFilterIVValidator.java:
+           16 bytes, peak 15K entries in 10m
+
+ If the ArrayWrapper object in the HashSet is 50 bytes, and BloomSHA1(23, 11) is 1MB,
+ then for less than 20K entries this is smaller.
+ And this uses space proportional to traffic, so it doesn't penalize small routers
+ with a fixed 8MB.
+ So let's try it for the first 2 or 3, for now.
+
+ Also, DBF is synchronized, and uses SimpleTimer.
+ Here we use a read/write lock, with synchronization only
+ when switching double buffers, and we use SimpleTimer2.
+
+ Yes, we could stare at stats all day, and try to calculate an acceptable
+ false-positive rate for each of the above uses, then estimate the DBF size
+ required to meet that rate for a given usage. Or even start adjusting the
+ Bloom filter m and k values on a per-DBF basis. But it's a whole lot easier
+ to implement something with a zero false positive rate, and uses less memory
+ for almost all bandwidth classes.
+
+ This has a strictly zero false positive rate for &lt;= 8 byte keys.
+ For larger keys, it is 1 / (2**64) ~= 5E-20, which is better than
+ DBF for any entry count greater than about 14K.
+
+ DBF has a zero false negative rate over the period
+ 2 * durationMs. And a 100% false negative rate beyond that period.
+ This has the same properties.
+
+ This performs about twice as fast as DBF in the test below.</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>zzz</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.util.<a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.util.DecayingBloomFilter">
+</a><code><a href="DecayingBloomFilter.html#_context">_context</a>, <a href="DecayingBloomFilter.html#_currentDuplicates">_currentDuplicates</a>, <a href="DecayingBloomFilter.html#_decayEvent">_decayEvent</a>, <a href="DecayingBloomFilter.html#_durationMs">_durationMs</a>, <a href="DecayingBloomFilter.html#_entryBytes">_entryBytes</a>, <a href="DecayingBloomFilter.html#_keepDecaying">_keepDecaying</a>, <a href="DecayingBloomFilter.html#_log">_log</a>, <a href="DecayingBloomFilter.html#_name">_name</a>, <a href="DecayingBloomFilter.html#_reorganizeLock">_reorganizeLock</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,int,int)">DecayingHashSet</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+int&nbsp;durationMs,
+int&nbsp;entryBytes)</code></th>
+<td class="colLast">
+<div class="block">Create a double-buffered hash set that will decay its entries over time.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,int,int,java.lang.String)">DecayingHashSet</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+int&nbsp;durationMs,
+int&nbsp;entryBytes,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(byte%5B%5D,int,int)">add</a></span>&#8203;(byte[]&nbsp;entry,
+int&nbsp;off,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(long)">add</a></span>&#8203;(long&nbsp;entry)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#decay()">decay</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFalsePositiveRate()">getFalsePositiveRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">pointless, only used for logging elsewhere</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInsertedCount()">getInsertedCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">unsynchronized but only used for logging elsewhere</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isKnown(long)">isKnown</a></span>&#8203;(long&nbsp;entry)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopDecaying()">stopDecaying</a></span>()</code></th>
+<td class="colLast">
+<div class="block">super doesn't call clear, but neither do the users, so it seems like we should here</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.util.<a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.util.DecayingBloomFilter">
+</a><code><a href="DecayingBloomFilter.html#add(byte%5B%5D)">add</a>, <a href="DecayingBloomFilter.html#getCurrentDuplicateCount()">getCurrentDuplicateCount</a>, <a href="DecayingBloomFilter.html#getReadLock()">getReadLock</a>, <a href="DecayingBloomFilter.html#getWriteLock()">getWriteLock</a>, <a href="DecayingBloomFilter.html#releaseReadLock()">releaseReadLock</a>, <a href="DecayingBloomFilter.html#releaseWriteLock()">releaseWriteLock</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,int,int)">DecayingHashSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">DecayingHashSet</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+int&nbsp;durationMs,
+int&nbsp;entryBytes)</span></div>
+<div class="block">Create a double-buffered hash set that will decay its entries over time.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>durationMs</code> - entries last for at least this long, but no more than twice this long</dd>
+<dd><code>entryBytes</code> - how large are the entries to be added?  1 to 32 bytes</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,int,int,java.lang.String)">DecayingHashSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">DecayingHashSet</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+int&nbsp;durationMs,
+int&nbsp;entryBytes,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - just for logging / debugging / stats</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInsertedCount()">getInsertedCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getInsertedCount</span>()</div>
+<div class="block">unsynchronized but only used for logging elsewhere</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#getInsertedCount()">getInsertedCount</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFalsePositiveRate()">getFalsePositiveRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getFalsePositiveRate</span>()</div>
+<div class="block">pointless, only used for logging elsewhere</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#getFalsePositiveRate()">getFalsePositiveRate</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="add(byte[],int,int)">add</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">add</span>&#8203;(<span class="arguments">byte[]&nbsp;entry,
+int&nbsp;off,
+int&nbsp;len)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#add(byte%5B%5D,int,int)">add</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the entry added is a duplicate</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="add(long)">add</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">add</span>&#8203;(<span class="arguments">long&nbsp;entry)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#add(long)">add</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the entry added is a duplicate.  the number of low order
+ bits used is determined by the entryBytes parameter used on creation of the
+ filter.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isKnown(long)">isKnown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isKnown</span>&#8203;(<span class="arguments">long&nbsp;entry)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#isKnown(long)">isKnown</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the entry is already known.  this does NOT add the
+ entry however.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clear()">clear</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#clear()">clear</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopDecaying()">stopDecaying</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopDecaying</span>()</div>
+<div class="block">super doesn't call clear, but neither do the users, so it seems like we should here</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#stopDecaying()">stopDecaying</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="decay()">decay</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">decay</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DecayingBloomFilter.html#decay()">decay</a></code>&nbsp;in class&nbsp;<code><a href="DecayingBloomFilter.html" title="class in net.i2p.router.util">DecayingBloomFilter</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DecayingHashSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>CPUIDCPUInfo - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: freenet.support.CPUInformation, class: CPUIDCPUInfo">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/CPUIDCPUInfo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">freenet.support.CPUInformation</a></div>
+<h1 title="Class CPUIDCPUInfo" class="title">Class CPUIDCPUInfo</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">freenet.support.CPUInformation.CPUIDCPUInfo</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="AMDInfoImpl.html" title="class in freenet.support.CPUInformation">AMDInfoImpl</a></code>, <code><a href="IntelInfoImpl.html" title="class in freenet.support.CPUInformation">IntelInfoImpl</a></code>, <code><a href="VIAInfoImpl.html" title="class in freenet.support.CPUInformation">VIAInfoImpl</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">CPUIDCPUInfo</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></pre>
+<div class="block">Moved out of CPUID.java
+  Ref: http://en.wikipedia.org/wiki/CPUID</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.7</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">CPUIDCPUInfo</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCPUModelString()">getCPUModelString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVendor()">getVendor</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasABM()">hasABM</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Also known as LZCNT</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasADX()">hasADX</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Intel Multi-Precision Add-Carry Instruction Extensions
+ Available in Broadwell.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasAES()">hasAES</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasAVX()">hasAVX</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasAVX2()">hasAVX2</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasAVX512()">hasAVX512</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does the CPU supports the AVX-512 Foundation instruction set?
+
+ Quote wikipedia:
+
+ AVX-512 consists of multiple extensions not all meant to be supported
+ by all processors implementing them.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasBMI1()">hasBMI1</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasBMI2()">hasBMI2</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasFMA3()">hasFMA3</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasMMX()">hasMMX</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasMOVBE()">hasMOVBE</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE()">hasSSE</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE2()">hasSSE2</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE3()">hasSSE3</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE41()">hasSSE41</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE42()">hasSSE42</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasSSE4A()">hasSSE4A</a></span>()</code></th>
+<td class="colLast">
+<div class="block">AMD K10 only.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasTBM()">hasTBM</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Trailing Bit Manipulation (AMD feature)</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasX64()">hasX64</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">CPUIDCPUInfo</a></h3>
+<div class="memberSignature"><span class="memberName">CPUIDCPUInfo</span>()</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getVendor()">getVendor</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getVendor</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#getVendor()">getVendor</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A string indicating the vendor of the CPU.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasMMX()">hasMMX</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasMMX</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasMMX()">hasMMX</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the MMX instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE()">hasSSE</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE()">hasSSE</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE2()">hasSSE2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE2</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE2()">hasSSE2</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE2 instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE3()">hasSSE3</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE3</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE3()">hasSSE3</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE3 instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE41()">hasSSE41</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE41</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE41()">hasSSE41</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE4.1 instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE42()">hasSSE42</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE42</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE42()">hasSSE42</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE4.2 instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasSSE4A()">hasSSE4A</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasSSE4A</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="CPUInfo.html#hasSSE4A()">CPUInfo</a></code></span></div>
+<div class="block">AMD K10 only. Not supported on Intel.
+ ref: https://en.wikipedia.org/wiki/SSE4.2#SSE4a</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasSSE4A()">hasSSE4A</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the SSE4A instruction set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasAVX()">hasAVX</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasAVX</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasAVX()">hasAVX</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the AVX instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasAVX2()">hasAVX2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasAVX2</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasAVX2()">hasAVX2</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the AVX2 instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasAVX512()">hasAVX512</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasAVX512</span>()</div>
+<div class="block">Does the CPU supports the AVX-512 Foundation instruction set?
+
+ Quote wikipedia:
+
+ AVX-512 consists of multiple extensions not all meant to be supported
+ by all processors implementing them. Only the core extension AVX-512F
+ (AVX-512 Foundation) is required by all implementations.
+
+ ref: https://en.wikipedia.org/wiki/AVX-512</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasAVX512()">hasAVX512</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the AVX-512 Foundation instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasADX()">hasADX</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasADX</span>()</div>
+<div class="block">Intel Multi-Precision Add-Carry Instruction Extensions
+ Available in Broadwell.
+ Unused until GMP 6.1.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasADX()">hasADX</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the ADX instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasTBM()">hasTBM</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasTBM</span>()</div>
+<div class="block">Trailing Bit Manipulation (AMD feature)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasTBM()">hasTBM</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports TBM.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26, broken before 0.9.35, fixed in 0.9.35</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasAES()">hasAES</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasAES</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasAES()">hasAES</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the AES-NI instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.14</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasX64()">hasX64</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasX64</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasX64()">hasX64</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the 64-bit support</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasBMI1()">hasBMI1</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasBMI1</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasBMI1()">hasBMI1</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the BMI1 instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasBMI2()">hasBMI2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasBMI2</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasBMI2()">hasBMI2</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the BMI2 instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasFMA3()">hasFMA3</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasFMA3</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasFMA3()">hasFMA3</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the FMA3 instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasMOVBE()">hasMOVBE</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasMOVBE</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasMOVBE()">hasMOVBE</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the MOVBE instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasABM()">hasABM</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasABM</span>()</div>
+<div class="block">Also known as LZCNT</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#hasABM()">hasABM</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff the CPU supports the ABM instruction set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCPUModelString()">getCPUModelString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getCPUModelString</span>()
+                         throws <span class="exceptions"><a href="UnknownCPUException.html" title="class in freenet.support.CPUInformation">UnknownCPUException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="CPUInfo.html#getCPUModelString()">getCPUModelString</a></code>&nbsp;in interface&nbsp;<code><a href="CPUInfo.html" title="interface in freenet.support.CPUInformation">CPUInfo</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A string detailing what type of CPU that is present in the machine. I.e. 'Pentium IV' etc.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="UnknownCPUException.html" title="class in freenet.support.CPUInformation">UnknownCPUException</a></code> - If for any reason the retrieval of the requested information
+ failed. The message encapsulated in the execption indicates the 
+ cause of the failure.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/CPUIDCPUInfo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

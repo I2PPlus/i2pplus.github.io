@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.client.streaming.impl - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.streaming.impl">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.client.streaming.impl</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>Implementation of a TCP-like (reliable, authenticated, in order) set of sockets for 
+communicating over the IP-like (unreliable, unauthenticated, unordered) I2P
+messages.
+
+This is the streaming implementation (moved for ticket #1135 to here). 
+For the API (which you probably want), see ministreaming. 
+Clients should not need to access anything in this package directly.
+Use the interfaces and factory in net.i2p.streaming.
+
+Note that this class is split across two jars, streaming.jar and ministreaming.jar.
+The interfaces and some code are in ministreaming.jar, but the
+real work gets done in streaming.jar. Clients must have both jars
+in their classpath.
+
+Most clients will require (only) streaming.jar, ministreaming.jar, and i2p.jar
+in their classpath to communicate with the router.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ConnectionManager.PingNotifier.html" title="interface in net.i2p.client.streaming.impl">ConnectionManager.PingNotifier</a></th>
+<td class="colLast">
+<div class="block">The callback interface for a pong.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageOutputStream.DataReceiver.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.DataReceiver</a></th>
+<td class="colLast">
+<div class="block">Define a component to receive data flushed from this stream</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></th>
+<td class="colLast">
+<div class="block">Define a way to detect the status of a write</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="TaskScheduler.html" title="interface in net.i2p.client.streaming.impl">TaskScheduler</a></th>
+<td class="colLast">
+<div class="block">Coordinates what we do 'next'.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Connection.html" title="class in net.i2p.client.streaming.impl">Connection</a></th>
+<td class="colLast">
+<div class="block">Maintain the state controlling a streaming connection between two
+ destinations.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ConnectionDataReceiver.html" title="class in net.i2p.client.streaming.impl">ConnectionDataReceiver</a></th>
+<td class="colLast">
+<div class="block">Receive data from the MessageOutputStream, build a packet,
+ and send it through a connection.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ConnectionHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionHandler</a></th>
+<td class="colLast">
+<div class="block">Receive new connection attempts
+
+ Use a bounded queue to limit the damage from SYN floods,
+ router overload, or a slow client</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ConnectionManager.html" title="class in net.i2p.client.streaming.impl">ConnectionManager</a></th>
+<td class="colLast">
+<div class="block">Coordinate all of the connections for a single local destination.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ConnectionOptions.html" title="class in net.i2p.client.streaming.impl">ConnectionOptions</a></th>
+<td class="colLast">
+<div class="block">Define the current options for the con (and allow custom tweaking midstream)
+
+ TODO many of these are not per-connection options, and should be migrated
+ somewhere so they aren't copied for every connection</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ConnectionPacketHandler.html" title="class in net.i2p.client.streaming.impl">ConnectionPacketHandler</a></th>
+<td class="colLast">
+<div class="block">Receive a packet for a particular connection - placing the data onto the
+ queue, marking packets as acked, updating various fields, etc.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ConnThrottler.html" title="class in net.i2p.client.streaming.impl">ConnThrottler</a></th>
+<td class="colLast">
+<div class="block">Count how often we have received an incoming connection
+ This offers basic DOS protection but is not a complete solution.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PServerSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PServerSocketFull</a></th>
+<td class="colLast">
+<div class="block">Bridge to allow accepting new connections</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketFull</a></th>
+<td class="colLast">
+<div class="block">Bridge between the full streaming lib and the I2PSocket API</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PSocketManagerFull.html" title="class in net.i2p.client.streaming.impl">I2PSocketManagerFull</a></th>
+<td class="colLast">
+<div class="block">Centralize the coordination and multiplexing of the local client's streaming.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PSocketOptionsImpl.html" title="class in net.i2p.client.streaming.impl">I2PSocketOptionsImpl</a></th>
+<td class="colLast">
+<div class="block">Define the configuration for streaming and verifying data on the socket.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageHandler.html" title="class in net.i2p.client.streaming.impl">MessageHandler</a></th>
+<td class="colLast">
+<div class="block">Receive raw information from the I2PSession and turn it into
+ Packets, if we can.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageInputStream.html" title="class in net.i2p.client.streaming.impl">MessageInputStream</a></th>
+<td class="colLast">
+<div class="block">Stream that can be given messages out of order
+ yet present them in order.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageOutputStream.html" title="class in net.i2p.client.streaming.impl">MessageOutputStream</a></th>
+<td class="colLast">
+<div class="block">A stream that we can shove data into that fires off those bytes
+ on flush or when the buffer is full.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Packet.html" title="class in net.i2p.client.streaming.impl">Packet</a></th>
+<td class="colLast">
+<div class="block">This contains solely the data that goes out on the wire,
+ including the local and remote port which is embedded in
+ the I2CP overhead, not in the packet itself.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PacketHandler.html" title="class in net.i2p.client.streaming.impl">PacketHandler</a></th>
+<td class="colLast">
+<div class="block">receive a packet and dispatch it correctly to the connection specified,
+ the server socket, or queue a reply RST packet.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PacketLocal.html" title="class in net.i2p.client.streaming.impl">PacketLocal</a></th>
+<td class="colLast">
+<div class="block">This is the class used for outbound packets.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PacketQueue.html" title="class in net.i2p.client.streaming.impl">PacketQueue</a></th>
+<td class="colLast">
+<div class="block">Queue out packets to be sent through the session.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PcapWriter.html" title="class in net.i2p.client.streaming.impl">PcapWriter</a></th>
+<td class="colLast">
+<div class="block">Write a standard pcap file with a "TCP" packet that can be analyzed with
+  standard tools such as wireshark.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RetransmissionTimer.html" title="class in net.i2p.client.streaming.impl">RetransmissionTimer</a></th>
+<td class="colLast">
+<div class="block">Per-destination timer</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SchedulerChooser.html" title="class in net.i2p.client.streaming.impl">SchedulerChooser</a></th>
+<td class="colLast">
+<div class="block">Examine a connection's state and pick the right scheduler for it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SchedulerClosed.html" title="class in net.i2p.client.streaming.impl">SchedulerClosed</a></th>
+<td class="colLast">
+<div class="block">Scheduler used for after both sides have had their close packets
+ ACKed, but the final timeout hasn't passed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SchedulerClosing.html" title="class in net.i2p.client.streaming.impl">SchedulerClosing</a></th>
+<td class="colLast">
+<div class="block">Scheduler used for after both SYNs have been ACKed and both sides
+ have closed the stream, but either we haven't ACKed their close or
+ they haven't ACKed ours.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SchedulerConnectedBulk.html" title="class in net.i2p.client.streaming.impl">SchedulerConnectedBulk</a></th>
+<td class="colLast">
+<div class="block">Scheduler used for after our SYN has been sent and ACKed but one
+ (or more) sides haven't closed the stream yet.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SchedulerConnecting.html" title="class in net.i2p.client.streaming.impl">SchedulerConnecting</a></th>
+<td class="colLast">
+<div class="block">Scheduler used once we've sent our SYN but it hasn't been ACKed yet.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SchedulerDead.html" title="class in net.i2p.client.streaming.impl">SchedulerDead</a></th>
+<td class="colLast">
+<div class="block">Scheduler used for after the final timeout has passed or the
+ connection was reset.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SchedulerHardDisconnected.html" title="class in net.i2p.client.streaming.impl">SchedulerHardDisconnected</a></th>
+<td class="colLast">
+<div class="block">Scheduler used after we've locally done a hard disconnect, 
+ but the final timeout hasn't passed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">SchedulerImpl</a></th>
+<td class="colLast">
+<div class="block">Base scheduler</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SchedulerPreconnect.html" title="class in net.i2p.client.streaming.impl">SchedulerPreconnect</a></th>
+<td class="colLast">
+<div class="block">Scheduler used for locally created connections where we have not yet
+ sent the initial SYN packet.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SchedulerReceived.html" title="class in net.i2p.client.streaming.impl">SchedulerReceived</a></th>
+<td class="colLast">
+<div class="block">Scheduler used after receiving an inbound connection but before
+ we have sent our own SYN.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SimpleBandwidthEstimator.html" title="class in net.i2p.client.streaming.impl">SimpleBandwidthEstimator</a></th>
+<td class="colLast">
+<div class="block">A Westwood+ bandwidth estimator with
+  a first stage anti-aliasing low pass filter based on RTT,
+  and the time-varying Westwood filter based on inter-arrival time.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StandardServerSocket.html" title="class in net.i2p.client.streaming.impl">StandardServerSocket</a></th>
+<td class="colLast">
+<div class="block">Bridge to I2PServerSocket.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="StandardSocket.html" title="class in net.i2p.client.streaming.impl">StandardSocket</a></th>
+<td class="colLast">
+<div class="block">Bridge to I2PSocket.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="TCBShare.html" title="class in net.i2p.client.streaming.impl">TCBShare</a></th>
+<td class="colLast">
+<div class="block">Share important TCP Control Block parameters across Connections
+  to the same remote peer.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Exception Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Exception</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TooManyStreamsException.html" title="class in net.i2p.client.streaming.impl">TooManyStreamsException</a></th>
+<td class="colLast">
+<div class="block">We attempted to have more open streams than we are willing to put up with</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

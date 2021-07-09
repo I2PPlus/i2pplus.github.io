@@ -1,0 +1,2034 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RrdDb - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.core, class: RrdDb">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":9,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":9,"i47":9,"i48":9,"i49":9,"i50":41,"i51":10,"i52":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdDb.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.core</a></div>
+<h1 title="Class RrdDb" class="title">Class RrdDb</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.rrd4j.core.RrdDb</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code>, <code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&gt;</code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">RrdDb</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&gt;, <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></pre>
+<div class="block"><p>Main class used to create and manipulate round robin databases (RRDs). Use this class to perform
+ update and fetch operations on existing RRDs, to create new RRD from
+ the definition (object of class <a href="RrdDef.html" title="class in org.rrd4j.core"><code>RrdDef</code></a>) or
+ from XML file (dumped content of RRDTool's or Rrd4j's RRD file).</p>
+ <p>Each RRD is backed with some kind of storage. For example, RRDTool supports only one kind of
+ storage (disk file). On the contrary, Rrd4j gives you freedom to use other storage (backend) types
+ even to create your own backend types for some special purposes. Rrd4j by default stores
+ RRD data in files (as RRDTool), but you might choose to store RRD data in memory (this is
+ supported in Rrd4j), to use java.nio.* instead of java.io.* package for file manipulation
+ (also supported) or to store whole RRDs in the SQL database
+ (you'll have to extend some classes to do this).</p>
+ <p>Note that Rrd4j uses binary format different from RRDTool's format. You cannot
+ use this class to manipulate RRD files created with RRDTool. <b>However, if you perform
+ the same sequence of create, update and fetch operations, you will get exactly the same
+ results from Rrd4j and RRDTool.</b></p>
+ <p>You will not be able to use Rrd4j API if you are not familiar with
+ basic RRDTool concepts. Good place to start is the
+ <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/tutorial/rrdtutorial.html">official RRD tutorial</a>
+ and relevant RRDTool man pages: <a href="../../../../man/rrdcreate.html" target="man">rrdcreate</a>,
+ <a href="../../../../man/rrdupdate.html" target="man">rrdupdate</a>,
+ <a href="../../../../man/rrdfetch.html" target="man">rrdfetch</a> and
+ <a href="../../../../man/rrdgraph.html" target="man">rrdgraph</a>.
+ For RRDTool's advanced graphing capabilities (RPN extensions), also supported in Rrd4j,
+ there is an excellent
+ <a href="http://oss.oetiker.ch/rrdtool/tut/cdeftutorial.en.html" target="man">CDEF tutorial</a>.</p></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="RrdBackend.html" title="class in org.rrd4j.core"><code>RrdBackend</code></a>, 
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core"><code>RrdBackendFactory</code></a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="RrdDb.Builder.html" title="class in org.rrd4j.core">RrdDb.Builder</a></span></code></th>
+<td class="colLast">
+<div class="block">Builder for <a href="RrdDb.html" title="class in org.rrd4j.core"><code>RrdDb</code></a> instances.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PREFIX_RRDTool">PREFIX_RRDTool</a></span></code></th>
+<td class="colLast">
+<div class="block">Prefix to identify external RRDTool file source used in various RrdDb constructors.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PREFIX_XML">PREFIX_XML</a></span></code></th>
+<td class="colLast">
+<div class="block">Prefix to identify external XML file source used in various RrdDb constructors.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#XML_BUFFER_CAPACITY">XML_BUFFER_CAPACITY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,boolean)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+boolean&nbsp;readOnly)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,boolean,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+boolean&nbsp;readOnly,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rrdPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rrdPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI,boolean)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri,
+boolean&nbsp;readOnly)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.URI,java.lang.String)">RrdDb</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.rrd4j.core.RrdDef)">RrdDb</a></span>&#8203;(<a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.rrd4j.core.RrdDef,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></span>&#8203;(<a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#archive(org.rrd4j.core.Datasource,double,double,long)">archive</a></span>&#8203;(<a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&nbsp;datasource,
+double&nbsp;value,
+double&nbsp;lastValue,
+long&nbsp;numUpdates)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close()">close</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Closes RRD.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#containsDs(java.lang.String)">containsDs</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Checks presence of a specific datasource.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyStateTo(org.rrd4j.core.RrdDb)">copyStateTo</a></span>&#8203;(<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;otherRrd)</code></th>
+<td class="colLast">
+<div class="block">copyStateTo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createFetchRequest(org.rrd4j.ConsolFun,long,long)">createFetchRequest</a></span>&#8203;(<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+long&nbsp;fetchStart,
+long&nbsp;fetchEnd)</code></th>
+<td class="colLast">
+<div class="block">Prepares fetch request to be executed on this RRD.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createFetchRequest(org.rrd4j.ConsolFun,long,long,long)">createFetchRequest</a></span>&#8203;(<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+long&nbsp;fetchStart,
+long&nbsp;fetchEnd,
+long&nbsp;resolution)</code></th>
+<td class="colLast">
+<div class="block">Prepares fetch request to be executed on this RRD.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="Sample.html" title="class in org.rrd4j.core">Sample</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createSample()">createSample</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Creates new sample with the current timestamp and all data source values set to
+ 'unknown'.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="Sample.html" title="class in org.rrd4j.core">Sample</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createSample(long)">createSample</a></span>&#8203;(long&nbsp;time)</code></th>
+<td class="colLast">
+<div class="block">Creates new sample with the given timestamp and all datasource values set to
+ 'unknown'.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dump()">dump</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns string representing complete internal RRD state.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dumpXml(java.io.OutputStream)">dumpXml</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;destination)</code></th>
+<td class="colLast">
+<div class="block">Writes the RRD content to OutputStream using XML format.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dumpXml(java.lang.String)">dumpXml</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</code></th>
+<td class="colLast">
+<div class="block">Dumps internal RRD state to XML file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exportXml()">exportXml</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This method is just an alias for <a href="#getXml()"><code>getXml</code></a> method.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exportXml(java.io.OutputStream)">exportXml</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;destination)</code></th>
+<td class="colLast">
+<div class="block">This method is just an alias for <a href="#dumpXml(java.io.OutputStream)"><code>dumpXml</code></a> method.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exportXml(java.lang.String)">exportXml</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</code></th>
+<td class="colLast">
+<div class="block">This method is just an alias for <a href="#dumpXml(java.lang.String)"><code>dumpXml(String)</code></a> method.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>(package private) <a href="FetchData.html" title="class in org.rrd4j.core">FetchData</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fetchData(org.rrd4j.core.FetchRequest)">fetchData</a></span>&#8203;(<a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a>&nbsp;request)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findMatchingArchive(org.rrd4j.core.FetchRequest)">findMatchingArchive</a></span>&#8203;(<a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a>&nbsp;request)</code></th>
+<td class="colLast">
+<div class="block">findMatchingArchive.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findStartMatchArchive(java.lang.String,long,long)">findStartMatchArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;consolFun,
+long&nbsp;startTime,
+long&nbsp;resolution)</code></th>
+<td class="colLast">
+<div class="block">Finds the archive that best matches to the start time (time period being start-time until now)
+ and requested resolution.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArcCount()">getArcCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the number of RRA archives defined in the file</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchive(int)">getArchive</a></span>&#8203;(int&nbsp;arcIndex)</code></th>
+<td class="colLast">
+<div class="block">Returns Archive object for the given archive index.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchive(org.rrd4j.ConsolFun,int)">getArchive</a></span>&#8203;(<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</code></th>
+<td class="colLast">
+<div class="block">Returns Archive object with the given consolidation function and the number
+ of steps.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>(package private) <a href="Archive.html" title="class in org.rrd4j.core">Archive</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchives()">getArchives</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArcIndex(org.rrd4j.ConsolFun,int)">getArcIndex</a></span>&#8203;(<a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</code></th>
+<td class="colLast">
+<div class="block">Returns index of Archive object with the given consolidation function and the number
+ of steps.</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>static <a href="RrdDb.Builder.html" title="class in org.rrd4j.core">RrdDb.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBuilder()">getBuilder</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBytes()">getBytes</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns an array of bytes representing the whole RRD.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCanonicalPath()">getCanonicalPath</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns canonical path to the underlying RRD file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCanonicalUri()">getCanonicalUri</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatasource(int)">getDatasource</a></span>&#8203;(int&nbsp;dsIndex)</code></th>
+<td class="colLast">
+<div class="block">Returns Datasource object for the given datasource index.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatasource(java.lang.String)">getDatasource</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Returns Datasource object corresponding to the given datasource name.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>(package private) <a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDatasources()">getDatasources</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDsCount()">getDsCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the number of datasources defined in the file</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDsIndex(java.lang.String)">getDsIndex</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Returns internal index number for the given datasource name.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDsNames()">getDsNames</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns an array of datasource names defined in RRD.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="Header.html" title="class in org.rrd4j.core">Header</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeader()">getHeader</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns RRD header.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInfo()">getInfo</a></span>()</code></th>
+<td class="colLast">
+<div class="block">getInfo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastArchiveUpdateTime()">getLastArchiveUpdateTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the last time when some of the archives in this RRD was updated.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastDatasourceValue(java.lang.String)">getLastDatasourceValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</code></th>
+<td class="colLast">
+<div class="block">Returns the last stored value for the given datasource.</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastDatasourceValues()">getLastDatasourceValues</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns an array of last datasource values.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastUpdateTime()">getLastUpdateTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns time of last update operation as timestamp (in seconds).</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPath()">getPath</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the path to this RRD.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdAllocator()">getRrdAllocator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Required to implement RrdUpdater interface.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdBackend()">getRrdBackend</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns backend object for this RRD which performs actual I/O operations.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code><a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdDef()">getRrdDef</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns RRD definition object which can be used to create new RRD
+ with the same creation parameters but with no data in it.</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUri()">getUri</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the URI to this RRD, as seen by the backend.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXml()">getXml</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns string representing internal RRD state in XML format.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#internalClose()">internalClose</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isClosed()">isClosed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns true if the RRD is closed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">main.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>static <a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#of(java.lang.String)">of</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path)</code></th>
+<td class="colLast">
+<div class="block">Opens an existing RRD with read/write access.</div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>static <a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#of(java.net.URI)">of</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</code></th>
+<td class="colLast">
+<div class="block">Opens an existing RRD with read/write access.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>static <a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#of(org.rrd4j.core.RrdDef)">of</a></span>&#8203;(<a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef)</code></th>
+<td class="colLast">
+<div class="block">Returns a new RRD object from the definition.</div>
+</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDefaultFactory(java.lang.String)">setDefaultFactory</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;factoryName)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">uses <a href="RrdBackendFactory.html#setActiveFactories(org.rrd4j.core.RrdBackendFactory...)"><code>RrdBackendFactory.setActiveFactories(RrdBackendFactory...)</code></a> instead.</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInfo(java.lang.String)">setInfo</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</code></th>
+<td class="colLast">
+<div class="block">setInfo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#store(org.rrd4j.core.Sample)">store</a></span>&#8203;(<a href="Sample.html" title="class in org.rrd4j.core">Sample</a>&nbsp;sample)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="PREFIX_XML">PREFIX_XML</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PREFIX_XML</span></div>
+<div class="block">Prefix to identify external XML file source used in various RrdDb constructors.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.core.RrdDb.PREFIX_XML">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PREFIX_RRDTool">PREFIX_RRDTool</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PREFIX_RRDTool</span></div>
+<div class="block">Prefix to identify external RRDTool file source used in various RrdDb constructors.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.core.RrdDb.PREFIX_RRDTool">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="XML_BUFFER_CAPACITY">XML_BUFFER_CAPACITY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">XML_BUFFER_CAPACITY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.core.RrdDb.XML_BUFFER_CAPACITY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.rrd4j.core.RrdDef)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to create new RRD object from the definition. If the rrdDef was constructed
+ giving an <a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink"><code>URI</code></a>, <a href="RrdBackendFactory.html#findFactory(java.net.URI)"><code>RrdBackendFactory.findFactory(URI)</code></a> will be used to resolve the needed factory. If not, or a relative
+ URI was given, this RRD object will be backed
+ with a storage (backend) of the default type. Initially, storage type defaults to "NIO"
+ (RRD bytes will be put in a file on the disk). Default storage type can be changed with a static
+ <a href="RrdBackendFactory.html#setDefaultFactory(java.lang.String)"><code>RrdBackendFactory.setDefaultFactory(String)</code></a> method call.</p>
+ <p>New RRD file structure is specified with an object of class
+ <a href="RrdDef.html" title="class in org.rrd4j.core"><code><b>RrdDef</b></code></a>. The underlying RRD storage is created as soon
+ as the constructor returns.</p>
+ <p>Typical scenario:</p>
+ <pre>
+ // create new RRD definition
+ RrdDef def = new RrdDef("test.rrd", 300);
+ def.addDatasource("input", DsType.DT_COUNTER, 600, 0, Double.NaN);
+ def.addDatasource("output", DsType.DT_COUNTER, 600, 0, Double.NaN);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 1, 600);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 6, 700);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 24, 797);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 288, 775);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 1, 600);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 6, 700);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 24, 797);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 288, 775);
+
+ // RRD definition is now completed, create the database!
+ RrdDb rrd = new RrdDb(def);
+ // new RRD file has been created on your disk
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rrdDef</code> - Object describing the structure of the new RRD file.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.rrd4j.core.RrdDef,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to create new RRD object from the definition object but with a storage
+ (backend) different from default.</p>
+
+ <p>Rrd4j uses <i>factories</i> to create RRD backend objects. There are three different
+ backend factories supplied with Rrd4j, and each factory has its unique name:</p>
+ <ul>
+ <li><b>FILE</b>: backends created from this factory will store RRD data to files by using
+ java.io.* classes and methods
+ <li><b>NIO</b>: backends created from this factory will store RRD data to files by using
+ java.nio.* classes and methods
+ <li><b>MEMORY</b>: backends created from this factory will store RRD data in memory. This might
+ be useful in runtime environments which prohibit disk utilization, or for storing temporary,
+ non-critical data (it gets lost as soon as JVM exits).
+ </ul>
+ <p>For example, to create RRD in memory, use the following code:</p>
+ <pre>
+ RrdBackendFactory factory = RrdBackendFactory.getFactory("MEMORY");
+ RrdDb rrdDb = new RrdDb(rrdDef, factory);
+ rrdDb.close();
+ </pre>
+ <p>New RRD file structure is specified with an object of class
+ <a href="RrdDef.html" title="class in org.rrd4j.core"><code><b>RrdDef</b></code></a>. The underlying RRD storage is created as soon
+ as the constructor returns.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rrdDef</code> - RRD definition object</dd>
+<dd><code>factory</code> - The factory which will be used to create storage for this RRD</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="RrdBackendFactory.html" title="class in org.rrd4j.core"><code>RrdBackendFactory</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,boolean)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+boolean&nbsp;readOnly)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to open already existing RRD. The path will be parsed as an URI and checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Constructor obtains read or read/write access to this RRD.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>path</code> - Path to existing RRD.</dd>
+<dd><code>readOnly</code> - Should be set to <code>false</code> if you want to update
+                 the underlying RRD. If you want just to fetch data from the RRD file
+                 (read-only access), specify <code>true</code>. If you try to update RRD file
+                 open in read-only mode (<code>readOnly</code> set to <code>true</code>),
+                 <code>IOException</code> will be thrown.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.net.URI,boolean)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri,
+boolean&nbsp;readOnly)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to open already existing RRD. The URI will checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Constructor obtains read or read/write access to this RRD.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>uri</code> - URI to existing RRD.</dd>
+<dd><code>readOnly</code> - Should be set to <code>false</code> if you want to update
+                 the underlying RRD. If you want just to fetch data from the RRD file
+                 (read-only access), specify <code>true</code>. If you try to update RRD file
+                 open in read-only mode (<code>readOnly</code> set to <code>true</code>),
+                 <code>IOException</code> will be thrown.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,boolean,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+boolean&nbsp;readOnly,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to open already existing RRD backed
+ with a storage (backend) different from default. Constructor
+ obtains read or read/write access to this RRD.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>path</code> - Path to existing RRD.</dd>
+<dd><code>readOnly</code> - Should be set to <code>false</code> if you want to update
+                 the underlying RRD. If you want just to fetch data from the RRD file
+                 (read-only access), specify <code>true</code>. If you try to update RRD file
+                 open in read-only mode (<code>readOnly</code> set to <code>true</code>),
+                 <code>IOException</code> will be thrown.</dd>
+<dd><code>factory</code> - Backend factory which will be used for this RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/FileNotFoundException.html?is-external=true" title="class or interface in java.io" class="externalLink">FileNotFoundException</a></code> - Thrown if the requested file does not exist.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of general I/O error (bad RRD file, for example).</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="RrdBackendFactory.html" title="class in org.rrd4j.core"><code>RrdBackendFactory</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to open already existing RRD. The path will be parsed as an URI and checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Constructor obtains read/write access to this RRD.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>path</code> - Path to existing RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.net.URI)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to open already existing RRD. The URI will checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Constructor obtains read/write access to this RRD.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>uri</code> - URI to existing RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block">Constructor used to open already existing RRD in R/W mode with a storage (backend) type
+ different from default.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>path</code> - Path to existing RRD.</dd>
+<dd><code>factory</code> - Backend factory used to create this RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="RrdBackendFactory.html" title="class in org.rrd4j.core"><code>RrdBackendFactory</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.lang.String)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rrdPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to create RRD files from external file sources.
+ Supported external file sources are:</p>
+ <ul>
+ <li>RRDTool/Rrd4j XML file dumps (i.e files created with <code>rrdtool dump</code> command).
+ <li>RRDTool binary files.
+ </ul>
+ <p>The path for the new rrd will be parsed as an URI and checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Rrd4j and RRDTool use the same format for XML dump and this constructor should be used to
+ (re)create Rrd4j RRD files from XML dumps. First, dump the content of a RRDTool
+ RRD file (use command line):</p>
+ <pre>
+ rrdtool dump original.rrd &gt; original.xml
+ </pre>
+ <p>Than, use the file <code>original.xml</code> to create Rrd4j RRD file named
+ <code>copy.rrd</code>:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "original.xml");
+ </pre>
+ <p>or:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "xml:/original.xml");
+ </pre>
+ <p>See documentation for <a href="#dumpXml(java.lang.String)"><code>dumpXml()</code></a> method
+ to see how to convert Rrd4j files to RRDTool's format.</p>
+ <p>To read RRDTool files directly, specify <code>rrdtool:/</code> prefix in the
+ <code>externalPath</code> argument. For example, to create Rrd4j compatible file named
+ <code>copy.rrd</code> from the file <code>original.rrd</code> created with RRDTool, use
+ the following code:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "rrdtool:/original.rrd");
+ </pre>
+ <p>Note that the prefix <code>xml:/</code> or <code>rrdtool:/</code> is necessary to distinguish
+ between XML and RRDTool's binary sources. If no prefix is supplied, XML format is assumed.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rrdPath</code> - Path to a RRD file which will be created</dd>
+<dd><code>externalPath</code> - Path to an external file which should be imported, with an optional
+                     <code>xml:/</code> or <code>rrdtool:/</code> prefix.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.net.URI,java.lang.String)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to create RRD files from external file sources.
+ Supported external file sources are:</p>
+ <ul>
+ <li>RRDTool/Rrd4j XML file dumps (i.e files created with <code>rrdtool dump</code> command).
+ <li>RRDTool binary files.
+ </ul>
+ <p>The path for the new rrd will be parsed as an URI and checked against the active factories. If
+ it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p>
+ <p>Rrd4j and RRDTool use the same format for XML dump and this constructor should be used to
+ (re)create Rrd4j RRD files from XML dumps. First, dump the content of a RRDTool
+ RRD file (use command line):</p>
+ <pre>
+ rrdtool dump original.rrd &gt; original.xml
+ </pre>
+ <p>Than, use the file <code>original.xml</code> to create Rrd4j RRD file named
+ <code>copy.rrd</code>:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "original.xml");
+ </pre>
+ <p>or:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "xml:/original.xml");
+ </pre>
+ <p>See documentation for <a href="#dumpXml(java.lang.String)"><code>dumpXml()</code></a> method
+ to see how to convert Rrd4j files to RRDTool's format.</p>
+ <p>To read RRDTool files directly, specify <code>rrdtool:/</code> prefix in the
+ <code>externalPath</code> argument. For example, to create Rrd4j compatible file named
+ <code>copy.rrd</code> from the file <code>original.rrd</code> created with RRDTool, use
+ the following code:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "rrdtool:/original.rrd");
+ </pre>
+ <p>Note that the prefix <code>xml:/</code> or <code>rrdtool:/</code> is necessary to distinguish
+ between XML and RRDTool's binary sources. If no prefix is supplied, XML format is assumed.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>uri</code> - Path to a RRD file which will be created</dd>
+<dd><code>externalPath</code> - Path to an external file which should be imported, with an optional
+                     <code>xml:/</code> or <code>rrdtool:/</code> prefix.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.lang.String,org.rrd4j.core.RrdBackendFactory)">RrdDb</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="memberName">RrdDb</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rrdPath,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;externalPath,
+<a href="RrdBackendFactory.html" title="class in org.rrd4j.core">RrdBackendFactory</a>&nbsp;factory)</span>
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use the builder instead.</div>
+</div>
+<div class="block"><p>Constructor used to create RRD files from external file sources with a backend type
+ different from default. Supported external file sources are:</p>
+ <ul>
+ <li>RRDTool/Rrd4j XML file dumps (i.e files created with <code>rrdtool dump</code> command).
+ <li>RRDTool binary files.
+ </ul>
+ <p>Rrd4j and RRDTool use the same format for XML dump and this constructor should be used to
+ (re)create Rrd4j RRD files from XML dumps. First, dump the content of a RRDTool
+ RRD file (use command line):</p>
+ <pre>
+ rrdtool dump original.rrd &gt; original.xml
+ </pre>
+ <p>Than, use the file <code>original.xml</code> to create Rrd4j RRD file named
+ <code>copy.rrd</code>:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "original.xml");
+ </pre>
+ <p>or:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "xml:/original.xml");
+ </pre>
+ <p>See documentation for <a href="#dumpXml(java.lang.String)"><code>dumpXml()</code></a> method
+ to see how to convert Rrd4j files to RRDTool's format.</p>
+ <p>To read RRDTool files directly, specify <code>rrdtool:/</code> prefix in the
+ <code>externalPath</code> argument. For example, to create Rrd4j compatible file named
+ <code>copy.rrd</code> from the file <code>original.rrd</code> created with RRDTool, use
+ the following code:</p>
+ <pre>
+ RrdDb rrd = new RrdDb("copy.rrd", "rrdtool:/original.rrd");
+ </pre>
+ <p>Note that the prefix <code>xml:/</code> or <code>rrdtool:/</code> is necessary to distinguish
+ between XML and RRDTool's binary sources. If no prefix is supplied, XML format is assumed.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rrdPath</code> - Path to RRD which will be created</dd>
+<dd><code>externalPath</code> - Path to an external file which should be imported, with an optional
+                     <code>xml:/</code> or <code>rrdtool:/</code> prefix.</dd>
+<dd><code>factory</code> - Backend factory which will be used to create storage (backend) for this RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="RrdBackendFactory.html" title="class in org.rrd4j.core"><code>RrdBackendFactory</code></a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBuilder()">getBuilder</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="RrdDb.Builder.html" title="class in org.rrd4j.core">RrdDb.Builder</a></span>&nbsp;<span class="memberName">getBuilder</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="of(org.rrd4j.core.RrdDef)">of</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></span>&nbsp;<span class="memberName">of</span>&#8203;(<span class="arguments"><a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a>&nbsp;rrdDef)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Returns a new RRD object from the definition. If the rrdDef was constructed
+ giving an <a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink"><code>URI</code></a>, <a href="RrdBackendFactory.html#findFactory(java.net.URI)"><code>RrdBackendFactory.findFactory(URI)</code></a> will be used to resolve
+ the needed factory. If not, or a relative URI was given, this RRD object will be backed
+ with a storage (backend) of the default type. Initially, storage type defaults to "NIO"
+ (RRD bytes will be put in a file on the disk). Default storage type can be changed with a static
+ <a href="RrdBackendFactory.html#setDefaultFactory(java.lang.String)"><code>RrdBackendFactory.setDefaultFactory(String)</code></a> method call.</p>
+ <p>New RRD file structure is specified with an object of class
+ <a href="RrdDef.html" title="class in org.rrd4j.core"><code><b>RrdDef</b></code></a>. The underlying RRD storage is created as soon
+ as the method returns.</p>
+ <p>Typical scenario:</p>
+ <pre>
+ // create new RRD definition
+ RrdDef def = new RrdDef("test.rrd", 300);
+ def.addDatasource("input", DsType.DT_COUNTER, 600, 0, Double.NaN);
+ def.addDatasource("output", DsType.DT_COUNTER, 600, 0, Double.NaN);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 1, 600);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 6, 700);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 24, 797);
+ def.addArchive(ConsolFun.CF_AVERAGE, 0.5, 288, 775);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 1, 600);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 6, 700);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 24, 797);
+ def.addArchive(ConsolFun.CF_MAX, 0.5, 288, 775);
+
+ // RRD definition is now completed, create the database!
+ RrdDb rrd = RrdDb.of(def);
+ // new RRD file has been created on your disk
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rrdDef</code> - Object describing the structure of the new RRD file.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new Rrdb created from the definition.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="of(java.lang.String)">of</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></span>&nbsp;<span class="memberName">of</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;path)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Opens an existing RRD with read/write access.
+ The path will be parsed as an URI and checked against the active factories.
+ If it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>path</code> - Path to existing RRD.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a {link RrdDb} opened with default settings</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="of(java.net.URI)">of</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a></span>&nbsp;<span class="memberName">of</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Opens an existing RRD with read/write access.
+ The URI will checked against the active factories.
+ If it's a relative URI (no scheme given, or just a plain path), the default factory will be used.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>uri</code> - URI to existing RRD.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a {link RrdDb} opened with default settings</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close()">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">close</span>()
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Closes RRD. No further operations are allowed on this RrdDb object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if the thread was interrupted in pool usage.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="internalClose()">internalClose</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">internalClose</span>()
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isClosed()">isClosed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isClosed</span>()</div>
+<div class="block">Returns true if the RRD is closed.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if closed, false otherwise</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHeader()">getHeader</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Header.html" title="class in org.rrd4j.core">Header</a></span>&nbsp;<span class="memberName">getHeader</span>()</div>
+<div class="block">Returns RRD header.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Header object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDatasource(int)">getDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a></span>&nbsp;<span class="memberName">getDatasource</span>&#8203;(<span class="arguments">int&nbsp;dsIndex)</span></div>
+<div class="block">Returns Datasource object for the given datasource index.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dsIndex</code> - Datasource index (zero based)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchive(int)">getArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></span>&nbsp;<span class="memberName">getArchive</span>&#8203;(<span class="arguments">int&nbsp;arcIndex)</span></div>
+<div class="block">Returns Archive object for the given archive index.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>arcIndex</code> - Archive index (zero based)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Archive object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDsNames()">getDsNames</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getDsNames</span>()
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns an array of datasource names defined in RRD.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Array of datasource names.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createSample(long)">createSample</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Sample.html" title="class in org.rrd4j.core">Sample</a></span>&nbsp;<span class="memberName">createSample</span>&#8203;(<span class="arguments">long&nbsp;time)</span>
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Creates new sample with the given timestamp and all datasource values set to
+ 'unknown'. Use returned <code>Sample</code> object to specify
+ datasource values for the given timestamp. See documentation for
+ <a href="Sample.html" title="class in org.rrd4j.core"><code>Sample</code></a> for an explanation how to do this.</p>
+ <p>Once populated with data source values, call Sample's
+ <a href="Sample.html#update()"><code>update()</code></a> method to actually
+ store sample in the RRD associated with it.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>time</code> - Sample timestamp rounded to the nearest second (without milliseconds).</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Fresh sample with the given timestamp and all data source values set to 'unknown'.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createSample()">createSample</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Sample.html" title="class in org.rrd4j.core">Sample</a></span>&nbsp;<span class="memberName">createSample</span>()
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Creates new sample with the current timestamp and all data source values set to
+ 'unknown'. Use returned <code>Sample</code> object to specify
+ datasource values for the current timestamp. See documentation for
+ <a href="Sample.html" title="class in org.rrd4j.core"><code>Sample</code></a> for an explanation how to do this.</p>
+ <p>Once populated with data source values, call Sample's
+ <a href="Sample.html#update()"><code>update()</code></a> method to actually
+ store sample in the RRD associated with it.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Fresh sample with the current timestamp and all data source values set to 'unknown'.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createFetchRequest(org.rrd4j.ConsolFun,long,long,long)">createFetchRequest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a></span>&nbsp;<span class="memberName">createFetchRequest</span>&#8203;(<span class="arguments"><a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+long&nbsp;fetchStart,
+long&nbsp;fetchEnd,
+long&nbsp;resolution)</span></div>
+<div class="block">Prepares fetch request to be executed on this RRD. Use returned
+ <code>FetchRequest</code> object and its <a href="FetchRequest.html#fetchData()"><code>fetchData()</code></a>
+ method to actually fetch data from the RRD file.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>consolFun</code> - Consolidation function to be used in fetch request.</dd>
+<dd><code>fetchStart</code> - Starting timestamp for fetch request.</dd>
+<dd><code>fetchEnd</code> - Ending timestamp for fetch request.</dd>
+<dd><code>resolution</code> - Fetch resolution (see RRDTool's
+                   <a href="http://oss.oetiker.ch/rrdtool/doc/rrdfetch.en.html" target="man">rrdfetch man page</a> for an
+                   explanation of this parameter.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Request object that should be used to actually fetch data from RRD</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createFetchRequest(org.rrd4j.ConsolFun,long,long)">createFetchRequest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a></span>&nbsp;<span class="memberName">createFetchRequest</span>&#8203;(<span class="arguments"><a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+long&nbsp;fetchStart,
+long&nbsp;fetchEnd)</span></div>
+<div class="block">Prepares fetch request to be executed on this RRD. Use returned
+ <code>FetchRequest</code> object and its <a href="FetchRequest.html#fetchData()"><code>fetchData()</code></a>
+ method to actually fetch data from this RRD. Data will be fetched with the smallest
+ possible resolution (see RRDTool's
+ <a href="http://oss.oetiker.ch/rrdtool/doc/rrdfetch.en.html" target="man">rrdfetch man page</a>
+ for the explanation of the resolution parameter).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>consolFun</code> - Consolidation function to be used in fetch request.</dd>
+<dd><code>fetchStart</code> - Starting timestamp for fetch request.</dd>
+<dd><code>fetchEnd</code> - Ending timestamp for fetch request.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Request object that should be used to actually fetch data from RRD.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="store(org.rrd4j.core.Sample)">store</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">store</span>&#8203;(<span class="arguments"><a href="Sample.html" title="class in org.rrd4j.core">Sample</a>&nbsp;sample)</span>
+          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="fetchData(org.rrd4j.core.FetchRequest)">fetchData</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="FetchData.html" title="class in org.rrd4j.core">FetchData</a></span>&nbsp;<span class="memberName">fetchData</span>&#8203;(<span class="arguments"><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a>&nbsp;request)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findMatchingArchive(org.rrd4j.core.FetchRequest)">findMatchingArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></span>&nbsp;<span class="memberName">findMatchingArchive</span>&#8203;(<span class="arguments"><a href="FetchRequest.html" title="class in org.rrd4j.core">FetchRequest</a>&nbsp;request)</span>
+                            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">findMatchingArchive.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - a <a href="FetchRequest.html" title="class in org.rrd4j.core"><code>FetchRequest</code></a> object.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="Archive.html" title="class in org.rrd4j.core"><code>Archive</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findStartMatchArchive(java.lang.String,long,long)">findStartMatchArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></span>&nbsp;<span class="memberName">findStartMatchArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;consolFun,
+long&nbsp;startTime,
+long&nbsp;resolution)</span>
+                              throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Finds the archive that best matches to the start time (time period being start-time until now)
+ and requested resolution.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>consolFun</code> - Consolidation function of the datasource.</dd>
+<dd><code>startTime</code> - Start time of the time period in seconds.</dd>
+<dd><code>resolution</code> - Requested fetch resolution.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Reference to the best matching archive.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dump()">dump</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">dump</span>()
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns string representing complete internal RRD state. The returned
+ string can be printed to <code>stdout</code> and/or used for debugging purposes.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>String representing internal RRD state.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="archive(org.rrd4j.core.Datasource,double,double,long)">archive</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">archive</span>&#8203;(<span class="arguments"><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>&nbsp;datasource,
+double&nbsp;value,
+double&nbsp;lastValue,
+long&nbsp;numUpdates)</span>
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDsIndex(java.lang.String)">getDsIndex</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getDsIndex</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns internal index number for the given datasource name.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dsName</code> - Data source name.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Internal index of the given data source name in this RRD.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="containsDs(java.lang.String)">containsDs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">containsDs</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Checks presence of a specific datasource.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dsName</code> - Datasource name to check</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if datasource is present in this RRD, <code>false</code> otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDatasources()">getDatasources</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a>[]</span>&nbsp;<span class="memberName">getDatasources</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchives()">getArchives</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a>[]</span>&nbsp;<span class="memberName">getArchives</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dumpXml(java.io.OutputStream)">dumpXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">dumpXml</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;destination)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Writes the RRD content to OutputStream using XML format. This format
+ is fully compatible with RRDTool's XML dump format and can be used for conversion
+ purposes or debugging.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>destination</code> - Output stream to receive XML data</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="exportXml(java.io.OutputStream)">exportXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">exportXml</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;destination)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This method is just an alias for <a href="#dumpXml(java.io.OutputStream)"><code>dumpXml</code></a> method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>destination</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink"><code>OutputStream</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getXml()">getXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getXml</span>()
+              throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns string representing internal RRD state in XML format. This format
+ is fully compatible with RRDTool's XML dump format and can be used for conversion
+ purposes or debugging.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Internal RRD state in XML format.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="exportXml()">exportXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">exportXml</span>()
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This method is just an alias for <a href="#getXml()"><code>getXml</code></a> method.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Internal RRD state in XML format.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dumpXml(java.lang.String)">dumpXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">dumpXml</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Dumps internal RRD state to XML file.
+ Use this XML file to convert your Rrd4j RRD to RRDTool format.
+
+ <p>Suppose that you have a Rrd4j RRD file <code>original.rrd</code> and you want
+ to convert it to RRDTool format. First, execute the following java code:</p>
+
+ <code>RrdDb rrd = new RrdDb("original.rrd");
+ rrd.dumpXml("original.xml");</code>
+ <p>
+ Use <code>original.xml</code> file to create the corresponding RRDTool file
+ (from your command line):
+
+ <code>rrdtool restore copy.rrd original.xml</code></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filename</code> - Path to XML file which will be created.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="exportXml(java.lang.String)">exportXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">exportXml</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This method is just an alias for <a href="#dumpXml(java.lang.String)"><code>dumpXml(String)</code></a> method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filename</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastUpdateTime()">getLastUpdateTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastUpdateTime</span>()
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns time of last update operation as timestamp (in seconds).</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Last update time (in seconds).</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdDef()">getRrdDef</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdDef.html" title="class in org.rrd4j.core">RrdDef</a></span>&nbsp;<span class="memberName">getRrdDef</span>()
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>Returns RRD definition object which can be used to create new RRD
+ with the same creation parameters but with no data in it.</p>
+ <p>Example:</p>
+ <pre>
+ RrdDb rrd1 = new RrdDb("original.rrd");
+ RrdDef def = rrd1.getRrdDef();
+ // fix path
+ def.setPath("empty_copy.rrd");
+ // create new RRD file
+ RrdDb rrd2 = new RrdDb(def);
+ </pre></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>RRD definition.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyStateTo(org.rrd4j.core.RrdDb)">copyStateTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">copyStateTo</span>&#8203;(<span class="arguments"><a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&nbsp;otherRrd)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>copyStateTo.</p>
+ <p>
+ Copies object's internal state to another RrdDb object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#copyStateTo(T)">copyStateTo</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>otherRrd</code> - a <a href="RrdUpdater.html" title="interface in org.rrd4j.core"><code>RrdUpdater</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDatasource(java.lang.String)">getDatasource</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Datasource.html" title="class in org.rrd4j.core">Datasource</a></span>&nbsp;<span class="memberName">getDatasource</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+                         throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns Datasource object corresponding to the given datasource name.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dsName</code> - Datasource name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Datasource object corresponding to the give datasource name or null if not found.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArcIndex(org.rrd4j.ConsolFun,int)">getArcIndex</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getArcIndex</span>&#8203;(<span class="arguments"><a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns index of Archive object with the given consolidation function and the number
+ of steps. Exception is thrown if such archive could not be found.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>consolFun</code> - Consolidation function</dd>
+<dd><code>steps</code> - Number of archive steps</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Requested Archive object</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchive(org.rrd4j.ConsolFun,int)">getArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></span>&nbsp;<span class="memberName">getArchive</span>&#8203;(<span class="arguments"><a href="../ConsolFun.html" title="enum in org.rrd4j">ConsolFun</a>&nbsp;consolFun,
+int&nbsp;steps)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns Archive object with the given consolidation function and the number
+ of steps.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>consolFun</code> - Consolidation function</dd>
+<dd><code>steps</code> - Number of archive steps</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Requested Archive object or null if no such archive could be found</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCanonicalPath()">getCanonicalPath</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getCanonicalPath</span>()
+                        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns canonical path to the underlying RRD file. Note that this method makes sense just for
+ ordinary RRD files created on the disk - an exception will be thrown for RRD objects created in
+ memory or with custom backends.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Canonical path to RRD file;</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error or if the underlying backend is
+                             not derived from RrdFileBackend.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPath()">getPath</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getPath</span>()</div>
+<div class="block">Returns the path to this RRD.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Path to this RRD.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUri()">getUri</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a></span>&nbsp;<span class="memberName">getUri</span>()</div>
+<div class="block">Returns the URI to this RRD, as seen by the backend.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>URI to this RRD.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCanonicalUri()">getCanonicalUri</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a></span>&nbsp;<span class="memberName">getCanonicalUri</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdBackend()">getRrdBackend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></span>&nbsp;<span class="memberName">getRrdBackend</span>()</div>
+<div class="block">Returns backend object for this RRD which performs actual I/O operations.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdBackend()">getRrdBackend</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>RRD backend for this RRD.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdAllocator()">getRrdAllocator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></span>&nbsp;<span class="memberName">getRrdAllocator</span>()</div>
+<div class="block">Required to implement RrdUpdater interface. You should never call this method directly.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdAllocator()">getRrdAllocator</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="RrdDb.html" title="class in org.rrd4j.core">RrdDb</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Allocator object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBytes()">getBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getBytes</span>()
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns an array of bytes representing the whole RRD.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>All RRD bytes</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O related error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDefaultFactory(java.lang.String)">setDefaultFactory</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDefaultFactory</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;factoryName)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">uses <a href="RrdBackendFactory.html#setActiveFactories(org.rrd4j.core.RrdBackendFactory...)"><code>RrdBackendFactory.setActiveFactories(RrdBackendFactory...)</code></a> instead.</div>
+</div>
+<div class="block">Sets default backend factory to be used. This method is just an alias for
+ <a href="RrdBackendFactory.html#setDefaultFactory(java.lang.String)"><code>RrdBackendFactory.setDefaultFactory(String)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>factoryName</code> - Name of the backend factory to be set as default.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if invalid factory name is supplied, or not called
+                                            before the first backend object (before the first RrdDb object) is created.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastDatasourceValues()">getLastDatasourceValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double[]</span>&nbsp;<span class="memberName">getLastDatasourceValues</span>()
+                                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns an array of last datasource values. The first value in the array corresponds
+ to the first datasource defined in the RrdDb and so on.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Array of last datasource values</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastDatasourceValue(java.lang.String)">getLastDatasourceValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getLastDatasourceValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dsName)</span>
+                              throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns the last stored value for the given datasource.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dsName</code> - Datasource name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Last stored value for the given datasource</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - Thrown if no datasource in this RrdDb matches the given datasource name</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDsCount()">getDsCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getDsCount</span>()</div>
+<div class="block">Returns the number of datasources defined in the file</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The number of datasources defined in the file</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArcCount()">getArcCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getArcCount</span>()</div>
+<div class="block">Returns the number of RRA archives defined in the file</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The number of RRA archives defined in the file</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastArchiveUpdateTime()">getLastArchiveUpdateTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastArchiveUpdateTime</span>()
+                              throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns the last time when some of the archives in this RRD was updated. This time is not the
+ same as the <a href="#getLastUpdateTime()"><code>getLastUpdateTime()</code></a> since RRD file can be updated without updating any of
+ the archives.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>last time when some of the archives in this RRD was updated</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInfo()">getInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getInfo</span>()
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">getInfo.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setInfo(java.lang.String)">setInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setInfo</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">setInfo.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>info</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">main.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - an array of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> objects.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdDb.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

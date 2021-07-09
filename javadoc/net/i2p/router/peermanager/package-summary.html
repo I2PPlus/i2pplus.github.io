@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router.peermanager - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.peermanager">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router.peermanager</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+            The peer manager logs information about the history and quality of network peers.
+        </p>
+        <p>
+            Peer capacity, speed and other parameters are calculated to determine in what cases we should use each peer.
+        </p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="CapacityCalculator.html" title="class in net.i2p.router.peermanager">CapacityCalculator</a></th>
+<td class="colLast">
+<div class="block">Estimate how many of our tunnels the peer can join per hour.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="DBHistory.html" title="class in net.i2p.router.peermanager">DBHistory</a></th>
+<td class="colLast">
+<div class="block">History of NetDb related activities (lookups, replies, stores, etc)</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="IntegrationCalculator.html" title="class in net.i2p.router.peermanager">IntegrationCalculator</a></th>
+<td class="colLast">
+<div class="block">Determine how well integrated the peer is - how likely they will be useful
+ to us if we are trying to get further connected.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="InverseCapacityComparator.html" title="class in net.i2p.router.peermanager">InverseCapacityComparator</a></th>
+<td class="colLast">
+<div class="block">Order profiles by their capacity, but backwards (highest capacity / value first).</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PeerManager.html" title="class in net.i2p.router.peermanager">PeerManager</a></th>
+<td class="colLast">
+<div class="block">Manage the current state of the statistics
+
+ Also maintain Sets for each of the capabilities in TRACKED_CAPS.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PeerManagerFacadeImpl.html" title="class in net.i2p.router.peermanager">PeerManagerFacadeImpl</a></th>
+<td class="colLast">
+<div class="block">Base implementation that has simple algorithms and periodically saves state</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></th>
+<td class="colLast">
+<div class="block">Copied from http://www.i2p2.i2p/how_peerselection.html
+
+ See also main() below for additional commentary by zzz.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PeerSelectionCriteria.html" title="class in net.i2p.router.peermanager">PeerSelectionCriteria</a></th>
+<td class="colLast">
+<div class="block">Defines the criteria for selecting a set of peers for use when searching the
+ PeerManager
+
+ Only used by PeerTestJob, which may not have a point.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PeerTestJob.html" title="class in net.i2p.router.peermanager">PeerTestJob</a></th>
+<td class="colLast">
+<div class="block">Grab some peers that we want to test and probe them briefly to get some
+ more accurate and up to date performance data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ProfileManagerImpl.html" title="class in net.i2p.router.peermanager">ProfileManagerImpl</a></th>
+<td class="colLast">
+<div class="block">Methods to update profiles.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ProfileOrganizer.html" title="class in net.i2p.router.peermanager">ProfileOrganizer</a></th>
+<td class="colLast">
+<div class="block">Keep the peer profiles organized according to the tiered model.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ProfilePersistenceHelper.html" title="class in net.i2p.router.peermanager">ProfilePersistenceHelper</a></th>
+<td class="colLast">
+<div class="block">Write profiles to disk at shutdown,
+  read at startup.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SpeedCalculator.html" title="class in net.i2p.router.peermanager">SpeedCalculator</a></th>
+<td class="colLast">
+<div class="block">Quantify how fast the peer is - how fast they respond to our requests, how fast
+ they pass messages on, etc.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SpeedComparator.html" title="class in net.i2p.router.peermanager">SpeedComparator</a></th>
+<td class="colLast">
+<div class="block">Order profiles by their speed (lowest first).</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TunnelHistory.html" title="class in net.i2p.router.peermanager">TunnelHistory</a></th>
+<td class="colLast">
+<div class="block">Tunnel related history information</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ProfileOrganizer.Slice.html" title="enum in net.i2p.router.peermanager">ProfileOrganizer.Slice</a></th>
+<td class="colLast">
+<div class="block">Replaces integer subTierMode argument, for clarity</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

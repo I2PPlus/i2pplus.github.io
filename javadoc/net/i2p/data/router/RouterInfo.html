@@ -1,0 +1,1060 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RouterInfo - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data.router, class: RouterInfo">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":42,"i12":10,"i13":42,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":9,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":42,"i31":10,"i32":10,"i33":10,"i34":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterInfo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data.router</a></div>
+<h1 title="Class RouterInfo" class="title">Class RouterInfo</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../DataStructureImpl.html" title="class in net.i2p.data">net.i2p.data.DataStructureImpl</a>
+<div class="inheritance"><a href="../DatabaseEntry.html" title="class in net.i2p.data">net.i2p.data.DatabaseEntry</a>
+<div class="inheritance">net.i2p.data.router.RouterInfo</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a></code>, <code><a href="../DataStructure.html" title="interface in net.i2p.data">DataStructure</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">RouterInfo</span>
+extends <a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></pre>
+<div class="block">Defines the data that a router either publishes to the global routing table or
+ provides to trusted peers.
+
+ For efficiency, the methods and structures here are now unsynchronized.
+ Initialize the RI with readBytes(), or call the setters and then sign() in a single thread.
+ Don't change it after that.
+
+ To ensure integrity of the RouterInfo, methods that change an element of the
+ RouterInfo will throw an IllegalStateException after the RouterInfo is signed.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16 moved from net.i2p.data</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>jrandom</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../serialized-form.html#net.i2p.data.router.RouterInfo">Serialized Form</a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BW_CAPABILITY_CHARS">BW_CAPABILITY_CHARS</a></span></code></th>
+<td class="colLast">
+<div class="block">Public string of chars which serve as bandwidth capacity markers
+ NOTE: individual chars defined in Router.java</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_HIDDEN">CAPABILITY_HIDDEN</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_CAPABILITIES">PROP_CAPABILITIES</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_NETWORK_ID">PROP_NETWORK_ID</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.<a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.DatabaseEntry">
+</a><code><a href="../DatabaseEntry.html#_signature">_signature</a>, <a href="../DatabaseEntry.html#KEY_TYPE_ENCRYPTED_LS2">KEY_TYPE_ENCRYPTED_LS2</a>, <a href="../DatabaseEntry.html#KEY_TYPE_LEASESET">KEY_TYPE_LEASESET</a>, <a href="../DatabaseEntry.html#KEY_TYPE_LS2">KEY_TYPE_LS2</a>, <a href="../DatabaseEntry.html#KEY_TYPE_META_LS2">KEY_TYPE_META_LS2</a>, <a href="../DatabaseEntry.html#KEY_TYPE_ROUTERINFO">KEY_TYPE_ROUTERINFO</a>, <a href="../DatabaseEntry.html#KEY_TYPE_SERVICE_LIST">KEY_TYPE_SERVICE_LIST</a>, <a href="../DatabaseEntry.html#KEY_TYPE_SERVICE_RECORD">KEY_TYPE_SERVICE_RECORD</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">RouterInfo</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.data.router.RouterInfo)">RouterInfo</a></span>&#8203;(<a href="RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;old)</code></th>
+<td class="colLast">
+<div class="block">Used only by Router and PublishLocalRouterInfoJob.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddressCount()">getAddressCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Return the number of router addresses.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddresses()">getAddresses</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the set of RouterAddress structures at which this
+ router can be contacted.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBandwidthTier()">getBandwidthTier</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Return a string representation of this node's bandwidth tier,
+ or "Unknown"</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBytes()">getBytes</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Write out the raw payload of the routerInfo, excluding the signature.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCapabilities()">getCapabilities</a></span>()</code></th>
+<td class="colLast">
+<div class="block">what special capabilities this router offers</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDate()">getDate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">A common interface to the timestamp of the two subclasses.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIdentity()">getIdentity</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the identity of the router represented</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="../KeysAndCert.html" title="class in net.i2p.data">KeysAndCert</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKeysAndCert()">getKeysAndCert</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the keys and the cert
+ Identical to getDestination() in LeaseSet,
+ and getIdentity() in RouterInfo.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNetworkId()">getNetworkId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">which network is this routerInfo a part of.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOption(java.lang.String)">getOption</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;opt)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptions()">getOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use getOptionsMap()</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptionsMap()">getOptionsMap</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve a set of options or statistics that the router can expose.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeers()">getPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Implemented here but unused elsewhere</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPublished()">getPublished</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the timestamp on which the info was published,
+ essentially a version number for the RouterInfo.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetAddress(java.lang.String)">getTargetAddress</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle)</code></th>
+<td class="colLast">
+<div class="block">Pull the first workable target address for the given transport.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetAddresses(java.lang.String)">getTargetAddresses</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle)</code></th>
+<td class="colLast">
+<div class="block">For multiple addresses per-transport (IPv4 or IPv6)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetAddresses(java.lang.String,java.lang.String)">getTargetAddresses</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle1,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle2)</code></th>
+<td class="colLast">
+<div class="block">For multiple addresses per-transport (IPv4 or IPv6)
+  Return addresses matching either of two styles</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the type of the data structure.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVersion()">getVersion</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For convenience, the same as getOption("router.version"),
+ but returns "0" if unset.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isCurrent(long)">isCurrent</a></span>&#8203;(long&nbsp;maxAgeMs)</code></th>
+<td class="colLast">
+<div class="block">Determine whether the router was published recently (within the given age milliseconds).</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHidden()">isHidden</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is this a hidden node?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isValid()">isValid</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine whether this router info is authorized with a valid signature</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Print out routerinfos from files specified on the command line.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readBytes(java.io.InputStream)">readBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">This does NOT validate the signature</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readBytes(java.io.InputStream,boolean)">readBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+boolean&nbsp;verifySig)</code></th>
+<td class="colLast">
+<div class="block">If verifySig is true,
+  this validates the signature while reading in,
+  and throws a DataFormatException if the sig is invalid.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAddresses(java.util.Collection)">setAddresses</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;&nbsp;addresses)</code></th>
+<td class="colLast">
+<div class="block">Specify a set of RouterAddress structures at which this router
+ can be contacted.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIdentity(net.i2p.data.router.RouterIdentity)">setIdentity</a></span>&#8203;(<a href="RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ident)</code></th>
+<td class="colLast">
+<div class="block">Configure the identity of the router represented</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOptions(java.util.Properties)">setOptions</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Configure a set of options or statistics that the router can expose.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeers(java.util.Set)">setPeers</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;peers)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Implemented here but unused elsewhere</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPublished(long)">setPublished</a></span>&#8203;(long&nbsp;published)</code></th>
+<td class="colLast">
+<div class="block">Date on which it was published, in milliseconds since Midnight GMT on Jan 01, 1970</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature()">verifySignature</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Same as isValid()</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeBytes(java.io.OutputStream)">writeBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</code></th>
+<td class="colLast">
+<div class="block">This does NOT validate the signature</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.DatabaseEntry">
+</a><code><a href="../DatabaseEntry.html#getHash()">getHash</a>, <a href="../DatabaseEntry.html#getRoutingKey()">getRoutingKey</a>, <a href="../DatabaseEntry.html#getSignature()">getSignature</a>, <a href="../DatabaseEntry.html#getSigningPublicKey()">getSigningPublicKey</a>, <a href="../DatabaseEntry.html#isLeaseSet()">isLeaseSet</a>, <a href="../DatabaseEntry.html#isLeaseSet(int)">isLeaseSet</a>, <a href="../DatabaseEntry.html#setSignature(net.i2p.data.Signature)">setSignature</a>, <a href="../DatabaseEntry.html#sign(net.i2p.data.SigningPrivateKey)">sign</a>, <a href="../DatabaseEntry.html#validateRoutingKey()">validateRoutingKey</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="../DataStructureImpl.html" title="class in net.i2p.data">DataStructureImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.DataStructureImpl">
+</a><code><a href="../DataStructureImpl.html#calculateHash()">calculateHash</a>, <a href="../DataStructureImpl.html#fromBase64(java.lang.String)">fromBase64</a>, <a href="../DataStructureImpl.html#fromByteArray(byte%5B%5D)">fromByteArray</a>, <a href="../DataStructureImpl.html#read(java.io.InputStream,byte%5B%5D)">read</a>, <a href="../DataStructureImpl.html#toBase64()">toBase64</a>, <a href="../DataStructureImpl.html#toByteArray()">toByteArray</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_NETWORK_ID">PROP_NETWORK_ID</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_NETWORK_ID</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.router.RouterInfo.PROP_NETWORK_ID">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_CAPABILITIES">PROP_CAPABILITIES</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_CAPABILITIES</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.router.RouterInfo.PROP_CAPABILITIES">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_HIDDEN">CAPABILITY_HIDDEN</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_HIDDEN</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.router.RouterInfo.CAPABILITY_HIDDEN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="BW_CAPABILITY_CHARS">BW_CAPABILITY_CHARS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">BW_CAPABILITY_CHARS</span></div>
+<div class="block">Public string of chars which serve as bandwidth capacity markers
+ NOTE: individual chars defined in Router.java</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.router.RouterInfo.BW_CAPABILITY_CHARS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">RouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RouterInfo</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.data.router.RouterInfo)">RouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RouterInfo</span>&#8203;(<span class="arguments"><a href="RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;old)</span></div>
+<div class="block">Used only by Router and PublishLocalRouterInfoJob.
+  Copies ONLY the identity and peers.
+  Does not copy published, addresses, options, or signature.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDate()">getDate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getDate</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../DatabaseEntry.html#getDate()">DatabaseEntry</a></code></span></div>
+<div class="block">A common interface to the timestamp of the two subclasses.
+ Identical to getEarliestLeaseData() in LeaseSet,
+ and getPublished() in RouterInfo.
+ Note that for a LeaseSet this will be in the future,
+ and for a RouterInfo it will be in the past.
+ Either way, it's a timestamp.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../DatabaseEntry.html#getDate()">getDate</a></code>&nbsp;in class&nbsp;<code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKeysAndCert()">getKeysAndCert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../KeysAndCert.html" title="class in net.i2p.data">KeysAndCert</a></span>&nbsp;<span class="memberName">getKeysAndCert</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../DatabaseEntry.html#getKeysAndCert()">DatabaseEntry</a></code></span></div>
+<div class="block">Get the keys and the cert
+ Identical to getDestination() in LeaseSet,
+ and getIdentity() in RouterInfo.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../DatabaseEntry.html#getKeysAndCert()">getKeysAndCert</a></code>&nbsp;in class&nbsp;<code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>KAC or null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getType()">getType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getType</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../DatabaseEntry.html#getType()">DatabaseEntry</a></code></span></div>
+<div class="block">Get the type of the data structure.
+ This should be faster than instanceof.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../DatabaseEntry.html#getType()">getType</a></code>&nbsp;in class&nbsp;<code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>KEY_TYPE_ROUTERINFO or KEY_TYPE_LEASESET or LS2 types</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIdentity()">getIdentity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a></span>&nbsp;<span class="memberName">getIdentity</span>()</div>
+<div class="block">Retrieve the identity of the router represented</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setIdentity(net.i2p.data.router.RouterIdentity)">setIdentity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setIdentity</span>&#8203;(<span class="arguments"><a href="RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ident)</span></div>
+<div class="block">Configure the identity of the router represented</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo is already signed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPublished()">getPublished</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getPublished</span>()</div>
+<div class="block">Retrieve the timestamp on which the info was published,
+ essentially a version number for the RouterInfo.
+ This should be used to expire old RouterInfo structures.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPublished(long)">setPublished</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPublished</span>&#8203;(<span class="arguments">long&nbsp;published)</span></div>
+<div class="block">Date on which it was published, in milliseconds since Midnight GMT on Jan 01, 1970</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo is already signed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAddressCount()">getAddressCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getAddressCount</span>()</div>
+<div class="block">Return the number of router addresses.
+ More efficient than getAddresses().size()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.27</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAddresses()">getAddresses</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</span>&nbsp;<span class="memberName">getAddresses</span>()</div>
+<div class="block">Retrieve the set of RouterAddress structures at which this
+ router can be contacted.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unmodifiable view, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setAddresses(java.util.Collection)">setAddresses</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setAddresses</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;&nbsp;addresses)</span></div>
+<div class="block">Specify a set of RouterAddress structures at which this router
+ can be contacted.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>addresses</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo is already signed or addresses previously set</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if too many addresses</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeers()">getPeers</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">getPeers</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Implemented here but unused elsewhere</div>
+</div>
+<div class="block">Retrieve a set of SHA-256 hashes of RouterIdentities from routers
+ this router can be reached through.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPeers(java.util.Set)">setPeers</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPeers</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;peers)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Implemented here but unused elsewhere</div>
+</div>
+<div class="block">Specify a set of SHA-256 hashes of RouterIdentities from routers
+ this router can be reached through.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo is already signed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptions()">getOptions</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">getOptions</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use getOptionsMap()</div>
+</div>
+<div class="block">Retrieve a set of options or statistics that the router can expose.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>sorted, non-null, NOT a copy, do not modify!!!</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptionsMap()">getOptionsMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getOptionsMap</span>()</div>
+<div class="block">Retrieve a set of options or statistics that the router can expose.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an unmodifiable view, non-null, sorted</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.13</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOption(java.lang.String)">getOption</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getOption</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;opt)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getVersion()">getVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getVersion</span>()</div>
+<div class="block">For convenience, the same as getOption("router.version"),
+ but returns "0" if unset.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, "0" if unknown.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setOptions(java.util.Properties)">setOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setOptions</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Configure a set of options or statistics that the router can expose.
+ Makes a copy.
+
+ Warning, clears all capabilities, must be called BEFORE addCapability().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - if null, clears current options</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo is already signed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBytes()">getBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getBytes</span>()
+                   throws <span class="exceptions"><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Write out the raw payload of the routerInfo, excluding the signature.  This
+ caches the data in memory if possible.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../DatabaseEntry.html#getBytes()">getBytes</a></code>&nbsp;in class&nbsp;<code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error ???????????????????????</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if the data is somehow b0rked (missing props, etc)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isValid()">isValid</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isValid</span>()</div>
+<div class="block">Determine whether this router info is authorized with a valid signature</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature()">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>()</div>
+<div class="block">Same as isValid()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../DatabaseEntry.html#verifySignature()">verifySignature</a></code>&nbsp;in class&nbsp;<code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>valid</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNetworkId()">getNetworkId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNetworkId</span>()</div>
+<div class="block">which network is this routerInfo a part of.  configured through the property
+ PROP_NETWORK_ID</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>-1 if unknown</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCapabilities()">getCapabilities</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getCapabilities</span>()</div>
+<div class="block">what special capabilities this router offers</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, empty string if none</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isHidden()">isHidden</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isHidden</span>()</div>
+<div class="block">Is this a hidden node?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if either 'H' is in the capbilities, or router identity contains a hidden cert.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBandwidthTier()">getBandwidthTier</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getBandwidthTier</span>()</div>
+<div class="block">Return a string representation of this node's bandwidth tier,
+ or "Unknown"</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isCurrent(long)">isCurrent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isCurrent</span>&#8203;(<span class="arguments">long&nbsp;maxAgeMs)</span></div>
+<div class="block">Determine whether the router was published recently (within the given age milliseconds).
+ The age should be large enough to take into consideration any clock fudge factor, so
+ values such as 1 or 2 hours are probably reasonable.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxAgeMs</code> - milliseconds between the current time and publish date to check</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it was published recently, false otherwise</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTargetAddress(java.lang.String)">getTargetAddress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a></span>&nbsp;<span class="memberName">getTargetAddress</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle)</span></div>
+<div class="block">Pull the first workable target address for the given transport.
+ Use to check for any address. For all addresses, use getTargetAddresses(),
+ which you probably want if you care about IPv6.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTargetAddresses(java.lang.String)">getTargetAddresses</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</span>&nbsp;<span class="memberName">getTargetAddresses</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle)</span></div>
+<div class="block">For multiple addresses per-transport (IPv4 or IPv6)</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTargetAddresses(java.lang.String,java.lang.String)">getTargetAddresses</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&gt;</span>&nbsp;<span class="memberName">getTargetAddresses</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle1,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;transportStyle2)</span></div>
+<div class="block">For multiple addresses per-transport (IPv4 or IPv6)
+  Return addresses matching either of two styles</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.35</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readBytes(java.io.InputStream)">readBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span>
+               throws <span class="exceptions"><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This does NOT validate the signature</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - stream to read from</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo was already read in</dd>
+<dd><code><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if the data is improperly formatted</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there was a problem reading the stream</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readBytes(java.io.InputStream,boolean)">readBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
+boolean&nbsp;verifySig)</span>
+               throws <span class="exceptions"><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">If verifySig is true,
+  this validates the signature while reading in,
+  and throws a DataFormatException if the sig is invalid.
+  This is faster than reserializing to validate later.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if RouterInfo was already read in</dd>
+<dd><code><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeBytes(java.io.OutputStream)">writeBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</span>
+                throws <span class="exceptions"><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This does NOT validate the signature</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>out</code> - stream to write to</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if the data was incomplete or not yet ready to be written</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there was a problem writing to the stream</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="equals(java.lang.Object)">equals</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">equals</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hashCode()">hashCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">hashCode</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">Print out routerinfos from files specified on the command line.
+  Exits 1 if any RI is invalid, fails signature, etc.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterInfo.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

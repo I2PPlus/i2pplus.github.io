@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>EstablishmentManager - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.udp, class: EstablishmentManager">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EstablishmentManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.udp</a></div>
+<h1 title="Class EstablishmentManager" class="title">Class EstablishmentManager</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.transport.udp.EstablishmentManager</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">EstablishmentManager</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Coordinate the establishment of new sessions - both inbound and outbound.
+ This has its own thread to add packets to the packet queue when necessary,
+ as well as to drop any failed establishment attempts.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_TAG_VALUE">MAX_TAG_VALUE</a></span></code></th>
+<td class="colLast">
+<div class="block">the relay tag is a 4-byte field in the protocol</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OB_MESSAGE_TIMEOUT">OB_MESSAGE_TIMEOUT</a></span></code></th>
+<td class="colLast">
+<div class="block">max before receiving a response to a single message during outbound establishment</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">EstablishmentManager</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#establish(net.i2p.router.OutNetMessage)">establish</a></span>&#8203;(<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">Send the message to its specified recipient by establishing a connection
+ with them and sending it off.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>(package private) <a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInboundState(net.i2p.router.transport.udp.RemoteHostId)">getInboundState</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</code></th>
+<td class="colLast">
+<div class="block">Grab the active establishing state</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) <a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOutboundState(net.i2p.router.transport.udp.RemoteHostId)">getOutboundState</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</code></th>
+<td class="colLast">
+<div class="block">Grab the active establishing state</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isValid(byte%5B%5D,int)">isValid</a></span>&#8203;(byte[]&nbsp;ip,
+int&nbsp;port)</code></th>
+<td class="colLast">
+<div class="block">Are IP and port valid? This is only for checking the relay response.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>(package private) <a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveData(net.i2p.router.transport.udp.OutboundEstablishState)">receiveData</a></span>&#8203;(<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</code></th>
+<td class="colLast">
+<div class="block">A data packet arrived on an outbound connection being established, which
+ means its complete (yay!).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveHolePunch(java.net.InetAddress,int)">receiveHolePunch</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;from,
+int&nbsp;fromPort)</code></th>
+<td class="colLast">
+<div class="block">Called from UDPReceiver.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveRelayResponse(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayResponse</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;bob,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">We are Alice, we sent a RelayRequest to Bob and got a response back.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionConfirmed(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionConfirmed</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">got a SessionConfirmed (should only happen as part of an inbound
+ establishment)</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionCreated(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionCreated</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">Got a SessionCreated (in response to our outbound SessionRequest)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId)">receiveSessionDestroy</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</code></th>
+<td class="colLast">
+<div class="block">Got a SessionDestroy - maybe during an inbound establish?
+ TODO - PacketHandler won't look up inbound establishes
+ As this packet was essentially unauthenticated (i.e.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.OutboundEstablishState)">receiveSessionDestroy</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</code></th>
+<td class="colLast">
+<div class="block">Got a SessionDestroy during outbound establish</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState)">receiveSessionDestroy</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;state)</code></th>
+<td class="colLast">
+<div class="block">Got a SessionDestroy on an established conn</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveSessionRequest(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionRequest</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">Got a SessionRequest (initiates an inbound establishment)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowInboundEstablishment()">shouldAllowInboundEstablishment</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Should we allow another inbound establishment?
+ Used to throttle outbound hole punches.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startup()">startup</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="OB_MESSAGE_TIMEOUT">OB_MESSAGE_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">OB_MESSAGE_TIMEOUT</span></div>
+<div class="block">max before receiving a response to a single message during outbound establishment</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.EstablishmentManager.OB_MESSAGE_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_TAG_VALUE">MAX_TAG_VALUE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">MAX_TAG_VALUE</span></div>
+<div class="block">the relay tag is a 4-byte field in the protocol</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.EstablishmentManager.MAX_TAG_VALUE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">EstablishmentManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">EstablishmentManager</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="startup()">startup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startup</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInboundState(net.i2p.router.transport.udp.RemoteHostId)">getInboundState</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a></span>&nbsp;<span class="memberName">getInboundState</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</span></div>
+<div class="block">Grab the active establishing state</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if none</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOutboundState(net.i2p.router.transport.udp.RemoteHostId)">getOutboundState</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a></span>&nbsp;<span class="memberName">getOutboundState</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</span></div>
+<div class="block">Grab the active establishing state</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if none</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="establish(net.i2p.router.OutNetMessage)">establish</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">establish</span>&#8203;(<span class="arguments"><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</span></div>
+<div class="block">Send the message to its specified recipient by establishing a connection
+ with them and sending it off.  This call does not block, and on failure,
+ the message is failed.
+
+ Note - if we go back to multiple PacketHandler threads, this may need more locking.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldAllowInboundEstablishment()">shouldAllowInboundEstablishment</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldAllowInboundEstablishment</span>()</div>
+<div class="block">Should we allow another inbound establishment?
+ Used to throttle outbound hole punches.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionRequest(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionRequest</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionRequest</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">Got a SessionRequest (initiates an inbound establishment)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionConfirmed(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionConfirmed</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionConfirmed</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">got a SessionConfirmed (should only happen as part of an inbound
+ establishment)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionCreated(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveSessionCreated</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionCreated</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">Got a SessionCreated (in response to our outbound SessionRequest)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState)">receiveSessionDestroy</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionDestroy</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;state)</span></div>
+<div class="block">Got a SessionDestroy on an established conn</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.OutboundEstablishState)">receiveSessionDestroy</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionDestroy</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from,
+<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</span></div>
+<div class="block">Got a SessionDestroy during outbound establish</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveSessionDestroy(net.i2p.router.transport.udp.RemoteHostId)">receiveSessionDestroy</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveSessionDestroy</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;from)</span></div>
+<div class="block">Got a SessionDestroy - maybe during an inbound establish?
+ TODO - PacketHandler won't look up inbound establishes
+ As this packet was essentially unauthenticated (i.e. intro key, not session key)
+ we just log it as it could be spoofed.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveData(net.i2p.router.transport.udp.OutboundEstablishState)">receiveData</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a></span>&nbsp;<span class="memberName">receiveData</span>&#8203;(<span class="arguments"><a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</span></div>
+<div class="block">A data packet arrived on an outbound connection being established, which
+ means its complete (yay!).  This is a blocking call, more than I'd like...</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new PeerState</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveRelayResponse(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayResponse</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveRelayResponse</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;bob,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">We are Alice, we sent a RelayRequest to Bob and got a response back.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveHolePunch(java.net.InetAddress,int)">receiveHolePunch</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveHolePunch</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;from,
+int&nbsp;fromPort)</span></div>
+<div class="block">Called from UDPReceiver.
+  Accelerate response to RelayResponse if we haven't sent it yet.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isValid(byte[],int)">isValid</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isValid</span>&#8203;(<span class="arguments">byte[]&nbsp;ip,
+int&nbsp;port)</span></div>
+<div class="block">Are IP and port valid? This is only for checking the relay response.
+  Allow IPv6 as of 0.9.50.
+  Refuse anybody in the same /16</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3, pkg private since 0.9.45 for PacketBuider</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EstablishmentManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

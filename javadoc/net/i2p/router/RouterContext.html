@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RouterContext - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router, class: RouterContext">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":9,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":9,"i31":9,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":9,"i48":42,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterContext.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router</a></div>
+<h1 title="Class RouterContext" class="title">Class RouterContext</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../I2PAppContext.html" title="class in net.i2p">net.i2p.I2PAppContext</a>
+<div class="inheritance">net.i2p.router.RouterContext</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">RouterContext</span>
+extends <a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></pre>
+<div class="block">Build off the core I2P context to provide a root for a router instance to
+ coordinate its resources.  Router instances themselves should be sure to have
+ their own RouterContext, and rooting off of it will allow multiple routers to
+ operate in the same JVM without conflict (e.g. sessionTags wont get 
+ intermingled, nor will their netDbs, jobQueues, or bandwidth limiters).</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></h3>
+<a id="fields.inherited.from.class.net.i2p.I2PAppContext">
+</a><code><a href="../I2PAppContext.html#_clock">_clock</a>, <a href="../I2PAppContext.html#_clockInitialized">_clockInitialized</a>, <a href="../I2PAppContext.html#_globalAppContext">_globalAppContext</a>, <a href="../I2PAppContext.html#_keyRing">_keyRing</a>, <a href="../I2PAppContext.html#_keyRingInitialized">_keyRingInitialized</a>, <a href="../I2PAppContext.html#_overrideProps">_overrideProps</a>, <a href="../I2PAppContext.html#_sessionKeyManager">_sessionKeyManager</a>, <a href="../I2PAppContext.html#_sessionKeyManagerInitialized">_sessionKeyManagerInitialized</a>, <a href="../I2PAppContext.html#_shutdownTasks">_shutdownTasks</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.Router)">RouterContext</a></span>&#8203;(<a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router)</code></th>
+<td class="colLast">
+<div class="block">Caller MUST call initAll() after instantiation.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.Router,java.util.Properties)">RouterContext</a></span>&#8203;(<a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</code></th>
+<td class="colLast">
+<div class="block">Caller MUST call initAll() after instantiation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.Router,java.util.Properties,boolean)">RouterContext</a></span>&#8203;(<a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps,
+boolean&nbsp;doInit)</code></th>
+<td class="colLast">
+<div class="block">Caller MUST call initAll() after instantiation.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addFinalShutdownTask(java.lang.Runnable)">addFinalShutdownTask</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;task)</code></th>
+<td class="colLast">
+<div class="block">The last thing to be called before router shutdown.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">addPropertyCallback</a></span>&#8203;(<a href="../util/I2PProperties.I2PPropertyCallback.html" title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">Add a callback, which will fire upon changes in the property
+ given in the specific callback.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="transport/FIFOBandwidthLimiter.html" title="class in net.i2p.router.transport">FIFOBandwidthLimiter</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bandwidthLimiter()">bandwidthLimiter</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Coordinate this router's bandwidth limits</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="Banlist.html" title="class in net.i2p.router">Banlist</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#banlist()">banlist</a></span>()</code></th>
+<td class="colLast">
+<div class="block">who does this peer hate?</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="Blocklist.html" title="class in net.i2p.router">Blocklist</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#blocklist()">blocklist</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="../app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clientAppManager()">clientAppManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The RouterAppManager.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="ClientManagerFacade.html" title="class in net.i2p.router">ClientManagerFacade</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clientManager()">clientManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How are we coordinating clients for the router?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="ClientMessagePool.html" title="class in net.i2p.router">ClientMessagePool</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clientMessagePool()">clientMessagePool</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Where do we toss messages for the clients (and where do we get client messages
+ to forward on from)?</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="CommSystemFacade.html" title="class in net.i2p.router">CommSystemFacade</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#commSystem()">commSystem</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How do we pass messages from our outNetMessagePool to another router</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="crypto/ratchet/ECIESAEADEngine.html" title="class in net.i2p.router.crypto.ratchet">ECIESAEADEngine</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eciesEngine()">eciesEngine</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Access the ECIES/AEAD engine for this context.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="crypto/ElGamalAESEngine.html" title="class in net.i2p.router.crypto">ElGamalAESEngine</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#elGamalAESEngine()">elGamalAESEngine</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Access the ElGamal/AES+SessionTag engine for this context.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="message/GarlicMessageParser.html" title="class in net.i2p.router.message">GarlicMessageParser</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#garlicMessageParser()">garlicMessageParser</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Since we only need one.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContexts()">getContexts</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Same as listContexts() but package private and modifiable.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEstimatedDowntime()">getEstimatedDowntime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How long this router was down before it started, or 0 if unknown.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFinalShutdownTasks()">getFinalShutdownTasks</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperties()">getProperties</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Access the configuration attributes of this context, listing the properties 
+ provided during the context construction, as well as the ones included in
+ System.getProperties.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</code></th>
+<td class="colLast">
+<div class="block">Tie in the router's config as properties, as well as whatever the 
+ I2PAppContext says.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,int)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+int&nbsp;defaultVal)</code></th>
+<td class="colLast">
+<div class="block">Return an int with an int default</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,long)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+long&nbsp;defaultVal)</code></th>
+<td class="colLast">
+<div class="block">Return a long with a long default</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,java.lang.String)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultVal)</code></th>
+<td class="colLast">
+<div class="block">Tie in the router's config as properties, as well as whatever the 
+ I2PAppContext says.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initAll()">initAll</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The following properties may be used to replace various parts
+  of the context with dummy implementations for testing, by setting
+  the property to "true":</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeClock()">initializeClock</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeKeyRing()">initializeKeyRing</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeSessionKeyManager()">initializeSessionKeyManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">As of 0.9.15, this returns a dummy SessionKeyManager in I2PAppContext.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code><a href="InNetMessagePool.html" title="class in net.i2p.router">InNetMessagePool</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inNetMessagePool()">inNetMessagePool</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Where do we get network messages from (aka where does the comm system dump what
+ it reads)?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code><a href="../internal/InternalClientManager.html" title="interface in net.i2p.internal">InternalClientManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#internalClientManager()">internalClientManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Use this to connect to the router in the same JVM.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRouterContext()">isRouterContext</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Use this instead of context instanceof RouterContext</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code><a href="JobQueue.html" title="class in net.i2p.router">JobQueue</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#jobQueue()">jobQueue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The actual driver of the router, where all jobs are enqueued and processed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code><a href="KeyManager.html" title="class in net.i2p.router">KeyManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyManager()">keyManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Coordinates the router's ElGamal and DSA keys, as well as any keys given
+ to it by clients as part of a LeaseSet.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="../util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyRing()">keyRing</a></span>()</code></th>
+<td class="colLast">
+<div class="block">override to support storage in router.config</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>(package private) static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#killGlobalContext()">killGlobalContext</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Kill the global I2PAppContext, so it isn't still around
+ when we restart in the same JVM (Android).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#listContexts()">listContexts</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the list of router contexts currently instantiated in this JVM.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="MessageHistory.html" title="class in net.i2p.router">MessageHistory</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageHistory()">messageHistory</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Tracker component for monitoring what messages are wrapped in what containers
+ and how they proceed through the network.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code><a href="transport/OutboundMessageRegistry.html" title="class in net.i2p.router.transport">OutboundMessageRegistry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageRegistry()">messageRegistry</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The registry is used by outbound messages to wait for replies.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code><a href="MessageValidator.html" title="class in net.i2p.router">MessageValidator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageValidator()">messageValidator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The router keeps track of messages it receives to prevent duplicates, as
+ well as other criteria for "validity".</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code><a href="NetworkDatabaseFacade.html" title="class in net.i2p.router">NetworkDatabaseFacade</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#netDb()">netDb</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Our db cache</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code><a href="OutNetMessagePool.html" title="class in net.i2p.router">OutNetMessagePool</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#outNetMessagePool()">outNetMessagePool</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Where do we put messages that the router wants to forwards onto the network?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code><a href="PeerManagerFacade.html" title="interface in net.i2p.router">PeerManagerFacade</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peerManager()">peerManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Minimal interface for selecting peers for various tasks based on given
+ criteria.</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code><a href="ProfileManager.html" title="interface in net.i2p.router">ProfileManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#profileManager()">profileManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Expose a simple API for various router components to take note of 
+ particular events that a peer enacts (sends us a message, agrees to 
+ participate in a tunnel, etc).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code><a href="peermanager/ProfileOrganizer.html" title="class in net.i2p.router.peermanager">ProfileOrganizer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#profileOrganizer()">profileOrganizer</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Organize the peers we know about into various tiers, profiling their
+ performance and sorting them accordingly.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeProperty(java.lang.String)">removeProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</code></th>
+<td class="colLast">
+<div class="block">Remove a property provided during the context construction.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeShutdownTasks()">removeShutdownTasks</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code><a href="Router.html" title="class in net.i2p.router">Router</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#router()">router</a></span>()</code></th>
+<td class="colLast">
+<div class="block">what router is this context working for?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code><a href="startup/RouterAppManager.html" title="class in net.i2p.router.startup">RouterAppManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routerAppManager()">routerAppManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The RouterAppManager.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routerHash()">routerHash</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Convenience method for getting the router hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code><a href="../data/router/RouterKeyGenerator.html" title="class in net.i2p.data.router">RouterKeyGenerator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routerKeyGenerator()">routerKeyGenerator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine how much do we want to mess with the keys to turn them 
+ into something we can route.</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code><a href="../data/RoutingKeyGenerator.html" title="class in net.i2p.data">RoutingKeyGenerator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routingKeyGenerator()">routingKeyGenerator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine how much do we want to mess with the keys to turn them 
+ into something we can route.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>(package private) static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGlobalContext(net.i2p.router.RouterContext)">setGlobalContext</a></span>&#8203;(<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">Sets the default context, unless there is one already.</div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProperty(java.lang.String,java.lang.String)">setProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use Router.saveConfig()</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code><a href="StatisticsManager.html" title="class in net.i2p.router">StatisticsManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#statPublisher()">statPublisher</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If the router is configured to, gather up some particularly tasty morsels
+ regarding the stats managed and offer to publish them into the routerInfo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code><a href="RouterThrottle.html" title="interface in net.i2p.router">RouterThrottle</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#throttle()">throttle</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Component to coordinate our accepting/rejecting of requests under load</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code><a href="tunnel/TunnelDispatcher.html" title="class in net.i2p.router.tunnel">TunnelDispatcher</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDispatcher()">tunnelDispatcher</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Handle tunnel messages, as well as coordinate the gateways</div>
+</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code><a href="TunnelManagerFacade.html" title="interface in net.i2p.router">TunnelManagerFacade</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelManager()">tunnelManager</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Coordinate this router's tunnels (its pools, participation, backup, etc).</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></h3>
+<a id="methods.inherited.from.class.net.i2p.I2PAppContext">
+</a><code><a href="../I2PAppContext.html#addShutdownTask(java.lang.Runnable)">addShutdownTask</a>, <a href="../I2PAppContext.html#aes()">aes</a>, <a href="../I2PAppContext.html#clock()">clock</a>, <a href="../I2PAppContext.html#deleteTempDir()">deleteTempDir</a>, <a href="../I2PAppContext.html#dsa()">dsa</a>, <a href="../I2PAppContext.html#elGamalEngine()">elGamalEngine</a>, <a href="../I2PAppContext.html#getAppDir()">getAppDir</a>, <a href="../I2PAppContext.html#getBaseDir()">getBaseDir</a>, <a href="../I2PAppContext.html#getBooleanProperty(java.lang.String)">getBooleanProperty</a>, <a href="../I2PAppContext.html#getBooleanPropertyDefaultTrue(java.lang.String)">getBooleanPropertyDefaultTrue</a>, <a href="../I2PAppContext.html#getConfigDir()">getConfigDir</a>, <a href="../I2PAppContext.html#getCurrentContext()">getCurrentContext</a>, <a href="../I2PAppContext.html#getGlobalContext()">getGlobalContext</a>, <a href="../I2PAppContext.html#getLogDir()">getLogDir</a>, <a href="../I2PAppContext.html#getPIDDir()">getPIDDir</a>, <a href="../I2PAppContext.html#getProperty(java.lang.String,boolean)">getProperty</a>, <a href="../I2PAppContext.html#getPropertyNames()">getPropertyNames</a>, <a href="../I2PAppContext.html#getRouterDir()">getRouterDir</a>, <a href="../I2PAppContext.html#getShutdownTasks()">getShutdownTasks</a>, <a href="../I2PAppContext.html#getTempDir()">getTempDir</a>, <a href="../I2PAppContext.html#hasWrapper()">hasWrapper</a>, <a href="../I2PAppContext.html#hmac256()">hmac256</a>, <a href="../I2PAppContext.html#keyGenerator()">keyGenerator</a>, <a href="../I2PAppContext.html#logManager()">logManager</a>, <a href="../I2PAppContext.html#namingService()">namingService</a>, <a href="../I2PAppContext.html#portMapper()">portMapper</a>, <a href="../I2PAppContext.html#random()">random</a>, <a href="../I2PAppContext.html#sessionKeyManager()">sessionKeyManager</a>, <a href="../I2PAppContext.html#setGlobalContext(net.i2p.I2PAppContext)">setGlobalContext</a>, <a href="../I2PAppContext.html#setLogManager(net.i2p.util.LogManager)">setLogManager</a>, <a href="../I2PAppContext.html#sha()">sha</a>, <a href="../I2PAppContext.html#simpleScheduler()">simpleScheduler</a>, <a href="../I2PAppContext.html#simpleTimer()">simpleTimer</a>, <a href="../I2PAppContext.html#simpleTimer2()">simpleTimer2</a>, <a href="../I2PAppContext.html#statManager()">statManager</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.Router)">RouterContext</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RouterContext</span>&#8203;(<span class="arguments"><a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router)</span></div>
+<div class="block">Caller MUST call initAll() after instantiation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>router</code> - may be null for unit tests if you are careful</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.Router,java.util.Properties)">RouterContext</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RouterContext</span>&#8203;(<span class="arguments"><a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</span></div>
+<div class="block">Caller MUST call initAll() after instantiation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>router</code> - may be null for unit tests if you are careful</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.Router,java.util.Properties,boolean)">RouterContext</a></h3>
+<div class="memberSignature"><span class="memberName">RouterContext</span>&#8203;(<span class="arguments"><a href="Router.html" title="class in net.i2p.router">Router</a>&nbsp;router,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps,
+boolean&nbsp;doInit)</span></div>
+<div class="block">Caller MUST call initAll() after instantiation.
+  NOT a public API, for use by Router only, NOT for external use.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>router</code> - may be null for unit tests if you are careful</dd>
+<dd><code>doInit</code> - should this context be used as the global one (if necessary)?
+                Will only apply if there is no global context now.
+                If false, caller should call setGlobalContext() afterwards.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="setGlobalContext(net.i2p.router.RouterContext)">setGlobalContext</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">setGlobalContext</span>&#8203;(<span class="arguments"><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</span></div>
+<div class="block">Sets the default context, unless there is one already.
+ NOT a public API, for use by Router only, NOT for external use.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ctx</code> - context constructed with doInit = false</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success (false if previously set)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setProperty(java.lang.String,java.lang.String)">setProperty</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">Use Router.saveConfig()</div>
+</div>
+<div class="block">Modify the configuration attributes of this context, changing
+ one of the properties provided during the context construction.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>propName</code> - The name of the property.</dd>
+<dd><code>value</code> - The new value for the property.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeProperty(java.lang.String)">removeProperty</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">removeProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</span></div>
+<div class="block">Remove a property provided during the context construction.
+ Only for use by the router. Others use Router.saveConfig()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>propName</code> - The name of the property.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">addPropertyCallback</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addPropertyCallback</span>&#8203;(<span class="arguments"><a href="../util/I2PProperties.I2PPropertyCallback.html" title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../I2PAppContext.html#addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">I2PAppContext</a></code></span></div>
+<div class="block">Add a callback, which will fire upon changes in the property
+ given in the specific callback.
+ Unimplemented in I2PAppContext: this only makes sense in a router context.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">addPropertyCallback</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>callback</code> - The implementation of the callback.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="initAll()">initAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initAll</span>()</div>
+<div class="block">The following properties may be used to replace various parts
+  of the context with dummy implementations for testing, by setting
+  the property to "true":
+<pre>
+  i2p.dummyClientFacade
+  i2p.dummyNetDb
+  i2p.dummyPeerManager
+  i2p.dummyTunnelManager
+  i2p.vmCommSystem (transport)
+</pre></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="listContexts()">listContexts</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&gt;</span>&nbsp;<span class="memberName">listContexts</span>()</div>
+<div class="block">Retrieve the list of router contexts currently instantiated in this JVM.  
+ This will always contain only one item (except when a simulation per the
+ MultiRouter is going on).</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an unmodifiable list (as of 0.8.8). May be empty.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getContexts()">getContexts</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&gt;</span>&nbsp;<span class="memberName">getContexts</span>()</div>
+<div class="block">Same as listContexts() but package private and modifiable.
+ The list should only be modified when a new
+ context is created or a router is shut down.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="killGlobalContext()">killGlobalContext</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">killGlobalContext</span>()</div>
+<div class="block">Kill the global I2PAppContext, so it isn't still around
+ when we restart in the same JVM (Android).
+ Only do this if there are no other routers in the JVM.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="router()">router</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Router.html" title="class in net.i2p.router">Router</a></span>&nbsp;<span class="memberName">router</span>()</div>
+<div class="block">what router is this context working for?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="routerHash()">routerHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">routerHash</span>()</div>
+<div class="block">Convenience method for getting the router hash.
+  Equivalent to context.router().getRouterInfo().getIdentity().getHash()
+
+  Warning - risk of deadlock - do not call while holding locks</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>may be null if called very early</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clientManager()">clientManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ClientManagerFacade.html" title="class in net.i2p.router">ClientManagerFacade</a></span>&nbsp;<span class="memberName">clientManager</span>()</div>
+<div class="block">How are we coordinating clients for the router?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clientMessagePool()">clientMessagePool</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ClientMessagePool.html" title="class in net.i2p.router">ClientMessagePool</a></span>&nbsp;<span class="memberName">clientMessagePool</span>()</div>
+<div class="block">Where do we toss messages for the clients (and where do we get client messages
+ to forward on from)?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="inNetMessagePool()">inNetMessagePool</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="InNetMessagePool.html" title="class in net.i2p.router">InNetMessagePool</a></span>&nbsp;<span class="memberName">inNetMessagePool</span>()</div>
+<div class="block">Where do we get network messages from (aka where does the comm system dump what
+ it reads)?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="outNetMessagePool()">outNetMessagePool</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="OutNetMessagePool.html" title="class in net.i2p.router">OutNetMessagePool</a></span>&nbsp;<span class="memberName">outNetMessagePool</span>()</div>
+<div class="block">Where do we put messages that the router wants to forwards onto the network?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageHistory()">messageHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="MessageHistory.html" title="class in net.i2p.router">MessageHistory</a></span>&nbsp;<span class="memberName">messageHistory</span>()</div>
+<div class="block">Tracker component for monitoring what messages are wrapped in what containers
+ and how they proceed through the network.  This is fully for debugging, as when
+ a large portion of the network tracks their messages through this messageHistory
+ and submits their logs, we can correlate them and watch as messages flow from 
+ hop to hop.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageRegistry()">messageRegistry</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="transport/OutboundMessageRegistry.html" title="class in net.i2p.router.transport">OutboundMessageRegistry</a></span>&nbsp;<span class="memberName">messageRegistry</span>()</div>
+<div class="block">The registry is used by outbound messages to wait for replies.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="netDb()">netDb</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="NetworkDatabaseFacade.html" title="class in net.i2p.router">NetworkDatabaseFacade</a></span>&nbsp;<span class="memberName">netDb</span>()</div>
+<div class="block">Our db cache</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="jobQueue()">jobQueue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="JobQueue.html" title="class in net.i2p.router">JobQueue</a></span>&nbsp;<span class="memberName">jobQueue</span>()</div>
+<div class="block">The actual driver of the router, where all jobs are enqueued and processed.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="keyManager()">keyManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="KeyManager.html" title="class in net.i2p.router">KeyManager</a></span>&nbsp;<span class="memberName">keyManager</span>()</div>
+<div class="block">Coordinates the router's ElGamal and DSA keys, as well as any keys given
+ to it by clients as part of a LeaseSet.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="commSystem()">commSystem</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="CommSystemFacade.html" title="class in net.i2p.router">CommSystemFacade</a></span>&nbsp;<span class="memberName">commSystem</span>()</div>
+<div class="block">How do we pass messages from our outNetMessagePool to another router</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="profileOrganizer()">profileOrganizer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="peermanager/ProfileOrganizer.html" title="class in net.i2p.router.peermanager">ProfileOrganizer</a></span>&nbsp;<span class="memberName">profileOrganizer</span>()</div>
+<div class="block">Organize the peers we know about into various tiers, profiling their
+ performance and sorting them accordingly.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="peerManager()">peerManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PeerManagerFacade.html" title="interface in net.i2p.router">PeerManagerFacade</a></span>&nbsp;<span class="memberName">peerManager</span>()</div>
+<div class="block">Minimal interface for selecting peers for various tasks based on given
+ criteria.  This is kept seperate from the profile organizer since this 
+ logic is independent of how the peers are organized (or profiled even).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="profileManager()">profileManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="ProfileManager.html" title="interface in net.i2p.router">ProfileManager</a></span>&nbsp;<span class="memberName">profileManager</span>()</div>
+<div class="block">Expose a simple API for various router components to take note of 
+ particular events that a peer enacts (sends us a message, agrees to 
+ participate in a tunnel, etc).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bandwidthLimiter()">bandwidthLimiter</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="transport/FIFOBandwidthLimiter.html" title="class in net.i2p.router.transport">FIFOBandwidthLimiter</a></span>&nbsp;<span class="memberName">bandwidthLimiter</span>()</div>
+<div class="block">Coordinate this router's bandwidth limits</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelManager()">tunnelManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="TunnelManagerFacade.html" title="interface in net.i2p.router">TunnelManagerFacade</a></span>&nbsp;<span class="memberName">tunnelManager</span>()</div>
+<div class="block">Coordinate this router's tunnels (its pools, participation, backup, etc).
+ Any configuration for the tunnels is rooted from the context's properties</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDispatcher()">tunnelDispatcher</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="tunnel/TunnelDispatcher.html" title="class in net.i2p.router.tunnel">TunnelDispatcher</a></span>&nbsp;<span class="memberName">tunnelDispatcher</span>()</div>
+<div class="block">Handle tunnel messages, as well as coordinate the gateways</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="statPublisher()">statPublisher</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="StatisticsManager.html" title="class in net.i2p.router">StatisticsManager</a></span>&nbsp;<span class="memberName">statPublisher</span>()</div>
+<div class="block">If the router is configured to, gather up some particularly tasty morsels
+ regarding the stats managed and offer to publish them into the routerInfo.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="banlist()">banlist</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Banlist.html" title="class in net.i2p.router">Banlist</a></span>&nbsp;<span class="memberName">banlist</span>()</div>
+<div class="block">who does this peer hate?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="blocklist()">blocklist</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Blocklist.html" title="class in net.i2p.router">Blocklist</a></span>&nbsp;<span class="memberName">blocklist</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageValidator()">messageValidator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="MessageValidator.html" title="class in net.i2p.router">MessageValidator</a></span>&nbsp;<span class="memberName">messageValidator</span>()</div>
+<div class="block">The router keeps track of messages it receives to prevent duplicates, as
+ well as other criteria for "validity".</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="throttle()">throttle</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RouterThrottle.html" title="interface in net.i2p.router">RouterThrottle</a></span>&nbsp;<span class="memberName">throttle</span>()</div>
+<div class="block">Component to coordinate our accepting/rejecting of requests under load</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProperty(java.lang.String)">getProperty</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</span></div>
+<div class="block">Tie in the router's config as properties, as well as whatever the 
+ I2PAppContext says.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getProperty(java.lang.String)">getProperty</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProperty(java.lang.String,java.lang.String)">getProperty</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultVal)</span></div>
+<div class="block">Tie in the router's config as properties, as well as whatever the 
+ I2PAppContext says.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getProperty(java.lang.String,java.lang.String)">getProperty</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProperty(java.lang.String,int)">getProperty</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+int&nbsp;defaultVal)</span></div>
+<div class="block">Return an int with an int default</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getProperty(java.lang.String,int)">getProperty</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProperty(java.lang.String,long)">getProperty</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
+long&nbsp;defaultVal)</span></div>
+<div class="block">Return a long with a long default</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getProperty(java.lang.String,long)">getProperty</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProperties()">getProperties</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">getProperties</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../I2PAppContext.html#getProperties()">I2PAppContext</a></code></span></div>
+<div class="block">Access the configuration attributes of this context, listing the properties 
+ provided during the context construction, as well as the ones included in
+ System.getProperties.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getProperties()">getProperties</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new Properties with system and context properties</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="initializeClock()">initializeClock</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeClock</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#initializeClock()">initializeClock</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="keyRing()">keyRing</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></span>&nbsp;<span class="memberName">keyRing</span>()</div>
+<div class="block">override to support storage in router.config</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#keyRing()">keyRing</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="initializeKeyRing()">initializeKeyRing</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeKeyRing</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#initializeKeyRing()">initializeKeyRing</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeShutdownTasks()">removeShutdownTasks</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">removeShutdownTasks</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addFinalShutdownTask(java.lang.Runnable)">addFinalShutdownTask</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addFinalShutdownTask</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;task)</span></div>
+<div class="block">The last thing to be called before router shutdown.
+  No context resources, including logging, will be available.
+  Only for external threads in the same JVM needing to know when
+  the shutdown is complete, like Android.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFinalShutdownTasks()">getFinalShutdownTasks</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</span>&nbsp;<span class="memberName">getFinalShutdownTasks</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Set</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isRouterContext()">isRouterContext</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isRouterContext</span>()</div>
+<div class="block">Use this instead of context instanceof RouterContext</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#isRouterContext()">isRouterContext</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="internalClientManager()">internalClientManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../internal/InternalClientManager.html" title="interface in net.i2p.internal">InternalClientManager</a></span>&nbsp;<span class="memberName">internalClientManager</span>()</div>
+<div class="block">Use this to connect to the router in the same JVM.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#internalClientManager()">internalClientManager</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the client manager</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clientAppManager()">clientAppManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a></span>&nbsp;<span class="memberName">clientAppManager</span>()</div>
+<div class="block">The RouterAppManager.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#clientAppManager()">clientAppManager</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the manager</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="routerAppManager()">routerAppManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="startup/RouterAppManager.html" title="class in net.i2p.router.startup">RouterAppManager</a></span>&nbsp;<span class="memberName">routerAppManager</span>()</div>
+<div class="block">The RouterAppManager.
+  For convenience, same as clientAppManager(), no cast required</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the manager</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="initializeSessionKeyManager()">initializeSessionKeyManager</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeSessionKeyManager</span>()</div>
+<div class="block">As of 0.9.15, this returns a dummy SessionKeyManager in I2PAppContext.
+  Overridden in RouterContext to return the full TransientSessionKeyManager
+  or MuxedSKM, depending on configured router encryption type.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#initializeSessionKeyManager()">initializeSessionKeyManager</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="routingKeyGenerator()">routingKeyGenerator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/RoutingKeyGenerator.html" title="class in net.i2p.data">RoutingKeyGenerator</a></span>&nbsp;<span class="memberName">routingKeyGenerator</span>()</div>
+<div class="block">Determine how much do we want to mess with the keys to turn them 
+ into something we can route.  This is context specific because we 
+ may want to test out how things react when peers don't agree on 
+ how to skew.
+
+ Returns same thing as routerKeyGenerator()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#routingKeyGenerator()">routingKeyGenerator</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16 Overrides I2PAppContext. Returns non-null in RouterContext and null in I2PAppcontext.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="routerKeyGenerator()">routerKeyGenerator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/router/RouterKeyGenerator.html" title="class in net.i2p.data.router">RouterKeyGenerator</a></span>&nbsp;<span class="memberName">routerKeyGenerator</span>()</div>
+<div class="block">Determine how much do we want to mess with the keys to turn them 
+ into something we can route.  This is context specific because we 
+ may want to test out how things react when peers don't agree on 
+ how to skew.
+
+ Returns same thing as routingKeyGenerator()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="garlicMessageParser()">garlicMessageParser</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="message/GarlicMessageParser.html" title="class in net.i2p.router.message">GarlicMessageParser</a></span>&nbsp;<span class="memberName">garlicMessageParser</span>()</div>
+<div class="block">Since we only need one.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null after initAll()</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="elGamalAESEngine()">elGamalAESEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/ElGamalAESEngine.html" title="class in net.i2p.router.crypto">ElGamalAESEngine</a></span>&nbsp;<span class="memberName">elGamalAESEngine</span>()</div>
+<div class="block">Access the ElGamal/AES+SessionTag engine for this context.  The algorithm
+ makes use of the context's sessionKeyManager to coordinate transparent
+ access to the sessionKeys and sessionTags, as well as the context's elGamal
+ engine (which in turn keeps stats, etc).</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38 moved from superclass (app context)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="eciesEngine()">eciesEngine</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/ratchet/ECIESAEADEngine.html" title="class in net.i2p.router.crypto.ratchet">ECIESAEADEngine</a></span>&nbsp;<span class="memberName">eciesEngine</span>()</div>
+<div class="block">Access the ECIES/AEAD engine for this context.  The algorithm
+ makes use of the sessionKeyManager to coordinate transparent
+ access to the sessionKeys and sessionTags.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEstimatedDowntime()">getEstimatedDowntime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getEstimatedDowntime</span>()</div>
+<div class="block">How long this router was down before it started, or 0 if unknown.
+
+  This may be used for a determination of whether to regenerate keys, for example.
+  We use the timestamp of the previous ping file left behind on crash,
+  as set by isOnlyRouterRunning(), if present.
+  Otherwise, the last STOPPED entry in the event log.
+
+  May take a while to run the first time, if it has to go through the event log.
+  Once called, the result is cached.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../I2PAppContext.html#getEstimatedDowntime()">getEstimatedDowntime</a></code>&nbsp;in class&nbsp;<code><a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>downtime in ms or 0 if unknown</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.0.47</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterContext.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

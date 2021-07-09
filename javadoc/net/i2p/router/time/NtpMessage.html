@@ -1,0 +1,696 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>NtpMessage - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.time, class: NtpMessage">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":9,"i1":10,"i2":10,"i3":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NtpMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.time</a></div>
+<h1 title="Class NtpMessage" class="title">Class NtpMessage</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.time.NtpMessage</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">NtpMessage</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">This class represents a NTP message, as specified in RFC 2030.  The message
+ format is compatible with all versions of NTP and SNTP.
+
+ This class does not support the optional authentication protocol, and
+ ignores the key ID and message digest fields.
+
+ For convenience, this class exposes message values as native Java types, not
+ the NTP-specified data formats.  For example, timestamps are
+ stored as doubles (as opposed to the NTP unsigned 64-bit fixed point
+ format).
+
+ However, the contructor NtpMessage(byte[]) and the method toByteArray()
+ allow the import and export of the raw NTP message format. Usage example
+
+ // Send message
+ DatagramSocket socket = new DatagramSocket();
+ InetAddress address = InetAddress.getByName("ntp.cais.rnp.br");
+ byte[] buf = new NtpMessage().toByteArray();
+ DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 123);
+ socket.send(packet);
+
+ // Get response
+ socket.receive(packet);
+ System.out.println(msg.toString());
+
+ Comments for member variables are taken from RFC2030 by David Mills,
+ University of Delaware.
+
+ Number format conversion code in NtpMessage(byte[] array) and toByteArray()
+ inspired by http://www.pps.jussieu.fr/~jch/enseignement/reseaux/
+ NTPMessage.java which is copyright (c) 2003 by Juliusz Chroboczek
+
+ <h2>Year 2036 compliance</h2>
+
+ Prior to 0.9.50, this supported years 1900-2035.
+ As of 0.9.50, this supports years 1968-2104 and is year-2036 compliant.
+ All double timestamps are the actual seconds since 1900.
+ We use a "pivot" of January 1968.
+ NTP-format dates before 1968 are coverted to 2036+.
+ So this code handles the last half of era 0 and the first half of era 1,
+ i.e. 1968-2104.
+ All math and comparisons on timestamps must be on the double values,
+ never on the raw NTP-format byte arrays.
+
+ refs:
+ https://docs.ntpsec.org/latest/rollover.html
+ https://www.eecis.udel.edu/~mills/y2k.html
+ https://www.eecis.udel.edu/~mills/time.html
+ https://tools.ietf.org/html/rfc4330 sec. 3</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.1 moved from net.i2p.time</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Adam Buckley</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#leapIndicator">leapIndicator</a></span></code></th>
+<td class="colLast">
+<div class="block">This is a two-bit code warning of an impending leap second to be
+ inserted/deleted in the last minute of the current day.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mode">mode</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the mode, with values defined as follows:
+
+ Mode     Meaning
+ ----     -------
+ 0        reserved
+ 1        symmetric active
+ 2        symmetric passive
+ 3        client
+ 4        server
+ 5        broadcast
+ 6        reserved for NTP control message
+ 7        reserved for private use
+
+ In unicast and anycast modes, the client sets this field to 3 (client)
+ in the request and the server sets it to 4 (server) in the reply.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#originateTimestamp">originateTimestamp</a></span></code></th>
+<td class="colLast">
+<div class="block">This is the time at which the request departed the client for the
+ server, in seconds since 00:00 1-Jan-1900.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pollInterval">pollInterval</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the maximum interval between successive messages,
+ in seconds to the nearest power of two.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#precision">precision</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the precision of the local clock, in seconds to
+ the nearest power of two.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveTimestamp">receiveTimestamp</a></span></code></th>
+<td class="colLast">
+<div class="block">This is the time at which the request arrived at the server, in seconds
+ since 00:00 1-Jan-1900.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#referenceIdentifier">referenceIdentifier</a></span></code></th>
+<td class="colLast">
+<div class="block">This is a 4-byte array identifying the particular reference source.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#referenceTimestamp">referenceTimestamp</a></span></code></th>
+<td class="colLast">
+<div class="block">This is the time at which the local clock was last set or corrected, in
+ seconds since 00:00 1-Jan-1900.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rootDelay">rootDelay</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the total roundtrip delay to the primary reference
+ source, in seconds.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rootDispersion">rootDispersion</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the nominal error relative to the primary reference
+ source, in seconds.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>short</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stratum">stratum</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the stratum level of the local clock, with values
+ defined as follows:
+
+ Stratum  Meaning
+ ----------------------------------------------
+ 0        unspecified or unavailable
+ 1        primary reference (e.g., radio clock)
+ 2-15     secondary reference (via NTP or SNTP)
+ 16-255   reserved</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#transmitTimestamp">transmitTimestamp</a></span></code></th>
+<td class="colLast">
+<div class="block">This is the time at which the reply departed the server for the client,
+ in seconds since 00:00 1-Jan-1900.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#version">version</a></span></code></th>
+<td class="colLast">
+<div class="block">This value indicates the NTP/SNTP version number.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">NtpMessage</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Constructs a new NtpMessage in client -&gt; server mode, and sets the
+ transmit timestamp to the current time.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(byte%5B%5D)">NtpMessage</a></span>&#8203;(byte[]&nbsp;array)</code></th>
+<td class="colLast">
+<div class="block">Constructs a new NtpMessage from an array of bytes.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encodeTimestamp(byte%5B%5D,int,double)">encodeTimestamp</a></span>&#8203;(byte[]&nbsp;array,
+int&nbsp;pointer,
+double&nbsp;timestamp)</code></th>
+<td class="colLast">
+<div class="block">Encodes a timestamp in the specified position in the message.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#referenceIdentifierToString()">referenceIdentifierToString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toByteArray()">toByteArray</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This method constructs the data bytes of a raw NTP packet.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns a string representation of a NtpMessage</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="leapIndicator">leapIndicator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">leapIndicator</span></div>
+<div class="block">This is a two-bit code warning of an impending leap second to be
+ inserted/deleted in the last minute of the current day.  Its values
+ may be as follows:
+
+ Value     Meaning
+ -----     -------
+ 0         no warning
+ 1         last minute has 61 seconds
+ 2         last minute has 59 seconds)
+ 3         alarm condition (clock not synchronized)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="version">version</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">version</span></div>
+<div class="block">This value indicates the NTP/SNTP version number.  The version number
+ is 3 for Version 3 (IPv4 only) and 4 for Version 4 (IPv4, IPv6 and OSI).
+ If necessary to distinguish between IPv4, IPv6 and OSI, the
+ encapsulating context must be inspected.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="mode">mode</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">mode</span></div>
+<div class="block">This value indicates the mode, with values defined as follows:
+
+ Mode     Meaning
+ ----     -------
+ 0        reserved
+ 1        symmetric active
+ 2        symmetric passive
+ 3        client
+ 4        server
+ 5        broadcast
+ 6        reserved for NTP control message
+ 7        reserved for private use
+
+ In unicast and anycast modes, the client sets this field to 3 (client)
+ in the request and the server sets it to 4 (server) in the reply. In
+ multicast mode, the server sets this field to 5 (broadcast).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stratum">stratum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">short</span>&nbsp;<span class="memberName">stratum</span></div>
+<div class="block">This value indicates the stratum level of the local clock, with values
+ defined as follows:
+
+ Stratum  Meaning
+ ----------------------------------------------
+ 0        unspecified or unavailable
+ 1        primary reference (e.g., radio clock)
+ 2-15     secondary reference (via NTP or SNTP)
+ 16-255   reserved</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="pollInterval">pollInterval</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">pollInterval</span></div>
+<div class="block">This value indicates the maximum interval between successive messages,
+ in seconds to the nearest power of two. The values that can appear in
+ this field presently range from 4 (16 s) to 14 (16284 s); however, most
+ applications use only the sub-range 6 (64 s) to 10 (1024 s).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="precision">precision</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte</span>&nbsp;<span class="memberName">precision</span></div>
+<div class="block">This value indicates the precision of the local clock, in seconds to
+ the nearest power of two.  The values that normally appear in this field
+ range from -6 for mains-frequency clocks to -20 for microsecond clocks
+ found in some workstations.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rootDelay">rootDelay</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">rootDelay</span></div>
+<div class="block">This value indicates the total roundtrip delay to the primary reference
+ source, in seconds.  Note that this variable can take on both positive
+ and negative values, depending on the relative time and frequency
+ offsets. The values that normally appear in this field range from
+ negative values of a few milliseconds to positive values of several
+ hundred milliseconds.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rootDispersion">rootDispersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">rootDispersion</span></div>
+<div class="block">This value indicates the nominal error relative to the primary reference
+ source, in seconds.  The values  that normally appear in this field
+ range from 0 to several hundred milliseconds.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="referenceIdentifier">referenceIdentifier</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">referenceIdentifier</span></div>
+<div class="block">This is a 4-byte array identifying the particular reference source.
+ In the case of NTP Version 3 or Version 4 stratum-0 (unspecified) or
+ stratum-1 (primary) servers, this is a four-character ASCII string, left
+ justified and zero padded to 32 bits. In NTP Version 3 secondary
+ servers, this is the 32-bit IPv4 address of the reference source. In NTP
+ Version 4 secondary servers, this is the low order 32 bits of the latest
+ transmit timestamp of the reference source. NTP primary (stratum 1)
+ servers should set this field to a code identifying the external
+ reference source according to the following list. If the external
+ reference is one of those listed, the associated code should be used.
+ Codes for sources not listed can be contrived as appropriate.
+
+ Code     External Reference Source
+ ----     -------------------------
+ LOCL     uncalibrated local clock used as a primary reference for
+          a subnet without external means of synchronization
+ PPS      atomic clock or other pulse-per-second source
+          individually calibrated to national standards
+ ACTS     NIST dialup modem service
+ USNO     USNO modem service
+ PTB      PTB (Germany) modem service
+ TDF      Allouis (France) Radio 164 kHz
+ DCF      Mainflingen (Germany) Radio 77.5 kHz
+ MSF      Rugby (UK) Radio 60 kHz
+ WWV      Ft. Collins (US) Radio 2.5, 5, 10, 15, 20 MHz
+ WWVB     Boulder (US) Radio 60 kHz
+ WWVH     Kaui Hawaii (US) Radio 2.5, 5, 10, 15 MHz
+ CHU      Ottawa (Canada) Radio 3330, 7335, 14670 kHz
+ LORC     LORAN-C radionavigation system
+ OMEG     OMEGA radionavigation system
+ GPS      Global Positioning Service
+ GOES     Geostationary Orbit Environment Satellite</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="referenceTimestamp">referenceTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">referenceTimestamp</span></div>
+<div class="block">This is the time at which the local clock was last set or corrected, in
+ seconds since 00:00 1-Jan-1900.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="originateTimestamp">originateTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">originateTimestamp</span></div>
+<div class="block">This is the time at which the request departed the client for the
+ server, in seconds since 00:00 1-Jan-1900.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveTimestamp">receiveTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">receiveTimestamp</span></div>
+<div class="block">This is the time at which the request arrived at the server, in seconds
+ since 00:00 1-Jan-1900.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="transmitTimestamp">transmitTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">transmitTimestamp</span></div>
+<div class="block">This is the time at which the reply departed the server for the client,
+ in seconds since 00:00 1-Jan-1900.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(byte[])">NtpMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">NtpMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;array)</span></div>
+<div class="block">Constructs a new NtpMessage from an array of bytes.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>array</code> - 48 bytes minimum</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">NtpMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">NtpMessage</span>()</div>
+<div class="block">Constructs a new NtpMessage in client -&gt; server mode, and sets the
+ transmit timestamp to the current time.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="toByteArray()">toByteArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">toByteArray</span>()</div>
+<div class="block">This method constructs the data bytes of a raw NTP packet.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>48 bytes</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<div class="block">Returns a string representation of a NtpMessage</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encodeTimestamp(byte[],int,double)">encodeTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">encodeTimestamp</span>&#8203;(<span class="arguments">byte[]&nbsp;array,
+int&nbsp;pointer,
+double&nbsp;timestamp)</span></div>
+<div class="block">Encodes a timestamp in the specified position in the message.
+
+ 2036-compliant as of 0.9.50.
+ Timestamps before 1968 will be encoded as Jan. 1968.
+ Timestamps after Feb. 2104 will be encoded as Feb. 2104.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>array</code> - output 8 bytes starting at pointer</dd>
+<dd><code>pointer</code> - the offset</dd>
+<dd><code>timestamp</code> - the time to encode (since 1900, NOT Java time)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="referenceIdentifierToString()">referenceIdentifierToString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">referenceIdentifierToString</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, "" if unset</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.29</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NtpMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

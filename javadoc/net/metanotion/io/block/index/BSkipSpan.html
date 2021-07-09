@@ -1,0 +1,632 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BSkipSpan - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.metanotion.io.block.index, class: BSkipSpan">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BSkipSpan.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.metanotion.io.block.index</a></div>
+<h1 title="Class BSkipSpan" class="title">Class BSkipSpan&lt;K extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super K&gt;,&#8203;V&gt;</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">net.metanotion.util.skiplist.SkipSpan</a>&lt;K,&#8203;V&gt;
+<div class="inheritance">net.metanotion.io.block.index.BSkipSpan&lt;K,&#8203;V&gt;</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true" title="class or interface in java.io" class="externalLink">Flushable</a></code></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="IBSkipSpan.html" title="class in net.metanotion.io.block.index">IBSkipSpan</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">BSkipSpan&lt;K extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super K&gt;,&#8203;V&gt;</span>
+extends <a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;K,&#8203;V&gt;</pre>
+<div class="block">On-disk format:
+
+<pre>
+   First Page:
+     Magic number (int)
+     overflow page (unsigned int)
+     previous page (unsigned int)
+     next page (unsigned int)
+     max keys (unsigned short)
+     number of keys (unsigned short)
+     for each key:
+         key length (unsigned short)
+         value length (unsigned short)
+         key data
+         value data
+
+   Overflow pages:
+     Magic number (int)
+     next overflow page (unsigned int)
+</pre></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bf">bf</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CONT_HEADER_LEN">CONT_HEADER_LEN</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HEADER_LEN">HEADER_LEN</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isKilled">isKilled</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keySer">keySer</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAGIC">MAGIC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nextPage">nextPage</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#overflowPage">overflowPage</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#page">page</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#prevPage">prevPage</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spanSize">spanSize</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#valSer">valSer</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.metanotion.util.skiplist.<a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a></h3>
+<a id="fields.inherited.from.class.net.metanotion.util.skiplist.SkipSpan">
+</a><code><a href="../../../util/skiplist/SkipSpan.html#keys">keys</a>, <a href="../../../util/skiplist/SkipSpan.html#MAX_SIZE">MAX_SIZE</a>, <a href="../../../util/skiplist/SkipSpan.html#next">next</a>, <a href="../../../util/skiplist/SkipSpan.html#nKeys">nKeys</a>, <a href="../../../util/skiplist/SkipSpan.html#prev">prev</a>, <a href="../../../util/skiplist/SkipSpan.html#vals">vals</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colSecond" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList)">BSkipSpan</a></span>&#8203;(<a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;bsl)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList,int,net.metanotion.io.Serializer,net.metanotion.io.Serializer)">BSkipSpan</a></span>&#8203;(<a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;bsl,
+int&nbsp;spanPage,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;&nbsp;key,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;val)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#flush()">flush</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(net.metanotion.io.block.BlockFile,int,int)">init</a></span>&#8203;(<a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+int&nbsp;page,
+int&nbsp;spanSize)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#killInstance()">killInstance</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadData()">loadData</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P - second half of load()
+ Load the whole span's keys and values into memory</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadData(boolean)">loadData</a></span>&#8203;(boolean&nbsp;flushOnError)</code></th>
+<td class="colLast">
+<div class="block">I2P - second half of load()
+ Load the whole span's keys and values into memory</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>protected static &lt;X extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super X&gt;,&#8203;
+Y&gt;<br>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadInit(net.metanotion.io.block.index.BSkipSpan,net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList,int,net.metanotion.io.Serializer,net.metanotion.io.Serializer)">loadInit</a></span>&#8203;(<a href="BSkipSpan.html" title="class in net.metanotion.io.block.index">BSkipSpan</a>&lt;X,&#8203;Y&gt;&nbsp;bss,
+<a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;X,&#8203;Y&gt;&nbsp;bsl,
+int&nbsp;spanPage,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;X&gt;&nbsp;key,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;Y&gt;&nbsp;val)</code></th>
+<td class="colLast">
+<div class="block">I2P - first half of load()
+ Only read the span headers</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lostEntries(int,int)">lostEntries</a></span>&#8203;(int&nbsp;firstBadEntry,
+int&nbsp;lastGoodPage)</code></th>
+<td class="colLast">
+<div class="block">Attempt to recover from corrupt data in this span.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInstance(net.metanotion.util.skiplist.SkipList)">newInstance</a></span>&#8203;(<a href="../../../util/skiplist/SkipList.html" title="class in net.metanotion.util.skiplist">SkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;sl)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.metanotion.util.skiplist.<a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a></h3>
+<a id="methods.inherited.from.class.net.metanotion.util.skiplist.SkipSpan">
+</a><code><a href="../../../util/skiplist/SkipSpan.html#firstKey()">firstKey</a>, <a href="../../../util/skiplist/SkipSpan.html#get(K)">get</a>, <a href="../../../util/skiplist/SkipSpan.html#getEnd()">getEnd</a>, <a href="../../../util/skiplist/SkipSpan.html#getSpan(K,int%5B%5D)">getSpan</a>, <a href="../../../util/skiplist/SkipSpan.html#print()">print</a>, <a href="../../../util/skiplist/SkipSpan.html#put(K,V,net.metanotion.util.skiplist.SkipList)">put</a>, <a href="../../../util/skiplist/SkipSpan.html#remove(K,net.metanotion.util.skiplist.SkipList)">remove</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAGIC">MAGIC</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAGIC</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.metanotion.io.block.index.BSkipSpan.MAGIC">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="HEADER_LEN">HEADER_LEN</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">HEADER_LEN</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.metanotion.io.block.index.BSkipSpan.HEADER_LEN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CONT_HEADER_LEN">CONT_HEADER_LEN</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">CONT_HEADER_LEN</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.metanotion.io.block.index.BSkipSpan.CONT_HEADER_LEN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bf">bf</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a></span>&nbsp;<span class="memberName">bf</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="page">page</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">page</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="overflowPage">overflowPage</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">overflowPage</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="prevPage">prevPage</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">prevPage</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="nextPage">nextPage</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">nextPage</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="keySer">keySer</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super <a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;&gt;</span>&nbsp;<span class="memberName">keySer</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="valSer">valSer</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</span>&nbsp;<span class="memberName">valSer</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="spanSize">spanSize</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">spanSize</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isKilled">isKilled</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isKilled</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList)">BSkipSpan</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">BSkipSpan</span>&#8203;(<span class="arguments"><a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;bsl)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList,int,net.metanotion.io.Serializer,net.metanotion.io.Serializer)">BSkipSpan</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BSkipSpan</span>&#8203;(<span class="arguments"><a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;bsl,
+int&nbsp;spanPage,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;&nbsp;key,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;val)</span>
+          throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="init(net.metanotion.io.block.BlockFile,int,int)">init</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">init</span>&#8203;(<span class="arguments"><a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+int&nbsp;page,
+int&nbsp;spanSize)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="newInstance(net.metanotion.util.skiplist.SkipList)">newInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</span>&nbsp;<span class="memberName">newInstance</span>&#8203;(<span class="arguments"><a href="../../../util/skiplist/SkipList.html" title="class in net.metanotion.util.skiplist">SkipList</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;&nbsp;sl)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../util/skiplist/SkipSpan.html#newInstance(net.metanotion.util.skiplist.SkipList)">newInstance</a></code>&nbsp;in class&nbsp;<code><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super <a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="killInstance()">killInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">killInstance</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../util/skiplist/SkipSpan.html#killInstance()">killInstance</a></code>&nbsp;in class&nbsp;<code><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super <a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="flush()">flush</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">flush</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true#flush()" title="class or interface in java.io" class="externalLink">flush</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Flushable.html?is-external=true" title="class or interface in java.io" class="externalLink">Flushable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../util/skiplist/SkipSpan.html#flush()">flush</a></code>&nbsp;in class&nbsp;<code><a href="../../../util/skiplist/SkipSpan.html" title="class in net.metanotion.util.skiplist">SkipSpan</a>&lt;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a> extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super <a href="BSkipSpan.html" title="type parameter in BSkipSpan">K</a>&gt;,&#8203;<a href="BSkipSpan.html" title="type parameter in BSkipSpan">V</a>&gt;</code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="loadInit(net.metanotion.io.block.index.BSkipSpan,net.metanotion.io.block.BlockFile,net.metanotion.io.block.index.BSkipList,int,net.metanotion.io.Serializer,net.metanotion.io.Serializer)">loadInit</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static</span>&nbsp;<span class="typeParameters">&lt;X extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Comparable</a>&lt;? super X&gt;,&#8203;
+Y&gt;</span>
+<span class="returnType">void</span>&nbsp;<span class="memberName">loadInit</span>&#8203;(<span class="arguments"><a href="BSkipSpan.html" title="class in net.metanotion.io.block.index">BSkipSpan</a>&lt;X,&#8203;Y&gt;&nbsp;bss,
+<a href="../BlockFile.html" title="class in net.metanotion.io.block">BlockFile</a>&nbsp;bf,
+<a href="BSkipList.html" title="class in net.metanotion.io.block.index">BSkipList</a>&lt;X,&#8203;Y&gt;&nbsp;bsl,
+int&nbsp;spanPage,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;X&gt;&nbsp;key,
+<a href="../../Serializer.html" title="interface in net.metanotion.io">Serializer</a>&lt;Y&gt;&nbsp;val)</span>
+       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">I2P - first half of load()
+ Only read the span headers</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="loadData()">loadData</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">loadData</span>()
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">I2P - second half of load()
+ Load the whole span's keys and values into memory</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="loadData(boolean)">loadData</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">loadData</span>&#8203;(<span class="arguments">boolean&nbsp;flushOnError)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">I2P - second half of load()
+ Load the whole span's keys and values into memory</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>flushOnError</code> - set to false if you are going to flush anyway</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lostEntries(int,int)">lostEntries</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">lostEntries</span>&#8203;(<span class="arguments">int&nbsp;firstBadEntry,
+int&nbsp;lastGoodPage)</span></div>
+<div class="block">Attempt to recover from corrupt data in this span.
+  All entries starting with firstBadEntry are lost.
+  Zero out the overflow page on lastGoodPage,
+  and corect the number of entries in the first page.
+  We don't attempt to free the lost continuation pages.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BSkipSpan.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

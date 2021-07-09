@@ -1,0 +1,1238 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PeerProfile - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.peermanager, class: PeerProfile">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":42,"i36":42,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":42,"i57":10,"i58":10,"i59":10,"i60":42,"i61":10,"i62":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PeerProfile.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.peermanager</a></div>
+<h1 title="Class PeerProfile" class="title">Class PeerProfile</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.peermanager.PeerProfile</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">PeerProfile</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Copied from http://www.i2p2.i2p/how_peerselection.html
+
+ See also main() below for additional commentary by zzz.
+
+ Currently, there is no 'ejection' strategy to get rid of the profiles for peers that
+ are no longer active (or when the network consists of thousands of peers, to get rid
+ of peers that are performing poorly). However, the size of each profile is fairly small,
+ and is unrelated to how much data is collected about the peer, so that a router can
+ keep a few thousand active peer profiles before the overhead becomes a serious concern.
+ Once it becomes necessary, we can simply compact the poorly performing profiles
+ (keeping only the most basic data) and maintain hundreds of thousands of profiles
+ in memory. Beyond that size, we can simply eject the peers (e.g. keeping the best 100,000).
+
+ TODO most of the methods should be synchronized.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ENABLE_TUNNEL_TEST_RESPONSE_TIME">ENABLE_TUNNEL_TEST_RESPONSE_TIME</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.data.Hash)">PeerProfile</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Caller should call setLastHeardAbout() and setFirstHeardAbout()</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#coalesceOnly(boolean)">coalesceOnly</a></span>&#8203;(boolean&nbsp;shouldDecay)</code></th>
+<td class="colLast">
+<div class="block">Caller must next call updateValues()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#coalesceStats()">coalesceStats</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Update the stats and rates.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dataPushed(int)">dataPushed</a></span>&#8203;(int&nbsp;size)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dataPushed1m(int)">dataPushed1m</a></span>&#8203;(int&nbsp;size)</code></th>
+<td class="colLast">
+<div class="block">the tunnel pushed that much data in a 1 minute period</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;obj)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#expandDBProfile()">expandDBProfile</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For floodfills</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#expandProfile()">expandProfile</a></span>()</code></th>
+<td class="colLast">
+<div class="block">When the given peer is performing well enough that we want to keep detailed
+ stats on them again, call this to set up the info we dropped during shrinkProfile.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCapacityBonus()">getCapacityBonus</a></span>()</code></th>
+<td class="colLast">
+<div class="block">extra factor added to the capacity ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks capacity.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCapacityValue()">getCapacityValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many tunnels do we think this peer can handle over the next hour?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>(package private) <a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContext()">getContext</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Helper for calculators</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="DBHistory.html" title="class in net.i2p.router.peermanager">DBHistory</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDBHistory()">getDBHistory</a></span>()</code></th>
+<td class="colLast">
+<div class="block">history of db activity with the peer
+        Warning - may return null if !getIsExpandedDB()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDbIntroduction()">getDbIntroduction</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how many new peers we get from dbSearchReplyMessages or dbStore messages, calculated over a 1 hour, 1 day, and 1 week period
+        Warning - may return null if !getIsExpandedDB()</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDbResponseTime()">getDbResponseTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how long it takes to get a db response from the peer (in milliseconds), calculated over a 1 minute, 1 hour, and 1 day period
+        Warning - may return null if !getIsExpandedDB()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFirstHeardAbout()">getFirstHeardAbout</a></span>()</code></th>
+<td class="colLast">
+<div class="block">When did we first hear about this peer?</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIntegrationBonus()">getIntegrationBonus</a></span>()</code></th>
+<td class="colLast">
+<div class="block">extra factor added to the integration ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks integration.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIntegrationValue()">getIntegrationValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How well integrated into the network is this peer (as measured by how much they've
+ told us that we didn't already know).</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsActive()">getIsActive</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is this peer active at the moment (sending/receiving messages within the last
+ 5 minutes)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsActive(long)">getIsActive</a></span>&#8203;(long&nbsp;period)</code></th>
+<td class="colLast">
+<div class="block">Is this peer active at the moment (sending/receiving messages within the
+ given period?)
+ Also mark active if it is connected, as this will tend to encourage use
+ of already-connected peers.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsExpanded()">getIsExpanded</a></span>()</code></th>
+<td class="colLast">
+<div class="block">are we keeping an expanded profile on the peer, or just the bare minimum.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsExpandedDB()">getIsExpandedDB</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIsFailing()">getIsFailing</a></span>()</code></th>
+<td class="colLast">
+<div class="block">is this peer actively failing (aka not worth touching)?
+ deprecated - unused - always false</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastHeardAbout()">getLastHeardAbout</a></span>()</code></th>
+<td class="colLast">
+<div class="block">when did we last hear about this peer?</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastHeardFrom()">getLastHeardFrom</a></span>()</code></th>
+<td class="colLast">
+<div class="block">when did we last hear from the peer?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastSendFailed()">getLastSendFailed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">when did we last have a problem sending to this peer?</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastSendSuccessful()">getLastSendSuccessful</a></span>()</code></th>
+<td class="colLast">
+<div class="block">when did we last send to this peer successfully?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeakThroughputKBps()">getPeakThroughputKBps</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeakTunnel1mThroughputKBps()">getPeakTunnel1mThroughputKBps</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This is the speed value</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeakTunnelThroughputKBps()">getPeakTunnelThroughputKBps</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeer()">getPeer</a></span>()</code></th>
+<td class="colLast">
+<div class="block">what peer is being profiled, non-null</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeerTestResponseTime()">getPeerTestResponseTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how long it takes for a peer to respond to a direct test (ms)</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeerTestTimeAverage()">getPeerTestTimeAverage</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSpeedBonus()">getSpeedBonus</a></span>()</code></th>
+<td class="colLast">
+<div class="block">extra factor added to the speed ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks speed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSpeedValue()">getSpeedValue</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How fast is the peer, taking into consideration both throughput and latency.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTunnelCreateResponseTime()">getTunnelCreateResponseTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how long it takes to get a tunnel create response from the peer (in milliseconds), calculated over a 1 minute, 1 hour, and 1 day period
+        Warning - may return null if !getIsExpanded()</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code><a href="TunnelHistory.html" title="class in net.i2p.router.peermanager">TunnelHistory</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTunnelHistory()">getTunnelHistory</a></span>()</code></th>
+<td class="colLast">
+<div class="block">history of tunnel activity with the peer
+        Warning - may return null if !getIsExpanded()</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTunnelTestResponseTime()">getTunnelTestResponseTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTunnelTestTimeAverage()">getTunnelTestTimeAverage</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXORDistance()">getXORDistance</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For now, just a one-byte comparison</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEstablished()">isEstablished</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isSameCountry()">isSameCountry</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCapacityBonus(int)">setCapacityBonus</a></span>&#8203;(int&nbsp;bonus)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDBHistory(net.i2p.router.peermanager.DBHistory)">setDBHistory</a></span>&#8203;(<a href="DBHistory.html" title="class in net.i2p.router.peermanager">DBHistory</a>&nbsp;hist)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFirstHeardAbout(long)">setFirstHeardAbout</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">
+<div class="block">Set when did we first heard about this peer, only if older.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIntegrationBonus(int)">setIntegrationBonus</a></span>&#8203;(int&nbsp;bonus)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIsFailing(boolean)">setIsFailing</a></span>&#8203;(boolean&nbsp;val)</code></th>
+<td class="colLast">
+<div class="block">deprecated - unused - always false</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastHeardAbout(long)">setLastHeardAbout</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">
+<div class="block">Set when did we last hear about this peer, only if unset or newer
+  Also sets FirstHeardAbout if earlier</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastHeardFrom(long)">setLastHeardFrom</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastSendFailed(long)">setLastSendFailed</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastSendSuccessful(long)">setLastSendSuccessful</a></span>&#8203;(long&nbsp;when)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeakThroughputKBps(float)">setPeakThroughputKBps</a></span>&#8203;(float&nbsp;kBps)</code></th>
+<td class="colLast">
+<div class="block">Only for restoration from persisted profile.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeakTunnel1mThroughputKBps(float)">setPeakTunnel1mThroughputKBps</a></span>&#8203;(float&nbsp;kBps)</code></th>
+<td class="colLast">
+<div class="block">Only for restoration from persisted profile.</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeakTunnelThroughputKBps(float)">setPeakTunnelThroughputKBps</a></span>&#8203;(float&nbsp;kBps)</code></th>
+<td class="colLast">
+<div class="block">Only for restoration from persisted profile.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPeerTestTimeAverage(float)">setPeerTestTimeAverage</a></span>&#8203;(float&nbsp;testAvg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSpeedBonus(int)">setSpeedBonus</a></span>&#8203;(int&nbsp;bonus)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTunnelHistory(net.i2p.router.peermanager.TunnelHistory)">setTunnelHistory</a></span>&#8203;(<a href="TunnelHistory.html" title="class in net.i2p.router.peermanager">TunnelHistory</a>&nbsp;history)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i56">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTunnelTestTimeAverage(float)">setTunnelTestTimeAverage</a></span>&#8203;(float&nbsp;avg)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i57">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i58">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDataTransferred(long)">tunnelDataTransferred</a></span>&#8203;(long&nbsp;tunnelByteLifetime)</code></th>
+<td class="colLast">
+<div class="block">the tunnel pushed that much data in its lifetime</div>
+</td>
+</tr>
+<tr class="rowColor" id="i59">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updatePeerTestTimeAverage(long)">updatePeerTestTimeAverage</a></span>&#8203;(long&nbsp;ms)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i60">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateTunnelTestTimeAverage(long)">updateTunnelTestTimeAverage</a></span>&#8203;(long&nbsp;ms)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i61">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateValues()">updateValues</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Copy over the new values generated by coalesceOnly()</div>
+</td>
+</tr>
+<tr class="altColor" id="i62">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wasUnreachable()">wasUnreachable</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="ENABLE_TUNNEL_TEST_RESPONSE_TIME">ENABLE_TUNNEL_TEST_RESPONSE_TIME</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">ENABLE_TUNNEL_TEST_RESPONSE_TIME</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.peermanager.PeerProfile.ENABLE_TUNNEL_TEST_RESPONSE_TIME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.data.Hash)">PeerProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PeerProfile</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context,
+<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Caller should call setLastHeardAbout() and setFirstHeardAbout()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - non-null</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeer()">getPeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getPeer</span>()</div>
+<div class="block">what peer is being profiled, non-null</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsExpanded()">getIsExpanded</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsExpanded</span>()</div>
+<div class="block">are we keeping an expanded profile on the peer, or just the bare minimum.
+ If we aren't keeping the expanded profile, all of the rates as well as the
+ TunnelHistory and DBHistory will not be available.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsExpandedDB()">getIsExpandedDB</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsExpandedDB</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsActive()">getIsActive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsActive</span>()</div>
+<div class="block">Is this peer active at the moment (sending/receiving messages within the last
+ 5 minutes)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isEstablished()">isEstablished</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isEstablished</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="wasUnreachable()">wasUnreachable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">wasUnreachable</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isSameCountry()">isSameCountry</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isSameCountry</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getXORDistance()">getXORDistance</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getXORDistance</span>()</div>
+<div class="block">For now, just a one-byte comparison</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>-127 to +128, lower is closer</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsActive(long)">getIsActive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsActive</span>&#8203;(<span class="arguments">long&nbsp;period)</span></div>
+<div class="block">Is this peer active at the moment (sending/receiving messages within the
+ given period?)
+ Also mark active if it is connected, as this will tend to encourage use
+ of already-connected peers.
+
+ Note: this appears to be the only use for these two RateStats.
+
+ Update: Rewritten so we can get rid of the two RateStats.
+         This also helps by not having it depend on coalesce boundaries.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>period</code> - must be one of the periods in the RateStat constructors below
+        (5*60*1000 or 60*60*1000)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFirstHeardAbout()">getFirstHeardAbout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getFirstHeardAbout</span>()</div>
+<div class="block">When did we first hear about this peer?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>greater than zero, set to now in consturctor</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFirstHeardAbout(long)">setFirstHeardAbout</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setFirstHeardAbout</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+<div class="block">Set when did we first heard about this peer, only if older.
+  Package private, only set by profile management subsystem.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastHeardAbout()">getLastHeardAbout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastHeardAbout</span>()</div>
+<div class="block">when did we last hear about this peer?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 if unset</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastHeardAbout(long)">setLastHeardAbout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLastHeardAbout</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+<div class="block">Set when did we last hear about this peer, only if unset or newer
+  Also sets FirstHeardAbout if earlier</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastSendSuccessful()">getLastSendSuccessful</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastSendSuccessful</span>()</div>
+<div class="block">when did we last send to this peer successfully?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastSendSuccessful(long)">setLastSendSuccessful</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLastSendSuccessful</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastSendFailed()">getLastSendFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastSendFailed</span>()</div>
+<div class="block">when did we last have a problem sending to this peer?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastSendFailed(long)">setLastSendFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLastSendFailed</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastHeardFrom()">getLastHeardFrom</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastHeardFrom</span>()</div>
+<div class="block">when did we last hear from the peer?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastHeardFrom(long)">setLastHeardFrom</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLastHeardFrom</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTunnelHistory()">getTunnelHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="TunnelHistory.html" title="class in net.i2p.router.peermanager">TunnelHistory</a></span>&nbsp;<span class="memberName">getTunnelHistory</span>()</div>
+<div class="block">history of tunnel activity with the peer
+        Warning - may return null if !getIsExpanded()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setTunnelHistory(net.i2p.router.peermanager.TunnelHistory)">setTunnelHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTunnelHistory</span>&#8203;(<span class="arguments"><a href="TunnelHistory.html" title="class in net.i2p.router.peermanager">TunnelHistory</a>&nbsp;history)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDBHistory()">getDBHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DBHistory.html" title="class in net.i2p.router.peermanager">DBHistory</a></span>&nbsp;<span class="memberName">getDBHistory</span>()</div>
+<div class="block">history of db activity with the peer
+        Warning - may return null if !getIsExpandedDB()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDBHistory(net.i2p.router.peermanager.DBHistory)">setDBHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDBHistory</span>&#8203;(<span class="arguments"><a href="DBHistory.html" title="class in net.i2p.router.peermanager">DBHistory</a>&nbsp;hist)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDbResponseTime()">getDbResponseTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></span>&nbsp;<span class="memberName">getDbResponseTime</span>()</div>
+<div class="block">how long it takes to get a db response from the peer (in milliseconds), calculated over a 1 minute, 1 hour, and 1 day period
+        Warning - may return null if !getIsExpandedDB()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTunnelCreateResponseTime()">getTunnelCreateResponseTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></span>&nbsp;<span class="memberName">getTunnelCreateResponseTime</span>()</div>
+<div class="block">how long it takes to get a tunnel create response from the peer (in milliseconds), calculated over a 1 minute, 1 hour, and 1 day period
+        Warning - may return null if !getIsExpanded()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTunnelTestResponseTime()">getTunnelTestResponseTime</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></span>&nbsp;<span class="memberName">getTunnelTestResponseTime</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<div class="block">How long it takes to successfully test a tunnel this peer participates in (in milliseconds),
+  calculated over a 10 minute, 1 hour, and 1 day period
+  Warning - may return null if !getIsExpanded()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null always</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeerTestResponseTime()">getPeerTestResponseTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></span>&nbsp;<span class="memberName">getPeerTestResponseTime</span>()</div>
+<div class="block">how long it takes for a peer to respond to a direct test (ms)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDbIntroduction()">getDbIntroduction</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../stat/RateStat.html" title="class in net.i2p.stat">RateStat</a></span>&nbsp;<span class="memberName">getDbIntroduction</span>()</div>
+<div class="block">how many new peers we get from dbSearchReplyMessages or dbStore messages, calculated over a 1 hour, 1 day, and 1 week period
+        Warning - may return null if !getIsExpandedDB()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSpeedBonus()">getSpeedBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getSpeedBonus</span>()</div>
+<div class="block">extra factor added to the speed ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks speed.  Negative values are
+ penalties</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSpeedBonus(int)">setSpeedBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSpeedBonus</span>&#8203;(<span class="arguments">int&nbsp;bonus)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCapacityBonus()">getCapacityBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getCapacityBonus</span>()</div>
+<div class="block">extra factor added to the capacity ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks capacity.  Negative values are
+ penalties</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setCapacityBonus(int)">setCapacityBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setCapacityBonus</span>&#8203;(<span class="arguments">int&nbsp;bonus)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIntegrationBonus()">getIntegrationBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getIntegrationBonus</span>()</div>
+<div class="block">extra factor added to the integration ranking - this can be updated in the profile
+ written to disk to affect how the algorithm ranks integration.  Negative values are
+ penalties</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setIntegrationBonus(int)">setIntegrationBonus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setIntegrationBonus</span>&#8203;(<span class="arguments">int&nbsp;bonus)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSpeedValue()">getSpeedValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getSpeedValue</span>()</div>
+<div class="block">How fast is the peer, taking into consideration both throughput and latency.
+ This may even be made to take into consideration current rates vs. estimated
+ (or measured) max rates, allowing this speed to reflect the speed /available/.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCapacityValue()">getCapacityValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getCapacityValue</span>()</div>
+<div class="block">How many tunnels do we think this peer can handle over the next hour?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIntegrationValue()">getIntegrationValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getIntegrationValue</span>()</div>
+<div class="block">How well integrated into the network is this peer (as measured by how much they've
+ told us that we didn't already know).  Higher numbers means better integrated</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIsFailing()">getIsFailing</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getIsFailing</span>()</div>
+<div class="block">is this peer actively failing (aka not worth touching)?
+ deprecated - unused - always false</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTunnelTestTimeAverage()">getTunnelTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getTunnelTestTimeAverage</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 always</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setTunnelTestTimeAverage(float)">setTunnelTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="returnType">void</span>&nbsp;<span class="memberName">setTunnelTestTimeAverage</span>&#8203;(<span class="arguments">float&nbsp;avg)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updateTunnelTestTimeAverage(long)">updateTunnelTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="returnType">void</span>&nbsp;<span class="memberName">updateTunnelTestTimeAverage</span>&#8203;(<span class="arguments">long&nbsp;ms)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeerTestTimeAverage()">getPeerTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getPeerTestTimeAverage</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPeerTestTimeAverage(float)">setPeerTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setPeerTestTimeAverage</span>&#8203;(<span class="arguments">float&nbsp;testAvg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updatePeerTestTimeAverage(long)">updatePeerTestTimeAverage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">updatePeerTestTimeAverage</span>&#8203;(<span class="arguments">long&nbsp;ms)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeakThroughputKBps()">getPeakThroughputKBps</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getPeakThroughputKBps</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPeakThroughputKBps(float)">setPeakThroughputKBps</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setPeakThroughputKBps</span>&#8203;(<span class="arguments">float&nbsp;kBps)</span></div>
+<div class="block">Only for restoration from persisted profile.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dataPushed(int)">dataPushed</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">dataPushed</span>&#8203;(<span class="arguments">int&nbsp;size)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDataTransferred(long)">tunnelDataTransferred</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">tunnelDataTransferred</span>&#8203;(<span class="arguments">long&nbsp;tunnelByteLifetime)</span></div>
+<div class="block">the tunnel pushed that much data in its lifetime</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeakTunnelThroughputKBps()">getPeakTunnelThroughputKBps</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getPeakTunnelThroughputKBps</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPeakTunnelThroughputKBps(float)">setPeakTunnelThroughputKBps</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setPeakTunnelThroughputKBps</span>&#8203;(<span class="arguments">float&nbsp;kBps)</span></div>
+<div class="block">Only for restoration from persisted profile.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dataPushed1m(int)">dataPushed1m</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">dataPushed1m</span>&#8203;(<span class="arguments">int&nbsp;size)</span></div>
+<div class="block">the tunnel pushed that much data in a 1 minute period</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeakTunnel1mThroughputKBps()">getPeakTunnel1mThroughputKBps</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getPeakTunnel1mThroughputKBps</span>()</div>
+<div class="block">This is the speed value</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the average of the three fastest one-minute data transfers, on a per-tunnel basis,
+         through this peer. Ever. Except that the peak values are cut in half
+         periodically by coalesceThroughput().</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPeakTunnel1mThroughputKBps(float)">setPeakTunnel1mThroughputKBps</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setPeakTunnel1mThroughputKBps</span>&#8203;(<span class="arguments">float&nbsp;kBps)</span></div>
+<div class="block">Only for restoration from persisted profile.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="expandProfile()">expandProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">expandProfile</span>()</div>
+<div class="block">When the given peer is performing well enough that we want to keep detailed
+ stats on them again, call this to set up the info we dropped during shrinkProfile.
+ This will not however overwrite any existing data, so it can be safely called
+ repeatedly</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="expandDBProfile()">expandDBProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">expandDBProfile</span>()</div>
+<div class="block">For floodfills</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="coalesceStats()">coalesceStats</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">coalesceStats</span>()</div>
+<div class="block">Update the stats and rates. This is only called by addProfile()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="coalesceOnly(boolean)">coalesceOnly</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">coalesceOnly</span>&#8203;(<span class="arguments">boolean&nbsp;shouldDecay)</span></div>
+<div class="block">Caller must next call updateValues()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updateValues()">updateValues</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">updateValues</span>()</div>
+<div class="block">Copy over the new values generated by coalesceOnly()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setIsFailing(boolean)">setIsFailing</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setIsFailing</span>&#8203;(<span class="arguments">boolean&nbsp;val)</span></div>
+<div class="block">deprecated - unused - always false</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getContext()">getContext</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></span>&nbsp;<span class="memberName">getContext</span>()</div>
+<div class="block">Helper for calculators</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hashCode()">hashCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">hashCode</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="equals(java.lang.Object)">equals</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">equals</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;obj)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PeerProfile.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

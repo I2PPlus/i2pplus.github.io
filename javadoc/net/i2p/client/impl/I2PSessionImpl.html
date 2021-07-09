@@ -1,0 +1,1943 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>I2PSessionImpl - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.impl, class: I2PSessionImpl">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":6,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PSessionImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.client.impl</a></div>
+<h1 title="Class I2PSessionImpl" class="title">Class I2PSessionImpl</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.client.impl.I2PSessionImpl</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code>, <code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html" title="interface in net.i2p.data.i2cp">I2CPMessageReader.I2CPMessageEventListener</a></code></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="I2PSessionImpl2.html" title="class in net.i2p.client.impl">I2PSessionImpl2</a></code></dd>
+</dl>
+<hr>
+<pre>public abstract class <span class="typeNameLabel">I2PSessionImpl</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>, <a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html" title="interface in net.i2p.data.i2cp">I2CPMessageReader.I2CPMessageEventListener</a></pre>
+<div class="block">Implementation of an I2P session running over TCP.  This class is NOT thread safe -
+ only one thread should send messages at any given time
+
+ Public only for clearCache().
+ Except for methods defined in I2PSession and I2CPMessageEventListener,
+ not maintained as a public API, not for external use.
+ Use I2PClientFactory to get an I2PClient and then createSession().</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>jrandom</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="I2PSessionImpl.AvailabilityNotifier.html" title="class in net.i2p.client.impl">I2PSessionImpl.AvailabilityNotifier</a></span></code></th>
+<td class="colLast">
+<div class="block">This notifies the client of payload messages.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="I2PSessionImpl.State.html" title="enum in net.i2p.client.impl">I2PSessionImpl.State</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="I2PSessionImpl.AvailabilityNotifier.html" title="class in net.i2p.client.impl">I2PSessionImpl.AvailabilityNotifier</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_availabilityNotifier">_availabilityNotifier</a></span></code></th>
+<td class="colLast">
+<div class="block">thread that we tell when new messages are available who then tells us
+ to fetch them.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>,&#8203;<a href="../../data/i2cp/MessagePayloadMessage.html" title="class in net.i2p.data.i2cp">MessagePayloadMessage</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_availableMessages">_availableMessages</a></span></code></th>
+<td class="colLast">
+<div class="block">map of Long --&gt; MessagePayloadMessage</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_bwLimits">_bwLimits</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_bwReceivedLock">_bwReceivedLock</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_context">_context</a></span></code></th>
+<td class="colLast">
+<div class="block">used to separate things out so we can get rid of singletons</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_handlerMap">_handlerMap</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_hostname">_hostname</a></span></code></th>
+<td class="colLast">
+<div class="block">hostname of router - will be null if in RouterContext</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_leaseSet">_leaseSet</a></span></code></th>
+<td class="colLast">
+<div class="block">currently granted lease set, or null</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_leaseSetWait">_leaseSetWait</a></span></code></th>
+<td class="colLast">
+<div class="block">monitor for waiting until a lease set has been granted</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../util/Log.html" title="class in net.i2p.util">Log</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_log">_log</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">LinkedBlockingQueue</a>&lt;net.i2p.client.impl.I2PSessionImpl.LookupWaiter&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_pendingLookups">_pendingLookups</a></span></code></th>
+<td class="colLast">
+<div class="block">hashes of lookups we are waiting for</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_portNum">_portNum</a></span></code></th>
+<td class="colLast">
+<div class="block">port num to router - will be 0 if in RouterContext</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="I2CPMessageProducer.html" title="class in net.i2p.client.impl">I2CPMessageProducer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_producer">_producer</a></span></code></th>
+<td class="colLast">
+<div class="block">class that generates new messages</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../internal/I2CPMessageQueue.html" title="class in net.i2p.internal">I2CPMessageQueue</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_queue">_queue</a></span></code></th>
+<td class="colLast">
+<div class="block">Used for internal connections to the router.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_reader">_reader</a></span></code></th>
+<td class="colLast">
+<div class="block">reader that always searches for messages</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_sessionListener">_sessionListener</a></span></code></th>
+<td class="colLast">
+<div class="block">who we send events to</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_socket">_socket</a></span></code></th>
+<td class="colLast">
+<div class="block">socket for comm</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="I2PSessionImpl.State.html" title="enum in net.i2p.client.impl">I2PSessionImpl.State</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_state">_state</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_stateLock">_stateLock</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_transientSigningPublicKey">_transientSigningPublicKey</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="ClientWriterRunner.html" title="class in net.i2p.client.impl">ClientWriterRunner</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_writer">_writer</a></span></code></th>
+<td class="colLast">
+<div class="block">writer message queue</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CACHE_MAX_SIZE">CACHE_MAX_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LISTEN_PORT">LISTEN_PORT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_DOMAIN_SOCKET">PROP_DOMAIN_SOCKET</a></span></code></th>
+<td class="colLast">
+<div class="block">Use Unix domain socket (or similar) to connect to a router</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from interface&nbsp;net.i2p.client.<a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></h3>
+<a id="fields.inherited.from.class.net.i2p.client.I2PSession">
+</a><code><a href="../I2PSession.html#PORT_ANY">PORT_ANY</a>, <a href="../I2PSession.html#PORT_UNSPECIFIED">PORT_UNSPECIFIED</a>, <a href="../I2PSession.html#PROTO_ANY">PROTO_ANY</a>, <a href="../I2PSession.html#PROTO_DATAGRAM">PROTO_DATAGRAM</a>, <a href="../I2PSession.html#PROTO_DATAGRAM_RAW">PROTO_DATAGRAM_RAW</a>, <a href="../I2PSession.html#PROTO_STREAMING">PROTO_STREAMING</a>, <a href="../I2PSession.html#PROTO_UNSPECIFIED">PROTO_UNSPECIFIED</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colSecond" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.client.impl.I2PSessionImpl,java.io.InputStream,java.util.Properties)">I2PSessionImpl</a></span>&#8203;(<a href="I2PSessionImpl.html" title="class in net.i2p.client.impl">I2PSessionImpl</a>&nbsp;primary,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;destKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,java.io.InputStream,java.util.Properties)">I2PSessionImpl</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;destKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Create a new session, reading the Destination, PrivateKey, and SigningPrivateKey
+ from the destKeyStream, and using the specified options to connect to the router
+
+ As of 0.9.19, defaults in options are honored.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,java.util.Properties,net.i2p.client.impl.I2PClientMessageHandlerMap)">I2PSessionImpl</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options,
+<a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a>&nbsp;handlerMap)</code></th>
+<td class="colLast">
+<div class="block">for extension by SimpleSession (no dest)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addNewMessage(net.i2p.data.i2cp.MessagePayloadMessage)">addNewMessage</a></span>&#8203;(<a href="../../data/i2cp/MessagePayloadMessage.html" title="class in net.i2p.data.i2cp">MessagePayloadMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">Recieve a payload message and let the app know its available</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</code></th>
+<td class="colLast">
+<div class="block">Router must be connected or was connected...</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bandwidthLimits()">bandwidthLimits</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bwReceived(int%5B%5D)">bwReceived</a></span>&#8203;(int[]&nbsp;i)</code></th>
+<td class="colLast">
+<div class="block">called by the message handler</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeState(net.i2p.client.impl.I2PSessionImpl.State)">changeState</a></span>&#8203;(<a href="I2PSessionImpl.State.html" title="enum in net.i2p.client.impl">I2PSessionImpl.State</a>&nbsp;state)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearCache()">clearCache</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect()">connect</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Connect to the router and establish a session.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dateUpdated(java.lang.String)">dateUpdated</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;routerVersion)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destLookupFailed(long,int)">destLookupFailed</a></span>&#8203;(long&nbsp;nonce,
+int&nbsp;code)</code></th>
+<td class="colLast">
+<div class="block">Called by the message handler
+  on reception of HostReplyMessage</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destLookupFailed(net.i2p.data.Hash)">destLookupFailed</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">
+<div class="block">Called by the message handler
+  on reception of DestReplyMessage</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destReceived(long,net.i2p.data.Destination)">destReceived</a></span>&#8203;(long&nbsp;nonce,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</code></th>
+<td class="colLast">
+<div class="block">Called by the message handler
+  on reception of HostReplyMessage</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destReceived(net.i2p.data.Destination)">destReceived</a></span>&#8203;(<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</code></th>
+<td class="colLast">
+<div class="block">Called by the message handler
+  on reception of DestReplyMessage</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroySession()">destroySession</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Tear down the session, and do NOT reconnect.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroySession(boolean)">destroySession</a></span>&#8203;(boolean&nbsp;sendDisconnect)</code></th>
+<td class="colLast">
+<div class="block">Tear down the session, and do NOT reconnect.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnect()">disconnect</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Will interrupt a connect in progress.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnected(net.i2p.data.i2cp.I2CPMessageReader)">disconnected</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">The I2CPMessageEventListener callback.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>(package private) <a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContext()">getContext</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For Subsessions</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDecryptionKey()">getDecryptionKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the decryption PrivateKey</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFastReceive()">getFastReceive</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>(package private) <a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandlerMap()">getHandlerMap</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For Subsessions</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>(package private) <a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLeaseSet()">getLeaseSet</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMyDestination()">getMyDestination</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the destination of the session</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineExpiration()">getOfflineExpiration</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the offline expiration</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code><a href="../../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineSignature()">getOfflineSignature</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptions()">getOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the configuration options, filtered.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrefix()">getPrefix</a></span>()</code></th>
+<td class="colLast">
+<div class="block">try hard to make a decent identifier as this will appear in error logs</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code><a href="../../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrivateKey()">getPrivateKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the signing SigningPrivateKey.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>(package private) <a href="I2CPMessageProducer.html" title="class in net.i2p.client.impl">I2CPMessageProducer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProducer()">getProducer</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the helper that generates I2CP messages</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterVersion()">getRouterVersion</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Always valid in RouterContext.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>(package private) <a href="../../data/i2cp/SessionId.html" title="class in net.i2p.data.i2cp">SessionId</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSessionId()">getSessionId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the session's ID</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubsessions()">getSubsessions</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTransientSigningPublicKey()">getTransientSigningPublicKey</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isClosed()">isClosed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Has the session been closed (or not yet connected)?
+  False when open and during transitions.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffline()">isOffline</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does this session have offline and transient keys?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lastActivity()">lastActivity</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(java.lang.String)">lookupDest</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">Ask the router to lookup a Destination by host name.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(java.lang.String,long)">lookupDest</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+long&nbsp;maxWait)</code></th>
+<td class="colLast">
+<div class="block">Ask the router to lookup a Destination by host name.</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(net.i2p.data.Hash)">lookupDest</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">
+<div class="block">Blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(net.i2p.data.Hash,long)">lookupDest</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h,
+long&nbsp;maxWait)</code></th>
+<td class="colLast">
+<div class="block">Blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code><a href="../LookupResult.html" title="interface in net.i2p.client">LookupResult</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest2(java.lang.String,long)">lookupDest2</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+long&nbsp;maxWait)</code></th>
+<td class="colLast">
+<div class="block">Ask the router to lookup a Destination by host name.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageReceived(net.i2p.data.i2cp.I2CPMessageReader,net.i2p.data.i2cp.I2CPMessage)">messageReceived</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader,
+<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">The I2CPMessageEventListener callback.</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propogateError(java.lang.String,java.lang.Throwable)">propogateError</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;error)</code></th>
+<td class="colLast">
+<div class="block">Pass off the error to the listener
+ Misspelled, oh well.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readError(net.i2p.data.i2cp.I2CPMessageReader,java.lang.Exception)">readError</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang" class="externalLink">Exception</a>&nbsp;error)</code></th>
+<td class="colLast">
+<div class="block">The I2CPMessageEventListener callback.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveMessage(int)">receiveMessage</a></span>&#8203;(int&nbsp;msgId)</code></th>
+<td class="colLast">
+<div class="block">Pull the unencrypted data from the message that we've already prefetched and
+ notified the user that its available.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>abstract void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveStatus(int,long,int)">receiveStatus</a></span>&#8203;(int&nbsp;msgId,
+long&nbsp;nonce,
+int&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reconnect()">reconnect</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></span>&#8203;(<a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reportAbuse(int,int)">reportAbuse</a></span>&#8203;(int&nbsp;msgId,
+int&nbsp;severity)</code></th>
+<td class="colLast">
+<div class="block">Report abuse with regards to the given messageId</div>
+</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendBlindingInfo(net.i2p.data.BlindData)">sendBlindingInfo</a></span>&#8203;(<a href="../../data/BlindData.html" title="class in net.i2p.data">BlindData</a>&nbsp;bd)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.i2cp.I2CPMessage)">sendMessage</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">Deliver an I2CP message to the router
+ As of 0.9.3, may block for several seconds if the write queue to the router is full</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage_unchecked(net.i2p.data.i2cp.I2CPMessage)">sendMessage_unchecked</a></span>&#8203;(<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">Deliver an I2CP message to the router.</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLeaseSet(net.i2p.data.LeaseSet)">setLeaseSet</a></span>&#8203;(<a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a>&nbsp;ls)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReduced()">setReduced</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSessionId(net.i2p.data.i2cp.SessionId)">setSessionId</a></span>&#8203;(<a href="../../data/i2cp/SessionId.html" title="class in net.i2p.data.i2cp">SessionId</a>&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSessionListener(net.i2p.client.I2PSessionListener)">setSessionListener</a></span>&#8203;(<a href="../I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</code></th>
+<td class="colLast">
+<div class="block">configure the listener</div>
+</td>
+</tr>
+<tr class="altColor" id="i56">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldReconnect()">shouldReconnect</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i57">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startVerifyUsage()">startVerifyUsage</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Fire up a periodic task to check for unclaimed messages</div>
+</td>
+</tr>
+<tr class="altColor" id="i58">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#supportsLS2()">supportsLS2</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i59">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i60">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateActivity()">updateActivity</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i61">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateOptions(java.util.Properties)">updateOptions</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Update the tunnel and bandwidth settings</div>
+</td>
+</tr>
+<tr class="altColor" id="i62">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOpen()">verifyOpen</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Throws I2PSessionException if uninitialized, closed or closing.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i63">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#waitForDate()">waitForDate</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from interface&nbsp;net.i2p.client.<a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></h3>
+<a id="methods.inherited.from.class.net.i2p.client.I2PSession">
+</a><code><a href="../I2PSession.html#addMuxedSessionListener(net.i2p.client.I2PSessionMuxedListener,int,int)">addMuxedSessionListener</a>, <a href="../I2PSession.html#addSessionListener(net.i2p.client.I2PSessionListener,int,int)">addSessionListener</a>, <a href="../I2PSession.html#removeListener(int,int)">removeListener</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int,int,int,net.i2p.client.SendMessageOptions)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int,int,int,net.i2p.client.SendMessageOptions,net.i2p.client.SendMessageStatusListener)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,int,int,int)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int,int)">sendMessage</a>, <a href="../I2PSession.html#sendMessage(net.i2p.data.Destination,byte%5B%5D,net.i2p.data.SessionKey,java.util.Set)">sendMessage</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="_log">_log</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../../util/Log.html" title="class in net.i2p.util">Log</a></span>&nbsp;<span class="memberName">_log</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_leaseSet">_leaseSet</a></h3>
+<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType"><a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></span>&nbsp;<span class="memberName">_leaseSet</span></div>
+<div class="block">currently granted lease set, or null</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_transientSigningPublicKey">_transientSigningPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">_transientSigningPublicKey</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_hostname">_hostname</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">_hostname</span></div>
+<div class="block">hostname of router - will be null if in RouterContext</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_portNum">_portNum</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">_portNum</span></div>
+<div class="block">port num to router - will be 0 if in RouterContext</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_socket">_socket</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></span>&nbsp;<span class="memberName">_socket</span></div>
+<div class="block">socket for comm</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_reader">_reader</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a></span>&nbsp;<span class="memberName">_reader</span></div>
+<div class="block">reader that always searches for messages</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_writer">_writer</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="ClientWriterRunner.html" title="class in net.i2p.client.impl">ClientWriterRunner</a></span>&nbsp;<span class="memberName">_writer</span></div>
+<div class="block">writer message queue</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_queue">_queue</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../../internal/I2CPMessageQueue.html" title="class in net.i2p.internal">I2CPMessageQueue</a></span>&nbsp;<span class="memberName">_queue</span></div>
+<div class="block">Used for internal connections to the router.
+  If this is set, _socket and _writer will be null.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_sessionListener">_sessionListener</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="../I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></span>&nbsp;<span class="memberName">_sessionListener</span></div>
+<div class="block">who we send events to</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_producer">_producer</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="I2CPMessageProducer.html" title="class in net.i2p.client.impl">I2CPMessageProducer</a></span>&nbsp;<span class="memberName">_producer</span></div>
+<div class="block">class that generates new messages</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_availableMessages">_availableMessages</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>,&#8203;<a href="../../data/i2cp/MessagePayloadMessage.html" title="class in net.i2p.data.i2cp">MessagePayloadMessage</a>&gt;</span>&nbsp;<span class="memberName">_availableMessages</span></div>
+<div class="block">map of Long --&gt; MessagePayloadMessage</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_pendingLookups">_pendingLookups</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">LinkedBlockingQueue</a>&lt;net.i2p.client.impl.I2PSessionImpl.LookupWaiter&gt;</span>&nbsp;<span class="memberName">_pendingLookups</span></div>
+<div class="block">hashes of lookups we are waiting for</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_bwReceivedLock">_bwReceivedLock</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">_bwReceivedLock</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_bwLimits">_bwLimits</a></h3>
+<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType">int[]</span>&nbsp;<span class="memberName">_bwLimits</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_handlerMap">_handlerMap</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a></span>&nbsp;<span class="memberName">_handlerMap</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_context">_context</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">_context</span></div>
+<div class="block">used to separate things out so we can get rid of singletons</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_leaseSetWait">_leaseSetWait</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">_leaseSetWait</span></div>
+<div class="block">monitor for waiting until a lease set has been granted</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_state">_state</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="I2PSessionImpl.State.html" title="enum in net.i2p.client.impl">I2PSessionImpl.State</a></span>&nbsp;<span class="memberName">_state</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_stateLock">_stateLock</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">_stateLock</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_availabilityNotifier">_availabilityNotifier</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="I2PSessionImpl.AvailabilityNotifier.html" title="class in net.i2p.client.impl">I2PSessionImpl.AvailabilityNotifier</a></span>&nbsp;<span class="memberName">_availabilityNotifier</span></div>
+<div class="block">thread that we tell when new messages are available who then tells us
+ to fetch them.  The point of this is so that the fetch doesn't block the
+ reading of other messages (in turn, potentially leading to deadlock)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CACHE_MAX_SIZE">CACHE_MAX_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">CACHE_MAX_SIZE</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_DOMAIN_SOCKET">PROP_DOMAIN_SOCKET</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_DOMAIN_SOCKET</span></div>
+<div class="block">Use Unix domain socket (or similar) to connect to a router</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.14</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.client.impl.I2PSessionImpl.PROP_DOMAIN_SOCKET">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LISTEN_PORT">LISTEN_PORT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">LISTEN_PORT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.client.impl.I2PSessionImpl.LISTEN_PORT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,java.util.Properties,net.i2p.client.impl.I2PClientMessageHandlerMap)">I2PSessionImpl</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">I2PSessionImpl</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options,
+<a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a>&nbsp;handlerMap)</span></div>
+<div class="block">for extension by SimpleSession (no dest)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.client.impl.I2PSessionImpl,java.io.InputStream,java.util.Properties)">I2PSessionImpl</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">I2PSessionImpl</span>&#8203;(<span class="arguments"><a href="I2PSessionImpl.html" title="class in net.i2p.client.impl">I2PSessionImpl</a>&nbsp;primary,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;destKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span>
+                  throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,java.io.InputStream,java.util.Properties)">I2PSessionImpl</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PSessionImpl</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;destKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span>
+               throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Create a new session, reading the Destination, PrivateKey, and SigningPrivateKey
+ from the destKeyStream, and using the specified options to connect to the router
+
+ As of 0.9.19, defaults in options are honored.
+
+ This does NOT validate consistency of the destKeyStream,
+ e.g. pubkey/privkey match or valid offline sig. The router does that.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>destKeyStream</code> - stream containing the private key data,
+                             format is specified in <a href="../../data/PrivateKeyFile.html" title="class in net.i2p.data"><code>PrivateKeyFile</code></a></dd>
+<dd><code>options</code> - set of options to configure the router with, if null will use System properties</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code> - if there is a problem loading the private keys</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="dateUpdated(java.lang.String)">dateUpdated</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">dateUpdated</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;routerVersion)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>routerVersion</code> - as rcvd in the SetDateMessage, may be null for very old routers</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">addSubsession</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</span>
+                         throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Router must be connected or was connected... for now.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>privateKeyStream</code> - null for transient, if non-null must have same encryption keys as primary session
+                          and different signing keys</dd>
+<dd><code>opts</code> - subsession options if any, may be null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new subsession, non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeSubsession</span>&#8203;(<span class="arguments"><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSubsessions()">getSubsessions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</span>&nbsp;<span class="memberName">getSubsessions</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getSubsessions()">getSubsessions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a list of subsessions, non-null, does not include the primary session</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updateOptions(java.util.Properties)">updateOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">updateOptions</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Update the tunnel and bandwidth settings</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#updateOptions(java.util.Properties)">updateOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFastReceive()">getFastReceive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getFastReceive</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="supportsLS2()">supportsLS2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">supportsLS2</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLeaseSet(net.i2p.data.LeaseSet)">setLeaseSet</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setLeaseSet</span>&#8203;(<span class="arguments"><a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a>&nbsp;ls)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLeaseSet()">getLeaseSet</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../../data/LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></span>&nbsp;<span class="memberName">getLeaseSet</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="changeState(net.i2p.client.impl.I2PSessionImpl.State)">changeState</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">changeState</span>&#8203;(<span class="arguments"><a href="I2PSessionImpl.State.html" title="enum in net.i2p.client.impl">I2PSessionImpl.State</a>&nbsp;state)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isOffline()">isOffline</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isOffline</span>()</div>
+<div class="block">Does this session have offline and transient keys?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#isOffline()">isOffline</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOfflineExpiration()">getOfflineExpiration</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getOfflineExpiration</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../I2PSession.html#getOfflineExpiration()">I2PSession</a></code></span></div>
+<div class="block">Get the offline expiration</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getOfflineExpiration()">getOfflineExpiration</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Java time (ms) or 0 if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOfflineSignature()">getOfflineSignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">getOfflineSignature</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getOfflineSignature()">getOfflineSignature</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTransientSigningPublicKey()">getTransientSigningPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">getTransientSigningPublicKey</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getTransientSigningPublicKey()">getTransientSigningPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error or if not initialized or does not have offline keys</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="connect()">connect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">connect</span>()
+             throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Connect to the router and establish a session.  This call blocks until
+ a session is granted.
+
+ Should be threadsafe, other threads will block until complete.
+ Disconnect / destroy from another thread may be called simultaneously and
+ will (should?) interrupt the connect.
+
+ Connecting a primary session will not automatically connect subsessions.
+ Connecting a subsession will automatically connect the primary session
+ if not previously connected.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#connect()">connect</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code> - if there is a configuration error or the router is
+                             not reachable</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="waitForDate()">waitForDate</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">waitForDate</span>()
+                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11 moved from connect()</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveMessage(int)">receiveMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">receiveMessage</span>&#8203;(<span class="arguments">int&nbsp;msgId)</span>
+                      throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Pull the unencrypted data from the message that we've already prefetched and
+ notified the user that its available.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#receiveMessage(int)">receiveMessage</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>msgId</code> - message to fetch</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unencrypted body of the message, or null if not found</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reportAbuse(int,int)">reportAbuse</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">reportAbuse</span>&#8203;(<span class="arguments">int&nbsp;msgId,
+int&nbsp;severity)</span>
+                 throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Report abuse with regards to the given messageId</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#reportAbuse(int,int)">reportAbuse</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>msgId</code> - message that was abusive (or -1 for not message related)</dd>
+<dd><code>severity</code> - how abusive</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveStatus(int,long,int)">receiveStatus</a></h3>
+<div class="memberSignature"><span class="modifiers">public abstract</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receiveStatus</span>&#8203;(<span class="arguments">int&nbsp;msgId,
+long&nbsp;nonce,
+int&nbsp;status)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addNewMessage(net.i2p.data.i2cp.MessagePayloadMessage)">addNewMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addNewMessage</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/MessagePayloadMessage.html" title="class in net.i2p.data.i2cp">MessagePayloadMessage</a>&nbsp;msg)</span></div>
+<div class="block">Recieve a payload message and let the app know its available</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="startVerifyUsage()">startVerifyUsage</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startVerifyUsage</span>()</div>
+<div class="block">Fire up a periodic task to check for unclaimed messages</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageReceived(net.i2p.data.i2cp.I2CPMessageReader,net.i2p.data.i2cp.I2CPMessage)">messageReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">messageReceived</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader,
+<a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</span></div>
+<div class="block">The I2CPMessageEventListener callback.
+ Recieve notification of some I2CP message and handle it if possible.
+
+ We route the message based on message type AND session ID.
+
+ The following types never contain a session ID and are not routable to
+ a subsession:
+     BandwidthLimitsMessage, DestReplyMessage
+
+ The following types may not contain a valid session ID
+ even when intended for a subsession, so we must take special care:
+     SessionStatusMessage</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html#messageReceived(net.i2p.data.i2cp.I2CPMessageReader,net.i2p.data.i2cp.I2CPMessage)">messageReceived</a></code>&nbsp;in interface&nbsp;<code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html" title="interface in net.i2p.data.i2cp">I2CPMessageReader.I2CPMessageEventListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - unused</dd>
+<dd><code>message</code> - the I2CPMessage</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readError(net.i2p.data.i2cp.I2CPMessageReader,java.lang.Exception)">readError</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readError</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang" class="externalLink">Exception</a>&nbsp;error)</span></div>
+<div class="block">The I2CPMessageEventListener callback.
+ Recieve notifiation of an error reading the I2CP stream.
+ As of 0.9.41, does NOT call sessionlistener.disconnected(),
+ the I2CPMessageReader will call disconnected() also.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html#readError(net.i2p.data.i2cp.I2CPMessageReader,java.lang.Exception)">readError</a></code>&nbsp;in interface&nbsp;<code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html" title="interface in net.i2p.data.i2cp">I2CPMessageReader.I2CPMessageEventListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - unused</dd>
+<dd><code>error</code> - non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMyDestination()">getMyDestination</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">getMyDestination</span>()</div>
+<div class="block">Retrieve the destination of the session</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getMyDestination()">getMyDestination</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDecryptionKey()">getDecryptionKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></span>&nbsp;<span class="memberName">getDecryptionKey</span>()</div>
+<div class="block">Retrieve the decryption PrivateKey</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getDecryptionKey()">getDecryptionKey</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPrivateKey()">getPrivateKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></span>&nbsp;<span class="memberName">getPrivateKey</span>()</div>
+<div class="block">Retrieve the signing SigningPrivateKey.
+ As of 0.9.38, this will be the transient key if offline signed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getPrivateKey()">getPrivateKey</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProducer()">getProducer</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="I2CPMessageProducer.html" title="class in net.i2p.client.impl">I2CPMessageProducer</a></span>&nbsp;<span class="memberName">getProducer</span>()</div>
+<div class="block">Retrieve the helper that generates I2CP messages</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHandlerMap()">getHandlerMap</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="I2PClientMessageHandlerMap.html" title="class in net.i2p.client.impl">I2PClientMessageHandlerMap</a></span>&nbsp;<span class="memberName">getHandlerMap</span>()</div>
+<div class="block">For Subsessions</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getContext()">getContext</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">getContext</span>()</div>
+<div class="block">For Subsessions</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptions()">getOptions</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">getOptions</span>()</div>
+<div class="block">Retrieve the configuration options, filtered.
+ All defaults passed in via constructor have been promoted to the primary map.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null, if instantiated with null options, this will be the System properties.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSessionId()">getSessionId</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../../data/i2cp/SessionId.html" title="class in net.i2p.data.i2cp">SessionId</a></span>&nbsp;<span class="memberName">getSessionId</span>()</div>
+<div class="block">Retrieve the session's ID</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSessionId(net.i2p.data.i2cp.SessionId)">setSessionId</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setSessionId</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/SessionId.html" title="class in net.i2p.data.i2cp">SessionId</a>&nbsp;id)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSessionListener(net.i2p.client.I2PSessionListener)">setSessionListener</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSessionListener</span>&#8203;(<span class="arguments"><a href="../I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</span></div>
+<div class="block">configure the listener</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#setSessionListener(net.i2p.client.I2PSessionListener)">setSessionListener</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>lsnr</code> - listener to retrieve events</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isClosed()">isClosed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isClosed</span>()</div>
+<div class="block">Has the session been closed (or not yet connected)?
+  False when open and during transitions. Synchronized.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#isClosed()">isClosed</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the session is closed, OR connect() has not been called yet</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOpen()">verifyOpen</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">verifyOpen</span>()
+                   throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Throws I2PSessionException if uninitialized, closed or closing.
+  Blocks if opening.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendMessage(net.i2p.data.i2cp.I2CPMessage)">sendMessage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</span>
+          throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Deliver an I2CP message to the router
+ As of 0.9.3, may block for several seconds if the write queue to the router is full</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code> - if the message is malformed or there is an error writing it out</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendMessage_unchecked(net.i2p.data.i2cp.I2CPMessage)">sendMessage_unchecked</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendMessage_unchecked</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessage.html" title="interface in net.i2p.data.i2cp">I2CPMessage</a>&nbsp;message)</span>
+                    throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Deliver an I2CP message to the router.
+ Does NOT check state. Call only from connect() or other methods that need to
+ send messages when not in OPEN state.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code> - if the message is malformed or there is an error writing it out</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="propogateError(java.lang.String,java.lang.Throwable)">propogateError</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">propogateError</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;error)</span></div>
+<div class="block">Pass off the error to the listener
+ Misspelled, oh well.
+ Calls sessionlistener.errorOccurred()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>error</code> - non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destroySession()">destroySession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">destroySession</span>()</div>
+<div class="block">Tear down the session, and do NOT reconnect.
+
+ Blocks if session has not been fully started.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#destroySession()">destroySession</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destroySession(boolean)">destroySession</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">destroySession</span>&#8203;(<span class="arguments">boolean&nbsp;sendDisconnect)</span></div>
+<div class="block">Tear down the session, and do NOT reconnect.
+
+ Will interrupt an open in progress.
+ Calls sessionlistener.disconnected()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnected(net.i2p.data.i2cp.I2CPMessageReader)">disconnected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnected</span>&#8203;(<span class="arguments"><a href="../../data/i2cp/I2CPMessageReader.html" title="class in net.i2p.data.i2cp">I2CPMessageReader</a>&nbsp;reader)</span></div>
+<div class="block">The I2CPMessageEventListener callback.
+ Recieve notification that the I2CP connection was disconnected.
+ Calls sessionlistener.disconnected()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html#disconnected(net.i2p.data.i2cp.I2CPMessageReader)">disconnected</a></code>&nbsp;in interface&nbsp;<code><a href="../../data/i2cp/I2CPMessageReader.I2CPMessageEventListener.html" title="interface in net.i2p.data.i2cp">I2CPMessageReader.I2CPMessageEventListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>reader</code> - unused</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnect()">disconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnect</span>()</div>
+<div class="block">Will interrupt a connect in progress.
+ Calls sessionlistener.disconnected()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldReconnect()">shouldReconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldReconnect</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reconnect()">reconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">reconnect</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPrefix()">getPrefix</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getPrefix</span>()</div>
+<div class="block">try hard to make a decent identifier as this will appear in error logs</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getName</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destReceived(net.i2p.data.Destination)">destReceived</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">destReceived</span>&#8203;(<span class="arguments"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</span></div>
+<div class="block">Called by the message handler
+  on reception of DestReplyMessage</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>d</code> - non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destLookupFailed(net.i2p.data.Hash)">destLookupFailed</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">destLookupFailed</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<div class="block">Called by the message handler
+  on reception of DestReplyMessage</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>h</code> - non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destReceived(long,net.i2p.data.Destination)">destReceived</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">destReceived</span>&#8203;(<span class="arguments">long&nbsp;nonce,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d)</span></div>
+<div class="block">Called by the message handler
+  on reception of HostReplyMessage</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>d</code> - non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destLookupFailed(long,int)">destLookupFailed</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">destLookupFailed</span>&#8203;(<span class="arguments">long&nbsp;nonce,
+int&nbsp;code)</span></div>
+<div class="block">Called by the message handler
+  on reception of HostReplyMessage</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bwReceived(int[])">bwReceived</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">bwReceived</span>&#8203;(<span class="arguments">int[]&nbsp;i)</span></div>
+<div class="block">called by the message handler</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearCache()">clearCache</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clearCache</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupDest(net.i2p.data.Hash)">lookupDest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span>
+                       throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Blocking. Waits a max of 10 seconds by default.
+  See lookupDest with maxWait parameter to change.
+  Implemented in 0.8.3 in I2PSessionImpl;
+  previously was available only in I2PSimpleSession.
+  Multiple outstanding lookups are now allowed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#lookupDest(net.i2p.data.Hash)">lookupDest</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupDest(net.i2p.data.Hash,long)">lookupDest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h,
+long&nbsp;maxWait)</span>
+                       throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Blocking.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#lookupDest(net.i2p.data.Hash,long)">lookupDest</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxWait</code> - ms</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupDest(java.lang.String)">lookupDest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span>
+                       throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Ask the router to lookup a Destination by host name.
+  Blocking. Waits a max of 10 seconds by default.
+
+  This only makes sense for a b32 hostname, OR outside router context.
+  Inside router context, just query the naming service.
+  Outside router context, this does NOT query the context naming service.
+  Do that first if you expect a local addressbook.
+
+  This will log a warning for non-b32 in router context.
+
+  See interface for suggested implementation.
+
+  Requires router side to be 0.9.11 or higher. If the router is older,
+  this will return null immediately.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#lookupDest(java.lang.String)">lookupDest</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupDest(java.lang.String,long)">lookupDest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+long&nbsp;maxWait)</span>
+                       throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Ask the router to lookup a Destination by host name.
+  Blocking. See above for details.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#lookupDest(java.lang.String,long)">lookupDest</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxWait</code> - ms</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupDest2(java.lang.String,long)">lookupDest2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../LookupResult.html" title="interface in net.i2p.client">LookupResult</a></span>&nbsp;<span class="memberName">lookupDest2</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+long&nbsp;maxWait)</span>
+                         throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Ask the router to lookup a Destination by host name.
+  Blocking. See above for details.
+  Same as lookupDest() but with a failure code in the return value</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#lookupDest2(java.lang.String,long)">lookupDest2</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxWait</code> - ms</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.43</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bandwidthLimits()">bandwidthLimits</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int[]</span>&nbsp;<span class="memberName">bandwidthLimits</span>()
+                      throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<div class="block">Blocking. Waits a max of 5 seconds.
+  But shouldn't take long.
+  Implemented in 0.8.3 in I2PSessionImpl;
+  previously was available only in I2PSimpleSession.
+  Multiple outstanding lookups are now allowed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#bandwidthLimits()">bandwidthLimits</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on failure</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendBlindingInfo(net.i2p.data.BlindData)">sendBlindingInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sendBlindingInfo</span>&#8203;(<span class="arguments"><a href="../../data/BlindData.html" title="class in net.i2p.data">BlindData</a>&nbsp;bd)</span>
+                      throws <span class="exceptions"><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#sendBlindingInfo(net.i2p.data.BlindData)">sendBlindingInfo</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.43</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRouterVersion()">getRouterVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getRouterVersion</span>()</div>
+<div class="block">Always valid in RouterContext. Returns null if not yet connected in I2PAppContext.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../I2PSession.html#getRouterVersion()">getRouterVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if unknown</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="updateActivity()">updateActivity</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">updateActivity</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lastActivity()">lastActivity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">lastActivity</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setReduced()">setReduced</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReduced</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2PSessionImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1598 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>NTCPConnection - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.ntcp, class: NTCPConnection">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":9,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NTCPConnection.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.ntcp</a></div>
+<h1 title="Class NTCPConnection" class="title">Class NTCPConnection</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.transport.ntcp.NTCPConnection</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">NTCPConnection</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></pre>
+<div class="block">Coordinate the connection to a single peer.
+ NTCP 1 or 2.
+
+ Public only for UI peers page. Not a public API, not for external use.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="NTCPConnection.PrepBuffer.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection.PrepBuffer</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BUFFER_SIZE">BUFFER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">Why this is 16K, and where it is documented, good question?
+  We claim we can do 32K datagrams so this is a problem.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DELAY_DEFAULT">DELAY_DEFAULT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DUMMY_DEFAULT">DUMMY_DEFAULT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NTCP2_MAX_MSG_SIZE">NTCP2_MAX_MSG_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">See spec.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_MAX_DEFAULT_INT">PADDING_MAX_DEFAULT_INT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_MIN_DEFAULT_INT">PADDING_MIN_DEFAULT_INT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_AEAD">REASON_AEAD</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_BANNED">REASON_BANNED</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_FRAME_TIMEOUT">REASON_FRAME_TIMEOUT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_FRAMING">REASON_FRAMING</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_MSG1">REASON_MSG1</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_MSG2">REASON_MSG2</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_MSG3">REASON_MSG3</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_OPTIONS">REASON_OPTIONS</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_PADDING">REASON_PADDING</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_PAYLOAD">REASON_PAYLOAD</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_S_MISMATCH">REASON_S_MISMATCH</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_SIGFAIL">REASON_SIGFAIL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_SIGTYPE">REASON_SIGTYPE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_SKEW">REASON_SKEW</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_TERMINATION">REASON_TERMINATION</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_TIMEOUT">REASON_TIMEOUT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REASON_UNSPEC">REASON_UNSPEC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.ntcp.NTCPTransport,java.nio.channels.SocketChannel,java.nio.channels.SelectionKey)">NTCPConnection</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="NTCPTransport.html" title="class in net.i2p.router.transport.ntcp">NTCPTransport</a>&nbsp;transport,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a>&nbsp;chan,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">Create an inbound connected (though not established) NTCP connection.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.ntcp.NTCPTransport,net.i2p.data.router.RouterIdentity,net.i2p.data.router.RouterAddress,int)">NTCPConnection</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="NTCPTransport.html" title="class in net.i2p.router.transport.ntcp">NTCPTransport</a>&nbsp;transport,
+<a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;remotePeer,
+<a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&nbsp;remAddr,
+int&nbsp;version)</code></th>
+<td class="colLast">
+<div class="block">Create an outbound unconnected NTCP connection.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearZeroRead()">clearZeroRead</a></span>()</code></th>
+<td class="colLast">
+<div class="block">workaround for EventPumper</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close()">close</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close(boolean)">close</a></span>&#8203;(boolean&nbsp;allowRequeue)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#closeOnTimeout(java.lang.String,java.lang.Exception)">closeOnTimeout</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;cause,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang" class="externalLink">Exception</a>&nbsp;e)</code></th>
+<td class="colLast">
+<div class="block">Close and release EstablishState resources.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enqueueInfoMessage()">enqueueInfoMessage</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Inject a DatabaseStoreMessage with our RouterInfo.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#failInboundEstablishment(com.southernstorm.noise.protocol.CipherState,byte%5B%5D,int)">failInboundEstablishment</a></span>&#8203;(<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+byte[]&nbsp;sip_ba,
+int&nbsp;reason)</code></th>
+<td class="colLast">
+<div class="block">We are Bob.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#finishInboundEstablishment(com.southernstorm.noise.protocol.CipherState,com.southernstorm.noise.protocol.CipherState,byte%5B%5D,byte%5B%5D,long,net.i2p.router.transport.ntcp.NTCP2Options)">finishInboundEstablishment</a></span>&#8203;(<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;receiver,
+byte[]&nbsp;sip_ba,
+byte[]&nbsp;sip_ab,
+long&nbsp;clockSkew,
+<a href="NTCP2Options.html" title="class in net.i2p.router.transport.ntcp">NTCP2Options</a>&nbsp;hisPadding)</code></th>
+<td class="colLast">
+<div class="block">We are Bob.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#finishOutboundEstablishment(com.southernstorm.noise.protocol.CipherState,com.southernstorm.noise.protocol.CipherState,byte%5B%5D,byte%5B%5D,long)">finishOutboundEstablishment</a></span>&#8203;(<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;receiver,
+byte[]&nbsp;sip_ab,
+byte[]&nbsp;sip_ba,
+long&nbsp;clockSkew)</code></th>
+<td class="colLast">
+<div class="block">We are Alice.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChannel()">getChannel</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Valid for inbound; valid for outbound shortly after creation</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClockSkew()">getClockSkew</a></span>()</code></th>
+<td class="colLast">
+<div class="block">A positive number means our clock is ahead of theirs.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreated()">getCreated</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>(package private) <a href="EstablishState.html" title="interface in net.i2p.router.transport.ntcp">EstablishState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEstablishState()">getEstablishState</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only valid during establishment;
+  replaced with EstablishState.VERIFIED or FAILED afterwards</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKey()">getKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Valid for inbound; valid for outbound shortly after creation</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMayDisconnect()">getMayDisconnect</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessagesReceived()">getMessagesReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessagesSent()">getMessagesSent</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextReadBuf()">getNextReadBuf</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextWriteBuf()">getNextWriteBuf</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOutboundQueueSize()">getOutboundQueueSize</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecvRate()">getRecvRate</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemoteAddress()">getRemoteAddress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only valid for outbound; null for inbound</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemotePeer()">getRemotePeer</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Valid for outbound; valid for inbound after handshake</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSendRate()">getSendRate</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceCreated()">getTimeSinceCreated</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceCreated(long)">getTimeSinceCreated</a></span>&#8203;(long&nbsp;now)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceReceive()">getTimeSinceReceive</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceReceive(long)">getTimeSinceReceive</a></span>&#8203;(long&nbsp;now)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceSend()">getTimeSinceSend</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeSinceSend(long)">getTimeSinceSend</a></span>&#8203;(long&nbsp;now)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUptime()">getUptime</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVersion()">getVersion</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The NTCP2 version, for the console.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gotZeroRead()">gotZeroRead</a></span>()</code></th>
+<td class="colLast">
+<div class="block">workaround for EventPumper</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isBacklogged()">isBacklogged</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isClosed()">isClosed</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEstablished()">isEstablished</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInbound()">isInbound</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIPv6()">isIPv6</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isWriteBufEmpty()">isWriteBufEmpty</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Replaces getWriteBufCount()</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#outboundConnected()">outboundConnected</a></span>()</code></th>
+<td class="colLast">
+<div class="block">async callback after the outbound connection was completed (this should NOT block,
+ as it occurs in the selector thread)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#prepareNextWrite(net.i2p.router.transport.ntcp.NTCPConnection.PrepBuffer)">prepareNextWrite</a></span>&#8203;(<a href="NTCPConnection.PrepBuffer.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection.PrepBuffer</a>&nbsp;prep)</code></th>
+<td class="colLast">
+<div class="block">Prepare the next I2NP message for transmission.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queuedRecv(java.nio.ByteBuffer,net.i2p.router.transport.FIFOBandwidthLimiter.Request)">queuedRecv</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf,
+<a href="../FIFOBandwidthLimiter.Request.html" title="interface in net.i2p.router.transport">FIFOBandwidthLimiter.Request</a>&nbsp;req)</code></th>
+<td class="colLast">
+<div class="block">We have read the data in the buffer, but we can't process it locally yet,
+ because we're choked by the bandwidth limiter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queuedWrite(java.nio.ByteBuffer,net.i2p.router.transport.FIFOBandwidthLimiter.Request)">queuedWrite</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf,
+<a href="../FIFOBandwidthLimiter.Request.html" title="interface in net.i2p.router.transport">FIFOBandwidthLimiter.Request</a>&nbsp;req)</code></th>
+<td class="colLast">
+<div class="block">ditto for writes</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recv(java.nio.ByteBuffer)">recv</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</code></th>
+<td class="colLast">
+<div class="block">The contents of the buffer have been read and can be processed asap.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recvEncryptedI2NP(java.nio.ByteBuffer)">recvEncryptedI2NP</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</code></th>
+<td class="colLast">
+<div class="block">Connection must be established!
+
+ The contents of the buffer include some fraction of one or more
+ encrypted and encoded I2NP messages.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>(package private) static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#releaseResources()">releaseResources</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Call at transport shutdown</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeWriteBuf(java.nio.ByteBuffer)">removeWriteBuf</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</code></th>
+<td class="colLast">
+<div class="block">Remove the buffer, which _should_ be the one at the head of _writeBufs</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#send(net.i2p.router.OutNetMessage)">send</a></span>&#8203;(<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">toss the message onto the connection's send queue</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendTerminationAndClose()">sendTerminationAndClose</a></span>()</code></th>
+<td class="colLast">
+<div class="block">NTCP 1 or 2.</div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChannel(java.nio.channels.SocketChannel)">setChannel</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a>&nbsp;chan)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setKey(java.nio.channels.SelectionKey)">setKey</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a>&nbsp;key)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMayDisconnect()">setMayDisconnect</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Sets to true.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRemotePeer(net.i2p.data.router.RouterIdentity)">setRemotePeer</a></span>&#8203;(<a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ident)</code></th>
+<td class="colLast">
+<div class="block">Valid for outbound; valid for inbound after handshake</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVersion(int)">setVersion</a></span>&#8203;(int&nbsp;ver)</code></th>
+<td class="colLast">
+<div class="block">Set version 2 from InboundEstablishState.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tooBacklogged()">tooBacklogged</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(java.nio.ByteBuffer)">write</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</code></th>
+<td class="colLast">
+<div class="block">The contents of the buffer have been encrypted / padded / etc and have
+ been fully allocated for the bandwidth limiter.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="BUFFER_SIZE">BUFFER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">BUFFER_SIZE</span></div>
+<div class="block">Why this is 16K, and where it is documented, good question?
+  We claim we can do 32K datagrams so this is a problem.
+  Needs to be fixed. But SSU can handle it?
+  In the meantime, don't let the transport bid on big messages.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.BUFFER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NTCP2_MAX_MSG_SIZE">NTCP2_MAX_MSG_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">NTCP2_MAX_MSG_SIZE</span></div>
+<div class="block">See spec. Max Noise payload 65535,
+  minus 16 byte MAC and 3 byte block header.
+  Includes 9-byte I2NP header.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.NTCP2_MAX_MSG_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_UNSPEC">REASON_UNSPEC</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_UNSPEC</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_UNSPEC">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_TERMINATION">REASON_TERMINATION</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_TERMINATION</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_TERMINATION">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_TIMEOUT">REASON_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_TIMEOUT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_AEAD">REASON_AEAD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_AEAD</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_AEAD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_OPTIONS">REASON_OPTIONS</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_OPTIONS</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_OPTIONS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_SIGTYPE">REASON_SIGTYPE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_SIGTYPE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_SIGTYPE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_SKEW">REASON_SKEW</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_SKEW</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_SKEW">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_PADDING">REASON_PADDING</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_PADDING</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_PADDING">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_FRAMING">REASON_FRAMING</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_FRAMING</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_FRAMING">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_PAYLOAD">REASON_PAYLOAD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_PAYLOAD</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_PAYLOAD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_MSG1">REASON_MSG1</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_MSG1</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_MSG1">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_MSG2">REASON_MSG2</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_MSG2</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_MSG2">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_MSG3">REASON_MSG3</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_MSG3</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_MSG3">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_FRAME_TIMEOUT">REASON_FRAME_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_FRAME_TIMEOUT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_FRAME_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_SIGFAIL">REASON_SIGFAIL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_SIGFAIL</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_SIGFAIL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_S_MISMATCH">REASON_S_MISMATCH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_S_MISMATCH</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_S_MISMATCH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="REASON_BANNED">REASON_BANNED</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">REASON_BANNED</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.REASON_BANNED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_MIN_DEFAULT_INT">PADDING_MIN_DEFAULT_INT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_MIN_DEFAULT_INT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.PADDING_MIN_DEFAULT_INT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_MAX_DEFAULT_INT">PADDING_MAX_DEFAULT_INT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_MAX_DEFAULT_INT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.PADDING_MAX_DEFAULT_INT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DUMMY_DEFAULT">DUMMY_DEFAULT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DUMMY_DEFAULT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.DUMMY_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DELAY_DEFAULT">DELAY_DEFAULT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DELAY_DEFAULT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPConnection.DELAY_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.ntcp.NTCPTransport,java.nio.channels.SocketChannel,java.nio.channels.SelectionKey)">NTCPConnection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">NTCPConnection</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="NTCPTransport.html" title="class in net.i2p.router.transport.ntcp">NTCPTransport</a>&nbsp;transport,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a>&nbsp;chan,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a>&nbsp;key)</span></div>
+<div class="block">Create an inbound connected (though not established) NTCP connection.
+ Caller MUST call transport.establishing(this) after construction.
+ Caller MUST key.attach(this) after construction.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.ntcp.NTCPTransport,net.i2p.data.router.RouterIdentity,net.i2p.data.router.RouterAddress,int)">NTCPConnection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">NTCPConnection</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="NTCPTransport.html" title="class in net.i2p.router.transport.ntcp">NTCPTransport</a>&nbsp;transport,
+<a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;remotePeer,
+<a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&nbsp;remAddr,
+int&nbsp;version)</span>
+               throws <span class="exceptions"><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Create an outbound unconnected NTCP connection.
+ Caller MUST call transport.establishing(this) after construction.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>version</code> - must be 1 or 2</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if there's a problem with the address</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getChannel()">getChannel</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a></span>&nbsp;<span class="memberName">getChannel</span>()</div>
+<div class="block">Valid for inbound; valid for outbound shortly after creation</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKey()">getKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a></span>&nbsp;<span class="memberName">getKey</span>()</div>
+<div class="block">Valid for inbound; valid for outbound shortly after creation</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setChannel(java.nio.channels.SocketChannel)">setChannel</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setChannel</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SocketChannel.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SocketChannel</a>&nbsp;chan)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setKey(java.nio.channels.SelectionKey)">setKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setKey</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/SelectionKey.html?is-external=true" title="class or interface in java.nio.channels" class="externalLink">SelectionKey</a>&nbsp;key)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isInbound()">isInbound</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isInbound</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isEstablished()">isEstablished</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isEstablished</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isIPv6()">isIPv6</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isIPv6</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>IPv6</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEstablishState()">getEstablishState</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="EstablishState.html" title="interface in net.i2p.router.transport.ntcp">EstablishState</a></span>&nbsp;<span class="memberName">getEstablishState</span>()</div>
+<div class="block">Only valid during establishment;
+  replaced with EstablishState.VERIFIED or FAILED afterwards</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRemoteAddress()">getRemoteAddress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a></span>&nbsp;<span class="memberName">getRemoteAddress</span>()</div>
+<div class="block">Only valid for outbound; null for inbound</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRemotePeer()">getRemotePeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a></span>&nbsp;<span class="memberName">getRemotePeer</span>()</div>
+<div class="block">Valid for outbound; valid for inbound after handshake</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setRemotePeer(net.i2p.data.router.RouterIdentity)">setRemotePeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setRemotePeer</span>&#8203;(<span class="arguments"><a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ident)</span></div>
+<div class="block">Valid for outbound; valid for inbound after handshake</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClockSkew()">getClockSkew</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getClockSkew</span>()</div>
+<div class="block">A positive number means our clock is ahead of theirs.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>seconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUptime()">getUptime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getUptime</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessagesSent()">getMessagesSent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMessagesSent</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessagesReceived()">getMessagesReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMessagesReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOutboundQueueSize()">getOutboundQueueSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getOutboundQueueSize</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceSend()">getTimeSinceSend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceSend</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceSend(long)">getTimeSinceSend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceSend</span>&#8203;(<span class="arguments">long&nbsp;now)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceReceive()">getTimeSinceReceive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceReceive</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceReceive(long)">getTimeSinceReceive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceReceive</span>&#8203;(<span class="arguments">long&nbsp;now)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceCreated()">getTimeSinceCreated</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceCreated</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeSinceCreated(long)">getTimeSinceCreated</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeSinceCreated</span>&#8203;(<span class="arguments">long&nbsp;now)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>milliseconds</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCreated()">getCreated</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCreated</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>when this connection was created (not established)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getVersion()">getVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getVersion</span>()</div>
+<div class="block">The NTCP2 version, for the console.
+  For outbound, will not change.
+  For inbound, defaults to 1, may change to 2 after establishment.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the version, 1 or 2</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setVersion(int)">setVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setVersion</span>&#8203;(<span class="arguments">int&nbsp;ver)</span></div>
+<div class="block">Set version 2 from InboundEstablishState.
+  Just for logging, so we know before finishInboundEstablish() is called.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMayDisconnect()">setMayDisconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setMayDisconnect</span>()</div>
+<div class="block">Sets to true.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMayDisconnect()">getMayDisconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getMayDisconnect</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearZeroRead()">clearZeroRead</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">clearZeroRead</span>()</div>
+<div class="block">workaround for EventPumper</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="gotZeroRead()">gotZeroRead</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">gotZeroRead</span>()</div>
+<div class="block">workaround for EventPumper</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value after incrementing</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isClosed()">isClosed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isClosed</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close()">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">close</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close(boolean)">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">close</span>&#8203;(<span class="arguments">boolean&nbsp;allowRequeue)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="closeOnTimeout(java.lang.String,java.lang.Exception)">closeOnTimeout</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">closeOnTimeout</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;cause,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang" class="externalLink">Exception</a>&nbsp;e)</span></div>
+<div class="block">Close and release EstablishState resources.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>e</code> - may be null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="send(net.i2p.router.OutNetMessage)">send</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">send</span>&#8203;(<span class="arguments"><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</span></div>
+<div class="block">toss the message onto the connection's send queue</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isBacklogged()">isBacklogged</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isBacklogged</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tooBacklogged()">tooBacklogged</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">tooBacklogged</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="enqueueInfoMessage()">enqueueInfoMessage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">enqueueInfoMessage</span>()</div>
+<div class="block">Inject a DatabaseStoreMessage with our RouterInfo. NTCP 1 or 2.
+
+  Externally, this is only called by NTCPTransport for outbound cons,
+  before the con is established, but we know what version it is.
+
+  Internally, may be called for outbound or inbound, but only after the
+  con is established, so we know what the version is.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="prepareNextWrite(net.i2p.router.transport.ntcp.NTCPConnection.PrepBuffer)">prepareNextWrite</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">prepareNextWrite</span>&#8203;(<span class="arguments"><a href="NTCPConnection.PrepBuffer.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection.PrepBuffer</a>&nbsp;prep)</span></div>
+<div class="block">Prepare the next I2NP message for transmission.  This should be run from
+ the Writer thread pool. NTCP 1 or 2.
+
+ This is the entry point as called from Writer.Runner.run()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prep</code> - an instance of PrepBuffer to use as scratch space</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendTerminationAndClose()">sendTerminationAndClose</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendTerminationAndClose</span>()</div>
+<div class="block">NTCP 1 or 2.
+  For NTCP1, simply closes the connection immediately.
+  For NTCP2, sends termination and then closes the connection after a brief delay.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="outboundConnected()">outboundConnected</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">outboundConnected</span>()</div>
+<div class="block">async callback after the outbound connection was completed (this should NOT block,
+ as it occurs in the selector thread)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="queuedRecv(java.nio.ByteBuffer,net.i2p.router.transport.FIFOBandwidthLimiter.Request)">queuedRecv</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">queuedRecv</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf,
+<a href="../FIFOBandwidthLimiter.Request.html" title="interface in net.i2p.router.transport">FIFOBandwidthLimiter.Request</a>&nbsp;req)</span></div>
+<div class="block">We have read the data in the buffer, but we can't process it locally yet,
+ because we're choked by the bandwidth limiter.  Cache the contents of
+ the buffer (not copy) and register ourselves to be notified when the
+ contents have been fully allocated</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="queuedWrite(java.nio.ByteBuffer,net.i2p.router.transport.FIFOBandwidthLimiter.Request)">queuedWrite</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">queuedWrite</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf,
+<a href="../FIFOBandwidthLimiter.Request.html" title="interface in net.i2p.router.transport">FIFOBandwidthLimiter.Request</a>&nbsp;req)</span></div>
+<div class="block">ditto for writes</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="recv(java.nio.ByteBuffer)">recv</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">recv</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</span></div>
+<div class="block">The contents of the buffer have been read and can be processed asap.
+ This should not block, and the NTCP connection now owns the buffer
+ to do with as it pleases BUT it should eventually copy out the data
+ and call EventPumper.releaseBuf().</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="write(java.nio.ByteBuffer)">write</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">write</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</span></div>
+<div class="block">The contents of the buffer have been encrypted / padded / etc and have
+ been fully allocated for the bandwidth limiter.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNextReadBuf()">getNextReadBuf</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></span>&nbsp;<span class="memberName">getNextReadBuf</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if none available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isWriteBufEmpty()">isWriteBufEmpty</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isWriteBufEmpty</span>()</div>
+<div class="block">Replaces getWriteBufCount()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNextWriteBuf()">getNextWriteBuf</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></span>&nbsp;<span class="memberName">getNextWriteBuf</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if none available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeWriteBuf(java.nio.ByteBuffer)">removeWriteBuf</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">removeWriteBuf</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</span></div>
+<div class="block">Remove the buffer, which _should_ be the one at the head of _writeBufs</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSendRate()">getSendRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getSendRate</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRecvRate()">getRecvRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getRecvRate</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="recvEncryptedI2NP(java.nio.ByteBuffer)">recvEncryptedI2NP</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">recvEncryptedI2NP</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a>&nbsp;buf)</span></div>
+<div class="block">Connection must be established!
+
+ The contents of the buffer include some fraction of one or more
+ encrypted and encoded I2NP messages.  individual i2np messages are
+ encoded as "sizeof(data)+data+pad+crc", and those are encrypted
+ with the session key and the last 16 bytes of the previous encrypted
+ i2np message.
+
+ The NTCP connection now owns the buffer
+ BUT it must copy out the data
+ as reader will call EventPumper.releaseBuf().
+
+ This is the entry point as called from Reader.processRead()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="releaseResources()">releaseResources</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">releaseResources</span>()</div>
+<div class="block">Call at transport shutdown</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="finishOutboundEstablishment(com.southernstorm.noise.protocol.CipherState,com.southernstorm.noise.protocol.CipherState,byte[],byte[],long)">finishOutboundEstablishment</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">finishOutboundEstablishment</span>&#8203;(<span class="arguments"><a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;receiver,
+byte[]&nbsp;sip_ab,
+byte[]&nbsp;sip_ba,
+long&nbsp;clockSkew)</span></div>
+<div class="block">We are Alice. NTCP2 only.
+
+ Caller MUST call recvEncryptedI2NP() after, for any remaining bytes in receive buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clockSkew</code> - OUR clock minus BOB's clock in seconds (may be negative, obviously, but |val| should
+                  be under 1 minute)</dd>
+<dd><code>sender</code> - use to send to Bob</dd>
+<dd><code>receiver</code> - use to receive from Bob</dd>
+<dd><code>sip_ab</code> - 24 bytes to init SipHash to Bob</dd>
+<dd><code>sip_ba</code> - 24 bytes to init SipHash from Bob</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="finishInboundEstablishment(com.southernstorm.noise.protocol.CipherState,com.southernstorm.noise.protocol.CipherState,byte[],byte[],long,net.i2p.router.transport.ntcp.NTCP2Options)">finishInboundEstablishment</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">finishInboundEstablishment</span>&#8203;(<span class="arguments"><a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+<a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;receiver,
+byte[]&nbsp;sip_ba,
+byte[]&nbsp;sip_ab,
+long&nbsp;clockSkew,
+<a href="NTCP2Options.html" title="class in net.i2p.router.transport.ntcp">NTCP2Options</a>&nbsp;hisPadding)</span></div>
+<div class="block">We are Bob. NTCP2 only.
+
+ Caller MUST call recvEncryptedI2NP() after, for any remaining bytes in receive buffer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clockSkew</code> - OUR clock minus ALICE's clock in seconds (may be negative, obviously, but |val| should
+                  be under 1 minute)</dd>
+<dd><code>sender</code> - use to send to Alice</dd>
+<dd><code>receiver</code> - use to receive from Alice</dd>
+<dd><code>sip_ba</code> - 24 bytes to init SipHash to Alice</dd>
+<dd><code>sip_ab</code> - 24 bytes to init SipHash from Alice</dd>
+<dd><code>hisPadding</code> - may be null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="failInboundEstablishment(com.southernstorm.noise.protocol.CipherState,byte[],int)">failInboundEstablishment</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">failInboundEstablishment</span>&#8203;(<span class="arguments"><a href="../../../../../com/southernstorm/noise/protocol/CipherState.html" title="interface in com.southernstorm.noise.protocol">CipherState</a>&nbsp;sender,
+byte[]&nbsp;sip_ba,
+int&nbsp;reason)</span></div>
+<div class="block">We are Bob. NTCP2 only.
+ This is only for invalid payload received in message 3. We send a termination and close.
+ There will be no receiving.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sender</code> - use to send to Alice</dd>
+<dd><code>sip_ba</code> - 24 bytes to init SipHash to Alice</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NTCPConnection.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

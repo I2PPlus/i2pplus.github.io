@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Uses of Class net.i2p.client.streaming.impl.SchedulerImpl - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="use: package: net.i2p.client.streaming.impl, class: SchedulerImpl">
+<meta name="generator" content="javadoc/ClassUseWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-use">
+<script type="text/javascript">var pathtoroot = "../../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../index.html">Overview</a></li>
+<li><a href="../package-summary.html">Package</a></li>
+<li><a href="../SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">Class</a></li>
+<li class="navBarCell1Rev">Use</li>
+<li><a href="../package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Uses of Class net.i2p.client.streaming.impl.SchedulerImpl" class="title">Uses of Class<br>net.i2p.client.streaming.impl.SchedulerImpl</h1>
+</div>
+<div class="classUseContainer">
+<div class="useSummary">
+<table>
+<caption><span>Packages that use <a href="../SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">SchedulerImpl</a></span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Package</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="#net.i2p.client.streaming.impl">net.i2p.client.streaming.impl</a></th>
+<td class="colLast">
+<div class="block">Implementation of a TCP-like (reliable, authenticated, in order) set of sockets for 
+communicating over the IP-like (unreliable, unauthenticated, unordered) I2P
+messages.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section class="classUses">
+<ul class="blockList">
+<li class="blockList">
+<section class="detail"><a id="net.i2p.client.streaming.impl">
+</a>
+<h2>Uses of <a href="../SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">SchedulerImpl</a> in <a href="../package-summary.html">net.i2p.client.streaming.impl</a></h2>
+<div class="useSummary">
+<table>
+<caption><span>Subclasses of <a href="../SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">SchedulerImpl</a> in <a href="../package-summary.html">net.i2p.client.streaming.impl</a></span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerClosed.html" title="class in net.i2p.client.streaming.impl">SchedulerClosed</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used for after both sides have had their close packets
+ ACKed, but the final timeout hasn't passed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerClosing.html" title="class in net.i2p.client.streaming.impl">SchedulerClosing</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used for after both SYNs have been ACKed and both sides
+ have closed the stream, but either we haven't ACKed their close or
+ they haven't ACKed ours.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerConnectedBulk.html" title="class in net.i2p.client.streaming.impl">SchedulerConnectedBulk</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used for after our SYN has been sent and ACKed but one
+ (or more) sides haven't closed the stream yet.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerConnecting.html" title="class in net.i2p.client.streaming.impl">SchedulerConnecting</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used once we've sent our SYN but it hasn't been ACKed yet.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerDead.html" title="class in net.i2p.client.streaming.impl">SchedulerDead</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used for after the final timeout has passed or the
+ connection was reset.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerHardDisconnected.html" title="class in net.i2p.client.streaming.impl">SchedulerHardDisconnected</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used after we've locally done a hard disconnect, 
+ but the final timeout hasn't passed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerPreconnect.html" title="class in net.i2p.client.streaming.impl">SchedulerPreconnect</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used for locally created connections where we have not yet
+ sent the initial SYN packet.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="../SchedulerReceived.html" title="class in net.i2p.client.streaming.impl">SchedulerReceived</a></span></code></th>
+<td class="colLast">
+<div class="block">Scheduler used after receiving an inbound connection but before
+ we have sent our own SYN.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../index.html">Overview</a></li>
+<li><a href="../package-summary.html">Package</a></li>
+<li><a href="../SchedulerImpl.html" title="class in net.i2p.client.streaming.impl">Class</a></li>
+<li class="navBarCell1Rev">Use</li>
+<li><a href="../package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

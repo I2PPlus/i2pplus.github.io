@@ -1,0 +1,1053 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>HandshakeState - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.southernstorm.noise.protocol, class: HandshakeState">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/HandshakeState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">com.southernstorm.noise.protocol</a></div>
+<h1 title="Class HandshakeState" class="title">Class HandshakeState</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">com.southernstorm.noise.protocol.HandshakeState</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="Destroyable.html" title="interface in com.southernstorm.noise.protocol">Destroyable</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">HandshakeState</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="Destroyable.html" title="interface in com.southernstorm.noise.protocol">Destroyable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></pre>
+<div class="block">Interface to a Noise handshake.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COMPLETE">COMPLETE</a></span></code></th>
+<td class="colLast">
+<div class="block">The handshake is complete and the data session ciphers
+ have been split() out successfully.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FAILED">FAILED</a></span></code></th>
+<td class="colLast">
+<div class="block">The handshake has failed due to some kind of error.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#INITIATOR">INITIATOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Enumerated value that indicates that the handshake object
+ is handling the initiator role.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NO_ACTION">NO_ACTION</a></span></code></th>
+<td class="colLast">
+<div class="block">No action is required of the application yet because the
+ handshake has not started.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PATTERN_ID_IK">PATTERN_ID_IK</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PATTERN_ID_N">PATTERN_ID_N</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PATTERN_ID_N_NO_RESPONSE">PATTERN_ID_N_NO_RESPONSE</a></span></code></th>
+<td class="colLast">
+<div class="block">same as N but no post-mixHash needed</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PATTERN_ID_XK">PATTERN_ID_XK</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#protocolName">protocolName</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#protocolName2">protocolName2</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#protocolName3">protocolName3</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#READ_MESSAGE">READ_MESSAGE</a></span></code></th>
+<td class="colLast">
+<div class="block">The HandshakeState expects the application to read the
+ next message payload from the handshake.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#RESPONDER">RESPONDER</a></span></code></th>
+<td class="colLast">
+<div class="block">Enumerated value that indicates that the handshake object
+ is handling the responder role.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SPLIT">SPLIT</a></span></code></th>
+<td class="colLast">
+<div class="block">The handshake is over and the application is expected to call
+ split() and begin data session communications.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#WRITE_MESSAGE">WRITE_MESSAGE</a></span></code></th>
+<td class="colLast">
+<div class="block">The HandshakeState expects the application to write the
+ next message payload for the handshake.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colSecond" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.southernstorm.noise.protocol.HandshakeState)">HandshakeState</a></span>&#8203;(<a href="HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;o)</code></th>
+<td class="colLast">
+<div class="block">Copy constructor for cloning</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,net.i2p.crypto.KeyFactory)">HandshakeState</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;patternId,
+int&nbsp;role,
+<a href="../../../../net/i2p/crypto/KeyFactory.html" title="interface in net.i2p.crypto">KeyFactory</a>&nbsp;xdh)</code></th>
+<td class="colLast">
+<div class="block">Creates a new Noise handshake.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clone()">clone</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P
+  Must be called before both eph.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroy()">destroy</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Destroys all sensitive state in the current object.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAction()">getAction</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the next action that the application should perform for
+ the handshake part of the protocol.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChainingKey()">getChainingKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P for getting chaining key for siphash calc</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandshakeHash()">getHandshakeHash</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the current value of the handshake hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLocalEphemeralKeyPair()">getLocalEphemeralKeyPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the keypair object for the local ephemeral key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLocalKeyPair()">getLocalKeyPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the keypair object for the local static key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProtocolName()">getProtocolName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the name of the Noise protocol.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemotePublicKey()">getRemotePublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the public key object for the remote static key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRole()">getRole</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the role for this handshake.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasLocalKeyPair()">hasLocalKeyPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this handshake has already been configured
+ with a local static key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasRemotePublicKey()">hasRemotePublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this handshake has already been configured
+ with a remote static key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mixHash(byte%5B%5D,int,int)">mixHash</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">I2P for mixing in padding in messages 1 and 2</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#needsLocalKeyPair()">needsLocalKeyPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this handshake requires a local static key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#needsRemotePublicKey()">needsRemotePublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this handshake requires a remote static key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readMessage(byte%5B%5D,int,int,byte%5B%5D,int)">readMessage</a></span>&#8203;(byte[]&nbsp;message,
+int&nbsp;messageOffset,
+int&nbsp;messageLength,
+byte[]&nbsp;payload,
+int&nbsp;payloadOffset)</code></th>
+<td class="colLast">
+<div class="block">Reads a message payload during the handshake.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="CipherStatePair.html" title="class in com.southernstorm.noise.protocol">CipherStatePair</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#split()">split</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Splits the transport encryption CipherState objects out of
+ this HandshakeState object once the handshake completes.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="CipherStatePair.html" title="class in com.southernstorm.noise.protocol">CipherStatePair</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#split(byte%5B%5D,int,int)">split</a></span>&#8203;(byte[]&nbsp;secondaryKey,
+int&nbsp;offset,
+int&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Splits the transport encryption CipherState objects out of
+ this HandshakeObject after mixing in a secondary symmetric key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Starts the handshake running.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P debug</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeMessage(byte%5B%5D,int,byte%5B%5D,int,int)">writeMessage</a></span>&#8203;(byte[]&nbsp;message,
+int&nbsp;messageOffset,
+byte[]&nbsp;payload,
+int&nbsp;payloadOffset,
+int&nbsp;payloadLength)</code></th>
+<td class="colLast">
+<div class="block">Writes a message payload during the handshake.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="INITIATOR">INITIATOR</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">INITIATOR</span></div>
+<div class="block">Enumerated value that indicates that the handshake object
+ is handling the initiator role.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.INITIATOR">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="RESPONDER">RESPONDER</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">RESPONDER</span></div>
+<div class="block">Enumerated value that indicates that the handshake object
+ is handling the responder role.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.RESPONDER">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NO_ACTION">NO_ACTION</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">NO_ACTION</span></div>
+<div class="block">No action is required of the application yet because the
+ handshake has not started.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.NO_ACTION">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="WRITE_MESSAGE">WRITE_MESSAGE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">WRITE_MESSAGE</span></div>
+<div class="block">The HandshakeState expects the application to write the
+ next message payload for the handshake.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.WRITE_MESSAGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="READ_MESSAGE">READ_MESSAGE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">READ_MESSAGE</span></div>
+<div class="block">The HandshakeState expects the application to read the
+ next message payload from the handshake.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.READ_MESSAGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FAILED">FAILED</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">FAILED</span></div>
+<div class="block">The handshake has failed due to some kind of error.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.FAILED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="SPLIT">SPLIT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">SPLIT</span></div>
+<div class="block">The handshake is over and the application is expected to call
+ split() and begin data session communications.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.SPLIT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COMPLETE">COMPLETE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COMPLETE</span></div>
+<div class="block">The handshake is complete and the data session ciphers
+ have been split() out successfully.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.COMPLETE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="protocolName">protocolName</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">protocolName</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.protocolName">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="protocolName2">protocolName2</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">protocolName2</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.protocolName2">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="protocolName3">protocolName3</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">protocolName3</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.protocolName3">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PATTERN_ID_XK">PATTERN_ID_XK</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PATTERN_ID_XK</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.PATTERN_ID_XK">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PATTERN_ID_IK">PATTERN_ID_IK</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PATTERN_ID_IK</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.PATTERN_ID_IK">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PATTERN_ID_N">PATTERN_ID_N</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PATTERN_ID_N</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.PATTERN_ID_N">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PATTERN_ID_N_NO_RESPONSE">PATTERN_ID_N_NO_RESPONSE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PATTERN_ID_N_NO_RESPONSE</span></div>
+<div class="block">same as N but no post-mixHash needed</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#com.southernstorm.noise.protocol.HandshakeState.PATTERN_ID_N_NO_RESPONSE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,int,net.i2p.crypto.KeyFactory)">HandshakeState</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">HandshakeState</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;patternId,
+int&nbsp;role,
+<a href="../../../../net/i2p/crypto/KeyFactory.html" title="interface in net.i2p.crypto">KeyFactory</a>&nbsp;xdh)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/security/NoSuchAlgorithmException.html?is-external=true" title="class or interface in java.security" class="externalLink">NoSuchAlgorithmException</a></span></div>
+<div class="block">Creates a new Noise handshake.
+ Noise protocol name is hardcoded.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>patternId</code> - XK, IK, or N</dd>
+<dd><code>role</code> - The role, HandshakeState.INITIATOR or HandshakeState.RESPONDER.</dd>
+<dd><code>xdh</code> - The key pair factory for ephemeral keys</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - The protocolName is not
+ formatted correctly, or the role is not recognized.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/security/NoSuchAlgorithmException.html?is-external=true" title="class or interface in java.security" class="externalLink">NoSuchAlgorithmException</a></code> - One of the cryptographic algorithms
+ that is specified in the protocolName is not supported.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(com.southernstorm.noise.protocol.HandshakeState)">HandshakeState</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">HandshakeState</span>&#8203;(<span class="arguments"><a href="HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;o)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></span></div>
+<div class="block">Copy constructor for cloning</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProtocolName()">getProtocolName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getProtocolName</span>()</div>
+<div class="block">Gets the name of the Noise protocol.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The protocol name.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRole()">getRole</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getRole</span>()</div>
+<div class="block">Gets the role for this handshake.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The role, HandshakeState.INITIATOR or HandshakeState.RESPONDER.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLocalKeyPair()">getLocalKeyPair</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></span>&nbsp;<span class="memberName">getLocalKeyPair</span>()</div>
+<div class="block">Gets the keypair object for the local static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The keypair, or null if a local static key is not required.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLocalEphemeralKeyPair()">getLocalEphemeralKeyPair</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></span>&nbsp;<span class="memberName">getLocalEphemeralKeyPair</span>()</div>
+<div class="block">Gets the keypair object for the local ephemeral key.
+
+ I2P</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The keypair, or null if a local ephemeral key is not required or has not been generated.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="needsLocalKeyPair()">needsLocalKeyPair</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">needsLocalKeyPair</span>()</div>
+<div class="block">Determine if this handshake requires a local static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if a local static key is needed; false if not.
+
+ If the local static key has already been set, then this function
+ will return false.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasLocalKeyPair()">hasLocalKeyPair</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasLocalKeyPair</span>()</div>
+<div class="block">Determine if this handshake has already been configured
+ with a local static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the local static key has been configured;
+ false if not.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRemotePublicKey()">getRemotePublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></span>&nbsp;<span class="memberName">getRemotePublicKey</span>()</div>
+<div class="block">Gets the public key object for the remote static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The public key, or null if a remote static key
+ is not required.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="needsRemotePublicKey()">needsRemotePublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">needsRemotePublicKey</span>()</div>
+<div class="block">Determine if this handshake requires a remote static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if a remote static key is needed; false if not.
+
+ If the remote static key has already been set, then this function
+ will return false.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasRemotePublicKey()">hasRemotePublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasRemotePublicKey</span>()</div>
+<div class="block">Determine if this handshake has already been configured
+ with a remote static key.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the remote static key has been configured;
+ false if not.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="start()">start</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
+<div class="block">Starts the handshake running.
+
+ This function is called after all of the handshake parameters have been
+ provided to the HandshakeState object.  This function should be followed
+ by calls to writeMessage() or readMessage() to process the handshake
+ messages.  The getAction() function indicates the action to take next.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The handshake has already started, or one or
+ more of the required parameters has not been supplied.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink">UnsupportedOperationException</a></code> - An attempt was made to start a
+ fallback handshake pattern without first calling fallback() on a
+ previous handshake.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#getAction()"><code>getAction()</code></a>, 
+<a href="#writeMessage(byte%5B%5D,int,byte%5B%5D,int,int)"><code>writeMessage(byte[], int, byte[], int, int)</code></a>, 
+<a href="#readMessage(byte%5B%5D,int,int,byte%5B%5D,int)"><code>see #fallback()</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAction()">getAction</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getAction</span>()</div>
+<div class="block">Gets the next action that the application should perform for
+ the handshake part of the protocol.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>One of HandshakeState.NO_ACTION, HandshakeState.WRITE_MESSAGE,
+ HandshakeState.READ_MESSAGE, HandshakeState.SPLIT, or
+ HandshakeState.FAILED.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeMessage(byte[],int,byte[],int,int)">writeMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;message,
+int&nbsp;messageOffset,
+byte[]&nbsp;payload,
+int&nbsp;payloadOffset,
+int&nbsp;payloadLength)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/ShortBufferException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">ShortBufferException</a></span></div>
+<div class="block">Writes a message payload during the handshake.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>message</code> - The buffer that will be populated with the
+ handshake packet to be written to the transport.</dd>
+<dd><code>messageOffset</code> - First offset within the message buffer
+ to be populated.</dd>
+<dd><code>payload</code> - Buffer containing the payload to add to the
+ handshake message; can be null if there is no payload.</dd>
+<dd><code>payloadOffset</code> - Offset into the payload buffer of the
+ first payload buffer.</dd>
+<dd><code>payloadLength</code> - Length of the payload in bytes.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The length of the data written to the message buffer.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The action is not WRITE_MESSAGE.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - The payload is null, but
+ payloadOffset or payloadLength is non-zero.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/ShortBufferException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">ShortBufferException</a></code> - The message buffer does not have
+ enough space for the handshake message.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#getAction()"><code>getAction()</code></a>, 
+<a href="#readMessage(byte%5B%5D,int,int,byte%5B%5D,int)"><code>readMessage(byte[], int, int, byte[], int)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readMessage(byte[],int,int,byte[],int)">readMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">readMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;message,
+int&nbsp;messageOffset,
+int&nbsp;messageLength,
+byte[]&nbsp;payload,
+int&nbsp;payloadOffset)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/ShortBufferException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">ShortBufferException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/BadPaddingException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">BadPaddingException</a></span></div>
+<div class="block">Reads a message payload during the handshake.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>message</code> - Buffer containing the incoming handshake
+ that was read from the transport.</dd>
+<dd><code>messageOffset</code> - Offset of the first message byte.</dd>
+<dd><code>messageLength</code> - The length of the incoming message.</dd>
+<dd><code>payload</code> - Buffer that will be populated with the message payload.</dd>
+<dd><code>payloadOffset</code> - Offset of the first byte in the
+ payload buffer to be populated with payload data.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The length of the payload.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The action is not READ_MESSAGE.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/ShortBufferException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">ShortBufferException</a></code> - The message buffer does not have
+ sufficient bytes for a valid message or the payload buffer does
+ not have enough space for the decrypted payload.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/BadPaddingException.html?is-external=true" title="class or interface in javax.crypto" class="externalLink">BadPaddingException</a></code> - A MAC value in the message failed
+ to verify.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#getAction()"><code>getAction()</code></a>, 
+<a href="#writeMessage(byte%5B%5D,int,byte%5B%5D,int,int)"><code>writeMessage(byte[], int, byte[], int, int)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="split()">split</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="CipherStatePair.html" title="class in com.southernstorm.noise.protocol">CipherStatePair</a></span>&nbsp;<span class="memberName">split</span>()</div>
+<div class="block">Splits the transport encryption CipherState objects out of
+ this HandshakeState object once the handshake completes.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The pair of ciphers for sending and receiving.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The action is not SPLIT.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="split(byte[],int,int)">split</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="CipherStatePair.html" title="class in com.southernstorm.noise.protocol">CipherStatePair</a></span>&nbsp;<span class="memberName">split</span>&#8203;(<span class="arguments">byte[]&nbsp;secondaryKey,
+int&nbsp;offset,
+int&nbsp;length)</span></div>
+<div class="block">Splits the transport encryption CipherState objects out of
+ this HandshakeObject after mixing in a secondary symmetric key.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>secondaryKey</code> - The buffer containing the secondary key.</dd>
+<dd><code>offset</code> - The offset of the first secondary key byte.</dd>
+<dd><code>length</code> - The length of the secondary key in bytes, which
+ must be either 0 or 32.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The pair of ciphers for sending and receiving.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The action is not SPLIT.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - The length is not 0 or 32.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHandshakeHash()">getHandshakeHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getHandshakeHash</span>()</div>
+<div class="block">Gets the current value of the handshake hash.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The handshake hash.  This must not be modified by the caller.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - The action is not SPLIT or COMPLETE.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="destroy()">destroy</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">destroy</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Destroyable.html#destroy()">Destroyable</a></code></span></div>
+<div class="block">Destroys all sensitive state in the current object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Destroyable.html#destroy()">destroy</a></code>&nbsp;in interface&nbsp;<code><a href="Destroyable.html" title="interface in com.southernstorm.noise.protocol">Destroyable</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="mixHash(byte[],int,int)">mixHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">mixHash</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;length)</span></div>
+<div class="block">I2P for mixing in padding in messages 1 and 2</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getChainingKey()">getChainingKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getChainingKey</span>()</div>
+<div class="block">I2P for getting chaining key for siphash calc</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clone()">clone</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a></span>&nbsp;<span class="memberName">clone</span>()
+                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></span></div>
+<div class="block">I2P
+  Must be called before both eph. keys set.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<div class="block">I2P debug</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/HandshakeState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

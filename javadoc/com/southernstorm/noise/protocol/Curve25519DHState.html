@@ -1,0 +1,712 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Curve25519DHState - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.southernstorm.noise.protocol, class: Curve25519DHState">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":42,"i19":10,"i20":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Curve25519DHState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">com.southernstorm.noise.protocol</a></div>
+<h1 title="Class Curve25519DHState" class="title">Class Curve25519DHState</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">com.southernstorm.noise.protocol.Curve25519DHState</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="Destroyable.html" title="interface in com.southernstorm.noise.protocol">Destroyable</a></code>, <code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">Curve25519DHState</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></pre>
+<div class="block">Implementation of the Curve25519 algorithm for the Noise protocol.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.KeyFactory)">Curve25519DHState</a></span>&#8203;(<a href="../../../../net/i2p/crypto/KeyFactory.html" title="interface in net.i2p.crypto">KeyFactory</a>&nbsp;xdh)</code></th>
+<td class="colLast">
+<div class="block">Constructs a new Diffie-Hellman object for Curve25519.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculate(byte%5B%5D,int,com.southernstorm.noise.protocol.DHState)">calculate</a></span>&#8203;(byte[]&nbsp;sharedKey,
+int&nbsp;offset,
+<a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a>&nbsp;publicDH)</code></th>
+<td class="colLast">
+<div class="block">Performs a Diffie-Hellman calculation with this object as the private key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearKey()">clearKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clears the key pair.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="Curve25519DHState.html" title="class in com.southernstorm.noise.protocol">Curve25519DHState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clone()">clone</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyFrom(com.southernstorm.noise.protocol.DHState)">copyFrom</a></span>&#8203;(<a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a>&nbsp;other)</code></th>
+<td class="colLast">
+<div class="block">Copies the key values from another DH object of the same type.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroy()">destroy</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Destroys all sensitive state in the current object.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#generateKeyPair()">generateKeyPair</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Generates a new random keypair.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDHName()">getDHName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the Noise protocol name for this Diffie-Hellman algorithm.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncodedPublicKey(byte%5B%5D,int)">getEncodedPublicKey</a></span>&#8203;(byte[]&nbsp;key,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">I2P</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrivateKey(byte%5B%5D,int)">getPrivateKey</a></span>&#8203;(byte[]&nbsp;key,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">Gets the private key associated with this object.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrivateKeyLength()">getPrivateKeyLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the length of private keys for this algorithm.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPublicKey(byte%5B%5D,int)">getPublicKey</a></span>&#8203;(byte[]&nbsp;key,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">Gets the public key associated with this object.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPublicKeyLength()">getPublicKeyLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the length of public keys for this algorithm.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSharedKeyLength()">getSharedKeyLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the length of shared keys for this algorithm.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasEncodedPublicKey()">hasEncodedPublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">I2P</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasPrivateKey()">hasPrivateKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this object contains a private key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasPublicKey()">hasPublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if this object contains a public key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isNullPublicKey()">isNullPublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Determine if the public key in this object is the special null value.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setKeys(byte%5B%5D,int,byte%5B%5D,int)">setKeys</a></span>&#8203;(byte[]&nbsp;privkey,
+int&nbsp;privoffset,
+byte[]&nbsp;pubkey,
+int&nbsp;puboffset)</code></th>
+<td class="colLast">
+<div class="block">Sets the private and public keys for this object.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPrivateKey(byte%5B%5D,int)">setPrivateKey</a></span>&#8203;(byte[]&nbsp;key,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use setKeys()</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPublicKey(byte%5B%5D,int)">setPublicKey</a></span>&#8203;(byte[]&nbsp;key,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">Sets the public key for this object.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToNullPublicKey()">setToNullPublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Sets this object to the null public key and clears the private key.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.crypto.KeyFactory)">Curve25519DHState</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Curve25519DHState</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/crypto/KeyFactory.html" title="interface in net.i2p.crypto">KeyFactory</a>&nbsp;xdh)</span></div>
+<div class="block">Constructs a new Diffie-Hellman object for Curve25519.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="destroy()">destroy</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">destroy</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Destroyable.html#destroy()">Destroyable</a></code></span></div>
+<div class="block">Destroys all sensitive state in the current object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Destroyable.html#destroy()">destroy</a></code>&nbsp;in interface&nbsp;<code><a href="Destroyable.html" title="interface in com.southernstorm.noise.protocol">Destroyable</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDHName()">getDHName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getDHName</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getDHName()">DHState</a></code></span></div>
+<div class="block">Gets the Noise protocol name for this Diffie-Hellman algorithm.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getDHName()">getDHName</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The algorithm name.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPublicKeyLength()">getPublicKeyLength</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPublicKeyLength</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getPublicKeyLength()">DHState</a></code></span></div>
+<div class="block">Gets the length of public keys for this algorithm.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getPublicKeyLength()">getPublicKeyLength</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The length of public keys in bytes.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPrivateKeyLength()">getPrivateKeyLength</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPrivateKeyLength</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getPrivateKeyLength()">DHState</a></code></span></div>
+<div class="block">Gets the length of private keys for this algorithm.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getPrivateKeyLength()">getPrivateKeyLength</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The length of private keys in bytes.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSharedKeyLength()">getSharedKeyLength</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getSharedKeyLength</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getSharedKeyLength()">DHState</a></code></span></div>
+<div class="block">Gets the length of shared keys for this algorithm.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getSharedKeyLength()">getSharedKeyLength</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The length of shared keys in bytes.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="generateKeyPair()">generateKeyPair</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">generateKeyPair</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#generateKeyPair()">DHState</a></code></span></div>
+<div class="block">Generates a new random keypair.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#generateKeyPair()">generateKeyPair</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPublicKey(byte[],int)">getPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">getPublicKey</span>&#8203;(<span class="arguments">byte[]&nbsp;key,
+int&nbsp;offset)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getPublicKey(byte%5B%5D,int)">DHState</a></code></span></div>
+<div class="block">Gets the public key associated with this object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getPublicKey(byte%5B%5D,int)">getPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The buffer to copy the public key to.</dd>
+<dd><code>offset</code> - The first offset in the key buffer to copy to.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPublicKey(byte[],int)">setPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPublicKey</span>&#8203;(<span class="arguments">byte[]&nbsp;key,
+int&nbsp;offset)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#setPublicKey(byte%5B%5D,int)">DHState</a></code></span></div>
+<div class="block">Sets the public key for this object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#setPublicKey(byte%5B%5D,int)">setPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The buffer containing the public key.</dd>
+<dd><code>offset</code> - The first offset in the buffer that contains the key.
+ 
+ If this object previously held a key pair, then this function
+ will change it into a public key only object.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPrivateKey(byte[],int)">getPrivateKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">getPrivateKey</span>&#8203;(<span class="arguments">byte[]&nbsp;key,
+int&nbsp;offset)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#getPrivateKey(byte%5B%5D,int)">DHState</a></code></span></div>
+<div class="block">Gets the private key associated with this object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getPrivateKey(byte%5B%5D,int)">getPrivateKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The buffer to copy the private key to.</dd>
+<dd><code>offset</code> - The first offset in the key buffer to copy to.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPrivateKey(byte[],int)">setPrivateKey</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPrivateKey</span>&#8203;(<span class="arguments">byte[]&nbsp;key,
+int&nbsp;offset)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use setKeys()</div>
+</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#setPrivateKey(byte%5B%5D,int)">DHState</a></code></span></div>
+<div class="block">Sets the private key for this object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#setPrivateKey(byte%5B%5D,int)">setPrivateKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The buffer containing the [rivate key.</dd>
+<dd><code>offset</code> - The first offset in the buffer that contains the key.
+ 
+ If this object previously held only a public key, then
+ this function will change it into a key pair.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setKeys(byte[],int,byte[],int)">setKeys</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setKeys</span>&#8203;(<span class="arguments">byte[]&nbsp;privkey,
+int&nbsp;privoffset,
+byte[]&nbsp;pubkey,
+int&nbsp;puboffset)</span></div>
+<div class="block">Sets the private and public keys for this object.
+ I2P for efficiency, since setPrivateKey() calculates the public key
+ and overwrites it.
+ Does NOT check that the two keys match.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#setKeys(byte%5B%5D,int,byte%5B%5D,int)">setKeys</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>privkey</code> - The buffer containing the private key.</dd>
+<dd><code>privoffset</code> - The first offset in the buffer that contains the key.</dd>
+<dd><code>pubkey</code> - The buffer containing the public key.</dd>
+<dd><code>puboffset</code> - The first offset in the buffer that contains the key.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setToNullPublicKey()">setToNullPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setToNullPublicKey</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#setToNullPublicKey()">DHState</a></code></span></div>
+<div class="block">Sets this object to the null public key and clears the private key.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#setToNullPublicKey()">setToNullPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearKey()">clearKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clearKey</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#clearKey()">DHState</a></code></span></div>
+<div class="block">Clears the key pair.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#clearKey()">clearKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasPublicKey()">hasPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasPublicKey</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#hasPublicKey()">DHState</a></code></span></div>
+<div class="block">Determine if this object contains a public key.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#hasPublicKey()">hasPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns true if this object contains a public key,
+ or false if the public key has not yet been set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasPrivateKey()">hasPrivateKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasPrivateKey</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#hasPrivateKey()">DHState</a></code></span></div>
+<div class="block">Determine if this object contains a private key.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#hasPrivateKey()">hasPrivateKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns true if this object contains a private key,
+ or false if the private key has not yet been set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isNullPublicKey()">isNullPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isNullPublicKey</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#isNullPublicKey()">DHState</a></code></span></div>
+<div class="block">Determine if the public key in this object is the special null value.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#isNullPublicKey()">isNullPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns true if the public key is the special null value,
+ or false otherwise.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasEncodedPublicKey()">hasEncodedPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasEncodedPublicKey</span>()</div>
+<div class="block">I2P</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#hasEncodedPublicKey()">hasEncodedPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Returns true if this object contains an encoded public key,
+ or false if the public key has not yet been set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEncodedPublicKey(byte[],int)">getEncodedPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">getEncodedPublicKey</span>&#8203;(<span class="arguments">byte[]&nbsp;key,
+int&nbsp;offset)</span></div>
+<div class="block">I2P</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#getEncodedPublicKey(byte%5B%5D,int)">getEncodedPublicKey</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>key</code> - The buffer to copy the public key to.</dd>
+<dd><code>offset</code> - The first offset in the key buffer to copy to.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="calculate(byte[],int,com.southernstorm.noise.protocol.DHState)">calculate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">calculate</span>&#8203;(<span class="arguments">byte[]&nbsp;sharedKey,
+int&nbsp;offset,
+<a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a>&nbsp;publicDH)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#calculate(byte%5B%5D,int,com.southernstorm.noise.protocol.DHState)">DHState</a></code></span></div>
+<div class="block">Performs a Diffie-Hellman calculation with this object as the private key.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#calculate(byte%5B%5D,int,com.southernstorm.noise.protocol.DHState)">calculate</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sharedKey</code> - Buffer to put the shared key into.</dd>
+<dd><code>offset</code> - Offset of the first byte for the shared key.</dd>
+<dd><code>publicDH</code> - Object that contains the public key for the calculation.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyFrom(com.southernstorm.noise.protocol.DHState)">copyFrom</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">copyFrom</span>&#8203;(<span class="arguments"><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a>&nbsp;other)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="DHState.html#copyFrom(com.southernstorm.noise.protocol.DHState)">DHState</a></code></span></div>
+<div class="block">Copies the key values from another DH object of the same type.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#copyFrom(com.southernstorm.noise.protocol.DHState)">copyFrom</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - The other DH object to copy from</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clone()">clone</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Curve25519DHState.html" title="class in com.southernstorm.noise.protocol">Curve25519DHState</a></span>&nbsp;<span class="memberName">clone</span>()
+                        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></span></div>
+<div class="block">I2P</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHState.html#clone()">clone</a></code>&nbsp;in interface&nbsp;<code><a href="DHState.html" title="interface in com.southernstorm.noise.protocol">DHState</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Curve25519DHState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

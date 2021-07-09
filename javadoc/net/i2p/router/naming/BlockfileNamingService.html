@@ -1,0 +1,878 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BlockfileNamingService - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.naming, class: BlockfileNamingService">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":10,"i9":10,"i10":9,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BlockfileNamingService.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.naming</a></div>
+<h1 title="Class BlockfileNamingService" class="title">Class BlockfileNamingService</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">net.i2p.client.naming.NamingService</a>
+<div class="inheritance"><a href="../../client/naming/DummyNamingService.html" title="class in net.i2p.client.naming">net.i2p.client.naming.DummyNamingService</a>
+<div class="inheritance">net.i2p.router.naming.BlockfileNamingService</div>
+</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">BlockfileNamingService</span>
+extends <a href="../../client/naming/DummyNamingService.html" title="class in net.i2p.client.naming">DummyNamingService</a></pre>
+<div class="block">A naming service using the net.metanotion BlockFile database.
+
+ This database contains the following skiplists:
+ <pre>
+
+ "%%__INFO__%%" is the master database skiplist, containing one entry:
+     "info": a Properties, serialized with DataHelper functions:
+             "version": "4"
+             "created": Java long time (ms)
+             "upgraded": Java long time (ms) (as of database version 2)
+             "lists":   Comma-separated list of host databases, to be
+                        searched in-order for lookups
+
+ "%%__REVERSE__%%" is the reverse lookup skiplist
+     (as of database version 2):
+     The skiplist keys are Integers, the first 4 bytes of the hash of the dest.
+     The skiplist values are Properties.
+         There may be multiple entries in the properties, each one is a reverse mapping,
+            as there may be more than one hostname for a given destination,
+            or there could be collisions with the same first 4 bytes of the hash.
+         Each property key is a hostname.
+         Each property value is the empty string.
+
+ For each host database, there is a skiplist containing
+ the hosts for that database.
+ The keys/values in these skiplists are as follows:
+      key: a UTF-8 String
+      value: a DestEntry, which is:
+             a one-byte count of the Properties/Destination pairs to follow
+               (as of database version 4, otherwise one)
+             that many pairs of:
+               Properties (serialized with DataHelper)
+               Destination (serialized as usual). The DestEntry Properties typically contains:
+             "a":   The time added (Java long time in ms)
+             "s":   The original source of the entry (typically a file name or subscription URL)
+             others TBD
+
+ </pre>
+
+ All host names are converted to lower case.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.7, moved from core to addressbook in 0.9.31</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.client.naming.<a href="../../client/naming/DummyNamingService.html" title="class in net.i2p.client.naming">DummyNamingService</a></h3>
+<a id="fields.inherited.from.class.net.i2p.client.naming.DummyNamingService">
+</a><code><a href="../../client/naming/DummyNamingService.html#BASE32_HASH_LENGTH">BASE32_HASH_LENGTH</a>, <a href="../../client/naming/DummyNamingService.html#CACHE_MAX_SIZE">CACHE_MAX_SIZE</a>, <a href="../../client/naming/DummyNamingService.html#DEST_SIZE">DEST_SIZE</a>, <a href="../../client/naming/DummyNamingService.html#PROP_B32">PROP_B32</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.client.naming.<a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></h3>
+<a id="fields.inherited.from.class.net.i2p.client.naming.NamingService">
+</a><code><a href="../../client/naming/NamingService.html#_context">_context</a>, <a href="../../client/naming/NamingService.html#_listeners">_listeners</a>, <a href="../../client/naming/NamingService.html#_log">_log</a>, <a href="../../client/naming/NamingService.html#_updaters">_updaters</a>, <a href="../../client/naming/NamingService.html#PROP_IMPL">PROP_IMPL</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext)">BlockfileNamingService</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</code></th>
+<td class="colLast">
+<div class="block">Opens the database at hostsdb.blockfile or creates a new
+  one and imports entries from hosts.txt, userhosts.txt, and privatehosts.txt.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addDestination(java.lang.String,net.i2p.data.Destination,java.util.Properties)">addDestination</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Add a Destination to an existing hostname's entry in the addressbook.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#export(java.io.Writer,java.util.Properties)">export</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Export in a hosts.txt format.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBase64Entries(java.util.Properties)">getBase64Entries</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">This may be more or less efficient than getEntries(),
+  depending on the implementation.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEntries(java.util.Properties)">getEntries</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Warning - This will bring the whole database into memory
+  if options is null, empty, or unsupported, use with caution.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNames(java.util.Properties)">getNames</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookup(java.lang.String,java.util.Properties,java.util.Properties)">lookup</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;lookupOptions,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;storedOptions)</code></th>
+<td class="colLast">
+<div class="block">Same as lookup(hostname) but with in and out options
+  Note that whether this (and lookup(hostname)) resolve Base 32 addresses
+  in the form {52 chars}.b32.i2p is NamingService-specific.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupAll(java.lang.String,java.util.Properties,java.util.List)">lookupAll</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;lookupOptions,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&gt;&nbsp;storedOptions)</code></th>
+<td class="colLast">
+<div class="block">Return all of the entries found in the first list found, or in the list
+  specified in lookupOptions.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">BlockfileNamingService [force]
+  force = force writable</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#put(java.lang.String,net.i2p.data.Destination,java.util.Properties)">put</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Add a hostname and Destination to the addressbook.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#putIfAbsent(java.lang.String,net.i2p.data.Destination,java.util.Properties)">putIfAbsent</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Add a hostname and Destination to the addressbook.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readProperties(java.io.ByteArrayInputStream)">readProperties</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">ByteArrayInputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">Same as DataHelper.readProperties, UTF-8, unsorted,
+ except that values may up to 4K bytes.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(java.lang.String,java.util.Properties)">remove</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Delete the entry.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(java.lang.String,net.i2p.data.Destination,java.util.Properties)">remove</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Remove a hostname's entry only if it contains the Destination d.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reverseLookup(net.i2p.data.Destination,java.util.Properties)">reverseLookup</a></span>&#8203;(<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Same as reverseLookup(dest) but with options
+  This implementation returns null.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reverseLookup(net.i2p.data.Hash)">reverseLookup</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">
+<div class="block">Reverse lookup a hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reverseLookupAll(net.i2p.data.Destination,java.util.Properties)">reverseLookupAll</a></span>&#8203;(<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Same as reverseLookupAll(dest) but with options
+  This implementation returns the result from reverseLookup, or null.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reverseLookupAll(net.i2p.data.Hash)">reverseLookupAll</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">
+<div class="block">Reverse lookup a hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Parent will call when removed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size(java.util.Properties)">size</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">This implementation returns -1.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.client.naming.<a href="../../client/naming/DummyNamingService.html" title="class in net.i2p.client.naming">DummyNamingService</a></h3>
+<a id="methods.inherited.from.class.net.i2p.client.naming.DummyNamingService">
+</a><code><a href="../../client/naming/DummyNamingService.html#clearCache()">clearCache</a>, <a href="../../client/naming/DummyNamingService.html#getCache(java.lang.String)">getCache</a>, <a href="../../client/naming/DummyNamingService.html#putCache(java.lang.String,net.i2p.data.Destination)">putCache</a>, <a href="../../client/naming/DummyNamingService.html#removeCache(java.lang.String)">removeCache</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.client.naming.<a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></h3>
+<a id="methods.inherited.from.class.net.i2p.client.naming.NamingService">
+</a><code><a href="../../client/naming/NamingService.html#addDestination(java.lang.String,net.i2p.data.Destination)">addDestination</a>, <a href="../../client/naming/NamingService.html#addNamingService(net.i2p.client.naming.NamingService)">addNamingService</a>, <a href="../../client/naming/NamingService.html#addNamingService(net.i2p.client.naming.NamingService,boolean)">addNamingService</a>, <a href="../../client/naming/NamingService.html#createInstance(net.i2p.I2PAppContext)">createInstance</a>, <a href="../../client/naming/NamingService.html#export(java.io.Writer)">export</a>, <a href="../../client/naming/NamingService.html#getConfiguration()">getConfiguration</a>, <a href="../../client/naming/NamingService.html#getEntries()">getEntries</a>, <a href="../../client/naming/NamingService.html#getName()">getName</a>, <a href="../../client/naming/NamingService.html#getNames()">getNames</a>, <a href="../../client/naming/NamingService.html#getNamingServices()">getNamingServices</a>, <a href="../../client/naming/NamingService.html#getParent()">getParent</a>, <a href="../../client/naming/NamingService.html#lookup(java.lang.String)">lookup</a>, <a href="../../client/naming/NamingService.html#lookup(net.i2p.data.Hash,int)">lookup</a>, <a href="../../client/naming/NamingService.html#lookupAll(java.lang.String)">lookupAll</a>, <a href="../../client/naming/NamingService.html#lookupBase32(java.lang.String,int)">lookupBase32</a>, <a href="../../client/naming/NamingService.html#lookupBase64(java.lang.String)">lookupBase64</a>, <a href="../../client/naming/NamingService.html#put(java.lang.String,net.i2p.data.Destination)">put</a>, <a href="../../client/naming/NamingService.html#putAll(java.util.Map,java.util.Properties)">putAll</a>, <a href="../../client/naming/NamingService.html#putIfAbsent(java.lang.String,net.i2p.data.Destination)">putIfAbsent</a>, <a href="../../client/naming/NamingService.html#registerListener(net.i2p.client.naming.NamingServiceListener)">registerListener</a>, <a href="../../client/naming/NamingService.html#registerUpdater(net.i2p.client.naming.NamingServiceUpdater)">registerUpdater</a>, <a href="../../client/naming/NamingService.html#remove(java.lang.String)">remove</a>, <a href="../../client/naming/NamingService.html#remove(java.lang.String,net.i2p.data.Destination)">remove</a>, <a href="../../client/naming/NamingService.html#removeNamingService(net.i2p.client.naming.NamingService)">removeNamingService</a>, <a href="../../client/naming/NamingService.html#requestUpdate(java.util.Properties)">requestUpdate</a>, <a href="../../client/naming/NamingService.html#reverseLookup(net.i2p.data.Destination)">reverseLookup</a>, <a href="../../client/naming/NamingService.html#reverseLookupAll(net.i2p.data.Destination)">reverseLookupAll</a>, <a href="../../client/naming/NamingService.html#setConfiguration(java.util.Properties)">setConfiguration</a>, <a href="../../client/naming/NamingService.html#size()">size</a>, <a href="../../client/naming/NamingService.html#start()">start</a>, <a href="../../client/naming/NamingService.html#toString()">toString</a>, <a href="../../client/naming/NamingService.html#unregisterListener(net.i2p.client.naming.NamingServiceListener)">unregisterListener</a>, <a href="../../client/naming/NamingService.html#unregisterUpdater(net.i2p.client.naming.NamingServiceUpdater)">unregisterUpdater</a>, <a href="../../client/naming/NamingService.html#update(java.lang.String,net.i2p.data.Destination,java.util.Properties)">update</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext)">BlockfileNamingService</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BlockfileNamingService</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</span></div>
+<div class="block">Opens the database at hostsdb.blockfile or creates a new
+  one and imports entries from hosts.txt, userhosts.txt, and privatehosts.txt.
+
+  If not in router context, the database will be opened read-only
+  unless the property i2p.naming.blockfile.writeInAppContext is true.
+  Not designed for multiple instantiations or simultaneous use by multple JVMs.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang" class="externalLink">RuntimeException</a></code> - on fatal error</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookup(java.lang.String,java.util.Properties,java.util.Properties)">lookup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookup</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;lookupOptions,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;storedOptions)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#lookup(java.lang.String,java.util.Properties,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Same as lookup(hostname) but with in and out options
+  Note that whether this (and lookup(hostname)) resolve Base 32 addresses
+  in the form {52 chars}.b32.i2p is NamingService-specific.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/DummyNamingService.html#lookup(java.lang.String,java.util.Properties,java.util.Properties)">lookup</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/DummyNamingService.html" title="class in net.i2p.client.naming">DummyNamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hostname</code> - mixed case as it could be a key</dd>
+<dd><code>lookupOptions</code> - input parameter, NamingService-specific, can be null</dd>
+<dd><code>storedOptions</code> - output parameter, NamingService-specific, any stored properties will be added if non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>dest or null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="put(java.lang.String,net.i2p.data.Destination,java.util.Properties)">put</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">put</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#put(java.lang.String,net.i2p.data.Destination,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Add a hostname and Destination to the addressbook.
+  Overwrites old entry if it exists.
+  See also putIfAbsent() and update().</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#put(java.lang.String,net.i2p.data.Destination,java.util.Properties)">put</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", add to that list
+                (default "hosts.txt")
+                Use the key "s" for the source</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="putIfAbsent(java.lang.String,net.i2p.data.Destination,java.util.Properties)">putIfAbsent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">putIfAbsent</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#putIfAbsent(java.lang.String,net.i2p.data.Destination,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Add a hostname and Destination to the addressbook.
+  Fails if entry previously exists.
+  See also put() and update().</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#putIfAbsent(java.lang.String,net.i2p.data.Destination,java.util.Properties)">putIfAbsent</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", add to that list
+                (default "hosts.txt")
+                Use the key "s" for the source.
+                Key "a" will be added with the current time, unless
+                "a" is present in options.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(java.lang.String,java.util.Properties)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#remove(java.lang.String,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Delete the entry.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#remove(java.lang.String,java.util.Properties)">remove</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", remove
+                from that list (default "hosts.txt", NOT all lists)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if removed successfully, false on error or if it did not exist</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEntries(java.util.Properties)">getEntries</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&gt;</span>&nbsp;<span class="memberName">getEntries</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#getEntries(java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Warning - This will bring the whole database into memory
+  if options is null, empty, or unsupported, use with caution.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#getEntries(java.util.Properties)">getEntries</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", get
+                from that list (default "hosts.txt", NOT all lists)
+                Key "skip": skip that many entries
+                Key "limit": max number to return
+                Key "search": return only those matching substring
+                Key "startsWith": return only those starting with
+                                  ("[0-9]" allowed)
+                Key "beginWith": start here in the iteration
+                Don't use both startsWith and beginWith.
+                Search, startsWith, and beginWith values must be lower case.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all mappings (matching the options if non-null)
+          or empty Map if none;
+          Returned Map is not necessarily sorted, implementation dependent</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBase64Entries(java.util.Properties)">getBase64Entries</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getBase64Entries</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#getBase64Entries(java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">This may be more or less efficient than getEntries(),
+  depending on the implementation.
+  Warning - This will bring the whole database into memory
+  if options is null, empty, or unsupported, use with caution.
+
+  This implementation calls getEntries(options) and returns a SortedMap.
+  Subclasses should override if they store base64 natively.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#getBase64Entries(java.util.Properties)">getBase64Entries</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", get
+                from that list (default "hosts.txt", NOT all lists)
+                Key "skip": skip that many entries
+                Key "limit": max number to return
+                Key "search": return only those matching substring
+                Key "startsWith": return only those starting with
+                                  ("[0-9]" allowed)
+                Key "beginWith": start here in the iteration
+                Don't use both startsWith and beginWith.
+                Search, startsWith, and beginWith values must be lower case.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all mappings (matching the options if non-null)
+          or empty Map if none;
+          Returned Map is not necessarily sorted, implementation dependent</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="export(java.io.Writer,java.util.Properties)">export</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">export</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span>
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Export in a hosts.txt format.
+  Output is sorted.
+  Caller must close writer.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#export(java.io.Writer,java.util.Properties)">export</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", get
+                from that list (default "hosts.txt", NOT all lists)
+                Key "search": return only those matching substring
+                Key "startsWith": return only those starting with
+                                  ("[0-9]" allowed)
+                Key "beginWith": start here in the iteration</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.30 override NamingService to add stored authentication strings</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNames(java.util.Properties)">getNames</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getNames</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#getNames(java.util.Properties)">getNames</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", get
+                from that list (default "hosts.txt", NOT all lists)
+                Key "skip": skip that many entries
+                Key "limit": max number to return
+                Key "search": return only those matching substring
+                Key "startsWith": return only those starting with
+                                  ("[0-9]" allowed)
+                Key "beginWith": start here in the iteration
+                Don't use both startsWith and beginWith.
+                Search, startsWith, and beginWith values must be lower case.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all known host names (matching the options if non-null)
+          or empty Set if none;
+          Returned Set is not necessarily sorted, implementation dependent</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reverseLookup(net.i2p.data.Destination,java.util.Properties)">reverseLookup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">reverseLookup</span>&#8203;(<span class="arguments"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#reverseLookup(net.i2p.data.Destination,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Same as reverseLookup(dest) but with options
+  This implementation returns null.
+  Subclasses implementing reverse lookups should override.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#reverseLookup(net.i2p.data.Destination,java.util.Properties)">reverseLookup</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - ignored</dd>
+<dd><code>d</code> - non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>host name or null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reverseLookup(net.i2p.data.Hash)">reverseLookup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">reverseLookup</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#reverseLookup(net.i2p.data.Hash)">NamingService</a></code></span></div>
+<div class="block">Reverse lookup a hash.
+ This implementation returns null.
+ Subclasses implementing reverse lookups should override.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#reverseLookup(net.i2p.data.Hash)">reverseLookup</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>h</code> - non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a host name for this hash, or <code>null</code>
+ if none is known. It is safe for subclasses to always return
+ <code>null</code> if no reverse lookup is possible.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reverseLookupAll(net.i2p.data.Destination,java.util.Properties)">reverseLookupAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">reverseLookupAll</span>&#8203;(<span class="arguments"><a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#reverseLookupAll(net.i2p.data.Destination,java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">Same as reverseLookupAll(dest) but with options
+  This implementation returns the result from reverseLookup, or null.
+  Subclasses implementing reverse lookups should override.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#reverseLookupAll(net.i2p.data.Destination,java.util.Properties)">reverseLookupAll</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - ignored</dd>
+<dd><code>d</code> - non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a non-empty list of host names for this Destination, or <code>null</code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reverseLookupAll(net.i2p.data.Hash)">reverseLookupAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">reverseLookupAll</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#reverseLookupAll(net.i2p.data.Hash)">NamingService</a></code></span></div>
+<div class="block">Reverse lookup a hash.
+ This implementation returns the result from reverseLookup, or null.
+ Subclasses implementing reverse lookups should override.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#reverseLookupAll(net.i2p.data.Hash)">reverseLookupAll</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>h</code> - non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a non-empty list of host names for this hash, or <code>null</code>
+ if none is known. It is safe for subclasses to always return
+ <code>null</code> if no reverse lookup is possible.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="size(java.util.Properties)">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#size(java.util.Properties)">NamingService</a></code></span></div>
+<div class="block">This implementation returns -1.
+  Most subclasses should override.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#size(java.util.Properties)">size</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - If non-null and contains the key "list", return the
+                size of that list (default "hosts.txt", NOT all lists)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of entries (matching the options if non-null) or -1 if unknown</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../client/naming/NamingService.html#shutdown()">NamingService</a></code></span></div>
+<div class="block">Parent will call when removed.
+  If this is the root naming service, the core will stop it.
+  Should not be called by others.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#shutdown()">shutdown</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupAll(java.lang.String,java.util.Properties,java.util.List)">lookupAll</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&gt;</span>&nbsp;<span class="memberName">lookupAll</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;lookupOptions,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&gt;&nbsp;storedOptions)</span></div>
+<div class="block">Return all of the entries found in the first list found, or in the list
+  specified in lookupOptions. Does not aggregate all destinations found
+  in all lists.
+
+  If storedOptions is non-null, it must be a List that supports null entries.
+  If the returned value (the List of Destinations) is non-null,
+  the same number of Properties objects will be added to storedOptions.
+  If no properties were found for a given Destination, the corresponding
+  entry in the storedOptions list will be null.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#lookupAll(java.lang.String,java.util.Properties,java.util.List)">lookupAll</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>lookupOptions</code> - input parameter, NamingService-specific, may be null</dd>
+<dd><code>storedOptions</code> - output parameter, NamingService-specific, any stored properties will be added if non-null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-empty List of Destinations, or null if nothing found</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addDestination(java.lang.String,net.i2p.data.Destination,java.util.Properties)">addDestination</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">addDestination</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Add a Destination to an existing hostname's entry in the addressbook.
+
+  This does not prevent adding b32. Caller must check.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#addDestination(java.lang.String,net.i2p.data.Destination,java.util.Properties)">addDestination</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - NamingService-specific, may be null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(java.lang.String,net.i2p.data.Destination,java.util.Properties)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;hostname,
+<a href="../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;d,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Remove a hostname's entry only if it contains the Destination d.
+  If the NamingService supports multiple Destinations per hostname,
+  and this is the only Destination, removes the entire entry.
+  If aditional Destinations remain, it only removes the
+  specified Destination from the entry.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../client/naming/NamingService.html#remove(java.lang.String,net.i2p.data.Destination,java.util.Properties)">remove</a></code>&nbsp;in class&nbsp;<code><a href="../../client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>options</code> - NamingService-specific, may be null</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if entry containing d was successfully removed.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readProperties(java.io.ByteArrayInputStream)">readProperties</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">readProperties</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">ByteArrayInputStream</a>&nbsp;in)</span>
+                                 throws <span class="exceptions"><a href="../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Same as DataHelper.readProperties, UTF-8, unsorted,
+ except that values may up to 4K bytes.
+
+ Throws DataFormatException on duplicate key</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - stream to read the mapping from</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a Properties</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../data/DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if the format is invalid</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there is a problem reading the data</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.26</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">BlockfileNamingService [force]
+  force = force writable</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BlockfileNamingService.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

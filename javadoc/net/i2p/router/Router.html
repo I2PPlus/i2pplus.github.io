@@ -1,0 +1,2210 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Router - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router, class: Router">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":9,"i40":10,"i41":10,"i42":10,"i43":10,"i44":42,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":42,"i52":42,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Router.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router</a></div>
+<h1 title="Class Router" class="title">Class Router</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.Router</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">Router</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a></pre>
+<div class="block">Main driver for the router.
+
+ For embedded use, instantiate, call setKillVMOnEnd(false), and then call runRouter().</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_familyKeyLock">_familyKeyLock</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW_UNLIMITED">CAPABILITY_BW_UNLIMITED</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW12">CAPABILITY_BW12</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW128">CAPABILITY_BW128</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW256">CAPABILITY_BW256</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW32">CAPABILITY_BW32</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW512">CAPABILITY_BW512</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW64">CAPABILITY_BW64</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_NEW_TUNNEL">CAPABILITY_NEW_TUNNEL</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_REACHABLE">CAPABILITY_REACHABLE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_UNREACHABLE">CAPABILITY_UNREACHABLE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CLOCK_FUDGE_FACTOR">CLOCK_FUDGE_FACTOR</a></span></code></th>
+<td class="colLast">
+<div class="block">let clocks be off by 1 minute</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COALESCE_TIME">COALESCE_TIME</a></span></code></th>
+<td class="colLast">
+<div class="block">coalesce stats this often - should be a little less than one minute, so the graphs get updated</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_SHARE_PERCENTAGE">DEFAULT_SHARE_PERCENTAGE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EXIT_GRACEFUL">EXIT_GRACEFUL</a></span></code></th>
+<td class="colLast">
+<div class="block">shut down after all tunnels are gone</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EXIT_GRACEFUL_RESTART">EXIT_GRACEFUL_RESTART</a></span></code></th>
+<td class="colLast">
+<div class="block">shut down after all tunnels are gone, and tell the wrapper to restart</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EXIT_HARD">EXIT_HARD</a></span></code></th>
+<td class="colLast">
+<div class="block">shut down immediately</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EXIT_HARD_RESTART">EXIT_HARD_RESTART</a></span></code></th>
+<td class="colLast">
+<div class="block">shut down immediately, and tell the wrapper to restart</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#EXIT_OOM">EXIT_OOM</a></span></code></th>
+<td class="colLast">
+<div class="block">shut down immediately</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_K">MIN_BW_K</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_L">MIN_BW_L</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_M">MIN_BW_M</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_N">MIN_BW_N</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_O">MIN_BW_O</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_P">MIN_BW_P</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_BW_X">MIN_BW_X</a></span></code></th>
+<td class="colLast">
+<div class="block">In binary (1024) Kbytes</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_BANDWIDTH_SHARE_PERCENTAGE">PROP_BANDWIDTH_SHARE_PERCENTAGE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_CONFIG_FILE">PROP_CONFIG_FILE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_DYNAMIC_KEYS">PROP_DYNAMIC_KEYS</a></span></code></th>
+<td class="colLast">
+<div class="block">New router keys at every restart.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_FORCE_BWCLASS">PROP_FORCE_BWCLASS</a></span></code></th>
+<td class="colLast">
+<div class="block">for testing</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_FORCE_UNREACHABLE">PROP_FORCE_UNREACHABLE</a></span></code></th>
+<td class="colLast">
+<div class="block">for testing</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_HIDDEN">PROP_HIDDEN</a></span></code></th>
+<td class="colLast">
+<div class="block">this puts an 'H' in your routerInfo</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_HIDDEN_HIDDEN">PROP_HIDDEN_HIDDEN</a></span></code></th>
+<td class="colLast">
+<div class="block">this does not put an 'H' in your routerInfo</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_IB_RANDOM_KEY">PROP_IB_RANDOM_KEY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_OB_RANDOM_KEY">PROP_OB_RANDOM_KEY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_REBUILD_KEYS">PROP_REBUILD_KEYS</a></span></code></th>
+<td class="colLast">
+<div class="block">New router keys once only.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routerInfoFileLock">routerInfoFileLock</a></span></code></th>
+<td class="colLast">
+<div class="block">not for external use</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#UPDATE_FILE">UPDATE_FILE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Router</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Instantiation only.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">Router</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;configFilename)</code></th>
+<td class="colLast">
+<div class="block">Instantiation only.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.Properties)">Router</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;configFilename,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</code></th>
+<td class="colLast">
+<div class="block">Instantiation only.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.Properties)">Router</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</code></th>
+<td class="colLast">
+<div class="block">Instantiation only.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cancelGracefulShutdown()">cancelGracefulShutdown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Cancel any prior request to shut the router down gracefully.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearCaches()">clearCaches</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Not for external use.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clockShift(long)">clockShift</a></span>&#8203;(long&nbsp;delta)</code></th>
+<td class="colLast">
+<div class="block">The clock shift listener.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="util/EventLog.html" title="class in net.i2p.router.util">EventLog</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eventLog()">eventLog</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get15sRate()">get15sRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get15sRate(boolean)">get15sRate</a></span>&#8203;(boolean&nbsp;outboundOnly)</code></th>
+<td class="colLast">
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get15sRateIn()">get15sRateIn</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Inbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1mRate()">get1mRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1mRate(boolean)">get1mRate</a></span>&#8203;(boolean&nbsp;outboundOnly)</code></th>
+<td class="colLast">
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1mRateIn()">get1mRateIn</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Inbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1sRate()">get1sRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1sRate(boolean)">get1sRate</a></span>&#8203;(boolean&nbsp;outboundOnly)</code></th>
+<td class="colLast">
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get1sRateIn()">get1sRateIn</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Inbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get5mRate()">get5mRate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get5mRate(boolean)">get5mRate</a></span>&#8203;(boolean&nbsp;outboundOnly)</code></th>
+<td class="colLast">
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBandwidthClass()">getBandwidthClass</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The current bandwidth class.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCapabilities()">getCapabilities</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For building our RI.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfigFilename()">getConfigFilename</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfigMap()">getConfigMap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfigSetting(java.lang.String)">getConfigSetting</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfigSettings()">getConfigSettings</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContext()">getContext</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Non-null, but take care when accessing context items before runRouter() is called
+  as the context will not be initialized.</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEstimatedDowntime()">getEstimatedDowntime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How long this router was down before it started, or 0 if unknown.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code><a href="crypto/FamilyKeyCrypto.html" title="class in net.i2p.router.crypto">FamilyKeyCrypto</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFamilyKeyCrypto()">getFamilyKeyCrypto</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Family Key Crypto Signer / Verifier.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKillVMOnEnd()">getKillVMOnEnd</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNetworkID()">getNetworkID</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The network ID.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code><a href="../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterInfo()">getRouterInfo</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Our current router info.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSharePercentage()">getSharePercentage</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What fraction of the bandwidth specified in our bandwidth limits should
+ we allow to be consumed by participating tunnels?</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getShutdownTimeRemaining()">getShutdownTimeRemaining</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How long until the graceful shutdown will kill us?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="transport/UPnPScannerCallback.html" title="interface in net.i2p.router.transport">UPnPScannerCallback</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUPnPScannerCallback()">getUPnPScannerCallback</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For Android only.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUptime()">getUptime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Wall clock uptime.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWhenStarted()">getWhenStarted</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Used only by routerconsole..</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#gracefulShutdownInProgress()">gracefulShutdownInProgress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is a graceful shutdown in progress? This may be cancelled.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAlive()">isAlive</a></span>()</code></th>
+<td class="colLast">
+<div class="block">True during the initial start, but false during a soft restart.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFinalShutdownInProgress()">isFinalShutdownInProgress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is a final shutdown in progress? This may not be cancelled.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHidden()">isHidden</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRestarting()">isRestarting</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRunning()">isRunning</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#killKeys()">killKeys</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Not for external use.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Usage: Router [rebuild]
+  No other options allowed, for now
+  Instantiates Router(), and either installs updates and exits,
+  or calls runRouter().</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readConfig()">readConfig</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This updates the config with all settings found in the file.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rebuildNewIdentity()">rebuildNewIdentity</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Rebuild a new identity the hard way - delete all of our old identity
+ files, then reboot the router.</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rebuildRouterInfo()">rebuildRouterInfo</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Rebuild and republish our routerInfo since something significant
+ has changed.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rebuildRouterInfo(boolean)">rebuildRouterInfo</a></span>&#8203;(boolean&nbsp;blockingRebuild)</code></th>
+<td class="colLast">
+<div class="block">Rebuild and republish our routerInfo since something significant
+ has changed.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeConfigSetting(java.lang.String)">removeConfigSetting</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove)</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#restart()">restart</a></span>()</code></th>
+<td class="colLast">
+<div class="block">A "soft" restart, primarily of the comm system, after
+  a port change or large step-change in system time.</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#runRouter()">runRouter</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This must be called after instantiation.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveConfig()">saveConfig</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Save the current config options (returning true if save was
+ successful, false otherwise)
+
+ Synchronized with file read in getConfig()</div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveConfig(java.lang.String,java.lang.String)">saveConfig</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Updates the current config with the given key/value and then saves it.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveConfig(java.util.Map,java.util.Collection)">saveConfig</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&nbsp;toAdd,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;toRemove)</code></th>
+<td class="colLast">
+<div class="block">Updates the current config and then saves it.</div>
+</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#scheduledGracefulExitCode()">scheduledGracefulExitCode</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What exit code do we plan on using when we shut down (or -1, if there isn't a graceful shutdown planned)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConfigFilename(java.lang.String)">setConfigFilename</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConfigSetting(java.lang.String,java.lang.String)">setConfigSetting</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove)</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEstimatedDowntime(long)">setEstimatedDowntime</a></span>&#8203;(long&nbsp;downtime)</code></th>
+<td class="colLast">
+<div class="block">Only for soft restart.</div>
+</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExplTunnelsReady()">setExplTunnelsReady</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only for Tunnel Building, after we have non-zero-hop expl.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIsAlive()">setIsAlive</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only for Restarter, after soft restart is complete.</div>
+</td>
+</tr>
+<tr class="altColor" id="i56">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setKillVMOnEnd(boolean)">setKillVMOnEnd</a></span>&#8203;(boolean&nbsp;shouldDie)</code></th>
+<td class="colLast">
+<div class="block">Configure the router to kill the JVM when the router shuts down, as well
+ as whether to explicitly halt the JVM during the hard fail process.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i57">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNetDbReady()">setNetDbReady</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Only for NetDB, after RIs are loaded.</div>
+</td>
+</tr>
+<tr class="altColor" id="i58">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRouterInfo(net.i2p.data.router.RouterInfo)">setRouterInfo</a></span>&#8203;(<a href="../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;info)</code></th>
+<td class="colLast">
+<div class="block">Caller must ensure info is valid - no validation done here.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i59">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUPnPScannerCallback(net.i2p.router.transport.UPnPScannerCallback)">setUPnPScannerCallback</a></span>&#8203;(<a href="transport/UPnPScannerCallback.html" title="interface in net.i2p.router.transport">UPnPScannerCallback</a>&nbsp;callback)</code></th>
+<td class="colLast">
+<div class="block">For Android only.</div>
+</td>
+</tr>
+<tr class="altColor" id="i60">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown(int)">shutdown</a></span>&#8203;(int&nbsp;exitCode)</code></th>
+<td class="colLast">
+<div class="block">Shutdown with no chance of cancellation.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i61">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown2(int)">shutdown2</a></span>&#8203;(int&nbsp;exitCode)</code></th>
+<td class="colLast">
+<div class="block">Cancel the JVM runtime hook before calling this.</div>
+</td>
+</tr>
+<tr class="altColor" id="i62">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdownGracefully()">shutdownGracefully</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Non-blocking shutdown.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i63">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdownGracefully(int)">shutdownGracefully</a></span>&#8203;(int&nbsp;exitCode)</code></th>
+<td class="colLast">
+<div class="block">Non-blocking shutdown.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="routerInfoFileLock">routerInfoFileLock</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">routerInfoFileLock</span></div>
+<div class="block">not for external use</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_familyKeyLock">_familyKeyLock</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">_familyKeyLock</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_CONFIG_FILE">PROP_CONFIG_FILE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_CONFIG_FILE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_CONFIG_FILE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CLOCK_FUDGE_FACTOR">CLOCK_FUDGE_FACTOR</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">CLOCK_FUDGE_FACTOR</span></div>
+<div class="block">let clocks be off by 1 minute</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CLOCK_FUDGE_FACTOR">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COALESCE_TIME">COALESCE_TIME</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COALESCE_TIME</span></div>
+<div class="block">coalesce stats this often - should be a little less than one minute, so the graphs get updated</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.COALESCE_TIME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_HIDDEN">PROP_HIDDEN</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_HIDDEN</span></div>
+<div class="block">this puts an 'H' in your routerInfo</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_HIDDEN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_HIDDEN_HIDDEN">PROP_HIDDEN_HIDDEN</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_HIDDEN_HIDDEN</span></div>
+<div class="block">this does not put an 'H' in your routerInfo</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_HIDDEN_HIDDEN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_DYNAMIC_KEYS">PROP_DYNAMIC_KEYS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_DYNAMIC_KEYS</span></div>
+<div class="block">New router keys at every restart. Disabled.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_DYNAMIC_KEYS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_REBUILD_KEYS">PROP_REBUILD_KEYS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_REBUILD_KEYS</span></div>
+<div class="block">New router keys once only.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.34</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_REBUILD_KEYS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_IB_RANDOM_KEY">PROP_IB_RANDOM_KEY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_IB_RANDOM_KEY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_IB_RANDOM_KEY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_OB_RANDOM_KEY">PROP_OB_RANDOM_KEY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_OB_RANDOM_KEY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_OB_RANDOM_KEY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="UPDATE_FILE">UPDATE_FILE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">UPDATE_FILE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.UPDATE_FILE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW12">CAPABILITY_BW12</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW12</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW12">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW32">CAPABILITY_BW32</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW32</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW32">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW64">CAPABILITY_BW64</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW64</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW64">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW128">CAPABILITY_BW128</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW128</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW128">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW256">CAPABILITY_BW256</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW256</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW256">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW512">CAPABILITY_BW512</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW512</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW512">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW_UNLIMITED">CAPABILITY_BW_UNLIMITED</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW_UNLIMITED</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_BW_UNLIMITED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_FORCE_BWCLASS">PROP_FORCE_BWCLASS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_FORCE_BWCLASS</span></div>
+<div class="block">for testing</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_FORCE_BWCLASS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_REACHABLE">CAPABILITY_REACHABLE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_REACHABLE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_REACHABLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_UNREACHABLE">CAPABILITY_UNREACHABLE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_UNREACHABLE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_UNREACHABLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_FORCE_UNREACHABLE">PROP_FORCE_UNREACHABLE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_FORCE_UNREACHABLE</span></div>
+<div class="block">for testing</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_FORCE_UNREACHABLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_NEW_TUNNEL">CAPABILITY_NEW_TUNNEL</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_NEW_TUNNEL</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.CAPABILITY_NEW_TUNNEL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_K">MIN_BW_K</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_K</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_K">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_L">MIN_BW_L</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_L</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_L">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_M">MIN_BW_M</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_M</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_M">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_N">MIN_BW_N</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_N</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_N">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_O">MIN_BW_O</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_O</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_O">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_P">MIN_BW_P</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_P</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_P">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_BW_X">MIN_BW_X</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_BW_X</span></div>
+<div class="block">In binary (1024) Kbytes</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.33</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.MIN_BW_X">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="EXIT_GRACEFUL">EXIT_GRACEFUL</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">EXIT_GRACEFUL</span></div>
+<div class="block">shut down after all tunnels are gone</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.EXIT_GRACEFUL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="EXIT_HARD">EXIT_HARD</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">EXIT_HARD</span></div>
+<div class="block">shut down immediately</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.EXIT_HARD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="EXIT_OOM">EXIT_OOM</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">EXIT_OOM</span></div>
+<div class="block">shut down immediately</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.EXIT_OOM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="EXIT_HARD_RESTART">EXIT_HARD_RESTART</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">EXIT_HARD_RESTART</span></div>
+<div class="block">shut down immediately, and tell the wrapper to restart</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.EXIT_HARD_RESTART">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="EXIT_GRACEFUL_RESTART">EXIT_GRACEFUL_RESTART</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">EXIT_GRACEFUL_RESTART</span></div>
+<div class="block">shut down after all tunnels are gone, and tell the wrapper to restart</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.EXIT_GRACEFUL_RESTART">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_BANDWIDTH_SHARE_PERCENTAGE">PROP_BANDWIDTH_SHARE_PERCENTAGE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_BANDWIDTH_SHARE_PERCENTAGE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.PROP_BANDWIDTH_SHARE_PERCENTAGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_SHARE_PERCENTAGE">DEFAULT_SHARE_PERCENTAGE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_SHARE_PERCENTAGE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.Router.DEFAULT_SHARE_PERCENTAGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">Router</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Router</span>()</div>
+<div class="block">Instantiation only. Starts no threads. Does not install updates.
+  RouterContext is created but not initialized.
+  You must call runRouter() after any constructor to start things up.
+
+  Config file name is "router.config" unless router.configLocation set in system properties.
+
+  See two-arg constructor for more information.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - since 0.9.19 if another router with this config is running</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.util.Properties)">Router</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Router</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</span></div>
+<div class="block">Instantiation only. Starts no threads. Does not install updates.
+  RouterContext is created but not initialized.
+  You must call runRouter() after any constructor to start things up.
+
+  Config file name is "router.config" unless router.configLocation set in envProps or system properties.
+
+  See two-arg constructor for more information.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>envProps</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - since 0.9.19 if another router with this config is running</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String)">Router</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Router</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;configFilename)</span></div>
+<div class="block">Instantiation only. Starts no threads. Does not install updates.
+  RouterContext is created but not initialized.
+  You must call runRouter() after any constructor to start things up.
+
+  See two-arg constructor for more information.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>configFilename</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - since 0.9.19 if another router with this config is running</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.util.Properties)">Router</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Router</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;configFilename,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</span></div>
+<div class="block">Instantiation only. Starts no threads. Does not install updates.
+  RouterContext is created but not initialized.
+  You must call runRouter() after any constructor to start things up.
+
+  If configFilename is non-null, configuration is read in from there.
+  Else if envProps is non-null, configuration is read in from the
+  location given in the router.configLocation property.
+  Else it's read in from the System property router.configLocation.
+  Else from the file "router.config".
+
+  The most important properties are i2p.dir.base (the install directory, may be read-only)
+  and i2p.dir.config (the user's configuration/data directory).
+
+  i2p.dir.base defaults to user.dir (CWD) but should almost always be set.
+
+  i2p.dir.config default depends on OS, user name (to detect if running as a service or not),
+  and auto-detection of whether there appears to be previous data files in the base dir.
+  See WorkingDir for details.
+  If the config dir does not exist, it will be created, and files migrated from the base dir,
+  in this constructor.
+  If files in an existing config dir indicate that another router is already running
+  with this directory, the constructor will delay for several seconds to be sure,
+  and then throw an IllegalStateException.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>configFilename</code> - may be null</dd>
+<dd><code>envProps</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - since 0.9.19 if another router with this config is running</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearCaches()">clearCaches</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clearCaches</span>()</div>
+<div class="block">Not for external use.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setKillVMOnEnd(boolean)">setKillVMOnEnd</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setKillVMOnEnd</span>&#8203;(<span class="arguments">boolean&nbsp;shouldDie)</span></div>
+<div class="block">Configure the router to kill the JVM when the router shuts down, as well
+ as whether to explicitly halt the JVM during the hard fail process.
+
+ Defaults to true. Set to false for embedded before calling runRouter()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKillVMOnEnd()">getKillVMOnEnd</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getKillVMOnEnd</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConfigFilename()">getConfigFilename</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getConfigFilename</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>absolute path</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setConfigFilename(java.lang.String)">setConfigFilename</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setConfigFilename</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;filename)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConfigSetting(java.lang.String)">getConfigSetting</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getConfigSetting</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setConfigSetting(java.lang.String,java.lang.String)">setConfigSetting</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setConfigSetting</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove)</div>
+</div>
+<div class="block">Warning, race between here and saveConfig(),
+  saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove) is recommended.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.13</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeConfigSetting(java.lang.String)">removeConfigSetting</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeConfigSetting</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove)</div>
+</div>
+<div class="block">Warning, race between here and saveConfig(),
+  saveConfig(String name, String value) or saveConfig(Map toAdd, Set toRemove) is recommended.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.13</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConfigSettings()">getConfigSettings</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getConfigSettings</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unmodifiable Set, unsorted</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConfigMap()">getConfigMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getConfigMap</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unmodifiable Map, unsorted</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRouterInfo()">getRouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a></span>&nbsp;<span class="memberName">getRouterInfo</span>()</div>
+<div class="block">Our current router info.
+  Warning, may be null if called very early.
+
+  Warning - risk of deadlock - do not call while holding locks
+
+  Note: Due to lock contention, especially during a
+  rebuild of the router info, this may take a long time.
+  For determining the current status of the router, use
+  RouterContext.commSystem().getStatus().</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setRouterInfo(net.i2p.data.router.RouterInfo)">setRouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setRouterInfo</span>&#8203;(<span class="arguments"><a href="../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;info)</span></div>
+<div class="block">Caller must ensure info is valid - no validation done here.
+  Not for external use.
+
+  Warning - risk of deadlock - do not call while holding locks</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getWhenStarted()">getWhenStarted</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getWhenStarted</span>()</div>
+<div class="block">Used only by routerconsole.. to be deprecated?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>System time, NOT context time</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUptime()">getUptime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getUptime</span>()</div>
+<div class="block">Wall clock uptime.
+ This uses System time, NOT context time, so context clock shifts will
+ not affect it. This is important if NTP fails and the
+ clock then shifts from a SSU peer source just after startup.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNetworkID()">getNetworkID</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNetworkID</span>()</div>
+<div class="block">The network ID. Default 2.
+  May be changed with the config property router.networkID (restart required).
+  Change only if running a test network to prevent cross-network contamination.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>2 - 254</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.25</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getContext()">getContext</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a></span>&nbsp;<span class="memberName">getContext</span>()</div>
+<div class="block">Non-null, but take care when accessing context items before runRouter() is called
+  as the context will not be initialized.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setUPnPScannerCallback(net.i2p.router.transport.UPnPScannerCallback)">setUPnPScannerCallback</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setUPnPScannerCallback</span>&#8203;(<span class="arguments"><a href="transport/UPnPScannerCallback.html" title="interface in net.i2p.router.transport">UPnPScannerCallback</a>&nbsp;callback)</span></div>
+<div class="block">For Android only.
+  MUST be set before runRouter() is called.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>callback</code> - the callback or null to clear it</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.41</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUPnPScannerCallback()">getUPnPScannerCallback</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="transport/UPnPScannerCallback.html" title="interface in net.i2p.router.transport">UPnPScannerCallback</a></span>&nbsp;<span class="memberName">getUPnPScannerCallback</span>()</div>
+<div class="block">For Android only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the callback or null if none</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.41</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="runRouter()">runRouter</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">runRouter</span>()</div>
+<div class="block">This must be called after instantiation.
+  Starts the threads. Does not install updates.
+  This is for embedded use.
+  Standard standalone installation uses main() instead, which
+  checks for updates and then calls this.
+
+  This may take quite a while, especially if NTP fails
+  or the system lacks entropy</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if called more than once</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>public as of 0.9 for Android and other embedded uses</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readConfig()">readConfig</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readConfig</span>()</div>
+<div class="block">This updates the config with all settings found in the file.
+ It does not clear the config first, so settings not found in
+ the file will remain in the config.
+
+ This is synchronized with saveConfig().
+ Not for external use.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isAlive()">isAlive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isAlive</span>()</div>
+<div class="block">True during the initial start, but false during a soft restart.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isRunning()">isRunning</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isRunning</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if router is RUNNING, i.e NetDB and Expl. tunnels are ready.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isRestarting()">isRestarting</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isRestarting</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if router is RESTARTING (soft restart)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.40</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setIsAlive()">setIsAlive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setIsAlive</span>()</div>
+<div class="block">Only for Restarter, after soft restart is complete.
+  Not for external use.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setNetDbReady()">setNetDbReady</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setNetDbReady</span>()</div>
+<div class="block">Only for NetDB, after RIs are loaded.
+  Not for external use.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setExplTunnelsReady()">setExplTunnelsReady</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setExplTunnelsReady</span>()</div>
+<div class="block">Only for Tunnel Building, after we have non-zero-hop expl. tunnels.
+  Not for external use.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="gracefulShutdownInProgress()">gracefulShutdownInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">gracefulShutdownInProgress</span>()</div>
+<div class="block">Is a graceful shutdown in progress? This may be cancelled.
+ Note that this also returns true if an uncancellable final shutdown is in progress.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isFinalShutdownInProgress()">isFinalShutdownInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isFinalShutdownInProgress</span>()</div>
+<div class="block">Is a final shutdown in progress? This may not be cancelled.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rebuildRouterInfo()">rebuildRouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">rebuildRouterInfo</span>()</div>
+<div class="block">Rebuild and republish our routerInfo since something significant
+ has changed.
+ This is a non-blocking rebuild.
+
+ Not for external use.
+
+ Warning - risk of deadlock - do not call while holding locks</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rebuildRouterInfo(boolean)">rebuildRouterInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">rebuildRouterInfo</span>&#8203;(<span class="arguments">boolean&nbsp;blockingRebuild)</span></div>
+<div class="block">Rebuild and republish our routerInfo since something significant
+ has changed.
+ Not for external use.
+
+  Warning - risk of deadlock - do not call while holding locks</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>blockingRebuild</code> - ignored, always nonblocking</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFamilyKeyCrypto()">getFamilyKeyCrypto</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/FamilyKeyCrypto.html" title="class in net.i2p.router.crypto">FamilyKeyCrypto</a></span>&nbsp;<span class="memberName">getFamilyKeyCrypto</span>()</div>
+<div class="block">Family Key Crypto Signer / Verifier.
+  Not for external use.
+  If family key is set, first call Will take a while to generate keys.
+  Warning - risk of deadlock - do not call while holding locks
+  (other than routerInfoLock)</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on initialization failure</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBandwidthClass()">getBandwidthClass</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">getBandwidthClass</span>()</div>
+<div class="block">The current bandwidth class.
+  For building our RI. Not for external use.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a character to be added to the RI, one of "KLMNOPX"</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.31</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCapabilities()">getCapabilities</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getCapabilities</span>()</div>
+<div class="block">For building our RI. Not for external use.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a capabilities string to be added to the RI</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isHidden()">isHidden</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isHidden</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="eventLog()">eventLog</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/EventLog.html" title="class in net.i2p.router.util">EventLog</a></span>&nbsp;<span class="memberName">eventLog</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="killKeys()">killKeys</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">killKeys</span>()</div>
+<div class="block">Not for external use.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="rebuildNewIdentity()">rebuildNewIdentity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">rebuildNewIdentity</span>()</div>
+<div class="block">Rebuild a new identity the hard way - delete all of our old identity
+ files, then reboot the router.
+
+  Calls exit(), never returns.
+
+  Not for external use.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown(int)">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>&#8203;(<span class="arguments">int&nbsp;exitCode)</span></div>
+<div class="block">Shutdown with no chance of cancellation.
+  Blocking, will call exit() and not return unless setKillVMOnExit(false) was previously called,
+  or a final shutdown is already in progress.
+  May take several seconds as it runs all the shutdown hooks.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exitCode</code> - one of the EXIT_* values, non-negative</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if exitCode negative</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown2(int)">shutdown2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown2</span>&#8203;(<span class="arguments">int&nbsp;exitCode)</span></div>
+<div class="block">Cancel the JVM runtime hook before calling this.
+  Called by the ShutdownHook.
+  NOT to be called by others, use shutdown().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exitCode</code> - one of the EXIT_* values, non-negative</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if exitCode negative</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdownGracefully()">shutdownGracefully</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdownGracefully</span>()</div>
+<div class="block">Non-blocking shutdown.
+
+ Call this if we want the router to kill itself as soon as we aren't
+ participating in any more tunnels (etc).  This will not block and doesn't
+ guarantee any particular time frame for shutting down.  To shut the
+ router down immediately, use <a href="#shutdown(int)"><code>shutdown(int)</code></a>.  If you want to cancel
+ the graceful shutdown (prior to actual shutdown ;), call
+ <a href="#cancelGracefulShutdown()"><code>cancelGracefulShutdown()</code></a>.
+
+ Exit code will be EXIT_GRACEFUL.
+
+ Shutdown delay will be from zero to 11 minutes.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdownGracefully(int)">shutdownGracefully</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdownGracefully</span>&#8203;(<span class="arguments">int&nbsp;exitCode)</span></div>
+<div class="block">Non-blocking shutdown.
+
+ Call this with EXIT_HARD or EXIT_HARD_RESTART for a non-blocking,
+ hard, non-graceful shutdown with a brief delay to allow a UI response
+
+ Returns silently if a final shutdown is already in progress.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exitCode</code> - one of the EXIT_* values, non-negative</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if exitCode negative</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="cancelGracefulShutdown()">cancelGracefulShutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">cancelGracefulShutdown</span>()</div>
+<div class="block">Cancel any prior request to shut the router down gracefully.
+
+ Returns silently if a final shutdown is already in progress.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="scheduledGracefulExitCode()">scheduledGracefulExitCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">scheduledGracefulExitCode</span>()</div>
+<div class="block">What exit code do we plan on using when we shut down (or -1, if there isn't a graceful shutdown planned)</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>one of the EXIT_* values or -1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getShutdownTimeRemaining()">getShutdownTimeRemaining</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getShutdownTimeRemaining</span>()</div>
+<div class="block">How long until the graceful shutdown will kill us?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>-1 if no shutdown in progress.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="saveConfig()">saveConfig</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">saveConfig</span>()</div>
+<div class="block">Save the current config options (returning true if save was
+ successful, false otherwise)
+
+ Synchronized with file read in getConfig()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="saveConfig(java.lang.String,java.lang.String)">saveConfig</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">saveConfig</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;value)</span></div>
+<div class="block">Updates the current config with the given key/value and then saves it.
+ Prevents a race in the interval between setConfigSetting() / removeConfigSetting() and saveConfig(),
+ Synchronized with getConfig() / saveConfig()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - setting to add/change/remove before saving</dd>
+<dd><code>value</code> - if non-null, updated value; if null, setting will be removed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.13</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="saveConfig(java.util.Map,java.util.Collection)">saveConfig</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">saveConfig</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&nbsp;toAdd,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;toRemove)</span></div>
+<div class="block">Updates the current config and then saves it.
+ Prevents a race in the interval between setConfigSetting() / removeConfigSetting() and saveConfig(),
+ Synchronized with getConfig() / saveConfig()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>toAdd</code> - settings to add/change before saving, may be null or empty</dd>
+<dd><code>toRemove</code> - settings to remove before saving, may be null or empty</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>success</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.13</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clockShift(long)">clockShift</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clockShift</span>&#8203;(<span class="arguments">long&nbsp;delta)</span></div>
+<div class="block">The clock shift listener.
+  Restart the router if we should.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RouterClock.ClockShiftListener.html#clockShift(long)">clockShift</a></code>&nbsp;in interface&nbsp;<code><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>delta</code> - The system clock and adjusted clock just changed by this much,
+               in milliseconds (approximately)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="restart()">restart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">restart</span>()</div>
+<div class="block">A "soft" restart, primarily of the comm system, after
+  a port change or large step-change in system time.
+  Does not stop the whole JVM, so it is safe even in the absence
+  of the wrapper.
+  This is not a graceful restart - all peer connections are dropped immediately.
+
+  As of 0.8.8, this returns immediately and does the actual restart in a separate thread.
+  Poll isAlive() if you need to know when the restart is complete.
+
+  Not recommended for external use.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">Usage: Router [rebuild]
+  No other options allowed, for now
+  Instantiates Router(), and either installs updates and exits,
+  or calls runRouter().
+
+  Not recommended for embedded use.
+  Applications bundling I2P should instantiate a Router and call runRouter().</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - null ok</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEstimatedDowntime()">getEstimatedDowntime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getEstimatedDowntime</span>()</div>
+<div class="block">How long this router was down before it started, or 0 if unknown.
+
+  This may be used for a determination of whether to regenerate keys, for example.
+  We use the timestamp of the previous ping file left behind on crash,
+  as set by isOnlyRouterRunning(), if present.
+  Otherwise, the last STOPPED entry in the event log.
+
+  May take a while to run the first time, if it has to go through the event log.
+  Once called, the result is cached.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.0.47</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setEstimatedDowntime(long)">setEstimatedDowntime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setEstimatedDowntime</span>&#8203;(<span class="arguments">long&nbsp;downtime)</span></div>
+<div class="block">Only for soft restart. Not for external use.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.0.47</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSharePercentage()">getSharePercentage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getSharePercentage</span>()</div>
+<div class="block">What fraction of the bandwidth specified in our bandwidth limits should
+ we allow to be consumed by participating tunnels?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a number less than one, not a percentage!</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1sRate()">get1sRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1sRate</span>()</div>
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1sRate(boolean)">get1sRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1sRate</span>&#8203;(<span class="arguments">boolean&nbsp;outboundOnly)</span></div>
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.
+  When true, max of inbound and outbound rate in bytes per second.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1sRateIn()">get1sRateIn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1sRateIn</span>()</div>
+<div class="block">Inbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get15sRate()">get15sRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get15sRate</span>()</div>
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get15sRate(boolean)">get15sRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get15sRate</span>&#8203;(<span class="arguments">boolean&nbsp;outboundOnly)</span></div>
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.
+  When true, max of inbound and outbound rate in bytes per second.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get15sRateIn()">get15sRateIn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get15sRateIn</span>()</div>
+<div class="block">Inbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1mRate()">get1mRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1mRate</span>()</div>
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1mRate(boolean)">get1mRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1mRate</span>&#8203;(<span class="arguments">boolean&nbsp;outboundOnly)</span></div>
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.
+  When true, max of inbound and outbound rate in bytes per second.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get1mRateIn()">get1mRateIn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get1mRateIn</span>()</div>
+<div class="block">Inbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get5mRate()">get5mRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get5mRate</span>()</div>
+<div class="block">Max of inbound and outbound rate in bytes per second</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get5mRate(boolean)">get5mRate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">get5mRate</span>&#8203;(<span class="arguments">boolean&nbsp;outboundOnly)</span></div>
+<div class="block">When outboundOnly is false, outbound rate in bytes per second.
+  When true, max of inbound and outbound rate in bytes per second.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Router.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Storage - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.klomp.snark, class: Storage">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":9,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":9,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Storage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.klomp.snark</a></div>
+<h1 title="Class Storage" class="title">Class Storage</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.klomp.snark.Storage</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">Storage</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></pre>
+<div class="block">Maintains pieces on disk. Can be used to store and retrieve pieces.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_PIECE_SIZE">MAX_PIECE_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">bigger than this will be rejected</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_PIECES">MAX_PIECES</a></span></code></th>
+<td class="colLast">
+<div class="block">The maximum number of pieces in a torrent.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_TOTAL_SIZE">MAX_TOTAL_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PRIORITY_NORMAL">PRIORITY_NORMAL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PRIORITY_SKIP">PRIORITY_SKIP</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.klomp.snark.I2PSnarkUtil,java.io.File,java.lang.String,java.util.List,java.lang.String,boolean,java.util.List,java.lang.String,org.klomp.snark.StorageListener)">Storage</a></span>&#8203;(<a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;announce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;announce_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;created_by,
+boolean&nbsp;privateTorrent,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;url_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;comment,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener)</code></th>
+<td class="colLast">
+<div class="block">Creates a storage from the existing file or directory.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.klomp.snark.I2PSnarkUtil,java.io.File,java.lang.String,java.util.List,java.lang.String,boolean,org.klomp.snark.StorageListener)">Storage</a></span>&#8203;(<a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;announce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;announce_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;created_by,
+boolean&nbsp;privateTorrent,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener)</code></th>
+<td class="colLast">
+<div class="block">Creates a storage from the existing file or directory.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.klomp.snark.I2PSnarkUtil,java.io.File,org.klomp.snark.MetaInfo,org.klomp.snark.StorageListener,boolean)">Storage</a></span>&#8203;(<a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="MetaInfo.html" title="class in org.klomp.snark">MetaInfo</a>&nbsp;metainfo,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener,
+boolean&nbsp;preserveFileNames)</code></th>
+<td class="colLast">
+<div class="block">Creates a new storage based on the supplied MetaInfo.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check()">check</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Creates (and/or checks) all files from the metainfo file list.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check(long,org.klomp.snark.BitField)">check</a></span>&#8203;(long&nbsp;savedTime,
+<a href="BitField.html" title="class in org.klomp.snark">BitField</a>&nbsp;savedBitField)</code></th>
+<td class="colLast">
+<div class="block">Creates (and/or checks) all files from the metainfo file list.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cleanRAFs()">cleanRAFs</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Close unused RAFs - call periodically</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearChanged()">clearChanged</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clear the storage changed variable</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close()">close</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Closes the Storage and makes sure that all RandomAccessFiles are
+ closed.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#complete()">complete</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Whether or not this storage contains all pieces if the MetaInfo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterName(java.lang.String)">filterName</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">Removes 'suspicious' characters from the given file name.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getActivity()">getActivity</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBase()">getBase</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The base file or directory.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBaseName()">getBaseName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The base file or directory name of the data,
+  as specified in the .torrent file, but filtered to remove
+  illegal characters.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="BitField.html" title="class in org.klomp.snark">BitField</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBitField()">getBitField</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The BitField that tells which pieces this storage contains.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCheckingProgress()">getCheckingProgress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If checking is in progress, return completion 0.0 ...</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/SortedSet.html?is-external=true" title="class or interface in java.util" class="externalLink">SortedSet</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDirectories()">getDirectories</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Includes the base for a multi-file torrent.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFileCount()">getFileCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does not include directories.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilePriorities()">getFilePriorities</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the file priorities array.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFiles()">getFiles</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Does not include directories.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInOrder()">getInOrder</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="MetaInfo.html" title="class in org.klomp.snark">MetaInfo</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMetaInfo()">getMetaInfo</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the MetaInfo associated with this Storage.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="../../../net/i2p/data/ByteArray.html" title="class in net.i2p.data">ByteArray</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPiece(int,int,int)">getPiece</a></span>&#8203;(int&nbsp;piece,
+int&nbsp;off,
+int&nbsp;len)</code></th>
+<td class="colLast">
+<div class="block">Returns a byte array containing a portion of the requested piece or null if
+ the storage doesn't contain the piece yet.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>int[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPiecePriorities()">getPiecePriorities</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Call setPriority() for all changed files first,
+  then call this.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPreserveFileNames()">getPreserveFileNames</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPriority(int)">getPriority</a></span>&#8203;(int&nbsp;fileIndex)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSkippedLength()">getSkippedLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Call setPriority() for all changed files first,
+  then call this.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#indexOf(java.io.File)">indexOf</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</code></th>
+<td class="colLast">
+<div class="block">Get index to pass to remaining(), getPriority(), setPriority()</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAllocating()">isAllocating</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Disk allocation (ballooning) in progress.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isChanged()">isChanged</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Has the storage changed since instantiation?</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isChecking()">isChecking</a></span>()</code></th>
+<td class="colLast">
+<div class="block">File checking in progress.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Create a metainfo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#needed()">needed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many pieces are still missing from this storage.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#putPiece(org.klomp.snark.PartialPiece)">putPiece</a></span>&#8203;(<a href="PartialPiece.html" title="class in org.klomp.snark">PartialPiece</a>&nbsp;pp)</code></th>
+<td class="colLast">
+<div class="block">Put the piece in the Storage if it is correct.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recheck()">recheck</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>long[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remaining()">remaining</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For efficiency, calculate remaining bytes for all files at once</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>long[][]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remaining2()">remaining2</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For efficiency, calculate remaining bytes for all files at once.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reopen()">reopen</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Doesn't really reopen the file descriptors for a restart.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setActivity(long)">setActivity</a></span>&#8203;(long&nbsp;time)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFilePriorities(int%5B%5D)">setFilePriorities</a></span>&#8203;(int[]&nbsp;p)</code></th>
+<td class="colLast">
+<div class="block">Set the file priorities array.</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInOrder(boolean)">setInOrder</a></span>&#8203;(boolean&nbsp;yes)</code></th>
+<td class="colLast">
+<div class="block">Call AFTER setFilePriorites() so we know what's skipped</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPriority(int,int)">setPriority</a></span>&#8203;(int&nbsp;fileIndex,
+int&nbsp;pri)</code></th>
+<td class="colLast">
+<div class="block">Must call Snark.updatePiecePriorities()
+  (which calls getPiecePriorities()) after calling this.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_PIECE_SIZE">MAX_PIECE_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_PIECE_SIZE</span></div>
+<div class="block">bigger than this will be rejected</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.klomp.snark.Storage.MAX_PIECE_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_PIECES">MAX_PIECES</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_PIECES</span></div>
+<div class="block">The maximum number of pieces in a torrent.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.klomp.snark.Storage.MAX_PIECES">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_TOTAL_SIZE">MAX_TOTAL_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">MAX_TOTAL_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.klomp.snark.Storage.MAX_TOTAL_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PRIORITY_SKIP">PRIORITY_SKIP</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PRIORITY_SKIP</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.klomp.snark.Storage.PRIORITY_SKIP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PRIORITY_NORMAL">PRIORITY_NORMAL</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PRIORITY_NORMAL</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.klomp.snark.Storage.PRIORITY_NORMAL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.klomp.snark.I2PSnarkUtil,java.io.File,org.klomp.snark.MetaInfo,org.klomp.snark.StorageListener,boolean)">Storage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Storage</span>&#8203;(<span class="arguments"><a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="MetaInfo.html" title="class in org.klomp.snark">MetaInfo</a>&nbsp;metainfo,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener,
+boolean&nbsp;preserveFileNames)</span></div>
+<div class="block">Creates a new storage based on the supplied MetaInfo.
+
+ Does not check storage. Caller MUST call check(), which will
+ try to create and/or check all needed files in the MetaInfo.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>baseFile</code> - the torrent data file or dir</dd>
+<dd><code>preserveFileNames</code> - if true, do not remap names to a 'safe' charset</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.klomp.snark.I2PSnarkUtil,java.io.File,java.lang.String,java.util.List,java.lang.String,boolean,org.klomp.snark.StorageListener)">Storage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Storage</span>&#8203;(<span class="arguments"><a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;announce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;announce_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;created_by,
+boolean&nbsp;privateTorrent,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener)</span>
+        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a storage from the existing file or directory.
+ Creates an in-memory metainfo but does not save it to
+ a file, caller must do that.
+
+ Creates the metainfo, this may take a LONG time. BLOCKING.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>announce</code> - may be null</dd>
+<dd><code>listener</code> - may be null</dd>
+<dd><code>created_by</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - when creating and/or checking files fails.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.klomp.snark.I2PSnarkUtil,java.io.File,java.lang.String,java.util.List,java.lang.String,boolean,java.util.List,java.lang.String,org.klomp.snark.StorageListener)">Storage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Storage</span>&#8203;(<span class="arguments"><a href="I2PSnarkUtil.html" title="class in org.klomp.snark">I2PSnarkUtil</a>&nbsp;util,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;baseFile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;announce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;announce_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;created_by,
+boolean&nbsp;privateTorrent,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;url_list,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;comment,
+<a href="StorageListener.html" title="interface in org.klomp.snark">StorageListener</a>&nbsp;listener)</span>
+        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a storage from the existing file or directory.
+ Creates an in-memory metainfo but does not save it to
+ a file, caller must do that.
+
+ Creates the metainfo, this may take a LONG time. BLOCKING.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>announce</code> - may be null</dd>
+<dd><code>listener</code> - may be null</dd>
+<dd><code>created_by</code> - may be null</dd>
+<dd><code>url_list</code> - may be null</dd>
+<dd><code>comment</code> - may be null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - when creating and/or checking files fails.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMetaInfo()">getMetaInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="MetaInfo.html" title="class in org.klomp.snark">MetaInfo</a></span>&nbsp;<span class="memberName">getMetaInfo</span>()</div>
+<div class="block">Returns the MetaInfo associated with this Storage.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="needed()">needed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">needed</span>()</div>
+<div class="block">How many pieces are still missing from this storage.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="complete()">complete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">complete</span>()</div>
+<div class="block">Whether or not this storage contains all pieces if the MetaInfo.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isChanged()">isChanged</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isChanged</span>()</div>
+<div class="block">Has the storage changed since instantiation?</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.5</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearChanged()">clearChanged</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">clearChanged</span>()</div>
+<div class="block">Clear the storage changed variable</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.30</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getActivity()">getActivity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getActivity</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.42</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setActivity(long)">setActivity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setActivity</span>&#8203;(<span class="arguments">long&nbsp;time)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.42</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isChecking()">isChecking</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isChecking</span>()</div>
+<div class="block">File checking in progress.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCheckingProgress()">getCheckingProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getCheckingProgress</span>()</div>
+<div class="block">If checking is in progress, return completion 0.0 ... 1.0,
+  else return 1.0.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isAllocating()">isAllocating</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isAllocating</span>()</div>
+<div class="block">Disk allocation (ballooning) in progress.
+  Always false on Windows.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="indexOf(java.io.File)">indexOf</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">indexOf</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</span></div>
+<div class="block">Get index to pass to remaining(), getPriority(), setPriority()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>file</code> - non-canonical path (non-directory)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>internal index of file; -1 if unknown file</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remaining()">remaining</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long[]</span>&nbsp;<span class="memberName">remaining</span>()</div>
+<div class="block">For efficiency, calculate remaining bytes for all files at once</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of bytes remaining for each file, use indexOf() to get index for a file</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remaining2()">remaining2</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long[][]</span>&nbsp;<span class="memberName">remaining2</span>()</div>
+<div class="block">For efficiency, calculate remaining bytes for all files at once.
+  Remaining bytes is rv[0]. Preview bytes is rv[1].</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of bytes remaining and number of bytes available for a preview for each file, use indexOf() to get index for a file</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.45</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPriority(int)">getPriority</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPriority</span>&#8203;(<span class="arguments">int&nbsp;fileIndex)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileIndex</code> - as obtained from indexOf</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPriority(int,int)">setPriority</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPriority</span>&#8203;(<span class="arguments">int&nbsp;fileIndex,
+int&nbsp;pri)</span></div>
+<div class="block">Must call Snark.updatePiecePriorities()
+  (which calls getPiecePriorities()) after calling this.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fileIndex</code> - as obtained from indexOf</dd>
+<dd><code>pri</code> - default 0; &lt;0 to disable</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFilePriorities()">getFilePriorities</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int[]</span>&nbsp;<span class="memberName">getFilePriorities</span>()</div>
+<div class="block">Get the file priorities array.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error, if complete, or if only one file</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFilePriorities(int[])">setFilePriorities</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setFilePriorities</span>&#8203;(<span class="arguments">int[]&nbsp;p)</span></div>
+<div class="block">Set the file priorities array.
+  Only call this when stopped, but after check()</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>p</code> - may be null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInOrder()">getInOrder</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getInOrder</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>as last set, default false</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setInOrder(boolean)">setInOrder</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setInOrder</span>&#8203;(<span class="arguments">boolean&nbsp;yes)</span></div>
+<div class="block">Call AFTER setFilePriorites() so we know what's skipped</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>yes</code> - enable or not</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPiecePriorities()">getPiecePriorities</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int[]</span>&nbsp;<span class="memberName">getPiecePriorities</span>()</div>
+<div class="block">Call setPriority() for all changed files first,
+  then call this.
+  Set the piece priority to the highest priority
+  of all files spanning the piece.
+  Caller must pass array to the PeerCoordinator.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error, if complete, or if only one file and inOrder not set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSkippedLength()">getSkippedLength</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getSkippedLength</span>()</div>
+<div class="block">Call setPriority() for all changed files first,
+  then call this.
+  The length of all the pieces that are not yet downloaded,
+  and are set to skipped.
+  This is not the same as the total of all skipped files,
+  since pieces may span multiple files.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 on error, if complete, or if only one file</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBitField()">getBitField</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="BitField.html" title="class in org.klomp.snark">BitField</a></span>&nbsp;<span class="memberName">getBitField</span>()</div>
+<div class="block">The BitField that tells which pieces this storage contains.
+ Do not change this since this is the current state of the storage.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBaseName()">getBaseName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getBaseName</span>()</div>
+<div class="block">The base file or directory name of the data,
+  as specified in the .torrent file, but filtered to remove
+  illegal characters. This is where the data actually is,
+  relative to the snark base dir.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.14</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPreserveFileNames()">getPreserveFileNames</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getPreserveFileNames</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="check()">check</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">check</span>()
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates (and/or checks) all files from the metainfo file list.
+ Only call this once, and only after the constructor with the metainfo.
+ Use recheck() to check again later.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if called more than once</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="check(long,org.klomp.snark.BitField)">check</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">check</span>&#8203;(<span class="arguments">long&nbsp;savedTime,
+<a href="BitField.html" title="class in org.klomp.snark">BitField</a>&nbsp;savedBitField)</span>
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates (and/or checks) all files from the metainfo file list.
+ Use a saved bitfield and timestamp from a config file.
+ Only call this once, and only after the constructor with the metainfo.
+ Use recheck() to check again later.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if called more than once</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reopen()">reopen</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">reopen</span>()
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Doesn't really reopen the file descriptors for a restart.
+ Just does an existence check but no length check or data reverification</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - on fail</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="filterName(java.lang.String)">filterName</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">filterName</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="block">Removes 'suspicious' characters from the given file name.
+ http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
+ Then replace chars not supported in the charset.
+
+ This is called frequently and it can be pretty slow so cache the result.
+
+ TODO: If multiple files in the same torrent map to the same filter name,
+ the whole torrent will blow up. Check at torrent creation?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBase()">getBase</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getBase</span>()</div>
+<div class="block">The base file or directory.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the File</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFiles()">getFiles</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&gt;</span>&nbsp;<span class="memberName">getFiles</span>()</div>
+<div class="block">Does not include directories. Unsorted.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new List</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFileCount()">getFileCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getFileCount</span>()</div>
+<div class="block">Does not include directories.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDirectories()">getDirectories</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/SortedSet.html?is-external=true" title="class or interface in java.util" class="externalLink">SortedSet</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&gt;</span>&nbsp;<span class="memberName">getDirectories</span>()</div>
+<div class="block">Includes the base for a multi-file torrent.
+  Sorted bottom-up for easy deletion.
+  Slow. Use for deletion only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new Set or null for a single-file torrent</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.15</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="recheck()">recheck</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">recheck</span>()
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Blocking. Holds lock.
+  Recommend running only when stopped.
+  Caller should thread.
+  Calls listener.setWantedPieces() on completion if anything changed.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if anything changed, false otherwise</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.23</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close()">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">close</span>()
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Closes the Storage and makes sure that all RandomAccessFiles are
+ closed. The Storage is unusable after this.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPiece(int,int,int)">getPiece</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../net/i2p/data/ByteArray.html" title="class in net.i2p.data">ByteArray</a></span>&nbsp;<span class="memberName">getPiece</span>&#8203;(<span class="arguments">int&nbsp;piece,
+int&nbsp;off,
+int&nbsp;len)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns a byte array containing a portion of the requested piece or null if
+ the storage doesn't contain the piece yet.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="putPiece(org.klomp.snark.PartialPiece)">putPiece</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">putPiece</span>&#8203;(<span class="arguments"><a href="PartialPiece.html" title="class in org.klomp.snark">PartialPiece</a>&nbsp;pp)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Put the piece in the Storage if it is correct.
+ Warning - takes a LONG time if complete as it does the recheck here.
+ TODO thread the recheck?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the piece was correct (sha metainfo hash
+ matches), otherwise false.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - when some storage related error occurs.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="cleanRAFs()">cleanRAFs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">cleanRAFs</span>()</div>
+<div class="block">Close unused RAFs - call periodically</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">Create a metainfo.
+  Used in the installer build process; do not comment out.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Storage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

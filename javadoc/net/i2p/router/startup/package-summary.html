@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router.startup - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.startup">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router.startup</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+            The I2P startup package loads the configuration when I2P is started.
+        </p>
+        <p>
+            The startup consists of a number of different jobs, like loading data from files for the network database, creating new router information (keypairs), and so on.
+        </p>
+<pre>
+
+Calling order:
+
+StartupJob
+        LoadClientAppsJob
+                starts clients and queues delayed client jobs
+        start stats publisher
+        LoadRouterInfoJob
+                RebuildRouterInfoJob if necessary
+                        CreateRouterInfoJob if necessary
+                BootCommSystemJob
+                        allow parallel operation in job queue
+                        BootNetworkDbJob
+                                starts netdb
+                        BuildTrustedLinksJob (never used)
+                        BootPeerManagerJob
+                                starts peer manager
+                        start comm system
+                        start tunnel manager
+                        StartAcceptingClientsJob
+                                starts client manager
+                        ReadConfigJob
+                                loops every 30 seconds
+
+</pre></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="BootCommSystemJob.html" title="class in net.i2p.router.startup">BootCommSystemJob</a></th>
+<td class="colLast">
+<div class="block">This actually boots almost everything</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="BootNetworkDbJob.html" title="class in net.i2p.router.startup">BootNetworkDbJob</a></th>
+<td class="colLast">
+<div class="block">start up the network database</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="BootPeerManagerJob.html" title="class in net.i2p.router.startup">BootPeerManagerJob</a></th>
+<td class="colLast">
+<div class="block">start up the peer manager</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="BuildTrustedLinksJob.html" title="class in net.i2p.router.startup">BuildTrustedLinksJob</a></th>
+<td class="colLast">
+<div class="block">For future restricted routes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientAppConfig.html" title="class in net.i2p.router.startup">ClientAppConfig</a></th>
+<td class="colLast">
+<div class="block">Contains a really simple ClientApp "structure" and some static methods
+ so they can be used both by LoadClientAppsJob and by the configuration
+ page in the router console.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="CreateRouterInfoJob.html" title="class in net.i2p.router.startup">CreateRouterInfoJob</a></th>
+<td class="colLast">
+<div class="block">Warning - misnamed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="LoadClientAppsJob.html" title="class in net.i2p.router.startup">LoadClientAppsJob</a></th>
+<td class="colLast">
+<div class="block">Run any client applications specified in clients.config.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="LoadClientAppsJob.DelayedRunClient.html" title="class in net.i2p.router.startup">LoadClientAppsJob.DelayedRunClient</a></th>
+<td class="colLast">
+<div class="block">Public for router console only, not for use by others, subject to change</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="LoadRouterInfoJob.html" title="class in net.i2p.router.startup">LoadRouterInfoJob</a></th>
+<td class="colLast">
+<div class="block">Run once or twice at startup by StartupJob,
+  and then runs BootCommSystemJob</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="LoadRouterInfoJob.KeyData.html" title="class in net.i2p.router.startup">LoadRouterInfoJob.KeyData</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MigrateJetty.html" title="class in net.i2p.router.startup">MigrateJetty</a></th>
+<td class="colLast">
+<div class="block">Migrate the clients.config and jetty.xml files
+  from Jetty 5/6 to Jetty 7/8.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PortableWorkingDir.html" title="class in net.i2p.router.startup">PortableWorkingDir</a></th>
+<td class="colLast">
+<div class="block">Get a relative working directory for i2p based upon properties by parent process.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RebuildRouterInfoJob.html" title="class in net.i2p.router.startup">RebuildRouterInfoJob</a></th>
+<td class="colLast">
+<div class="block">This used be called from StartAcceptingClientsJob but is now disabled.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterAppManager.html" title="class in net.i2p.router.startup">RouterAppManager</a></th>
+<td class="colLast">
+<div class="block">Notify the router of events, and provide methods for
+  client apps to find each other.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="StartAcceptingClientsJob.html" title="class in net.i2p.router.startup">StartAcceptingClientsJob</a></th>
+<td class="colLast">
+<div class="block">start I2CP interface</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StartupJob.html" title="class in net.i2p.router.startup">StartupJob</a></th>
+<td class="colLast">
+<div class="block">The StartupJob should be run once on router startup to initialize the system
+ and set things in motion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="WorkingDir.html" title="class in net.i2p.router.startup">WorkingDir</a></th>
+<td class="colLast">
+<div class="block">Get a working directory for i2p.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>TrivialPreprocessor - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.tunnel, class: TrivialPreprocessor">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":9,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/TrivialPreprocessor.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.tunnel</a></div>
+<h1 title="Class TrivialPreprocessor" class="title">Class TrivialPreprocessor</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.tunnel.TrivialPreprocessor</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="TunnelGateway.QueuePreprocessor.html" title="interface in net.i2p.router.tunnel">TunnelGateway.QueuePreprocessor</a></code></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="BatchedPreprocessor.html" title="class in net.i2p.router.tunnel">BatchedPreprocessor</a></code>, <code><a href="TrivialRouterPreprocessor.html" title="class in net.i2p.router.tunnel">TrivialRouterPreprocessor</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">TrivialPreprocessor</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="TunnelGateway.QueuePreprocessor.html" title="interface in net.i2p.router.tunnel">TunnelGateway.QueuePreprocessor</a></pre>
+<div class="block">Do the simplest thing possible for preprocessing - for each message available,
+ turn it into the minimum number of fragmented preprocessed blocks, sending
+ each of those out.  This does not coalesce message fragments or delay for more
+ optimal throughput.
+
+ See FragmentHandler Javadoc for tunnel message fragment format
+
+ Not instantiated directly except in unit tests; see BatchedPreprocessor</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_context">_context</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static <a href="../../util/ByteCache.html" title="class in net.i2p.util">ByteCache</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_dataCache">_dataCache</a></span></code></th>
+<td class="colLast">
+<div class="block">Here in tunnels, we take from the cache but never add to it.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../util/Log.html" title="class in net.i2p.util">Log</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_log">_log</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#IV_SIZE">IV_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PREPROCESSED_SIZE">PREPROCESSED_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">TrivialPreprocessor</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDelayAmount()">getDelayAmount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how long do we want to wait before flushing</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstructionAugmentationSize(net.i2p.router.tunnel.PendingGatewayMessage,int,int)">getInstructionAugmentationSize</a></span>&#8203;(<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+int&nbsp;offset,
+int&nbsp;instructionsSize)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstructionsSize(net.i2p.router.tunnel.PendingGatewayMessage)">getInstructionsSize</a></span>&#8203;(<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notePreprocessing(long,int,int,java.util.List,java.lang.String)">notePreprocessing</a></span>&#8203;(long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#preprocess(byte%5B%5D,int)">preprocess</a></span>&#8203;(byte[]&nbsp;fragments,
+int&nbsp;fragmentLength)</code></th>
+<td class="colLast">
+<div class="block">Wrap the preprocessed fragments with the necessary padding / checksums
+ to act as a tunnel message.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#preprocessQueue(java.util.List,net.i2p.router.tunnel.TunnelGateway.Sender,net.i2p.router.tunnel.TunnelGateway.Receiver)">preprocessQueue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&gt;&nbsp;pending,
+<a href="TunnelGateway.Sender.html" title="interface in net.i2p.router.tunnel">TunnelGateway.Sender</a>&nbsp;sender,
+<a href="TunnelGateway.Receiver.html" title="interface in net.i2p.router.tunnel">TunnelGateway.Receiver</a>&nbsp;rec)</code></th>
+<td class="colLast">
+<div class="block">Return true if there were messages remaining, and we should queue up
+ a delayed flush to clear them
+
+ NOTE: Unused here, see BatchedPreprocessor override, super is not called.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeFirstFragment(net.i2p.router.tunnel.PendingGatewayMessage,byte%5B%5D,int)">writeFirstFragment</a></span>&#8203;(<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+byte[]&nbsp;target,
+int&nbsp;offset)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeSubsequentFragment(net.i2p.router.tunnel.PendingGatewayMessage,byte%5B%5D,int)">writeSubsequentFragment</a></span>&#8203;(<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+byte[]&nbsp;target,
+int&nbsp;offset)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="_context">_context</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a></span>&nbsp;<span class="memberName">_context</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_log">_log</a></h3>
+<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../../util/Log.html" title="class in net.i2p.util">Log</a></span>&nbsp;<span class="memberName">_log</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PREPROCESSED_SIZE">PREPROCESSED_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PREPROCESSED_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.TrivialPreprocessor.PREPROCESSED_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="IV_SIZE">IV_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">IV_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.tunnel.TrivialPreprocessor.IV_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_dataCache">_dataCache</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType"><a href="../../util/ByteCache.html" title="class in net.i2p.util">ByteCache</a></span>&nbsp;<span class="memberName">_dataCache</span></div>
+<div class="block">Here in tunnels, we take from the cache but never add to it.
+ In other words, we take advantage of other places in the router also using 1024-byte ByteCaches
+ (since ByteCache only maintains once instance for each size)
+ Used in BatchedPreprocessor; see add'l comments there</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">TrivialPreprocessor</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">TrivialPreprocessor</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDelayAmount()">getDelayAmount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getDelayAmount</span>()</div>
+<div class="block">how long do we want to wait before flushing</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="TunnelGateway.QueuePreprocessor.html#getDelayAmount()">getDelayAmount</a></code>&nbsp;in interface&nbsp;<code><a href="TunnelGateway.QueuePreprocessor.html" title="interface in net.i2p.router.tunnel">TunnelGateway.QueuePreprocessor</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="preprocessQueue(java.util.List,net.i2p.router.tunnel.TunnelGateway.Sender,net.i2p.router.tunnel.TunnelGateway.Receiver)">preprocessQueue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">preprocessQueue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&gt;&nbsp;pending,
+<a href="TunnelGateway.Sender.html" title="interface in net.i2p.router.tunnel">TunnelGateway.Sender</a>&nbsp;sender,
+<a href="TunnelGateway.Receiver.html" title="interface in net.i2p.router.tunnel">TunnelGateway.Receiver</a>&nbsp;rec)</span></div>
+<div class="block">Return true if there were messages remaining, and we should queue up
+ a delayed flush to clear them
+
+ NOTE: Unused here, see BatchedPreprocessor override, super is not called.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="TunnelGateway.QueuePreprocessor.html#preprocessQueue(java.util.List,net.i2p.router.tunnel.TunnelGateway.Sender,net.i2p.router.tunnel.TunnelGateway.Receiver)">preprocessQueue</a></code>&nbsp;in interface&nbsp;<code><a href="TunnelGateway.QueuePreprocessor.html" title="interface in net.i2p.router.tunnel">TunnelGateway.QueuePreprocessor</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>pending</code> - list of Pending objects for messages either unsent
+                or partly sent.  This list should be update with any
+                values removed (the preprocessor owns the lock)
+                Messages are not removed from the list until actually sent.
+                The status of unsent and partially-sent messages is stored in
+                the Pending structure.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if we should delay before preprocessing again</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notePreprocessing(long,int,int,java.util.List,java.lang.String)">notePreprocessing</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notePreprocessing</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="preprocess(byte[],int)">preprocess</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">preprocess</span>&#8203;(<span class="arguments">byte[]&nbsp;fragments,
+int&nbsp;fragmentLength)</span></div>
+<div class="block">Wrap the preprocessed fragments with the necessary padding / checksums
+ to act as a tunnel message.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fragmentLength</code> - fragments[0:fragmentLength] is used</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeFirstFragment(net.i2p.router.tunnel.PendingGatewayMessage,byte[],int)">writeFirstFragment</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeFirstFragment</span>&#8203;(<span class="arguments"><a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+byte[]&nbsp;target,
+int&nbsp;offset)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeSubsequentFragment(net.i2p.router.tunnel.PendingGatewayMessage,byte[],int)">writeSubsequentFragment</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeSubsequentFragment</span>&#8203;(<span class="arguments"><a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+byte[]&nbsp;target,
+int&nbsp;offset)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstructionsSize(net.i2p.router.tunnel.PendingGatewayMessage)">getInstructionsSize</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getInstructionsSize</span>&#8203;(<span class="arguments"><a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>generally 3 or 35 or 39 for first fragment, 7 for subsequent fragments.
+
+  Does NOT include 4 for the message ID if the message will be fragmented;
+  call getInstructionAugmentationSize() for that.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstructionAugmentationSize(net.i2p.router.tunnel.PendingGatewayMessage,int,int)">getInstructionAugmentationSize</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getInstructionAugmentationSize</span>&#8203;(<span class="arguments"><a href="PendingGatewayMessage.html" title="class in net.i2p.router.tunnel">PendingGatewayMessage</a>&nbsp;msg,
+int&nbsp;offset,
+int&nbsp;instructionsSize)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 or 4</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/TrivialPreprocessor.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

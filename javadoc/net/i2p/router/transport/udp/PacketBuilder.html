@@ -1,0 +1,1254 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PacketBuilder - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.udp, class: PacketBuilder">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PacketBuilder.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.udp</a></div>
+<h1 title="Class PacketBuilder" class="title">Class PacketBuilder</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.transport.udp.PacketBuilder</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">PacketBuilder</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Big ol' class to do all our packet formatting.  The UDPPackets generated are
+ fully authenticated, encrypted, and configured for delivery to the peer.
+
+ The following is from udp.html on the website:
+
+<p>
+All UDP datagrams begin with a 16 byte MAC (Message Authentication Code)
+and a 16 byte IV (Initialization Vector
+followed by a variable
+size payload encrypted with the appropriate key.  The MAC used is
+HMAC-MD5, truncated to 16 bytes, while the key is a full 32 byte AES256
+key.  The specific construct of the MAC is the first 16 bytes from:</p>
+<pre>
+  HMAC-MD5(payload || IV || (payloadLength ^ protocolVersion), macKey)
+</pre>
+
+<p>The protocol version is currently 0.</p>
+
+<p>The payload itself is AES256/CBC encrypted with the IV and the
+sessionKey, with replay prevention addressed within its body,
+explained below.  The payloadLength in the MAC is a 2 byte unsigned
+integer in 2s complement.</p>
+
+<p>The protocolVersion is a 2 byte unsigned integer in 2s complement,
+and currently set to 0.  Peers using a different protocol version will
+not be able to communicate with this peer, though earlier versions not
+using this flag are.</p>
+
+<h2 id="payload">Payload</h2>
+
+<p>Within the AES encrypted payload, there is a minimal common structure
+to the various messages - a one byte flag and a four byte sending
+timestamp (*seconds* since the unix epoch).  The flag byte contains
+the following bitfields:</p>
+<pre>
+Bit order: 76543210
+  bits 7-4: payload type
+     bit 3: rekey?
+     bit 2: extended options included
+  bits 1-0: reserved
+</pre>
+
+<p>If the rekey flag is set, 64 bytes of keying material follow the
+timestamp.  If the extended options flag is set, a one byte option
+size value is appended to, followed by that many extended option
+bytes, which are currently uninterpreted.</p>
+
+<p>When rekeying, the first 32 bytes of the keying material is fed
+into a SHA256 to produce the new MAC key, and the next 32 bytes are
+fed into a SHA256 to produce the new session key, though the keys are
+not immediately used.  The other side should also reply with the
+rekey flag set and that same keying material.  Once both sides have
+sent and received those values, the new keys should be used and the
+previous keys discarded.  It may be useful to keep the old keys
+around briefly, to address packet loss and reordering.</p>
+
+<p>NOTE: Rekeying is currently unimplemented.</p>
+
+<pre>
+ Header: 37+ bytes
+ +----+----+----+----+----+----+----+----+
+ |                  MAC                  |
+ |                                       |
+ +----+----+----+----+----+----+----+----+
+ |                   IV                  |
+ |                                       |
+ +----+----+----+----+----+----+----+----+
+ |flag|        time       | (optionally  |
+ +----+----+----+----+----+              |
+ | this may have 64 byte keying material |
+ | and/or a one+N byte extended options) |
+ +---------------------------------------|
+</pre></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="PacketBuilder.Fragment.html" title="class in net.i2p.router.transport.udp">PacketBuilder.Fragment</a></span></code></th>
+<td class="colLast">
+<div class="block">Class for passing multiple fragments to buildPacket()</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ABSOLUTE_MAX_ACKS">ABSOLUTE_MAX_ACKS</a></span></code></th>
+<td class="colLast">
+<div class="block">one byte field</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DATA_HEADER_SIZE">DATA_HEADER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">not including acks.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FRAGMENT_HEADER_SIZE">FRAGMENT_HEADER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">4 byte msg ID + 3 byte fragment info</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HEADER_SIZE">HEADER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">if no extended options or rekey data, which we don't support  = 37</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#IP_HEADER_SIZE">IP_HEADER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">IPv4 only</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#IPV6_HEADER_SIZE">IPV6_HEADER_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_DATA_PACKET_OVERHEAD">MIN_DATA_PACKET_OVERHEAD</a></span></code></th>
+<td class="colLast">
+<div class="block">74</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_IPV6_DATA_PACKET_OVERHEAD">MIN_IPV6_DATA_PACKET_OVERHEAD</a></span></code></th>
+<td class="colLast">
+<div class="block">94</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_ACK">TYPE_ACK</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_CONF">TYPE_CONF</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_CREAT">TYPE_CREAT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_FIRST">TYPE_FIRST</a></span></code></th>
+<td class="colLast">
+<div class="block">For debugging and stats only - does not go out on the wire.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_INTRO">TYPE_INTRO</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_PUNCH">TYPE_PUNCH</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_RESP">TYPE_RESP</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_RREQ">TYPE_RREQ</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_SREQ">TYPE_SREQ</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_TBC">TYPE_TBC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_TCB">TYPE_TCB</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_TFA">TYPE_TFA</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TYPE_TTA">TYPE_TTA</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#UDP_HEADER_SIZE">UDP_HEADER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">Same for IPv4 and IPv6</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">PacketBuilder</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildACK(net.i2p.router.transport.udp.PeerState,java.util.List)">buildACK</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;ackBitfields)</code></th>
+<td class="colLast">
+<div class="block">Build the ack packet.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildHolePunch(java.net.InetAddress,int)">buildHolePunch</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;to,
+int&nbsp;port)</code></th>
+<td class="colLast">
+<div class="block">Creates an empty unauthenticated packet for hole punching.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPacket(byte%5B%5D,java.net.InetAddress,int)">buildPacket</a></span>&#8203;(byte[]&nbsp;data,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;to,
+int&nbsp;port)</code></th>
+<td class="colLast">
+<div class="block">TESTING ONLY.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPacket(java.util.List,net.i2p.router.transport.udp.PeerState,java.util.Collection,int,java.util.List)">buildPacket</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketBuilder.Fragment.html" title="class in net.i2p.router.transport.udp">PacketBuilder.Fragment</a>&gt;&nbsp;fragments,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;ackIdsRemaining,
+int&nbsp;newAckCount,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;partialACKsRemaining)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPacket(net.i2p.router.transport.udp.OutboundMessageState,int,net.i2p.router.transport.udp.PeerState,java.util.Collection,int,java.util.List)">buildPacket</a></span>&#8203;(<a href="OutboundMessageState.html" title="class in net.i2p.router.transport.udp">OutboundMessageState</a>&nbsp;state,
+int&nbsp;fragment,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;ackIdsRemaining,
+int&nbsp;newAckCount,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;partialACKsRemaining)</code></th>
+<td class="colLast">
+<div class="block">This builds a data packet (PAYLOAD_TYPE_DATA).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPeerTestFromAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey)">buildPeerTestFromAlice</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;toIP,
+int&nbsp;toPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toIntroKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey)</code></th>
+<td class="colLast">
+<div class="block">Build a packet as if we are Alice and we either want Bob to begin a
+ peer test or Charlie to finish a peer test.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPeerTestFromAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey)">buildPeerTestFromAlice</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;toIP,
+int&nbsp;toPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toMACKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey)</code></th>
+<td class="colLast">
+<div class="block">Build a packet as if we are Alice and we either want Bob to begin a
+ peer test or Charlie to finish a peer test.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPeerTestToAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long)">buildPeerTestToAlice</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieIntroKey,
+long&nbsp;nonce)</code></th>
+<td class="colLast">
+<div class="block">Build a packet as if we are either Bob or Charlie and we are helping test Alice.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPeerTestToBob(java.net.InetAddress,int,java.net.InetAddress,int,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildPeerTestToBob</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;bobIP,
+int&nbsp;bobPort,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;bobCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;bobMACKey)</code></th>
+<td class="colLast">
+<div class="block">Build a packet as if we are Charlie sending Bob a packet verifying that we will help test Alice.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPeerTestToCharlie(java.net.InetAddress,int,net.i2p.data.SessionKey,long,java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildPeerTestToCharlie</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+long&nbsp;nonce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;charlieIP,
+int&nbsp;charliePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieMACKey)</code></th>
+<td class="colLast">
+<div class="block">Build a packet as if we are Bob sending Charlie a packet to help test Alice.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPing(net.i2p.router.transport.udp.PeerState)">buildPing</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">An ACK packet with no acks.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>(package private) <a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildRelayIntro(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState,net.i2p.router.transport.udp.UDPPacketReader.RelayRequestReader)">buildRelayIntro</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;charlie,
+<a href="UDPPacketReader.RelayRequestReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader.RelayRequestReader</a>&nbsp;request)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildRelayRequest(net.i2p.router.transport.udp.UDPTransport,net.i2p.router.transport.udp.EstablishmentManager,net.i2p.router.transport.udp.OutboundEstablishState,net.i2p.data.SessionKey)">buildRelayRequest</a></span>&#8203;(<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport,
+<a href="EstablishmentManager.html" title="class in net.i2p.router.transport.udp">EstablishmentManager</a>&nbsp;emgr,
+<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ourIntroKey)</code></th>
+<td class="colLast">
+<div class="block">build intro packets for each of the published introducers</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>(package private) <a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildRelayResponse(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildRelayResponse</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;charlie,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;cipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;macKey)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionConfirmedPackets(net.i2p.router.transport.udp.OutboundEstablishState,net.i2p.data.router.RouterIdentity)">buildSessionConfirmedPackets</a></span>&#8203;(<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state,
+<a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ourIdentity)</code></th>
+<td class="colLast">
+<div class="block">Build a new series of SessionConfirmed packets for the given peer,
+ encrypting it as necessary.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionCreatedPacket(net.i2p.router.transport.udp.InboundEstablishState,int,net.i2p.data.SessionKey)">buildSessionCreatedPacket</a></span>&#8203;(<a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a>&nbsp;state,
+int&nbsp;externalPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ourIntroKey)</code></th>
+<td class="colLast">
+<div class="block">Build a new SessionCreated packet for the given peer, encrypting it
+ as necessary.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionDestroyPacket(net.i2p.router.transport.udp.InboundEstablishState)">buildSessionDestroyPacket</a></span>&#8203;(<a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Build a destroy packet, which contains a header but no body.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionDestroyPacket(net.i2p.router.transport.udp.OutboundEstablishState)">buildSessionDestroyPacket</a></span>&#8203;(<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Build a destroy packet, which contains a header but no body.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionDestroyPacket(net.i2p.router.transport.udp.PeerState)">buildSessionDestroyPacket</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Build a destroy packet, which contains a header but no body.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildSessionRequestPacket(net.i2p.router.transport.udp.OutboundEstablishState)">buildSessionRequestPacket</a></span>&#8203;(<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</code></th>
+<td class="colLast">
+<div class="block">Build a new SessionRequest packet for the given peer, encrypting it
+ as necessary.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaxAdditionalFragmentSize(net.i2p.router.transport.udp.PeerState,int,int)">getMaxAdditionalFragmentSize</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+int&nbsp;numFragments,
+int&nbsp;curDataSize)</code></th>
+<td class="colLast">
+<div class="block">Will a packet to 'peer' that already has 'numFragments' fragments
+  totalling 'curDataSize' bytes fit another fragment of size 'newFragSize' ??
+
+  This doesn't leave anything for acks.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_FIRST">TYPE_FIRST</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_FIRST</span></div>
+<div class="block">For debugging and stats only - does not go out on the wire.
+  These are chosen to be higher than the highest I2NP message type,
+  as a data packet is set to the underlying I2NP message type.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_FIRST">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_ACK">TYPE_ACK</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_ACK</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_ACK">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_PUNCH">TYPE_PUNCH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_PUNCH</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_PUNCH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_RESP">TYPE_RESP</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_RESP</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_RESP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_INTRO">TYPE_INTRO</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_INTRO</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_INTRO">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_RREQ">TYPE_RREQ</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_RREQ</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_RREQ">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_TCB">TYPE_TCB</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_TCB</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_TCB">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_TBC">TYPE_TBC</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_TBC</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_TBC">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_TTA">TYPE_TTA</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_TTA</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_TTA">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_TFA">TYPE_TFA</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_TFA</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_TFA">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_CONF">TYPE_CONF</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_CONF</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_CONF">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_SREQ">TYPE_SREQ</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_SREQ</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_SREQ">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TYPE_CREAT">TYPE_CREAT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TYPE_CREAT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.TYPE_CREAT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="HEADER_SIZE">HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">HEADER_SIZE</span></div>
+<div class="block">if no extended options or rekey data, which we don't support  = 37</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FRAGMENT_HEADER_SIZE">FRAGMENT_HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">FRAGMENT_HEADER_SIZE</span></div>
+<div class="block">4 byte msg ID + 3 byte fragment info</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.FRAGMENT_HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DATA_HEADER_SIZE">DATA_HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DATA_HEADER_SIZE</span></div>
+<div class="block">not including acks. 46</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.DATA_HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="IP_HEADER_SIZE">IP_HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">IP_HEADER_SIZE</span></div>
+<div class="block">IPv4 only</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.IP_HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="UDP_HEADER_SIZE">UDP_HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">UDP_HEADER_SIZE</span></div>
+<div class="block">Same for IPv4 and IPv6</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.UDP_HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_DATA_PACKET_OVERHEAD">MIN_DATA_PACKET_OVERHEAD</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_DATA_PACKET_OVERHEAD</span></div>
+<div class="block">74</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.MIN_DATA_PACKET_OVERHEAD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="IPV6_HEADER_SIZE">IPV6_HEADER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">IPV6_HEADER_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.IPV6_HEADER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_IPV6_DATA_PACKET_OVERHEAD">MIN_IPV6_DATA_PACKET_OVERHEAD</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_IPV6_DATA_PACKET_OVERHEAD</span></div>
+<div class="block">94</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.MIN_IPV6_DATA_PACKET_OVERHEAD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ABSOLUTE_MAX_ACKS">ABSOLUTE_MAX_ACKS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">ABSOLUTE_MAX_ACKS</span></div>
+<div class="block">one byte field</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.PacketBuilder.ABSOLUTE_MAX_ACKS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">PacketBuilder</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PacketBuilder</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>transport</code> - may be null for unit testing only</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMaxAdditionalFragmentSize(net.i2p.router.transport.udp.PeerState,int,int)">getMaxAdditionalFragmentSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMaxAdditionalFragmentSize</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+int&nbsp;numFragments,
+int&nbsp;curDataSize)</span></div>
+<div class="block">Will a packet to 'peer' that already has 'numFragments' fragments
+  totalling 'curDataSize' bytes fit another fragment of size 'newFragSize' ??
+
+  This doesn't leave anything for acks.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numFragments</code> - &gt;= 1</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.16</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPacket(net.i2p.router.transport.udp.OutboundMessageState,int,net.i2p.router.transport.udp.PeerState,java.util.Collection,int,java.util.List)">buildPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPacket</span>&#8203;(<span class="arguments"><a href="OutboundMessageState.html" title="class in net.i2p.router.transport.udp">OutboundMessageState</a>&nbsp;state,
+int&nbsp;fragment,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;ackIdsRemaining,
+int&nbsp;newAckCount,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;partialACKsRemaining)</span></div>
+<div class="block">This builds a data packet (PAYLOAD_TYPE_DATA).
+ See the methods below for the other message types.
+
+ Note that while the UDP message spec allows for more than one fragment in a message,
+ this method writes exactly one fragment.
+ For no fragments use buildAck().
+ Multiple fragments in a single packet is not supported.
+ Rekeying and extended options are not supported.
+
+ Packet format:
+<pre>
+    16 byte MAC
+    16 byte IV
+     1 byte flag
+     4 byte date
+     1 byte flag
+     1 byte explicit ack count IF included
+   4*n byte explict acks IF included
+     1 byte ack bitfield count IF included
+   4*n + ?? ack bitfields IF included
+     1 byte fragment count (always 1)
+     4 byte message ID
+     3 byte fragment info
+     n byte fragment
+  0-15 bytes padding
+</pre>
+
+ So ignoring the ack bitfields, and assuming we have explicit acks,
+ it's (47 + 4*explict acks + padding) added to the
+ fragment length.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ackIdsRemaining</code> - list of messageIds (Long) that should be acked by this packet.
+                        The list itself is passed by reference, and if a messageId is
+                        transmitted it will be removed from the list.
+                        Not all message IDs will necessarily be sent, there may not be room.
+                        non-null.</dd>
+<dd><code>newAckCount</code> - the number of ackIdsRemaining entries that are new. These must be the first
+                    ones in the list</dd>
+<dd><code>partialACKsRemaining</code> - list of messageIds (ACKBitfield) that should be acked by this packet.
+                        The list itself is passed by reference, and if a messageId is
+                        included, it should be removed from the list.
+                        Full acks in this list are skipped, they are NOT transmitted.
+                        non-null.
+                        Not all acks will necessarily be sent, there may not be room.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null on error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPacket(java.util.List,net.i2p.router.transport.udp.PeerState,java.util.Collection,int,java.util.List)">buildPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPacket</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketBuilder.Fragment.html" title="class in net.i2p.router.transport.udp">PacketBuilder.Fragment</a>&gt;&nbsp;fragments,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;ackIdsRemaining,
+int&nbsp;newAckCount,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;partialACKsRemaining)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPing(net.i2p.router.transport.udp.PeerState)">buildPing</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPing</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+<div class="block">An ACK packet with no acks.
+ We use this for keepalive purposes.
+ It doesn't generate a reply, but that's ok.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildACK(net.i2p.router.transport.udp.PeerState,java.util.List)">buildACK</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildACK</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&gt;&nbsp;ackBitfields)</span></div>
+<div class="block">Build the ack packet. The list need not be sorted into full and partial;
+  this method will put all fulls before the partials in the outgoing packet.
+  An ack packet is just a data packet with no data.
+  See buildPacket() for format.
+
+  TODO MTU not enforced.
+  TODO handle huge number of acks better</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ackBitfields</code> - list of ACKBitfield instances to either fully or partially ACK</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionCreatedPacket(net.i2p.router.transport.udp.InboundEstablishState,int,net.i2p.data.SessionKey)">buildSessionCreatedPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildSessionCreatedPacket</span>&#8203;(<span class="arguments"><a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a>&nbsp;state,
+int&nbsp;externalPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ourIntroKey)</span></div>
+<div class="block">Build a new SessionCreated packet for the given peer, encrypting it
+ as necessary.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionRequestPacket(net.i2p.router.transport.udp.OutboundEstablishState)">buildSessionRequestPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildSessionRequestPacket</span>&#8203;(<span class="arguments"><a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state)</span></div>
+<div class="block">Build a new SessionRequest packet for the given peer, encrypting it
+ as necessary.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionConfirmedPackets(net.i2p.router.transport.udp.OutboundEstablishState,net.i2p.data.router.RouterIdentity)">buildSessionConfirmedPackets</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a>[]</span>&nbsp;<span class="memberName">buildSessionConfirmedPackets</span>&#8203;(<span class="arguments"><a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state,
+<a href="../../../data/router/RouterIdentity.html" title="class in net.i2p.data.router">RouterIdentity</a>&nbsp;ourIdentity)</span></div>
+<div class="block">Build a new series of SessionConfirmed packets for the given peer,
+ encrypting it as necessary.
+
+ Note that while a SessionConfirmed could in theory be fragmented,
+ in practice a RouterIdentity is 387 bytes and a single fragment is 512 bytes max,
+ so it will never be fragmented.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packets, or null if there was a problem
+
+ TODO: doesn't really return null, and caller doesn't handle null return
+ (null SigningPrivateKey should cause this?)
+ Should probably return null if buildSessionConfirmedPacket() returns null for any fragment</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionDestroyPacket(net.i2p.router.transport.udp.PeerState)">buildSessionDestroyPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildSessionDestroyPacket</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+<div class="block">Build a destroy packet, which contains a header but no body.
+  Session must be established or this will NPE in authenticate().
+  Unused until 0.8.9.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.1</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionDestroyPacket(net.i2p.router.transport.udp.OutboundEstablishState)">buildSessionDestroyPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildSessionDestroyPacket</span>&#8203;(<span class="arguments"><a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;peer)</span></div>
+<div class="block">Build a destroy packet, which contains a header but no body.
+  If the keys and ip/port are not yet set, this will return null.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>packet or null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildSessionDestroyPacket(net.i2p.router.transport.udp.InboundEstablishState)">buildSessionDestroyPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildSessionDestroyPacket</span>&#8203;(<span class="arguments"><a href="InboundEstablishState.html" title="class in net.i2p.router.transport.udp">InboundEstablishState</a>&nbsp;peer)</span></div>
+<div class="block">Build a destroy packet, which contains a header but no body.
+  If the keys and ip/port are not yet set, this will return null.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>packet or null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPeerTestFromAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey)">buildPeerTestFromAlice</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPeerTestFromAlice</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;toIP,
+int&nbsp;toPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toIntroKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey)</span></div>
+<div class="block">Build a packet as if we are Alice and we either want Bob to begin a
+ peer test or Charlie to finish a peer test.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPeerTestFromAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey)">buildPeerTestFromAlice</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPeerTestFromAlice</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;toIP,
+int&nbsp;toPort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;toMACKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey)</span></div>
+<div class="block">Build a packet as if we are Alice and we either want Bob to begin a
+ peer test or Charlie to finish a peer test.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPeerTestToAlice(java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long)">buildPeerTestToAlice</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPeerTestToAlice</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieIntroKey,
+long&nbsp;nonce)</span></div>
+<div class="block">Build a packet as if we are either Bob or Charlie and we are helping test Alice.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPeerTestToCharlie(java.net.InetAddress,int,net.i2p.data.SessionKey,long,java.net.InetAddress,int,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildPeerTestToCharlie</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPeerTestToCharlie</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+long&nbsp;nonce,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;charlieIP,
+int&nbsp;charliePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;charlieMACKey)</span></div>
+<div class="block">Build a packet as if we are Bob sending Charlie a packet to help test Alice.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPeerTestToBob(java.net.InetAddress,int,java.net.InetAddress,int,net.i2p.data.SessionKey,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildPeerTestToBob</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPeerTestToBob</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;bobIP,
+int&nbsp;bobPort,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;aliceIP,
+int&nbsp;alicePort,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;aliceIntroKey,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;bobCipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;bobMACKey)</span></div>
+<div class="block">Build a packet as if we are Charlie sending Bob a packet verifying that we will help test Alice.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>ready to send packet, or null if there was a problem</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildRelayRequest(net.i2p.router.transport.udp.UDPTransport,net.i2p.router.transport.udp.EstablishmentManager,net.i2p.router.transport.udp.OutboundEstablishState,net.i2p.data.SessionKey)">buildRelayRequest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a>&gt;</span>&nbsp;<span class="memberName">buildRelayRequest</span>&#8203;(<span class="arguments"><a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport,
+<a href="EstablishmentManager.html" title="class in net.i2p.router.transport.udp">EstablishmentManager</a>&nbsp;emgr,
+<a href="OutboundEstablishState.html" title="class in net.i2p.router.transport.udp">OutboundEstablishState</a>&nbsp;state,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ourIntroKey)</span></div>
+<div class="block">build intro packets for each of the published introducers</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>emgr</code> - only to call emgr.isValid()</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>empty list on failure</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildRelayIntro(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState,net.i2p.router.transport.udp.UDPPacketReader.RelayRequestReader)">buildRelayIntro</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildRelayIntro</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;charlie,
+<a href="UDPPacketReader.RelayRequestReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader.RelayRequestReader</a>&nbsp;request)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildRelayResponse(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.PeerState,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey)">buildRelayResponse</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildRelayResponse</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;charlie,
+long&nbsp;nonce,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;cipherKey,
+<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;macKey)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildHolePunch(java.net.InetAddress,int)">buildHolePunch</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildHolePunch</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;to,
+int&nbsp;port)</span></div>
+<div class="block">Creates an empty unauthenticated packet for hole punching.
+  Parameters must be validated previously.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="buildPacket(byte[],java.net.InetAddress,int)">buildPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="UDPPacket.html" title="class in net.i2p.router.transport.udp">UDPPacket</a></span>&nbsp;<span class="memberName">buildPacket</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;to,
+int&nbsp;port)</span></div>
+<div class="block">TESTING ONLY.
+  Creates an arbitrary packet for unit testing.
+  Null transport in constructor OK.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>IPv6</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PacketBuilder.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

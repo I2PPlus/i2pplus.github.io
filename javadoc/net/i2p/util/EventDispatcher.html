@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>EventDispatcher - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.util, interface: EventDispatcher">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EventDispatcher.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.util</a></div>
+<h1 title="Interface EventDispatcher" class="title">Interface EventDispatcher</h1>
+</div>
+<div class="contentContainer">
+<section class="description">
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="../i2ptunnel/irc/DCCClientManager.html" title="class in net.i2p.i2ptunnel.irc">DCCClientManager</a></code>, <code><a href="EventDispatcherImpl.html" title="class in net.i2p.util">EventDispatcherImpl</a></code>, <code><a href="../i2ptunnel/irc/EventReceiver.html" title="class in net.i2p.i2ptunnel.irc">EventReceiver</a></code>, <code><a href="../i2ptunnel/I2Ping.html" title="class in net.i2p.i2ptunnel">I2Ping</a></code>, <code><a href="../i2ptunnel/socks/I2PSOCKSIRCTunnel.html" title="class in net.i2p.i2ptunnel.socks">I2PSOCKSIRCTunnel</a></code>, <code><a href="../i2ptunnel/socks/I2PSOCKSTunnel.html" title="class in net.i2p.i2ptunnel.socks">I2PSOCKSTunnel</a></code>, <code><a href="../i2ptunnel/I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a></code>, <code><a href="../i2ptunnel/I2PTunnelClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelClient</a></code>, <code><a href="../i2ptunnel/I2PTunnelClientBase.html" title="class in net.i2p.i2ptunnel">I2PTunnelClientBase</a></code>, <code><a href="../i2ptunnel/I2PTunnelConnectClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelConnectClient</a></code>, <code><a href="../i2ptunnel/irc/I2PTunnelDCCClient.html" title="class in net.i2p.i2ptunnel.irc">I2PTunnelDCCClient</a></code>, <code><a href="../i2ptunnel/irc/I2PTunnelDCCServer.html" title="class in net.i2p.i2ptunnel.irc">I2PTunnelDCCServer</a></code>, <code><a href="../i2ptunnel/I2PTunnelHTTPBidirProxy.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirProxy</a></code>, <code><a href="../i2ptunnel/I2PTunnelHTTPBidirServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirServer</a></code>, <code><a href="../i2ptunnel/I2PTunnelHTTPClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPClient</a></code>, <code><a href="../i2ptunnel/I2PTunnelHTTPClientBase.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPClientBase</a></code>, <code><a href="../i2ptunnel/I2PTunnelHTTPServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPServer</a></code>, <code><a href="../i2ptunnel/I2PTunnelIRCClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelIRCClient</a></code>, <code><a href="../i2ptunnel/I2PTunnelIRCServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelIRCServer</a></code>, <code><a href="../i2ptunnel/I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code>, <code><a href="../i2ptunnel/I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code>, <code><a href="../i2ptunnel/udpTunnel/I2PTunnelUDPClientBase.html" title="class in net.i2p.i2ptunnel.udpTunnel">I2PTunnelUDPClientBase</a></code>, <code><a href="../i2ptunnel/udpTunnel/I2PTunnelUDPServerBase.html" title="class in net.i2p.i2ptunnel.udpTunnel">I2PTunnelUDPServerBase</a></code>, <code><a href="../i2ptunnel/socks/SOCKSUDPTunnel.html" title="class in net.i2p.i2ptunnel.socks">SOCKSUDPTunnel</a></code>, <code><a href="../i2ptunnel/streamr/StreamrConsumer.html" title="class in net.i2p.i2ptunnel.streamr">StreamrConsumer</a></code>, <code><a href="../i2ptunnel/streamr/StreamrProducer.html" title="class in net.i2p.i2ptunnel.streamr">StreamrProducer</a></code></dd>
+</dl>
+<hr>
+<pre>public interface <span class="typeNameLabel">EventDispatcher</span></pre>
+<div class="block">Event dispatching interface.  It allows objects to receive and
+ notify data events (basically String-&gt;Object associations) and
+ create notification chains.  To ease the usage of this interface,
+ you could define an EventDispatcherImpl attribute called
+ <code>_event</code> (as suggested in EventDispatcherImpl documentation)
+ and cut'n'paste the following default implementation:
+
+ <code>
+ public EventDispatcher getEventDispatcher() { return _event; }
+ public void attachEventDispatcher(IEventDispatcher e) { _event.attachEventDispatcher(e.getEventDispatcher()); }
+ public void detachEventDispatcher(IEventDispatcher e) { _event.detachEventDispatcher(e.getEventDispatcher()); }
+ public void notifyEvent(String e, Object a) { _event.notifyEvent(e,a); }
+ public Object getEventValue(String n) { return _event.getEventValue(n); }
+ public Set getEvents() { return _event.getEvents(); }
+ public void ignoreEvents() { _event.ignoreEvents(); }
+ public void unIgnoreEvents() { _event.unIgnoreEvents(); }
+ public Object waitEventValue(String n) { return _event.waitEventValue(n); }
+ </code>
+
+ Deprecated - Used only by I2PTunnel</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>human</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#attachEventDispatcher(net.i2p.util.EventDispatcher)">attachEventDispatcher</a></span>&#8203;(<a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;iev)</code></th>
+<td class="colLast">
+<div class="block">Attach an EventDispatcher object to the events dispatching chain.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#detachEventDispatcher(net.i2p.util.EventDispatcher)">detachEventDispatcher</a></span>&#8203;(<a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;iev)</code></th>
+<td class="colLast">
+<div class="block">Detach the specified EventDispatcher object from the events dispatching chain.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEventDispatcher()">getEventDispatcher</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get an object to be used to deliver events (usually
+ <code>this</code>, but YMMV).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEvents()">getEvents</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the names of all the events that have been received</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEventValue(java.lang.String)">getEventValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">Retrieve the value currently associated with the specified
+ event value</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ignoreEvents()">ignoreEvents</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Ignore further event notifications</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyEvent(java.lang.String,java.lang.Object)">notifyEvent</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;event,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Deliver an event</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unIgnoreEvents()">unIgnoreEvents</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Almost like the method above :-)</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#waitEventValue(java.lang.String)">waitEventValue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">Wait until the given event has received a value</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEventDispatcher()">getEventDispatcher</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a></span>&nbsp;<span class="memberName">getEventDispatcher</span>()</div>
+<div class="block">Get an object to be used to deliver events (usually
+ <code>this</code>, but YMMV).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="attachEventDispatcher(net.i2p.util.EventDispatcher)">attachEventDispatcher</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">attachEventDispatcher</span>&#8203;(<span class="arguments"><a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;iev)</span></div>
+<div class="block">Attach an EventDispatcher object to the events dispatching chain.  Note
+ that notification is not bidirectional (i.e. events notified to
+ <code>ev</code> won't reach the object calling this method).
+ Good luck, and beware of notification loops! :-)</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>iev</code> - Event object to be attached</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="detachEventDispatcher(net.i2p.util.EventDispatcher)">detachEventDispatcher</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">detachEventDispatcher</span>&#8203;(<span class="arguments"><a href="EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;iev)</span></div>
+<div class="block">Detach the specified EventDispatcher object from the events dispatching chain.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>iev</code> - Event object to be detached</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyEvent(java.lang.String,java.lang.Object)">notifyEvent</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">notifyEvent</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;event,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;args)</span></div>
+<div class="block">Deliver an event</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>event</code> - name of the event</dd>
+<dd><code>args</code> - data being stored for that event</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEventValue(java.lang.String)">getEventValue</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">getEventValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="block">Retrieve the value currently associated with the specified
+ event value</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - name of the event to query for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value (or null if none are available)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEvents()">getEvents</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getEvents</span>()</div>
+<div class="block">Retrieve the names of all the events that have been received</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A set of event names</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ignoreEvents()">ignoreEvents</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">ignoreEvents</span>()</div>
+<div class="block">Ignore further event notifications</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="unIgnoreEvents()">unIgnoreEvents</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">unIgnoreEvents</span>()</div>
+<div class="block">Almost like the method above :-)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="waitEventValue(java.lang.String)">waitEventValue</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">waitEventValue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="block">Wait until the given event has received a value</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - name of the event to wait for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value specified for that event</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EventDispatcher.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

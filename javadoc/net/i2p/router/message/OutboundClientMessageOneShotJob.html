@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>OutboundClientMessageOneShotJob - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.message, class: OutboundClientMessageOneShotJob">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":9,"i2":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OutboundClientMessageOneShotJob.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.message</a></div>
+<h1 title="Class OutboundClientMessageOneShotJob" class="title">Class OutboundClientMessageOneShotJob</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../JobImpl.html" title="class in net.i2p.router">net.i2p.router.JobImpl</a>
+<div class="inheritance">net.i2p.router.message.OutboundClientMessageOneShotJob</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../Job.html" title="interface in net.i2p.router">Job</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">OutboundClientMessageOneShotJob</span>
+extends <a href="../JobImpl.html" title="class in net.i2p.router">JobImpl</a></pre>
+<div class="block">Send a client message out an outbound tunnel and into an inbound
+ tunnel on the target leaseSet.  This also (sometimes) bundles the sender's leaseSet and
+ a DeliveryStatusMessage (for ACKing any sessionTags used in the garlic).
+
+ <p>
+ This class is where we make several important decisions about
+ what to send and what path to send it over. These decisions
+ will dramatically affect:
+ <ul>
+ <li>Local performance and outbound bandwidth usage
+ <li>Streaming performance and reliability
+ <li>Overall network performace and connection congestion
+ </ul>
+
+ <p>
+ For the outbound message, we build and encrypt a garlic message,
+ after making the following decisions:
+ <ul>
+ <li>Whether to bundle our leaseset
+ <li>Whether to bundle session tags, and if so, how many
+ <li>Whether to bundle an encrypted DeliveryStatusMessage to be returned
+     to us as an acknowledgement
+ </ul>
+
+ <p>
+ Also, we make the following path selection decisions:
+ <ul>
+ <li>What outbound client tunnel of ours to use send the message out
+ <li>What inbound client tunnel of his (i.e. lease, chosen from his leaseset)
+     to use to send the message in
+ <li>If a DeliveryStatusMessage is bundled, What inbound client tunnel of ours
+     do we specify to receive it
+ </ul>
+
+ <p>
+ Note that the 4th tunnel in the DeliveryStatusMessage's round trip (his outbound tunnel)
+ is not selected by us, it is chosen by the recipient.
+
+ <p>
+ If a DeliveryStatusMessage is sent, a listener is registered to wait for its reply.
+ When a reply is received, or the timeout is reached, this is noted
+ and will influence subsequent bundling and path selection decisions.
+
+ <p>
+ Path selection decisions are cached and reused if still valid and if
+ previous deliveries were apparently successful. This significantly
+ reduces out-of-order delivery and network connection congestion.
+ Caching is based on the local/remote destination pair.
+
+ <p>
+ Bundling decisions, and both messaging and reply expiration times, are generally
+ set here but may be overridden by the client on a per-message basis.
+ Within clients, there may be overall settings or per-message settings.
+ The streaming lib also overrides defaults for some messages.
+ A datagram-based DHT application may need significantly different
+ settings than a streaming application. For an application such as
+ a bittorrent client that sends both types of traffic on the same tunnels,
+ it is important to tune the settings for efficiency and performance.
+ The per-session and per-message overrides are set via I2CP.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BUNDLE_REPLY_LEASESET">BUNDLE_REPLY_LEASESET</a></span></code></th>
+<td class="colLast">
+<div class="block">NOTE: Changed as of 0.9.2.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OVERALL_TIMEOUT_MS_PARAM">OVERALL_TIMEOUT_MS_PARAM</a></span></code></th>
+<td class="colLast">
+<div class="block">final timeout (in milliseconds) that the outbound message will fail in.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.<a href="../JobImpl.html" title="class in net.i2p.router">JobImpl</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.JobImpl">
+</a><code><a href="../JobImpl.html#_id">_id</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.message.OutboundCache,net.i2p.router.ClientMessage)">OutboundClientMessageOneShotJob</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="OutboundCache.html" title="class in net.i2p.router.message">OutboundCache</a>&nbsp;cache,
+<a href="../ClientMessage.html" title="class in net.i2p.router">ClientMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">Send it.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Descriptive name of the task</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(net.i2p.router.RouterContext)">init</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">call once only</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#runJob()">runJob</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Actually perform the task.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.<a href="../JobImpl.html" title="class in net.i2p.router">JobImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.JobImpl">
+</a><code><a href="../JobImpl.html#dropped()">dropped</a>, <a href="../JobImpl.html#getAddedBy()">getAddedBy</a>, <a href="../JobImpl.html#getContext()">getContext</a>, <a href="../JobImpl.html#getJobId()">getJobId</a>, <a href="../JobImpl.html#getMadeReadyOn()">getMadeReadyOn</a>, <a href="../JobImpl.html#getTiming()">getTiming</a>, <a href="../JobImpl.html#madeReady()">madeReady</a>, <a href="../JobImpl.html#requeue(long)">requeue</a>, <a href="../JobImpl.html#toString()">toString</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="OVERALL_TIMEOUT_MS_PARAM">OVERALL_TIMEOUT_MS_PARAM</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OVERALL_TIMEOUT_MS_PARAM</span></div>
+<div class="block">final timeout (in milliseconds) that the outbound message will fail in.
+ This can be overridden in the router.config or the client's session config
+ (the client's session config takes precedence)</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.message.OutboundClientMessageOneShotJob.OVERALL_TIMEOUT_MS_PARAM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="BUNDLE_REPLY_LEASESET">BUNDLE_REPLY_LEASESET</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">BUNDLE_REPLY_LEASESET</span></div>
+<div class="block">NOTE: Changed as of 0.9.2.
+
+ Defaults to true.
+
+ If the client's config specifies shouldBundleReplyInfo=true, messages sent from
+ that client to any peers will periodically include the sending destination's
+ current LeaseSet (allowing the recipient to reply without having to do a full
+ netDb lookup).  This should improve performance during the initial negotiations.
+
+ For clients that do not publish their LeaseSet, this option must be true
+ for any reply to be possible.
+
+ Setting to "false" may save significant outbound bandwidth, especially if
+ the client is configured with a large number of inbound tunnels (Leases).
+ If replies are still required, this may shift the bandwidth burden to
+ the far-end client and the floodfill.
+
+ There are several cases where "false" is may be appropriate:
+ <ul><li>
+ Unidirectional communication, no reply required
+ <li>
+ LeaseSet is published and higher reply latency is acceptable
+ <li>
+ LeaseSet is published, client is a "server", all connections are inbound
+ so the connecting far-end destination obviously has the leaseset already.
+ Connections are either short, or it is acceptable for latency on a long-lived
+ connection to temporarily increase while the other end re-fetches the LeaseSet
+ after expiration.
+ HTTP servers may fit these requirements.
+ </li></ul></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.message.OutboundClientMessageOneShotJob.BUNDLE_REPLY_LEASESET">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.message.OutboundCache,net.i2p.router.ClientMessage)">OutboundClientMessageOneShotJob</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">OutboundClientMessageOneShotJob</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="OutboundCache.html" title="class in net.i2p.router.message">OutboundCache</a>&nbsp;cache,
+<a href="../ClientMessage.html" title="class in net.i2p.router">ClientMessage</a>&nbsp;msg)</span></div>
+<div class="block">Send it.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>msg</code> - may have a null payload for ratchet-layer acks</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="init(net.i2p.router.RouterContext)">init</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">init</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx)</span></div>
+<div class="block">call once only</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getName</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Job.html#getName()">Job</a></code></span></div>
+<div class="block">Descriptive name of the task</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="runJob()">runJob</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">runJob</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Job.html#runJob()">Job</a></code></span></div>
+<div class="block">Actually perform the task.  This call blocks until the Job is complete.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OutboundClientMessageOneShotJob.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

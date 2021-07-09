@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ProfileOrganizer - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.peermanager, class: ProfileOrganizer">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":9,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":42,"i46":42,"i47":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ProfileOrganizer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.peermanager</a></div>
+<h1 title="Class ProfileOrganizer" class="title">Class ProfileOrganizer</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.peermanager.ProfileOrganizer</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">ProfileOrganizer</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Keep the peer profiles organized according to the tiered model.  This does not
+ actively update anything - the reorganize() method should be called periodically
+ to recalculate thresholds and move profiles into the appropriate tiers, and addProfile()
+ should be used to add new profiles (placing them into the appropriate groupings).</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="ProfileOrganizer.Slice.html" title="enum in net.i2p.router.peermanager">ProfileOrganizer.Slice</a></span></code></th>
+<td class="colLast">
+<div class="block">Replaces integer subTierMode argument, for clarity</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_MINIMUM_FAST_PEERS">DEFAULT_MINIMUM_FAST_PEERS</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS">DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_MINIMUM_FAST_PEERS">PROP_MINIMUM_FAST_PEERS</a></span></code></th>
+<td class="colLast">
+<div class="block">Defines the minimum number of 'fast' peers that the organizer should select.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_MINIMUM_HIGH_CAPACITY_PEERS">PROP_MINIMUM_HIGH_CAPACITY_PEERS</a></span></code></th>
+<td class="colLast">
+<div class="block">Defines the minimum number of 'high capacity' peers that the organizer should
+ select when using the mean - if less than this many are available, select the
+ capacity by the median.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">ProfileOrganizer</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addProfile(net.i2p.router.peermanager.PeerProfile)">addProfile</a></span>&#8203;(<a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a>&nbsp;profile)</code></th>
+<td class="colLast">
+<div class="block">Add the new profile, returning the old value (or null if no profile existed)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearProfiles()">clearProfiles</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countActivePeers()">countActivePeers</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countActivePeersInLastHour()">countActivePeersInLastHour</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countFailingPeers()">countFailingPeers</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countFastPeers()">countFastPeers</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countHighCapacityPeers()">countHighCapacityPeers</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countNotFailingPeers()">countNotFailingPeers</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countWellIntegratedPeers()">countWellIntegratedPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use ProfileManager.getPeersByCapability('f').size()</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exportProfile(net.i2p.data.Hash,java.io.OutputStream)">exportProfile</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;profile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCapacityThreshold()">getCapacityThreshold</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIntegrationThreshold()">getIntegrationThreshold</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaximumFastPeers()">getMaximumFastPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">fixme add config  @since 0.7.10</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaximumHighCapPeers()">getMaximumHighCapPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">fixme add config  @since 0.7.11</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinimumFastPeers()">getMinimumFastPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Defines the minimum number of 'fast' peers that the organizer should select.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinimumHighCapacityPeers()">getMinimumHighCapacityPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Defines the minimum number of 'high capacity' peers that the organizer should select.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>(package private) <a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrCreateProfileNonblocking(net.i2p.data.Hash)">getOrCreateProfileNonblocking</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Retrieve the profile for the given peer, if one exists.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProfile(net.i2p.data.Hash)">getProfile</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Retrieve the profile for the given peer, if one exists (else null).</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProfileNonblocking(net.i2p.data.Hash)">getProfileNonblocking</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Retrieve the profile for the given peer, if one exists (else null).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSpeedThreshold()">getSpeedThreshold</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUs()">getUs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFailing(net.i2p.data.Hash)">isFailing</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Deprecated for now, always false</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFast(net.i2p.data.Hash)">isFast</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHighCapacity(net.i2p.data.Hash)">isHighCapacity</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isSelectable(net.i2p.data.Hash)">isSelectable</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isWellIntegrated(net.i2p.data.Hash)">isWellIntegrated</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#main(java.lang.String%5B%5D)">main</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">Read in all of the profiles specified and print out
+ their calculated values.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peerSendsBadReplies(net.i2p.data.Hash)">peerSendsBadReplies</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Does the given peer send us bad replies - either invalid store messages
+ (expired, corrupt, etc) or unreachable replies (pointing towards routers
+ that don't exist).</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reorganize()">reorganize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Place peers into the correct tier, as well as expand/contract and even drop profiles
+ according to whatever limits are in place.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reorganize(boolean,boolean)">reorganize</a></span>&#8203;(boolean&nbsp;shouldCoalesce,
+boolean&nbsp;shouldDecay)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectActiveNotFailingPeers(int,java.util.Set,java.util.Set)">selectActiveNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are both not failing and we're actively
+ talking with.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectAllNotFailingPeers(int,java.util.Set,java.util.Set,boolean)">selectAllNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are not failing.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectAllPeers()">selectAllPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Find the hashes for all peers we are actively profiling</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectFailingPeers(int,java.util.Set,java.util.Set)">selectFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block">I'm not quite sure why you'd want this...</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectFastPeers(int,java.util.Set,java.util.Set)">selectFastPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectFastPeers(int,java.util.Set,java.util.Set,int)">selectFastPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectFastPeers(int,java.util.Set,java.util.Set,net.i2p.data.SessionKey,net.i2p.router.peermanager.ProfileOrganizer.Slice)">selectFastPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+<a href="../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;randomKey,
+<a href="ProfileOrganizer.Slice.html" title="enum in net.i2p.router.peermanager">ProfileOrganizer.Slice</a>&nbsp;subTierMode)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectHighCapacityPeers(int,java.util.Set,java.util.Set)">selectHighCapacityPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that have a high capacity</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectHighCapacityPeers(int,java.util.Set,java.util.Set,int)">selectHighCapacityPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectNotFailingPeers(int,java.util.Set,java.util.Set)">selectNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are not failing, preferring ones that
+ we are already talking with</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectNotFailingPeers(int,java.util.Set,java.util.Set,boolean)">selectNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectNotFailingPeers(int,java.util.Set,java.util.Set,boolean,int)">selectNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing,
+int&nbsp;mask)</code></th>
+<td class="colLast">
+<div class="block">Return a set of Hashes for peers that are not failing, preferring ones that
+ we are already talking with</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectNotFailingPeers(int,java.util.Set,java.util.Set,int)">selectNotFailingPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectPeersLocallyUnreachable()">selectPeersLocallyUnreachable</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the peers the transport layer thinks are unreachable
+ and peers requiring introducers.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectPeersRecentlyRejecting()">selectPeersRecentlyRejecting</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the peers that have recently rejected us for bandwidth
+ recent == last 20s</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectWellIntegratedPeers(int,java.util.Set,java.util.Set)">selectWellIntegratedPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectWellIntegratedPeers(int,java.util.Set,java.util.Set,int)">selectWellIntegratedPeers</a></span>&#8203;(int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUs(net.i2p.data.Hash)">setUs</a></span>&#8203;(<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;us)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_MINIMUM_FAST_PEERS">PROP_MINIMUM_FAST_PEERS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_MINIMUM_FAST_PEERS</span></div>
+<div class="block">Defines the minimum number of 'fast' peers that the organizer should select.  See
+ <a href="#getMinimumFastPeers()"><code>getMinimumFastPeers()</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.peermanager.ProfileOrganizer.PROP_MINIMUM_FAST_PEERS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_MINIMUM_FAST_PEERS">DEFAULT_MINIMUM_FAST_PEERS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_MINIMUM_FAST_PEERS</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.peermanager.ProfileOrganizer.DEFAULT_MINIMUM_FAST_PEERS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_MINIMUM_HIGH_CAPACITY_PEERS">PROP_MINIMUM_HIGH_CAPACITY_PEERS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_MINIMUM_HIGH_CAPACITY_PEERS</span></div>
+<div class="block">Defines the minimum number of 'high capacity' peers that the organizer should
+ select when using the mean - if less than this many are available, select the
+ capacity by the median.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.peermanager.ProfileOrganizer.PROP_MINIMUM_HIGH_CAPACITY_PEERS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS">DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.router.peermanager.ProfileOrganizer.DEFAULT_MINIMUM_HIGH_CAPACITY_PEERS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">ProfileOrganizer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">ProfileOrganizer</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="setUs(net.i2p.data.Hash)">setUs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setUs</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;us)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUs()">getUs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getUs</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSpeedThreshold()">getSpeedThreshold</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getSpeedThreshold</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCapacityThreshold()">getCapacityThreshold</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getCapacityThreshold</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getIntegrationThreshold()">getIntegrationThreshold</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getIntegrationThreshold</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProfile(net.i2p.data.Hash)">getProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></span>&nbsp;<span class="memberName">getProfile</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Retrieve the profile for the given peer, if one exists (else null).
+ Blocking if a reorganize is happening.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getProfileNonblocking(net.i2p.data.Hash)">getProfileNonblocking</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></span>&nbsp;<span class="memberName">getProfileNonblocking</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Retrieve the profile for the given peer, if one exists (else null).
+ Non-blocking. Returns null if a reorganize is happening.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOrCreateProfileNonblocking(net.i2p.data.Hash)">getOrCreateProfileNonblocking</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></span>&nbsp;<span class="memberName">getOrCreateProfileNonblocking</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Retrieve the profile for the given peer, if one exists.
+ If it does not exist and it can get the lock, it will create and return a new profile.
+ Non-blocking. Returns null if a reorganize is happening.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.47</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addProfile(net.i2p.router.peermanager.PeerProfile)">addProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a></span>&nbsp;<span class="memberName">addProfile</span>&#8203;(<span class="arguments"><a href="PeerProfile.html" title="class in net.i2p.router.peermanager">PeerProfile</a>&nbsp;profile)</span></div>
+<div class="block">Add the new profile, returning the old value (or null if no profile existed)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countFastPeers()">countFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countFastPeers</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countHighCapacityPeers()">countHighCapacityPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countHighCapacityPeers</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countWellIntegratedPeers()">countWellIntegratedPeers</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countWellIntegratedPeers</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">use ProfileManager.getPeersByCapability('f').size()</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countNotFailingPeers()">countNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countNotFailingPeers</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countFailingPeers()">countFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countFailingPeers</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countActivePeers()">countActivePeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countActivePeers</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countActivePeersInLastHour()">countActivePeersInLastHour</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countActivePeersInLastHour</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isFast(net.i2p.data.Hash)">isFast</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isFast</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isHighCapacity(net.i2p.data.Hash)">isHighCapacity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isHighCapacity</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isWellIntegrated(net.i2p.data.Hash)">isWellIntegrated</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isWellIntegrated</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isFailing(net.i2p.data.Hash)">isFailing</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isFailing</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Deprecated for now, always false</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearProfiles()">clearProfiles</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">clearProfiles</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.8</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="peerSendsBadReplies(net.i2p.data.Hash)">peerSendsBadReplies</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">peerSendsBadReplies</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Does the given peer send us bad replies - either invalid store messages
+ (expired, corrupt, etc) or unreachable replies (pointing towards routers
+ that don't exist).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="exportProfile(net.i2p.data.Hash,java.io.OutputStream)">exportProfile</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">exportProfile</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;profile,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if successful, false if not found</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectFastPeers(int,java.util.Set,java.util.Set)">selectFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectFastPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.  If an insufficient
+ number of peers are both fast and reliable, fall back onto high capacity peers, and if that
+ doesn't contain sufficient peers, fall back onto not failing peers, and even THAT doesn't
+ have sufficient peers, fall back onto failing peers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>howMany</code> - how many peers are desired</dd>
+<dd><code>exclude</code> - set of Hashes for routers that we don't want selected</dd>
+<dd><code>matches</code> - set to store the return value in</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectFastPeers(int,java.util.Set,java.util.Set,int)">selectFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectFastPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</span></div>
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.  If an insufficient
+ number of peers are both fast and reliable, fall back onto high capacity peers, and if that
+ doesn't contain sufficient peers, fall back onto not failing peers, and even THAT doesn't
+ have sufficient peers, fall back onto failing peers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>howMany</code> - how many peers are desired</dd>
+<dd><code>exclude</code> - set of Hashes for routers that we don't want selected</dd>
+<dd><code>matches</code> - set to store the return value in</dd>
+<dd><code>mask</code> - 0-4 Number of bytes to match to determine if peers in the same IP range should
+             not be in the same tunnel. 0 = disable check; 1 = /8; 2 = /16; 3 = /24; 4 = exact IP match</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectFastPeers(int,java.util.Set,java.util.Set,net.i2p.data.SessionKey,net.i2p.router.peermanager.ProfileOrganizer.Slice)">selectFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectFastPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+<a href="../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;randomKey,
+<a href="ProfileOrganizer.Slice.html" title="enum in net.i2p.router.peermanager">ProfileOrganizer.Slice</a>&nbsp;subTierMode)</span></div>
+<div class="block">Return a set of Hashes for peers that are both fast and reliable.  If an insufficient
+ number of peers are both fast and reliable, fall back onto high capacity peers, and if that
+ doesn't contain sufficient peers, fall back onto not failing peers, and even THAT doesn't
+ have sufficient peers, fall back onto failing peers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>howMany</code> - how many peers are desired</dd>
+<dd><code>exclude</code> - set of Hashes for routers that we don't want selected</dd>
+<dd><code>matches</code> - set to store the return value in</dd>
+<dd><code>randomKey</code> - used for deterministic random partitioning into subtiers</dd>
+<dd><code>subTierMode</code> - 0 or 2-7:
+<pre>
+    0: no partitioning, use entire tier
+    2: return only from group 0 or 1
+    3: return only from group 2 or 3
+    4: return only from group 0
+    5: return only from group 1
+    6: return only from group 2
+    7: return only from group 3
+</pre></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectHighCapacityPeers(int,java.util.Set,java.util.Set)">selectHighCapacityPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectHighCapacityPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="block">Return a set of Hashes for peers that have a high capacity</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectHighCapacityPeers(int,java.util.Set,java.util.Set,int)">selectHighCapacityPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectHighCapacityPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mask</code> - 0-4 Number of bytes to match to determine if peers in the same IP range should
+             not be in the same tunnel. 0 = disable check; 1 = /8; 2 = /16; 3 = /24; 4 = exact IP match</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectWellIntegratedPeers(int,java.util.Set,java.util.Set)">selectWellIntegratedPeers</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectWellIntegratedPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<div class="block">Return a set of Hashes for peers that are well integrated into the network.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectWellIntegratedPeers(int,java.util.Set,java.util.Set,int)">selectWellIntegratedPeers</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectWellIntegratedPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+<div class="block">Return a set of Hashes for peers that are well integrated into the network.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mask</code> - 0-4 Number of bytes to match to determine if peers in the same IP range should
+             not be in the same tunnel. 0 = disable check; 1 = /8; 2 = /16; 3 = /24; 4 = exact IP match</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectNotFailingPeers(int,java.util.Set,java.util.Set)">selectNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="block">Return a set of Hashes for peers that are not failing, preferring ones that
+ we are already talking with</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectNotFailingPeers(int,java.util.Set,java.util.Set,int)">selectNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+int&nbsp;mask)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mask</code> - ignored, should call locked_selectPeers, to be fixed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectNotFailingPeers(int,java.util.Set,java.util.Set,boolean)">selectNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectNotFailingPeers(int,java.util.Set,java.util.Set,boolean,int)">selectNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing,
+int&nbsp;mask)</span></div>
+<div class="block">Return a set of Hashes for peers that are not failing, preferring ones that
+ we are already talking with</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>howMany</code> - how many peers to find</dd>
+<dd><code>exclude</code> - what peers to skip (may be null)</dd>
+<dd><code>matches</code> - set to store the matches in</dd>
+<dd><code>onlyNotFailing</code> - if true, don't include any high capacity peers</dd>
+<dd><code>mask</code> - ignored, should call locked_selectPeers, to be fixed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectActiveNotFailingPeers(int,java.util.Set,java.util.Set)">selectActiveNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectActiveNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="block">Return a set of Hashes for peers that are both not failing and we're actively
+ talking with.
+
+ We use commSystem().isEstablished(), not profile.getIsActive(), as the
+ NTCP idle time is now shorter than the 5 minute getIsActive() threshold,
+ and we're using this to try and limit connections.
+
+ Caution, this does NOT cascade further to non-connected peers, so it should only
+ be used when there is a good number of connected peers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exclude</code> - non-null, WARNING - side effect, all not-connected peers are added
+ No mask parameter, to be fixed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectAllNotFailingPeers(int,java.util.Set,java.util.Set,boolean)">selectAllNotFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectAllNotFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches,
+boolean&nbsp;onlyNotFailing)</span></div>
+<div class="block">Return a set of Hashes for peers that are not failing.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectFailingPeers(int,java.util.Set,java.util.Set)">selectFailingPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">selectFailingPeers</span>&#8203;(<span class="arguments">int&nbsp;howMany,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;exclude,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;matches)</span></div>
+<div class="block">I'm not quite sure why you'd want this... (other than for failover from the better results)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectPeersLocallyUnreachable()">selectPeersLocallyUnreachable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">selectPeersLocallyUnreachable</span>()</div>
+<div class="block">Get the peers the transport layer thinks are unreachable
+ and peers requiring introducers.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectPeersRecentlyRejecting()">selectPeersRecentlyRejecting</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">selectPeersRecentlyRejecting</span>()</div>
+<div class="block">Get the peers that have recently rejected us for bandwidth
+ recent == last 20s</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="selectAllPeers()">selectAllPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">selectAllPeers</span>()</div>
+<div class="block">Find the hashes for all peers we are actively profiling</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reorganize()">reorganize</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">reorganize</span>()</div>
+<div class="block">Place peers into the correct tier, as well as expand/contract and even drop profiles
+ according to whatever limits are in place.  Peer profiles are not coalesced during
+ this method, but the averages are recalculated.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reorganize(boolean,boolean)">reorganize</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">reorganize</span>&#8203;(<span class="arguments">boolean&nbsp;shouldCoalesce,
+boolean&nbsp;shouldDecay)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isSelectable(net.i2p.data.Hash)">isSelectable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isSelectable</span>&#8203;(<span class="arguments"><a href="../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMinimumFastPeers()">getMinimumFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMinimumFastPeers</span>()</div>
+<div class="block">Defines the minimum number of 'fast' peers that the organizer should select.  If
+ the profile calculators derive a threshold that does not select at least this many peers,
+ the threshold will be overridden to make sure this many peers are in the fast+reliable group.
+ This parameter should help deal with a lack of diversity in the tunnels created when some
+ peers are particularly fast.
+
+ Increase default for every local destination, up to a max.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>minimum number of peers to be placed in the 'fast' group</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMaximumFastPeers()">getMaximumFastPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMaximumFastPeers</span>()</div>
+<div class="block">fixme add config  @since 0.7.10</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMaximumHighCapPeers()">getMaximumHighCapPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMaximumHighCapPeers</span>()</div>
+<div class="block">fixme add config  @since 0.7.11</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMinimumHighCapacityPeers()">getMinimumHighCapacityPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMinimumHighCapacityPeers</span>()</div>
+<div class="block">Defines the minimum number of 'high capacity' peers that the organizer should select.  If
+ the profile calculators derive a threshold that does not select at least this many peers,
+ the threshold will be overridden to make sure this many peers are in the fast+reliable group.
+ This parameter should help deal with a lack of diversity in the tunnels created when some
+ peers are particularly fast.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>minimum number of peers to be placed in the 'high capacity' group</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="main(java.lang.String[])">main</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">main</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">Read in all of the profiles specified and print out
+ their calculated values.  Usage: <pre>
+  ProfileOrganizer [filename]*
+ </pre></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ProfileOrganizer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

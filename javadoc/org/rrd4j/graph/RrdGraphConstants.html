@@ -1,0 +1,1657 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RrdGraphConstants - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.graph, interface: RrdGraphConstants">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdGraphConstants.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li>Method</li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li>Method</li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.graph</a></div>
+<h1 title="Interface RrdGraphConstants" class="title">Interface RrdGraphConstants</h1>
+</div>
+<div class="contentContainer">
+<section class="description">
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="Axis.html" title="class in org.rrd4j.graph">Axis</a></code>, <code><a href="CommentText.html" title="class in org.rrd4j.graph">CommentText</a></code>, <code><a href="LegendComposer.html" title="class in org.rrd4j.graph">LegendComposer</a></code>, <code><a href="LegendText.html" title="class in org.rrd4j.graph">LegendText</a></code>, <code><a href="PrintText.html" title="class in org.rrd4j.graph">PrintText</a></code>, <code><a href="RrdGraph.html" title="class in org.rrd4j.graph">RrdGraph</a></code>, <code><a href="RrdGraphDef.html" title="class in org.rrd4j.graph">RrdGraphDef</a></code>, <code><a href="TimeAxis.html" title="class in org.rrd4j.graph">TimeAxis</a></code>, <code><a href="ValueAxis.html" title="class in org.rrd4j.graph">ValueAxis</a></code>, <code><a href="ValueAxisLogarithmic.html" title="class in org.rrd4j.graph">ValueAxisLogarithmic</a></code>, <code><a href="ValueAxisMrtg.html" title="class in org.rrd4j.graph">ValueAxisMrtg</a></code></dd>
+</dl>
+<hr>
+<pre>public interface <span class="typeNameLabel">RrdGraphConstants</span></pre>
+<div class="block">Class to represent various constants used for graphing. No methods are specified.
+ <p>
+ The fonts settings can be changed use some on the following properties, sorted by increased priority.
+ <ol>
+ <li><code>org.rrd4j.fonts.properties</code></li>
+ <li><code>org.rrd4j.fonts.properties.url</code></li>
+ <li><code>org.rrd4j.font.plain</code></li>
+ <li><code>org.rrd4j.font.bold</code></li>
+ <li><code>org.rrd4j.font.plain.url</code></li>
+ <li><code>org.rrd4j.font.bold.url</code></li>
+ </ol>
+ 
+ If either <code>org.rrd4j.fonts.properties</code> or <code>org.rrd4j.fonts.properties.url</code> is used, the file provided contains any other property of lower priority .
+ The last four properties defines directly the plain or bold font. All properties URL related (<code>org.rrd4j.fonts.url</code>, <code>org.rrd4j.font.plain.url</code> and
+ <code>org.rrd4j.font.bold.url</code>) download data from an URL. They are useful when those data are provided by the file system, defined by the OS. 
+ The others search for the data in the classpath. So it's easy to provided font-pack as a jar that's put before RRD44J's jar.
+ <p>
+ The default settings uses <code>org.rrd4j.fonts.properties</code> looking for the file <code>/rrd4jfonts.properties</code> in the classpath.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="RrdGraphConstants.FontConstructor.html" title="class in org.rrd4j.graph">RrdGraphConstants.FontConstructor</a></span></code></th>
+<td class="colLast">
+<div class="block">Font constructor, to use embedded fonts.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span></code></th>
+<td class="colLast">
+<div class="block">Allowed font tag names which can be used in <a href="RrdGraphDef.html#setFont(org.rrd4j.graph.RrdGraphConstants.FontTag,java.awt.Font)"><code>RrdGraphDef.setFont(org.rrd4j.graph.RrdGraphConstants.FontTag, java.awt.Font)</code></a> method</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ALIGN_CENTER_MARKER">ALIGN_CENTER_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ALIGN_JUSTIFIED_MARKER">ALIGN_JUSTIFIED_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ALIGN_LEFT_MARKER">ALIGN_LEFT_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ALIGN_LEFTNONL_MARKER">ALIGN_LEFTNONL_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ALIGN_RIGHT_MARKER">ALIGN_RIGHT_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BLIND_COLOR">BLIND_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">An transparent color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_ARROW">COLOR_ARROW</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_BACK">COLOR_BACK</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_CANVAS">COLOR_CANVAS</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_FONT">COLOR_FONT</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_FRAME">COLOR_FRAME</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_GRID">COLOR_GRID</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_MGRID">COLOR_MGRID</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_SHADEA">COLOR_SHADEA</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_SHADEB">COLOR_SHADEB</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_XAXIS">COLOR_XAXIS</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#COLOR_YAXIS">COLOR_YAXIS</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DAY">DAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent day</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_ARROW_COLOR">DEFAULT_ARROW_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default arrow color</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_BACK_COLOR">DEFAULT_BACK_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph background color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_BASE">DEFAULT_BASE</a></span></code></th>
+<td class="colLast">
+<div class="block">Default value base</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_CANVAS_COLOR">DEFAULT_CANVAS_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph canvas color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_END">DEFAULT_END</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph ending time</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_FONT_COLOR">DEFAULT_FONT_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default font color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_FRAME_COLOR">DEFAULT_FRAME_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default frame color</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_GRID_COLOR">DEFAULT_GRID_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default minor grid color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_HEIGHT">DEFAULT_HEIGHT</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph height</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_IMAGE_FORMAT">DEFAULT_IMAGE_FORMAT</a></span></code></th>
+<td class="colLast">
+<div class="block">Default image format</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_IMAGE_QUALITY">DEFAULT_IMAGE_QUALITY</a></span></code></th>
+<td class="colLast">
+<div class="block">Default image quality, used only for jpeg graphs</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_LARGE_FONT">DEFAULT_LARGE_FONT</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph large font</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_MGRID_COLOR">DEFAULT_MGRID_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default major grid color</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_SHADEA_COLOR">DEFAULT_SHADEA_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default top-left graph shade color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_SHADEB_COLOR">DEFAULT_SHADEB_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default bottom-right graph shade color</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_SMALL_FONT">DEFAULT_SMALL_FONT</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph small font</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_START">DEFAULT_START</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph starting time</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_UNITS_LENGTH">DEFAULT_UNITS_LENGTH</a></span></code></th>
+<td class="colLast">
+<div class="block">Default units length</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_WIDTH">DEFAULT_WIDTH</a></span></code></th>
+<td class="colLast">
+<div class="block">Default graph width</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_XAXIS_COLOR">DEFAULT_XAXIS_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default x-axis color</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_YAXIS_COLOR">DEFAULT_YAXIS_COLOR</a></span></code></th>
+<td class="colLast">
+<div class="block">Default x-axis color</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FIRST_DAY_OF_WEEK">FIRST_DAY_OF_WEEK</a></span></code></th>
+<td class="colLast">
+<div class="block">Default first day of the week (obtained from the default locale)</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_AXIS">FONTTAG_AXIS</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_DEFAULT">FONTTAG_DEFAULT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_LEGEND">FONTTAG_LEGEND</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_TITLE">FONTTAG_TITLE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_UNIT">FONTTAG_UNIT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FONTTAG_WATERMARK">FONTTAG_WATERMARK</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FRIDAY">FRIDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Friday</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#GATOR_FONT">GATOR_FONT</a></span></code></th>
+<td class="colLast">
+<div class="block">Font for the Gator</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#GLUE_MARKER">GLUE_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Stroke.html?is-external=true" title="class or interface in java.awt" class="externalLink">Stroke</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#GRID_STROKE">GRID_STROKE</a></span></code></th>
+<td class="colLast">
+<div class="block">Stroke used to draw grid</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HH_MM">HH_MM</a></span></code></th>
+<td class="colLast">
+<div class="block">HH:mm time format</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#HOUR">HOUR</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent hour</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#IN_MEMORY_IMAGE">IN_MEMORY_IMAGE</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent in-memory image name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LEGEND_BOX">LEGEND_BOX</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LEGEND_BOX_SPACE">LEGEND_BOX_SPACE</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LEGEND_INTERSPACING">LEGEND_INTERSPACING</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LEGEND_LEADING">LEGEND_LEADING</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#LEGEND_LEADING_SMALL">LEGEND_LEADING_SMALL</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MINUTE">MINUTE</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent minute</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MONDAY">MONDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Monday</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MONTH">MONTH</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent month</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NO_JUSTIFICATION_MARKER">NO_JUSTIFICATION_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_BOTTOM">PADDING_BOTTOM</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_LEFT">PADDING_LEFT</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_LEGEND">PADDING_LEGEND</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_PLOT">PADDING_PLOT</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_RIGHT">PADDING_RIGHT</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_TITLE">PADDING_TITLE</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_TOP">PADDING_TOP</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PADDING_VLABEL">PADDING_VLABEL</a></span></code></th>
+<td class="colLast">
+<div class="block">Used internally</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTBOLD">PROPERTYFONTBOLD</a></span></code></th>
+<td class="colLast">
+<div class="block">The name of the bold font, used to define the <a href="#DEFAULT_LARGE_FONT"><code>DEFAULT_LARGE_FONT</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTBOLDURL">PROPERTYFONTBOLDURL</a></span></code></th>
+<td class="colLast">
+<div class="block">An URL to the bold font, used to define the <a href="#DEFAULT_LARGE_FONT"><code>DEFAULT_LARGE_FONT</code></a>.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTPLAIN">PROPERTYFONTPLAIN</a></span></code></th>
+<td class="colLast">
+<div class="block">The name of the plain font, used to define the <a href="#DEFAULT_SMALL_FONT"><code>DEFAULT_SMALL_FONT</code></a> and the <a href="#GATOR_FONT"><code>GATOR_FONT</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTPLAINURL">PROPERTYFONTPLAINURL</a></span></code></th>
+<td class="colLast">
+<div class="block">An URL to the plain font, used to define the <a href="#DEFAULT_SMALL_FONT"><code>DEFAULT_SMALL_FONT</code></a> and the <a href="#GATOR_FONT"><code>GATOR_FONT</code></a>.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTSPROPERTIES">PROPERTYFONTSPROPERTIES</a></span></code></th>
+<td class="colLast">
+<div class="block">The file that contains font configuration searched in the class path.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROPERTYFONTSURL">PROPERTYFONTSURL</a></span></code></th>
+<td class="colLast">
+<div class="block">A possible URL to a configuration file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SATURDAY">SATURDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Saturday</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SECOND">SECOND</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent second</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SUNDAY">SUNDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Sunday</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#THURSDAY">THURSDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Thursday</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Stroke.html?is-external=true" title="class or interface in java.awt" class="externalLink">Stroke</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TICK_STROKE">TICK_STROKE</a></span></code></th>
+<td class="colLast">
+<div class="block">Stroke used to draw ticks</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TUESDAY">TUESDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Tuesday</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#VERTICAL_SPACING_MARKER">VERTICAL_SPACING_MARKER</a></span></code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#WEDNESDAY">WEDNESDAY</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent Wednesday</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#WEEK">WEEK</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent week</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#YEAR">YEAR</a></span></code></th>
+<td class="colLast">
+<div class="block">Constant to represent year</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_START">DEFAULT_START</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DEFAULT_START</span></div>
+<div class="block">Default graph starting time</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_START">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_END">DEFAULT_END</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DEFAULT_END</span></div>
+<div class="block">Default graph ending time</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_END">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="HH_MM">HH_MM</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">HH_MM</span></div>
+<div class="block">HH:mm time format</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.HH_MM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="SECOND">SECOND</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">SECOND</span></div>
+<div class="block">Constant to represent second</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.SECOND">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MINUTE">MINUTE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MINUTE</span></div>
+<div class="block">Constant to represent minute</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.MINUTE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="HOUR">HOUR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">HOUR</span></div>
+<div class="block">Constant to represent hour</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.HOUR">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DAY">DAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DAY</span></div>
+<div class="block">Constant to represent day</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="WEEK">WEEK</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">WEEK</span></div>
+<div class="block">Constant to represent week</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.WEEK">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MONTH">MONTH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MONTH</span></div>
+<div class="block">Constant to represent month</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.MONTH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="YEAR">YEAR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">YEAR</span></div>
+<div class="block">Constant to represent year</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.YEAR">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MONDAY">MONDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MONDAY</span></div>
+<div class="block">Constant to represent Monday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.MONDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TUESDAY">TUESDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">TUESDAY</span></div>
+<div class="block">Constant to represent Tuesday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.TUESDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="WEDNESDAY">WEDNESDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">WEDNESDAY</span></div>
+<div class="block">Constant to represent Wednesday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.WEDNESDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="THURSDAY">THURSDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">THURSDAY</span></div>
+<div class="block">Constant to represent Thursday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.THURSDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FRIDAY">FRIDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">FRIDAY</span></div>
+<div class="block">Constant to represent Friday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.FRIDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="SATURDAY">SATURDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">SATURDAY</span></div>
+<div class="block">Constant to represent Saturday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.SATURDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="SUNDAY">SUNDAY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">SUNDAY</span></div>
+<div class="block">Constant to represent Sunday</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.SUNDAY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_CANVAS">COLOR_CANVAS</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_CANVAS</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the canvas color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_CANVAS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_BACK">COLOR_BACK</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_BACK</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the background color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_BACK">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_SHADEA">COLOR_SHADEA</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_SHADEA</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the top-left graph shade color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_SHADEA">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_SHADEB">COLOR_SHADEB</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_SHADEB</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the bottom-right graph shade color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_SHADEB">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_GRID">COLOR_GRID</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_GRID</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the minor grid color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_GRID">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_MGRID">COLOR_MGRID</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_MGRID</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the major grid color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_MGRID">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_FONT">COLOR_FONT</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_FONT</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the font color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_FONT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_FRAME">COLOR_FRAME</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_FRAME</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the frame color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_FRAME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_ARROW">COLOR_ARROW</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_ARROW</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the arrow color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_ARROW">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_XAXIS">COLOR_XAXIS</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_XAXIS</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the x-axis color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_XAXIS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="COLOR_YAXIS">COLOR_YAXIS</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">COLOR_YAXIS</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Index of the yaxis color. Used in <a href="RrdGraphDef.html#setColor(int,java.awt.Paint)"><code>RrdGraphDef.setColor(int, java.awt.Paint)</code></a></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.COLOR_YAXIS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FIRST_DAY_OF_WEEK">FIRST_DAY_OF_WEEK</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">FIRST_DAY_OF_WEEK</span></div>
+<div class="block">Default first day of the week (obtained from the default locale)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_CANVAS_COLOR">DEFAULT_CANVAS_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_CANVAS_COLOR</span></div>
+<div class="block">Default graph canvas color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_BACK_COLOR">DEFAULT_BACK_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_BACK_COLOR</span></div>
+<div class="block">Default graph background color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_SHADEA_COLOR">DEFAULT_SHADEA_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_SHADEA_COLOR</span></div>
+<div class="block">Default top-left graph shade color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_SHADEB_COLOR">DEFAULT_SHADEB_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_SHADEB_COLOR</span></div>
+<div class="block">Default bottom-right graph shade color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_GRID_COLOR">DEFAULT_GRID_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_GRID_COLOR</span></div>
+<div class="block">Default minor grid color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_MGRID_COLOR">DEFAULT_MGRID_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_MGRID_COLOR</span></div>
+<div class="block">Default major grid color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_FONT_COLOR">DEFAULT_FONT_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_FONT_COLOR</span></div>
+<div class="block">Default font color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_FRAME_COLOR">DEFAULT_FRAME_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_FRAME_COLOR</span></div>
+<div class="block">Default frame color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_ARROW_COLOR">DEFAULT_ARROW_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_ARROW_COLOR</span></div>
+<div class="block">Default arrow color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_XAXIS_COLOR">DEFAULT_XAXIS_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_XAXIS_COLOR</span></div>
+<div class="block">Default x-axis color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_YAXIS_COLOR">DEFAULT_YAXIS_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">DEFAULT_YAXIS_COLOR</span></div>
+<div class="block">Default x-axis color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="BLIND_COLOR">BLIND_COLOR</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt" class="externalLink">Color</a></span>&nbsp;<span class="memberName">BLIND_COLOR</span></div>
+<div class="block">An transparent color</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ALIGN_LEFT_MARKER">ALIGN_LEFT_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ALIGN_LEFT_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent left alignment marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ALIGN_LEFTNONL_MARKER">ALIGN_LEFTNONL_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ALIGN_LEFTNONL_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent left alignment marker, without new line</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ALIGN_CENTER_MARKER">ALIGN_CENTER_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ALIGN_CENTER_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent centered alignment marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ALIGN_RIGHT_MARKER">ALIGN_RIGHT_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ALIGN_RIGHT_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent right alignment marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ALIGN_JUSTIFIED_MARKER">ALIGN_JUSTIFIED_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ALIGN_JUSTIFIED_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent justified alignment marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="GLUE_MARKER">GLUE_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">GLUE_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent "glue" marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="VERTICAL_SPACING_MARKER">VERTICAL_SPACING_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">VERTICAL_SPACING_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent vertical spacing marker</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NO_JUSTIFICATION_MARKER">NO_JUSTIFICATION_MARKER</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">NO_JUSTIFICATION_MARKER</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Constant to represent no justification markers</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="IN_MEMORY_IMAGE">IN_MEMORY_IMAGE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">IN_MEMORY_IMAGE</span></div>
+<div class="block">Constant to represent in-memory image name</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.IN_MEMORY_IMAGE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_UNITS_LENGTH">DEFAULT_UNITS_LENGTH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_UNITS_LENGTH</span></div>
+<div class="block">Default units length</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_UNITS_LENGTH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_WIDTH">DEFAULT_WIDTH</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_WIDTH</span></div>
+<div class="block">Default graph width</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_WIDTH">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_HEIGHT">DEFAULT_HEIGHT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_HEIGHT</span></div>
+<div class="block">Default graph height</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_HEIGHT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_IMAGE_FORMAT">DEFAULT_IMAGE_FORMAT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DEFAULT_IMAGE_FORMAT</span></div>
+<div class="block">Default image format</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_IMAGE_FORMAT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_IMAGE_QUALITY">DEFAULT_IMAGE_QUALITY</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">DEFAULT_IMAGE_QUALITY</span></div>
+<div class="block">Default image quality, used only for jpeg graphs</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_IMAGE_QUALITY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_BASE">DEFAULT_BASE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">DEFAULT_BASE</span></div>
+<div class="block">Default value base</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.DEFAULT_BASE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTSPROPERTIES">PROPERTYFONTSPROPERTIES</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTSPROPERTIES</span></div>
+<div class="block">The file that contains font configuration searched in the class path. The default value is <code>/rrd4jfonts.properties</code></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTSPROPERTIES">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTSURL">PROPERTYFONTSURL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTSURL</span></div>
+<div class="block">A possible URL to a configuration file.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTSURL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTPLAIN">PROPERTYFONTPLAIN</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTPLAIN</span></div>
+<div class="block">The name of the plain font, used to define the <a href="#DEFAULT_SMALL_FONT"><code>DEFAULT_SMALL_FONT</code></a> and the <a href="#GATOR_FONT"><code>GATOR_FONT</code></a>. To be found in the classpath.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTPLAIN">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTBOLD">PROPERTYFONTBOLD</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTBOLD</span></div>
+<div class="block">The name of the bold font, used to define the <a href="#DEFAULT_LARGE_FONT"><code>DEFAULT_LARGE_FONT</code></a>. To be found in the classpath.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTBOLD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTPLAINURL">PROPERTYFONTPLAINURL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTPLAINURL</span></div>
+<div class="block">An URL to the plain font, used to define the <a href="#DEFAULT_SMALL_FONT"><code>DEFAULT_SMALL_FONT</code></a> and the <a href="#GATOR_FONT"><code>GATOR_FONT</code></a>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTPLAINURL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROPERTYFONTBOLDURL">PROPERTYFONTBOLDURL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROPERTYFONTBOLDURL</span></div>
+<div class="block">An URL to the bold font, used to define the <a href="#DEFAULT_LARGE_FONT"><code>DEFAULT_LARGE_FONT</code></a>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PROPERTYFONTBOLDURL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_SMALL_FONT">DEFAULT_SMALL_FONT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></span>&nbsp;<span class="memberName">DEFAULT_SMALL_FONT</span></div>
+<div class="block">Default graph small font</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_LARGE_FONT">DEFAULT_LARGE_FONT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></span>&nbsp;<span class="memberName">DEFAULT_LARGE_FONT</span></div>
+<div class="block">Default graph large font</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="GATOR_FONT">GATOR_FONT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Font.html?is-external=true" title="class or interface in java.awt" class="externalLink">Font</a></span>&nbsp;<span class="memberName">GATOR_FONT</span></div>
+<div class="block">Font for the Gator</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LEGEND_LEADING">LEGEND_LEADING</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">LEGEND_LEADING</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.LEGEND_LEADING">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LEGEND_LEADING_SMALL">LEGEND_LEADING_SMALL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">LEGEND_LEADING_SMALL</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.LEGEND_LEADING_SMALL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LEGEND_BOX_SPACE">LEGEND_BOX_SPACE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">LEGEND_BOX_SPACE</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.LEGEND_BOX_SPACE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LEGEND_BOX">LEGEND_BOX</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">LEGEND_BOX</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.LEGEND_BOX">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="LEGEND_INTERSPACING">LEGEND_INTERSPACING</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">LEGEND_INTERSPACING</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.LEGEND_INTERSPACING">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_LEFT">PADDING_LEFT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_LEFT</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_LEFT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_TOP">PADDING_TOP</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_TOP</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_TOP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_TITLE">PADDING_TITLE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_TITLE</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_TITLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_RIGHT">PADDING_RIGHT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_RIGHT</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_RIGHT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_PLOT">PADDING_PLOT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_PLOT</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_PLOT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_LEGEND">PADDING_LEGEND</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">PADDING_LEGEND</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_LEGEND">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_BOTTOM">PADDING_BOTTOM</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_BOTTOM</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_BOTTOM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PADDING_VLABEL">PADDING_VLABEL</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PADDING_VLABEL</span></div>
+<div class="block">Used internally</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.rrd4j.graph.RrdGraphConstants.PADDING_VLABEL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="GRID_STROKE">GRID_STROKE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Stroke.html?is-external=true" title="class or interface in java.awt" class="externalLink">Stroke</a></span>&nbsp;<span class="memberName">GRID_STROKE</span></div>
+<div class="block">Stroke used to draw grid</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="TICK_STROKE">TICK_STROKE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/awt/Stroke.html?is-external=true" title="class or interface in java.awt" class="externalLink">Stroke</a></span>&nbsp;<span class="memberName">TICK_STROKE</span></div>
+<div class="block">Stroke used to draw ticks</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_DEFAULT">FONTTAG_DEFAULT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_DEFAULT</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_TITLE">FONTTAG_TITLE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_TITLE</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_AXIS">FONTTAG_AXIS</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_AXIS</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_UNIT">FONTTAG_UNIT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_UNIT</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_LEGEND">FONTTAG_LEGEND</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_LEGEND</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="FONTTAG_WATERMARK">FONTTAG_WATERMARK</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="RrdGraphConstants.FontTag.html" title="enum in org.rrd4j.graph">RrdGraphConstants.FontTag</a></span>&nbsp;<span class="memberName">FONTTAG_WATERMARK</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RrdGraphConstants.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li>Method</li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li>Method</li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>I2NPMessage - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data.i2np, interface: I2NPMessage">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2NPMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data.i2np</a></div>
+<h1 title="Interface I2NPMessage" class="title">Interface I2NPMessage</h1>
+</div>
+<div class="contentContainer">
+<section class="description">
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="DatabaseLookupMessage.html" title="class in net.i2p.data.i2np">DatabaseLookupMessage</a></code>, <code><a href="DatabaseSearchReplyMessage.html" title="class in net.i2p.data.i2np">DatabaseSearchReplyMessage</a></code>, <code><a href="DatabaseStoreMessage.html" title="class in net.i2p.data.i2np">DatabaseStoreMessage</a></code>, <code><a href="DataMessage.html" title="class in net.i2p.data.i2np">DataMessage</a></code>, <code><a href="DeliveryStatusMessage.html" title="class in net.i2p.data.i2np">DeliveryStatusMessage</a></code>, <code><a href="FastI2NPMessageImpl.html" title="class in net.i2p.data.i2np">FastI2NPMessageImpl</a></code>, <code><a href="GarlicMessage.html" title="class in net.i2p.data.i2np">GarlicMessage</a></code>, <code><a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></code>, <code><a href="InboundTunnelBuildMessage.html" title="class in net.i2p.data.i2np">InboundTunnelBuildMessage</a></code>, <code><a href="OutboundTunnelBuildReplyMessage.html" title="class in net.i2p.data.i2np">OutboundTunnelBuildReplyMessage</a></code>, <code><a href="ShortTunnelBuildMessage.html" title="class in net.i2p.data.i2np">ShortTunnelBuildMessage</a></code>, <code><a href="ShortTunnelBuildReplyMessage.html" title="class in net.i2p.data.i2np">ShortTunnelBuildReplyMessage</a></code>, <code><a href="TunnelBuildMessage.html" title="class in net.i2p.data.i2np">TunnelBuildMessage</a></code>, <code><a href="TunnelBuildMessageBase.html" title="class in net.i2p.data.i2np">TunnelBuildMessageBase</a></code>, <code><a href="TunnelBuildReplyMessage.html" title="class in net.i2p.data.i2np">TunnelBuildReplyMessage</a></code>, <code><a href="TunnelDataMessage.html" title="class in net.i2p.data.i2np">TunnelDataMessage</a></code>, <code><a href="TunnelGatewayMessage.html" title="class in net.i2p.data.i2np">TunnelGatewayMessage</a></code>, <code><a href="UnknownI2NPMessage.html" title="class in net.i2p.data.i2np">UnknownI2NPMessage</a></code>, <code><a href="VariableTunnelBuildMessage.html" title="class in net.i2p.data.i2np">VariableTunnelBuildMessage</a></code>, <code><a href="VariableTunnelBuildReplyMessage.html" title="class in net.i2p.data.i2np">VariableTunnelBuildReplyMessage</a></code></dd>
+</dl>
+<hr>
+<pre>public interface <span class="typeNameLabel">I2NPMessage</span></pre>
+<div class="block">Base interface for all I2NP messages
+
+ Note: No longer extends DataStructure as of 0.9.48</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>jrandom</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_ID_VALUE">MAX_ID_VALUE</a></span></code></th>
+<td class="colLast">
+<div class="block">4 bytes unsigned</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_SIZE">MAX_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">Nominal limit, actual max is much less.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessageExpiration()">getMessageExpiration</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Date after which the message should be dropped (and the associated uniqueId forgotten)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessageSize()">getMessageSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How large the message is, including any checksums, i.e.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRawMessageSize()">getRawMessageSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How large the raw message is with the short 5 byte header</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Return the unique identifier for this type of I2NP message, as defined in
+ the I2NP spec</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUniqueId()">getUniqueId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Replay resistant message ID</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readBytes(byte%5B%5D,int,int)">readBytes</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;type,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">Read the body into the data structures, after the initial type byte, using
+ the current class's format as defined by the I2NP specification</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readBytes(byte%5B%5D,int,int,int)">readBytes</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;type,
+int&nbsp;offset,
+int&nbsp;maxLen)</code></th>
+<td class="colLast">
+<div class="block">Read the body into the data structures, after the initial type byte, using
+ the current class's format as defined by the I2NP specification</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readMessage(byte%5B%5D,int,int,int)">readMessage</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Read the body into the data structures, after the initial type byte and
+ the uniqueId / expiration, using the current class's format as defined by
+ the I2NP specification</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readMessage(byte%5B%5D,int,int,int,net.i2p.data.i2np.I2NPMessageHandler)">readMessage</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type,
+<a href="I2NPMessageHandler.html" title="class in net.i2p.data.i2np">I2NPMessageHandler</a>&nbsp;handler)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMessageExpiration(long)">setMessageExpiration</a></span>&#8203;(long&nbsp;exp)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUniqueId(long)">setUniqueId</a></span>&#8203;(long&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toByteArray()">toByteArray</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toByteArray(byte%5B%5D)">toByteArray</a></span>&#8203;(byte[]&nbsp;buffer)</code></th>
+<td class="colLast">
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toByteArray(byte%5B%5D,int)">toByteArray</a></span>&#8203;(byte[]&nbsp;buffer,
+int&nbsp;off)</code></th>
+<td class="colLast">
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toRawByteArray(byte%5B%5D)">toRawByteArray</a></span>&#8203;(byte[]&nbsp;buffer)</code></th>
+<td class="colLast">
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toRawByteArrayNTCP2(byte%5B%5D,int)">toRawByteArrayNTCP2</a></span>&#8203;(byte[]&nbsp;buffer,
+int&nbsp;off)</code></th>
+<td class="colLast">
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_ID_VALUE">MAX_ID_VALUE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">MAX_ID_VALUE</span></div>
+<div class="block">4 bytes unsigned</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.I2NPMessage.MAX_ID_VALUE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_SIZE">MAX_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_SIZE</span></div>
+<div class="block">Nominal limit, actual max is much less.
+ See website docs for further restrictions due to
+ various overhead and limitations in encryption,
+ fragmentation, and the transports.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.I2NPMessage.MAX_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="readBytes(byte[],int,int)">readBytes</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">readBytes</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;type,
+int&nbsp;offset)</span>
+       throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<div class="block">Read the body into the data structures, after the initial type byte, using
+ the current class's format as defined by the I2NP specification</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - the data</dd>
+<dd><code>type</code> - I2NP message type. If less than zero, read the type from data</dd>
+<dd><code>offset</code> - where to start
+           starting at type if type is &lt; 0 (16 byte header)
+           starting at ID if type is &gt;= 0 (15 byte header)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>size of the message read (including headers)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code> - if there is no valid message</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readBytes(byte[],int,int,int)">readBytes</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">readBytes</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;type,
+int&nbsp;offset,
+int&nbsp;maxLen)</span>
+       throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<div class="block">Read the body into the data structures, after the initial type byte, using
+ the current class's format as defined by the I2NP specification</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - the data, may or may not include the type</dd>
+<dd><code>type</code> - I2NP message type. If less than zero, read the type from data</dd>
+<dd><code>offset</code> - where to start
+           starting at type if type is &lt; 0 (16 byte header)
+           starting at ID if type is &gt;= 0 (15 byte header)</dd>
+<dd><code>maxLen</code> - read no more than this many bytes from data starting at offset, even if it is longer
+               This includes the type byte only if type &lt; 0</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>size of the message read (including headers)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code> - if there is no valid message</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readMessage(byte[],int,int,int)">readMessage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">readMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type)</span>
+          throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<div class="block">Read the body into the data structures, after the initial type byte and
+ the uniqueId / expiration, using the current class's format as defined by
+ the I2NP specification</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - data to read from</dd>
+<dd><code>offset</code> - where to start in the data array</dd>
+<dd><code>dataSize</code> - how long into the data to read</dd>
+<dd><code>type</code> - I2NP message type</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code> - if the stream doesn't contain a valid message
+          that this class can read.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readMessage(byte[],int,int,int,net.i2p.data.i2np.I2NPMessageHandler)">readMessage</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">readMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type,
+<a href="I2NPMessageHandler.html" title="class in net.i2p.data.i2np">I2NPMessageHandler</a>&nbsp;handler)</span>
+          throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getType()">getType</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getType</span>()</div>
+<div class="block">Return the unique identifier for this type of I2NP message, as defined in
+ the I2NP spec</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUniqueId()">getUniqueId</a></h3>
+<div class="memberSignature"><span class="returnType">long</span>&nbsp;<span class="memberName">getUniqueId</span>()</div>
+<div class="block">Replay resistant message ID</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setUniqueId(long)">setUniqueId</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setUniqueId</span>&#8203;(<span class="arguments">long&nbsp;id)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessageExpiration()">getMessageExpiration</a></h3>
+<div class="memberSignature"><span class="returnType">long</span>&nbsp;<span class="memberName">getMessageExpiration</span>()</div>
+<div class="block">Date after which the message should be dropped (and the associated uniqueId forgotten)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMessageExpiration(long)">setMessageExpiration</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setMessageExpiration</span>&#8203;(<span class="arguments">long&nbsp;exp)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessageSize()">getMessageSize</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getMessageSize</span>()</div>
+<div class="block">How large the message is, including any checksums, i.e. full 16 byte header</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRawMessageSize()">getRawMessageSize</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">getRawMessageSize</span>()</div>
+<div class="block">How large the raw message is with the short 5 byte header</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toByteArray()">toByteArray</a></h3>
+<div class="memberSignature"><span class="returnType">byte[]</span>&nbsp;<span class="memberName">toByteArray</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48 from DataStructure</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toByteArray(byte[])">toByteArray</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">toByteArray</span>&#8203;(<span class="arguments">byte[]&nbsp;buffer)</span></div>
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).
+ the data is formatted so as to be self contained, with the type, size,
+ expiration, unique id, as well as a checksum bundled along.  
+ Full 16 byte header for NTCP 1.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new offset (NOT the length)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toByteArray(byte[],int)">toByteArray</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">toByteArray</span>&#8203;(<span class="arguments">byte[]&nbsp;buffer,
+int&nbsp;off)</span></div>
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).
+ the data is formatted so as to be self contained, with the type, size,
+ expiration, unique id, as well as a checksum bundled along.  
+ Full 16 byte header for NTCP 1.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>off</code> - the offset to start writing at</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new offset (NOT the length)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toRawByteArray(byte[])">toRawByteArray</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">toRawByteArray</span>&#8203;(<span class="arguments">byte[]&nbsp;buffer)</span></div>
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).
+ the data is is not self contained - it does not include the size,
+ unique id, or any checksum, but does include the type and expiration.
+ Short 5 byte header for SSU.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the length written</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toRawByteArrayNTCP2(byte[],int)">toRawByteArrayNTCP2</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">toRawByteArrayNTCP2</span>&#8203;(<span class="arguments">byte[]&nbsp;buffer,
+int&nbsp;off)</span></div>
+<div class="block">Write the message to the buffer, returning the new offset (NOT the length).
+ the data is is not self contained - it does not include the size,
+ unique id, or any checksum, but does include the type and expiration.
+ Short 9 byte header for NTCP 2.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>off</code> - the offset to start writing at</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new offset (NOT the length)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/I2NPMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

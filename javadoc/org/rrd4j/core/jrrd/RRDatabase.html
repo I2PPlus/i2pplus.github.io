@@ -1,0 +1,736 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RRDatabase - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.core.jrrd, class: RRDatabase">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RRDatabase.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.core.jrrd</a></div>
+<h1 title="Class RRDatabase" class="title">Class RRDatabase</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.rrd4j.core.jrrd.RRDatabase</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code>, <code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">RRDatabase</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></pre>
+<div class="block">Instances of this class model
+ <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/">Round Robin Database</a>
+ (RRD) files.</div>
+<dl>
+<dt><span class="simpleTagLabel">Version:</span></dt>
+<dd>$Revision: 1.1 $</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd><a href="mailto:ciaran@codeloop.com">Ciaran Treanor</a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) <a href="Header.html" title="class in org.rrd4j.core.jrrd">Header</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#header">header</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lastUpdate">lastUpdate</a></span></code></th>
+<td class="colLast">
+<div class="block">Timestamp of last data modification</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) <a href="RRDFile.html" title="class in org.rrd4j.core.jrrd">RRDFile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rrdFile">rrdFile</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.io.File)">RRDatabase</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</code></th>
+<td class="colLast">
+<div class="block">Creates a database to read from.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String)">RRDatabase</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">Creates a database to read from.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close()">close</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Closes this database stream and releases any associated system resources.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchive(int)">getArchive</a></span>&#8203;(int&nbsp;index)</code></th>
+<td class="colLast">
+<div class="block">Returns the <code>Archive</code> at the specified position in this database.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchive(java.lang.String)">getArchive</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
+<td class="colLast">
+<div class="block">getArchive.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util" class="externalLink">ArrayList</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchiveList(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getArchiveList</a></span>&#8203;(<a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchives()">getArchives</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns an iterator over the archives in this database in proper sequence.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getArchives(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getArchives</a></span>&#8203;(<a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Returns an iterator over the archives in this database of the given type
+ in proper sequence.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getData(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getData</a></span>&#8203;(<a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Returns data from the database corresponding to the given consolidation
+ function and a step size of 1.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getData(org.rrd4j.core.jrrd.ConsolidationFunctionType,long,long,long)">getData</a></span>&#8203;(<a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type,
+long&nbsp;startTime,
+long&nbsp;endTime,
+long&nbsp;stepSeconds)</code></th>
+<td class="colLast">
+<div class="block">getData.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getData(org.rrd4j.core.jrrd.ConsolidationFunctionType,java.util.Date,java.util.Date,long)">getData</a></span>&#8203;(<a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;startDate,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;endDate,
+long&nbsp;step)</code></th>
+<td class="colLast">
+<div class="block">Returns data from the database corresponding to the given consolidation
+ function.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code><a href="DataSource.html" title="class in org.rrd4j.core.jrrd">DataSource</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDataSource(int)">getDataSource</a></span>&#8203;(int&nbsp;index)</code></th>
+<td class="colLast">
+<div class="block">Returns the <code>DataSource</code> at the specified position in this database.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="DataSource.html" title="class in org.rrd4j.core.jrrd">DataSource</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDataSources()">getDataSources</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns an iterator over the data sources in this database in proper sequence.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDataSourcesName()">getDataSourcesName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">getDataSourcesName.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="Header.html" title="class in org.rrd4j.core.jrrd">Header</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeader()">getHeader</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the <code>Header</code> for this database.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastUpdate()">getLastUpdate</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the date this database was last updated.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumArchives()">getNumArchives</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the number of archives in this database.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printInfo(java.io.PrintStream)">printInfo</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s)</code></th>
+<td class="colLast">
+<div class="block">Outputs the header information of the database to the given print stream
+ using the default number format.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printInfo(java.io.PrintStream,java.text.NumberFormat)">printInfo</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/text/NumberFormat.html?is-external=true" title="class or interface in java.text" class="externalLink">NumberFormat</a>&nbsp;numberFormat)</code></th>
+<td class="colLast">
+<div class="block">Outputs the header information of the database to the given print stream
+ using the given number format.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns a summary the contents of this database.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toXml(java.io.PrintStream)">toXml</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s)</code></th>
+<td class="colLast">
+<div class="block">Outputs the content of the database to the given print stream
+ as a stream of XML.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="rrdFile">rrdFile</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType"><a href="RRDFile.html" title="class in org.rrd4j.core.jrrd">RRDFile</a></span>&nbsp;<span class="memberName">rrdFile</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="header">header</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType"><a href="Header.html" title="class in org.rrd4j.core.jrrd">Header</a></span>&nbsp;<span class="memberName">header</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lastUpdate">lastUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></span>&nbsp;<span class="memberName">lastUpdate</span></div>
+<div class="block">Timestamp of last data modification</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String)">RRDatabase</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RRDatabase</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span>
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a database to read from.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - the filename of the file to read from.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if an I/O error occurs.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.io.File)">RRDatabase</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RRDatabase</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</span>
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Creates a database to read from.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>file</code> - the file to read from.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if an I/O error occurs.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHeader()">getHeader</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Header.html" title="class in org.rrd4j.core.jrrd">Header</a></span>&nbsp;<span class="memberName">getHeader</span>()</div>
+<div class="block">Returns the <code>Header</code> for this database.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>Header</code> for this database.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDataSourcesName()">getDataSourcesName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getDataSourcesName</span>()</div>
+<div class="block"><p>getDataSourcesName.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Set</code></a> object.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastUpdate()">getLastUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></span>&nbsp;<span class="memberName">getLastUpdate</span>()</div>
+<div class="block">Returns the date this database was last updated. To convert this date to
+ the form returned by <code>rrdtool last</code> call Date.getTime() and
+ divide the result by 1000.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the date this database was last updated.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDataSource(int)">getDataSource</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DataSource.html" title="class in org.rrd4j.core.jrrd">DataSource</a></span>&nbsp;<span class="memberName">getDataSource</span>&#8203;(<span class="arguments">int&nbsp;index)</span></div>
+<div class="block">Returns the <code>DataSource</code> at the specified position in this database.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - index of <code>DataSource</code> to return.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>DataSource</code> at the specified position in this database</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDataSources()">getDataSources</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="DataSource.html" title="class in org.rrd4j.core.jrrd">DataSource</a>&gt;</span>&nbsp;<span class="memberName">getDataSources</span>()</div>
+<div class="block">Returns an iterator over the data sources in this database in proper sequence.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an iterator over the data sources in this database in proper sequence.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchive(int)">getArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a></span>&nbsp;<span class="memberName">getArchive</span>&#8203;(<span class="arguments">int&nbsp;index)</span></div>
+<div class="block">Returns the <code>Archive</code> at the specified position in this database.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - index of <code>Archive</code> to return.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <code>Archive</code> at the specified position in this database.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchive(java.lang.String)">getArchive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a></span>&nbsp;<span class="memberName">getArchive</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span></div>
+<div class="block"><p>getArchive.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> object.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="Archive.html" title="class in org.rrd4j.core.jrrd"><code>Archive</code></a> object.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchives()">getArchives</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</span>&nbsp;<span class="memberName">getArchives</span>()</div>
+<div class="block">Returns an iterator over the archives in this database in proper sequence.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an iterator over the archives in this database in proper sequence.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNumArchives()">getNumArchives</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNumArchives</span>()</div>
+<div class="block">Returns the number of archives in this database.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of archives in this database.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchives(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getArchives</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util" class="externalLink">Iterator</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</span>&nbsp;<span class="memberName">getArchives</span>&#8203;(<span class="arguments"><a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</span></div>
+<div class="block">Returns an iterator over the archives in this database of the given type
+ in proper sequence.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the consolidation function that should have been applied to
+             the data.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an iterator over the archives in this database of the given type
+         in proper sequence.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getArchiveList(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getArchiveList</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util" class="externalLink">ArrayList</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core.jrrd">Archive</a>&gt;</span>&nbsp;<span class="memberName">getArchiveList</span>&#8203;(<span class="arguments"><a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="close()">close</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">close</span>()
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Closes this database stream and releases any associated system resources.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang" class="externalLink">AutoCloseable</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io" class="externalLink">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io" class="externalLink">Closeable</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if an I/O error occurs.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="printInfo(java.io.PrintStream)">printInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">printInfo</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s)</span></div>
+<div class="block">Outputs the header information of the database to the given print stream
+ using the default number format. The default format for <code>double</code>
+ is 0.0000000000E0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>s</code> - the PrintStream to print the header information to.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getData(org.rrd4j.core.jrrd.ConsolidationFunctionType)">getData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></span>&nbsp;<span class="memberName">getData</span>&#8203;(<span class="arguments"><a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns data from the database corresponding to the given consolidation
+ function and a step size of 1.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the consolidation function that should have been applied to
+             the data.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the raw data.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if there was a problem locating a data archive with
+                                  the requested consolidation function.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there was a problem reading data from the database.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getData(org.rrd4j.core.jrrd.ConsolidationFunctionType,java.util.Date,java.util.Date,long)">getData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></span>&nbsp;<span class="memberName">getData</span>&#8203;(<span class="arguments"><a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;startDate,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;endDate,
+long&nbsp;step)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns data from the database corresponding to the given consolidation
+ function.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the consolidation function that should have been applied to
+             the data.</dd>
+<dd><code>step</code> - the step size to use.</dd>
+<dd><code>startDate</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Date</code></a> object.</dd>
+<dd><code>endDate</code> - a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Date</code></a> object.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the raw data.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if there was a problem locating a data archive with
+                                  the requested consolidation function.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there was a problem reading data from the database.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getData(org.rrd4j.core.jrrd.ConsolidationFunctionType,long,long,long)">getData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DataChunk.html" title="class in org.rrd4j.core.jrrd">DataChunk</a></span>&nbsp;<span class="memberName">getData</span>&#8203;(<span class="arguments"><a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd">ConsolidationFunctionType</a>&nbsp;type,
+long&nbsp;startTime,
+long&nbsp;endTime,
+long&nbsp;stepSeconds)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>getData.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - a <a href="ConsolidationFunctionType.html" title="enum in org.rrd4j.core.jrrd"><code>ConsolidationFunctionType</code></a> object.</dd>
+<dd><code>startTime</code> - seconds since epoch</dd>
+<dd><code>endTime</code> - seconds since epoch</dd>
+<dd><code>stepSeconds</code> - in seconds</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="DataChunk.html" title="class in org.rrd4j.core.jrrd"><code>DataChunk</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="printInfo(java.io.PrintStream,java.text.NumberFormat)">printInfo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">printInfo</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/text/NumberFormat.html?is-external=true" title="class or interface in java.text" class="externalLink">NumberFormat</a>&nbsp;numberFormat)</span></div>
+<div class="block">Outputs the header information of the database to the given print stream
+ using the given number format. The format is almost identical to that
+ produced by
+ <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/manual/rrdinfo.html">rrdtool info</a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>s</code> - the PrintStream to print the header information to.</dd>
+<dd><code>numberFormat</code> - the format to print <code>double</code>s as.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toXml(java.io.PrintStream)">toXml</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">toXml</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html?is-external=true" title="class or interface in java.io" class="externalLink">PrintStream</a>&nbsp;s)</span></div>
+<div class="block">Outputs the content of the database to the given print stream
+ as a stream of XML. The XML format is almost identical to that produced by
+ <a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/manual/rrddump.html">rrdtool dump</a>
+ 
+ A flush is issued at the end of the XML generation, so auto flush of the PrintStream can be set to false</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>s</code> - the PrintStream to send the XML to.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<div class="block">Returns a summary the contents of this database.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a summary of the information contained in this database.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RRDatabase.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

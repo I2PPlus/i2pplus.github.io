@@ -1,0 +1,824 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>OutboundMessageState - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.udp, class: OutboundMessageState">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OutboundMessageState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.udp</a></div>
+<h1 title="Class OutboundMessageState" class="title">Class OutboundMessageState</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.transport.udp.OutboundMessageState</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../../util/CDPQEntry.html" title="interface in net.i2p.router.util">CDPQEntry</a></code>, <code><a href="../../util/CDQEntry.html" title="interface in net.i2p.router.util">CDQEntry</a></code>, <code><a href="../../util/PQEntry.html" title="interface in net.i2p.router.util">PQEntry</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">OutboundMessageState</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="../../util/CDPQEntry.html" title="interface in net.i2p.router.util">CDPQEntry</a></pre>
+<div class="block">Maintain the outbound fragmentation for resending, for a single message.
+
+ All methods are thread-safe.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_MSG_SIZE">MAX_MSG_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.data.i2np.I2NPMessage,net.i2p.router.transport.udp.PeerState)">OutboundMessageState</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../../data/i2np/I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a>&nbsp;msg,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">"injected" message from the establisher.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.router.OutNetMessage,net.i2p.router.transport.udp.PeerState)">OutboundMessageState</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;m,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Normal constructor.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#acked(net.i2p.router.transport.udp.ACKBitfield)">acked</a></span>&#8203;(<a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&nbsp;bitfield)</code></th>
+<td class="colLast">
+<div class="block">Ack all the fragments in the ack list.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearNACKs()">clearNACKs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#drop()">drop</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For CDQ</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fragmentSize(int)">fragmentSize</a></span>&#8203;(int&nbsp;fragmentNum)</code></th>
+<td class="colLast">
+<div class="block">The size in bytes of the fragment.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnqueueTime()">getEnqueueTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For CDQ</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFragmentCount()">getFragmentCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many fragments in the message.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetime()">getLifetime</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaxSends()">getMaxSends</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The max number of sends for any fragment.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessage()">getMessage</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessageId()">getMessageId</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessageSize()">getMessageSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The size of the I2NP message.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMinSendSize()">getMinSendSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The minimum number of bytes we can send, which is the smallest unacked fragment we will send next.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNACKs()">getNACKs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeer()">getPeer</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPriority()">getPriority</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For CDPQ</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPushCount()">getPushCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The number of times we've pushed some fragments.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSendSize(int)">getSendSize</a></span>&#8203;(int&nbsp;max)</code></th>
+<td class="colLast">
+<div class="block">How many bytes we can send under the max given.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSeqNum()">getSeqNum</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For CDPQ</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnackedFragments()">getUnackedFragments</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnackedSize()">getUnackedSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">As of 0.9.49, includes packet overhead</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasUnsentFragments()">hasUnsentFragments</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is any fragment unsent?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementNACKs()">incrementNACKs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isComplete()">isComplete</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isExpired()">isExpired</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isExpired(long)">isExpired</a></span>&#8203;(long&nbsp;now)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#needsSending(int)">needsSending</a></span>&#8203;(int&nbsp;fragment)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#push(java.util.List)">push</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketBuilder.Fragment.html" title="class in net.i2p.router.transport.udp">PacketBuilder.Fragment</a>&gt;&nbsp;toSend)</code></th>
+<td class="colLast">
+<div class="block">Add fragments up to the number of bytes allowed by setAllowedSendBytes()
+  Side effects: Clears setAllowedSendBytes.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEnqueueTime(long)">setEnqueueTime</a></span>&#8203;(long&nbsp;now)</code></th>
+<td class="colLast">
+<div class="block">For CDQ</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSeqNum(long)">setSeqNum</a></span>&#8203;(long&nbsp;num)</code></th>
+<td class="colLast">
+<div class="block">For CDPQ</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeFragment(byte%5B%5D,int,int)">writeFragment</a></span>&#8203;(byte[]&nbsp;out,
+int&nbsp;outOffset,
+int&nbsp;fragmentNum)</code></th>
+<td class="colLast">
+<div class="block">Write a part of the the message onto the specified buffer.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_MSG_SIZE">MAX_MSG_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_MSG_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.OutboundMessageState.MAX_MSG_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.data.i2np.I2NPMessage,net.i2p.router.transport.udp.PeerState)">OutboundMessageState</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">OutboundMessageState</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../../data/i2np/I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a>&nbsp;msg,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+<div class="block">"injected" message from the establisher.
+
+  Called from UDPTransport.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if too big or if msg or peer is null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.router.OutNetMessage,net.i2p.router.transport.udp.PeerState)">OutboundMessageState</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">OutboundMessageState</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context,
+<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;m,
+<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+<div class="block">Normal constructor.
+
+  Called from OutboundMessageFragments.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if too big or if msg or peer is null</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessage()">getMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a></span>&nbsp;<span class="memberName">getMessage</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessageId()">getMessageId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getMessageId</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementNACKs()">incrementNACKs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">incrementNACKs</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new value</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNACKs()">getNACKs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNACKs</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clearNACKs()">clearNACKs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clearNACKs</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeer()">getPeer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a></span>&nbsp;<span class="memberName">getPeer</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isExpired()">isExpired</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isExpired</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isExpired(long)">isExpired</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isExpired</span>&#8203;(<span class="arguments">long&nbsp;now)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isComplete()">isComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isComplete</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUnackedSize()">getUnackedSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getUnackedSize</span>()</div>
+<div class="block">As of 0.9.49, includes packet overhead</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUnackedFragments()">getUnackedFragments</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getUnackedFragments</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>count of unacked fragments</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasUnsentFragments()">hasUnsentFragments</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasUnsentFragments</span>()</div>
+<div class="block">Is any fragment unsent?</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMinSendSize()">getMinSendSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMinSendSize</span>()</div>
+<div class="block">The minimum number of bytes we can send, which is the smallest unacked fragment we will send next.
+  Includes packet overhead.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 to total size</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSendSize(int)">getSendSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getSendSize</span>&#8203;(<span class="arguments">int&nbsp;max)</span></div>
+<div class="block">How many bytes we can send under the max given.
+  Side effect: if applicable, amount to send will be saved for the push() call.
+  Note: With multiple fragments, this will allocate only the fragments with the lowest push count.
+  Example: If push counts are 1 1 1 0 0, this will only return the size of the last two fragments,
+  even if any of the first three need to be retransmitted.
+  Includes packet overhead.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>max</code> - the maximum number of bytes we can send, including packet overhead</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 to max bytes</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="needsSending(int)">needsSending</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">needsSending</span>&#8203;(<span class="arguments">int&nbsp;fragment)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetime()">getLifetime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetime</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="acked(net.i2p.router.transport.udp.ACKBitfield)">acked</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">acked</span>&#8203;(<span class="arguments"><a href="ACKBitfield.html" title="interface in net.i2p.router.transport.udp">ACKBitfield</a>&nbsp;bitfield)</span></div>
+<div class="block">Ack all the fragments in the ack list.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the message was completely ACKed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMaxSends()">getMaxSends</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMaxSends</span>()</div>
+<div class="block">The max number of sends for any fragment.
+  As of 0.9.49, may be less than getPushCount() if we pushed only some fragments</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPushCount()">getPushCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPushCount</span>()</div>
+<div class="block">The number of times we've pushed some fragments.
+  As of 0.9.49, may be greater than getMaxSends() if we pushed only some fragments.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="push(java.util.List)">push</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">push</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PacketBuilder.Fragment.html" title="class in net.i2p.router.transport.udp">PacketBuilder.Fragment</a>&gt;&nbsp;toSend)</span></div>
+<div class="block">Add fragments up to the number of bytes allowed by setAllowedSendBytes()
+  Side effects: Clears setAllowedSendBytes. Increments pushCount. Increments maxSends if applicable.
+  Note: With multiple fragments, this will send only the fragments with the lowest push count.
+  Example: If push counts are 1 1 1 0 0, this will only send the last two fragments,
+  even if any of the first three need to be retransmitted.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>toSend</code> - out parameter</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of Fragments added</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.49</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFragmentCount()">getFragmentCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getFragmentCount</span>()</div>
+<div class="block">How many fragments in the message.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMessageSize()">getMessageSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getMessageSize</span>()</div>
+<div class="block">The size of the I2NP message. Does not include any SSU overhead.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="fragmentSize(int)">fragmentSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">fragmentSize</span>&#8203;(<span class="arguments">int&nbsp;fragmentNum)</span></div>
+<div class="block">The size in bytes of the fragment.
+ Does NOT include any SSU overhead.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fragmentNum</code> - the number of the fragment</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the size of the fragment specified by the number</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeFragment(byte[],int,int)">writeFragment</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeFragment</span>&#8203;(<span class="arguments">byte[]&nbsp;out,
+int&nbsp;outOffset,
+int&nbsp;fragmentNum)</span></div>
+<div class="block">Write a part of the the message onto the specified buffer.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>out</code> - target to write</dd>
+<dd><code>outOffset</code> - into outOffset to begin writing</dd>
+<dd><code>fragmentNum</code> - fragment to write (0 indexed)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>bytesWritten, NOT including packet overhead</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setEnqueueTime(long)">setEnqueueTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setEnqueueTime</span>&#8203;(<span class="arguments">long&nbsp;now)</span></div>
+<div class="block">For CDQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/CDQEntry.html#setEnqueueTime(long)">setEnqueueTime</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/CDQEntry.html" title="interface in net.i2p.router.util">CDQEntry</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEnqueueTime()">getEnqueueTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getEnqueueTime</span>()</div>
+<div class="block">For CDQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/CDQEntry.html#getEnqueueTime()">getEnqueueTime</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/CDQEntry.html" title="interface in net.i2p.router.util">CDQEntry</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="drop()">drop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">drop</span>()</div>
+<div class="block">For CDQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/CDQEntry.html#drop()">drop</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/CDQEntry.html" title="interface in net.i2p.router.util">CDQEntry</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSeqNum(long)">setSeqNum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSeqNum</span>&#8203;(<span class="arguments">long&nbsp;num)</span></div>
+<div class="block">For CDPQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/PQEntry.html#setSeqNum(long)">setSeqNum</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/PQEntry.html" title="interface in net.i2p.router.util">PQEntry</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSeqNum()">getSeqNum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getSeqNum</span>()</div>
+<div class="block">For CDPQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/PQEntry.html#getSeqNum()">getSeqNum</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/PQEntry.html" title="interface in net.i2p.router.util">PQEntry</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPriority()">getPriority</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPriority</span>()</div>
+<div class="block">For CDPQ</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../util/PQEntry.html#getPriority()">getPriority</a></code>&nbsp;in interface&nbsp;<code><a href="../../util/PQEntry.html" title="interface in net.i2p.router.util">PQEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>OutNetMessage priority or 1000 for injected</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OutboundMessageState.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

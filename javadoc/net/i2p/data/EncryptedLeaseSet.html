@@ -1,0 +1,908 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>EncryptedLeaseSet - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data, class: EncryptedLeaseSet">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EncryptedLeaseSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data</a></div>
+<h1 title="Class EncryptedLeaseSet" class="title">Class EncryptedLeaseSet</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="DataStructureImpl.html" title="class in net.i2p.data">net.i2p.data.DataStructureImpl</a>
+<div class="inheritance"><a href="DatabaseEntry.html" title="class in net.i2p.data">net.i2p.data.DatabaseEntry</a>
+<div class="inheritance"><a href="LeaseSet.html" title="class in net.i2p.data">net.i2p.data.LeaseSet</a>
+<div class="inheritance"><a href="LeaseSet2.html" title="class in net.i2p.data">net.i2p.data.LeaseSet2</a>
+<div class="inheritance">net.i2p.data.EncryptedLeaseSet</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a></code>, <code><a href="DataStructure.html" title="interface in net.i2p.data">DataStructure</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">EncryptedLeaseSet</span>
+extends <a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></pre>
+<div class="block">Use getSigningKey() / setSigningKey() (revocation key in super) for the blinded key.
+
+ PRELIMINARY - Subject to change - see proposal 123</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../serialized-form.html#net.i2p.data.EncryptedLeaseSet">Serialized Form</a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.<a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.LeaseSet2">
+</a><code><a href="LeaseSet2.html#_expires">_expires</a>, <a href="LeaseSet2.html#_flags">_flags</a>, <a href="LeaseSet2.html#_offlineSignature">_offlineSignature</a>, <a href="LeaseSet2.html#_options">_options</a>, <a href="LeaseSet2.html#_published">_published</a>, <a href="LeaseSet2.html#_transientExpires">_transientExpires</a>, <a href="LeaseSet2.html#_transientSigningPublicKey">_transientSigningPublicKey</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.<a href="LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.LeaseSet">
+</a><code><a href="LeaseSet.html#_byteified">_byteified</a>, <a href="LeaseSet.html#_checked">_checked</a>, <a href="LeaseSet.html#_destination">_destination</a>, <a href="LeaseSet.html#_encryptionKey">_encryptionKey</a>, <a href="LeaseSet.html#_lastExpiration">_lastExpiration</a>, <a href="LeaseSet.html#_leases">_leases</a>, <a href="LeaseSet.html#_receivedAsPublished">_receivedAsPublished</a>, <a href="LeaseSet.html#_signingKey">_signingKey</a>, <a href="LeaseSet.html#MAX_LEASES">MAX_LEASES</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.<a href="DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.DatabaseEntry">
+</a><code><a href="DatabaseEntry.html#_signature">_signature</a>, <a href="DatabaseEntry.html#KEY_TYPE_ENCRYPTED_LS2">KEY_TYPE_ENCRYPTED_LS2</a>, <a href="DatabaseEntry.html#KEY_TYPE_LEASESET">KEY_TYPE_LEASESET</a>, <a href="DatabaseEntry.html#KEY_TYPE_LS2">KEY_TYPE_LS2</a>, <a href="DatabaseEntry.html#KEY_TYPE_META_LS2">KEY_TYPE_META_LS2</a>, <a href="DatabaseEntry.html#KEY_TYPE_ROUTERINFO">KEY_TYPE_ROUTERINFO</a>, <a href="DatabaseEntry.html#KEY_TYPE_SERVICE_LIST">KEY_TYPE_SERVICE_LIST</a>, <a href="DatabaseEntry.html#KEY_TYPE_SERVICE_RECORD">KEY_TYPE_SERVICE_RECORD</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">EncryptedLeaseSet</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encrypt(int,java.util.List)">encrypt</a></span>&#8203;(int&nbsp;authType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;? extends <a href="SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;&nbsp;clientKeys)</code></th>
+<td class="colLast">
+<div class="block">Throws IllegalStateException if not initialized.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encrypt(net.i2p.data.SessionKey)">encrypt</a></span>&#8203;(<a href="SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;skey)</code></th>
+<td class="colLast">
+<div class="block">Throws IllegalStateException if not initialized.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDecryptedLeaseSet()">getDecryptedLeaseSet</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncryptionKey(java.util.Set)">getEncryptionKey</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a>&gt;&nbsp;supported)</code></th>
+<td class="colLast">
+<div class="block">If more than one key, return the first supported one.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEncryptionKeys()">getEncryptionKeys</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This returns all the keys.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHash()">getHash</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This must be used instead of getDestination().getHash().</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="Lease.html" title="class in net.i2p.data">Lease</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLease(int)">getLease</a></span>&#8203;(int&nbsp;index)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLeaseCount()">getLeaseCount</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>protected <a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSigningPublicKey()">getSigningPublicKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Overridden to return the blinded key so super.verifySignature() will work.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the type of the data structure.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">
+<div class="block">the destination has enough randomness in it to use it by itself for speed</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readBytes(java.io.InputStream)">readBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">This does NOT validate the signature</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readHeader(java.io.InputStream)">readHeader</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readOfflineBytes(java.io.InputStream)">readOfflineBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setClientPrivateKey(net.i2p.data.PrivateKey)">setClientPrivateKey</a></span>&#8203;(<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;privKey)</code></th>
+<td class="colLast">
+<div class="block">Must be set before verify for per-client auth.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDestination(net.i2p.data.Destination)">setDestination</a></span>&#8203;(<a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest)</code></th>
+<td class="colLast">
+<div class="block">Overridden to set the blinded key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSecret(java.lang.String)">setSecret</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;secret)</code></th>
+<td class="colLast">
+<div class="block">Must be set before sign or verify.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSigningKey(net.i2p.data.SigningPublicKey)">setSigningKey</a></span>&#8203;(<a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</code></th>
+<td class="colLast">
+<div class="block">Overridden to set the blinded key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.data.SigningPrivateKey)">sign</a></span>&#8203;(<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">Sign the structure using the supplied signing key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(net.i2p.data.SigningPrivateKey,int,java.util.List)">sign</a></span>&#8203;(<a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;key,
+int&nbsp;authType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;? extends <a href="SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;&nbsp;clientKeys)</code></th>
+<td class="colLast">
+<div class="block">Sign the structure using the supplied signing key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Number of bytes, NOT including signature</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyOfflineSignature()">verifyOfflineSignature</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature()">verifySignature</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Overridden to decrypt if possible, and verify inner sig also.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifySignature(net.i2p.data.PrivateKey)">verifySignature</a></span>&#8203;(<a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;clientKey)</code></th>
+<td class="colLast">
+<div class="block">Decrypt if possible, and verify inner sig also.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeBytesWithoutSig(java.io.OutputStream)">writeBytesWithoutSig</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</code></th>
+<td class="colLast">
+<div class="block">Before encrypt() is called, the inner leaseset.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeHeader(java.io.OutputStream)">writeHeader</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</code></th>
+<td class="colLast">
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeOfflineBytes(java.io.OutputStream)">writeOfflineBytes</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</code></th>
+<td class="colLast">
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.LeaseSet2">
+</a><code><a href="LeaseSet2.html#addEncryptionKey(net.i2p.data.PublicKey)">addEncryptionKey</a>, <a href="LeaseSet2.html#addLease(net.i2p.data.Lease)">addLease</a>, <a href="LeaseSet2.html#getBlindedHash()">getBlindedHash</a>, <a href="LeaseSet2.html#getBytes()">getBytes</a>, <a href="LeaseSet2.html#getEncryptionKey()">getEncryptionKey</a>, <a href="LeaseSet2.html#getExpires()">getExpires</a>, <a href="LeaseSet2.html#getOption(java.lang.String)">getOption</a>, <a href="LeaseSet2.html#getPublished()">getPublished</a>, <a href="LeaseSet2.html#getReceivedAsPublished()">getReceivedAsPublished</a>, <a href="LeaseSet2.html#getTransientExpiration()">getTransientExpiration</a>, <a href="LeaseSet2.html#getTransientSigningKey()">getTransientSigningKey</a>, <a href="LeaseSet2.html#isBlindedWhenPublished()">isBlindedWhenPublished</a>, <a href="LeaseSet2.html#isCurrent(long)">isCurrent</a>, <a href="LeaseSet2.html#isOffline()">isOffline</a>, <a href="LeaseSet2.html#isUnpublished()">isUnpublished</a>, <a href="LeaseSet2.html#offlineSign(long,net.i2p.data.SigningPublicKey,net.i2p.data.SigningPrivateKey)">offlineSign</a>, <a href="LeaseSet2.html#setBlindedHash(net.i2p.data.Hash)">setBlindedHash</a>, <a href="LeaseSet2.html#setBlindedWhenPublished()">setBlindedWhenPublished</a>, <a href="LeaseSet2.html#setOfflineSignature(long,net.i2p.data.SigningPublicKey,net.i2p.data.Signature)">setOfflineSignature</a>, <a href="LeaseSet2.html#setOptions(java.util.Properties)">setOptions</a>, <a href="LeaseSet2.html#setUnpublished()">setUnpublished</a>, <a href="LeaseSet2.html#verifyOfflineSignature(net.i2p.data.SigningPublicKey)">verifyOfflineSignature</a>, <a href="LeaseSet2.html#writeBody(java.io.OutputStream)">writeBody</a>, <a href="LeaseSet2.html#writeBytes(java.io.OutputStream)">writeBytes</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.LeaseSet">
+</a><code><a href="LeaseSet.html#getDate()">getDate</a>, <a href="LeaseSet.html#getDestination()">getDestination</a>, <a href="LeaseSet.html#getEarliestLeaseDate()">getEarliestLeaseDate</a>, <a href="LeaseSet.html#getKeysAndCert()">getKeysAndCert</a>, <a href="LeaseSet.html#getLatestLeaseDate()">getLatestLeaseDate</a>, <a href="LeaseSet.html#getReceivedAsReply()">getReceivedAsReply</a>, <a href="LeaseSet.html#getReceivedBy()">getReceivedBy</a>, <a href="LeaseSet.html#getSigningKey()">getSigningKey</a>, <a href="LeaseSet.html#setEncryptionKey(net.i2p.data.PublicKey)">setEncryptionKey</a>, <a href="LeaseSet.html#setReceivedAsPublished(boolean)">setReceivedAsPublished</a>, <a href="LeaseSet.html#setReceivedAsReply()">setReceivedAsReply</a>, <a href="LeaseSet.html#setReceivedBy(net.i2p.data.Hash)">setReceivedBy</a>, <a href="LeaseSet.html#verifySignature(net.i2p.data.SigningPublicKey)">verifySignature</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.DatabaseEntry">
+</a><code><a href="DatabaseEntry.html#getRoutingKey()">getRoutingKey</a>, <a href="DatabaseEntry.html#getSignature()">getSignature</a>, <a href="DatabaseEntry.html#isLeaseSet()">isLeaseSet</a>, <a href="DatabaseEntry.html#isLeaseSet(int)">isLeaseSet</a>, <a href="DatabaseEntry.html#setSignature(net.i2p.data.Signature)">setSignature</a>, <a href="DatabaseEntry.html#validateRoutingKey()">validateRoutingKey</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.<a href="DataStructureImpl.html" title="class in net.i2p.data">DataStructureImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.DataStructureImpl">
+</a><code><a href="DataStructureImpl.html#calculateHash()">calculateHash</a>, <a href="DataStructureImpl.html#fromBase64(java.lang.String)">fromBase64</a>, <a href="DataStructureImpl.html#fromByteArray(byte%5B%5D)">fromByteArray</a>, <a href="DataStructureImpl.html#read(java.io.InputStream,byte%5B%5D)">read</a>, <a href="DataStructureImpl.html#toBase64()">toBase64</a>, <a href="DataStructureImpl.html#toByteArray()">toByteArray</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">EncryptedLeaseSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">EncryptedLeaseSet</span>()</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDecryptedLeaseSet()">getDecryptedLeaseSet</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></span>&nbsp;<span class="memberName">getDecryptedLeaseSet</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>leaseset or null if not decrypted.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSecret(java.lang.String)">setSecret</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSecret</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;secret)</span></div>
+<div class="block">Must be set before sign or verify.
+  Must be called before setDestination() or setSigningKey(), or alpha will be wrong.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>secret</code> - null or "" for none (default)</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setClientPrivateKey(net.i2p.data.PrivateKey)">setClientPrivateKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setClientPrivateKey</span>&#8203;(<span class="arguments"><a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;privKey)</span></div>
+<div class="block">Must be set before verify for per-client auth.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>privKey</code> - non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.41</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getType()">getType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getType</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="DatabaseEntry.html#getType()">DatabaseEntry</a></code></span></div>
+<div class="block">Get the type of the data structure.
+ This should be faster than instanceof.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#getType()">getType</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>KEY_TYPE_ROUTERINFO or KEY_TYPE_LEASESET or LS2 types</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLeaseCount()">getLeaseCount</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getLeaseCount</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet.html#getLeaseCount()">getLeaseCount</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0-16, or 0 if not decrypted.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLease(int)">getLease</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Lease.html" title="class in net.i2p.data">Lease</a></span>&nbsp;<span class="memberName">getLease</span>&#8203;(<span class="arguments">int&nbsp;index)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet.html#getLease(int)">getLease</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if not decrypted.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEncryptionKeys()">getEncryptionKeys</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a>&gt;</span>&nbsp;<span class="memberName">getEncryptionKeys</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="LeaseSet2.html#getEncryptionKeys()">LeaseSet2</a></code></span></div>
+<div class="block">This returns all the keys. getEncryptionKey() returns the first one.
+
+  Encryption keys should be in order of server preference, most-preferred first.
+  Client behavior should be to select the first key with a supported encryption type.
+  Clients may use other selection algorithms based on encryption support, relative performance, and other factors.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#getEncryptionKeys()">getEncryptionKeys</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if not decrypted.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEncryptionKey(java.util.Set)">getEncryptionKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="PublicKey.html" title="class in net.i2p.data">PublicKey</a></span>&nbsp;<span class="memberName">getEncryptionKey</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../crypto/EncType.html" title="enum in net.i2p.crypto">EncType</a>&gt;&nbsp;supported)</span></div>
+<div class="block">If more than one key, return the first supported one.
+  If none supported, return null.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#getEncryptionKey(java.util.Set)">getEncryptionKey</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>supported</code> - what return types are allowed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>first supported key or null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.44</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setDestination(net.i2p.data.Destination)">setDestination</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDestination</span>&#8203;(<span class="arguments"><a href="Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest)</span></div>
+<div class="block">Overridden to set the blinded key.
+ setSecret() MUST be called before this for non-null secret, or alpha will be wrong.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet.html#setDestination(net.i2p.data.Destination)">setDestination</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet.html" title="class in net.i2p.data">LeaseSet</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dest</code> - non-null, must be EdDSA_SHA512_Ed25519 or RedDSA_SHA512_Ed25519</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already signed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if not EdDSA</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setSigningKey(net.i2p.data.SigningPublicKey)">setSigningKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setSigningKey</span>&#8203;(<span class="arguments"><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a>&nbsp;spk)</span></div>
+<div class="block">Overridden to set the blinded key.
+ setSecret() MUST be called before this for non-null secret, or alpha will be wrong.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#setSigningKey(net.i2p.data.SigningPublicKey)">setSigningKey</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>spk</code> - unblinded key non-null, must be EdDSA_SHA512_Ed25519 or RedDSA_SHA512_Ed25519</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already signed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if not EdDSA</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.40</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSigningPublicKey()">getSigningPublicKey</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">getSigningPublicKey</span>()</div>
+<div class="block">Overridden to return the blinded key so super.verifySignature() will work.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DatabaseEntry.html#getSigningPublicKey()">getSigningPublicKey</a></code>&nbsp;in class&nbsp;<code><a href="DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>SPK or null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readBytes(java.io.InputStream)">readBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span>
+               throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">This does NOT validate the signature</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DataStructure.html#readBytes(java.io.InputStream)">readBytes</a></code>&nbsp;in interface&nbsp;<code><a href="DataStructure.html" title="interface in net.i2p.data">DataStructure</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#readBytes(java.io.InputStream)">readBytes</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - stream to read from</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if called more than once or Destination already set</dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - if the data is improperly formatted</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if there was a problem reading the stream</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeBytesWithoutSig(java.io.OutputStream)">writeBytesWithoutSig</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeBytesWithoutSig</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</span>
+                             throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Before encrypt() is called, the inner leaseset.
+  After encrypt() is called, the encrypted data.
+  Without sig. This does NOT validate the signature</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#writeBytesWithoutSig(java.io.OutputStream)">writeBytesWithoutSig</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyOfflineSignature()">verifyOfflineSignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifyOfflineSignature</span>()</div>
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#verifyOfflineSignature()">verifyOfflineSignature</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readHeader(java.io.InputStream)">readHeader</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readHeader</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span>
+                   throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#readHeader(java.io.InputStream)">readHeader</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeHeader(java.io.OutputStream)">writeHeader</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeHeader</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</span>
+                    throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#writeHeader(java.io.OutputStream)">writeHeader</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readOfflineBytes(java.io.InputStream)">readOfflineBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readOfflineBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in)</span>
+                         throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#readOfflineBytes(java.io.InputStream)">readOfflineBytes</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeOfflineBytes(java.io.OutputStream)">writeOfflineBytes</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeOfflineBytes</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;out)</span>
+                          throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Overridden because we have a blinded key, not a dest</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#writeOfflineBytes(java.io.OutputStream)">writeOfflineBytes</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="size()">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
+<div class="block">Number of bytes, NOT including signature</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#size()">size</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getHash()">getHash</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getHash</span>()</div>
+<div class="block">This must be used instead of getDestination().getHash().
+
+  Overridden because we have a blinded key, not a dest.
+  This is the hash of the signing public key type and the signing public key.
+  Throws IllegalStateException if not initialized.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="DatabaseEntry.html#getHash()">getHash</a></code>&nbsp;in class&nbsp;<code><a href="DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Hash or null</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encrypt(net.i2p.data.SessionKey)">encrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">encrypt</span>&#8203;(<span class="arguments"><a href="SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;skey)</span></div>
+<div class="block">Throws IllegalStateException if not initialized.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#encrypt(net.i2p.data.SessionKey)">encrypt</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>skey</code> - ignored</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encrypt(int,java.util.List)">encrypt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">encrypt</span>&#8203;(<span class="arguments">int&nbsp;authType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;? extends <a href="SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;&nbsp;clientKeys)</span></div>
+<div class="block">Throws IllegalStateException if not initialized.
+  Ref: proposal 123</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>authType</code> - 0, 1, or 3, see BlindData</dd>
+<dd><code>clientKeys</code> - The client's X25519 public or private keys, null if unused</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.data.SigningPrivateKey)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;key)</span>
+          throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Sign the structure using the supplied signing key.
+ Overridden because we sign the inner, then blind and encrypt
+ and sign the outer.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#sign(net.i2p.data.SigningPrivateKey)">sign</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already signed</dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sign(net.i2p.data.SigningPrivateKey,int,java.util.List)">sign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sign</span>&#8203;(<span class="arguments"><a href="SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;key,
+int&nbsp;authType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;? extends <a href="SimpleDataStructure.html" title="class in net.i2p.data">SimpleDataStructure</a>&gt;&nbsp;clientKeys)</span>
+          throws <span class="exceptions"><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Sign the structure using the supplied signing key.
+ Overridden because we sign the inner, then blind and encrypt
+ and sign the outer.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>authType</code> - 0, 1, or 3, see BlindData</dd>
+<dd><code>clientKeys</code> - X25519 public keys for DH, private keys for PSK</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if already signed</dd>
+<dd><code><a href="DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.41</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature()">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>()</div>
+<div class="block">Overridden to decrypt if possible, and verify inner sig also.
+
+ Must call setDestination() prior to this if attempting decryption.
+ Must call setClientKey() prior to this if attempting decryption.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#verifySignature()">verifySignature</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>valid</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifySignature(net.i2p.data.PrivateKey)">verifySignature</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">verifySignature</span>&#8203;(<span class="arguments"><a href="PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;clientKey)</span></div>
+<div class="block">Decrypt if possible, and verify inner sig also.
+
+ Must call setDestination() prior to this if attempting decryption.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>clientKey</code> - PrivateKey for DH or PSK, or null if none</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>valid</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.41</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="equals(java.lang.Object)">equals</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">equals</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hashCode()">hashCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">hashCode</span>()</div>
+<div class="block">the destination has enough randomness in it to use it by itself for speed</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#hashCode()">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="LeaseSet2.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="LeaseSet2.html" title="class in net.i2p.data">LeaseSet2</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/EncryptedLeaseSet.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

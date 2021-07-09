@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.i2ptunnel - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.i2ptunnel">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.i2ptunnel</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+Implementation of preconfigured tunnels, both for clients and servers,
+and a UI for adding more and editing the configuration.
+Includes special-purpose tunnels for IRC, SOCKS, HTTP, and more.
+</p><p>
+The entry point is TunnelControllerGroup, which is started from clients.config.
+Individual tunnel configuration is in i2ptunnel.config.
+The primary API is TunnelControllerGroup and TunnelController.
+Other classes may not be maintained as a stable API.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnel.ConnectionEventListener.html" title="interface in net.i2p.i2ptunnel">I2PTunnel.ConnectionEventListener</a></th>
+<td class="colLast">
+<div class="block">Callback routine to find out</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelRunner.FailCallback.html" title="interface in net.i2p.i2ptunnel">I2PTunnelRunner.FailCallback</a></th>
+<td class="colLast">
+<div class="block">For use in new constructor</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelRunner.SuccessCallback.html" title="interface in net.i2p.i2ptunnel">I2PTunnelRunner.SuccessCallback</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ConnThrottler.html" title="class in net.i2p.i2ptunnel">ConnThrottler</a></th>
+<td class="colLast">
+<div class="block">Count how often something happens with a particular peer and all peers.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="GunzipOutputStream.html" title="class in net.i2p.i2ptunnel">GunzipOutputStream</a></th>
+<td class="colLast">
+<div class="block">Gunzip implementation per
+ <a href="http://www.faqs.org/rfcs/rfc1952.html">RFC 1952</a>, reusing
+ java's standard CRC32 and Inflater and InflaterOutputStream implementations.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="HTTPResponseOutputStream.html" title="class in net.i2p.i2ptunnel">HTTPResponseOutputStream</a></th>
+<td class="colLast">
+<div class="block">This does the transparent gzip decompression on the client side.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2Ping.html" title="class in net.i2p.i2ptunnel">I2Ping</a></th>
+<td class="colLast">
+<div class="block">Warning - not necessarily a stable API.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a></th>
+<td class="colLast">
+<div class="block">An I2PTunnel tracks one or more I2PTunnelTasks and one or more I2PSessions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelClient</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelClientBase.html" title="class in net.i2p.i2ptunnel">I2PTunnelClientBase</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelConnectClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelConnectClient</a></th>
+<td class="colLast">
+<div class="block">Supports the following:</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPBidirProxy.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirProxy</a></th>
+<td class="colLast">
+<div class="block">Reuse HTTP server's I2PSocketManager for a proxy with no outproxy capability.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPBidirServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirServer</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPClient</a></th>
+<td class="colLast">
+<div class="block">Act as a mini HTTP proxy, handling various different types of requests,
+ forwarding them through I2P appropriately, and displaying the reply.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPClientBase.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPClientBase</a></th>
+<td class="colLast">
+<div class="block">Common things for HTTPClient and ConnectClient
+ Retrofit over them in 0.8.2</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPClientRunner.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPClientRunner</a></th>
+<td class="colLast">
+<div class="block">Override the response with a stream filtering the HTTP headers
+ received.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPServer</a></th>
+<td class="colLast">
+<div class="block">Simple extension to the I2PTunnelServer that filters the HTTP
+ headers sent from the client to the server, replacing the Host
+ header with whatever this instance has been configured with, and
+ if the browser set Accept-Encoding: x-i2p-gzip, gzip the http
+ message body and set Content-Encoding: x-i2p-gzip.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelIRCClient.html" title="class in net.i2p.i2ptunnel">I2PTunnelIRCClient</a></th>
+<td class="colLast">
+<div class="block">Todo: Can we extend I2PTunnelClient instead and remove some duplicated code?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelIRCServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelIRCServer</a></th>
+<td class="colLast">
+<div class="block">Simple extension to the I2PTunnelServer that filters the registration
+ sequence to pass the destination hash of the client through as the hostname,
+ so an IRC Server may track users across nick changes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelOutproxyRunner.html" title="class in net.i2p.i2ptunnel">I2PTunnelOutproxyRunner</a></th>
+<td class="colLast">
+<div class="block">Like I2PTunnelRunner but socket-to-socket
+
+  Warning - not maintained as a stable API for external use.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelRunner.html" title="class in net.i2p.i2ptunnel">I2PTunnelRunner</a></th>
+<td class="colLast">
+<div class="block">A thread that starts two more threads, one to forward traffic in each direction.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></th>
+<td class="colLast">
+<div class="block">Either a Server or a Client.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="InternalSocketRunner.html" title="class in net.i2p.i2ptunnel">InternalSocketRunner</a></th>
+<td class="colLast">
+<div class="block">Listen for in-JVM connections on the internal "socket"</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SSLClientUtil.html" title="class in net.i2p.i2ptunnel">SSLClientUtil</a></th>
+<td class="colLast">
+<div class="block">Utilities for I2PTunnel client SSL server sockets.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TunnelController.html" title="class in net.i2p.i2ptunnel">TunnelController</a></th>
+<td class="colLast">
+<div class="block">Coordinate the runtime operation and configuration of a single I2PTunnel.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="TunnelControllerGroup.html" title="class in net.i2p.i2ptunnel">TunnelControllerGroup</a></th>
+<td class="colLast">
+<div class="block">Coordinate a set of tunnels within the JVM, loading and storing their config
+ to disk, and building new ones as requested.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TunnelControllerGroup.CustomThreadPoolExecutor.html" title="class in net.i2p.i2ptunnel">TunnelControllerGroup.CustomThreadPoolExecutor</a></th>
+<td class="colLast">
+<div class="block">Not really needed for now but in case we want to add some hooks like afterExecute().</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="I2PTunnelHTTPClientBase.AuthResult.html" title="enum in net.i2p.i2ptunnel">I2PTunnelHTTPClientBase.AuthResult</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

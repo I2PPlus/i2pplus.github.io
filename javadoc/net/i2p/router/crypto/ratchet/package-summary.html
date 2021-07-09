@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router.crypto.ratchet - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.crypto.ratchet">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router.crypto.ratchet</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+Implementation of ECIES-X25519-AEAD-Ratchet (proposal 144).
+Since 0.9.44.
+Subject to change, not a public API, not for external use.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.PayloadCallback.html" title="interface in net.i2p.router.crypto.ratchet">RatchetPayload.PayloadCallback</a></th>
+<td class="colLast">
+<div class="block">For all callbacks, recommend throwing exceptions only from the handshake.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ReplyCallback.html" title="interface in net.i2p.router.crypto.ratchet">ReplyCallback</a></th>
+<td class="colLast">
+<div class="block">ECIES will call this back if an ack was requested and received.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a></th>
+<td class="colLast">
+<div class="block">Something that looks for SessionTags.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ACKTimer.html" title="class in net.i2p.router.crypto.ratchet">ACKTimer</a></th>
+<td class="colLast">
+<div class="block">Send an empty message if the timer expires.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ArrayUtils.html" title="class in net.i2p.router.crypto.ratchet">ArrayUtils</a></th>
+<td class="colLast">
+<div class="block">ArrayUtils contains some methods that you can call to find out
+ the most efficient increments by which to grow arrays.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ContainerHelpers.html" title="class in net.i2p.router.crypto.ratchet">ContainerHelpers</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ECIESAEADEngine.html" title="class in net.i2p.router.crypto.ratchet">ECIESAEADEngine</a></th>
+<td class="colLast">
+<div class="block">Handles the actual ECIES+AEAD encryption and decryption scenarios using the
+ supplied keys and data.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Elg2KeyFactory.html" title="class in net.i2p.router.crypto.ratchet">Elg2KeyFactory</a></th>
+<td class="colLast">
+<div class="block">Elligator2 for X25519 keys.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="Elg2KeyPair.html" title="class in net.i2p.router.crypto.ratchet">Elg2KeyPair</a></th>
+<td class="colLast">
+<div class="block">X25519 keys, with the public key Elligator2 encoding pre-calculated</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Elligator2.html" title="class in net.i2p.router.crypto.ratchet">Elligator2</a></th>
+<td class="colLast">
+<div class="block">Elligator2 for X25519 keys.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="GrowingArrayUtils.html" title="class in net.i2p.router.crypto.ratchet">GrowingArrayUtils</a></th>
+<td class="colLast">
+<div class="block">A helper class that aims to provide comparable growth performance to ArrayList, but on primitive
+ arrays.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MuxedEngine.html" title="class in net.i2p.router.crypto.ratchet">MuxedEngine</a></th>
+<td class="colLast">
+<div class="block">Handles the actual decryption using the
+ supplied keys and data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MuxedSKM.html" title="class in net.i2p.router.crypto.ratchet">MuxedSKM</a></th>
+<td class="colLast">
+<div class="block">Both.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NextSessionKey.html" title="class in net.i2p.router.crypto.ratchet">NextSessionKey</a></th>
+<td class="colLast">
+<div class="block">A X25519 key and key ID.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetEntry.html" title="class in net.i2p.router.crypto.ratchet">RatchetEntry</a></th>
+<td class="colLast">
+<div class="block">Simple object with outbound tag, key, and nonce,
+  and an optional next keys.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload</a></th>
+<td class="colLast">
+<div class="block">Ratchet payload generation and parsing</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.AckBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.AckBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.AckRequestBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.AckRequestBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.Block.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.Block</a></th>
+<td class="colLast">
+<div class="block">Base class for blocks to be transmitted.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.DateTimeBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.DateTimeBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.GarlicBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.GarlicBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.NextKeyBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.NextKeyBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.OptionsBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.OptionsBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.PaddingBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.PaddingBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.PNBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.PNBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetPayload.TerminationBlock.html" title="class in net.i2p.router.crypto.ratchet">RatchetPayload.TerminationBlock</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a></th>
+<td class="colLast">
+<div class="block">8 bytes of random data.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RatchetSKM.html" title="class in net.i2p.router.crypto.ratchet">RatchetSKM</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RatchetTagSet.html" title="class in net.i2p.router.crypto.ratchet">RatchetTagSet</a></th>
+<td class="colLast">
+<div class="block">A tagset class for one direction, either inbound or outbound.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SessionKeyAndNonce.html" title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></th>
+<td class="colLast">
+<div class="block">A session key is 32 bytes of data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SingleTagSet.html" title="class in net.i2p.router.crypto.ratchet">SingleTagSet</a></th>
+<td class="colLast">
+<div class="block">Inbound ES tagset with a single tag and key.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SparseArray.html" title="class in net.i2p.router.crypto.ratchet">SparseArray</a>&lt;E&gt;</th>
+<td class="colLast">
+<div class="block"><code>SparseArray</code> maps integers to Objects and, unlike a normal
+ array of Objects, its indices can contain gaps.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SplitKeys.html" title="class in net.i2p.router.crypto.ratchet">SplitKeys</a></th>
+<td class="colLast">
+<div class="block">Standard Noise split().</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

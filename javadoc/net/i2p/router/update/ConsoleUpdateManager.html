@@ -1,0 +1,1540 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ConsoleUpdateManager - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.update, class: ConsoleUpdateManager">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":9,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ConsoleUpdateManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.update</a></div>
+<h1 title="Class ConsoleUpdateManager" class="title">Class ConsoleUpdateManager</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.update.ConsoleUpdateManager</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code>, <code><a href="../app/RouterApp.html" title="interface in net.i2p.router.app">RouterApp</a></code>, <code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">ConsoleUpdateManager</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a>, <a href="../app/RouterApp.html" title="interface in net.i2p.router.app">RouterApp</a></pre>
+<div class="block">The central resource coordinating updates.
+  This must be registered with the context.
+
+  The UpdateManager starts and stops all updates,
+  prevents multiple updates as appropriate,
+  and controls notification to the user.
+
+  Version notes: For news and unsigned updates, use
+  Long.toString(modtime).</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.4</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from interface&nbsp;net.i2p.update.<a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></h3>
+<a id="fields.inherited.from.class.net.i2p.update.UpdateManager">
+</a><code><a href="../../update/UpdateManager.html#APP_NAME">APP_NAME</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.app.ClientAppManager,java.lang.String%5B%5D)">ConsoleUpdateManager</a></span>&#8203;(<a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../../app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a>&nbsp;listener,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_t(java.lang.String)">_t</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s)</code></th>
+<td class="colLast">
+<div class="block">translate a string</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_t(java.lang.String,java.lang.Object)">_t</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o)</code></th>
+<td class="colLast">
+<div class="block">translate a string with a parameter</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_t(java.lang.String,java.lang.Object,java.lang.Object)">_t</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o2)</code></th>
+<td class="colLast">
+<div class="block">translate a string with parameters</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check(net.i2p.update.UpdateType)">check</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Fire off a checker task
+  Non-blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check(net.i2p.update.UpdateType,java.lang.String)">check</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Fire off a checker task
+  Non-blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkAvailable(net.i2p.update.UpdateType)">checkAvailable</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Is an update available?
+  Blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkAvailable(net.i2p.update.UpdateType,long)">checkAvailable</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+long&nbsp;maxWait)</code></th>
+<td class="colLast">
+<div class="block">Is an update available?
+  Blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkAvailable(net.i2p.update.UpdateType,java.lang.String,long)">checkAvailable</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+long&nbsp;maxWait)</code></th>
+<td class="colLast">
+<div class="block">Is an update available?
+  Blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDisplayName()">getDisplayName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The display name of the ClientApp, used in user interfaces.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>static <a href="ConsoleUpdateManager.html" title="class in net.i2p.router.update">ConsoleUpdateManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInstance()">getInstance</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The generic name of the ClientApp, used for registration,
+  e.g.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="../../app/ClientAppState.html" title="enum in net.i2p.app">ClientAppState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getState()">getState</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The current state of the ClientApp.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStatus()">getStatus</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The status on any update current or last finished.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateAvailable(net.i2p.update.UpdateType)">getUpdateAvailable</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Is an update available?
+  Non-blocking, returns result of last check or notification from an Updater.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateAvailable(net.i2p.update.UpdateType,java.lang.String)">getUpdateAvailable</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Is an update available?
+  Non-blocking, returns result of last check or notification from an Updater.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateConstraint(net.i2p.update.UpdateType,java.lang.String)">getUpdateConstraint</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Is there a reason we can't download the update?</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateDownloaded(net.i2p.update.UpdateType)">getUpdateDownloaded</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Is an update downloaded?
+  Non-blocking, returns result of last download</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateDownloaded(net.i2p.update.UpdateType,java.lang.String)">getUpdateDownloaded</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Is an update downloaded?
+  Non-blocking, returns result of last download</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUpdateURLs(net.i2p.update.UpdateType,java.lang.String,net.i2p.update.UpdateMethod)">getUpdateURLs</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</code></th>
+<td class="colLast">
+<div class="block">Where to find various resources</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#installPlugin(java.lang.String,java.net.URI)">installPlugin</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</code></th>
+<td class="colLast">
+<div class="block">Install a plugin.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isCheckInProgress()">isCheckInProgress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is any check in progress?
+  Does not include updates.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isCheckInProgress(net.i2p.update.UpdateType)">isCheckInProgress</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Is a check in progress?</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isCheckInProgress(net.i2p.update.UpdateType,java.lang.String)">isCheckInProgress</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Is a check in progress?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isUpdateInProgress()">isUpdateInProgress</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Is any download in progress?
+  Does not include checks.</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isUpdateInProgress(net.i2p.update.UpdateType)">isUpdateInProgress</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Is a download in progress?</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isUpdateInProgress(net.i2p.update.UpdateType,java.lang.String)">isUpdateInProgress</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Is a download in progress?</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#linkify(java.lang.String)">linkify</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;url)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyAttemptFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyAttemptFailed</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;t)</code></th>
+<td class="colLast">
+<div class="block">Not necessarily the end if there are more URIs to try.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyCheckComplete(net.i2p.update.UpdateTask,boolean,boolean)">notifyCheckComplete</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+boolean&nbsp;newer,
+boolean&nbsp;success)</code></th>
+<td class="colLast">
+<div class="block">Called by the Updater after check() was called and all notifyVersionAvailable() callbacks are finished</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyComplete(net.i2p.update.UpdateTask,java.lang.String)">notifyComplete</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</code></th>
+<td class="colLast">
+<div class="block">An expiring status</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyComplete(net.i2p.update.UpdateTask,java.lang.String,java.io.File)">notifyComplete</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;actualVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</code></th>
+<td class="colLast">
+<div class="block">An update has been downloaded but not verified.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyInstalled(net.i2p.update.UpdateType,java.lang.String,java.lang.String)">notifyInstalled</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;version)</code></th>
+<td class="colLast">
+<div class="block">Adds to installed, removes from downloaded and available</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyProgress(net.i2p.update.UpdateTask,java.lang.String)">notifyProgress</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyProgress(net.i2p.update.UpdateTask,java.lang.String,long,long)">notifyProgress</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status,
+long&nbsp;downloaded,
+long&nbsp;totalSize)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyTaskFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyTaskFailed</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;t)</code></th>
+<td class="colLast">
+<div class="block">The task has finished and failed.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.util.Map,java.lang.String,java.lang.String)">notifyVersionAvailable</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;&gt;&nbsp;sourceMap,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;minVersion)</code></th>
+<td class="colLast">
+<div class="block">Called by the Checker, either after check() was called, or it found out on its own.</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,net.i2p.update.UpdateMethod,java.util.List,java.lang.String,java.lang.String)">notifyVersionAvailable</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;&nbsp;updateSources,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;minVersion)</code></th>
+<td class="colLast">
+<div class="block">Called by the Updater, either after check() was called, or it found out on its own.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#notifyVersionConstraint(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.lang.String,java.lang.String)">notifyVersionConstraint</a></span>&#8203;(<a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message)</code></th>
+<td class="colLast">
+<div class="block">A new version is available but cannot be downloaded or installed due to some constraint.</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#register(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></span>&#8203;(<a href="../../update/Checker.html" title="interface in net.i2p.update">Checker</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+int&nbsp;priority)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#register(net.i2p.update.UpdatePostProcessor,net.i2p.update.UpdateType,int)">register</a></span>&#8203;(<a href="../../update/UpdatePostProcessor.html" title="interface in net.i2p.update">UpdatePostProcessor</a>&nbsp;upp,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+int&nbsp;fileType)</code></th>
+<td class="colLast">
+<div class="block">Register a post-processor for this UpdateType and SU3File file type.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#register(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></span>&#8203;(<a href="../../update/Updater.html" title="interface in net.i2p.update">Updater</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+int&nbsp;priority)</code></th>
+<td class="colLast">
+<div class="block">Call once for each type/method pair.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renderStatusHTML(java.io.Writer)">renderStatusHTML</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out)</code></th>
+<td class="colLast">
+<div class="block">debug</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldInstall()">shouldInstall</a></span>()</code></th>
+<td class="colLast">
+<div class="block">from NewsFetcher</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">UpdateManager interface</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown(java.lang.String%5B%5D)">shutdown</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</code></th>
+<td class="colLast">
+<div class="block">ClientApp interface</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
+<td class="colLast">
+<div class="block">UpdateManager interface</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startup()">startup</a></span>()</code></th>
+<td class="colLast">
+<div class="block">ClientApp interface</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopCheck(net.i2p.update.UpdateType)">stopCheck</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Stop this check</div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopCheck(net.i2p.update.UpdateType,java.lang.String)">stopCheck</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Stop this check</div>
+</td>
+</tr>
+<tr class="rowColor" id="i49">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopChecks()">stopChecks</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Stop all checks in progress</div>
+</td>
+</tr>
+<tr class="altColor" id="i50">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopUpdate(net.i2p.update.UpdateType)">stopUpdate</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Stop this download</div>
+</td>
+</tr>
+<tr class="rowColor" id="i51">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopUpdate(net.i2p.update.UpdateType,java.lang.String)">stopUpdate</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Stop this download</div>
+</td>
+</tr>
+<tr class="altColor" id="i52">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopUpdates()">stopUpdates</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Stop all downloads in progress</div>
+</td>
+</tr>
+<tr class="rowColor" id="i53">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregister(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></span>&#8203;(<a href="../../update/Checker.html" title="interface in net.i2p.update">Checker</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i54">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unregister(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></span>&#8203;(<a href="../../update/Updater.html" title="interface in net.i2p.update">Updater</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i55">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(net.i2p.update.UpdateType)">update</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Non-blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i56">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(net.i2p.update.UpdateType,long)">update</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+long&nbsp;maxTime)</code></th>
+<td class="colLast">
+<div class="block">Non-blocking.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i57">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(net.i2p.update.UpdateType,java.lang.String)">update</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Non-blocking.</div>
+</td>
+</tr>
+<tr class="altColor" id="i58">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(net.i2p.update.UpdateType,java.lang.String,long)">update</a></span>&#8203;(<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+long&nbsp;maxTime)</code></th>
+<td class="colLast">
+<div class="block">Non-blocking.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.app.ClientAppManager,java.lang.String[])">ConsoleUpdateManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">ConsoleUpdateManager</span>&#8203;(<span class="arguments"><a href="../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../../app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a>&nbsp;listener,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - ignored</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInstance()">getInstance</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="ConsoleUpdateManager.html" title="class in net.i2p.router.update">ConsoleUpdateManager</a></span>&nbsp;<span class="memberName">getInstance</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if not found</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="start()">start</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
+<div class="block">UpdateManager interface</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#start()">start</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="startup()">startup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startup</span>()</div>
+<div class="block">ClientApp interface</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../app/ClientApp.html#startup()">startup</a></code>&nbsp;in interface&nbsp;<code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+<div class="block">UpdateManager interface</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#shutdown()">shutdown</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown(java.lang.String[])">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;args)</span></div>
+<div class="block">ClientApp interface</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../app/ClientApp.html#shutdown(java.lang.String%5B%5D)">shutdown</a></code>&nbsp;in interface&nbsp;<code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>args</code> - ignored</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getState()">getState</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../app/ClientAppState.html" title="enum in net.i2p.app">ClientAppState</a></span>&nbsp;<span class="memberName">getState</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../app/ClientApp.html#getState()">ClientApp</a></code></span></div>
+<div class="block">The current state of the ClientApp.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../app/ClientApp.html#getState()">getState</a></code>&nbsp;in interface&nbsp;<code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getName</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../app/ClientApp.html#getName()">ClientApp</a></code></span></div>
+<div class="block">The generic name of the ClientApp, used for registration,
+  e.g. "console". Do not translate.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../app/ClientApp.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDisplayName()">getDisplayName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getDisplayName</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../app/ClientApp.html#getDisplayName()">ClientApp</a></code></span></div>
+<div class="block">The display name of the ClientApp, used in user interfaces.
+  The app must translate.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../app/ClientApp.html#getDisplayName()">getDisplayName</a></code>&nbsp;in interface&nbsp;<code><a href="../../app/ClientApp.html" title="interface in net.i2p.app">ClientApp</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStatus()">getStatus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getStatus</span>()</div>
+<div class="block">The status on any update current or last finished.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#getStatus()">getStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>status or ""</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="checkAvailable(net.i2p.update.UpdateType)">checkAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">checkAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Is an update available?
+  Blocking.
+  An available update may still have a constraint or lack sources.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#checkAvailable(net.i2p.update.UpdateType)">checkAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing newer is available</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.21</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="checkAvailable(net.i2p.update.UpdateType,long)">checkAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">checkAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+long&nbsp;maxWait)</span></div>
+<div class="block">Is an update available?
+  Blocking.
+  An available update may still have a constraint or lack sources.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#checkAvailable(net.i2p.update.UpdateType,long)">checkAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dd><code>maxWait</code> - max time to block</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing newer is available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="checkAvailable(net.i2p.update.UpdateType,java.lang.String,long)">checkAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">checkAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+long&nbsp;maxWait)</span></div>
+<div class="block">Is an update available?
+  Blocking.
+  An available update may still have a constraint or lack sources.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#checkAvailable(net.i2p.update.UpdateType,java.lang.String,long)">checkAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dd><code>id</code> - id of this request</dd>
+<dd><code>maxWait</code> - max time to block</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing newer is available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="check(net.i2p.update.UpdateType)">check</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">check</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Fire off a checker task
+  Non-blocking.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="check(net.i2p.update.UpdateType,java.lang.String)">check</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">check</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Fire off a checker task
+  Non-blocking.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateAvailable(net.i2p.update.UpdateType)">getUpdateAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getUpdateAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Is an update available?
+  Non-blocking, returns result of last check or notification from an Updater.
+  An available update may still have a constraint or lack sources.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing newer is available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateAvailable(net.i2p.update.UpdateType,java.lang.String)">getUpdateAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getUpdateAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Is an update available?
+  Non-blocking, returns result of last check or notification from an Updater.
+  An available update may still have a constraint or lack sources.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing newer is available</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateDownloaded(net.i2p.update.UpdateType)">getUpdateDownloaded</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getUpdateDownloaded</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Is an update downloaded?
+  Non-blocking, returns result of last download</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing was downloaded</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateDownloaded(net.i2p.update.UpdateType,java.lang.String)">getUpdateDownloaded</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getUpdateDownloaded</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Is an update downloaded?
+  Non-blocking, returns result of last download</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new version or null if nothing was downloaded</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isUpdateInProgress()">isUpdateInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isUpdateInProgress</span>()</div>
+<div class="block">Is any download in progress?
+  Does not include checks.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#isUpdateInProgress()">isUpdateInProgress</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff router update is being downloaded</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isUpdateInProgress(net.i2p.update.UpdateType)">isUpdateInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isUpdateInProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Is a download in progress?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#isUpdateInProgress(net.i2p.update.UpdateType)">isUpdateInProgress</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff router update is being downloaded</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isUpdateInProgress(net.i2p.update.UpdateType,java.lang.String)">isUpdateInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isUpdateInProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Is a download in progress?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#isUpdateInProgress(net.i2p.update.UpdateType,java.lang.String)">isUpdateInProgress</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dd><code>id</code> - of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true iff router update is being downloaded</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopUpdates()">stopUpdates</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopUpdates</span>()</div>
+<div class="block">Stop all downloads in progress</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopUpdate(net.i2p.update.UpdateType)">stopUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopUpdate</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Stop this download</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopUpdate(net.i2p.update.UpdateType,java.lang.String)">stopUpdate</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopUpdate</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Stop this download</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isCheckInProgress()">isCheckInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isCheckInProgress</span>()</div>
+<div class="block">Is any check in progress?
+  Does not include updates.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isCheckInProgress(net.i2p.update.UpdateType)">isCheckInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isCheckInProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Is a check in progress?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isCheckInProgress(net.i2p.update.UpdateType,java.lang.String)">isCheckInProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isCheckInProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Is a check in progress?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopChecks()">stopChecks</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopChecks</span>()</div>
+<div class="block">Stop all checks in progress</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopCheck(net.i2p.update.UpdateType)">stopCheck</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopCheck</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Stop this check</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopCheck(net.i2p.update.UpdateType,java.lang.String)">stopCheck</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopCheck</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Stop this check</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="installPlugin(java.lang.String,java.net.URI)">installPlugin</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">installPlugin</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;uri)</span></div>
+<div class="block">Install a plugin. Non-blocking.
+  If returns true, then call isUpdateInProgress() in a loop</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - if null, a new install</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if task started</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="update(net.i2p.update.UpdateType)">update</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">update</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type)</span></div>
+<div class="block">Non-blocking. Does not check.
+  If returns true, then call isUpdateInProgress() in a loop
+  Max time 3 hours by default but not honored by all Updaters</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#update(net.i2p.update.UpdateType)">update</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if task started</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="update(net.i2p.update.UpdateType,java.lang.String)">update</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">update</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Non-blocking. Does not check.
+  Max time 3 hours by default but not honored by all Updaters
+  If returns true, then call isUpdateInProgress() in a loop</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#update(net.i2p.update.UpdateType,java.lang.String)">update</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dd><code>id</code> - id of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if task started</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="update(net.i2p.update.UpdateType,long)">update</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">update</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+long&nbsp;maxTime)</span></div>
+<div class="block">Non-blocking. Does not check.
+  If returns true, then call isUpdateInProgress() in a loop</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#update(net.i2p.update.UpdateType,long)">update</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxTime</code> - not honored by all Updaters</dd>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if task started</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="update(net.i2p.update.UpdateType,java.lang.String,long)">update</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">update</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+long&nbsp;maxTime)</span></div>
+<div class="block">Non-blocking. Does not check.
+  Fails if check or update already in progress.
+  If returns true, then call isUpdateInProgress() in a loop</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#update(net.i2p.update.UpdateType,java.lang.String,long)">update</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxTime</code> - not honored by all Updaters</dd>
+<dd><code>type</code> - the UpdateType of this request</dd>
+<dd><code>id</code> - id of this request</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if task started</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="register(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">register</span>&#8203;(<span class="arguments"><a href="../../update/Updater.html" title="interface in net.i2p.update">Updater</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+int&nbsp;priority)</span></div>
+<div class="block">Call once for each type/method pair.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#register(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="unregister(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">unregister</span>&#8203;(<span class="arguments"><a href="../../update/Updater.html" title="interface in net.i2p.update">Updater</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#unregister(net.i2p.update.Updater,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="register(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">register</span>&#8203;(<span class="arguments"><a href="../../update/Checker.html" title="interface in net.i2p.update">Checker</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+int&nbsp;priority)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#register(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod,int)">register</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="unregister(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">unregister</span>&#8203;(<span class="arguments"><a href="../../update/Checker.html" title="interface in net.i2p.update">Checker</a>&nbsp;updater,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#unregister(net.i2p.update.Checker,net.i2p.update.UpdateType,net.i2p.update.UpdateMethod)">unregister</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="register(net.i2p.update.UpdatePostProcessor,net.i2p.update.UpdateType,int)">register</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">register</span>&#8203;(<span class="arguments"><a href="../../update/UpdatePostProcessor.html" title="interface in net.i2p.update">UpdatePostProcessor</a>&nbsp;upp,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+int&nbsp;fileType)</span></div>
+<div class="block">Register a post-processor for this UpdateType and SU3File file type.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#register(net.i2p.update.UpdatePostProcessor,net.i2p.update.UpdateType,int)">register</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - only ROUTER_SIGNED_SU3 and ROUTER_DEV_SU3 are currently supported</dd>
+<dd><code>fileType</code> - a SU3File TYPE_xxx constant, 1-255, TYPE_ZIP not supported.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.51</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,net.i2p.update.UpdateMethod,java.util.List,java.lang.String,java.lang.String)">notifyVersionAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">notifyVersionAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;&nbsp;updateSources,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;minVersion)</span></div>
+<div class="block">Called by the Updater, either after check() was called, or it found out on its own.
+  Use this if there is only one UpdateMethod; otherwise use the Map method below.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,net.i2p.update.UpdateMethod,java.util.List,java.lang.String,java.lang.String)">notifyVersionAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newsSource</code> - who told us</dd>
+<dd><code>id</code> - plugin name for plugins, ignored otherwise</dd>
+<dd><code>updateSources</code> - Where to get the new version</dd>
+<dd><code>newVersion</code> - The new version available</dd>
+<dd><code>minVersion</code> - The minimum installed version to be able to update to newVersion</dd>
+<dd><code>method</code> - How to get the new version</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if it's newer</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.util.Map,java.lang.String,java.lang.String)">notifyVersionAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">notifyVersionAvailable</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;&gt;&nbsp;sourceMap,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;minVersion)</span></div>
+<div class="block">Called by the Checker, either after check() was called, or it found out on its own.
+  Checkers must use this method if there are multiple UpdateMethods discoverd simultaneously.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyVersionAvailable(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.util.Map,java.lang.String,java.lang.String)">notifyVersionAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newsSource</code> - who told us</dd>
+<dd><code>id</code> - plugin name for plugins, ignored otherwise</dd>
+<dd><code>sourceMap</code> - Mapping of methods to sources</dd>
+<dd><code>newVersion</code> - The new version available</dd>
+<dd><code>minVersion</code> - The minimum installed version to be able to update to newVersion</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if we didn't know already</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.6</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyVersionConstraint(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.lang.String,java.lang.String)">notifyVersionConstraint</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyVersionConstraint</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&nbsp;newsSource,
+<a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;newVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message)</span></div>
+<div class="block">A new version is available but cannot be downloaded or installed due to some constraint.
+  The manager should notify the user.
+  Called by the Checker, either after check() was called, or it found out on its own.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyVersionConstraint(net.i2p.update.UpdateTask,java.net.URI,net.i2p.update.UpdateType,java.lang.String,java.lang.String,java.lang.String)">notifyVersionConstraint</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newsSource</code> - who told us</dd>
+<dd><code>id</code> - plugin name for plugins, ignored otherwise</dd>
+<dd><code>newVersion</code> - The new version available</dd>
+<dd><code>message</code> - A translated message to be displayed to the user, non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyCheckComplete(net.i2p.update.UpdateTask,boolean,boolean)">notifyCheckComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyCheckComplete</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+boolean&nbsp;newer,
+boolean&nbsp;success)</span></div>
+<div class="block">Called by the Updater after check() was called and all notifyVersionAvailable() callbacks are finished</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyCheckComplete(net.i2p.update.UpdateTask,boolean,boolean)">notifyCheckComplete</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dd><code>newer</code> - notifyVersionAvailable was called</dd>
+<dd><code>success</code> - check succeeded (newer or not)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyProgress(net.i2p.update.UpdateTask,java.lang.String,long,long)">notifyProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status,
+long&nbsp;downloaded,
+long&nbsp;totalSize)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyProgress(net.i2p.update.UpdateTask,java.lang.String,long,long)">notifyProgress</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyProgress(net.i2p.update.UpdateTask,java.lang.String)">notifyProgress</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyProgress</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyProgress(net.i2p.update.UpdateTask,java.lang.String)">notifyProgress</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>task</code> - may be null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyComplete(net.i2p.update.UpdateTask,java.lang.String)">notifyComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyComplete</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</span></div>
+<div class="block">An expiring status</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>task</code> - may be null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyAttemptFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyAttemptFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyAttemptFailed</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;t)</span></div>
+<div class="block">Not necessarily the end if there are more URIs to try.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyAttemptFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyAttemptFailed</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>task</code> - checker or updater</dd>
+<dd><code>t</code> - may be null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyTaskFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyTaskFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyTaskFailed</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;t)</span></div>
+<div class="block">The task has finished and failed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyTaskFailed(net.i2p.update.UpdateTask,java.lang.String,java.lang.Throwable)">notifyTaskFailed</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>task</code> - checker or updater</dd>
+<dd><code>t</code> - may be null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyComplete(net.i2p.update.UpdateTask,java.lang.String,java.io.File)">notifyComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">notifyComplete</span>&#8203;(<span class="arguments"><a href="../../update/UpdateTask.html" title="interface in net.i2p.update">UpdateTask</a>&nbsp;task,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;actualVersion,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;file)</span></div>
+<div class="block">An update has been downloaded but not verified.
+  The manager will verify it.
+  Caller should delete the file upon return, unless it will share it with others,
+  e.g. on a torrent.
+  If the return value is false, caller must call notifyTaskFailed() or notifyComplete()
+  again.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyComplete(net.i2p.update.UpdateTask,java.lang.String,java.io.File)">notifyComplete</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>task</code> - must be an Updater, not a Checker</dd>
+<dd><code>actualVersion</code> - may be higher (or lower?) than the version requested</dd>
+<dd><code>file</code> - a valid format for the task's UpdateType, or null if it did the installation itself</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if valid, false if corrupt</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="notifyInstalled(net.i2p.update.UpdateType,java.lang.String,java.lang.String)">notifyInstalled</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">notifyInstalled</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;version)</span></div>
+<div class="block">Adds to installed, removes from downloaded and available</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#notifyInstalled(net.i2p.update.UpdateType,java.lang.String,java.lang.String)">notifyInstalled</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - subtype for plugins, or ""</dd>
+<dd><code>version</code> - null to remove from installed</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>public since 0.9.45</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldInstall()">shouldInstall</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldInstall</span>()</div>
+<div class="block">from NewsFetcher</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateURLs(net.i2p.update.UpdateType,java.lang.String,net.i2p.update.UpdateMethod)">getUpdateURLs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net" class="externalLink">URI</a>&gt;</span>&nbsp;<span class="memberName">getUpdateURLs</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id,
+<a href="../../update/UpdateMethod.html" title="enum in net.i2p.update">UpdateMethod</a>&nbsp;method)</span></div>
+<div class="block">Where to find various resources</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null may be empty</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getUpdateConstraint(net.i2p.update.UpdateType,java.lang.String)">getUpdateConstraint</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getUpdateConstraint</span>&#8203;(<span class="arguments"><a href="../../update/UpdateType.html" title="enum in net.i2p.update">UpdateType</a>&nbsp;type,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;id)</span></div>
+<div class="block">Is there a reason we can't download the update?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>translated contraint or null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="linkify(java.lang.String)">linkify</a></h3>
+<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">linkify</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;url)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_t(java.lang.String)">_t</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">_t</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s)</span></div>
+<div class="block">translate a string</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_t(java.lang.String,java.lang.Object)">_t</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">_t</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o)</span></div>
+<div class="block">translate a string with a parameter</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="_t(java.lang.String,java.lang.Object,java.lang.Object)">_t</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">_t</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;s,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o2)</span></div>
+<div class="block">translate a string with parameters</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="renderStatusHTML(java.io.Writer)">renderStatusHTML</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">renderStatusHTML</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">debug</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../update/UpdateManager.html#renderStatusHTML(java.io.Writer)">renderStatusHTML</a></code>&nbsp;in interface&nbsp;<code><a href="../../update/UpdateManager.html" title="interface in net.i2p.update">UpdateManager</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ConsoleUpdateManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

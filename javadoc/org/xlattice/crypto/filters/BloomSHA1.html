@@ -1,0 +1,601 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BloomSHA1 - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.xlattice.crypto.filters, class: BloomSHA1">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BloomSHA1.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.xlattice.crypto.filters</a></div>
+<h1 title="Class BloomSHA1" class="title">Class BloomSHA1</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.xlattice.crypto.filters.BloomSHA1</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">BloomSHA1</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">A Bloom filter for sets of SHA1 digests.  A Bloom filter uses a set
+ of k hash functions to determine set membership.  Each hash function
+ produces a value in the range 0..M-1.  The filter is of size M.  To
+ add a member to the set, apply each function to the new member and 
+ set the corresponding bit in the filter.  For M very large relative
+ to k, this will normally set k bits in the filter.  To check whether
+ x is a member of the set, apply each of the k hash functions to x
+ and check whether the corresponding bits are set in the filter.  If
+ any are not set, x is definitely not a member.  If all are set, x 
+ may be a member.  The probability of error (the false positive rate)
+ is f = (1 - e^(-kN/M))^k, where N is the number of set members.
+
+ This class takes advantage of the fact that SHA1 digests are good-
+ quality pseudo-random numbers.  The k hash functions are the values
+ of distinct sets of bits taken from the 20-byte SHA1 hash.  The
+ number of bits in the filter, M, is constrained to be a power of 
+ 2; M == 2^m.  The number of bits in each hash function may not 
+ exceed floor(m/k).
+
+ This class is designed to be thread-safe, but this has not been
+ exhaustively tested.</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd><A HREF="mailto:jddixon@users.sourceforge.net">Jim Dixon</A>
+ 
+ BloomSHA1.java and KeySelector.java are BSD licensed from the xlattice
+ app - http://xlattice.sourceforge.net/
+ 
+ minor tweaks by jrandom, exposing unsynchronized access and 
+ allowing larger M and K.  changes released into the public domain.
+ 
+ Note that this is used only by DecayingBloomFilter, which uses only
+ the unsynchronized locked_foo() methods.
+ Deprecated for use outside of the router; to be moved to router.jar.
+ 
+ As of 0.8.11, the locked_foo() methods are thread-safe, in that they work,
+ but there is a minor risk of false-negatives if two threads are
+ accessing the same bloom filter integer.</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a></span></code></th>
+<td class="colLast">
+<div class="block">Store the (opaque) bloom filter offsets for reuse.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">BloomSHA1</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Creates a filter of 2^20 bits with k defaulting to 8.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">BloomSHA1</a></span>&#8203;(int&nbsp;m)</code></th>
+<td class="colLast">
+<div class="block">Creates a filter of 2^m bits, with the number of 'hash functions"
+ k defaulting to 8.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,int)">BloomSHA1</a></span>&#8203;(int&nbsp;m,
+int&nbsp;k)</code></th>
+<td class="colLast">
+<div class="block">Creates a filter with 2^m bits and k 'hash functions', where
+ each hash function is portion of the 160-bit SHA1 hash.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#capacity()">capacity</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Synchronized version</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#falsePositives()">falsePositives</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#falsePositives(int)">falsePositives</a></span>&#8203;(int&nbsp;n)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilterKey(byte%5B%5D,int,int)">getFilterKey</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">
+<div class="block">Get the bloom filter offsets for reuse.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#insert(byte%5B%5D)">insert</a></span>&#8203;(byte[]&nbsp;b)</code></th>
+<td class="colLast">
+<div class="block">Add a key to the set represented by the filter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#insert(byte%5B%5D,int,int)">insert</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_insert(byte%5B%5D)">locked_insert</a></span>&#8203;(byte[]&nbsp;b)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_insert(byte%5B%5D,int,int)">locked_insert</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_insert(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">locked_insert</a></span>&#8203;(<a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</code></th>
+<td class="colLast">
+<div class="block">Add the key to the filter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_member(byte%5B%5D)">locked_member</a></span>&#8203;(byte[]&nbsp;b)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_member(byte%5B%5D,int,int)">locked_member</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#locked_member(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">locked_member</a></span>&#8203;(<a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</code></th>
+<td class="colLast">
+<div class="block">Is the key in the filter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#member(byte%5B%5D)">member</a></span>&#8203;(byte[]&nbsp;b)</code></th>
+<td class="colLast">
+<div class="block">Is a key in the filter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#member(byte%5B%5D,int,int)">member</a></span>&#8203;(byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#release(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">release</a></span>&#8203;(<a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the number of keys which have been inserted.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(int,int)">BloomSHA1</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BloomSHA1</span>&#8203;(<span class="arguments">int&nbsp;m,
+int&nbsp;k)</span></div>
+<div class="block">Creates a filter with 2^m bits and k 'hash functions', where
+ each hash function is portion of the 160-bit SHA1 hash.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - determines number of bits in filter</dd>
+<dd><code>k</code> - number of hash functionsx
+
+ See KeySelector for important restriction on max m and k</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(int)">BloomSHA1</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BloomSHA1</span>&#8203;(<span class="arguments">int&nbsp;m)</span></div>
+<div class="block">Creates a filter of 2^m bits, with the number of 'hash functions"
+ k defaulting to 8.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>m</code> - determines size of filter</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;()">BloomSHA1</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BloomSHA1</span>()</div>
+<div class="block">Creates a filter of 2^20 bits with k defaulting to 8.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="clear()">clear</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
+<div class="block">Synchronized version</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="size()">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
+<div class="block">Returns the number of keys which have been inserted.  This 
+ class (BloomSHA1) does not guarantee uniqueness in any sense; if the 
+ same key is added N times, the number of set members reported
+ will increase by N.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of set members</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="capacity()">capacity</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">capacity</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of bits in filter</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="insert(byte[])">insert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">insert</span>&#8203;(<span class="arguments">byte[]&nbsp;b)</span></div>
+<div class="block">Add a key to the set represented by the filter.   
+
+ XXX This version does not maintain 4-bit counters, it is not
+ a counting Bloom filter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>b</code> - byte array representing a key (SHA1 digest)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="insert(byte[],int,int)">insert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">insert</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_insert(byte[])">locked_insert</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">locked_insert</span>&#8203;(<span class="arguments">byte[]&nbsp;b)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_insert(byte[],int,int)">locked_insert</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">locked_insert</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_member(byte[])">locked_member</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">locked_member</span>&#8203;(<span class="arguments">byte[]&nbsp;b)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_member(byte[],int,int)">locked_member</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">locked_member</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="member(byte[])">member</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">member</span>&#8203;(<span class="arguments">byte[]&nbsp;b)</span></div>
+<div class="block">Is a key in the filter.  External interface, internally synchronized.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>b</code> - byte array representing a key (SHA1 digest)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if b is in the filter</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="member(byte[],int,int)">member</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">member</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFilterKey(byte[],int,int)">getFilterKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a></span>&nbsp;<span class="memberName">getFilterKey</span>&#8203;(<span class="arguments">byte[]&nbsp;b,
+int&nbsp;offset,
+int&nbsp;len)</span></div>
+<div class="block">Get the bloom filter offsets for reuse.
+ Caller should call release(rv) when done with it.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_insert(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">locked_insert</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">locked_insert</span>&#8203;(<span class="arguments"><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</span></div>
+<div class="block">Add the key to the filter.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="locked_member(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">locked_member</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">locked_member</span>&#8203;(<span class="arguments"><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</span></div>
+<div class="block">Is the key in the filter.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="release(org.xlattice.crypto.filters.BloomSHA1.FilterKey)">release</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">release</span>&#8203;(<span class="arguments"><a href="BloomSHA1.FilterKey.html" title="class in org.xlattice.crypto.filters">BloomSHA1.FilterKey</a>&nbsp;fk)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="falsePositives(int)">falsePositives</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">falsePositives</span>&#8203;(<span class="arguments">int&nbsp;n)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>n</code> - number of set members</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>approximate false positive rate</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="falsePositives()">falsePositives</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">falsePositives</span>()</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BloomSHA1.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RouterClock - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router, class: RouterClock">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterClock.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router</a></div>
+<h1 title="Class RouterClock" class="title">Class RouterClock</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../util/Clock.html" title="class in net.i2p.util">net.i2p.util.Clock</a>
+<div class="inheritance">net.i2p.router.RouterClock</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../time/Timestamper.UpdateListener.html" title="interface in net.i2p.time">Timestamper.UpdateListener</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">RouterClock</span>
+extends <a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></pre>
+<div class="block">Alternate location for determining the time which takes into account an offset.
+ This offset will ideally be periodically updated so as to serve as the difference
+ between the local computer's current time and the time as known by some reference
+ (such as an NTP synchronized clock).
+
+ RouterClock is a subclass of Clock with access to router transports.
+ Configuration permitting, it will block clock offset changes
+ which would increase peer clock skew.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h2>Nested classes/interfaces inherited from class&nbsp;net.i2p.util.<a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></h2>
+<a id="nested.classes.inherited.from.class.net.i2p.util.Clock">
+</a><code><a href="../util/Clock.ClockUpdateListener.html" title="interface in net.i2p.util">Clock.ClockUpdateListener</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_STRATUM">DEFAULT_STRATUM</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.util.<a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></h3>
+<a id="fields.inherited.from.class.net.i2p.util.Clock">
+</a><code><a href="../util/Clock.html#_alreadyChanged">_alreadyChanged</a>, <a href="../util/Clock.html#_context">_context</a>, <a href="../util/Clock.html#_isSystemClockBad">_isSystemClockBad</a>, <a href="../util/Clock.html#_offset">_offset</a>, <a href="../util/Clock.html#_startedOn">_startedOn</a>, <a href="../util/Clock.html#_statCreated">_statCreated</a>, <a href="../util/Clock.html#MAX_LIVE_OFFSET">MAX_LIVE_OFFSET</a>, <a href="../util/Clock.html#MAX_OFFSET">MAX_OFFSET</a>, <a href="../util/Clock.html#MIN_OFFSET_CHANGE">MIN_OFFSET_CHANGE</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">RouterClock</a></span>&#8203;(<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</code></th>
+<td class="colLast">
+<div class="block">Does not start.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addShiftListener(net.i2p.router.RouterClock.ClockShiftListener)">addShiftListener</a></span>&#8203;(<a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a>&nbsp;lsnr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDeltaOffset()">getDeltaOffset</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="../time/Timestamper.html" title="class in net.i2p.time">Timestamper</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimestamper()">getTimestamper</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The RouterTimestamper</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#now()">now</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieve the current time synchronized with whatever reference clock is in use.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeShiftListener(net.i2p.router.RouterClock.ClockShiftListener)">removeShiftListener</a></span>&#8203;(<a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a>&nbsp;lsnr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNow(long,int)">setNow</a></span>&#8203;(long&nbsp;realTime,
+int&nbsp;stratum)</code></th>
+<td class="colLast">
+<div class="block">Warning - overridden in RouterClock</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOffset(long,boolean)">setOffset</a></span>&#8203;(long&nbsp;offsetMs,
+boolean&nbsp;force)</code></th>
+<td class="colLast">
+<div class="block">Specify how far away from the "correct" time the computer is - a positive
+ value means that the system time is slow, while a negative value means the system time is fast.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Cannot be stopped, but RouterTimestamper registers a shutdown task.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.util.<a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></h3>
+<a id="methods.inherited.from.class.net.i2p.util.Clock">
+</a><code><a href="../util/Clock.html#addUpdateListener(net.i2p.util.Clock.ClockUpdateListener)">addUpdateListener</a>, <a href="../util/Clock.html#fireOffsetChanged(long)">fireOffsetChanged</a>, <a href="../util/Clock.html#getInstance()">getInstance</a>, <a href="../util/Clock.html#getLog()">getLog</a>, <a href="../util/Clock.html#getOffset()">getOffset</a>, <a href="../util/Clock.html#getUpdatedSuccessfully()">getUpdatedSuccessfully</a>, <a href="../util/Clock.html#removeUpdateListener(net.i2p.util.Clock.ClockUpdateListener)">removeUpdateListener</a>, <a href="../util/Clock.html#setNow(long)">setNow</a>, <a href="../util/Clock.html#setOffset(long)">setOffset</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_STRATUM">DEFAULT_STRATUM</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_STRATUM</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.RouterClock.DEFAULT_STRATUM">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">RouterClock</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RouterClock</span>&#8203;(<span class="arguments"><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</span></div>
+<div class="block">Does not start. Caller MUST call start()</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="start()">start</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
+<div class="block">Cannot be stopped, but RouterTimestamper registers a shutdown task.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimestamper()">getTimestamper</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../time/Timestamper.html" title="class in net.i2p.time">Timestamper</a></span>&nbsp;<span class="memberName">getTimestamper</span>()</div>
+<div class="block">The RouterTimestamper</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../util/Clock.html#getTimestamper()">getTimestamper</a></code>&nbsp;in class&nbsp;<code><a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setOffset(long,boolean)">setOffset</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setOffset</span>&#8203;(<span class="arguments">long&nbsp;offsetMs,
+boolean&nbsp;force)</span></div>
+<div class="block">Specify how far away from the "correct" time the computer is - a positive
+ value means that the system time is slow, while a negative value means the system time is fast.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../util/Clock.html#setOffset(long,boolean)">setOffset</a></code>&nbsp;in class&nbsp;<code><a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>offsetMs</code> - the delta from System.currentTimeMillis() (NOT the delta from now())</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setNow(long,int)">setNow</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setNow</span>&#8203;(<span class="arguments">long&nbsp;realTime,
+int&nbsp;stratum)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../util/Clock.html#setNow(long,int)">Clock</a></code></span></div>
+<div class="block">Warning - overridden in RouterClock</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../time/Timestamper.UpdateListener.html#setNow(long,int)">setNow</a></code>&nbsp;in interface&nbsp;<code><a href="../time/Timestamper.UpdateListener.html" title="interface in net.i2p.time">Timestamper.UpdateListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../util/Clock.html#setNow(long,int)">setNow</a></code>&nbsp;in class&nbsp;<code><a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>stratum</code> - used to determine whether we should ignore</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="now()">now</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">now</span>()</div>
+<div class="block">Retrieve the current time synchronized with whatever reference clock is in use.
+ Do really simple clock slewing, like NTP but without jitter prevention.
+ Slew the clock toward the desired offset, but only up to a maximum slew rate,
+ and never let the clock go backwards because of slewing.
+
+ Take care to only access the volatile variables once for speed and to
+ avoid having another thread change them
+
+ This is called about a zillion times a second, so we can do the slewing right
+ here rather than in some separate thread to keep it simple.
+ Avoiding backwards clocks when updating in a thread would be hard too.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../util/Clock.html#now()">now</a></code>&nbsp;in class&nbsp;<code><a href="../util/Clock.html" title="class in net.i2p.util">Clock</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addShiftListener(net.i2p.router.RouterClock.ClockShiftListener)">addShiftListener</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addShiftListener</span>&#8203;(<span class="arguments"><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a>&nbsp;lsnr)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeShiftListener(net.i2p.router.RouterClock.ClockShiftListener)">removeShiftListener</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">removeShiftListener</span>&#8203;(<span class="arguments"><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a>&nbsp;lsnr)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDeltaOffset()">getDeltaOffset</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getDeltaOffset</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RouterClock.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

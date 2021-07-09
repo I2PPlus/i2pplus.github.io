@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>IRandomStandalone - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: gnu.crypto.prng, interface: IRandomStandalone">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/IRandomStandalone.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">gnu.crypto.prng</a></div>
+<h1 title="Interface IRandomStandalone" class="title">Interface IRandomStandalone</h1>
+</div>
+<div class="contentContainer">
+<section class="description">
+<dl>
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></code></dd>
+</dl>
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="AsyncFortunaStandalone.html" title="class in gnu.crypto.prng">AsyncFortunaStandalone</a></code>, <code><a href="BasePRNGStandalone.html" title="class in gnu.crypto.prng">BasePRNGStandalone</a></code>, <code><a href="FortunaStandalone.html" title="class in gnu.crypto.prng">FortunaStandalone</a></code>, <code><a href="FortunaStandalone.Generator.html" title="class in gnu.crypto.prng">FortunaStandalone.Generator</a></code></dd>
+</dl>
+<hr>
+<pre>public interface <span class="typeNameLabel">IRandomStandalone</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Cloneable</a></pre>
+<div class="block"><p>The basic visible methods of any pseudo-random number generator.</p>
+
+ <p>The [HAC] defines a PRNG (as implemented in this library) as follows:</p>
+
+ <ul>
+    <li>"5.6 Definition: A pseudorandom bit generator (PRBG) is said to pass
+    the <em>next-bit test</em> if there is no polynomial-time algorithm which,
+    on input of the first <code>L</code> bits of an output sequence <code>S</code>,
+    can predict the <code>(L+1)</code>st bit of <code>S</code> with a
+    probability significantly grater than <code>1/2</code>."</li>
+
+    <li>"5.8 Definition: A PRBG that passes the <em>next-bit test</em>
+    (possibly under some plausible but unproved mathematical assumption such
+    as the intractability of factoring integers) is called a
+    <em>cryptographically secure pseudorandom bit generator</em> (CSPRBG)."</li>
+ </ul>
+
+ <p><b>IMPLEMENTATION NOTE</b>: Although all the concrete classes in this
+ package implement the <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>Cloneable</code></a> interface, it is important to note
+ here that such an operation, for those algorithms that use an underlting
+ symmetric key block cipher, <b>DOES NOT</b> clone any session key material
+ that may have been used in initialising the source PRNG (the instance to be
+ cloned). Instead a clone of an already initialised PRNG, that uses and
+ underlying symmetric key block cipher, is another instance with a clone of
+ the same cipher that operates with the <b>same block size</b> but without any
+ knowledge of neither key material nor key size.</p>
+
+ <p>References:</p>
+
+ <ol>
+    <li><a href="http://www.cacr.math.uwaterloo.ca/hac">[HAC]</a>: Handbook of
+    Applied Cryptography.<br>
+    CRC Press, Inc. ISBN 0-8493-8523-7, 1997<br>
+    Menezes, A., van Oorschot, P. and S. Vanstone.</li>
+ </ol></div>
+<dl>
+<dt><span class="simpleTagLabel">Version:</span></dt>
+<dd>$Revision: 1.1 $</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRandomByte(byte)">addRandomByte</a></span>&#8203;(byte&nbsp;b)</code></th>
+<td class="colLast">
+<div class="block">Supplement, or possibly replace, the random state of this PRNG with
+ a random byte.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRandomBytes(byte%5B%5D)">addRandomBytes</a></span>&#8203;(byte[]&nbsp;in)</code></th>
+<td class="colLast">
+<div class="block">Supplement, or possibly replace, the random state of this PRNG with
+ a sequence of new random bytes.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRandomBytes(byte%5B%5D,int,int)">addRandomBytes</a></span>&#8203;(byte[]&nbsp;in,
+int&nbsp;offset,
+int&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Supplement, or possibly replace, the random state of this PRNG with
+ a sequence of new random bytes.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clone()">clone</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns a clone copy of this instance.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#init(java.util.Map)">init</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;byte[]&gt;&nbsp;attributes)</code></th>
+<td class="colLast">
+<div class="block">Initialises the pseudo-random number generator scheme with the
+ appropriate attributes.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#name()">name</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the canonical name of this instance.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>byte</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nextByte()">nextByte</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the next 8 bits of random data generated from this instance.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nextBytes(byte%5B%5D,int,int)">nextBytes</a></span>&#8203;(byte[]&nbsp;out,
+int&nbsp;offset,
+int&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Fills the designated byte array, starting from byte at index
+ <code>offset</code>, for a maximum of <code>length</code> bytes with the
+ output of this generator instance.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="name()">name</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">name</span>()</div>
+<div class="block"><p>Returns the canonical name of this instance.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the canonical name of this instance.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="init(java.util.Map)">init</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">init</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;byte[]&gt;&nbsp;attributes)</span></div>
+<div class="block"><p>Initialises the pseudo-random number generator scheme with the
+ appropriate attributes.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>attributes</code> - a set of name-value pairs that describe the desired
+ future instance behaviour.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if at least one of the defined name/
+ value pairs contains invalid data.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="nextByte()">nextByte</a></h3>
+<div class="memberSignature"><span class="returnType">byte</span>&nbsp;<span class="memberName">nextByte</span>()
+       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></span></div>
+<div class="block"><p>Returns the next 8 bits of random data generated from this instance.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the next 8 bits of random data generated from this instance.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if the instance is not yet initialised.
+ theoretical limit for generating non-repetitive pseudo-random data.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="nextBytes(byte[],int,int)">nextBytes</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">nextBytes</span>&#8203;(<span class="arguments">byte[]&nbsp;out,
+int&nbsp;offset,
+int&nbsp;length)</span>
+        throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></span></div>
+<div class="block"><p>Fills the designated byte array, starting from byte at index
+ <code>offset</code>, for a maximum of <code>length</code> bytes with the
+ output of this generator instance.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>out</code> - the placeholder to contain the generated random bytes.</dd>
+<dd><code>offset</code> - the starting index in <i>out</i> to consider. This method
+ does nothing if this parameter is not within <code>0</code> and
+ <code>out.length</code>.</dd>
+<dd><code>length</code> - the maximum number of required random bytes. This method
+ does nothing if this parameter is less than <code>1</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if the instance is not yet initialised.
+ theoretical limit for generating non-repetitive pseudo-random data.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addRandomByte(byte)">addRandomByte</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">addRandomByte</span>&#8203;(<span class="arguments">byte&nbsp;b)</span></div>
+<div class="block"><p>Supplement, or possibly replace, the random state of this PRNG with
+ a random byte.</p>
+
+ <p>Implementations are not required to implement this method in any
+ meaningful way; this may be a no-operation, and implementations may
+ throw an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>UnsupportedOperationException</code></a>.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>b</code> - The byte to add.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addRandomBytes(byte[])">addRandomBytes</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">addRandomBytes</span>&#8203;(<span class="arguments">byte[]&nbsp;in)</span></div>
+<div class="block"><p>Supplement, or possibly replace, the random state of this PRNG with
+ a sequence of new random bytes.</p>
+
+ <p>Implementations are not required to implement this method in any
+ meaningful way; this may be a no-operation, and implementations may
+ throw an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>UnsupportedOperationException</code></a>.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - The buffer of new random bytes to add.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="addRandomBytes(byte[],int,int)">addRandomBytes</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">addRandomBytes</span>&#8203;(<span class="arguments">byte[]&nbsp;in,
+int&nbsp;offset,
+int&nbsp;length)</span></div>
+<div class="block"><p>Supplement, or possibly replace, the random state of this PRNG with
+ a sequence of new random bytes.</p>
+
+ <p>Implementations are not required to implement this method in any
+ meaningful way; this may be a no-operation, and implementations may
+ throw an <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>UnsupportedOperationException</code></a>.</p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - The buffer of new random bytes to add.</dd>
+<dd><code>offset</code> - The offset from whence to begin reading random bytes.</dd>
+<dd><code>length</code> - The number of random bytes to add.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IndexOutOfBoundsException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IndexOutOfBoundsException</a></code> - If <i>offset</i>, <i>length</i>,
+ or <i>offset</i>+<i>length</i> is out of bounds.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clone()">clone</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">clone</span>()
+      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></span></div>
+<div class="block"><p>Returns a clone copy of this instance.</p></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a clone copy of this instance.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/CloneNotSupportedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">CloneNotSupportedException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/IRandomStandalone.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,941 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BuildRequestRecord - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data.i2np, class: BuildRequestRecord">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BuildRequestRecord.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data.i2np</a></div>
+<h1 title="Class BuildRequestRecord" class="title">Class BuildRequestRecord</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.data.i2np.BuildRequestRecord</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">BuildRequestRecord</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">As of 0.9.48, supports two formats.
+ As of 0.9.51, supports three formats.
+ The original 222-byte ElGamal format, the new 464-byte ECIES format,
+ and the newest 172-byte ECIES format.
+ See proposal 152 and 157 for details on the new formats.
+
+ None of the readXXX() calls are cached. For efficiency,
+ they should only be called once.
+
+ Original ElGamal format:
+
+ Holds the unencrypted 222-byte tunnel request record,
+ with a constructor for ElGamal decryption and a method for ElGamal encryption.
+ Iterative AES encryption/decryption is done elsewhere.
+
+ Cleartext:
+ <pre>
+   bytes     0-3: tunnel ID to receive messages as
+   bytes    4-35: local router identity hash (Unused and no accessor here)
+   bytes   36-39: next tunnel ID
+   bytes   40-71: next router identity hash
+   bytes  72-103: AES-256 tunnel layer key
+   bytes 104-135: AES-256 tunnel IV key
+   bytes 136-167: AES-256 reply key
+   bytes 168-183: reply IV
+   byte      184: flags
+   bytes 185-188: request time (in hours since the epoch)
+   bytes 189-192: next message ID
+   bytes 193-221: uninterpreted / random padding
+ </pre>
+
+ Encrypted:
+ <pre>
+   bytes    0-15: First 16 bytes of router hash
+   bytes  16-527: ElGamal encrypted block (discarding zero bytes at elg[0] and elg[257])
+ </pre>
+
+ ECIES long record format, ref: proposal 152:
+
+ Holds the unencrypted 464-byte tunnel request record,
+ with a constructor for ECIES decryption and a method for ECIES encryption.
+ Iterative AES encryption/decryption is done elsewhere.
+
+ Cleartext:
+ <pre>
+   bytes     0-3: tunnel ID to receive messages as, nonzero
+   bytes     4-7: next tunnel ID, nonzero
+   bytes    8-39: next router identity hash
+   bytes   40-71: AES-256 tunnel layer key
+   bytes  72-103: AES-256 tunnel IV key
+   bytes 104-135: AES-256 reply key
+   bytes 136-151: AES-256 reply IV
+   byte      152: flags
+   bytes 153-155: more flags, unused, set to 0 for compatibility
+   bytes 156-159: request time (in minutes since the epoch, rounded down)
+   bytes 160-163: request expiration (in seconds since creation)
+   bytes 164-167: next message ID
+   bytes   168-x: tunnel build options (Mapping)
+   bytes     x-x: other data as implied by flags or options
+   bytes   x-463: random padding
+ </pre>
+
+ Encrypted:
+ <pre>
+   bytes    0-15: Hop's truncated identity hash
+   bytes   16-47: Sender's ephemeral X25519 public key
+   bytes  48-511: ChaCha20 encrypted BuildRequestRecord
+   bytes 512-527: Poly1305 MAC
+ </pre>
+
+ ECIES short record format, ref: proposal 157:
+
+ Holds the unencrypted 172-byte tunnel request record,
+ with a constructor for ECIES decryption and a method for ECIES encryption.
+ Iterative AES encryption/decryption is done elsewhere.
+
+ Cleartext:
+ <pre>
+   bytes     0-3: tunnel ID to receive messages as, nonzero
+   bytes     4-7: next tunnel ID, nonzero
+   bytes    8-39: next router identity hash
+   byte       40: flags
+   bytes   41-42: more flags, unused, set to 0 for compatibility
+   byte       43: layer enc. type
+   bytes   44-47: request time (in minutes since the epoch, rounded down)
+   bytes   48-51: request expiration (in seconds since creation)
+   bytes   52-55: next message ID
+   bytes    56-x: tunnel build options (Mapping)
+   bytes     x-x: other data as implied by flags or options
+   bytes   x-171: random padding
+ </pre>
+
+ Encrypted:
+ <pre>
+   bytes    0-15: Hop's truncated identity hash
+   bytes   16-47: Sender's ephemeral X25519 public key
+   bytes  48-219: ChaCha20 encrypted BuildRequestRecord
+   bytes 220-235: Poly1305 MAC
+ </pre></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#IV_SIZE">IV_SIZE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OFF_REPLY_KEY">OFF_REPLY_KEY</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OFF_REPLY_KEY_EC">OFF_REPLY_KEY_EC</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PEER_SIZE">PEER_SIZE</a></span></code></th>
+<td class="colLast">
+<div class="block">we show 16 bytes of the peer hash outside the elGamal block</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,long,long,net.i2p.data.Hash,long,boolean,boolean,java.util.Properties)">BuildRequestRecord</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Populate this instance with data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,long,long,net.i2p.data.Hash,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,byte%5B%5D,boolean,boolean,java.util.Properties)">BuildRequestRecord</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;layerKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ivKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;replyKey,
+byte[]&nbsp;iv,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
+<td class="colLast">
+<div class="block">Populate this instance with data.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,long,net.i2p.data.Hash,long,net.i2p.data.Hash,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,byte%5B%5D,boolean,boolean)">BuildRequestRecord</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;layerKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ivKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;replyKey,
+byte[]&nbsp;iv,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint)</code></th>
+<td class="colLast">
+<div class="block">Populate this instance with data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.data.PrivateKey,net.i2p.data.i2np.EncryptedBuildRecord)">BuildRequestRecord</a></span>&#8203;(<a href="../../router/RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;ourKey,
+<a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a>&nbsp;encryptedRecord)</code></th>
+<td class="colLast">
+<div class="block">Decrypt the data from the specified record, writing the decrypted record into this instance's
+ data buffer
+
+ Caller MUST check that first 16 bytes of our hash matches first 16 bytes of encryptedRecord
+ before calling this.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encryptECIESRecord(net.i2p.router.RouterContext,net.i2p.data.PublicKey,net.i2p.data.Hash)">encryptECIESRecord</a></span>&#8203;(<a href="../../router/RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;toKey,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer)</code></th>
+<td class="colLast">
+<div class="block">Encrypt the record to the specified peer.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#encryptRecord(net.i2p.I2PAppContext,net.i2p.data.PublicKey,net.i2p.data.Hash)">encryptRecord</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;toKey,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer)</code></th>
+<td class="colLast">
+<div class="block">Encrypt the record to the specified peer.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChaChaReplyAD()">getChaChaReplyAD</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Valid after calling encryptECIESRecord() or after the decrypting constructor
+ with an ECIES private key.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChaChaReplyKey()">getChaChaReplyKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Valid after calling encryptECIESRecord() or after the decrypting constructor
+ with an ECIES private key.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getData()">getData</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readExpiration()">readExpiration</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The expiration in milliseconds from now.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readIsInboundGateway()">readIsInboundGateway</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The current hop is the inbound gateway.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readIsOutboundEndpoint()">readIsOutboundEndpoint</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The current hop is the outbound endpoint.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readIVKey()">readIVKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Tunnel IV encryption key that the current hop should use</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readLayerEncryptionType()">readLayerEncryptionType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">ECIES short record only.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readLayerKey()">readLayerKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Tunnel layer encryption key that the current hop should use</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="../Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readNextIdentity()">readNextIdentity</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Read the next hop from the record.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readNextTunnelId()">readNextTunnelId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What tunnel ID the next hop receives messages on.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readOptions()">readOptions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">ECIES only.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readReceiveTunnelId()">readReceiveTunnelId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">what tunnel ID should this receive messages on</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readReplyIV()">readReplyIV</a></span>()</code></th>
+<td class="colLast">
+<div class="block">AES IV that should be used to encrypt the reply.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readReplyKey()">readReplyKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">AES Session key that should be used to encrypt the reply.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readReplyMessageId()">readReplyMessageId</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What message ID should we send the request to the next hop with.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readRequestTime()">readRequestTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For ElGamal, time that the request was sent (ms), truncated to the nearest hour.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="IV_SIZE">IV_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">IV_SIZE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.BuildRequestRecord.IV_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PEER_SIZE">PEER_SIZE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PEER_SIZE</span></div>
+<div class="block">we show 16 bytes of the peer hash outside the elGamal block</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.BuildRequestRecord.PEER_SIZE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="OFF_REPLY_KEY">OFF_REPLY_KEY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">OFF_REPLY_KEY</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.BuildRequestRecord.OFF_REPLY_KEY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="OFF_REPLY_KEY_EC">OFF_REPLY_KEY_EC</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">OFF_REPLY_KEY_EC</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.BuildRequestRecord.OFF_REPLY_KEY_EC">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.data.PrivateKey,net.i2p.data.i2np.EncryptedBuildRecord)">BuildRequestRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BuildRequestRecord</span>&#8203;(<span class="arguments"><a href="../../router/RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../PrivateKey.html" title="class in net.i2p.data">PrivateKey</a>&nbsp;ourKey,
+<a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a>&nbsp;encryptedRecord)</span>
+                   throws <span class="exceptions"><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></span></div>
+<div class="block">Decrypt the data from the specified record, writing the decrypted record into this instance's
+ data buffer
+
+ Caller MUST check that first 16 bytes of our hash matches first 16 bytes of encryptedRecord
+ before calling this. Not checked here.
+
+ The ChaCha reply key and IV will be available via the getters
+ after this call if ourKey is ECIES.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../DataFormatException.html" title="class in net.i2p.data">DataFormatException</a></code> - on decrypt fail</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,long,net.i2p.data.Hash,long,net.i2p.data.Hash,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,byte[],boolean,boolean)">BuildRequestRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BuildRequestRecord</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;layerKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ivKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;replyKey,
+byte[]&nbsp;iv,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint)</span></div>
+<div class="block">Populate this instance with data.  A new buffer is created to contain the data, with the
+ necessary randomized padding.
+
+ ElGamal only. ECIES constructor below.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>receiveTunnelId</code> - tunnel the current hop will receive messages on</dd>
+<dd><code>peer</code> - current hop's identity, unused, no read() method</dd>
+<dd><code>nextTunnelId</code> - id for the next hop, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextHop</code> - next hop's identity, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextMsgId</code> - message ID to use when sending on to the next hop (or for the reply)</dd>
+<dd><code>layerKey</code> - tunnel layer key to be used by the peer</dd>
+<dd><code>ivKey</code> - tunnel IV key to be used by the peer</dd>
+<dd><code>replyKey</code> - key to be used when encrypting the reply to this build request</dd>
+<dd><code>iv</code> - iv to be used when encrypting the reply to this build request</dd>
+<dd><code>isInGateway</code> - are we the gateway of an inbound tunnel?</dd>
+<dd><code>isOutEndpoint</code> - are we the endpoint of an outbound tunnel?</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.18, was createRecord()</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,long,long,net.i2p.data.Hash,long,net.i2p.data.SessionKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,byte[],boolean,boolean,java.util.Properties)">BuildRequestRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BuildRequestRecord</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;layerKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;ivKey,
+<a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;replyKey,
+byte[]&nbsp;iv,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Populate this instance with data.  A new buffer is created to contain the data, with the
+ necessary randomized padding.
+
+ ECIES long record only. ElGamal constructor above.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>receiveTunnelId</code> - tunnel the current hop will receive messages on</dd>
+<dd><code>nextTunnelId</code> - id for the next hop, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextHop</code> - next hop's identity, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextMsgId</code> - message ID to use when sending on to the next hop (or for the reply)</dd>
+<dd><code>layerKey</code> - tunnel layer key to be used by the peer</dd>
+<dd><code>ivKey</code> - tunnel IV key to be used by the peer</dd>
+<dd><code>replyKey</code> - key to be used when encrypting the reply to this build request</dd>
+<dd><code>iv</code> - iv to be used when encrypting the reply to this build request</dd>
+<dd><code>isInGateway</code> - are we the gateway of an inbound tunnel?</dd>
+<dd><code>isOutEndpoint</code> - are we the endpoint of an outbound tunnel?</dd>
+<dd><code>options</code> - 296 bytes max when serialized</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if options too long</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,long,long,net.i2p.data.Hash,long,boolean,boolean,java.util.Properties)">BuildRequestRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BuildRequestRecord</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;receiveTunnelId,
+long&nbsp;nextTunnelId,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;nextHop,
+long&nbsp;nextMsgId,
+boolean&nbsp;isInGateway,
+boolean&nbsp;isOutEndpoint,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
+<div class="block">Populate this instance with data.  A new buffer is created to contain the data, with the
+ necessary randomized padding.
+
+ ECIES short record only. ElGamal constructor above.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>receiveTunnelId</code> - tunnel the current hop will receive messages on</dd>
+<dd><code>nextTunnelId</code> - id for the next hop, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextHop</code> - next hop's identity, or where we send the reply (if we are the outbound endpoint)</dd>
+<dd><code>nextMsgId</code> - message ID to use when sending on to the next hop (or for the reply)</dd>
+<dd><code>isInGateway</code> - are we the gateway of an inbound tunnel?</dd>
+<dd><code>isOutEndpoint</code> - are we the endpoint of an outbound tunnel?</dd>
+<dd><code>options</code> - 116 bytes max when serialized</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if options too long</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.51</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getData()">getData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getData</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>222 (ElG) or 464 (ECIES) bytes, non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readReceiveTunnelId()">readReceiveTunnelId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readReceiveTunnelId</span>()</div>
+<div class="block">what tunnel ID should this receive messages on</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readNextTunnelId()">readNextTunnelId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readNextTunnelId</span>()</div>
+<div class="block">What tunnel ID the next hop receives messages on.  If this is the outbound tunnel endpoint,
+ this specifies the tunnel ID to which the reply should be sent.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readNextIdentity()">readNextIdentity</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">readNextIdentity</span>()</div>
+<div class="block">Read the next hop from the record.  If this is the outbound tunnel endpoint, this specifies
+ the gateway to which the reply should be sent.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readLayerKey()">readLayerKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">readLayerKey</span>()</div>
+<div class="block">Tunnel layer encryption key that the current hop should use</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readIVKey()">readIVKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">readIVKey</span>()</div>
+<div class="block">Tunnel IV encryption key that the current hop should use</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readReplyKey()">readReplyKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">readReplyKey</span>()</div>
+<div class="block">AES Session key that should be used to encrypt the reply.
+ Not to be used for short ECIES records; use the ChaChaReplyKey instead.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readReplyIV()">readReplyIV</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">readReplyIV</span>()</div>
+<div class="block">AES IV that should be used to encrypt the reply.
+ Not to be used for short ECIES records.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>16 bytes</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readIsInboundGateway()">readIsInboundGateway</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">readIsInboundGateway</span>()</div>
+<div class="block">The current hop is the inbound gateway.  If this is true, it means anyone can send messages to
+ this tunnel, but if it is false, only the current predecessor can.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readIsOutboundEndpoint()">readIsOutboundEndpoint</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">readIsOutboundEndpoint</span>()</div>
+<div class="block">The current hop is the outbound endpoint.  If this is true, the next identity and next tunnel
+ fields refer to where the reply should be sent.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readRequestTime()">readRequestTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readRequestTime</span>()</div>
+<div class="block">For ElGamal, time that the request was sent (ms), truncated to the nearest hour.
+ For ECIES, time that the request was sent (ms), truncated to the nearest minute.
+ This ignores leap seconds.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readReplyMessageId()">readReplyMessageId</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readReplyMessageId</span>()</div>
+<div class="block">What message ID should we send the request to the next hop with.  If this is the outbound tunnel endpoint,
+ this specifies the message ID with which the reply should be sent.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readExpiration()">readExpiration</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readExpiration</span>()</div>
+<div class="block">The expiration in milliseconds from now.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readOptions()">readOptions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">readOptions</span>()</div>
+<div class="block">ECIES only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null for ElGamal or on error</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readLayerEncryptionType()">readLayerEncryptionType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">readLayerEncryptionType</span>()</div>
+<div class="block">ECIES short record only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 for ElGamal or ECIES long record</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.51</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encryptRecord(net.i2p.I2PAppContext,net.i2p.data.PublicKey,net.i2p.data.Hash)">encryptRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a></span>&nbsp;<span class="memberName">encryptRecord</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;toKey,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer)</span></div>
+<div class="block">Encrypt the record to the specified peer.  The result is formatted as: <pre>
+   bytes 0-15: truncated SHA-256 of the current hop's identity (the toPeer parameter)
+ bytes 15-527: ElGamal-2048 encrypted block
+ </pre>
+
+ ElGamal only</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="encryptECIESRecord(net.i2p.router.RouterContext,net.i2p.data.PublicKey,net.i2p.data.Hash)">encryptECIESRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="EncryptedBuildRecord.html" title="class in net.i2p.data.i2np">EncryptedBuildRecord</a></span>&nbsp;<span class="memberName">encryptECIESRecord</span>&#8203;(<span class="arguments"><a href="../../router/RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;toKey,
+<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer)</span></div>
+<div class="block">Encrypt the record to the specified peer. ECIES only.
+ The ChaCha reply key and IV will be available via the getters
+ after this call.
+ See class javadocs for format.
+ See proposal 152.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getChaChaReplyKey()">getChaChaReplyKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">getChaChaReplyKey</span>()</div>
+<div class="block">Valid after calling encryptECIESRecord() or after the decrypting constructor
+ with an ECIES private key.
+ See proposal 152.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if no ECIES encrypt/decrypt operation was performed</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getChaChaReplyAD()">getChaChaReplyAD</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">getChaChaReplyAD</span>()</div>
+<div class="block">Valid after calling encryptECIESRecord() or after the decrypting constructor
+ with an ECIES private key.
+ See proposal 152.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if no ECIES encrypt/decrypt operation was performed</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.48</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BuildRequestRecord.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

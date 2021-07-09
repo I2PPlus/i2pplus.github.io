@@ -1,0 +1,950 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>MessageHistory - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router, class: MessageHistory">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":42,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/MessageHistory.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router</a></div>
+<h1 title="Class MessageHistory" class="title">Class MessageHistory</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.MessageHistory</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">MessageHistory</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Simply act as a pen register of messages sent in and out of the router.
+ This will be pulled out later on, but is useful now for debugging.
+ (with clock synchronization, this will generate a log that can be used to
+ analyze the entire network, if everyone provides their logs honestly)
+
+ This is always instantiated in the context and the WriteJob runs every minute,
+ (except on Android, we don't set up the WriteJob)
+ but unless router.keepHistory=true it does nothing.
+ It generates a LARGE log file.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_MESSAGE_HISTORY_FILENAME">DEFAULT_MESSAGE_HISTORY_FILENAME</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_KEEP_MESSAGE_HISTORY">PROP_KEEP_MESSAGE_HISTORY</a></span></code></th>
+<td class="colLast">
+<div class="block">config property determining whether we want to debug with the message history - default false</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_MESSAGE_HISTORY_FILENAME">PROP_MESSAGE_HISTORY_FILENAME</a></span></code></th>
+<td class="colLast">
+<div class="block">config property determining where we want to log the message history, if we're keeping one</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">MessageHistory</a></span>&#8203;(<a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#banlist(net.i2p.data.Hash,java.lang.String)">banlist</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</code></th>
+<td class="colLast">
+<div class="block">We banlisted the peer</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedFragmentedMessage(long,java.lang.String)">droppedFragmentedMessage</a></span>&#8203;(long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedInboundMessage(long,net.i2p.data.Hash,java.lang.String)">droppedInboundMessage</a></span>&#8203;(long&nbsp;messageId,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedOtherMessage(net.i2p.data.i2np.I2NPMessage,net.i2p.data.Hash)">droppedOtherMessage</a></span>&#8203;(<a href="../data/i2np/I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a>&nbsp;message,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from)</code></th>
+<td class="colLast">
+<div class="block">We received another message we weren't waiting for and don't know how to handle</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedTunnelDataMessageUnknown(long,long)">droppedTunnelDataMessageUnknown</a></span>&#8203;(long&nbsp;msgId,
+long&nbsp;tunnelId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedTunnelGatewayMessageUnknown(long,long)">droppedTunnelGatewayMessageUnknown</a></span>&#8203;(long&nbsp;msgId,
+long&nbsp;tunnelId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#droppedTunnelMessage(net.i2p.data.TunnelId,long,java.util.Date,net.i2p.data.Hash)">droppedTunnelMessage</a></span>&#8203;(<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id,
+long&nbsp;msgId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from)</code></th>
+<td class="colLast">
+<div class="block">We don't know about the given tunnel, so we are dropping a message sent to us by the
+ given router</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fragmentMessage(long,int,int,java.util.List,java.lang.Object,java.lang.String)">fragmentMessage</a></span>&#8203;(long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tunnel,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fragmentMessage(long,int,int,java.util.List,java.lang.String)">fragmentMessage</a></span>&#8203;(long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDoLog()">getDoLog</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>(package private) <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFilename()">getFilename</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(boolean)">initialize</a></span>&#8203;(boolean&nbsp;forceReinitialize)</code></th>
+<td class="colLast">
+<div class="block">Initialize the message history according to the router's configuration.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageProcessingError(long,java.lang.String,java.lang.String)">messageProcessingError</a></span>&#8203;(long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;error)</code></th>
+<td class="colLast">
+<div class="block">There was an error processing the given message that was received</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveMessage(java.lang.String,long,long,boolean)">receiveMessage</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+boolean&nbsp;isValid)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveMessage(java.lang.String,long,long,net.i2p.data.Hash,boolean)">receiveMessage</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+boolean&nbsp;isValid)</code></th>
+<td class="colLast">
+<div class="block">We just received a message from the peer</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receivePayloadMessage(long)">receivePayloadMessage</a></span>&#8203;(long&nbsp;messageId)</code></th>
+<td class="colLast">
+<div class="block">Receive a payload message to distribute to a client</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveTunnelFragment(long,int,java.lang.Object)">receiveTunnelFragment</a></span>&#8203;(long&nbsp;messageId,
+int&nbsp;fragmentId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;status)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveTunnelFragmentComplete(long)">receiveTunnelFragmentComplete</a></span>&#8203;(long&nbsp;messageId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#replyTimedOut(net.i2p.router.OutNetMessage)">replyTimedOut</a></span>&#8203;(<a href="OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;sentMessage)</code></th>
+<td class="colLast">
+<div class="block">The message wanted a reply but no reply came in the time expected</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(java.lang.String,long,long,net.i2p.data.Hash,boolean,java.lang.String)">sendMessage</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+boolean&nbsp;sentOk,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</code></th>
+<td class="colLast">
+<div class="block">We just sent a message to the peer</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendPayloadMessage(long,boolean,long)">sendPayloadMessage</a></span>&#8203;(long&nbsp;messageId,
+boolean&nbsp;successfullySent,
+long&nbsp;timeToSend)</code></th>
+<td class="colLast">
+<div class="block">Note that the sending of a payload message completed (successfully or as a failure)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPauseFlushes(boolean)">setPauseFlushes</a></span>&#8203;(boolean&nbsp;doPause)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDispatched(long,long,long,java.lang.String)">tunnelDispatched</a></span>&#8203;(long&nbsp;messageId,
+long&nbsp;innerMessageId,
+long&nbsp;tunnelId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDispatched(long,long,long,net.i2p.data.Hash,java.lang.String)">tunnelDispatched</a></span>&#8203;(long&nbsp;messageId,
+long&nbsp;tunnelId,
+long&nbsp;toTunnel,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDispatched(long,long,java.lang.String)">tunnelDispatched</a></span>&#8203;(long&nbsp;messageId,
+long&nbsp;tunnelId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelDispatched(java.lang.String)">tunnelDispatched</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelFailed(net.i2p.data.TunnelId)">tunnelFailed</a></span>&#8203;(<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel)</code></th>
+<td class="colLast">
+<div class="block">The local router has detected a failure in the given tunnel</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelJoined(java.lang.String,net.i2p.router.tunnel.HopConfig)">tunnelJoined</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;state,
+<a href="tunnel/HopConfig.html" title="class in net.i2p.router.tunnel">HopConfig</a>&nbsp;tunnel)</code></th>
+<td class="colLast">
+<div class="block">The local router has joined the given tunnel operating in the given state.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelJoined(java.lang.String,net.i2p.router.TunnelInfo)">tunnelJoined</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;state,
+<a href="TunnelInfo.html" title="interface in net.i2p.router">TunnelInfo</a>&nbsp;tunnel)</code></th>
+<td class="colLast">
+<div class="block">The local router has joined the given tunnel operating in the given state.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelParticipantRejected(net.i2p.data.Hash,java.lang.String)">tunnelParticipantRejected</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelRejected(net.i2p.data.Hash,net.i2p.data.TunnelId,net.i2p.data.Hash,java.lang.String)">tunnelRejected</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;replyThrough,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</code></th>
+<td class="colLast">
+<div class="block">The peer did not accept the tunnel join for the given reason</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelRequestTimedOut(net.i2p.data.Hash,net.i2p.data.TunnelId)">tunnelRequestTimedOut</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel)</code></th>
+<td class="colLast">
+<div class="block">The peer did not accept the tunnel join for the given reason (this may be because
+ of a timeout or an explicit refusal).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tunnelValid(net.i2p.router.TunnelInfo,long)">tunnelValid</a></span>&#8203;(<a href="TunnelInfo.html" title="interface in net.i2p.router">TunnelInfo</a>&nbsp;tunnel,
+long&nbsp;timeToTest)</code></th>
+<td class="colLast">
+<div class="block">Note that we have reason to believe that the given tunnel is valid, since we could do something 
+ through it in the given amount of time</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unbanlist(net.i2p.data.Hash)">unbanlist</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">We unbanlisted the peer</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wrap(java.lang.String,long,java.lang.String,long)">wrap</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;bodyMessageType,
+long&nbsp;bodyMessageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;containerMessageType,
+long&nbsp;containerMessageId)</code></th>
+<td class="colLast">
+<div class="block">Note that we're wrapping the given message within another message (via tunnel/garlic)</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_KEEP_MESSAGE_HISTORY">PROP_KEEP_MESSAGE_HISTORY</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_KEEP_MESSAGE_HISTORY</span></div>
+<div class="block">config property determining whether we want to debug with the message history - default false</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.MessageHistory.PROP_KEEP_MESSAGE_HISTORY">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_MESSAGE_HISTORY_FILENAME">PROP_MESSAGE_HISTORY_FILENAME</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_MESSAGE_HISTORY_FILENAME</span></div>
+<div class="block">config property determining where we want to log the message history, if we're keeping one</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.MessageHistory.PROP_MESSAGE_HISTORY_FILENAME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DEFAULT_MESSAGE_HISTORY_FILENAME">DEFAULT_MESSAGE_HISTORY_FILENAME</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DEFAULT_MESSAGE_HISTORY_FILENAME</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#net.i2p.router.MessageHistory.DEFAULT_MESSAGE_HISTORY_FILENAME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">MessageHistory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">MessageHistory</span>&#8203;(<span class="arguments"><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDoLog()">getDoLog</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getDoLog</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPauseFlushes(boolean)">setPauseFlushes</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="returnType">void</span>&nbsp;<span class="memberName">setPauseFlushes</span>&#8203;(<span class="arguments">boolean&nbsp;doPause)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">unused</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFilename()">getFilename</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getFilename</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="initialize(boolean)">initialize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initialize</span>&#8203;(<span class="arguments">boolean&nbsp;forceReinitialize)</span></div>
+<div class="block">Initialize the message history according to the router's configuration.
+ Call this whenever the router identity changes.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelJoined(java.lang.String,net.i2p.router.TunnelInfo)">tunnelJoined</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelJoined</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;state,
+<a href="TunnelInfo.html" title="interface in net.i2p.router">TunnelInfo</a>&nbsp;tunnel)</span></div>
+<div class="block">The local router has joined the given tunnel operating in the given state.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>state</code> - {"free inbound", "allocated inbound", "inactive inbound", "outbound", "participant", "pending"}</dd>
+<dd><code>tunnel</code> - tunnel joined</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelJoined(java.lang.String,net.i2p.router.tunnel.HopConfig)">tunnelJoined</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelJoined</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;state,
+<a href="tunnel/HopConfig.html" title="class in net.i2p.router.tunnel">HopConfig</a>&nbsp;tunnel)</span></div>
+<div class="block">The local router has joined the given tunnel operating in the given state.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>state</code> - {"free inbound", "allocated inbound", "inactive inbound", "outbound", "participant", "pending"}</dd>
+<dd><code>tunnel</code> - tunnel joined</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDispatched(java.lang.String)">tunnelDispatched</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelDispatched</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDispatched(long,long,java.lang.String)">tunnelDispatched</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelDispatched</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+long&nbsp;tunnelId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDispatched(long,long,long,net.i2p.data.Hash,java.lang.String)">tunnelDispatched</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelDispatched</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+long&nbsp;tunnelId,
+long&nbsp;toTunnel,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;toPeer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelDispatched(long,long,long,java.lang.String)">tunnelDispatched</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelDispatched</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+long&nbsp;innerMessageId,
+long&nbsp;tunnelId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelFailed(net.i2p.data.TunnelId)">tunnelFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelFailed</span>&#8203;(<span class="arguments"><a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel)</span></div>
+<div class="block">The local router has detected a failure in the given tunnel</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tunnel</code> - tunnel failed</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelValid(net.i2p.router.TunnelInfo,long)">tunnelValid</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelValid</span>&#8203;(<span class="arguments"><a href="TunnelInfo.html" title="interface in net.i2p.router">TunnelInfo</a>&nbsp;tunnel,
+long&nbsp;timeToTest)</span></div>
+<div class="block">Note that we have reason to believe that the given tunnel is valid, since we could do something 
+ through it in the given amount of time</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tunnel</code> - tunnel in question</dd>
+<dd><code>timeToTest</code> - milliseconds to verify the tunnel</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelRejected(net.i2p.data.Hash,net.i2p.data.TunnelId,net.i2p.data.Hash,java.lang.String)">tunnelRejected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelRejected</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;replyThrough,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</span></div>
+<div class="block">The peer did not accept the tunnel join for the given reason</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelParticipantRejected(net.i2p.data.Hash,java.lang.String)">tunnelParticipantRejected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelParticipantRejected</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="tunnelRequestTimedOut(net.i2p.data.Hash,net.i2p.data.TunnelId)">tunnelRequestTimedOut</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">tunnelRequestTimedOut</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;tunnel)</span></div>
+<div class="block">The peer did not accept the tunnel join for the given reason (this may be because
+ of a timeout or an explicit refusal).</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedTunnelMessage(net.i2p.data.TunnelId,long,java.util.Date,net.i2p.data.Hash)">droppedTunnelMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedTunnelMessage</span>&#8203;(<span class="arguments"><a href="../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id,
+long&nbsp;msgId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a>&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from)</span></div>
+<div class="block">We don't know about the given tunnel, so we are dropping a message sent to us by the
+ given router</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - tunnel ID we received a message for</dd>
+<dd><code>from</code> - peer that sent us this message (if known)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedOtherMessage(net.i2p.data.i2np.I2NPMessage,net.i2p.data.Hash)">droppedOtherMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedOtherMessage</span>&#8203;(<span class="arguments"><a href="../data/i2np/I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a>&nbsp;message,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from)</span></div>
+<div class="block">We received another message we weren't waiting for and don't know how to handle</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedInboundMessage(long,net.i2p.data.Hash,java.lang.String)">droppedInboundMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedInboundMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="replyTimedOut(net.i2p.router.OutNetMessage)">replyTimedOut</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">replyTimedOut</span>&#8203;(<span class="arguments"><a href="OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;sentMessage)</span></div>
+<div class="block">The message wanted a reply but no reply came in the time expected</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sentMessage</code> - message sent that didn't receive a reply</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageProcessingError(long,java.lang.String,java.lang.String)">messageProcessingError</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">messageProcessingError</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;error)</span></div>
+<div class="block">There was an error processing the given message that was received</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>messageId</code> - message received</dd>
+<dd><code>messageType</code> - type of message received</dd>
+<dd><code>error</code> - error message related to the processing of the message</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="banlist(net.i2p.data.Hash,java.lang.String)">banlist</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">banlist</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</span></div>
+<div class="block">We banlisted the peer</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="unbanlist(net.i2p.data.Hash)">unbanlist</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">unbanlist</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">We unbanlisted the peer</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendMessage(java.lang.String,long,long,net.i2p.data.Hash,boolean,java.lang.String)">sendMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+boolean&nbsp;sentOk,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;info)</span></div>
+<div class="block">We just sent a message to the peer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>messageType</code> - class name for the message object (e.g. DatabaseFindNearestMessage, TunnelMessage, etc)</dd>
+<dd><code>messageId</code> - the unique message id of the message being sent (not including any tunnel or garlic wrapped
+                  message ids)</dd>
+<dd><code>expiration</code> - the expiration for the message sent</dd>
+<dd><code>peer</code> - router that the message was sent to</dd>
+<dd><code>sentOk</code> - whether the message was sent successfully</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveMessage(java.lang.String,long,long,net.i2p.data.Hash,boolean)">receiveMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receiveMessage</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+boolean&nbsp;isValid)</span></div>
+<div class="block">We just received a message from the peer</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>messageType</code> - class name for the message object (e.g. DatabaseFindNearestMessage, TunnelMessage, etc)</dd>
+<dd><code>messageId</code> - the unique message id of the message received (not including any tunnel or garlic wrapped
+                  message ids)</dd>
+<dd><code>expiration</code> - the expiration for the message received</dd>
+<dd><code>from</code> - router that the message was sent from (or null if we don't know)</dd>
+<dd><code>isValid</code> - whether the message is valid (non duplicates, etc)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveMessage(java.lang.String,long,long,boolean)">receiveMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receiveMessage</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageType,
+long&nbsp;messageId,
+long&nbsp;expiration,
+boolean&nbsp;isValid)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="wrap(java.lang.String,long,java.lang.String,long)">wrap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">wrap</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;bodyMessageType,
+long&nbsp;bodyMessageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;containerMessageType,
+long&nbsp;containerMessageId)</span></div>
+<div class="block">Note that we're wrapping the given message within another message (via tunnel/garlic)</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>bodyMessageType</code> - class name for the message contained (e.g. DatabaseFindNearestMessage, DataMessage, etc)</dd>
+<dd><code>bodyMessageId</code> - the unique message id of the message</dd>
+<dd><code>containerMessageType</code> - class name for the message containing the body message (e.g. TunnelMessage, GarlicMessage, etc)</dd>
+<dd><code>containerMessageId</code> - the unique message id of the message</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receivePayloadMessage(long)">receivePayloadMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receivePayloadMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId)</span></div>
+<div class="block">Receive a payload message to distribute to a client</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendPayloadMessage(long,boolean,long)">sendPayloadMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sendPayloadMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+boolean&nbsp;successfullySent,
+long&nbsp;timeToSend)</span></div>
+<div class="block">Note that the sending of a payload message completed (successfully or as a failure)</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>messageId</code> - message that the payload message was sent in</dd>
+<dd><code>successfullySent</code> - whether the message was delivered to the peer successfully</dd>
+<dd><code>timeToSend</code> - how long it took to send the message</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveTunnelFragment(long,int,java.lang.Object)">receiveTunnelFragment</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receiveTunnelFragment</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+int&nbsp;fragmentId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;status)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveTunnelFragmentComplete(long)">receiveTunnelFragmentComplete</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">receiveTunnelFragmentComplete</span>&#8203;(<span class="arguments">long&nbsp;messageId)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedFragmentedMessage(long,java.lang.String)">droppedFragmentedMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedFragmentedMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;status)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="fragmentMessage(long,int,int,java.util.List,java.lang.String)">fragmentMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">fragmentMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="fragmentMessage(long,int,int,java.util.List,java.lang.Object,java.lang.String)">fragmentMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">fragmentMessage</span>&#8203;(<span class="arguments">long&nbsp;messageId,
+int&nbsp;numFragments,
+int&nbsp;totalLength,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;&nbsp;messageIds,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;tunnel,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;msg)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedTunnelDataMessageUnknown(long,long)">droppedTunnelDataMessageUnknown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedTunnelDataMessageUnknown</span>&#8203;(<span class="arguments">long&nbsp;msgId,
+long&nbsp;tunnelId)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="droppedTunnelGatewayMessageUnknown(long,long)">droppedTunnelGatewayMessageUnknown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">droppedTunnelGatewayMessageUnknown</span>&#8203;(<span class="arguments">long&nbsp;msgId,
+long&nbsp;tunnelId)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/MessageHistory.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

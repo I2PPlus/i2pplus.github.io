@@ -1,0 +1,752 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>JSONRPC2Request - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.thetransactioncompany.jsonrpc2, class: JSONRPC2Request">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":42,"i4":10,"i5":10,"i6":9,"i7":9,"i8":9,"i9":9,"i10":10,"i11":10,"i12":10,"i13":42,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JSONRPC2Request.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">com.thetransactioncompany.jsonrpc2</a></div>
+<h1 title="Class JSONRPC2Request" class="title">Class JSONRPC2Request</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="JSONRPC2Message.html" title="class in com.thetransactioncompany.jsonrpc2">com.thetransactioncompany.jsonrpc2.JSONRPC2Message</a>
+<div class="inheritance">com.thetransactioncompany.jsonrpc2.JSONRPC2Request</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">JSONRPC2Request</span>
+extends <a href="JSONRPC2Message.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Message</a></pre>
+<div class="block">Represents a JSON-RPC 2.0 request. 
+
+ <p>A request carries four pieces of data:
+ <ul>
+     <li><code>method</code> The name of the remote method to call.
+     <li><code>params</code> The required method parameters (if any), which can 
+         be packed into a JSON array or object.
+     <li><code>id</code> An identifier which is echoed back to the client with 
+         the response.
+     <li><code>jsonrpc</code> A string indicating the JSON-RPC protocol version 
+         set to "2.0".
+ </ul>
+
+ <p>Here is a sample JSON-RPC 2.0 request string:
+
+ <pre>
+ {  
+    "method"  : "makePayment",
+    "params"  : { "recipient" : "Penny Adams", "amount":175.05 },
+    "id"      : "0001",
+    "jsonrpc" : "2.0"
+ }
+ </pre>
+
+ <p>This class provides two methods to obtain a request object:
+ <ul>
+     <li>Pass a JSON-RPC 2.0 request string to the static 
+         <a href="#parse(java.lang.String)"><code>parse(java.lang.String)</code></a> method, or 
+     <li>Invoke one of the constructors with the appropriate arguments.
+ </ul>
+
+ <p>Example 1: Parsing a request string:
+
+ <pre>
+ String jsonString = "{\"method\":\"makePayment\"," +
+                     "\"params\":{\"recipient\":\"Penny Adams\",\"amount\":175.05}," +
+                     "\"id\":\"0001\","+
+                     "\"jsonrpc\":\"2.0\"}";
+ 
+ JSONRPC2Request req = null;
+ 
+ try {
+         req = JSONRPC2Request.parse(jsonString);
+
+ } catch (JSONRPC2ParseException e) {
+         // handle exception
+ }
+ </pre>
+
+ <p>Example 2: Recreating the above request:
+ 
+ <pre>
+ String method = "makePayment";
+ Map&lt;String,Object&gt; params = new HashMap&lt;String,Object&gt;();
+ params.put("recipient", "Penny Adams");
+ params.put("amount", 175.05);
+ String id = "0001";
+
+ JSONRPC2Request req = new JSONRPC2Request(method, params, id);
+
+ System.out.println(req);
+ </pre>
+
+ <p id="map">The mapping between JSON and Java entities (as defined by the 
+ underlying JSON Smart library): 
+
+ <pre>
+     true|false  &lt;---&gt;  java.lang.Boolean
+     number      &lt;---&gt;  java.lang.Number
+     string      &lt;---&gt;  java.lang.String
+     array       &lt;---&gt;  java.util.List
+     object      &lt;---&gt;  java.util.Map
+     null        &lt;---&gt;  null
+ </pre></div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Vladimir Dzhuvinov</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.Object)">JSONRPC2Request</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Constructs a new JSON-RPC 2.0 request with no parameters.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.List,java.lang.Object)">JSONRPC2Request</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;positionalParams,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Constructs a new JSON-RPC 2.0 request with positional (JSON array)
+ parameters.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.Map,java.lang.Object)">JSONRPC2Request</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;namedParams,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Constructs a new JSON-RPC 2.0 request with named (JSON object)
+ parameters.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getID()">getID</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the request identifier.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMethod()">getMethod</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the name of the requested method.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNamedParams()">getNamedParams</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the named parameters.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="JSONRPC2ParamsType.html" title="enum in com.thetransactioncompany.jsonrpc2">JSONRPC2ParamsType</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParamsType()">getParamsType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the parameters type (<a href="JSONRPC2ParamsType.html#ARRAY"><code>positional</code></a>, 
+ <a href="JSONRPC2ParamsType.html#OBJECT"><code>named</code></a> or 
+ <a href="JSONRPC2ParamsType.html#NO_PARAMS"><code>none</code></a>).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPositionalParams()">getPositionalParams</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the positional (JSON array) parameters.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>static <a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String)">parse</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString)</code></th>
+<td class="colLast">
+<div class="block">Parses a JSON-RPC 2.0 request string.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>static <a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String,boolean)">parse</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder)</code></th>
+<td class="colLast">
+<div class="block">Parses a JSON-RPC 2.0 request string.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>static <a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String,boolean,boolean)">parse</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder,
+boolean&nbsp;ignoreVersion)</code></th>
+<td class="colLast">
+<div class="block">Parses a JSON-RPC 2.0 request string.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>static <a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String,boolean,boolean,boolean)">parse</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder,
+boolean&nbsp;ignoreVersion,
+boolean&nbsp;parseNonStdAttributes)</code></th>
+<td class="colLast">
+<div class="block">Parses a JSON-RPC 2.0 request string.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setID(java.lang.Object)">setID</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Sets the request identifier (ID).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMethod(java.lang.String)">setMethod</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method)</code></th>
+<td class="colLast">
+<div class="block">Sets the name of the requested method.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNamedParams(java.util.Map)">setNamedParams</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;namedParams)</code></th>
+<td class="colLast">
+<div class="block">Sets the named (JSON object) request parameters.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setParams(java.lang.Object)">setParams</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;params)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPositionalParams(java.util.List)">setPositionalParams</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;positionalParams)</code></th>
+<td class="colLast">
+<div class="block">Sets the positional (JSON array) request parameters.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="../../../org/json/simple/JsonObject.html" title="class in org.json.simple">JsonObject</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJSONObject()">toJSONObject</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns a JSON object representing this JSON-RPC 2.0 message.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;com.thetransactioncompany.jsonrpc2.<a href="JSONRPC2Message.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Message</a></h3>
+<a id="methods.inherited.from.class.com.thetransactioncompany.jsonrpc2.JSONRPC2Message">
+</a><code><a href="JSONRPC2Message.html#appendNonStdAttribute(java.lang.String,java.lang.Object)">appendNonStdAttribute</a>, <a href="JSONRPC2Message.html#getNonStdAttribute(java.lang.String)">getNonStdAttribute</a>, <a href="JSONRPC2Message.html#getNonStdAttributes()">getNonStdAttributes</a>, <a href="JSONRPC2Message.html#toJSONString()">toJSONString</a>, <a href="JSONRPC2Message.html#toString()">toString</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.lang.Object)">JSONRPC2Request</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">JSONRPC2Request</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</span></div>
+<div class="block">Constructs a new JSON-RPC 2.0 request with no parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - The name of the requested method. Must not be 
+               <code>null</code>.</dd>
+<dd><code>id</code> - The request identifier echoed back to the caller. 
+               The value must <a href="#map">map</a> to a JSON 
+               scalar (<code>null</code> and fractions, however, should
+               be avoided).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.util.List,java.lang.Object)">JSONRPC2Request</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">JSONRPC2Request</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;positionalParams,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</span></div>
+<div class="block">Constructs a new JSON-RPC 2.0 request with positional (JSON array)
+ parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - The name of the requested method. Must not 
+                         be <code>null</code>.</dd>
+<dd><code>positionalParams</code> - The positional (JSON array) parameters, 
+                         <code>null</code> if none.</dd>
+<dd><code>id</code> - The request identifier echoed back to the 
+                         caller. The value must <a href="#map">map</a> 
+                         to a JSON scalar (<code>null</code> and 
+                         fractions, however, should be avoided).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.lang.String,java.util.Map,java.lang.Object)">JSONRPC2Request</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">JSONRPC2Request</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;namedParams,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</span></div>
+<div class="block">Constructs a new JSON-RPC 2.0 request with named (JSON object)
+ parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - The name of the requested method.</dd>
+<dd><code>namedParams</code> - The named (JSON object) parameters, <code>null</code> 
+                    if none.</dd>
+<dd><code>id</code> - The request identifier echoed back to the caller. 
+                    The value must <a href="#map">map</a> to a JSON 
+                    scalar (<code>null</code> and fractions, however, 
+                    should be avoided).</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="parse(java.lang.String)">parse</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></span>&nbsp;<span class="memberName">parse</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString)</span>
+                             throws <span class="exceptions"><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></span></div>
+<div class="block">Parses a JSON-RPC 2.0 request string. This method is thread-safe.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jsonString</code> - The JSON-RPC 2.0 request string, UTF-8 encoded. 
+                   Must not be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The corresponding JSON-RPC 2.0 request object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></code> - With detailed message if parsing 
+                                failed.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="parse(java.lang.String,boolean)">parse</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></span>&nbsp;<span class="memberName">parse</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder)</span>
+                             throws <span class="exceptions"><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></span></div>
+<div class="block">Parses a JSON-RPC 2.0 request string. This method is thread-safe.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jsonString</code> - The JSON-RPC 2.0 request string, UTF-8 encoded. 
+                      Must not be <code>null</code>.</dd>
+<dd><code>preserveOrder</code> - <code>true</code> to preserve the order of JSON 
+                      object members in parameters.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The corresponding JSON-RPC 2.0 request object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></code> - With detailed message if parsing 
+                                failed.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="parse(java.lang.String,boolean,boolean)">parse</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></span>&nbsp;<span class="memberName">parse</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder,
+boolean&nbsp;ignoreVersion)</span>
+                             throws <span class="exceptions"><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></span></div>
+<div class="block">Parses a JSON-RPC 2.0 request string. This method is thread-safe.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jsonString</code> - The JSON-RPC 2.0 request string, UTF-8 encoded.
+                      Must not be <code>null</code>.</dd>
+<dd><code>preserveOrder</code> - <code>true</code> to preserve the order of JSON 
+                      object members in parameters.</dd>
+<dd><code>ignoreVersion</code> - <code>true</code> to skip a check of the 
+                      <code>"jsonrpc":"2.0"</code> version attribute in the 
+                      JSON-RPC 2.0 message.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The corresponding JSON-RPC 2.0 request object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></code> - With detailed message if parsing 
+                                failed.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="parse(java.lang.String,boolean,boolean,boolean)">parse</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="JSONRPC2Request.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Request</a></span>&nbsp;<span class="memberName">parse</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jsonString,
+boolean&nbsp;preserveOrder,
+boolean&nbsp;ignoreVersion,
+boolean&nbsp;parseNonStdAttributes)</span>
+                             throws <span class="exceptions"><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></span></div>
+<div class="block">Parses a JSON-RPC 2.0 request string. This method is thread-safe.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jsonString</code> - The JSON-RPC 2.0 request string, UTF-8 
+                              encoded. Must not be <code>null</code>.</dd>
+<dd><code>preserveOrder</code> - <code>true</code> to preserve the order of
+                              JSON object members in parameters.</dd>
+<dd><code>ignoreVersion</code> - <code>true</code> to skip a check of the 
+                              <code>"jsonrpc":"2.0"</code> version 
+                              attribute in the JSON-RPC 2.0 message.</dd>
+<dd><code>parseNonStdAttributes</code> - <code>true</code> to parse non-standard
+                              attributes found in the JSON-RPC 2.0 
+                              message.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The corresponding JSON-RPC 2.0 request object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="JSONRPC2ParseException.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2ParseException</a></code> - With detailed message if parsing 
+                                failed.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMethod()">getMethod</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getMethod</span>()</div>
+<div class="block">Gets the name of the requested method.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The method name.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setMethod(java.lang.String)">setMethod</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setMethod</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;method)</span></div>
+<div class="block">Sets the name of the requested method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>method</code> - The method name. Must not be <code>null</code>.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getParamsType()">getParamsType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="JSONRPC2ParamsType.html" title="enum in com.thetransactioncompany.jsonrpc2">JSONRPC2ParamsType</a></span>&nbsp;<span class="memberName">getParamsType</span>()</div>
+<div class="block">Gets the parameters type (<a href="JSONRPC2ParamsType.html#ARRAY"><code>positional</code></a>, 
+ <a href="JSONRPC2ParamsType.html#OBJECT"><code>named</code></a> or 
+ <a href="JSONRPC2ParamsType.html#NO_PARAMS"><code>none</code></a>).</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameters type.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getParams()">getParams</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">getParams</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Gets the request parameters.
+
+ <p>This method was deprecated in version 1.30. Use
+ <a href="#getPositionalParams()"><code>getPositionalParams()</code></a> or <a href="#getNamedParams()"><code>getNamedParams()</code></a> instead.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameters as <code>List&amp;lt;Object&amp;gt;</code> for positional
+         (JSON array), <code>Map&amp;lt;String,Object&amp;gt;</code> for named
+         (JSON object), or <code>null</code> if none.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPositionalParams()">getPositionalParams</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getPositionalParams</span>()</div>
+<div class="block">Gets the positional (JSON array) parameters.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The positional (JSON array) parameters, <code>null</code> if none
+         or named.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.30</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNamedParams()">getNamedParams</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getNamedParams</span>()</div>
+<div class="block">Gets the named parameters.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The named (JSON object) parameters, <code>null</code> if none or 
+         positional.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.30</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setParams(java.lang.Object)">setParams</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setParams</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;params)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Sets the request parameters.
+
+ <p>This method was deprecated in version 1.30. Use
+ <a href="#setPositionalParams(java.util.List)"><code>setPositionalParams(java.util.List&lt;java.lang.Object&gt;)</code></a> or <a href="#setNamedParams(java.util.Map)"><code>setNamedParams(java.util.Map&lt;java.lang.String, java.lang.Object&gt;)</code></a> instead.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>params</code> - The parameters. For positional (JSON array) pass a 
+               <code>List&amp;lt;Object&amp;gt;</code>. For named (JSON object)
+               pass a <code>Map&amp;lt;String,Object&amp;gt;</code>. If there are
+               no parameters pass <code>null</code>.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setPositionalParams(java.util.List)">setPositionalParams</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setPositionalParams</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;positionalParams)</span></div>
+<div class="block">Sets the positional (JSON array) request parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>positionalParams</code> - The positional (JSON array) request 
+                         parameters, <code>null</code> if none.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.30</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setNamedParams(java.util.Map)">setNamedParams</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setNamedParams</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;namedParams)</span></div>
+<div class="block">Sets the named (JSON object) request parameters.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>namedParams</code> - The named (JSON object) request parameters,
+                    <code>null</code> if none.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.30</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getID()">getID</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">getID</span>()</div>
+<div class="block">Gets the request identifier.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The request identifier (<code>Number</code>, <code>Boolean</code>,
+         <code>String</code>) or <code>null</code>.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setID(java.lang.Object)">setID</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setID</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;id)</span></div>
+<div class="block">Sets the request identifier (ID).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - The request identifier echoed back to the caller. 
+           The value must <a href="#map">map</a> to a JSON 
+           scalar (<code>null</code> and fractions, however, should
+           be avoided).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toJSONObject()">toJSONObject</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../org/json/simple/JsonObject.html" title="class in org.json.simple">JsonObject</a></span>&nbsp;<span class="memberName">toJSONObject</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="JSONRPC2Message.html#toJSONObject()">JSONRPC2Message</a></code></span></div>
+<div class="block">Returns a JSON object representing this JSON-RPC 2.0 message.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="JSONRPC2Message.html#toJSONObject()">toJSONObject</a></code>&nbsp;in class&nbsp;<code><a href="JSONRPC2Message.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Message</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The JSON object.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JSONRPC2Request.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

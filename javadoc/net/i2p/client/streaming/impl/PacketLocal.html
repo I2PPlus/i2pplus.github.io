@@ -1,0 +1,725 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PacketLocal - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.client.streaming.impl, class: PacketLocal">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":42,"i7":10,"i8":10,"i9":10,"i10":10,"i11":42,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":42,"i18":10,"i19":42,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PacketLocal.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.client.streaming.impl</a></div>
+<h1 title="Class PacketLocal" class="title">Class PacketLocal</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="Packet.html" title="class in net.i2p.client.streaming.impl">net.i2p.client.streaming.impl.Packet</a>
+<div class="inheritance">net.i2p.client.streaming.impl.PacketLocal</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">PacketLocal</span>
+extends <a href="Packet.html" title="class in net.i2p.client.streaming.impl">Packet</a>
+implements <a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></pre>
+<div class="block">This is the class used for outbound packets.
+
+ coordinate local attributes about a packet - send time, ack time, number of
+ retries, etc.</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.client.streaming.impl.<a href="Packet.html" title="class in net.i2p.client.streaming.impl">Packet</a></h3>
+<a id="fields.inherited.from.class.net.i2p.client.streaming.impl.Packet">
+</a><code><a href="Packet.html#_nacks">_nacks</a>, <a href="Packet.html#_offlineSignature">_offlineSignature</a>, <a href="Packet.html#_optionFrom">_optionFrom</a>, <a href="Packet.html#_optionSignature">_optionSignature</a>, <a href="Packet.html#_session">_session</a>, <a href="Packet.html#_transientExpires">_transientExpires</a>, <a href="Packet.html#_transientSigningPublicKey">_transientSigningPublicKey</a>, <a href="Packet.html#DEFAULT_MAX_SIZE">DEFAULT_MAX_SIZE</a>, <a href="Packet.html#FLAG_CLOSE">FLAG_CLOSE</a>, <a href="Packet.html#FLAG_DELAY_REQUESTED">FLAG_DELAY_REQUESTED</a>, <a href="Packet.html#FLAG_ECHO">FLAG_ECHO</a>, <a href="Packet.html#FLAG_FROM_INCLUDED">FLAG_FROM_INCLUDED</a>, <a href="Packet.html#FLAG_MAX_PACKET_SIZE_INCLUDED">FLAG_MAX_PACKET_SIZE_INCLUDED</a>, <a href="Packet.html#FLAG_NO_ACK">FLAG_NO_ACK</a>, <a href="Packet.html#FLAG_PROFILE_INTERACTIVE">FLAG_PROFILE_INTERACTIVE</a>, <a href="Packet.html#FLAG_RESET">FLAG_RESET</a>, <a href="Packet.html#FLAG_SIGNATURE_INCLUDED">FLAG_SIGNATURE_INCLUDED</a>, <a href="Packet.html#FLAG_SIGNATURE_OFFLINE">FLAG_SIGNATURE_OFFLINE</a>, <a href="Packet.html#FLAG_SIGNATURE_REQUESTED">FLAG_SIGNATURE_REQUESTED</a>, <a href="Packet.html#FLAG_SYNCHRONIZE">FLAG_SYNCHRONIZE</a>, <a href="Packet.html#MAX_DELAY_REQUEST">MAX_DELAY_REQUEST</a>, <a href="Packet.html#MAX_PAYLOAD_SIZE">MAX_PAYLOAD_SIZE</a>, <a href="Packet.html#MAX_STREAM_ID">MAX_STREAM_ID</a>, <a href="Packet.html#MIN_DELAY_CHOKE">MIN_DELAY_CHOKE</a>, <a href="Packet.html#SEND_DELAY_CHOKE">SEND_DELAY_CHOKE</a>, <a href="Packet.html#STREAM_ID_UNKNOWN">STREAM_ID_UNKNOWN</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.data.Destination,net.i2p.client.I2PSession)">PacketLocal</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">
+<div class="block">not bound to a connection</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,net.i2p.data.Destination,net.i2p.client.streaming.impl.Connection)">PacketLocal</a></span>&#8203;(<a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="Connection.html" title="class in net.i2p.client.streaming.impl">Connection</a>&nbsp;con)</code></th>
+<td class="colLast">
+<div class="block">bound to a connection</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ackReceived()">ackReceived</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cancelled()">cancelled</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#formatAsString()">formatAsString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAckTime()">getAckTime</a></span>()</code></th>
+<td class="colLast">
+<div class="block">how long after packet creation was it acked?</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="Connection.html" title="class in net.i2p.client.streaming.impl">Connection</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnection()">getConnection</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreatedOn()">getCreatedOn</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKeyUsed()">getKeyUsed</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">should always return null</div>
+</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLastSend()">getLastSend</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLifetime()">getLifetime</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNACKs()">getNACKs</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumSends()">getNumSends</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTagsSent()">getTagsSent</a></span>()</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">should always return null or an empty set</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeout()">getTimeout</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Used by PacketQueue to feed an expiration to the router.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTo()">getTo</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementNACKs()">incrementNACKs</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Will force a fast restransmit on the 3rd call (FAST_RETRANSMIT_THRESHOLD)
+  but only if it's the lowest unacked (see Connection.ResendPacketEvent)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#incrementSends()">incrementSends</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logTCPDump()">logTCPDump</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Generate a pcap/tcpdump-compatible format,
+  so we can use standard debugging tools.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setKeyUsed(net.i2p.data.SessionKey)">setKeyUsed</a></span>&#8203;(<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">I2PSession throws out the tags</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOptionalFrom()">setOptionalFrom</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This sets the from field in the packet to the Destination for the session
+ provided in the constructor.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTagsSent(java.util.Set)">setTagsSent</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tags)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">I2PSession throws out the tags</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeout(int)">setTimeout</a></span>&#8203;(int&nbsp;timeout)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldSign()">shouldSign</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#waitForAccept(int)">waitForAccept</a></span>&#8203;(int&nbsp;maxWaitMs)</code></th>
+<td class="colLast">
+<div class="block">Blocks until outbound window is not full.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#waitForCompletion(int)">waitForCompletion</a></span>&#8203;(int&nbsp;maxWaitMs)</code></th>
+<td class="colLast">
+<div class="block">block until the packet is acked from the far end</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeAccepted()">writeAccepted</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Was the write was accepted.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeFailed()">writeFailed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">did the write fail?</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeSignedPacket(byte%5B%5D,int)">writeSignedPacket</a></span>&#8203;(byte[]&nbsp;buffer,
+int&nbsp;offset)</code></th>
+<td class="colLast">
+<div class="block">Sign and write the packet to the buffer (starting at the offset) and return
+ the number of bytes written.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeSuccessful()">writeSuccessful</a></span>()</code></th>
+<td class="colLast">
+<div class="block">did the write succeed?</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.client.streaming.impl.<a href="Packet.html" title="class in net.i2p.client.streaming.impl">Packet</a></h3>
+<a id="methods.inherited.from.class.net.i2p.client.streaming.impl.Packet">
+</a><code><a href="Packet.html#acquirePayload()">acquirePayload</a>, <a href="Packet.html#getAckThrough()">getAckThrough</a>, <a href="Packet.html#getLocalPort()">getLocalPort</a>, <a href="Packet.html#getNacks()">getNacks</a>, <a href="Packet.html#getOptionalDelay()">getOptionalDelay</a>, <a href="Packet.html#getOptionalFrom()">getOptionalFrom</a>, <a href="Packet.html#getOptionalMaxSize()">getOptionalMaxSize</a>, <a href="Packet.html#getOptionalSignature()">getOptionalSignature</a>, <a href="Packet.html#getPayload()">getPayload</a>, <a href="Packet.html#getPayloadSize()">getPayloadSize</a>, <a href="Packet.html#getReceiveStreamId()">getReceiveStreamId</a>, <a href="Packet.html#getRemotePort()">getRemotePort</a>, <a href="Packet.html#getResendDelay()">getResendDelay</a>, <a href="Packet.html#getSendStreamId()">getSendStreamId</a>, <a href="Packet.html#getSequenceNum()">getSequenceNum</a>, <a href="Packet.html#getSession()">getSession</a>, <a href="Packet.html#getTransientSPK()">getTransientSPK</a>, <a href="Packet.html#isFlagSet(int)">isFlagSet</a>, <a href="Packet.html#logTCPDump(net.i2p.client.streaming.impl.Connection)">logTCPDump</a>, <a href="Packet.html#readPacket(byte%5B%5D,int,int)">readPacket</a>, <a href="Packet.html#releasePayload()">releasePayload</a>, <a href="Packet.html#setAckThrough(long)">setAckThrough</a>, <a href="Packet.html#setFlag(int)">setFlag</a>, <a href="Packet.html#setFlag(int,boolean)">setFlag</a>, <a href="Packet.html#setLocalPort(int)">setLocalPort</a>, <a href="Packet.html#setNacks(long%5B%5D)">setNacks</a>, <a href="Packet.html#setOptionalDelay(int)">setOptionalDelay</a>, <a href="Packet.html#setOptionalMaxSize(int)">setOptionalMaxSize</a>, <a href="Packet.html#setOptionalSignature(net.i2p.data.Signature)">setOptionalSignature</a>, <a href="Packet.html#setPayload(net.i2p.data.ByteArray)">setPayload</a>, <a href="Packet.html#setReceiveStreamId(long)">setReceiveStreamId</a>, <a href="Packet.html#setRemotePort(int)">setRemotePort</a>, <a href="Packet.html#setResendDelay(int)">setResendDelay</a>, <a href="Packet.html#setSendStreamId(long)">setSendStreamId</a>, <a href="Packet.html#setSequenceNum(long)">setSequenceNum</a>, <a href="Packet.html#toId(long)">toId</a>, <a href="Packet.html#toString()">toString</a>, <a href="Packet.html#verifySignature(net.i2p.I2PAppContext,byte%5B%5D)">verifySignature</a>, <a href="Packet.html#verifySignature(net.i2p.I2PAppContext,net.i2p.data.SigningPublicKey,byte%5B%5D)">verifySignature</a>, <a href="Packet.html#writePacket(byte%5B%5D,int)">writePacket</a>, <a href="Packet.html#writePacket(byte%5B%5D,int,int)">writePacket</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.data.Destination,net.i2p.client.I2PSession)">PacketLocal</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PacketLocal</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="../../I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<div class="block">not bound to a connection</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,net.i2p.data.Destination,net.i2p.client.streaming.impl.Connection)">PacketLocal</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PacketLocal</span>&#8203;(<span class="arguments"><a href="../../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;to,
+<a href="Connection.html" title="class in net.i2p.client.streaming.impl">Connection</a>&nbsp;con)</span></div>
+<div class="block">bound to a connection</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="setOptionalFrom()">setOptionalFrom</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setOptionalFrom</span>()</div>
+<div class="block">This sets the from field in the packet to the Destination for the session
+ provided in the constructor.
+ This also sets flag FLAG_FROM_INCLUDED.
+ Also, as of 0.9.39, sets the offline signing data if supported by the session.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.39 moved from super</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTo()">getTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">getTo</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKeyUsed()">getKeyUsed</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">getKeyUsed</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">should always return null</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setKeyUsed(net.i2p.data.SessionKey)">setKeyUsed</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setKeyUsed</span>&#8203;(<span class="arguments"><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;key)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">I2PSession throws out the tags</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTagsSent()">getTagsSent</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;</span>&nbsp;<span class="memberName">getTagsSent</span>()</div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">should always return null or an empty set</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setTagsSent(java.util.Set)">setTagsSent</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTagsSent</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tags)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">I2PSession throws out the tags</div>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldSign()">shouldSign</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldSign</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getCreatedOn()">getCreatedOn</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCreatedOn</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLifetime()">getLifetime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLifetime</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementSends()">incrementSends</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementSends</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ackReceived()">ackReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ackReceived</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="cancelled()">cancelled</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">cancelled</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAckTime()">getAckTime</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getAckTime</span>()</div>
+<div class="block">how long after packet creation was it acked?</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>how long after packet creation the packet was ACKed in ms</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNumSends()">getNumSends</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNumSends</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLastSend()">getLastSend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLastSend</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getConnection()">getConnection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Connection.html" title="class in net.i2p.client.streaming.impl">Connection</a></span>&nbsp;<span class="memberName">getConnection</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if not bound</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="incrementNACKs()">incrementNACKs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">incrementNACKs</span>()</div>
+<div class="block">Will force a fast restransmit on the 3rd call (FAST_RETRANSMIT_THRESHOLD)
+  but only if it's the lowest unacked (see Connection.ResendPacketEvent)</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNACKs()">getNACKs</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getNACKs</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getTimeout()">getTimeout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getTimeout</span>()</div>
+<div class="block">Used by PacketQueue to feed an expiration to the router.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>time from now, not absolute time. May be zero if unset.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setTimeout(int)">setTimeout</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeout</span>&#8203;(<span class="arguments">int&nbsp;timeout)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timeout</code> - time from now, not absolute time</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.46</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeSignedPacket(byte[],int)">writeSignedPacket</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeSignedPacket</span>&#8203;(<span class="arguments">byte[]&nbsp;buffer,
+int&nbsp;offset)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></span></div>
+<div class="block">Sign and write the packet to the buffer (starting at the offset) and return
+ the number of bytes written.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>buffer</code> - data to be written</dd>
+<dd><code>offset</code> - starting point in the buffer</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Count of bytes written</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if there is data missing or otherwise b0rked</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20 moved from Packet</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="formatAsString()">formatAsString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a></span>&nbsp;<span class="memberName">formatAsString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="Packet.html#formatAsString()">formatAsString</a></code>&nbsp;in class&nbsp;<code><a href="Packet.html" title="class in net.i2p.client.streaming.impl">Packet</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="waitForAccept(int)">waitForAccept</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">waitForAccept</span>&#8203;(<span class="arguments">int&nbsp;maxWaitMs)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></span></div>
+<div class="block">Blocks until outbound window is not full. See Connection.packetSendChoke().</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html#waitForAccept(int)">waitForAccept</a></code>&nbsp;in interface&nbsp;<code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxWaitMs</code> - MessageOutputStream is the only caller, generally with -1</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="waitForCompletion(int)">waitForCompletion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">waitForCompletion</span>&#8203;(<span class="arguments">int&nbsp;maxWaitMs)</span>
+                       throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a>,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></span></div>
+<div class="block">block until the packet is acked from the far end</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html#waitForCompletion(int)">waitForCompletion</a></code>&nbsp;in interface&nbsp;<code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>maxWaitMs</code> - -1 = forever</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/InterruptedException.html?is-external=true" title="class or interface in java.lang" class="externalLink">InterruptedException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeAccepted()">writeAccepted</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">writeAccepted</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="MessageOutputStream.WriteStatus.html#writeAccepted()">MessageOutputStream.WriteStatus</a></code></span></div>
+<div class="block">Was the write was accepted.  aka did the socket not close?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html#writeAccepted()">writeAccepted</a></code>&nbsp;in interface&nbsp;<code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeFailed()">writeFailed</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">writeFailed</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="MessageOutputStream.WriteStatus.html#writeFailed()">MessageOutputStream.WriteStatus</a></code></span></div>
+<div class="block">did the write fail?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html#writeFailed()">writeFailed</a></code>&nbsp;in interface&nbsp;<code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeSuccessful()">writeSuccessful</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">writeSuccessful</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="MessageOutputStream.WriteStatus.html#writeSuccessful()">MessageOutputStream.WriteStatus</a></code></span></div>
+<div class="block">did the write succeed?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="MessageOutputStream.WriteStatus.html#writeSuccessful()">writeSuccessful</a></code>&nbsp;in interface&nbsp;<code><a href="MessageOutputStream.WriteStatus.html" title="interface in net.i2p.client.streaming.impl">MessageOutputStream.WriteStatus</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="logTCPDump()">logTCPDump</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">logTCPDump</span>()</div>
+<div class="block">Generate a pcap/tcpdump-compatible format,
+  so we can use standard debugging tools.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PacketLocal.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

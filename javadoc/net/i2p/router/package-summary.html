@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+            The I2P router application handles the I2P network communication.
+        </p>
+        <p>
+            It encompasses sending and receiving messages, building up tunnels, encrypting and decrypting (on multiple levels) where applicable, and so on.
+        </p>
+<p>
+Classes in this package, sub-packages, and others in router.jar are
+not for use by apps, clients or plugins (except for routerconsole).
+Subject to change. Not necessarily maintained as a stable API.
+</p><p>
+For applications bundling the I2P router, instantiate Router and call runRouter(), or use Router.main() or RouterLaunch.
+Most public methods in Router are maintained as a stable I2P for those bundling the router.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="HandlerJobBuilder.html" title="interface in net.i2p.router">HandlerJobBuilder</a></th>
+<td class="colLast">
+<div class="block">Defines a class that builds jobs to handle a particular message - these
+ builders are registered with the InNetMessagePool for various I2NP message 
+ types, allowing immediate queueing of a handler job rather than waiting for
+ a polling job to come pick it up.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="Job.html" title="interface in net.i2p.router">Job</a></th>
+<td class="colLast">
+<div class="block">Defines an executable task
+
+ For use by the router only.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageSelector.html" title="interface in net.i2p.router">MessageSelector</a></th>
+<td class="colLast">
+<div class="block">Define a mechanism to select what messages are associated with a particular 
+ OutNetMessage.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PeerManagerFacade.html" title="interface in net.i2p.router">PeerManagerFacade</a></th>
+<td class="colLast">
+<div class="block">Manage peer references and keep them up to date so that when asked for peers,
+ it can provide appropriate peers according to the criteria provided.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ProfileManager.html" title="interface in net.i2p.router">ProfileManager</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ReplyJob.html" title="interface in net.i2p.router">ReplyJob</a></th>
+<td class="colLast">
+<div class="block">Defines an executable task that can be fired off in reply to a message</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RouterClock.ClockShiftListener.html" title="interface in net.i2p.router">RouterClock.ClockShiftListener</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterThrottle.html" title="interface in net.i2p.router">RouterThrottle</a></th>
+<td class="colLast">
+<div class="block">Gatekeeper for deciding whether to throttle the further processing
+ of messages through the router.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Service.html" title="interface in net.i2p.router">Service</a></th>
+<td class="colLast">
+<div class="block">Define the manageable service interface for the subsystems in the I2P router</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="TunnelInfo.html" title="interface in net.i2p.router">TunnelInfo</a></th>
+<td class="colLast">
+<div class="block">Defines the information associated with a tunnel</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TunnelManagerFacade.html" title="interface in net.i2p.router">TunnelManagerFacade</a></th>
+<td class="colLast">
+<div class="block">Build and maintain tunnels throughout the network.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Banlist.html" title="class in net.i2p.router">Banlist</a></th>
+<td class="colLast">
+<div class="block">Routers are banlisted only if none of our transports can talk to them
+ or their signed router info is completely screwy.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="Banlist.Entry.html" title="class in net.i2p.router">Banlist.Entry</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Blocklist.html" title="class in net.i2p.router">Blocklist</a></th>
+<td class="colLast">
+<div class="block">Manage blocking by IP address, in a manner similar to the Banlist,
+ which blocks by router hash.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ClientManagerFacade.html" title="class in net.i2p.router">ClientManagerFacade</a></th>
+<td class="colLast">
+<div class="block">Manage all interactions with clients</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientMessage.html" title="class in net.i2p.router">ClientMessage</a></th>
+<td class="colLast">
+<div class="block">Wrap a message either destined for a local client or received from one.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ClientMessagePool.html" title="class in net.i2p.router">ClientMessagePool</a></th>
+<td class="colLast">
+<div class="block">Manage all of the inbound and outbound client messages maintained by the router.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ClientTunnelSettings.html" title="class in net.i2p.router">ClientTunnelSettings</a></th>
+<td class="colLast">
+<div class="block">Wrap up the client settings specifying their tunnel criteria</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="CommandLine.html" title="class in net.i2p.router">CommandLine</a></th>
+<td class="colLast">
+<div class="block">Simple command line access to various utilities.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="CommSystemFacade.html" title="class in net.i2p.router">CommSystemFacade</a></th>
+<td class="colLast">
+<div class="block">Manages the communication subsystem between peers, including connections, 
+ listeners, transports, connection keys, etc.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="InNetMessagePool.html" title="class in net.i2p.router">InNetMessagePool</a></th>
+<td class="colLast">
+<div class="block">Manage a pool of inbound InNetMessages.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="JobImpl.html" title="class in net.i2p.router">JobImpl</a></th>
+<td class="colLast">
+<div class="block">Base implementation of a Job
+
+ For use by the router only.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="JobQueue.html" title="class in net.i2p.router">JobQueue</a></th>
+<td class="colLast">
+<div class="block">Manage the pending jobs according to whatever algorithm is appropriate, giving
+ preference to earlier scheduled jobs.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="JobQueueRunner.html" title="class in net.i2p.router">JobQueueRunner</a></th>
+<td class="colLast">
+<div class="block">a do run run run a do run run</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="JobStats.html" title="class in net.i2p.router">JobStats</a></th>
+<td class="colLast">
+<div class="block">Glorified struct to contain basic job stats.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="JobTiming.html" title="class in net.i2p.router">JobTiming</a></th>
+<td class="colLast">
+<div class="block">Define the timing requirements and statistics for a particular job
+
+ For use by the router only.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="KeyManager.html" title="class in net.i2p.router">KeyManager</a></th>
+<td class="colLast">
+<div class="block">Maintain all of the key pairs for the router.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="LeaseSetKeys.html" title="class in net.i2p.router">LeaseSetKeys</a></th>
+<td class="colLast">
+<div class="block">Wrap up the keys given to the router when a destination connects to it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageHistory.html" title="class in net.i2p.router">MessageHistory</a></th>
+<td class="colLast">
+<div class="block">Simply act as a pen register of messages sent in and out of the router.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageValidator.html" title="class in net.i2p.router">MessageValidator</a></th>
+<td class="colLast">
+<div class="block">Singleton to manage the logic (and historical data) to determine whether a message
+ is valid or not (meaning it isn't expired and hasn't already been received).</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MultiRouter.html" title="class in net.i2p.router">MultiRouter</a></th>
+<td class="colLast">
+<div class="block">Fire up multiple routers in the same VM, all with their own RouterContext
+ (and all that entails).</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NetworkDatabaseFacade.html" title="class in net.i2p.router">NetworkDatabaseFacade</a></th>
+<td class="colLast">
+<div class="block">Defines the mechanism for interacting with I2P's network database</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a></th>
+<td class="colLast">
+<div class="block">Wrap up an outbound I2NP message, along with the information associated with its
+ delivery and jobs to be fired off if particular events occur.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="OutNetMessagePool.html" title="class in net.i2p.router">OutNetMessagePool</a></th>
+<td class="colLast">
+<div class="block">Maintain a pool of OutNetMessages destined for other routers, organized by
+ priority, expiring messages as necessary.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PersistentKeyRing.html" title="class in net.i2p.router">PersistentKeyRing</a></th>
+<td class="colLast">
+<div class="block">ConcurrentHashMap with backing in the router.config file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Router.html" title="class in net.i2p.router">Router</a></th>
+<td class="colLast">
+<div class="block">Main driver for the router.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterClock.html" title="class in net.i2p.router">RouterClock</a></th>
+<td class="colLast">
+<div class="block">Alternate location for determining the time which takes into account an offset.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RouterContext.html" title="class in net.i2p.router">RouterContext</a></th>
+<td class="colLast">
+<div class="block">Build off the core I2P context to provide a root for a router instance to
+ coordinate its resources.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterDoSThrottle.html" title="class in net.i2p.router">RouterDoSThrottle</a></th>
+<td class="colLast">Deprecated.
+<div class="deprecationComment">unused</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RouterLaunch.html" title="class in net.i2p.router">RouterLaunch</a></th>
+<td class="colLast">
+<div class="block">This is the class called by the runplain.sh script on linux
+  and the i2p.exe launcher on Windows.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RouterThrottleImpl.html" title="class in net.i2p.router">RouterThrottleImpl</a></th>
+<td class="colLast">
+<div class="block">Simple throttle that basically stops accepting messages or nontrivial
+ requests if the jobQueue lag is too large.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RouterVersion.html" title="class in net.i2p.router">RouterVersion</a></th>
+<td class="colLast">
+<div class="block">Expose a version string</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StatisticsManager.html" title="class in net.i2p.router">StatisticsManager</a></th>
+<td class="colLast">
+<div class="block">Publishes some statistics about the router in the netDB.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TunnelPoolSettings.html" title="class in net.i2p.router">TunnelPoolSettings</a></th>
+<td class="colLast">
+<div class="block">Wrap up the settings for a pool of tunnels.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="CommSystemFacade.Status.html" title="enum in net.i2p.router">CommSystemFacade.Status</a></th>
+<td class="colLast">
+<div class="block">Since the codes may change.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

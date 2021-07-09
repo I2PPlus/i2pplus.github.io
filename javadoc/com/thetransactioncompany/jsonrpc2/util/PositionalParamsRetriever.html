@@ -1,0 +1,1760 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PositionalParamsRetriever - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.thetransactioncompany.jsonrpc2.util, class: PositionalParamsRetriever">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":42,"i4":42,"i5":42,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":42,"i48":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PositionalParamsRetriever.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">com.thetransactioncompany.jsonrpc2.util</a></div>
+<h1 title="Class PositionalParamsRetriever" class="title">Class PositionalParamsRetriever</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="ParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">com.thetransactioncompany.jsonrpc2.util.ParamsRetriever</a>
+<div class="inheritance">com.thetransactioncompany.jsonrpc2.util.PositionalParamsRetriever</div>
+</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">PositionalParamsRetriever</span>
+extends <a href="ParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">ParamsRetriever</a></pre>
+<div class="block">Utility class for retrieving JSON-RPC 2.0 positional parameters (packed into
+ a JSON Array). 
+
+ <p>Provides a set of getter methods according to the expected parameter type
+ (number, string, etc.) and whether the parameter is mandatory or optional:
+
+ <ul>
+     <li><code>getXXX(param_pos)</code> for mandatory parameters, where 
+         <code>XXX</code> is the expected parameter type.
+     <li><code>getOptXXX(param_pos, default_value)</code> for optional parameters,
+         specifying a default value.
+ </ul>
+
+ <p>There are also generic getter methods that let you do the type conversion 
+ yourself.
+
+ <p>If a parameter cannot be retrieved, e.g. due to a missing mandatory 
+ parameter or bad type, a 
+ <a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>
+ exception is thrown.
+
+ <p>Example: suppose you have a method with 3 positional parameters where the
+ first two are mandatory and the last is optional and has a default value of
+ <code>true</code>.
+
+ <pre>
+ // Parse received request string
+ JSONRPC2Request request = null;
+
+ try {
+         request = JSONRPC2Request.parse(jsonString);
+ } catch (JSONRPC2ParseException e) {
+         // handle exception...
+ }
+
+ // Create a new retriever for positional parameters
+ List params = (List)request.getParams();
+ PositionalParamsRetriever r = new PositionalParamsRetriever(params);
+
+ try {
+         // Extract first mandatory string parameter
+         String param1 = r.getString(0);
+
+         // Extract second integer parameter
+         int param2 = r.getInt(1);
+
+         // Extract third optional boolean parameter which defaults to true
+         boolean param3 = r.getOptBoolean(2, true);
+
+ } catch (JSONRPC2Error e) {
+         // A JSONRPC2Error.INVALID_PARAMS will be thrown to indicate
+         // an unexpected parameter type or a missing mandatory parameter.
+         // You can use it straight away to create the appropriate
+         // JSON-RPC 2.0 error response.
+         JSONRPC2Response response = new JSONRPC2Response(e, null);
+ }
+ </pre></div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Vladimir Dzhuvinov</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List)">PositionalParamsRetriever</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;params)</code></th>
+<td class="colLast">
+<div class="block">Creates a new positional parameters retriever from the specified 
+ value list.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParam(int)">ensureParam</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParam(int,java.lang.Class)">ensureParam</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</code></th>
+<td class="colLast">
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position, its value is <code>null</code>, 
+ or its type doesn't map to the specified.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParam(int,java.lang.Class,boolean)">ensureParam</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position or its type doesn't map to 
+ the specified.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParameter(int)">ensureParameter</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParameter(int,java.lang.Class)">ensureParameter</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ensureParameter(int,java.lang.Class,boolean)">ensureParameter</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(int)">get</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified parameter which can be of any type.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(int,java.lang.Class)">get</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified parameter which must map to the provided
+ class (use the appropriate wrapper class for primitive types).</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#get(int,java.lang.Class,boolean)">get</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified parameter which must map to the provided
+ class (use the appropriate wrapper class for primitive types).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBoolean(int)">getBoolean</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified boolean (maps from JSON true/false)
+ parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDouble(int)">getDouble</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified numeric parameter as a <code>double</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnum(int,java.lang.Class)">getEnum</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified enumerated parameter (from a JSON string 
+ that has a predefined set of possible values).</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnum(int,java.lang.Class,boolean)">getEnum</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+boolean&nbsp;ignoreCase)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified enumerated parameter (from a JSON string 
+ that has a predefined set of possible values), allowing for a case 
+ insensitive match.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnumString(int,java.lang.String%5B%5D)">getEnumString</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified enumerated string parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnumString(int,java.lang.String%5B%5D,boolean)">getEnumString</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+boolean&nbsp;ignoreCase)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified enumerated string parameter, allowing for a
+ case insenstive match.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFloat(int)">getFloat</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified numeric parameter as a <code>float</code>.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInt(int)">getInt</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified numeric parameter as an <code>int</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getList(int)">getList</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified list (maps from JSON array) parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getList(int,boolean)">getList</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified list (maps from JSON array) parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLong(int)">getLong</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified numeric parameter as a <code>long</code>.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMap(int)">getMap</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified map (maps from JSON object) parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMap(int,boolean)">getMap</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified map (maps from JSON object) parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOpt(int,java.lang.Class,boolean,T)">getOpt</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull,
+T&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional parameter which must map to the
+ provided class (use the appropriate wrapper class for primitive 
+ types).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOpt(int,java.lang.Class,T)">getOpt</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+T&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional parameter which must map to the
+ provided class (use the appropriate wrapper class for primitive 
+ types).</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptBoolean(int,boolean)">getOptBoolean</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional boolean (maps from JSON true/false)
+ parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptDouble(int,double)">getOptDouble</a></span>&#8203;(int&nbsp;position,
+double&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>double</code>.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptEnum(int,java.lang.Class,java.lang.String)">getOptEnum</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional enumerated parameter (from a JSON
+ string that has a predefined set of possible values).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptEnum(int,java.lang.Class,java.lang.String,boolean)">getOptEnum</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue,
+boolean&nbsp;ignoreCase)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional enumerated parameter (from a JSON
+ string that has a predefined set of possible values), allowing for a 
+ case insenstive match.</div>
+</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptEnumString(int,java.lang.String%5B%5D,java.lang.String)">getOptEnumString</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional enumerated string parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptEnumString(int,java.lang.String%5B%5D,java.lang.String,boolean)">getOptEnumString</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue,
+boolean&nbsp;ignoreCase)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional enumerated string parameter, 
+ allowing for a case insenstive match.</div>
+</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptFloat(int,float)">getOptFloat</a></span>&#8203;(int&nbsp;position,
+float&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>float</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptInt(int,int)">getOptInt</a></span>&#8203;(int&nbsp;position,
+int&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional numeric parameter as an 
+ <code>int</code>.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptList(int,boolean,java.util.List)">getOptList</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional list (maps from JSON array) 
+ parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptList(int,java.util.List)">getOptList</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional list (maps from JSON array) 
+ parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptLong(int,long)">getOptLong</a></span>&#8203;(int&nbsp;position,
+long&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>long</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptMap(int,boolean,java.util.Map)">getOptMap</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional map (maps from JSON object) 
+ parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptMap(int,java.util.Map)">getOptMap</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional map (maps from JSON object) 
+ parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptString(int,boolean,java.lang.String)">getOptString</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional string parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptString(int,java.lang.String)">getOptString</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional string parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptStringArray(int,boolean,java.lang.String%5B%5D)">getOptStringArray</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional string array (maps from JSON array
+ of strings) parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i40">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptStringArray(int,java.lang.String%5B%5D)">getOptStringArray</a></span>&#8203;(int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;defaultValue)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified optional string array (maps from JSON array
+ of strings) parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i41">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParams()">getParams</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Gets the positional parameters for this retriever.</div>
+</td>
+</tr>
+<tr class="altColor" id="i42">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getString(int)">getString</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified string parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i43">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getString(int,boolean)">getString</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified string parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i44">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStringArray(int)">getStringArray</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified string array (maps from JSON array of 
+ strings) parameter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i45">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStringArray(int,boolean)">getStringArray</a></span>&#8203;(int&nbsp;position,
+boolean&nbsp;allowNull)</code></th>
+<td class="colLast">
+<div class="block">Retrieves the specified string array (maps from JSON array of 
+ strings) parameter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i46">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasParam(int)">hasParam</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block">Returns <code>true</code> a parameter at the specified position exists, 
+ else <code>false</code>.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i47">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasParameter(int)">hasParameter</a></span>&#8203;(int&nbsp;position)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="altColor" id="i48">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the parameter count.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;com.thetransactioncompany.jsonrpc2.util.<a href="ParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">ParamsRetriever</a></h3>
+<a id="methods.inherited.from.class.com.thetransactioncompany.jsonrpc2.util.ParamsRetriever">
+</a><code><a href="ParamsRetriever.html#getEnumStringMatch(java.lang.String,java.lang.Class,boolean)">getEnumStringMatch</a>, <a href="ParamsRetriever.html#getEnumStringMatch(java.lang.String,java.lang.String%5B%5D,boolean)">getEnumStringMatch</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(java.util.List)">PositionalParamsRetriever</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">PositionalParamsRetriever</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;params)</span></div>
+<div class="block">Creates a new positional parameters retriever from the specified 
+ value list.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>params</code> - The positional parameters list. Must not be 
+               <code>null</code>.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getParams()">getParams</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getParams</span>()</div>
+<div class="block">Gets the positional parameters for this retriever.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The positional parameters.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="size()">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="ParamsRetriever.html#size()">ParamsRetriever</a></code></span></div>
+<div class="block">Returns the parameter count.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="ParamsRetriever.html#size()">size</a></code>&nbsp;in class&nbsp;<code><a href="ParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">ParamsRetriever</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameters count.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasParam(int)">hasParam</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasParam</span>&#8203;(<span class="arguments">int&nbsp;position)</span></div>
+<div class="block">Returns <code>true</code> a parameter at the specified position exists, 
+ else <code>false</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if the parameter exists, else <code>false</code>.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hasParameter(int)">hasParameter</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasParameter</span>&#8203;(<span class="arguments">int&nbsp;position)</span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#hasParam(int)"><code>hasParam(int)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParam(int)">ensureParam</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParam</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position.
+
+ <p>You may use this method to fire the proper JSON-RPC 2.0 error
+ on a missing mandatory parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position, starting with zero for the 
+                 first.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParameter(int)">ensureParameter</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParameter</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ensureParam(int)"><code>ensureParam(int)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParam(int,java.lang.Class)">ensureParam</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParam</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position, its value is <code>null</code>, 
+ or its type doesn't map to the specified.
+
+ <p>You may use this method to fire the proper JSON-RPC 2.0 error
+ on a missing or badly-typed mandatory parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                 should map to (any one of the return types of the 
+                 <code>getXXX()</code> getter methods. Set to 
+                 <code>Object.class</code> to allow any type. Must not be
+                 <code>null</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, <code>null</code> value or 
+                       bad type (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParameter(int,java.lang.Class)">ensureParameter</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParameter</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</span>
+                         throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ensureParam(int,java.lang.Class)"><code>ensureParam(int, Class)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParam(int,java.lang.Class,boolean)">ensureParam</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParam</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Throws a <code>JSONRPC2Error.INVALID_PARAMS</code> exception if there is
+ no parameter at the specified position or its type doesn't map to 
+ the specified.
+
+ <p>You may use this method to fire the proper JSON-RPC 2.0 error
+ on a missing or badly-typed mandatory parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                  should map to (any one of the return types of the 
+                  <code>getXXX()</code> getter methods. Set to 
+                  <code>Object.class</code> to allow any type. Must not be
+                  <code>null</code>.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> parameter
+                  value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type 
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ensureParameter(int,java.lang.Class,boolean)">ensureParameter</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ensureParameter</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</span>
+                         throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#ensureParam(int,java.lang.Class,boolean)"><code>ensureParam(int, Class, boolean)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get(int)">get</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">get</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+           throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified parameter which can be of any type. Use this 
+ generic getter if you want to cast the value yourself. Otherwise 
+ look at the typed <code>get*</code> methods.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get(int,java.lang.Class)">get</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">get</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz)</span>
+          throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified parameter which must map to the provided
+ class (use the appropriate wrapper class for primitive types).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                 should map to (any one of the return types of the 
+                 <code>getXXX()</code> getter methods. Set to
+                 <code>Object.class</code> to allow any type. Must not be
+                 <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, <code>null</code> value or 
+                       bad type (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="get(int,java.lang.Class,boolean)">get</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">get</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull)</span>
+          throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified parameter which must map to the provided
+ class (use the appropriate wrapper class for primitive types).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                  should map to (any one of the return types of the 
+                  <code>getXXX()</code> getter methods. Set to
+                  <code>Object.class</code> to allow any type. Must not be
+                  <code>null</code>.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> parameter
+                  value.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type 
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOpt(int,java.lang.Class,java.lang.Object)">
+</a><a id="getOpt(int,java.lang.Class,T)">getOpt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getOpt</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+T&nbsp;defaultValue)</span>
+             throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional parameter which must map to the
+ provided class (use the appropriate wrapper class for primitive 
+ types). If the parameter doesn't exist the method returns the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                     should map to (any one of the return types of 
+                     the <code>getXXX()</code> getter methods. Set to 
+                     <code>Object.class</code> to allow any type. Must not
+                     be <code>null</code>.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOpt(int,java.lang.Class,boolean,java.lang.Object)">
+</a><a id="getOpt(int,java.lang.Class,boolean,T)">getOpt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getOpt</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;clazz,
+boolean&nbsp;allowNull,
+T&nbsp;defaultValue)</span>
+             throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional parameter which must map to the
+ provided class (use the appropriate wrapper class for primitive 
+ types). If the parameter doesn't exist the method returns the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>clazz</code> - The corresponding Java class that the parameter 
+                     should map to (any one of the return types of 
+                     the <code>getXXX()</code> getter methods. Set to 
+                     <code>Object.class</code> to allow any type. Must not
+                     be <code>null</code>.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> parameter
+                     value.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getString(int)">getString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getString</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified string parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       <code>null</code> value 
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getString(int,boolean)">getString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getString</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull)</span>
+                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified string parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptString(int,java.lang.String)">getOptString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getOptString</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</span>
+                    throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional string parameter. If it doesn't 
+ exist the method will return the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptString(int,boolean,java.lang.String)">getOptString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getOptString</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</span>
+                    throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional string parameter. If it doesn't 
+ exist the method will return the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEnumString(int,java.lang.String[])">getEnumString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getEnumString</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified enumerated string parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumStrings</code> - The acceptable string values. Must not be
+                    <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEnumString(int,java.lang.String[],boolean)">getEnumString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getEnumString</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+boolean&nbsp;ignoreCase)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified enumerated string parameter, allowing for a
+ case insenstive match.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumStrings</code> - The acceptable string values. Must not be
+                    <code>null</code>.</dd>
+<dd><code>ignoreCase</code> - <code>true</code> for a case insensitive match.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The matching parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptEnumString(int,java.lang.String[],java.lang.String)">getOptEnumString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getOptEnumString</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional enumerated string parameter. If it
+ doesn't exist the method will return the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumStrings</code> - The acceptable string values. Must not be
+                     <code>null</code>.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type or bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptEnumString(int,java.lang.String[],java.lang.String,boolean)">getOptEnumString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getOptEnumString</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;enumStrings,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue,
+boolean&nbsp;ignoreCase)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional enumerated string parameter, 
+ allowing for a case insenstive match. If it doesn't exist the method 
+ will return the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumStrings</code> - The acceptable string values. Must not be
+                     <code>null</code>.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dd><code>ignoreCase</code> - <code>true</code> for a case insensitive match.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type or bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEnum(int,java.lang.Class)">getEnum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getEnum</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass)</span>
+                              throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified enumerated parameter (from a JSON string 
+ that has a predefined set of possible values).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumClass</code> - An enumeration type with constant names 
+                  representing the acceptable string values. Must not
+                  be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The matching enumeration constant.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEnum(int,java.lang.Class,boolean)">getEnum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getEnum</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+boolean&nbsp;ignoreCase)</span>
+                              throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified enumerated parameter (from a JSON string 
+ that has a predefined set of possible values), allowing for a case 
+ insensitive match.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumClass</code> - An enumeration type with constant names 
+                   representing the acceptable string values. Must
+                   not be <code>null</code>.</dd>
+<dd><code>ignoreCase</code> - If <code>true</code> a case insensitive match against
+                   the acceptable constant names is performed.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The matching enumeration constant.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptEnum(int,java.lang.Class,java.lang.String)">getOptEnum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getOptEnum</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</span>
+                                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional enumerated parameter (from a JSON
+ string that has a predefined set of possible values). If it doesn't
+ exist the method will return the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumClass</code> - An enumeration type with constant names 
+                     representing the acceptable string values. Must
+                     not be <code>null</code>.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The matching enumeration constant.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type or bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptEnum(int,java.lang.Class,java.lang.String,boolean)">getOptEnum</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang" class="externalLink">Enum</a>&lt;T&gt;&gt;</span>&nbsp;<span class="returnType">T</span>&nbsp;<span class="memberName">getOptEnum</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;enumClass,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue,
+boolean&nbsp;ignoreCase)</span>
+                                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional enumerated parameter (from a JSON
+ string that has a predefined set of possible values), allowing for a 
+ case insenstive match. If it doesn't exist the method will return 
+ the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>enumClass</code> - An enumeration type with constant names 
+                     representing the acceptable string values. Must
+                     not be <code>null</code>.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dd><code>ignoreCase</code> - If <code>true</code> a case insensitive match against
+                     the acceptable constant names is performed.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The matching enumeration constant.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad type or bad enumeration value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getBoolean(int)">getBoolean</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getBoolean</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                   throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified boolean (maps from JSON true/false)
+ parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>boolean</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptBoolean(int,boolean)">getOptBoolean</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getOptBoolean</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;defaultValue)</span>
+                      throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional boolean (maps from JSON true/false)
+ parameter. If it doesn't exist the method will return the specified 
+ default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>boolean</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInt(int)">getInt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getInt</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+           throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified numeric parameter as an <code>int</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as an <code>int</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptInt(int,int)">getOptInt</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getOptInt</span>&#8203;(<span class="arguments">int&nbsp;position,
+int&nbsp;defaultValue)</span>
+              throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional numeric parameter as an 
+ <code>int</code>. If it doesn't exist the method will return the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as an <code>int</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getLong(int)">getLong</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getLong</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+             throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified numeric parameter as a <code>long</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>long</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptLong(int,long)">getOptLong</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getOptLong</span>&#8203;(<span class="arguments">int&nbsp;position,
+long&nbsp;defaultValue)</span>
+                throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>long</code>. If it doesn't exist the method will return the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>long</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFloat(int)">getFloat</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getFloat</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+               throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified numeric parameter as a <code>float</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>float</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or 
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptFloat(int,float)">getOptFloat</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">float</span>&nbsp;<span class="memberName">getOptFloat</span>&#8203;(<span class="arguments">int&nbsp;position,
+float&nbsp;defaultValue)</span>
+                  throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>float</code>. If it doesn't exist the method will return the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>float</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getDouble(int)">getDouble</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getDouble</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                 throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified numeric parameter as a <code>double</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>double</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptDouble(int,double)">getOptDouble</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getOptDouble</span>&#8203;(<span class="arguments">int&nbsp;position,
+double&nbsp;defaultValue)</span>
+                    throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional numeric parameter as a 
+ <code>double</code>. If it doesn't exist the method will return the 
+ specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a <code>double</code>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getList(int)">getList</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getList</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified list (maps from JSON array) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a list.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getList(int,boolean)">getList</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getList</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull)</span>
+                     throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified list (maps from JSON array) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a list.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptList(int,java.util.List)">getOptList</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getOptList</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional list (maps from JSON array) 
+ parameter. If it doesn't exist the method will return the specified 
+ default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a list.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptList(int,boolean,java.util.List)">getOptList</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getOptList</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional list (maps from JSON array) 
+ parameter. If it doesn't exist the method will return the specified 
+ default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a list.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStringArray(int)">getStringArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getStringArray</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified string array (maps from JSON array of 
+ strings) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string array.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStringArray(int,boolean)">getStringArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getStringArray</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull)</span>
+                        throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified string array (maps from JSON array of 
+ strings) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string array.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptStringArray(int,java.lang.String[])">getOptStringArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getOptStringArray</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;defaultValue)</span>
+                           throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional string array (maps from JSON array
+ of strings) parameter. If it doesn't exist the method will return 
+ the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string array.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptStringArray(int,boolean,java.lang.String[])">getOptStringArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]</span>&nbsp;<span class="memberName">getOptStringArray</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;defaultValue)</span>
+                           throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional string array (maps from JSON array
+ of strings) parameter. If it doesn't exist the method will return 
+ the specified default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.  May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a string array.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMap(int)">getMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getMap</span>&#8203;(<span class="arguments">int&nbsp;position)</span>
+                          throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified map (maps from JSON object) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a map.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter, bad type or
+                       <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getMap(int,boolean)">getMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getMap</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull)</span>
+                          throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified map (maps from JSON object) parameter.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a map.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a missing parameter or bad type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptMap(int,java.util.Map)">getOptMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getOptMap</span>&#8203;(<span class="arguments">int&nbsp;position,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</span>
+                             throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional map (maps from JSON object) 
+ parameter. If it doesn't exist the method will return the specified 
+ default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist. May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a map.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type or <code>null</code> value
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptMap(int,boolean,java.util.Map)">getOptMap</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;</span>&nbsp;<span class="memberName">getOptMap</span>&#8203;(<span class="arguments">int&nbsp;position,
+boolean&nbsp;allowNull,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&gt;&nbsp;defaultValue)</span>
+                             throws <span class="exceptions"><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></span></div>
+<div class="block">Retrieves the specified optional map (maps from JSON object) 
+ parameter. If it doesn't exist the method will return the specified 
+ default value.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>position</code> - The parameter position.</dd>
+<dd><code>allowNull</code> - If <code>true</code> allows a <code>null</code> value.</dd>
+<dd><code>defaultValue</code> - The default return value if the parameter 
+                     doesn't exist.  May be <code>null</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The parameter value as a map.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../JSONRPC2Error.html" title="class in com.thetransactioncompany.jsonrpc2">JSONRPC2Error</a></code> - On a bad parameter type
+                       (<a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>).</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/PositionalParamsRetriever.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

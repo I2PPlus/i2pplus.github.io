@@ -1,0 +1,819 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>KRPC - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.klomp.snark.dht, class: KRPC">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KRPC.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.klomp.snark.dht</a></div>
+<h1 title="Class KRPC" class="title">Class KRPC</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.klomp.snark.dht.KRPC</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code>, <code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code>, <code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">KRPC</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a>, <a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></pre>
+<div class="block">Standard BEP 5
+ Mods for I2P:
+ <pre>
+ - The UDP port need not be pinged after receiving a PORT message.
+
+ - The UDP (datagram) port listed in the compact node info is used
+   to receive repliable (signed) datagrams.
+   This is used for queries, except for announces.
+   We call this the "query port".
+   In addition to that UDP port, we use a second datagram
+   port equal to the signed port + 1. This is used to receive
+   unsigned (raw) datagrams for replies, errors, and announce queries..
+   We call this the "response port".
+
+ - Compact peer info is 32 bytes (32 byte SHA256 Hash)
+   instead of 4 byte IP + 2 byte port. There is no peer port.
+
+ - Compact node info is 54 bytes (20 byte SHA1 Hash + 32 byte SHA256 Hash + 2 byte port)
+   instead of 20 byte SHA1 Hash + 4 byte IP + 2 byte port.
+   Port is the query port, the response port is always the query port + 1.
+
+ - The trackerless torrent dictionary "nodes" key is a list of
+   32 byte binary strings (SHA256 Hashes) instead of a list of lists
+   containing a host string and a port integer.
+ </pre>
+
+ Questions:
+   - nodes (in the find_node and get_peers response) is one concatenated string, not a list of strings, right?
+   - Node ID enforcement, keyspace rotation?</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.2</dd>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>zzz</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DHT_FILE_SUFFIX">DHT_FILE_SUFFIX</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="NID.html" title="class in org.klomp.snark.dht">NID</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#FAKE_NID">FAKE_NID</a></span></code></th>
+<td class="colLast">
+<div class="block">all-zero NID used for pings</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#SECURE_NID">SECURE_NID</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext,java.lang.String,net.i2p.client.I2PSession)">KRPC</a></span>&#8203;(<a href="../../../../net/i2p/I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;baseName,
+<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#announce(byte%5B%5D,boolean)">announce</a></span>&#8203;(byte[]&nbsp;ih,
+boolean&nbsp;isSeed)</code></th>
+<td class="colLast">
+<div class="block">Announce to ourselves.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#announce(byte%5B%5D,byte%5B%5D,boolean)">announce</a></span>&#8203;(byte[]&nbsp;ih,
+byte[]&nbsp;peerHash,
+boolean&nbsp;isSeed)</code></th>
+<td class="colLast">
+<div class="block">Announce somebody else we know about to ourselves.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#announce(byte%5B%5D,int,long,boolean)">announce</a></span>&#8203;(byte[]&nbsp;ih,
+int&nbsp;max,
+long&nbsp;maxWait,
+boolean&nbsp;isSeed)</code></th>
+<td class="colLast">
+<div class="block">Not recommended - use getPeersAndAnnounce().</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Clears the tracker and DHT data.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#disconnected(net.i2p.client.I2PSession)">disconnected</a></span>&#8203;(<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
+<td class="colLast">
+<div class="block">Notify the client that the session has been terminated.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a></span>&#8203;(<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;error)</code></th>
+<td class="colLast">
+<div class="block">Notify the client that some error occurred.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findClosest(byte%5B%5D,int)">findClosest</a></span>&#8203;(byte[]&nbsp;ih,
+int&nbsp;max)</code></th>
+<td class="colLast">
+<div class="block">Local lookup only</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="../../../../net/i2p/data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeersAndAnnounce(byte%5B%5D,int,long,int,long,boolean,boolean)">getPeersAndAnnounce</a></span>&#8203;(byte[]&nbsp;ih,
+int&nbsp;max,
+long&nbsp;maxWait,
+int&nbsp;annMax,
+long&nbsp;annMaxWait,
+boolean&nbsp;isSeed,
+boolean&nbsp;noSeeds)</code></th>
+<td class="colLast">
+<div class="block">Get peers for a torrent, and announce to the closest annMax nodes we find.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPort()">getPort</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRPort()">getRPort</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>(package private) <a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#heardAbout(org.klomp.snark.dht.NodeInfo)">heardAbout</a></span>&#8203;(<a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a>&nbsp;nInfo)</code></th>
+<td class="colLast">
+<div class="block">Called for bootstrap or for all nodes in a receiveNodes reply.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageAvailable(net.i2p.client.I2PSession,int,long)">messageAvailable</a></span>&#8203;(<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;msgId,
+long&nbsp;size)</code></th>
+<td class="colLast">
+<div class="block">for non-muxed</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#messageAvailable(net.i2p.client.I2PSession,int,long,int,int,int)">messageAvailable</a></span>&#8203;(<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;msgId,
+long&nbsp;size,
+int&nbsp;proto,
+int&nbsp;fromPort,
+int&nbsp;toPort)</code></th>
+<td class="colLast">
+<div class="block">Instruct the client that the given session has received a message
+
+ Will be called only if you register via addMuxedSessionListener().</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ping(net.i2p.data.Destination,int)">ping</a></span>&#8203;(<a href="../../../../net/i2p/data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;port)</code></th>
+<td class="colLast">
+<div class="block">Ping.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renderStatusHTML()">renderStatusHTML</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Debug info, HTML formatted</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a></span>&#8203;(<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;severity)</code></th>
+<td class="colLast">
+<div class="block">Instruct the client that the session specified seems to be under attack
+ and that the client may wish to move its destination to another router.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Known nodes, not estimated total network size.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Loads the DHT from file.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Stop everything.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#unannounce(byte%5B%5D)">unannounce</a></span>&#8203;(byte[]&nbsp;ih)</code></th>
+<td class="colLast">
+<div class="block">Remove reference to ourselves in the local tracker.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="FAKE_NID">FAKE_NID</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="NID.html" title="class in org.klomp.snark.dht">NID</a></span>&nbsp;<span class="memberName">FAKE_NID</span></div>
+<div class="block">all-zero NID used for pings</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="SECURE_NID">SECURE_NID</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">SECURE_NID</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.klomp.snark.dht.KRPC.SECURE_NID">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="DHT_FILE_SUFFIX">DHT_FILE_SUFFIX</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">DHT_FILE_SUFFIX</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.klomp.snark.dht.KRPC.DHT_FILE_SUFFIX">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext,java.lang.String,net.i2p.client.I2PSession)">KRPC</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">KRPC</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;baseName,
+<a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>baseName</code> - generally "i2psnark"</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="size()">size</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
+<div class="block">Known nodes, not estimated total network size.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#size()">size</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPort()">getPort</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getPort</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#getPort()">getPort</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The UDP query port</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRPort()">getRPort</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getRPort</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#getRPort()">getRPort</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The UDP response port</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ping(net.i2p.data.Destination,int)">ping</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">ping</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;port)</span></div>
+<div class="block">Ping. We don't have a NID yet so the node is presumed
+  to be absent from our DHT.
+  Non-blocking, does not wait for pong.
+  If and when the pong is received the node will be inserted in our DHT.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#ping(net.i2p.data.Destination,int)">ping</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findClosest(byte[],int)">findClosest</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a>&gt;</span>&nbsp;<span class="memberName">findClosest</span>&#8203;(<span class="arguments">byte[]&nbsp;ih,
+int&nbsp;max)</span></div>
+<div class="block">Local lookup only</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - a 20-byte info hash</dd>
+<dd><code>max</code> - max to return</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list or empty list (never null)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeersAndAnnounce(byte[],int,long,int,long,boolean,boolean)">getPeersAndAnnounce</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="../../../../net/i2p/data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">getPeersAndAnnounce</span>&#8203;(<span class="arguments">byte[]&nbsp;ih,
+int&nbsp;max,
+long&nbsp;maxWait,
+int&nbsp;annMax,
+long&nbsp;annMaxWait,
+boolean&nbsp;isSeed,
+boolean&nbsp;noSeeds)</span></div>
+<div class="block">Get peers for a torrent, and announce to the closest annMax nodes we find.
+  This is an iterative lookup in the DHT.
+  Blocking!
+  Caller should run in a thread.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#getPeersAndAnnounce(byte%5B%5D,int,long,int,long,boolean,boolean)">getPeersAndAnnounce</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - the Info Hash (torrent)</dd>
+<dd><code>max</code> - maximum number of peers to return</dd>
+<dd><code>maxWait</code> - the maximum time to wait (ms) must be &gt; 0</dd>
+<dd><code>annMax</code> - the number of peers to announce to</dd>
+<dd><code>annMaxWait</code> - the maximum total time to wait for announces, may be 0 to return immediately without waiting for acks</dd>
+<dd><code>isSeed</code> - true if seed, false if leech</dd>
+<dd><code>noSeeds</code> - true if we do not want seeds in the result</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>possibly empty (never null)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="announce(byte[],boolean)">announce</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">announce</span>&#8203;(<span class="arguments">byte[]&nbsp;ih,
+boolean&nbsp;isSeed)</span></div>
+<div class="block">Announce to ourselves.
+  Non-blocking.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#announce(byte%5B%5D,boolean)">announce</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - the Info Hash (torrent)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="announce(byte[],byte[],boolean)">announce</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">announce</span>&#8203;(<span class="arguments">byte[]&nbsp;ih,
+byte[]&nbsp;peerHash,
+boolean&nbsp;isSeed)</span></div>
+<div class="block">Announce somebody else we know about to ourselves.
+  Non-blocking.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#announce(byte%5B%5D,byte%5B%5D,boolean)">announce</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - the Info Hash (torrent)</dd>
+<dd><code>peerHash</code> - the peer's Hash</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="unannounce(byte[])">unannounce</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">unannounce</span>&#8203;(<span class="arguments">byte[]&nbsp;ih)</span></div>
+<div class="block">Remove reference to ourselves in the local tracker.
+  Use when shutting down the torrent locally.
+  Non-blocking.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#unannounce(byte%5B%5D)">unannounce</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - the Info Hash (torrent)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="announce(byte[],int,long,boolean)">announce</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">announce</span>&#8203;(<span class="arguments">byte[]&nbsp;ih,
+int&nbsp;max,
+long&nbsp;maxWait,
+boolean&nbsp;isSeed)</span></div>
+<div class="block">Not recommended - use getPeersAndAnnounce().
+
+  Announce to the closest peers in the local DHT.
+  This is NOT iterative - call getPeers() first to get the closest
+  peers into the local DHT.
+  Blocking unless maxWait &lt;= 0
+  Caller should run in a thread.
+  This also automatically announces ourself to our local tracker.
+  For best results do a getPeersAndAnnounce() instead, as this announces to
+  the closest in the kbuckets, it does NOT sort through the known nodes hashmap.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#announce(byte%5B%5D,int,long,boolean)">announce</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ih</code> - the Info Hash (torrent)</dd>
+<dd><code>max</code> - maximum number of peers to announce to</dd>
+<dd><code>maxWait</code> - the maximum total time to wait (ms) or 0 to do all in parallel and return immediately.</dd>
+<dd><code>isSeed</code> - true if seed, false if leech</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of successful announces, not counting ourselves.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="start()">start</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
+<div class="block">Loads the DHT from file.
+  Can't be restarted after stopping?</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stop()">stop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stop</span>()</div>
+<div class="block">Stop everything.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#stop()">stop</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="clear()">clear</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
+<div class="block">Clears the tracker and DHT data.
+ Call after saving DHT data to disk.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="renderStatusHTML()">renderStatusHTML</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">renderStatusHTML</span>()</div>
+<div class="block">Debug info, HTML formatted</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DHT.html#renderStatusHTML()">renderStatusHTML</a></code>&nbsp;in interface&nbsp;<code><a href="DHT.html" title="interface in org.klomp.snark.dht">DHT</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="heardAbout(org.klomp.snark.dht.NodeInfo)">heardAbout</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a></span>&nbsp;<span class="memberName">heardAbout</span>&#8203;(<span class="arguments"><a href="NodeInfo.html" title="class in org.klomp.snark.dht">NodeInfo</a>&nbsp;nInfo)</span></div>
+<div class="block">Called for bootstrap or for all nodes in a receiveNodes reply.
+  Package private for PersistDHT.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>non-null nodeInfo from DB if present, otherwise the nInfo parameter is returned</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageAvailable(net.i2p.client.I2PSession,int,long,int,int,int)">messageAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">messageAvailable</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;msgId,
+long&nbsp;size,
+int&nbsp;proto,
+int&nbsp;fromPort,
+int&nbsp;toPort)</span></div>
+<div class="block">Instruct the client that the given session has received a message
+
+ Will be called only if you register via addMuxedSessionListener().
+ Will be called only for the proto(s) and toPort(s) you register for.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#messageAvailable(net.i2p.client.I2PSession,int,long,int,int,int)">messageAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>session</code> - session to notify</dd>
+<dd><code>msgId</code> - message number available</dd>
+<dd><code>size</code> - size of the message - why it's a long and not an int is a mystery</dd>
+<dd><code>proto</code> - 1-254 or 0 for unspecified</dd>
+<dd><code>fromPort</code> - 1-65535 or 0 for unspecified</dd>
+<dd><code>toPort</code> - 1-65535 or 0 for unspecified</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="messageAvailable(net.i2p.client.I2PSession,int,long)">messageAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">messageAvailable</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;msgId,
+long&nbsp;size)</span></div>
+<div class="block">for non-muxed</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionListener.html#messageAvailable(net.i2p.client.I2PSession,int,long)">messageAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#messageAvailable(net.i2p.client.I2PSession,int,long)">messageAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>session</code> - session to notify</dd>
+<dd><code>msgId</code> - message number available</dd>
+<dd><code>size</code> - size of the message - why it's a long and not an int is a mystery</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">reportAbuse</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+int&nbsp;severity)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#reportAbuse(net.i2p.client.I2PSession,int)">I2PSessionMuxedListener</a></code></span></div>
+<div class="block">Instruct the client that the session specified seems to be under attack
+ and that the client may wish to move its destination to another router.
+ All registered listeners will be called.
+
+ Unused. Not fully implemented.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionListener.html#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>session</code> - session to report abuse to</dd>
+<dd><code>severity</code> - how bad the abuse is</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="disconnected(net.i2p.client.I2PSession)">disconnected</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">disconnected</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#disconnected(net.i2p.client.I2PSession)">I2PSessionMuxedListener</a></code></span></div>
+<div class="block">Notify the client that the session has been terminated.
+ All registered listeners will be called.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionListener.html#disconnected(net.i2p.client.I2PSession)">disconnected</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#disconnected(net.i2p.client.I2PSession)">disconnected</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">errorOccurred</span>&#8203;(<span class="arguments"><a href="../../../../net/i2p/client/I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;message,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Throwable</a>&nbsp;error)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">I2PSessionMuxedListener</a></code></span></div>
+<div class="block">Notify the client that some error occurred.
+ All registered listeners will be called.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionListener.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../net/i2p/client/I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a></code></dd>
+<dd><code>error</code> - can be null? or not?</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/KRPC.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>FloodfillNetworkDatabaseFacade - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.networkdb.kademlia, class: FloodfillNetworkDatabaseFacade">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":9,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/FloodfillNetworkDatabaseFacade.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.networkdb.kademlia</a></div>
+<h1 title="Class FloodfillNetworkDatabaseFacade" class="title">Class FloodfillNetworkDatabaseFacade</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../../NetworkDatabaseFacade.html" title="class in net.i2p.router">net.i2p.router.NetworkDatabaseFacade</a>
+<div class="inheritance"><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">net.i2p.router.networkdb.kademlia.KademliaNetworkDatabaseFacade</a>
+<div class="inheritance">net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../../Service.html" title="interface in net.i2p.router">Service</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">FloodfillNetworkDatabaseFacade</span>
+extends <a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></pre>
+<div class="block">The network database</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW_UNLIMITED">CAPABILITY_BW_UNLIMITED</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW12">CAPABILITY_BW12</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW128">CAPABILITY_BW128</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW256">CAPABILITY_BW256</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW32">CAPABILITY_BW32</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW512">CAPABILITY_BW512</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_BW64">CAPABILITY_BW64</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_FLOODFILL">CAPABILITY_FLOODFILL</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CAPABILITY_UNREACHABLE">CAPABILITY_UNREACHABLE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_TO_FLOOD">MAX_TO_FLOOD</a></span></code></th>
+<td class="colLast">
+<div class="block">This is the flood redundancy.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_ACTIVE_PEERS">MIN_ACTIVE_PEERS</a></span></code></th>
+<td class="colLast">
+<div class="block">NTCP cons drop quickly but SSU takes a while, so it's prudent to keep this
+  a little higher than 1 or 2.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PUBLISH_TIMEOUT">PUBLISH_TIMEOUT</a></span></code></th>
+<td class="colLast">
+<div class="block">This maybe could be shorter than RepublishLeaseSetJob.REPUBLISH_LEASESET_TIMEOUT,
+  because we are sending direct, but unresponsive floodfills may take a while due to timeouts.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.networkdb.kademlia.<a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.networkdb.kademlia.KademliaNetworkDatabaseFacade">
+</a><code><a href="KademliaNetworkDatabaseFacade.html#_context">_context</a>, <a href="KademliaNetworkDatabaseFacade.html#_log">_log</a>, <a href="KademliaNetworkDatabaseFacade.html#_networkID">_networkID</a>, <a href="KademliaNetworkDatabaseFacade.html#_peerSelector">_peerSelector</a>, <a href="KademliaNetworkDatabaseFacade.html#DEFAULT_DB_DIR">DEFAULT_DB_DIR</a>, <a href="KademliaNetworkDatabaseFacade.html#DONT_FAIL_PERIOD">DONT_FAIL_PERIOD</a>, <a href="KademliaNetworkDatabaseFacade.html#MAX_EXPLORE_QUEUE">MAX_EXPLORE_QUEUE</a>, <a href="KademliaNetworkDatabaseFacade.html#MIN_REMAINING_ROUTERS">MIN_REMAINING_ROUTERS</a>, <a href="KademliaNetworkDatabaseFacade.html#MIN_RESEED">MIN_RESEED</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_BUCKET_SIZE">PROP_BUCKET_SIZE</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_DB_DIR">PROP_DB_DIR</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_EXPLORE_QUEUE">PROP_EXPLORE_QUEUE</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_KAD_B">PROP_KAD_B</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_MIN_ROUTER_VERSION">PROP_MIN_ROUTER_VERSION</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_ROUTER_INFO_EXPIRATION_ADJUSTED">PROP_ROUTER_INFO_EXPIRATION_ADJUSTED</a>, <a href="KademliaNetworkDatabaseFacade.html#PROP_VALIDATE_ROUTERS_AFTER">PROP_VALIDATE_ROUTERS_AFTER</a>, <a href="KademliaNetworkDatabaseFacade.html#PUBLISH_JOB_DELAY">PUBLISH_JOB_DELAY</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext)">FloodfillNetworkDatabaseFacade</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#complete(net.i2p.data.Hash)">complete</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">Must be called by the search job queued by search() on success or failure</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createHandlers()">createHandlers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">unused, see override</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>protected <a href="PeerSelector.html" title="class in net.i2p.router.networkdb.kademlia">PeerSelector</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createPeerSelector()">createPeerSelector</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#flood(net.i2p.data.DatabaseEntry)">flood</a></span>&#8203;(<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds)</code></th>
+<td class="colLast">
+<div class="block">Send to a subset of all floodfill peers.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#floodConditional(net.i2p.data.DatabaseEntry)">floodConditional</a></span>&#8203;(<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds)</code></th>
+<td class="colLast">
+<div class="block">If we are floodfill AND the key is not throttled,
+  flood it, otherwise don't.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#floodfillEnabled()">floodfillEnabled</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For convenience, so users don't have to cast to FNDF, and unit tests using
+  Dummy NDF will work.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFloodfillPeers()">getFloodfillPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">list of the Hashes of currently known floodfill peers;
+ Returned list will not include our own hash.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKnownRouterData()">getKnownRouterData</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFloodfill(net.i2p.data.router.RouterInfo)">isFloodfill</a></span>&#8203;(<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isVerifyInProgress(net.i2p.data.Hash)">isVerifyInProgress</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupBeforeDropping(net.i2p.data.Hash,net.i2p.data.router.RouterInfo)">lookupBeforeDropping</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;info)</code></th>
+<td class="colLast">
+<div class="block">Search for a newer router info, drop it from the db if the search fails,
+ unless just started up or have bigger problems.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#publish(net.i2p.data.router.RouterInfo)">publish</a></span>&#8203;(<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;localRouterInfo)</code></th>
+<td class="colLast">
+<div class="block">Send our RI to the closest floodfill.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>(package private) <a href="SearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchJob</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean)">search</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFindJob,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailedLookupJob,
+long&nbsp;timeoutMs,
+boolean&nbsp;isLease)</code></th>
+<td class="colLast">
+<div class="block">Lookup using exploratory tunnels.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>(package private) <a href="SearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchJob</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean,net.i2p.data.Hash)">search</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFindJob,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailedLookupJob,
+long&nbsp;timeoutMs,
+boolean&nbsp;isLease,
+<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;fromLocalDest)</code></th>
+<td class="colLast">
+<div class="block">Lookup using the client's tunnels.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendStore(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,net.i2p.router.Job,net.i2p.router.Job,long,java.util.Set)">sendStore</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onSuccess,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailure,
+long&nbsp;sendTimeout,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;toIgnore)</code></th>
+<td class="colLast">
+<div class="block">unused (overridden in FNDF)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFloodfillEnabled(boolean)">setFloodfillEnabled</a></span>&#8203;(boolean&nbsp;yes)</code></th>
+<td class="colLast">
+<div class="block">Public, called from console.</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFloodfillEnabledFromMonitor(boolean)">setFloodfillEnabledFromMonitor</a></span>&#8203;(boolean&nbsp;yes)</code></th>
+<td class="colLast">
+<div class="block">Package private, called from FloodfillMonitorJob.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldThrottleFlood(net.i2p.data.Hash)">shouldThrottleFlood</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</code></th>
+<td class="colLast">
+<div class="block">Increments and tests.</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldThrottleLookup(net.i2p.data.Hash,net.i2p.data.TunnelId)">shouldThrottleLookup</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+<a href="../../../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id)</code></th>
+<td class="colLast">
+<div class="block">Increments and tests.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shutdown()">shutdown</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If we are floodfill, turn it off and tell everybody.</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startup()">startup</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Instruct the service that it should start normal operation.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyFinished(net.i2p.data.Hash)">verifyFinished</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#verifyStarted(net.i2p.data.Hash)">verifyStarted</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.networkdb.kademlia.<a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.networkdb.kademlia.KademliaNetworkDatabaseFacade">
+</a><code><a href="KademliaNetworkDatabaseFacade.html#dropAfterLookupFailed(net.i2p.data.Hash)">dropAfterLookupFailed</a>, <a href="KademliaNetworkDatabaseFacade.html#fail(net.i2p.data.Hash)">fail</a>, <a href="KademliaNetworkDatabaseFacade.html#failPermanently(net.i2p.data.Destination)">failPermanently</a>, <a href="KademliaNetworkDatabaseFacade.html#findNearestRouters(net.i2p.data.Hash,int,java.util.Set)">findNearestRouters</a>, <a href="KademliaNetworkDatabaseFacade.html#getAllRouters()">getAllRouters</a>, <a href="KademliaNetworkDatabaseFacade.html#getBlindData()">getBlindData</a>, <a href="KademliaNetworkDatabaseFacade.html#getBlindData(net.i2p.data.SigningPublicKey)">getBlindData</a>, <a href="KademliaNetworkDatabaseFacade.html#getDataStore()">getDataStore</a>, <a href="KademliaNetworkDatabaseFacade.html#getDbDir()">getDbDir</a>, <a href="KademliaNetworkDatabaseFacade.html#getExploreKeys()">getExploreKeys</a>, <a href="KademliaNetworkDatabaseFacade.html#getKBuckets()">getKBuckets</a>, <a href="KademliaNetworkDatabaseFacade.html#getKBucketSetSize()">getKBucketSetSize</a>, <a href="KademliaNetworkDatabaseFacade.html#getKnownLeaseSets()">getKnownLeaseSets</a>, <a href="KademliaNetworkDatabaseFacade.html#getKnownRouters()">getKnownRouters</a>, <a href="KademliaNetworkDatabaseFacade.html#getLastExploreNewDate()">getLastExploreNewDate</a>, <a href="KademliaNetworkDatabaseFacade.html#getLastRouterInfoPublishTime()">getLastRouterInfoPublishTime</a>, <a href="KademliaNetworkDatabaseFacade.html#getLeases()">getLeases</a>, <a href="KademliaNetworkDatabaseFacade.html#getPeerSelector()">getPeerSelector</a>, <a href="KademliaNetworkDatabaseFacade.html#getPeerTimeout(net.i2p.data.Hash)">getPeerTimeout</a>, <a href="KademliaNetworkDatabaseFacade.html#getRouters()">getRouters</a>, <a href="KademliaNetworkDatabaseFacade.html#isInitialized()">isInitialized</a>, <a href="KademliaNetworkDatabaseFacade.html#isNegativeCached(net.i2p.data.Hash)">isNegativeCached</a>, <a href="KademliaNetworkDatabaseFacade.html#isNegativeCachedForever(net.i2p.data.Hash)">isNegativeCachedForever</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupDestination(net.i2p.data.Hash,net.i2p.router.Job,long,net.i2p.data.Hash)">lookupDestination</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupDestinationLocally(net.i2p.data.Hash)">lookupDestinationLocally</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupFailed(net.i2p.data.Hash)">lookupFailed</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLeaseSet(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long)">lookupLeaseSet</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLeaseSet(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,net.i2p.data.Hash)">lookupLeaseSet</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLeaseSetLocally(net.i2p.data.Hash)">lookupLeaseSetLocally</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLeaseSetRemotely(net.i2p.data.Hash,net.i2p.data.Hash)">lookupLeaseSetRemotely</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLeaseSetRemotely(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,net.i2p.data.Hash)">lookupLeaseSetRemotely</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLocally(net.i2p.data.Hash)">lookupLocally</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupLocallyWithoutValidation(net.i2p.data.Hash)">lookupLocallyWithoutValidation</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupRouterInfo(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long)">lookupRouterInfo</a>, <a href="KademliaNetworkDatabaseFacade.html#lookupRouterInfoLocally(net.i2p.data.Hash)">lookupRouterInfoLocally</a>, <a href="KademliaNetworkDatabaseFacade.html#publish(net.i2p.data.LeaseSet)">publish</a>, <a href="KademliaNetworkDatabaseFacade.html#queueForExploration(java.util.Collection)">queueForExploration</a>, <a href="KademliaNetworkDatabaseFacade.html#removeBlindData(net.i2p.data.SigningPublicKey)">removeBlindData</a>, <a href="KademliaNetworkDatabaseFacade.html#removeFromExploreKeys(java.util.Collection)">removeFromExploreKeys</a>, <a href="KademliaNetworkDatabaseFacade.html#renderStatusHTML(java.io.Writer)">renderStatusHTML</a>, <a href="KademliaNetworkDatabaseFacade.html#rescan()">rescan</a>, <a href="KademliaNetworkDatabaseFacade.html#reseedChecker()">reseedChecker</a>, <a href="KademliaNetworkDatabaseFacade.html#restart()">restart</a>, <a href="KademliaNetworkDatabaseFacade.html#routerInfoPublishSuccessful()">routerInfoPublishSuccessful</a>, <a href="KademliaNetworkDatabaseFacade.html#routingKeyChanged()">routingKeyChanged</a>, <a href="KademliaNetworkDatabaseFacade.html#searchComplete(net.i2p.data.Hash)">searchComplete</a>, <a href="KademliaNetworkDatabaseFacade.html#setBlindData(net.i2p.data.BlindData)">setBlindData</a>, <a href="KademliaNetworkDatabaseFacade.html#setLastExploreNewDate(long)">setLastExploreNewDate</a>, <a href="KademliaNetworkDatabaseFacade.html#stopPublishing(net.i2p.data.Hash)">stopPublishing</a>, <a href="KademliaNetworkDatabaseFacade.html#store(net.i2p.data.Hash,net.i2p.data.LeaseSet)">store</a>, <a href="KademliaNetworkDatabaseFacade.html#store(net.i2p.data.Hash,net.i2p.data.router.RouterInfo)">store</a>, <a href="KademliaNetworkDatabaseFacade.html#store(net.i2p.data.Hash,net.i2p.data.router.RouterInfo,boolean)">store</a>, <a href="KademliaNetworkDatabaseFacade.html#unpublish(net.i2p.data.LeaseSet)">unpublish</a>, <a href="KademliaNetworkDatabaseFacade.html#validate(net.i2p.data.router.RouterInfo)">validate</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.<a href="../../NetworkDatabaseFacade.html" title="class in net.i2p.router">NetworkDatabaseFacade</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.NetworkDatabaseFacade">
+</a><code><a href="../../NetworkDatabaseFacade.html#store(net.i2p.data.Hash,net.i2p.data.DatabaseEntry)">store</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_FLOODFILL">CAPABILITY_FLOODFILL</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_FLOODFILL</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_FLOODFILL">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_UNREACHABLE">CAPABILITY_UNREACHABLE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_UNREACHABLE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_UNREACHABLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW12">CAPABILITY_BW12</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW12</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW12">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW32">CAPABILITY_BW32</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW32</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW32">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW64">CAPABILITY_BW64</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW64</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW64">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW128">CAPABILITY_BW128</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW128</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW128">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW256">CAPABILITY_BW256</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW256</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW256">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW512">CAPABILITY_BW512</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW512</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW512">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="CAPABILITY_BW_UNLIMITED">CAPABILITY_BW_UNLIMITED</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">char</span>&nbsp;<span class="memberName">CAPABILITY_BW_UNLIMITED</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.CAPABILITY_BW_UNLIMITED">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_TO_FLOOD">MAX_TO_FLOOD</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_TO_FLOOD</span></div>
+<div class="block">This is the flood redundancy. Entries are
+  sent to this many other floodfills.
+  Was 7 through release 0.9; 5 for 0.9.1.
+  4 as of 0.9.2; 3 as of 0.9.9</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.MAX_TO_FLOOD">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PUBLISH_TIMEOUT">PUBLISH_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">PUBLISH_TIMEOUT</span></div>
+<div class="block">This maybe could be shorter than RepublishLeaseSetJob.REPUBLISH_LEASESET_TIMEOUT,
+  because we are sending direct, but unresponsive floodfills may take a while due to timeouts.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.PUBLISH_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_ACTIVE_PEERS">MIN_ACTIVE_PEERS</a></h3>
+<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MIN_ACTIVE_PEERS</span></div>
+<div class="block">NTCP cons drop quickly but SSU takes a while, so it's prudent to keep this
+  a little higher than 1 or 2.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.networkdb.kademlia.FloodfillNetworkDatabaseFacade.MIN_ACTIVE_PEERS">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext)">FloodfillNetworkDatabaseFacade</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">FloodfillNetworkDatabaseFacade</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;context)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="startup()">startup</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startup</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../Service.html#startup()">Service</a></code></span></div>
+<div class="block">Instruct the service that it should start normal operation.
+ This call DOES block until the service is ready.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../Service.html#startup()">startup</a></code>&nbsp;in interface&nbsp;<code><a href="../../Service.html" title="interface in net.i2p.router">Service</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#startup()">startup</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createHandlers()">createHandlers</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">createHandlers</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html#createHandlers()">KademliaNetworkDatabaseFacade</a></code></span></div>
+<div class="block">unused, see override</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#createHandlers()">createHandlers</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shutdown()">shutdown</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">shutdown</span>()</div>
+<div class="block">If we are floodfill, turn it off and tell everybody.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../Service.html#shutdown()">shutdown</a></code>&nbsp;in interface&nbsp;<code><a href="../../Service.html" title="interface in net.i2p.router">Service</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#shutdown()">shutdown</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.9</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="publish(net.i2p.data.router.RouterInfo)">publish</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">publish</span>&#8203;(<span class="arguments"><a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;localRouterInfo)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></span></div>
+<div class="block">Send our RI to the closest floodfill.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#publish(net.i2p.data.router.RouterInfo)">publish</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the local router info is invalid</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendStore(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,net.i2p.router.Job,net.i2p.router.Job,long,java.util.Set)">sendStore</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">sendStore</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onSuccess,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailure,
+long&nbsp;sendTimeout,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;&nbsp;toIgnore)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html#sendStore(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,net.i2p.router.Job,net.i2p.router.Job,long,java.util.Set)">KademliaNetworkDatabaseFacade</a></code></span></div>
+<div class="block">unused (overridden in FNDF)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#sendStore(net.i2p.data.Hash,net.i2p.data.DatabaseEntry,net.i2p.router.Job,net.i2p.router.Job,long,java.util.Set)">sendStore</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldThrottleFlood(net.i2p.data.Hash)">shouldThrottleFlood</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldThrottleFlood</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</span></div>
+<div class="block">Increments and tests.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="shouldThrottleLookup(net.i2p.data.Hash,net.i2p.data.TunnelId)">shouldThrottleLookup</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldThrottleLookup</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
+<a href="../../../data/TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id)</span></div>
+<div class="block">Increments and tests.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="floodConditional(net.i2p.data.DatabaseEntry)">floodConditional</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">floodConditional</span>&#8203;(<span class="arguments"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds)</span></div>
+<div class="block">If we are floodfill AND the key is not throttled,
+  flood it, otherwise don't.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>if we did</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36 for NTCP2</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="flood(net.i2p.data.DatabaseEntry)">flood</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">flood</span>&#8203;(<span class="arguments"><a href="../../../data/DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;ds)</span></div>
+<div class="block">Send to a subset of all floodfill peers.
+  We do this to implement Kademlia within the floodfills, i.e.
+  we flood to those closest to the key.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="createPeerSelector()">createPeerSelector</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="PeerSelector.html" title="class in net.i2p.router.networkdb.kademlia">PeerSelector</a></span>&nbsp;<span class="memberName">createPeerSelector</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#createPeerSelector()">createPeerSelector</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFloodfillEnabled(boolean)">setFloodfillEnabled</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFloodfillEnabled</span>&#8203;(<span class="arguments">boolean&nbsp;yes)</span></div>
+<div class="block">Public, called from console. This wakes up the floodfill monitor,
+  which will rebuild the RI and log in the event log,
+  and call setFloodfillEnabledFromMonitor which really sets it.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFloodfillEnabledFromMonitor(boolean)">setFloodfillEnabledFromMonitor</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setFloodfillEnabledFromMonitor</span>&#8203;(<span class="arguments">boolean&nbsp;yes)</span></div>
+<div class="block">Package private, called from FloodfillMonitorJob. This does not wake up the floodfill monitor.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.34</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="floodfillEnabled()">floodfillEnabled</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">floodfillEnabled</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../NetworkDatabaseFacade.html#floodfillEnabled()">NetworkDatabaseFacade</a></code></span></div>
+<div class="block">For convenience, so users don't have to cast to FNDF, and unit tests using
+  Dummy NDF will work.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../NetworkDatabaseFacade.html#floodfillEnabled()">floodfillEnabled</a></code>&nbsp;in class&nbsp;<code><a href="../../NetworkDatabaseFacade.html" title="class in net.i2p.router">NetworkDatabaseFacade</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>false; FNDF overrides to return actual setting</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isFloodfill(net.i2p.data.router.RouterInfo)">isFloodfill</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isFloodfill</span>&#8203;(<span class="arguments"><a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;peer)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>peer</code> - may be null, returns false if null</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKnownRouterData()">getKnownRouterData</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&gt;</span>&nbsp;<span class="memberName">getKnownRouterData</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean)">search</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="SearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchJob</a></span>&nbsp;<span class="memberName">search</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFindJob,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailedLookupJob,
+long&nbsp;timeoutMs,
+boolean&nbsp;isLease)</span></div>
+<div class="block">Lookup using exploratory tunnels.
+
+ Caller should check negative cache and/or banlist before calling.
+
+ Begin a kademlia style search for the key specified, which can take up to timeoutMs and
+ will fire the appropriate jobs on success or timeout (or if the kademlia search completes
+ without any match)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean)">search</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null always</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean,net.i2p.data.Hash)">search</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="SearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchJob</a></span>&nbsp;<span class="memberName">search</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFindJob,
+<a href="../../Job.html" title="interface in net.i2p.router">Job</a>&nbsp;onFailedLookupJob,
+long&nbsp;timeoutMs,
+boolean&nbsp;isLease,
+<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;fromLocalDest)</span></div>
+<div class="block">Lookup using the client's tunnels.
+
+ Caller should check negative cache and/or banlist before calling.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#search(net.i2p.data.Hash,net.i2p.router.Job,net.i2p.router.Job,long,boolean,net.i2p.data.Hash)">search</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fromLocalDest</code> - use these tunnels for the lookup, or null for exploratory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null always</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.10</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="complete(net.i2p.data.Hash)">complete</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">complete</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;key)</span></div>
+<div class="block">Must be called by the search job queued by search() on success or failure</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFloodfillPeers()">getFloodfillPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">getFloodfillPeers</span>()</div>
+<div class="block">list of the Hashes of currently known floodfill peers;
+ Returned list will not include our own hash.
+  List is not sorted and not shuffled.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isVerifyInProgress(net.i2p.data.Hash)">isVerifyInProgress</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isVerifyInProgress</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.10</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyStarted(net.i2p.data.Hash)">verifyStarted</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">verifyStarted</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.10</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="verifyFinished(net.i2p.data.Hash)">verifyFinished</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">verifyFinished</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.7.10</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="lookupBeforeDropping(net.i2p.data.Hash,net.i2p.data.router.RouterInfo)">lookupBeforeDropping</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">lookupBeforeDropping</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer,
+<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;info)</span></div>
+<div class="block">Search for a newer router info, drop it from the db if the search fails,
+ unless just started up or have bigger problems.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="KademliaNetworkDatabaseFacade.html#lookupBeforeDropping(net.i2p.data.Hash,net.i2p.data.router.RouterInfo)">lookupBeforeDropping</a></code>&nbsp;in class&nbsp;<code><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/FloodfillNetworkDatabaseFacade.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

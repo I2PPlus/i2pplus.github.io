@@ -1,0 +1,960 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DnsMessage - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.minidns.dnsmessage, class: DnsMessage">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DnsMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.minidns.dnsmessage</a></div>
+<h1 title="Class DnsMessage" class="title">Class DnsMessage</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.minidns.dnsmessage.DnsMessage</div>
+</div>
+<section class="description">
+<hr>
+<pre>public class <span class="typeNameLabel">DnsMessage</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">A DNS message as defined by RFC 1035. The message consists of a header and
+ 4 sections: question, answer, nameserver and addition resource record
+ section.
+ A message can either be parsed (<a href="#%3Cinit%3E(byte%5B%5D)"><code>DnsMessage(byte[])</code></a>) or serialized
+ (<a href="#toArray()"><code>toArray()</code></a>).</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="https://www.ietf.org/rfc/rfc1035.txt">RFC 1035</a></dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DnsMessage.OPCODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.OPCODE</a></span></code></th>
+<td class="colLast">
+<div class="block">Symbolic DNS Opcode values.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DnsMessage.RESPONSE_CODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.RESPONSE_CODE</a></span></code></th>
+<td class="colLast">
+<div class="block">Possible DNS response codes.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#additionalSection">additionalSection</a></span></code></th>
+<td class="colLast">
+<div class="block">The additional section.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#answerSection">answerSection</a></span></code></th>
+<td class="colLast">
+<div class="block">The answers section records.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authenticData">authenticData</a></span></code></th>
+<td class="colLast">
+<div class="block">True if the server regarded the response as authentic.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authoritativeAnswer">authoritativeAnswer</a></span></code></th>
+<td class="colLast">
+<div class="block">True if this is a authorative response.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#authoritySection">authoritySection</a></span></code></th>
+<td class="colLast">
+<div class="block">The Authority Section.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkingDisabled">checkingDisabled</a></span></code></th>
+<td class="colLast">
+<div class="block">True if the server should not perform DNSSEC validation before returning the result.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#id">id</a></span></code></th>
+<td class="colLast">
+<div class="block">The DNS message id.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="DnsMessage.OPCODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.OPCODE</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#opcode">opcode</a></span></code></th>
+<td class="colLast">
+<div class="block">The DNS message opcode.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optRrPosition">optRrPosition</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#qr">qr</a></span></code></th>
+<td class="colLast">
+<div class="block">The QR flag of the DNS message header.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#questions">questions</a></span></code></th>
+<td class="colLast">
+<div class="block">The question section content.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveTimestamp">receiveTimestamp</a></span></code></th>
+<td class="colLast">
+<div class="block">The receive timestamp.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recursionAvailable">recursionAvailable</a></span></code></th>
+<td class="colLast">
+<div class="block">True if recursion is possible.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recursionDesired">recursionDesired</a></span></code></th>
+<td class="colLast">
+<div class="block">True if the server should recurse.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="DnsMessage.RESPONSE_CODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.RESPONSE_CODE</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#responseCode">responseCode</a></span></code></th>
+<td class="colLast">
+<div class="block">The response code of this dns message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#truncated">truncated</a></span></code></th>
+<td class="colLast">
+<div class="block">True if message is truncated.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colSecond" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>&nbsp;</code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(byte%5B%5D)">DnsMessage</a></span>&#8203;(byte[]&nbsp;data)</code></th>
+<td class="colLast">
+<div class="block">Build a DNS Message based on a binary DNS message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected </code></td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.minidns.dnsmessage.DnsMessage.Builder)">DnsMessage</a></span>&#8203;(<a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a>&nbsp;builder)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#asBuilder()">asBuilder</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/DatagramPacket.html?is-external=true" title="class or interface in java.net" class="externalLink">DatagramPacket</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#asDatagram(java.net.InetAddress,int)">asDatagram</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;address,
+int&nbsp;port)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="DnsMessage.html" title="class in org.minidns.dnsmessage">DnsMessage</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#asNormalizedVersion()">asNormalizedVersion</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#asTerminalOutput()">asTerminalOutput</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Format the DnsMessage object in a way suitable for terminal output.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>static <a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateHeaderBitmap()">calculateHeaderBitmap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyAnswers()">copyAnswers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Copy the records found in the answer section into a new list.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyAuthority()">copyAuthority</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Copy the records found in the authority section into a new list.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyQuestions()">copyQuestions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Copy the questions found in the question section.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;other)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterAdditionalSectionBy(java.lang.Class)">filterAdditionalSectionBy</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterAnswerSectionBy(java.lang.Class)">filterAnswerSectionBy</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterAuthoritySectionBy(java.lang.Class)">filterAuthoritySectionBy</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;D&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAnswersFor(org.minidns.dnsmessage.Question)">getAnswersFor</a></span>&#8203;(<a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&nbsp;q)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAnswersMinTtl()">getAnswersMinTtl</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Get the minimum TTL from all answers in seconds.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code><a href="../edns/Edns.html" title="class in org.minidns.edns">Edns</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdns()">getEdns</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFirstOfTypeFromAdditionalSection(java.lang.Class)">getFirstOfTypeFromAdditionalSection</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFirstOfTypeFromAnswerSection(java.lang.Class)">getFirstOfTypeFromAnswerSection</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code>&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;<br><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFirstOfTypeFromAuthoritySection(java.lang.Class)">getFirstOfTypeFromAuthoritySection</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInByteBuffer()">getInByteBuffer</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;<a href="../record/OPT.html" title="class in org.minidns.record">OPT</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOptPseudoRecord()">getOptPseudoRecord</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code><a href="Question.html" title="class in org.minidns.dnsmessage">Question</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getQuestion()">getQuestion</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResponseBuilder(org.minidns.dnsmessage.DnsMessage.RESPONSE_CODE)">getResponseBuilder</a></span>&#8203;(<a href="DnsMessage.RESPONSE_CODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.RESPONSE_CODE</a>&nbsp;responseCode)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isDnssecOk()">isDnssecOk</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Check if the EDNS DO (DNSSEC OK) flag is set.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toArray()">toArray</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Generate a binary dns packet out of this message.</div>
+</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeTo(java.io.OutputStream)">writeTo</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;outputStream)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeTo(java.io.OutputStream,boolean)">writeTo</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;outputStream,
+boolean&nbsp;writeLength)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="id">id</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">id</span></div>
+<div class="block">The DNS message id.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="opcode">opcode</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="DnsMessage.OPCODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.OPCODE</a></span>&nbsp;<span class="memberName">opcode</span></div>
+<div class="block">The DNS message opcode.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="responseCode">responseCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="DnsMessage.RESPONSE_CODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.RESPONSE_CODE</a></span>&nbsp;<span class="memberName">responseCode</span></div>
+<div class="block">The response code of this dns message.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="qr">qr</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">qr</span></div>
+<div class="block">The QR flag of the DNS message header. Note that this will be <code>true</code> if the message is a
+ <b>response</b> and <code>false</code> if it is a <b>query</b>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="https://www.ietf.org/rfc/rfc1035.txt">RFC 1035 § 4.1.1</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="authoritativeAnswer">authoritativeAnswer</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">authoritativeAnswer</span></div>
+<div class="block">True if this is a authorative response. If set, the responding nameserver is an authority for the domain name in
+ the question section. Note that the answer section may have multiple owner names because of aliases. This flag
+ corresponds to the name which matches the query name, or the first owner name in the query section.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="https://www.ietf.org/rfc/rfc1035.txt">RFC 1035 § 4.1.1. Header section format</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="truncated">truncated</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">truncated</span></div>
+<div class="block">True if message is truncated. Then TCP should be used.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="recursionDesired">recursionDesired</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">recursionDesired</span></div>
+<div class="block">True if the server should recurse.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="recursionAvailable">recursionAvailable</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">recursionAvailable</span></div>
+<div class="block">True if recursion is possible.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="authenticData">authenticData</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">authenticData</span></div>
+<div class="block">True if the server regarded the response as authentic.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="checkingDisabled">checkingDisabled</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">checkingDisabled</span></div>
+<div class="block">True if the server should not perform DNSSEC validation before returning the result.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="questions">questions</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&gt;</span>&nbsp;<span class="memberName">questions</span></div>
+<div class="block">The question section content. Usually there will be only one question.
+ <p>
+ This list is unmodifiable.
+ </p></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="answerSection">answerSection</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</span>&nbsp;<span class="memberName">answerSection</span></div>
+<div class="block">The answers section records. Note that it is not guaranteed that all records found in this section will be direct
+ answers to the question in the query. If DNSSEC is used, then this section also contains the RRSIG record.
+ <p>
+ This list is unmodifiable.
+ </p></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="authoritySection">authoritySection</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</span>&nbsp;<span class="memberName">authoritySection</span></div>
+<div class="block">The Authority Section. Note that it is not guaranteed that this section only contains nameserver records. If DNSSEC is used, then this section could also contain a NSEC(3) record.
+ <p>
+ This list is unmodifiable.
+ </p></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="additionalSection">additionalSection</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</span>&nbsp;<span class="memberName">additionalSection</span></div>
+<div class="block">The additional section. It eventually contains RRs which relate to the query.
+ <p>
+ This list is unmodifiable.
+ </p></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="optRrPosition">optRrPosition</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">optRrPosition</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveTimestamp">receiveTimestamp</a></h3>
+<div class="memberSignature"><span class="modifiers">public final</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">receiveTimestamp</span></div>
+<div class="block">The receive timestamp. Set only if this message was created via parse.
+ This should be used to evaluate TTLs.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.minidns.dnsmessage.DnsMessage.Builder)">DnsMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">DnsMessage</span>&#8203;(<span class="arguments"><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a>&nbsp;builder)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(byte[])">DnsMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">DnsMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;data)</span>
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Build a DNS Message based on a binary DNS message.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - The DNS message data.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - On read errors.</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="toArray()">toArray</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">byte[]</span>&nbsp;<span class="memberName">toArray</span>()</div>
+<div class="block">Generate a binary dns packet out of this message.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>byte[] the binary representation.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="asDatagram(java.net.InetAddress,int)">asDatagram</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/DatagramPacket.html?is-external=true" title="class or interface in java.net" class="externalLink">DatagramPacket</a></span>&nbsp;<span class="memberName">asDatagram</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;address,
+int&nbsp;port)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeTo(java.io.OutputStream)">writeTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeTo</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;outputStream)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeTo(java.io.OutputStream,boolean)">writeTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">writeTo</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">OutputStream</a>&nbsp;outputStream,
+boolean&nbsp;writeLength)</span>
+             throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getInByteBuffer()">getInByteBuffer</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio" class="externalLink">ByteBuffer</a></span>&nbsp;<span class="memberName">getInByteBuffer</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="calculateHeaderBitmap()">calculateHeaderBitmap</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">calculateHeaderBitmap</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getQuestion()">getQuestion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Question.html" title="class in org.minidns.dnsmessage">Question</a></span>&nbsp;<span class="memberName">getQuestion</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyQuestions()">copyQuestions</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&gt;</span>&nbsp;<span class="memberName">copyQuestions</span>()</div>
+<div class="block">Copy the questions found in the question section.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of the question section questions.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#questions"><code>questions</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyAnswers()">copyAnswers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</span>&nbsp;<span class="memberName">copyAnswers</span>()</div>
+<div class="block">Copy the records found in the answer section into a new list.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of the answer section records.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#answerSection"><code>answerSection</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyAuthority()">copyAuthority</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;? extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;&gt;</span>&nbsp;<span class="memberName">copyAuthority</span>()</div>
+<div class="block">Copy the records found in the authority section into a new list.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of the authority section records.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#authoritySection"><code>authoritySection</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEdns()">getEdns</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../edns/Edns.html" title="class in org.minidns.edns">Edns</a></span>&nbsp;<span class="memberName">getEdns</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getOptPseudoRecord()">getOptPseudoRecord</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;<a href="../record/OPT.html" title="class in org.minidns.record">OPT</a>&gt;</span>&nbsp;<span class="memberName">getOptPseudoRecord</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isDnssecOk()">isDnssecOk</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isDnssecOk</span>()</div>
+<div class="block">Check if the EDNS DO (DNSSEC OK) flag is set.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the DO flag is set.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="asTerminalOutput()">asTerminalOutput</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">asTerminalOutput</span>()</div>
+<div class="block">Format the DnsMessage object in a way suitable for terminal output.
+ The format is loosely based on the output provided by <code>dig</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This message as a String suitable for terminal output.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAnswersFor(org.minidns.dnsmessage.Question)">getAnswersFor</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;D&gt;</span>&nbsp;<span class="memberName">getAnswersFor</span>&#8203;(<span class="arguments"><a href="Question.html" title="class in org.minidns.dnsmessage">Question</a>&nbsp;q)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAnswersMinTtl()">getAnswersMinTtl</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getAnswersMinTtl</span>()</div>
+<div class="block">Get the minimum TTL from all answers in seconds.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the minimum TTL from all answers in seconds.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="asBuilder()">asBuilder</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></span>&nbsp;<span class="memberName">asBuilder</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="asNormalizedVersion()">asNormalizedVersion</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DnsMessage.html" title="class in org.minidns.dnsmessage">DnsMessage</a></span>&nbsp;<span class="memberName">asNormalizedVersion</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getResponseBuilder(org.minidns.dnsmessage.DnsMessage.RESPONSE_CODE)">getResponseBuilder</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></span>&nbsp;<span class="memberName">getResponseBuilder</span>&#8203;(<span class="arguments"><a href="DnsMessage.RESPONSE_CODE.html" title="enum in org.minidns.dnsmessage">DnsMessage.RESPONSE_CODE</a>&nbsp;responseCode)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hashCode()">hashCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">hashCode</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="filterAnswerSectionBy(java.lang.Class)">filterAnswerSectionBy</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</span>&nbsp;<span class="memberName">filterAnswerSectionBy</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="filterAuthoritySectionBy(java.lang.Class)">filterAuthoritySectionBy</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</span>&nbsp;<span class="memberName">filterAuthoritySectionBy</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="filterAdditionalSectionBy(java.lang.Class)">filterAdditionalSectionBy</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;&gt;</span>&nbsp;<span class="memberName">filterAdditionalSectionBy</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFirstOfTypeFromAnswerSection(java.lang.Class)">getFirstOfTypeFromAnswerSection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</span>&nbsp;<span class="memberName">getFirstOfTypeFromAnswerSection</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFirstOfTypeFromAuthoritySection(java.lang.Class)">getFirstOfTypeFromAuthoritySection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</span>&nbsp;<span class="memberName">getFirstOfTypeFromAuthoritySection</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFirstOfTypeFromAdditionalSection(java.lang.Class)">getFirstOfTypeFromAdditionalSection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="typeParameters">&lt;D extends <a href="../record/Data.html" title="class in org.minidns.record">Data</a>&gt;</span>&nbsp;<span class="returnType"><a href="../record/Record.html" title="class in org.minidns.record">Record</a>&lt;D&gt;</span>&nbsp;<span class="memberName">getFirstOfTypeFromAdditionalSection</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;D&gt;&nbsp;type)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="equals(java.lang.Object)">equals</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">equals</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;other)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="builder()">builder</a></h3>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="DnsMessage.Builder.html" title="class in org.minidns.dnsmessage">DnsMessage.Builder</a></span>&nbsp;<span class="memberName">builder</span>()</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DnsMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>com.thetransactioncompany.jsonrpc2.server - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.thetransactioncompany.jsonrpc2.server">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;com.thetransactioncompany.jsonrpc2.server</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block">Simple server framework for processing JSON-RPC 2.0 requests and
+ notifications.
+
+ <p>Usage:
+
+ <ol>
+     <li>Implement <a href="RequestHandler.html" title="interface in com.thetransactioncompany.jsonrpc2.server"><code>request</code></a>
+         and / or <a href="NotificationHandler.html" title="interface in com.thetransactioncompany.jsonrpc2.server"><code>notification</code></a>
+         handlers for the various expected JSON-RPC 2.0 messages. A handler
+         may process one or more request/notification methods (identified by 
+         method name).
+     <li>Create a new <a href="Dispatcher.html" title="class in com.thetransactioncompany.jsonrpc2.server"><code>Dispatcher</code></a>
+         and register the handlers with it.
+     <li>Pass the received JSON-RPC 2.0 requests and notifications to the 
+         appropriate <code>Dispatcher.dispatch(...)</code> method, then, if the 
+         message is a request, pass the resulting JSON-RPC 2.0 response back
+         to the client.
+ </ol>
+
+ <p>Direct package dependencies:
+
+ <ul>
+     <li><b><a href="http://software.dzhuvinov.com/json-rpc-2.0-base.html">JSON-RPC 2.0 Base</a></b> 
+        [<i>com.thetransactioncompany.jsonrpc2</i>] to construct and represent 
+         JSON-RPC 2.0 messages.
+     <li><b>Java Servlet API</b> [<i>javax.servlet.http</i>] for constructing 
+         <a href="MessageContext.html" title="class in com.thetransactioncompany.jsonrpc2.server"><code>MessageContext</code></a>
+         objects from HTTP servlet requests.
+ </ul></div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Vladimir Dzhuvinov</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NotificationHandler.html" title="interface in com.thetransactioncompany.jsonrpc2.server">NotificationHandler</a></th>
+<td class="colLast">
+<div class="block">Interface for handling JSON-RPC 2.0 notifications.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RequestHandler.html" title="interface in com.thetransactioncompany.jsonrpc2.server">RequestHandler</a></th>
+<td class="colLast">
+<div class="block">Interface for handling JSON-RPC 2.0 requests.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="Dispatcher.html" title="class in com.thetransactioncompany.jsonrpc2.server">Dispatcher</a></th>
+<td class="colLast">
+<div class="block">Dispatcher for JSON-RPC 2.0 requests and notifications.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageContext.html" title="class in com.thetransactioncompany.jsonrpc2.server">MessageContext</a></th>
+<td class="colLast">
+<div class="block">Context information about JSON-RPC 2.0 request and notification messages.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>IntroductionManager - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.udp, class: IntroductionManager">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/IntroductionManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.udp</a></div>
+<h1 title="Class IntroductionManager" class="title">Class IntroductionManager</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">net.i2p.router.transport.udp.IntroductionManager</div>
+</div>
+<section class="description">
+<hr>
+<pre>class <span class="typeNameLabel">IntroductionManager</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Keep track of inbound and outbound introductions.
+
+  IPv6 info: Alice-Bob communication may be via IPv4 or IPv6.
+  Bob-Charlie communication must be via established IPv4 session as that's the only way
+  that Bob knows Charlie's IPv4 address to give it to Alice.
+  Alice-Charlie communication is via IPv4.
+  If Alice-Bob is over IPv6, Alice must include her IPv4 address in
+  the RelayRequest message.
+
+  From udp.html on the website:
+
+<p>Indirect session establishment by means of a third party introduction
+is necessary for efficient NAT traversal.  Charlie, a router behind a
+NAT or firewall which does not allow unsolicited inbound UDP packets,
+first contacts a few peers, choosing some to serve as introducers.  Each
+of these peers (Bob, Bill, Betty, etc) provide Charlie with an introduction
+tag - a 4 byte random number - which he then makes available to the public
+as methods of contacting him.  Alice, a router who has Charlie's published
+contact methods, first sends a RelayRequest packet to one or more of the
+introducers, asking each to introduce her to Charlie (offering the
+introduction tag to identify Charlie).  Bob then forwards a RelayIntro
+packet to Charlie including Alice's public IP and port number, then sends
+Alice back a RelayResponse packet containing Charlie's public IP and port
+number.  When Charlie receives the RelayIntro packet, he sends off a small
+random packet to Alice's IP and port (poking a hole in his NAT/firewall),
+and when Alice receives Bob's RelayResponse packet, she begins a new
+full direction session establishment with the specified IP and port.</p>
+<p>
+Alice first connects to introducer Bob, who relays the request to Charlie.
+</p>
+<pre>
+        Alice                         Bob                  Charlie
+    RelayRequest ----------------------&gt;
+         &lt;-------------- RelayResponse    RelayIntro -----------&gt;
+         &lt;-------------------------------------------- HolePunch (data ignored)
+    SessionRequest --------------------------------------------&gt;
+         &lt;-------------------------------------------- SessionCreated
+    SessionConfirmed ------------------------------------------&gt;
+         &lt;-------------------------------------------- DeliveryStatusMessage
+         &lt;-------------------------------------------- DatabaseStoreMessage
+    DatabaseStoreMessage --------------------------------------&gt;
+    Data &lt;--------------------------------------------------&gt; Data
+</pre>
+
+<p>
+After the hole punch, the session is established between Alice and Charlie as in a direct establishment.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MAX_OUTBOUND">MAX_OUTBOUND</a></span></code></th>
+<td class="colLast">
+<div class="block">This is enforced in EstablishmentManager</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">IntroductionManager</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(net.i2p.router.transport.udp.PeerState)">add</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#introducedCount()">introducedCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Combined IPv4 and IPv6</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code>(package private) int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#introducerCount(boolean)">introducerCount</a></span>&#8203;(boolean&nbsp;ipv6)</code></th>
+<td class="colLast">
+<div class="block">Not as elaborate as pickInbound() above.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isInboundTagValid(long)">isInboundTagValid</a></span>&#8203;(long&nbsp;tag)</code></th>
+<td class="colLast">
+<div class="block">Is this inbound tag currently valid,
+  i.e.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pickInbound(net.i2p.data.router.RouterAddress,boolean,java.util.Properties,int)">pickInbound</a></span>&#8203;(<a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&nbsp;current,
+boolean&nbsp;ipv6,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;ssuOptions,
+int&nbsp;howMany)</code></th>
+<td class="colLast">
+<div class="block">Grab a bunch of peers who are willing to be introducers for us that
+ are locally known (duh) and have published their own SSU address (duh^2).</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pingIntroducers()">pingIntroducers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Was part of pickInbound(), moved out so we can call it more often</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveRelayIntro(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayIntro</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;bob,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">We are Charlie and we got this from Bob.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveRelayRequest(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayRequest</a></span>&#8203;(<a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</code></th>
+<td class="colLast">
+<div class="block">We are Bob and we got this from Alice.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove(net.i2p.router.transport.udp.PeerState)">remove</a></span>&#8203;(<a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reset()">reset</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MAX_OUTBOUND">MAX_OUTBOUND</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MAX_OUTBOUND</span></div>
+<div class="block">This is enforced in EstablishmentManager</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.udp.IntroductionManager.MAX_OUTBOUND">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.udp.UDPTransport)">IntroductionManager</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">IntroductionManager</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="UDPTransport.html" title="class in net.i2p.router.transport.udp">UDPTransport</a>&nbsp;transport)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="reset()">reset</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">reset</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="add(net.i2p.router.transport.udp.PeerState)">add</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">add</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="remove(net.i2p.router.transport.udp.PeerState)">remove</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">remove</span>&#8203;(<span class="arguments"><a href="PeerState.html" title="class in net.i2p.router.transport.udp">PeerState</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isInboundTagValid(long)">isInboundTagValid</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isInboundTagValid</span>&#8203;(<span class="arguments">long&nbsp;tag)</span></div>
+<div class="block">Is this inbound tag currently valid,
+  i.e. is the peer still connected?</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.50</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="pickInbound(net.i2p.data.router.RouterAddress,boolean,java.util.Properties,int)">pickInbound</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">pickInbound</span>&#8203;(<span class="arguments"><a href="../../../data/router/RouterAddress.html" title="class in net.i2p.data.router">RouterAddress</a>&nbsp;current,
+boolean&nbsp;ipv6,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;ssuOptions,
+int&nbsp;howMany)</span></div>
+<div class="block">Grab a bunch of peers who are willing to be introducers for us that
+ are locally known (duh) and have published their own SSU address (duh^2).
+ The picked peers have their info tacked on to the ssuOptions parameter for
+ use in the SSU RouterAddress.
+
+ Try to use "good" peers (i.e. reachable, active)
+
+ Also, ping all idle peers that were introducers in the last 2 hours,
+ to keep the connection up, since the netDb can have quite stale information,
+ and we want to keep our introducers valid.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>current</code> - current router address, may be null</dd>
+<dd><code>ipv6</code> - what type is the current address we need introducers for?</dd>
+<dd><code>ssuOptions</code> - out parameter, options are added</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of introducers added</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="pingIntroducers()">pingIntroducers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">pingIntroducers</span>()</div>
+<div class="block">Was part of pickInbound(), moved out so we can call it more often</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.8.11</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="introducerCount(boolean)">introducerCount</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">introducerCount</span>&#8203;(<span class="arguments">boolean&nbsp;ipv6)</span></div>
+<div class="block">Not as elaborate as pickInbound() above.
+ Just a quick check to see how many volunteers we know,
+ which the Transport uses to see if we need more.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ipv6</code> - what type of address are they introducing us for</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of peers that have volunteered to introduce us</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="introducedCount()">introducedCount</a></h3>
+<div class="memberSignature"><span class="returnType">int</span>&nbsp;<span class="memberName">introducedCount</span>()</div>
+<div class="block">Combined IPv4 and IPv6</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of peers we have volunteered to introduce</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.3</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveRelayIntro(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayIntro</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveRelayIntro</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;bob,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">We are Charlie and we got this from Bob.
+  Send a HolePunch to Alice, who will soon be sending us a RelayRequest.
+  We should already have a session with Bob, but probably not with Alice.
+
+  If we don't have a session with Bob, we removed the relay tag from
+  our _outbound table, so this won't work.
+
+  We do some throttling here.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="receiveRelayRequest(net.i2p.router.transport.udp.RemoteHostId,net.i2p.router.transport.udp.UDPPacketReader)">receiveRelayRequest</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">receiveRelayRequest</span>&#8203;(<span class="arguments"><a href="RemoteHostId.html" title="class in net.i2p.router.transport.udp">RemoteHostId</a>&nbsp;alice,
+<a href="UDPPacketReader.html" title="class in net.i2p.router.transport.udp">UDPPacketReader</a>&nbsp;reader)</span></div>
+<div class="block">We are Bob and we got this from Alice.
+  Send a RelayIntro to Charlie and a RelayResponse to Alice.
+  We should already have a session with Charlie, but not necessarily with Alice.</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/IntroductionManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

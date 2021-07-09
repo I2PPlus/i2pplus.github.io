@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DatabaseStoreMessage - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.data.i2np, class: DatabaseStoreMessage">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DatabaseStoreMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.data.i2np</a></div>
+<h1 title="Class DatabaseStoreMessage" class="title">Class DatabaseStoreMessage</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">net.i2p.data.i2np.I2NPMessageImpl</a>
+<div class="inheritance"><a href="FastI2NPMessageImpl.html" title="class in net.i2p.data.i2np">net.i2p.data.i2np.FastI2NPMessageImpl</a>
+<div class="inheritance">net.i2p.data.i2np.DatabaseStoreMessage</div>
+</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">DatabaseStoreMessage</span>
+extends <a href="FastI2NPMessageImpl.html" title="class in net.i2p.data.i2np">FastI2NPMessageImpl</a></pre>
+<div class="block">Defines the message a router sends to another router to test the network
+ database reachability, as well as the reply message sent back.
+
+ TODO: Don't decompress and recompress RouterInfos at the OBEP and IBGW.
+ Could this even change the message length or corrupt things?</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>jrandom</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="inheritedList">
+<h2>Nested classes/interfaces inherited from class&nbsp;net.i2p.data.i2np.<a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></h2>
+<a id="nested.classes.inherited.from.class.net.i2p.data.i2np.I2NPMessageImpl">
+</a><code><a href="I2NPMessageImpl.Builder.html" title="interface in net.i2p.data.i2np">I2NPMessageImpl.Builder</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MESSAGE_TYPE">MESSAGE_TYPE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.i2np.<a href="FastI2NPMessageImpl.html" title="class in net.i2p.data.i2np">FastI2NPMessageImpl</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.i2np.FastI2NPMessageImpl">
+</a><code><a href="FastI2NPMessageImpl.html#_checksum">_checksum</a>, <a href="FastI2NPMessageImpl.html#_hasChecksum">_hasChecksum</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.data.i2np.<a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.i2np.I2NPMessageImpl">
+</a><code><a href="I2NPMessageImpl.html#_context">_context</a>, <a href="I2NPMessageImpl.html#_expiration">_expiration</a>, <a href="I2NPMessageImpl.html#_log">_log</a>, <a href="I2NPMessageImpl.html#CHECKSUM_LENGTH">CHECKSUM_LENGTH</a>, <a href="I2NPMessageImpl.html#DEFAULT_EXPIRATION_MS">DEFAULT_EXPIRATION_MS</a>, <a href="I2NPMessageImpl.html#HEADER_LENGTH">HEADER_LENGTH</a></code></div>
+<div class="inheritedList">
+<h3>Fields inherited from interface&nbsp;net.i2p.data.i2np.<a href="I2NPMessage.html" title="interface in net.i2p.data.i2np">I2NPMessage</a></h3>
+<a id="fields.inherited.from.class.net.i2p.data.i2np.I2NPMessage">
+</a><code><a href="I2NPMessage.html#MAX_ID_VALUE">MAX_ID_VALUE</a>, <a href="I2NPMessage.html#MAX_SIZE">MAX_SIZE</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.I2PAppContext)">DatabaseStoreMessage</a></span>&#8203;(<a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateWrittenLength()">calculateWrittenLength</a></span>()</code></th>
+<td class="colLast">
+<div class="block">calculate the message body's length (not including the header and footer)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEntry()">getEntry</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Defines the entry in the network database being stored</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code><a href="../Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getKey()">getKey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Defines the key in the network database being stored</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="../Hash.html" title="class in net.i2p.data">Hash</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReplyGateway()">getReplyGateway</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReplyToken()">getReplyToken</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If a reply is desired, this token specifies the message ID that should
+ be used for a DeliveryStatusMessage to be sent to the reply tunnel on the
+ reply gateway.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="../TunnelId.html" title="class in net.i2p.data">TunnelId</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReplyTunnel()">getReplyTunnel</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Return the unique identifier for this type of I2NP message, as defined in
+ the I2NP spec</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readMessage(byte%5B%5D,int,int,int)">readMessage</a></span>&#8203;(byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type)</code></th>
+<td class="colLast">
+<div class="block">Read the body into the data structures, after the initial type byte and
+ the uniqueId / expiration, using the current class's format as defined by
+ the I2NP specification</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEntry(net.i2p.data.DatabaseEntry)">setEntry</a></span>&#8203;(<a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;entry)</code></th>
+<td class="colLast">
+<div class="block">This also sets the key</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReplyGateway(net.i2p.data.Hash)">setReplyGateway</a></span>&#8203;(<a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReplyToken(long)">setReplyToken</a></span>&#8203;(long&nbsp;token)</code></th>
+<td class="colLast">
+<div class="block">Update the reply token.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReplyTunnel(net.i2p.data.TunnelId)">setReplyTunnel</a></span>&#8203;(<a href="../TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeMessageBody(byte%5B%5D,int)">writeMessageBody</a></span>&#8203;(byte[]&nbsp;out,
+int&nbsp;curIndex)</code></th>
+<td class="colLast">
+<div class="block">write the message body to the output array, starting at the given index</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.i2np.<a href="FastI2NPMessageImpl.html" title="class in net.i2p.data.i2np">FastI2NPMessageImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.i2np.FastI2NPMessageImpl">
+</a><code><a href="FastI2NPMessageImpl.html#readBytes(byte%5B%5D,int,int,int)">readBytes</a>, <a href="FastI2NPMessageImpl.html#toByteArray(byte%5B%5D)">toByteArray</a>, <a href="FastI2NPMessageImpl.html#toByteArrayWithSavedChecksum(byte%5B%5D)">toByteArrayWithSavedChecksum</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.data.i2np.<a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.data.i2np.I2NPMessageImpl">
+</a><code><a href="I2NPMessageImpl.html#createMessage(net.i2p.I2PAppContext,int)">createMessage</a>, <a href="I2NPMessageImpl.html#fromRawByteArray(net.i2p.I2PAppContext,byte%5B%5D,int,int,net.i2p.data.i2np.I2NPMessageHandler)">fromRawByteArray</a>, <a href="I2NPMessageImpl.html#fromRawByteArrayNTCP2(net.i2p.I2PAppContext,byte%5B%5D,int,int,net.i2p.data.i2np.I2NPMessageHandler)">fromRawByteArrayNTCP2</a>, <a href="I2NPMessageImpl.html#getMessageExpiration()">getMessageExpiration</a>, <a href="I2NPMessageImpl.html#getMessageSize()">getMessageSize</a>, <a href="I2NPMessageImpl.html#getRawMessageSize()">getRawMessageSize</a>, <a href="I2NPMessageImpl.html#getUniqueId()">getUniqueId</a>, <a href="I2NPMessageImpl.html#readBytes(byte%5B%5D,int,int)">readBytes</a>, <a href="I2NPMessageImpl.html#readBytes(java.io.InputStream)">readBytes</a>, <a href="I2NPMessageImpl.html#readMessage(byte%5B%5D,int,int,int,net.i2p.data.i2np.I2NPMessageHandler)">readMessage</a>, <a href="I2NPMessageImpl.html#registerBuilder(net.i2p.data.i2np.I2NPMessageImpl.Builder,int)">registerBuilder</a>, <a href="I2NPMessageImpl.html#setMessageExpiration(long)">setMessageExpiration</a>, <a href="I2NPMessageImpl.html#setUniqueId(long)">setUniqueId</a>, <a href="I2NPMessageImpl.html#toByteArray()">toByteArray</a>, <a href="I2NPMessageImpl.html#toByteArray(byte%5B%5D,int)">toByteArray</a>, <a href="I2NPMessageImpl.html#toRawByteArray(byte%5B%5D)">toRawByteArray</a>, <a href="I2NPMessageImpl.html#toRawByteArrayNTCP2(byte%5B%5D,int)">toRawByteArrayNTCP2</a>, <a href="I2NPMessageImpl.html#writeBytes(java.io.OutputStream)">writeBytes</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="MESSAGE_TYPE">MESSAGE_TYPE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">MESSAGE_TYPE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#net.i2p.data.i2np.DatabaseStoreMessage.MESSAGE_TYPE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.I2PAppContext)">DatabaseStoreMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">DatabaseStoreMessage</span>&#8203;(<span class="arguments"><a href="../../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;context)</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getKey()">getKey</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getKey</span>()</div>
+<div class="block">Defines the key in the network database being stored</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEntry()">getEntry</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a></span>&nbsp;<span class="memberName">getEntry</span>()</div>
+<div class="block">Defines the entry in the network database being stored</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setEntry(net.i2p.data.DatabaseEntry)">setEntry</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setEntry</span>&#8203;(<span class="arguments"><a href="../DatabaseEntry.html" title="class in net.i2p.data">DatabaseEntry</a>&nbsp;entry)</span></div>
+<div class="block">This also sets the key</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code> - if data previously set, to protect saved checksum</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReplyToken()">getReplyToken</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getReplyToken</span>()</div>
+<div class="block">If a reply is desired, this token specifies the message ID that should
+ be used for a DeliveryStatusMessage to be sent to the reply tunnel on the
+ reply gateway.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>positive reply token ID, or 0 if no reply is necessary.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setReplyToken(long)">setReplyToken</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReplyToken</span>&#8203;(<span class="arguments">long&nbsp;token)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></span></div>
+<div class="block">Update the reply token.</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the token is out of range (min=0, max=I2NPMessage.MAX_ID_VALUE)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReplyTunnel()">getReplyTunnel</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../TunnelId.html" title="class in net.i2p.data">TunnelId</a></span>&nbsp;<span class="memberName">getReplyTunnel</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setReplyTunnel(net.i2p.data.TunnelId)">setReplyTunnel</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReplyTunnel</span>&#8203;(<span class="arguments"><a href="../TunnelId.html" title="class in net.i2p.data">TunnelId</a>&nbsp;id)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReplyGateway()">getReplyGateway</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../Hash.html" title="class in net.i2p.data">Hash</a></span>&nbsp;<span class="memberName">getReplyGateway</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setReplyGateway(net.i2p.data.Hash)">setReplyGateway</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReplyGateway</span>&#8203;(<span class="arguments"><a href="../Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="readMessage(byte[],int,int,int)">readMessage</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">readMessage</span>&#8203;(<span class="arguments">byte[]&nbsp;data,
+int&nbsp;offset,
+int&nbsp;dataSize,
+int&nbsp;type)</span>
+                 throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="I2NPMessage.html#readMessage(byte%5B%5D,int,int,int)">I2NPMessage</a></code></span></div>
+<div class="block">Read the body into the data structures, after the initial type byte and
+ the uniqueId / expiration, using the current class's format as defined by
+ the I2NP specification</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>data</code> - data to read from</dd>
+<dd><code>offset</code> - where to start in the data array</dd>
+<dd><code>dataSize</code> - how long into the data to read</dd>
+<dd><code>type</code> - I2NP message type</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code> - if the stream doesn't contain a valid message
+          that this class can read.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="calculateWrittenLength()">calculateWrittenLength</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">calculateWrittenLength</span>()</div>
+<div class="block">calculate the message body's length (not including the header and footer)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="I2NPMessageImpl.html#calculateWrittenLength()">calculateWrittenLength</a></code>&nbsp;in class&nbsp;<code><a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalStateException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="writeMessageBody(byte[],int)">writeMessageBody</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">writeMessageBody</span>&#8203;(<span class="arguments">byte[]&nbsp;out,
+int&nbsp;curIndex)</span>
+                        throws <span class="exceptions"><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></span></div>
+<div class="block">write the message body to the output array, starting at the given index</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="I2NPMessageImpl.html#writeMessageBody(byte%5B%5D,int)">writeMessageBody</a></code>&nbsp;in class&nbsp;<code><a href="I2NPMessageImpl.html" title="class in net.i2p.data.i2np">I2NPMessageImpl</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the index into the array after the last byte written (NOT the length)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="I2NPMessageException.html" title="class in net.i2p.data.i2np">I2NPMessageException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getType()">getType</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getType</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="I2NPMessage.html#getType()">I2NPMessage</a></code></span></div>
+<div class="block">Return the unique identifier for this type of I2NP message, as defined in
+ the I2NP spec</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="hashCode()">hashCode</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">hashCode</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="equals(java.lang.Object)">equals</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">equals</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;object)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="toString()">toString</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DatabaseStoreMessage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

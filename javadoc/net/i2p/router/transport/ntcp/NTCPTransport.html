@@ -1,0 +1,1322 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>NTCPTransport - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.transport.ntcp, class: NTCPTransport">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":42,"i36":10,"i37":10,"i38":10,"i39":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NTCPTransport.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.transport.ntcp</a></div>
+<h1 title="Class NTCPTransport" class="title">Class NTCPTransport</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance"><a href="../TransportImpl.html" title="class in net.i2p.router.transport">net.i2p.router.transport.TransportImpl</a>
+<div class="inheritance">net.i2p.router.transport.ntcp.NTCPTransport</div>
+</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+</dl>
+<hr>
+<pre>public class <span class="typeNameLabel">NTCPTransport</span>
+extends <a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></pre>
+<div class="block">The NIO TCP transport</div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="nestedClassSummary"><a id="nested.class.summary">
+</a>
+<h2>Nested Class Summary</h2>
+<div class="inheritedList">
+<h2>Nested classes/interfaces inherited from interface&nbsp;net.i2p.router.transport.<a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></h2>
+<a id="nested.classes.inherited.from.class.net.i2p.router.transport.Transport">
+</a><code><a href="../Transport.AddressSource.html" title="enum in net.i2p.router.transport">Transport.AddressSource</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="fieldSummary"><a id="field.summary">
+</a>
+<h2>Field Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ESTABLISH_TIMEOUT">ESTABLISH_TIMEOUT</a></span></code></th>
+<td class="colLast">
+<div class="block">how long from initial connection attempt (accept() or connect()) until
+ the con must be established to avoid premature close()ing</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_SIGTYPE_VERSION">MIN_SIGTYPE_VERSION</a></span></code></th>
+<td class="colLast">
+<div class="block">RI sigtypes supported in 0.9.16</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NTCP2_INT_VERSION">NTCP2_INT_VERSION</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NTCP2_VERSION">NTCP2_VERSION</a></span></code></th>
+<td class="colLast">
+<div class="block">"2"</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NTCP2_VERSION_ALT">NTCP2_VERSION_ALT</a></span></code></th>
+<td class="colLast">
+<div class="block">"2,"</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_BIND_INTERFACE">PROP_BIND_INTERFACE</a></span></code></th>
+<td class="colLast">
+<div class="block">this is rarely if ever used, default is to bind to wildcard address</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_I2NP_NTCP_AUTO_IP">PROP_I2NP_NTCP_AUTO_IP</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_I2NP_NTCP_AUTO_PORT">PROP_I2NP_NTCP_AUTO_PORT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_I2NP_NTCP_HOSTNAME">PROP_I2NP_NTCP_HOSTNAME</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_I2NP_NTCP_PORT">PROP_I2NP_NTCP_PORT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_NTCP2_IV">PROP_NTCP2_IV</a></span></code></th>
+<td class="colLast">
+<div class="block">b64 static IV</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_NTCP2_SP">PROP_NTCP2_SP</a></span></code></th>
+<td class="colLast">
+<div class="block">b64 static private key</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#STYLE">STYLE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#STYLE2">STYLE2</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="inheritedList">
+<h3>Fields inherited from class&nbsp;net.i2p.router.transport.<a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></h3>
+<a id="fields.inherited.from.class.net.i2p.router.transport.TransportImpl">
+</a><code><a href="../TransportImpl.html#_context">_context</a>, <a href="../TransportImpl.html#_currentAddresses">_currentAddresses</a>, <a href="../TransportImpl.html#ADJUST_COST">ADJUST_COST</a>, <a href="../TransportImpl.html#CAP_IPV4">CAP_IPV4</a>, <a href="../TransportImpl.html#CAP_IPV4_IPV6">CAP_IPV4_IPV6</a>, <a href="../TransportImpl.html#CAP_IPV6">CAP_IPV6</a>, <a href="../TransportImpl.html#CONGESTION_COST_ADJUSTMENT">CONGESTION_COST_ADJUSTMENT</a>, <a href="../TransportImpl.html#PROP_IPV6_FIREWALLED">PROP_IPV6_FIREWALLED</a></code></div>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.RouterContext,net.i2p.router.transport.crypto.DHSessionKeyBuilder.Factory,net.i2p.router.transport.crypto.X25519KeyFactory)">NTCPTransport</a></span>&#8203;(<a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../crypto/DHSessionKeyBuilder.Factory.html" title="interface in net.i2p.router.transport.crypto">DHSessionKeyBuilder.Factory</a>&nbsp;dh,
+<a href="../crypto/X25519KeyFactory.html" title="class in net.i2p.router.transport.crypto">X25519KeyFactory</a>&nbsp;xdh)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#afterSend(net.i2p.router.OutNetMessage,boolean,boolean,long)">afterSend</a></span>&#8203;(<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg,
+boolean&nbsp;sendSuccessful,
+boolean&nbsp;allowRequeue,
+long&nbsp;msToSend)</code></th>
+<td class="colLast">
+<div class="block">The transport is done sending this message.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#allowConnection()">allowConnection</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="../TransportBid.html" title="class in net.i2p.router.transport">TransportBid</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bid(net.i2p.data.router.RouterInfo,int)">bid</a></span>&#8203;(<a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;toAddress,
+int&nbsp;dataSize)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countActivePeers()">countActivePeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many peers have we talked to in the last minute?
+ As of 0.9.20, actually returns active peer count, not total.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countActiveSendPeers()">countActiveSendPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many peers are we actively sending messages to (this minute)</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countPeers()">countPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">How many peers are we connected to?</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#establishing(net.i2p.router.transport.ntcp.NTCPConnection)">establishing</a></span>&#8203;(<a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</code></th>
+<td class="colLast">
+<div class="block">add us to the establishment timeout process</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#expireTimedOut()">expireTimedOut</a></span>()</code></th>
+<td class="colLast">
+<div class="block">called in the EventPumper no more than once a second or so, closing
+ any unconnected/unestablished connections</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#externalAddressReceived(net.i2p.router.transport.Transport.AddressSource,byte%5B%5D,int)">externalAddressReceived</a></span>&#8203;(<a href="../Transport.AddressSource.html" title="enum in net.i2p.router.transport">Transport.AddressSource</a>&nbsp;source,
+byte[]&nbsp;ip,
+int&nbsp;port)</code></th>
+<td class="colLast">
+<div class="block">UDP changed addresses, tell NTCP and (possibly) restart</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#externalAddressRemoved(net.i2p.router.transport.Transport.AddressSource,boolean)">externalAddressRemoved</a></span>&#8203;(<a href="../Transport.AddressSource.html" title="enum in net.i2p.router.transport">Transport.AddressSource</a>&nbsp;source,
+boolean&nbsp;ipv6)</code></th>
+<td class="colLast">
+<div class="block">Notify a transport of an external address change.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forceDisconnect(net.i2p.data.Hash)">forceDisconnect</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Tell the transport to disconnect from this peer.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forwardPortStatus(byte%5B%5D,int,int,boolean,java.lang.String)">forwardPortStatus</a></span>&#8203;(byte[]&nbsp;ip,
+int&nbsp;port,
+int&nbsp;externalPort,
+boolean&nbsp;success,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</code></th>
+<td class="colLast">
+<div class="block">If we didn't used to be forwarded, and we have an address,
+  and we are configured to use UPnP, update our RouterAddress
+
+  Don't do anything now.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAltStyle()">getAltStyle</a></span>()</code></th>
+<td class="colLast">
+<div class="block">An alternate supported style</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClockSkews()">getClockSkews</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Return our peer clock skews on this transport.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEstablished()">getEstablished</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Connected peers.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>(package private) byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNTCP2StaticIV()">getNTCP2StaticIV</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The static IV</div>
+</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>(package private) byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNTCP2StaticPrivkey()">getNTCP2StaticPrivkey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The static priv key</div>
+</td>
+</tr>
+<tr class="rowColor" id="i17">
+<td class="colFirst"><code>(package private) byte[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNTCP2StaticPubkey()">getNTCP2StaticPubkey</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The static priv key</div>
+</td>
+</tr>
+<tr class="altColor" id="i18">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPeers()">getPeers</a></span>()</code></th>
+<td class="colLast">
+<div class="block">For /peers UI only.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i19">
+<td class="colFirst"><code>(package private) <a href="EventPumper.html" title="class in net.i2p.router.transport.ntcp">EventPumper</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPumper()">getPumper</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Hook for NTCPConnection</div>
+</td>
+</tr>
+<tr class="altColor" id="i20">
+<td class="colFirst"><code><a href="../../CommSystemFacade.Status.html" title="enum in net.i2p.router">CommSystemFacade.Status</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReachabilityStatus()">getReachabilityStatus</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Maybe we should trust UPnP here and report OK if it opened the port, but
+ for now we don't.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i21">
+<td class="colFirst"><code>(package private) <a href="Reader.html" title="class in net.i2p.router.transport.ntcp">Reader</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReader()">getReader</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Hook for NTCPConnection</div>
+</td>
+</tr>
+<tr class="altColor" id="i22">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRequestedPort()">getRequestedPort</a></span>()</code></th>
+<td class="colLast">
+<div class="block">What INTERNAL port would the transport like to have forwarded by UPnP.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i23">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStyle()">getStyle</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The unique identity of this Transport</div>
+</td>
+</tr>
+<tr class="altColor" id="i24">
+<td class="colFirst"><code>(package private) <a href="Writer.html" title="class in net.i2p.router.transport.ntcp">Writer</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWriter()">getWriter</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Hook for NTCPConnection</div>
+</td>
+</tr>
+<tr class="rowColor" id="i25">
+<td class="colFirst"><code>(package private) <a href="../crypto/X25519KeyFactory.html" title="class in net.i2p.router.transport.crypto">X25519KeyFactory</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getXDHFactory()">getXDHFactory</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i26">
+<td class="colFirst"><code>(package private) <a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inboundEstablished(net.i2p.router.transport.ntcp.NTCPConnection)">inboundEstablished</a></span>&#8203;(<a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i27">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAlive()">isAlive</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i28">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isBacklogged(net.i2p.data.Hash)">isBacklogged</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;dest)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i29">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEstablished(net.i2p.data.Hash)">isEstablished</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;dest)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i30">
+<td class="colFirst"><code>(package private) boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHXHIValid(byte%5B%5D)">isHXHIValid</a></span>&#8203;(byte[]&nbsp;hxhi)</code></th>
+<td class="colLast">
+<div class="block">Incoming connection replay detection.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i31">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mayDisconnect(net.i2p.data.Hash)">mayDisconnect</a></span>&#8203;(<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</code></th>
+<td class="colLast">
+<div class="block">Tell the transport that we may disconnect from this peer.</div>
+</td>
+</tr>
+<tr class="altColor" id="i32">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#outboundMessageReady()">outboundMessageReady</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This message is called whenever a new message is added to the send pool,
+ and it should not block
+
+ Only used by NTCP.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i33">
+<td class="colFirst"><code>(package private) <a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeCon(net.i2p.router.transport.ntcp.NTCPConnection)">removeCon</a></span>&#8203;(<a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i34">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renderStatusHTML(java.io.Writer,int)">renderStatusHTML</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+int&nbsp;sortFlags)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i35">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renderStatusHTML(java.io.Writer,java.lang.String,int)">renderStatusHTML</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;urlBase,
+int&nbsp;sortFlags)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">as of 0.9.31</div>
+</div>
+</td>
+</tr>
+<tr class="altColor" id="i36">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendComplete(net.i2p.router.OutNetMessage)">sendComplete</a></span>&#8203;(<a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</code></th>
+<td class="colLast">
+<div class="block">queue up afterSend call, which can take some time w/ jobs, etc</div>
+</td>
+</tr>
+<tr class="rowColor" id="i37">
+<td class="colFirst"><code>(package private) void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLastBadSkew(long)">setLastBadSkew</a></span>&#8203;(long&nbsp;skew)</code></th>
+<td class="colLast">
+<div class="block">A positive number means our clock is ahead of theirs.</div>
+</td>
+</tr>
+<tr class="altColor" id="i38">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startListening()">startListening</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Called by TransportManager.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i39">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopListening()">stopListening</a></span>()</code></th>
+<td class="colLast">
+<div class="block">This doesn't (completely) block, caller should check isAlive()
+  before calling startListening() or restartListening()</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;net.i2p.router.transport.<a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></h3>
+<a id="methods.inherited.from.class.net.i2p.router.transport.TransportImpl">
+</a><code><a href="../TransportImpl.html#_t(java.lang.String)">_t</a>, <a href="../TransportImpl.html#_t(java.lang.String,java.lang.Object)">_t</a>, <a href="../TransportImpl.html#afterSend(net.i2p.router.OutNetMessage,boolean)">afterSend</a>, <a href="../TransportImpl.html#afterSend(net.i2p.router.OutNetMessage,boolean,boolean)">afterSend</a>, <a href="../TransportImpl.html#afterSend(net.i2p.router.OutNetMessage,boolean,long)">afterSend</a>, <a href="../TransportImpl.html#allowLocal()">allowLocal</a>, <a href="../TransportImpl.html#getCurrentAddress(boolean)">getCurrentAddress</a>, <a href="../TransportImpl.html#getCurrentAddresses()">getCurrentAddresses</a>, <a href="../TransportImpl.html#getIP(net.i2p.data.Hash)">getIP</a>, <a href="../TransportImpl.html#getIPv6Config()">getIPv6Config</a>, <a href="../TransportImpl.html#getMaxConnections()">getMaxConnections</a>, <a href="../TransportImpl.html#getMostRecentErrorMessages()">getMostRecentErrorMessages</a>, <a href="../TransportImpl.html#getNextMessage()">getNextMessage</a>, <a href="../TransportImpl.html#getSavedLocalAddresses()">getSavedLocalAddresses</a>, <a href="../TransportImpl.html#getTargetAddresses(net.i2p.data.router.RouterInfo)">getTargetAddresses</a>, <a href="../TransportImpl.html#hasCurrentAddress()">hasCurrentAddress</a>, <a href="../TransportImpl.html#haveCapacity()">haveCapacity</a>, <a href="../TransportImpl.html#haveCapacity(int)">haveCapacity</a>, <a href="../TransportImpl.html#isIPv4Firewalled()">isIPv4Firewalled</a>, <a href="../TransportImpl.html#isIPv6Firewalled()">isIPv6Firewalled</a>, <a href="../TransportImpl.html#isPubliclyRoutable(byte%5B%5D)">isPubliclyRoutable</a>, <a href="../TransportImpl.html#isUnreachable(net.i2p.data.Hash)">isUnreachable</a>, <a href="../TransportImpl.html#markReachable(net.i2p.data.Hash,boolean)">markReachable</a>, <a href="../TransportImpl.html#markUnreachable(net.i2p.data.Hash)">markUnreachable</a>, <a href="../TransportImpl.html#messageReceived(net.i2p.data.i2np.I2NPMessage,net.i2p.data.router.RouterIdentity,net.i2p.data.Hash,long,int)">messageReceived</a>, <a href="../TransportImpl.html#ngettext(java.lang.String,java.lang.String,int)">ngettext</a>, <a href="../TransportImpl.html#recheckReachability()">recheckReachability</a>, <a href="../TransportImpl.html#removeAddress(boolean)">removeAddress</a>, <a href="../TransportImpl.html#removeAddress(net.i2p.data.router.RouterAddress)">removeAddress</a>, <a href="../TransportImpl.html#renderStatusHTML(java.io.Writer)">renderStatusHTML</a>, <a href="../TransportImpl.html#replaceAddress(net.i2p.data.router.RouterAddress)">replaceAddress</a>, <a href="../TransportImpl.html#saveLocalAddress(java.net.InetAddress)">saveLocalAddress</a>, <a href="../TransportImpl.html#send(net.i2p.router.OutNetMessage)">send</a>, <a href="../TransportImpl.html#setIP(net.i2p.data.Hash,byte%5B%5D)">setIP</a>, <a href="../TransportImpl.html#setListener(net.i2p.router.transport.TransportEventListener)">setListener</a>, <a href="../TransportImpl.html#updateAddress()">updateAddress</a>, <a href="../TransportImpl.html#wasUnreachable(net.i2p.data.Hash)">wasUnreachable</a></code></div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="fieldDetails"><a id="field.detail">
+</a>
+<h2>Field Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_I2NP_NTCP_HOSTNAME">PROP_I2NP_NTCP_HOSTNAME</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_I2NP_NTCP_HOSTNAME</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_I2NP_NTCP_HOSTNAME">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_I2NP_NTCP_PORT">PROP_I2NP_NTCP_PORT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_I2NP_NTCP_PORT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_I2NP_NTCP_PORT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_I2NP_NTCP_AUTO_PORT">PROP_I2NP_NTCP_AUTO_PORT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_I2NP_NTCP_AUTO_PORT</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_I2NP_NTCP_AUTO_PORT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_I2NP_NTCP_AUTO_IP">PROP_I2NP_NTCP_AUTO_IP</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_I2NP_NTCP_AUTO_IP</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_I2NP_NTCP_AUTO_IP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_BIND_INTERFACE">PROP_BIND_INTERFACE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_BIND_INTERFACE</span></div>
+<div class="block">this is rarely if ever used, default is to bind to wildcard address</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_BIND_INTERFACE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="MIN_SIGTYPE_VERSION">MIN_SIGTYPE_VERSION</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">MIN_SIGTYPE_VERSION</span></div>
+<div class="block">RI sigtypes supported in 0.9.16</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.MIN_SIGTYPE_VERSION">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="STYLE">STYLE</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">STYLE</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.STYLE">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="STYLE2">STYLE2</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">STYLE2</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.STYLE2">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NTCP2_INT_VERSION">NTCP2_INT_VERSION</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">NTCP2_INT_VERSION</span></div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.NTCP2_INT_VERSION">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NTCP2_VERSION">NTCP2_VERSION</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">NTCP2_VERSION</span></div>
+<div class="block">"2"</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="NTCP2_VERSION_ALT">NTCP2_VERSION_ALT</a></h3>
+<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">NTCP2_VERSION_ALT</span></div>
+<div class="block">"2,"</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_NTCP2_SP">PROP_NTCP2_SP</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_NTCP2_SP</span></div>
+<div class="block">b64 static private key</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_NTCP2_SP">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="PROP_NTCP2_IV">PROP_NTCP2_IV</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_NTCP2_IV</span></div>
+<div class="block">b64 static IV</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.PROP_NTCP2_IV">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="ESTABLISH_TIMEOUT">ESTABLISH_TIMEOUT</a></h3>
+<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">ESTABLISH_TIMEOUT</span></div>
+<div class="block">how long from initial connection attempt (accept() or connect()) until
+ the con must be established to avoid premature close()ing</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../constant-values.html#net.i2p.router.transport.ntcp.NTCPTransport.ESTABLISH_TIMEOUT">Constant Field Values</a></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(net.i2p.router.RouterContext,net.i2p.router.transport.crypto.DHSessionKeyBuilder.Factory,net.i2p.router.transport.crypto.X25519KeyFactory)">NTCPTransport</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">NTCPTransport</span>&#8203;(<span class="arguments"><a href="../../RouterContext.html" title="class in net.i2p.router">RouterContext</a>&nbsp;ctx,
+<a href="../crypto/DHSessionKeyBuilder.Factory.html" title="interface in net.i2p.router.transport.crypto">DHSessionKeyBuilder.Factory</a>&nbsp;dh,
+<a href="../crypto/X25519KeyFactory.html" title="class in net.i2p.router.transport.crypto">X25519KeyFactory</a>&nbsp;xdh)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dh</code> - unused, ignored</dd>
+<dd><code>xdh</code> - null to disable NTCP2</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="inboundEstablished(net.i2p.router.transport.ntcp.NTCPConnection)">inboundEstablished</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a></span>&nbsp;<span class="memberName">inboundEstablished</span>&#8203;(<span class="arguments"><a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</span></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>con</code> - that is established</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the previous connection to the same peer, must be closed by caller, null if no such.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="outboundMessageReady()">outboundMessageReady</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">outboundMessageReady</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../TransportImpl.html#outboundMessageReady()">TransportImpl</a></code></span></div>
+<div class="block">This message is called whenever a new message is added to the send pool,
+ and it should not block
+
+ Only used by NTCP. SSU throws UOE.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#outboundMessageReady()">outboundMessageReady</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="afterSend(net.i2p.router.OutNetMessage,boolean,boolean,long)">afterSend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">afterSend</span>&#8203;(<span class="arguments"><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg,
+boolean&nbsp;sendSuccessful,
+boolean&nbsp;allowRequeue,
+long&nbsp;msToSend)</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../TransportImpl.html#afterSend(net.i2p.router.OutNetMessage,boolean,boolean,long)">TransportImpl</a></code></span></div>
+<div class="block">The transport is done sending this message.  This is the method that actually
+ does all of the cleanup - firing off jobs, requeueing, updating stats, etc.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#afterSend(net.i2p.router.OutNetMessage,boolean,boolean,long)">afterSend</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>msg</code> - message in question</dd>
+<dd><code>sendSuccessful</code> - true if the peer received it</dd>
+<dd><code>allowRequeue</code> - true if we should try other transports if available</dd>
+<dd><code>msToSend</code> - how long it took to transfer the data to the peer</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bid(net.i2p.data.router.RouterInfo,int)">bid</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../TransportBid.html" title="class in net.i2p.router.transport">TransportBid</a></span>&nbsp;<span class="memberName">bid</span>&#8203;(<span class="arguments"><a href="../../../data/router/RouterInfo.html" title="class in net.i2p.data.router">RouterInfo</a>&nbsp;toAddress,
+int&nbsp;dataSize)</span></div>
+<dl>
+<dd><code>dataSize</code> - assumes full 16-byte header, transports should
+        adjust as necessary</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a bid or null if unwilling to send</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="allowConnection()">allowConnection</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">allowConnection</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="sendComplete(net.i2p.router.OutNetMessage)">sendComplete</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendComplete</span>&#8203;(<span class="arguments"><a href="../../OutNetMessage.html" title="class in net.i2p.router">OutNetMessage</a>&nbsp;msg)</span></div>
+<div class="block">queue up afterSend call, which can take some time w/ jobs, etc</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isEstablished(net.i2p.data.Hash)">isEstablished</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isEstablished</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;dest)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#isEstablished(net.i2p.data.Hash)">isEstablished</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#isEstablished(net.i2p.data.Hash)">isEstablished</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isBacklogged(net.i2p.data.Hash)">isBacklogged</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isBacklogged</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;dest)</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#isBacklogged(net.i2p.data.Hash)">isBacklogged</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#isBacklogged(net.i2p.data.Hash)">isBacklogged</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="mayDisconnect(net.i2p.data.Hash)">mayDisconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">mayDisconnect</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Tell the transport that we may disconnect from this peer.
+ This is advisory only.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#mayDisconnect(net.i2p.data.Hash)">mayDisconnect</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#mayDisconnect(net.i2p.data.Hash)">mayDisconnect</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.24</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="forceDisconnect(net.i2p.data.Hash)">forceDisconnect</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">forceDisconnect</span>&#8203;(<span class="arguments"><a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;peer)</span></div>
+<div class="block">Tell the transport to disconnect from this peer.</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.38</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="removeCon(net.i2p.router.transport.ntcp.NTCPConnection)">removeCon</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a></span>&nbsp;<span class="memberName">removeCon</span>&#8203;(<span class="arguments"><a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</span></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>usually the con passed in, but possibly a second connection with the same peer...
+         only con or null as of 0.9.37</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countPeers()">countPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countPeers</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../TransportImpl.html#countPeers()">TransportImpl</a></code></span></div>
+<div class="block">How many peers are we connected to?</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#countPeers()">countPeers</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#countPeers()">countPeers</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPeers()">getPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&gt;</span>&nbsp;<span class="memberName">getPeers</span>()</div>
+<div class="block">For /peers UI only. Not a public API, not for external use.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>not a copy, do not modify</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.31</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getEstablished()">getEstablished</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../../../data/Hash.html" title="class in net.i2p.data">Hash</a>&gt;</span>&nbsp;<span class="memberName">getEstablished</span>()</div>
+<div class="block">Connected peers.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy, modifiable</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.34</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countActivePeers()">countActivePeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countActivePeers</span>()</div>
+<div class="block">How many peers have we talked to in the last minute?
+ As of 0.9.20, actually returns active peer count, not total.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#countActivePeers()">countActivePeers</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#countActivePeers()">countActivePeers</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="countActiveSendPeers()">countActiveSendPeers</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">countActiveSendPeers</span>()</div>
+<div class="block">How many peers are we actively sending messages to (this minute)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#countActiveSendPeers()">countActiveSendPeers</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#countActiveSendPeers()">countActiveSendPeers</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setLastBadSkew(long)">setLastBadSkew</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setLastBadSkew</span>&#8203;(<span class="arguments">long&nbsp;skew)</span></div>
+<div class="block">A positive number means our clock is ahead of theirs.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>skew</code> - in seconds</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getClockSkews()">getClockSkews</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang" class="externalLink">Long</a>&gt;</span>&nbsp;<span class="memberName">getClockSkews</span>()</div>
+<div class="block">Return our peer clock skews on this transport.
+ List composed of Long, each element representing a peer skew in seconds.
+ A positive number means our clock is ahead of theirs.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#getClockSkews()">getClockSkews</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#getClockSkews()">getClockSkews</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isHXHIValid(byte[])">isHXHIValid</a></h3>
+<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isHXHIValid</span>&#8203;(<span class="arguments">byte[]&nbsp;hxhi)</span></div>
+<div class="block">Incoming connection replay detection.
+  As there is no timestamp in the first message, we can't detect
+  something long-delayed. To be fixed in next version of NTCP.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hxhi</code> - using first 8 bytes only</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>valid</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.12</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="startListening()">startListening</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startListening</span>()</div>
+<div class="block">Called by TransportManager.
+  Caller should stop the transport first, then
+  verify stopped with isAlive()
+  Unfortunately TransportManager doesn't do that, so we
+  check here to prevent two pumpers.</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="isAlive()">isAlive</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isAlive</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReader()">getReader</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="Reader.html" title="class in net.i2p.router.transport.ntcp">Reader</a></span>&nbsp;<span class="memberName">getReader</span>()</div>
+<div class="block">Hook for NTCPConnection</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getWriter()">getWriter</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="Writer.html" title="class in net.i2p.router.transport.ntcp">Writer</a></span>&nbsp;<span class="memberName">getWriter</span>()</div>
+<div class="block">Hook for NTCPConnection</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStyle()">getStyle</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getStyle</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../Transport.html#getStyle()">Transport</a></code></span></div>
+<div class="block">The unique identity of this Transport</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>always "NTCP"</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getAltStyle()">getAltStyle</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getAltStyle</span>()</div>
+<div class="block">An alternate supported style</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#getAltStyle()">getAltStyle</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>"NTCP2" always</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.35</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getPumper()">getPumper</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="EventPumper.html" title="class in net.i2p.router.transport.ntcp">EventPumper</a></span>&nbsp;<span class="memberName">getPumper</span>()</div>
+<div class="block">Hook for NTCPConnection</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getXDHFactory()">getXDHFactory</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="../crypto/X25519KeyFactory.html" title="class in net.i2p.router.transport.crypto">X25519KeyFactory</a></span>&nbsp;<span class="memberName">getXDHFactory</span>()</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if not configured for NTCP2</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="establishing(net.i2p.router.transport.ntcp.NTCPConnection)">establishing</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">establishing</span>&#8203;(<span class="arguments"><a href="NTCPConnection.html" title="class in net.i2p.router.transport.ntcp">NTCPConnection</a>&nbsp;con)</span></div>
+<div class="block">add us to the establishment timeout process</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="expireTimedOut()">expireTimedOut</a></h3>
+<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">expireTimedOut</span>()</div>
+<div class="block">called in the EventPumper no more than once a second or so, closing
+ any unconnected/unestablished connections</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNTCP2StaticPubkey()">getNTCP2StaticPubkey</a></h3>
+<div class="memberSignature"><span class="returnType">byte[]</span>&nbsp;<span class="memberName">getNTCP2StaticPubkey</span>()</div>
+<div class="block">The static priv key</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNTCP2StaticPrivkey()">getNTCP2StaticPrivkey</a></h3>
+<div class="memberSignature"><span class="returnType">byte[]</span>&nbsp;<span class="memberName">getNTCP2StaticPrivkey</span>()</div>
+<div class="block">The static priv key</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.35</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getNTCP2StaticIV()">getNTCP2StaticIV</a></h3>
+<div class="memberSignature"><span class="returnType">byte[]</span>&nbsp;<span class="memberName">getNTCP2StaticIV</span>()</div>
+<div class="block">The static IV</div>
+<dl>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.36</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="externalAddressReceived(net.i2p.router.transport.Transport.AddressSource,byte[],int)">externalAddressReceived</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">externalAddressReceived</span>&#8203;(<span class="arguments"><a href="../Transport.AddressSource.html" title="enum in net.i2p.router.transport">Transport.AddressSource</a>&nbsp;source,
+byte[]&nbsp;ip,
+int&nbsp;port)</span></div>
+<div class="block">UDP changed addresses, tell NTCP and (possibly) restart</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#externalAddressReceived(net.i2p.router.transport.Transport.AddressSource,byte%5B%5D,int)">externalAddressReceived</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#externalAddressReceived(net.i2p.router.transport.Transport.AddressSource,byte%5B%5D,int)">externalAddressReceived</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ip</code> - typ. IPv4 or IPv6 non-local; may be null to indicate IPv4 failure or port info only</dd>
+<dd><code>source</code> - defined in Transport.java</dd>
+<dd><code>port</code> - 0 for unknown or unchanged</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>IPv6 moved from CSFI.notifyReplaceAddress()</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="externalAddressRemoved(net.i2p.router.transport.Transport.AddressSource,boolean)">externalAddressRemoved</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">externalAddressRemoved</span>&#8203;(<span class="arguments"><a href="../Transport.AddressSource.html" title="enum in net.i2p.router.transport">Transport.AddressSource</a>&nbsp;source,
+boolean&nbsp;ipv6)</span></div>
+<div class="block">Notify a transport of an external address change.
+  This may be from a local interface, UPnP, a config change, etc.
+  This should not be called if the ip didn't change
+  (from that source's point of view), or is a local address.
+  May be called multiple times for IPv4 or IPv6.
+  The transport should also do its own checking on whether to accept
+  notifications from this source.
+
+  This can be called after the transport is running.
+
+  TODO externalAddressRemoved(source, ip, port)</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#externalAddressRemoved(net.i2p.router.transport.Transport.AddressSource,boolean)">externalAddressRemoved</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#externalAddressRemoved(net.i2p.router.transport.Transport.AddressSource,boolean)">externalAddressRemoved</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>source</code> - defined in Transport.java</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>0.9.20</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="forwardPortStatus(byte[],int,int,boolean,java.lang.String)">forwardPortStatus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">forwardPortStatus</span>&#8203;(<span class="arguments">byte[]&nbsp;ip,
+int&nbsp;port,
+int&nbsp;externalPort,
+boolean&nbsp;success,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;reason)</span></div>
+<div class="block">If we didn't used to be forwarded, and we have an address,
+  and we are configured to use UPnP, update our RouterAddress
+
+  Don't do anything now. If it fails, we don't know if it's
+  because there is no firewall, or if the firewall rejected the request.
+  So we just use the SSU reachability status
+  to decide whether to enable inbound NTCP. SSU will have CSFI build a new
+  NTCP address when it transitions to OK.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#forwardPortStatus(byte%5B%5D,int,int,boolean,java.lang.String)">forwardPortStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#forwardPortStatus(byte%5B%5D,int,int,boolean,java.lang.String)">forwardPortStatus</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ip</code> - may be null</dd>
+<dd><code>port</code> - the internal port</dd>
+<dd><code>externalPort</code> - the external port, which for now should always be the same as
+                      the internal port if the forwarding was successful.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRequestedPort()">getRequestedPort</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getRequestedPort</span>()</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../TransportImpl.html#getRequestedPort()">TransportImpl</a></code></span></div>
+<div class="block">What INTERNAL port would the transport like to have forwarded by UPnP.
+ This can't be passed via getCurrentAddress(), as we have to open the port
+ before we can publish the address, and that's the external port anyway.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#getRequestedPort()">getRequestedPort</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#getRequestedPort()">getRequestedPort</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>current IPv4 port, else NTCP configured port, else -1 (but not UDP port if auto)</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getReachabilityStatus()">getReachabilityStatus</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../CommSystemFacade.Status.html" title="enum in net.i2p.router">CommSystemFacade.Status</a></span>&nbsp;<span class="memberName">getReachabilityStatus</span>()</div>
+<div class="block">Maybe we should trust UPnP here and report OK if it opened the port, but
+ for now we don't. Just go through and if we have one inbound connection,
+ we must be good. As we drop idle connections pretty quickly, this will
+ be fairly accurate.
+
+ We have to be careful here because much of the router console code assumes
+ that the reachability status is really just the UDP status.
+
+ This only returns OK, DISABLED, or UNKNOWN for IPv4 and IPv6.
+ We leave the FIREWALLED status for UDP.
+
+ Previously returned short, now enum as of 0.9.20</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#getReachabilityStatus()">getReachabilityStatus</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../TransportImpl.html#getReachabilityStatus()">getReachabilityStatus</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="stopListening()">stopListening</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stopListening</span>()</div>
+<div class="block">This doesn't (completely) block, caller should check isAlive()
+  before calling startListening() or restartListening()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="renderStatusHTML(java.io.Writer,int)">renderStatusHTML</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">renderStatusHTML</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+int&nbsp;sortFlags)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="renderStatusHTML(java.io.Writer,java.lang.String,int)">renderStatusHTML</a></h3>
+<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">renderStatusHTML</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io" class="externalLink">Writer</a>&nbsp;out,
+<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;urlBase,
+int&nbsp;sortFlags)</span>
+                      throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">as of 0.9.31</div>
+</div>
+<div class="block">Does nothing</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../Transport.html#renderStatusHTML(java.io.Writer,java.lang.String,int)">renderStatusHTML</a></code>&nbsp;in interface&nbsp;<code><a href="../Transport.html" title="interface in net.i2p.router.transport">Transport</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../TransportImpl.html#renderStatusHTML(java.io.Writer,java.lang.String,int)">renderStatusHTML</a></code>&nbsp;in class&nbsp;<code><a href="../TransportImpl.html" title="class in net.i2p.router.transport">TransportImpl</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/NTCPTransport.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

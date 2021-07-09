@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>com.thetransactioncompany.jsonrpc2.util - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.thetransactioncompany.jsonrpc2.util">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../script.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;com.thetransactioncompany.jsonrpc2.util</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block">Utility classes for typed retrieval of JSON-RPC 2.0 request parameters on the
+ server side.
+ 
+ <p>The following parameter type conversion choices are available:
+
+ <ul>
+     <li>JSON true/false to Java <code>boolean</code>
+     <li>JSON number to Java <code>int</code>, <code>long</code>, <code>float</code> or 
+         <code>double</code>
+     <li>JSON string to <code>java.lang.String</code>
+     <li>Predefined (enumerated) JSON string to a Java <code>enum</code> constant
+         or <code>java.lang.String</code>
+     <li>JSON array to Java <code>boolean[]</code>, <code>int[]</code>, <code>long[]</code>,
+         <code>float[]</code>, <code>double[]</code> or <code>string[]</code> array, or 
+         to mixed type <code>java.util.List</code>
+     <li>JSON object to <code>java.util.Map</code>
+ </ul>
+
+ <p>If a parameter cannot be retrieved, either because it's missing or
+ is of the wrong type, a standard 
+ <a href="../JSONRPC2Error.html#INVALID_PARAMS"><code>JSONRPC2Error.INVALID_PARAMS</code></a>
+ exception is thrown.
+
+ <p>There are two concrete classes:
+
+ <ul>
+     <li>The <a href="PositionalParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util"><code>PositionalParamsRetriever</code></a> 
+         class is for extracting <em>positional parameters</em> (packed in a
+           JSON array).
+     <li>The <a href="NamedParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util"><code>NamedParamsRetriever</code></a> 
+         class is for extracting <em>named parameters</em> (packed in a JSON
+         object).
+ </ul> <p><b>Package dependencies:</b> The classes in this package depend on the 
+ sister <a href="../package-summary.html"><code>com.thetransactioncompany.jsonrpc2</code></a> package.</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Vladimir Dzhuvinov</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NamedParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">NamedParamsRetriever</a></th>
+<td class="colLast">
+<div class="block">Utility class for retrieving JSON-RPC 2.0 named parameters (key-value pairs
+ packed into a JSON Object).</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">ParamsRetriever</a></th>
+<td class="colLast">
+<div class="block">The base abstract class for the JSON-RPC 2.0 parameter retrievers.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PositionalParamsRetriever.html" title="class in com.thetransactioncompany.jsonrpc2.util">PositionalParamsRetriever</a></th>
+<td class="colLast">
+<div class="block">Utility class for retrieving JSON-RPC 2.0 positional parameters (packed into
+ a JSON Array).</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

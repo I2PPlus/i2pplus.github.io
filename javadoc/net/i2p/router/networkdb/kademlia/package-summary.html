@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>net.i2p.router.networkdb.kademlia - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.i2p.router.networkdb.kademlia">
+<meta name="generator" content="javadoc/PackageWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../../../script.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="package-declaration">
+<script type="text/javascript">var pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<h1 title="Package" class="title">Package&nbsp;net.i2p.router.networkdb.kademlia</h1>
+</div>
+<div class="contentContainer">
+<section class="packageDescription"><a id="package.description">
+</a>
+<div class="block"><p>
+The network database, including implementation of floodfills.
+Database lookups, stores, exploration, and replies.
+Management of locally-generated RouterInfos and Leasesets.
+</p></div>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="DataStore.html" title="interface in net.i2p.router.networkdb.kademlia">DataStore</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="BlindCache.html" title="class in net.i2p.router.networkdb.kademlia">BlindCache</a></th>
+<td class="colLast">
+<div class="block">Cache of blinding data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ExpireLeasesJob.html" title="class in net.i2p.router.networkdb.kademlia">ExpireLeasesJob</a></th>
+<td class="colLast">
+<div class="block">Periodically search through all leases to find expired ones, failing those
+ keys and firing up a new search for each (in case we want it later, might as
+ well preemptively fetch it)</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ExpireRoutersJob.html" title="class in net.i2p.router.networkdb.kademlia">ExpireRoutersJob</a></th>
+<td class="colLast">
+<div class="block">Go through the routing table pick routers that are
+ out of date, but don't expire routers we're actively connected to.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ExploreJob.html" title="class in net.i2p.router.networkdb.kademlia">ExploreJob</a></th>
+<td class="colLast">
+<div class="block">Search for a particular key iteratively until we either find a value, we run
+ out of peers, or the bucket the key belongs in has sufficient values in it.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ExploreKeySelectorJob.html" title="class in net.i2p.router.networkdb.kademlia">ExploreKeySelectorJob</a></th>
+<td class="colLast">Deprecated.
+<div class="deprecationComment">unused, see comments in KNDF</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodfillDatabaseLookupMessageHandler.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillDatabaseLookupMessageHandler</a></th>
+<td class="colLast">
+<div class="block">Build a HandleDatabaseLookupMessageJob whenever a DatabaseLookupMessage arrives</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodfillDatabaseStoreMessageHandler.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillDatabaseStoreMessageHandler</a></th>
+<td class="colLast">
+<div class="block">Create a HandleDatabaseStoreMessageJob whenever a DatabaseStoreMessage arrives</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodfillMonitorJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillMonitorJob</a></th>
+<td class="colLast">
+<div class="block">Simple job to monitor the floodfill pool.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodfillNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillNetworkDatabaseFacade</a></th>
+<td class="colLast">
+<div class="block">The network database</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodfillPeerSelector.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillPeerSelector</a></th>
+<td class="colLast">
+<div class="block">This is where we implement semi-Kademlia with the floodfills, by
+  selecting floodfills closest to a given key for
+  searches and stores.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodfillRouterInfoFloodJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillRouterInfoFloodJob</a></th>
+<td class="colLast">
+<div class="block">Job to flood nearby floodfill routers with our RI.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodfillStoreJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillStoreJob</a></th>
+<td class="colLast">
+<div class="block">This extends StoreJob to fire off a FloodfillVerifyStoreJob after success.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodfillVerifyStoreJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodfillVerifyStoreJob</a></th>
+<td class="colLast">
+<div class="block">Send a netDb lookup to a floodfill peer - If it is found, great,
+ but if they reply back saying they don't know it, queue up a store of the
+ key to a random floodfill peer again (via FloodfillStoreJob)</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodOnlyLookupMatchJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodOnlyLookupMatchJob</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodOnlyLookupSelector.html" title="class in net.i2p.router.networkdb.kademlia">FloodOnlyLookupSelector</a></th>
+<td class="colLast">
+<div class="block">Mostly replaced by IterativeLookupSelector</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodOnlyLookupTimeoutJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodOnlyLookupTimeoutJob</a></th>
+<td class="colLast">
+<div class="block">This is the timeout for the whole search.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodOnlySearchJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodOnlySearchJob</a></th>
+<td class="colLast">
+<div class="block">Uunused directly, replaced by IterativeSearchJob, but still extended by
+ SingleSearchJob.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FloodSearchJob.html" title="class in net.i2p.router.networkdb.kademlia">FloodSearchJob</a></th>
+<td class="colLast">
+<div class="block">Try sending a search to some floodfill peers, but if we don't get a successful
+ match within half the allowed lookup time, give up and start querying through
+ the normal (kademlia) channels.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FloodThrottler.html" title="class in net.i2p.router.networkdb.kademlia">FloodThrottler</a></th>
+<td class="colLast">
+<div class="block">Count how often we have recently flooded a key
+ This offers basic DOS protection but is not a complete solution.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="HandleFloodfillDatabaseLookupMessageJob.html" title="class in net.i2p.router.networkdb.kademlia">HandleFloodfillDatabaseLookupMessageJob</a></th>
+<td class="colLast">
+<div class="block">Handle a lookup for a key received from a remote peer.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="HandleFloodfillDatabaseStoreMessageJob.html" title="class in net.i2p.router.networkdb.kademlia">HandleFloodfillDatabaseStoreMessageJob</a></th>
+<td class="colLast">
+<div class="block">Receive DatabaseStoreMessage data and store it in the local net db</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IterativeFollowupJob.html" title="class in net.i2p.router.networkdb.kademlia">IterativeFollowupJob</a></th>
+<td class="colLast">
+<div class="block">Ask a single peer for a single key.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="IterativeLookupJob.html" title="class in net.i2p.router.networkdb.kademlia">IterativeLookupJob</a></th>
+<td class="colLast">
+<div class="block">Ask the peer who sent us the DSRM for the RouterInfos...</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IterativeLookupSelector.html" title="class in net.i2p.router.networkdb.kademlia">IterativeLookupSelector</a></th>
+<td class="colLast">
+<div class="block">Slightly modified version of FloodOnlyLookupSelector.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="IterativeSearchJob.html" title="class in net.i2p.router.networkdb.kademlia">IterativeSearchJob</a></th>
+<td class="colLast">
+<div class="block">A traditional Kademlia search that continues to search
+ when the initial lookup fails, by iteratively searching the
+ closer-to-the-key peers returned by the query in a DSRM.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IterativeTimeoutJob.html" title="class in net.i2p.router.networkdb.kademlia">IterativeTimeoutJob</a></th>
+<td class="colLast">
+<div class="block">This is the timeout for a single lookup, not for the whole search.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="KademliaNetworkDatabaseFacade.html" title="class in net.i2p.router.networkdb.kademlia">KademliaNetworkDatabaseFacade</a></th>
+<td class="colLast">
+<div class="block">Kademlia based version of the network database.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="LocalHash.html" title="class in net.i2p.router.networkdb.kademlia">LocalHash</a></th>
+<td class="colLast">
+<div class="block">Pull the caching used only by KBucketImpl out of Hash and put it here.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="LookupThrottler.html" title="class in net.i2p.router.networkdb.kademlia">LookupThrottler</a></th>
+<td class="colLast">
+<div class="block">Count how often we have recently received a lookup request with
+ the reply specified to go to a peer/TunnelId pair.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageWrapper.html" title="class in net.i2p.router.networkdb.kademlia">MessageWrapper</a></th>
+<td class="colLast">
+<div class="block">Method and class for garlic encrypting outbound netdb traffic,
+  and sending keys and tags for others to encrypt inbound netdb traffic,
+  including management of the ElGamal/AES tags.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="MessageWrapper.OneTimeSession.html" title="class in net.i2p.router.networkdb.kademlia">MessageWrapper.OneTimeSession</a></th>
+<td class="colLast">
+<div class="block">A single key and tag, for receiving a single message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="MessageWrapper.WrappedMessage.html" title="class in net.i2p.router.networkdb.kademlia">MessageWrapper.WrappedMessage</a></th>
+<td class="colLast">
+<div class="block">Wrapper so that we can keep track of the key and tags
+  for later notification to the SKM</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NegativeLookupCache.html" title="class in net.i2p.router.networkdb.kademlia">NegativeLookupCache</a></th>
+<td class="colLast">
+<div class="block">Track lookup fails</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="PeerSelector.html" title="class in net.i2p.router.networkdb.kademlia">PeerSelector</a></th>
+<td class="colLast">
+<div class="block">Mostly unused, see overrides in FloodfillPeerSelector</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="PersistentDataStore.html" title="class in net.i2p.router.networkdb.kademlia">PersistentDataStore</a></th>
+<td class="colLast">
+<div class="block">Write out keys to disk when we get them and periodically read ones we don't know
+ about into memory, with newly read routers are also added to the routing table.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RefreshRoutersJob.html" title="class in net.i2p.router.networkdb.kademlia">RefreshRoutersJob</a></th>
+<td class="colLast">
+<div class="block">Go through all the routers once, after startup, and refetch their router infos.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RepublishLeaseSetJob.html" title="class in net.i2p.router.networkdb.kademlia">RepublishLeaseSetJob</a></th>
+<td class="colLast">
+<div class="block">Run periodically for each locally created leaseSet to cause it to be republished
+ if the client is still connected.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchJob</a></th>
+<td class="colLast">
+<div class="block">Search for a particular key iteratively until we either find a value or we
+ run out of peers
+
+ Note that this is rarely if ever used directly, and is primary used by the ExploreJob extension.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SearchMessageSelector.html" title="class in net.i2p.router.networkdb.kademlia">SearchMessageSelector</a></th>
+<td class="colLast">
+<div class="block">Check to see the message is a reply from the peer regarding the current
+ search</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SearchReplyJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchReplyJob</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SearchState.html" title="class in net.i2p.router.networkdb.kademlia">SearchState</a></th>
+<td class="colLast">
+<div class="block">Data related to a particular search</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SearchUpdateReplyFoundJob.html" title="class in net.i2p.router.networkdb.kademlia">SearchUpdateReplyFoundJob</a></th>
+<td class="colLast">
+<div class="block">Called after a match to a db search is found
+
+ Used only by SearchJob which is only used by ExploreJob</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SingleLookupJob.html" title="class in net.i2p.router.networkdb.kademlia">SingleLookupJob</a></th>
+<td class="colLast">
+<div class="block">Ask the peer who sent us the DSRM for the RouterInfos...</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SingleSearchJob.html" title="class in net.i2p.router.networkdb.kademlia">SingleSearchJob</a></th>
+<td class="colLast">
+<div class="block">Ask a single peer for a single key.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="StartExplorersJob.html" title="class in net.i2p.router.networkdb.kademlia">StartExplorersJob</a></th>
+<td class="colLast">
+<div class="block">Fire off search jobs for random keys from the explore pool, up to MAX_PER_RUN
+ at a time.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StoreJob.html" title="class in net.i2p.router.networkdb.kademlia">StoreJob</a></th>
+<td class="colLast">
+<div class="block">Stores through this always request a reply.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="StoreMessageSelector.html" title="class in net.i2p.router.networkdb.kademlia">StoreMessageSelector</a></th>
+<td class="colLast">
+<div class="block">Check to see the message is a reply from the peer regarding the current
+ store</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="StoreState.html" title="class in net.i2p.router.networkdb.kademlia">StoreState</a></th>
+<td class="colLast">
+<div class="block">Tracks the state of a StoreJob</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="TransientDataStore.html" title="class in net.i2p.router.networkdb.kademlia">TransientDataStore</a></th>
+<td class="colLast">
+<div class="block">Stores in-memory only.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="blockList">
+<div class="typeSummary">
+<table>
+<caption><span>Exception Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Exception</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="UnsupportedCryptoException.html" title="class in net.i2p.router.networkdb.kademlia">UnsupportedCryptoException</a></th>
+<td class="colLast">
+<div class="block">Signature verification failed because the
+  sig type is unknown or unavailable.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="navBarCell1Rev">Package</li>
+<li>Class</li>
+<li><a href="package-use.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>

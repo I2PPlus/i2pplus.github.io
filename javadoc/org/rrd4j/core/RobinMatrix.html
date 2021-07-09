@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RobinMatrix - Javadocs [I2P+ 0.9.50]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: org.rrd4j.core, class: RobinMatrix">
+<meta name="generator" content="javadoc/ClassWriterImpl">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
+
+<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
+</head>
+<body class="class-declaration">
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+var pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<style type="text/css">.script{display:none!important}</style>
+
+</noscript>
+<div class="flexBox">
+<header role="banner" class="flexHeader">
+<nav role="navigation">
+<div class="topNav"><a id="navbar.top">
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.top.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RobinMatrix.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<div class="navListSearch script"><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</div>
+</div>
+<div class="skipNav"><a id="skip.navbar.top">
+</a></div>
+</nav>
+</header>
+<div class="flexContent">
+<main role="main">
+<div class="header">
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">org.rrd4j.core</a></div>
+<h1 title="Class RobinMatrix" class="title">Class RobinMatrix</h1>
+</div>
+<div class="contentContainer">
+<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
+<div class="inheritance">org.rrd4j.core.RobinMatrix</div>
+</div>
+<section class="description">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code>, <code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&gt;</code></dd>
+</dl>
+<hr>
+<pre>class <span class="typeNameLabel">RobinMatrix</span>
+extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
+implements <a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></pre>
+<div class="block">Class to represent archive values for a single datasource. Robin class is the heart of
+ the so-called "round robin database" concept. Basically, each Robin object is a
+ fixed length array of double values. Each double value reperesents consolidated, archived
+ value for the specific timestamp. When the underlying array of double values gets completely
+ filled, new values will replace the oldest ones.<p>
+
+ Robin object does not hold values in memory - such object could be quite large.
+ Instead of it, Robin reads them from the backend I/O only when necessary.</div>
+<dl>
+<dt><span class="simpleTagLabel">Author:</span></dt>
+<dd>Fabrice Bacchella</dd>
+</dl>
+</section>
+<section class="summary">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorSummary"><a id="constructor.summary">
+</a>
+<h2>Constructor Summary</h2>
+<div class="memberSummary">
+<table>
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.rrd4j.core.Archive,org.rrd4j.core.RrdDoubleMatrix,org.rrd4j.core.RrdInt,int)">RobinMatrix</a></span>&#8203;(<a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&nbsp;parentArc,
+<a href="RrdDoubleMatrix.html" title="class in org.rrd4j.core">RrdDoubleMatrix</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&gt;&nbsp;values,
+<a href="RrdInt.html" title="class in org.rrd4j.core">RrdInt</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&gt;&nbsp;pointer,
+int&nbsp;column)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</li>
+<li class="blockList">
+<section class="methodSummary"><a id="method.summary">
+</a>
+<h2>Method Summary</h2>
+<div class="memberSummary">
+<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
+<div id="memberSummary_tabpanel" role="tabpanel">
+<table aria-labelledby="t0">
+<thead>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Method</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="altColor" id="i0">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bulkStore(double,int)">bulkStore</a></span>&#8203;(double&nbsp;newValue,
+int&nbsp;bulkCount)</code></th>
+<td class="colLast">
+<div class="block">bulkStore.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyStateTo(org.rrd4j.core.Robin)">copyStateTo</a></span>&#8203;(<a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&nbsp;robin)</code></th>
+<td class="colLast">
+<div class="block">copyStateTo.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dump()">dump</a></span>()</code></th>
+<td class="colLast">
+<div class="block">dump.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterValues(double,double)">filterValues</a></span>&#8203;(double&nbsp;minValue,
+double&nbsp;maxValue)</code></th>
+<td class="colLast">
+<div class="block">Filters values stored in this archive based on the given boundary.</div>
+</td>
+</tr>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getParent()">getParent</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the Archive object to which this Robin object belongs.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i5">
+<td class="colFirst"><code><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdAllocator()">getRrdAllocator</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Required to implement RrdUpdater interface.</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRrdBackend()">getRrdBackend</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the underlying storage (backend) object which actually performs all
+ I/O operations.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSize()">getSize</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the size of the underlying array of archived values.</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValue(int)">getValue</a></span>&#8203;(int&nbsp;index)</code></th>
+<td class="colLast">
+<div class="block">Returns the i-th value from the Robin archive.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i9">
+<td class="colFirst"><code>double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValues()">getValues</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Fetches all archived values.</div>
+</td>
+</tr>
+<tr class="altColor" id="i10">
+<td class="colFirst"><code>double[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getValues(int,int)">getValues</a></span>&#8203;(int&nbsp;index,
+int&nbsp;count)</code></th>
+<td class="colLast">
+<div class="block">getValues.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i11">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValue(int,double)">setValue</a></span>&#8203;(int&nbsp;index,
+double&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Sets the i-th value in the Robin archive.</div>
+</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValues(double)">setValues</a></span>&#8203;(double&nbsp;newValue)</code></th>
+<td class="colLast">
+<div class="block">(Re)sets all values in this archive to the same value.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValues(double...)">setValues</a></span>&#8203;(double...&nbsp;newValues)</code></th>
+<td class="colLast">
+<div class="block">Updates archived values in bulk.</div>
+</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#store(double)">store</a></span>&#8203;(double&nbsp;newValue)</code></th>
+<td class="colLast">
+<div class="block">store.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(double%5B%5D)">update</a></span>&#8203;(double[]&nbsp;newValues)</code></th>
+<td class="colLast">
+<div class="block">update.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="inheritedList">
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
+<a id="methods.inherited.from.class.java.lang.Object">
+</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="blockList">
+<li class="blockList">
+<section class="constructorDetails"><a id="constructor.detail">
+</a>
+<h2>Constructor Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="&lt;init&gt;(org.rrd4j.core.Archive,org.rrd4j.core.RrdDoubleMatrix,org.rrd4j.core.RrdInt,int)">RobinMatrix</a></h3>
+<div class="memberSignature"><span class="memberName">RobinMatrix</span>&#8203;(<span class="arguments"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&nbsp;parentArc,
+<a href="RrdDoubleMatrix.html" title="class in org.rrd4j.core">RrdDoubleMatrix</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&gt;&nbsp;values,
+<a href="RrdInt.html" title="class in org.rrd4j.core">RrdInt</a>&lt;<a href="Archive.html" title="class in org.rrd4j.core">Archive</a>&gt;&nbsp;pointer,
+int&nbsp;column)</span>
+     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="methodDetails"><a id="method.detail">
+</a>
+<h2>Method Details</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h3><a id="getValues()">getValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double[]</span>&nbsp;<span class="memberName">getValues</span>()
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Fetches all archived values.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getValues()">getValues</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Array of double archive values, starting from the oldest one.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O specific error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="store(double)">store</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">store</span>&#8203;(<span class="arguments">double&nbsp;newValue)</span>
+           throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>store.</p></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#store(double)">store</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValue</code> - a double.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="bulkStore(double,int)">bulkStore</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">bulkStore</span>&#8203;(<span class="arguments">double&nbsp;newValue,
+int&nbsp;bulkCount)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>bulkStore.</p></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#bulkStore(double,int)">bulkStore</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValue</code> - a double.</dd>
+<dd><code>bulkCount</code> - a int.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="update(double[])">update</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">update</span>&#8203;(<span class="arguments">double[]&nbsp;newValues)</span>
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>update.</p></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#update(double%5B%5D)">update</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValues</code> - an array of double.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setValues(double...)">setValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setValues</span>&#8203;(<span class="arguments">double...&nbsp;newValues)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Updates archived values in bulk.
+
+ Updates archived values in bulk.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#setValues(double...)">setValues</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValues</code> - Array of double values to be stored in the archive</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setValues(double)">setValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setValues</span>&#8203;(<span class="arguments">double&nbsp;newValue)</span>
+               throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">(Re)sets all values in this archive to the same value.
+
+ (Re)sets all values in this archive to the same value.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#setValues(double)">setValues</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newValue</code> - New value</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="dump()">dump</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">dump</span>()
+            throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>dump.</p></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#dump()">dump</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>String</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getValue(int)">getValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double</span>&nbsp;<span class="memberName">getValue</span>&#8203;(<span class="arguments">int&nbsp;index)</span>
+                throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Returns the i-th value from the Robin archive.
+
+ Returns the i-th value from the Robin archive.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getValue(int)">getValue</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - Value index</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Value stored in the i-th position (the oldest value has zero index)</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O specific error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setValue(int,double)">setValue</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setValue</span>&#8203;(<span class="arguments">int&nbsp;index,
+double&nbsp;value)</span>
+              throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Sets the i-th value in the Robin archive.
+
+ Sets the i-th value in the Robin archive.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#setValue(int,double)">setValue</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - index in the archive (the oldest value has zero index)</dd>
+<dd><code>value</code> - value to be stored</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O specific error.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getValues(int,int)">getValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">double[]</span>&nbsp;<span class="memberName">getValues</span>&#8203;(<span class="arguments">int&nbsp;index,
+int&nbsp;count)</span>
+                   throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>getValues.</p></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getValues(int,int)">getValues</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>index</code> - a int.</dd>
+<dd><code>count</code> - a int.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an array of double.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getParent()">getParent</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Archive.html" title="class in org.rrd4j.core">Archive</a></span>&nbsp;<span class="memberName">getParent</span>()</div>
+<div class="block">Returns the Archive object to which this Robin object belongs.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getParent()">getParent</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Parent Archive object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getSize()">getSize</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getSize</span>()</div>
+<div class="block">Returns the size of the underlying array of archived values.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getSize()">getSize</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Number of stored values</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="copyStateTo(org.rrd4j.core.Robin)">copyStateTo</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">copyStateTo</span>&#8203;(<span class="arguments"><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&nbsp;robin)</span>
+                 throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block"><p>copyStateTo.</p>
+
+ Copies object's internal state to another Robin object.
+
+ Copies object's internal state to another Robin object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#copyStateTo(org.rrd4j.core.Robin)">copyStateTo</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#copyStateTo(T)">copyStateTo</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>robin</code> - a <a href="RrdUpdater.html" title="interface in org.rrd4j.core"><code>RrdUpdater</code></a> object.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - if any.</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="filterValues(double,double)">filterValues</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">filterValues</span>&#8203;(<span class="arguments">double&nbsp;minValue,
+double&nbsp;maxValue)</span>
+                  throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
+<div class="block">Filters values stored in this archive based on the given boundary.
+ Archived values found to be outside of <code>[minValue, maxValue]</code> interval (inclusive)
+ will be silently replaced with <code>NaN</code>.
+
+ Filters values stored in this archive based on the given boundary.
+ Archived values found to be outside of <code>[minValue, maxValue]</code> interval (inclusive)
+ will be silently replaced with <code>NaN</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#filterValues(double,double)">filterValues</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>minValue</code> - lower boundary</dd>
+<dd><code>maxValue</code> - upper boundary</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - Thrown in case of I/O error</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdBackend()">getRrdBackend</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdBackend.html" title="class in org.rrd4j.core">RrdBackend</a></span>&nbsp;<span class="memberName">getRrdBackend</span>()</div>
+<div class="block">Returns the underlying storage (backend) object which actually performs all
+ I/O operations.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getRrdBackend()">getRrdBackend</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdBackend()">getRrdBackend</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>I/O backend object</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getRrdAllocator()">getRrdAllocator</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RrdAllocator.html" title="class in org.rrd4j.core">RrdAllocator</a></span>&nbsp;<span class="memberName">getRrdAllocator</span>()</div>
+<div class="block">Required to implement RrdUpdater interface. You should never call this method directly.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Robin.html#getRrdAllocator()">getRrdAllocator</a></code>&nbsp;in interface&nbsp;<code><a href="Robin.html" title="interface in org.rrd4j.core">Robin</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="RrdUpdater.html#getRrdAllocator()">getRrdAllocator</a></code>&nbsp;in interface&nbsp;<code><a href="RrdUpdater.html" title="interface in org.rrd4j.core">RrdUpdater</a>&lt;<a href="Robin.html" title="interface in org.rrd4j.core">Robin</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Allocator object</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</div>
+</main>
+<footer role="contentinfo">
+<nav role="navigation">
+<div class="bottomNav"><a id="navbar.bottom">
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a id="navbar.bottom.firstrow">
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/RobinMatrix.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+</div>
+<a id="skip.navbar.bottom">
+</a>
+</nav>
+</footer>
+</div>
+</div>
+</body>
+</html>
