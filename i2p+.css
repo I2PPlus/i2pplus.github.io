@@ -124,8 +124,6 @@ code {
   word-spacing: -0.08em;
   font-family: s, monospace;
   color: #070;
-  moz-user-select: all;
-  -webkit-user-select: all;
   user-select: all;
   word-break: break-all;
 }
@@ -269,6 +267,21 @@ td .download {
   background: var(--download) no-repeat center center / 16px;
 }
 
+.download.tor::before {
+  width: 36px;
+  background: var(--download) no-repeat left center / 16px, var(--onion) no-repeat right center  / 16px;
+}
+
+.download.i2p::before {
+  width: 36px;
+  background: var(--download) no-repeat left center / 16px, var(--garlic) no-repeat right center  / 16px;
+}
+
+.download.web::before {
+  width: 36px;
+  background: var(--download) no-repeat left center / 16px, var(--planet) no-repeat right center  / 16px;
+}
+
 .torrent::before {
   background: var(--magnet) no-repeat center center / 15px;
 }
@@ -355,7 +368,7 @@ h1, h3 {
 
 h3 {
   margin: 10px -20px 25px;
-  padding: 10px 30px;
+  padding: 10px 34px;
   letter-spacing: 0.04em;
   word-spacing: 0.05em;
   font-style: italic;
