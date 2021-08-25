@@ -49,7 +49,7 @@
 <p>If you're running a manually installed version of I2P from the Java installer (not a repo or .deb installed version), updating is as simple as dropping the <a class="download" href="/i2pupdate.zip">i2pupdate.zip</a> file into your I2P application folder and restarting the router.</p>
 <p class="attention"><b>Note:</b> Do not extract the zip file, simply copy it to the I2P application folder and restart I2P... I2P will extract the zip automatically and update.</p>
 <p>Alternatively, if you haven't already installed I2P, you can download a full <a class="download" href="/installers/i2pinstall_0.9.50-0+_windows.exe">Windows</a> or <a class="download" href="/installers/i2pinstall_1.5.0-0+_linux-only.jar">Linux</a> installer</p>
-<p class="attention">As of 0.9.46+, the full installation will enable <code>https://</code> access to the console by default; you will need to allow the (self-signed) certificate before you can access the router console.<br>To disable automatic redirection of the http:// version of the router console on :7657 to https:// on :7667, add the following line to your <code>router.config</code> file located in your I2P+ settings directory: <code>routerconsole.redirectToHTTPS=false</code></p>
+<p class="attention">As of 0.9.46+, the full installation will enable <code>https://</code> access to the console by default; you will need to allow the (self-signed) certificate before you can access the router console.<br>To disable automatic redirection of the http:// version of the router console on :7657 to https:// on :7667, add the following line to your <code>router.config</code> file located in your I2P<span class="super">+</span> settings directory: <code>routerconsole.redirectToHTTPS=false</code></p>
 <p>The default location of the (non-repo installed) I2P application folder varies by operating system:</p>
 <ul>
 <li><b>Windows:</b> <code>Program Files\i2p\</code> or <code>Program Files (x86)\i2p\</code></li>
@@ -61,7 +61,7 @@
 <p>Alternatively, you can <a class="download" href="/i2pupdate.zip">download the latest release update</a>, or <a href="http://127.0.0.1:7657/configupdate" target="_blank">configure I2P</a> to allow unsigned updates and configure with the url (release builds): <code>http://skank.i2p/i2pupdate.zip</code> or for development builds: <code>http://skank.i2p/dev/i2pupdate.zip</code>
 </p>
 <p>This will automatically update your router when a new version becomes available. If updating via the console fails repeatedly, set the I2P update policy to <i>Notify only</i> to be informed of new updates, and then grab the torrent. For help with enabling unsigned updates, see below.</p>
-<p class="attention"><b>Note:</b> After you have installed an I2P+ update, you may need to refresh your browser cache to ensure any updated css files and resources are loaded for the console and web apps. In Firefox and Chrome, <i>CTRL+SHIFT+R</i> will force the resources to be reloaded for the page you are viewing. You may also need to repeat the process for the console webapps (torrents, susimail, susidns etc).</p>
+<p class="attention"><b>Note:</b> After you have installed an I2P<span class="super">+</span> update, you may need to refresh your browser cache to ensure any updated css files and resources are loaded for the console and web apps. In Firefox and Chrome, <i>CTRL+SHIFT+R</i> will force the resources to be reloaded for the page you are viewing. You may also need to repeat the process for the console webapps (torrents, susimail, susidns etc).</p>
 <h3>How do I enable in-console updates?</h3>
 <p>The recommended (and most reliable) method to update <span class="nowrap">I2P<span class="super">+</span></span> is to download the torrent file of the latest release and manually copy the i2pupdate.zip file to your application folder. However, if you wish to be notified of new updates, you can configure <span class="nowrap">I2P<span class="super">+</span></span> to permit unsigned updates. To do so, add either <code>router.updateUnsigned=true</code> or <code>routerconsole.advanced=true</code> to your <code>router.config</code> file located in your <i> settings folder</i> (see below).</p>
 <h3>Where is my I2P settings folder (for a non-repo installed I2P)?</h3>
@@ -71,16 +71,16 @@
 <li>Linux/*BSD: <code>~/.i2p/</code></li>
 </ul>
 <h3>I've installed I2P from a Linux repo or .deb file, how do I install <span class="nowrap">I2P<span class="super">+</span></span>?</h3>
-<p>If you have installed I2P from a software repository, you will need to disable the I2P service and download the I2P+ Linux Java installer in order to run <span class="nowrap">I2P<span class="super">+</span></span>. You will benefit from access to official updates more speedily than those available in the repository, and you'll be able to install custom builds such as <span class="nowrap">I2P<span class="super">+</span></span>.</p>
+<p>If you have installed I2P from a software repository, you will need to disable the I2P service and download the I2P<span class="super">+</span> Linux Java installer in order to run <span class="nowrap">I2P<span class="super">+</span></span>. You will benefit from access to official updates more speedily than those available in the repository, and you'll be able to install custom builds such as <span class="nowrap">I2P<span class="super">+</span></span>.</p>
 <ol>
-<li>Download the Linux <a href="/installers/i2pinstall_1.5.0-0+_linux-only.jar">I2P+ Java I2P installer</a></li>
+<li>Download the Linux <a href="/installers/i2pinstall_1.5.0-0+_linux-only.jar">I2P<span class="super">+</span> Java I2P installer</a></li>
 <li>Run the Java GUI installer by typing from a command prompt: <code>java -jar i2pinstall_1.5.0-0+_linux-only.jar</code> (replace the i2pinstall filename with the file you downloaded, and change to the download directory before running the command). To run the installer headless (console install with no GUI): <code>java -jar i2pinstall_1.5.0-0+_linux-only.jar -console</code></li>
 <li>If you see <i style="color: #900">Exception in thread "main" java.awt.AWTError: Assistive Technology not found: org.GNOME.</i> when attempting to install, try running the following command: <code>sudo sed -i -e '/^assistive_technologies=/s/^/#/' /etc/java-*-openjdk/accessibility.properties</code></li>
 <li>Install I2P to the default directory location which is: <code>$HOME/i2p</code>
 <li>Check if you have a $HOME/.i2p directory, and if so change the ownership of the directory recursively to your normal logged in user: <code>sudo chown -R yourusername:yourusername ~/.i2p/</code></li>
 <li>If you're running I2P as a service (installed from repo), stop the service and disable it from running: <code>sudo service i2p stop && sudo systemctl disable i2p</code></li>
 <li>Now it's time to run the version you've just manually installed: <code>~/i2p/i2prouter start</code></li>
-<li>Check that I2P is running as expected on <a href="http://127.0.0.1:7657" target="_blank">http://127.0.0.1:7657</a></li>
+<li>Check that I2P<span class="super">+</span> is running as expected on <a href="http://127.0.0.1:7657" target="_blank">http://127.0.0.1:7657</a></li>
 <li>If you want <span class="nowrap">I2P<span class="super">+</span></span> to run at startup, similar to how the service starts, there are several options: <ul>
 <li>Add <code>/bin/su yourusername -c "/home/yourusername/i2p/i2prouter start"</code> to your /etc/rc.local file</li>
 <li>Add an entry for <code>~/i2p/i2prouter start</code> to your session startup configuration tool</li>
@@ -88,6 +88,9 @@
 </ul>
 </li>
 </ol>
+
+<p class="attention"><b>Note:</b> When installing I2P<span class="super">+</span> headlessly via the <code>-console</code> argument, the installer will default to installing to the current working directory, so either create the desired installation directory first (usually <code>~/i2p/</code>) and move the install.jar file into that directory before starting the installation, or manually specify the installation path when prompted.</p>
+
 <h3>Does installing <span class="nowrap">I2P<span class="super">+</span></span> prevent official updates, and can I restore the official version easily?</h3>
 <p><span class="nowrap">I2P<span class="super">+</span></span> does not interfere in any way with the normal I2P update process. When a new official release is made available, you can easily restore your installation to vanilla I2P by installing the update.</p>
 <p>If you'd like to try out <span class="nowrap">I2P<span class="super">+</span></span> with the option to change back to your existing I2P installation, the easiest way is to make a copy of your I2P application folder, and then copy the update to the working I2P application folder and restart the router.</p>
