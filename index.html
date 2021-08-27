@@ -62,14 +62,19 @@
 </p>
 <p>This will automatically update your router when a new version becomes available. If updating via the console fails repeatedly, set the I2P update policy to <i>Notify only</i> to be informed of new updates, and then grab the torrent. For help with enabling unsigned updates, see below.</p>
 <p class="attention"><b>Note:</b> After you have installed an I2P<span class="super">+</span> update, you may need to refresh your browser cache to ensure any updated css files and resources are loaded for the console and web apps. In Firefox and Chrome, <i>CTRL+SHIFT+R</i> will force the resources to be reloaded for the page you are viewing. You may also need to repeat the process for the console webapps (torrents, susimail, susidns etc).</p>
+
 <h3>How do I enable in-console updates?</h3>
-<p>The recommended (and most reliable) method to update <span class="nowrap">I2P<span class="super">+</span></span> is to download the torrent file of the latest release and manually copy the i2pupdate.zip file to your application folder. However, if you wish to be notified of new updates, you can configure <span class="nowrap">I2P<span class="super">+</span></span> to permit unsigned updates. To do so, add either <code>router.updateUnsigned=true</code> or <code>routerconsole.advanced=true</code> to your <code>router.config</code> file located in your <i> settings folder</i> (see below).</p>
+<p>To obtain release updates of <span class="nowrap">I2P<span class="super">+</span></span>, the recommended method is to add the <a class="download torrent" href="/i2pupdate.zip.torrent">I2P-only torrent</a> url of the latest release to <a href="http://127.0.0.1:7657/torrents" target="_blank">I2PSnark</a>, and when downloaded, manually copy the <code>i2pupdate.zip</code> file to your application folder.</p>
+<p>It's also recommended to enable the <i>Update with Unsigned Development builds</i> option on the <a href="http://127.0.0.1:7657/configupdate" target="_blank"> router updates page</a>, and optionally replace the default release version url <code>http://skank.i2p/i2pupdate.zip</code> with the development branch url <code>http://skank.i2p/dev/i2pupdate.zip</code> if you want to subscribe to the rolling release builds.</p>
+<p>To avoid updating to vanilla I2P releases, you may wish to configure the <i>Update Policy</i> on the page to <i>Notify only</i> (if not already configured), and then you'll be notified in the console sidebar when an <span class="nowrap">I2P<span class="super">+</span> update is available with the option to download manually.</p>
+
 <h3>Where is my I2P settings folder (for a non-repo installed I2P)?</h3>
 <ul>
 <li>Windows: <code>%APPDATA%\I2P\</code></li>
 <li>Apple OS X: <code>/Users/<i>username</i>/Library/Application Support/i2p</code></li>
 <li>Linux/*BSD: <code>~/.i2p/</code></li>
 </ul>
+
 <h3>I've installed I2P from a Linux repo or .deb file, how do I install <span class="nowrap">I2P<span class="super">+</span></span>?</h3>
 <p>If you have installed I2P from a software repository, you will need to disable the I2P service and download the I2P<span class="super">+</span> Linux Java installer in order to run <span class="nowrap">I2P<span class="super">+</span></span>. You will benefit from access to official updates more speedily than those available in the repository, and you'll be able to install custom builds such as <span class="nowrap">I2P<span class="super">+</span></span>.</p>
 <ol>
@@ -95,6 +100,7 @@
 <p><span class="nowrap">I2P<span class="super">+</span></span> does not interfere in any way with the normal I2P update process. When a new official release is made available, you can easily restore your installation to vanilla I2P by installing the update.</p>
 <p>If you'd like to try out <span class="nowrap">I2P<span class="super">+</span></span> with the option to change back to your existing I2P installation, the easiest way is to make a copy of your I2P application folder, and then copy the update to the working I2P application folder and restart the router.</p>
 <p>In the event that you wish to restore normal I2P, shutdown <span class="nowrap">I2P<span class="super">+</span></span> and then restore the backup after renaming/deleting the working I2P app folder. This will ensure that your official I2P installation will be exactly as you left it!</p>
+
 <h3 id="patches">I'm a developer, how can I access the source code?</h3>
 <p><span class="nowrap">I2P<span class="super">+</span></span> is now available on <a href="https://gitlab.com/i2pplus/I2P.Plus/" target="_blank">Gitlab</a>. If you have modifications to the codebase you'd like to see included in <span class="nowrap">I2P<span class="super">+</span></span>, fork the code and modify the files you wish to submit, and then create a merge request.</p>
 <h3>Addressbook Subscription</h3>
@@ -122,10 +128,10 @@
 <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_1.5.0-1+_linux-only.jar" title="Download from the Tor .onion site">Linux</a>
 <a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_1.5.0-1+_linux-only.jar" title="Download from Github">Linux</a>
 </td>
-<td>Coming soon!
+<td>
+<a class="download torrent" href="/installers/i2pinstall_1.5.0-1+_linux-only.jar.torrent">Linux</a>
 <!--
-<a class="download torrent" href="/installers/i2pinstall_0.1.5.0-1+_windows.exe.torrent">Windows</a><br>
-<a class="download torrent" href="/installers/i2pinstall_0.1.5.0-1+_linux-only.jar.torrent">Linux</a>
+<a class="download torrent" href="/installers/i2pinstall_1.5.0-1+_windows.exe.torrent">Windows</a><br>
 -->
 </td>
 <td>n/a</td>
@@ -187,6 +193,7 @@
 <li class="onion"><a href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/">Tor .onion site</a></li>
 <li class="zeronet"><a href="http://127.0.0.1:43110/18UDHQbfX1A388SKvPHxXB1ZGFu9uRy1Kh/">Zeronet</a></li>
 </ul>
+
 <h3 id="quote">Quote of the week</h3>
 <p>"You're definitely continuing to move in the right direction - I don't think I would enjoy reverting to stock I2P."</p>
 <p class="right cite"><i>A satisfied <span class="nowrap">I2P<span class="super">+</span></span> user</i></p>
