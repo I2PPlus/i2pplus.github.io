@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> I2P+ | Current: 1.7.0+</title>
-<link rel="preload" href="/resources/t.woff2" as="font" type="font/woff2">
-<link rel="preload" href="/resources/s.woff2" as="font" type="font/woff2">
+<title> I2P+ | Current: 1.8.0+</title>
+<link rel="preload" href="/resources/t.woff2" as="font" type="font/woff2" crossorigin=anonymous>
+<link rel="preload" href="/resources/s.woff2" as="font" type="font/woff2" crossorigin=anonymous>
 <link href="i2p+.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="/favicon.svg">
 </head>
@@ -14,6 +14,7 @@
 <body>
 <div id="toplinks">
 <h1>I2P<span class="super title">+</span></h1>
+<span id="logo" hidden><a href=/ hidden></a></span>
 <a href="#download">Download</a>
 <a href="changelog.html">Changelog</a>
 <a href="glossary/">Glossary</a>
@@ -46,7 +47,7 @@
 <p>For a full list of download options, see the <a href="#download">downloads section</a> below.
 <p>If you're running a manually installed version of I2P from the Java installer (not a repo or .deb installed version), updating is as simple as dropping the <a class="download" href="/i2pupdate.zip">i2pupdate.zip</a> file into your I2P application folder and restarting the router.</p>
 <p class="attention"><b>Note:</b> Do not extract the zip file, simply copy it to the I2P application folder and restart I2P... I2P will extract the zip automatically and update.</p>
-<p>Alternatively, if you haven't already installed I2P, you can download a full <a class="download" href="/installers/i2pinstall_1.7.0-0+_windows.exe">Windows</a> or <a class="download" href="/installers/i2pinstall_1.7.0-0+_linux-only.jar">Linux</a> installer</p>
+<p>Alternatively, if you haven't already installed I2P, you can download a full <a class="download" href="/installers/i2pinstall_1.8.0+.exe"> global (Win / Lin / BSD / Mac OS)</a> installer</p>
 <p class="attention">As of 0.9.46+, the full installation will enable <code>https://</code> access to the console by default; you will need to allow the (self-signed) certificate before you can access the router console.<br>To disable automatic redirection of the http:// version of the router console on :7657 to https:// on :7667, add the following line to your <code>router.config</code> file located in your I2P<span class="super">+</span> settings directory: <code>routerconsole.redirectToHTTPS=false</code></p>
 <p>The default location of the (non-repo installed) I2P application folder varies by operating system:</p>
 <ul>
@@ -74,8 +75,8 @@
 <h3>I've installed I2P from a Linux repo or .deb file, how do I install <span class="nowrap">I2P<span class="super">+</span></span>?</h3>
 <p>If you have installed I2P from a software repository, you will need to disable the I2P service and download the I2P<span class="super">+</span> Linux Java installer in order to run <span class="nowrap">I2P<span class="super">+</span></span>. You will benefit from access to official updates more speedily than those available in the repository, and you'll be able to install custom builds such as <span class="nowrap">I2P<span class="super">+</span></span>.</p>
 <ol>
-<li>Download the Linux <a href="/installers/i2pinstall_1.7.0-0+_linux-only.jar">I2P<span class="super">+</span> Java I2P installer</a></li>
-<li>Run the Java GUI installer by typing from a command prompt: <code>java -jar i2pinstall_1.7.0-0+_linux-only.jar</code> (replace the i2pinstall filename with the file you downloaded, and change to the download directory before running the command). To run the installer headless (console install with no GUI): <code>java -jar i2pinstall_1.7.0-0+_linux-only.jar -console</code></li>
+<li>Download the global <a href="/installers/i2pinstall_1.8.0.exe">I2P<span class="super">+</span> Java I2P installer</a></li>
+<li>Run the Java GUI installer by typing from a command prompt: <code>java -jar ./i2pinstall_1.8.0.exe</code> (replace the i2pinstall filename with the file you downloaded, and change to the download directory before running the command). To run the installer headless (console install with no GUI): <code>java -jar ./i2pinstall_1.8.0.exe -console</code></li>
 <li>If you see <i style="color: #900">Exception in thread "main" java.awt.AWTError: Assistive Technology not found: org.GNOME.</i> when attempting to install, try running the following command: <code>sudo sed -i -e '/^assistive_technologies=/s/^/#/' /etc/java-*-openjdk/accessibility.properties</code></li>
 <li>Install I2P to the default directory location which is: <code>$HOME/i2p</code>
 <li>Check if you have a $HOME/.i2p directory, and if so change the ownership of the directory recursively to your normal logged in user: <code>sudo chown -R yourusername:yourusername ~/.i2p/</code></li>
@@ -117,30 +118,32 @@
 </tr>
 
 <tr>
-<td>1.7.0<span class="super">+</span> Installer</td>
+<td>1.8.0<span class="super">+</span> Installer*<br>
+Win / Lin / BSD / MacOS</td>
 <td>
-<a class="download i2p" href="http://skank.i2p/installers/i2pinstall_1.7.0-0+_windows.exe" title="Download via I2P">Windows</a>
-<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_1.7.0-0+_windows.exe" title="Download from the Tor .onion site">Windows</a>
-<a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_1.7.0-0+_windows.exe">Windows</a><br>
-<a class="download i2p" href="http://skank.i2p/installers/i2pinstall_1.7.0-0+_linux-only.jar" title="Download via I2P">Linux</a>
-<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_1.7.0-0+_linux-only.jar" title="Download from the Tor .onion site">Linux</a>
-<a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_1.7.0-0+_linux-only.jar" title="Download from Github">Linux</a>
+<a class="download i2p" href="http://skank.i2p/installers/i2pinstall_1.8.0+.exe" title="Download via I2P">Universal</a>
+<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_1.8.0+.exe" title="Download from the Tor .onion site">Universal</a>
+<a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_1.8.0+.exe">Universal</a><br>
 </td>
 <td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT">
-<a class="download torrent" href="/installers/i2pinstall_1.7.0-0+_linux-only.jar.torrent" download>Linux</a>
-<a class="download torrent" href="/installers/i2pinstall_1.7.0-0+_windows.exe.torrent" download>Windows</a><br>
+<a class="download torrent" href="/installers/i2pinstall_1.8.0+.exe.torrent">Universal</a>
 </td>
 <td>n/a</td>
 </tr>
-
 <tr>
-<td><span>1.7.0-2<span class="super">+</span> Update</span></td>
+<td colspan="4">
+*For non-Windows installations, the following command will work from the command line (the .exe is a windows-specific wrapper to the .jar file):<br>
+<code>java -jar ./i2pinstall_1.8.0+.exe</code>
+</td>
+</tr>
+<tr>
+<td><span>1.8.0<span class="super">+</span> Update</span></td>
 <td>
 <a class="download i2p" href="http://skank.i2p/i2pupdate.zip" title="Download via I2P">i2pupdate.zip</a><br>
 <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/i2pupdate.zip" title="Download from the Tor .onion site">i2pupdate.zip</a><br>
 <a class="download web" href="http://i2pplus.github.io/i2pupdate.zip" title="Download from Github">i2pupdate.zip</a><br>
 </td>
-<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download>Torrent (1.7.0+)</a></td>
+<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download>Torrent (1.8.0+)</a></td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -163,11 +166,11 @@
 <tr>
 <td><span>I2PSnark Standalone</span></td>
 <td>
-<a class="download i2p" href="http://skank.i2p/installers/I2P+_1.7.0-4+_i2psnark-standalone.zip" title="Download via I2P">i2psnark-standalone.zip (1.7.0-4+)</a><br>
-<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/I2P+_1.7.0-4+_i2psnark-standalone.zip" title="Download from the Tor .onion site">i2psnark-standalone.zip (1.7.0-4+)</a><br>
-<a class="download web" href="http://i2pplus.github.io/installers/I2P+_1.7.0-4+_i2psnark-standalone.zip" title="Download from Github">i2psnark-standalone.zip  (1.7.0-4+)</a><br>
+<a class="download i2p" href="http://skank.i2p/installers/I2P+_1.8.0+_i2psnark-standalone.zip" title="Download via I2P">i2psnark-standalone.zip (1.8.0+)</a><br>
+<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/I2P+_1.8.0+_i2psnark-standalone.zip" title="Download from the Tor .onion site">i2psnark-standalone.zip (1.8.0+)</a><br>
+<a class="download web" href="http://i2pplus.github.io/installers/I2P+_1.8.0+_i2psnark-standalone.zip" title="Download from Github">i2psnark-standalone.zip (1.8.0+)</a><br>
 </td>
-<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/installers/I2P+_1.7.0-4+_i2psnark-standalone.zip.torrent" download>Torrent</a></td>
+<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/installers/I2P+_1.8.0+_i2psnark-standalone.zip.torrent" download>Torrent</a></td>
 <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2psnark-standalone.zip?job=Java8">i2psnark-standalone.zip</a></td>
 </tr>
 
@@ -195,15 +198,8 @@
 <p class="right cite"><i>A satisfied <span class="nowrap">I2P<span class="super">+</span></span> user</i></p>
 </div>
 <style type="text/css">
-@font-face {
-font-family: "s";
-src: url(resources/s.woff2) format("woff2");
-}
-
-@font-face {
-font-family: "t";
-src: url(resources/t.woff2) format("woff2");
-}
+@font-face {font-family: "s"; src: url(/resources/s.woff2) format("woff2")}
+@font-face {font-family: "t"; src: url(/resources/t.woff2) format("woff2")}
 </style>
 </body>
 
