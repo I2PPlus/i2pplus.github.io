@@ -3,6 +3,86 @@
 *** A full changelog of all recent changes is available in the update
 --------------------------------------------------------------------------------
 
+2022-08-24 1.9.0+ released
+
+2022-08-24 dr|z3d
+ * Console: Reduce deadlock detector interval to 1hr (was 24)
+ * Router:
+   - Increase max in/outbound message per pump for non-slow routers
+   - Increase priority blocking queue/backlog for non-slow routers
+
+2022-08-23 dr|z3d
+ * Router:
+   - Relax throttle for message sent to unconnected peers
+   - Automatically enable SSU2 for routers with < 4 cores
+ * I2PSnark: Persist torrent filters via local storage (patch by HaruCode)
+ * graceful_update: Fixes and improvements from term99
+ * I2PTunnel: Relax default throttles for server tunnels
+
+2022-08-22 dr|z3d
+ * Router:
+   - Increase probability of SSU2 activation to 1 in 4
+   - Mitigate lookup failure for new leasesets (patch by Obscuratus)
+
+2022-08-07 dr|z3d
+ * Router: Sync UDPSender CoDel parameters with global settings and enable
+   global config override
+
+2022-08-06 dr|z3d
+ * Router: Reduce peer test frequency for SSU IP detection to 5m (was 13)
+ * Console: Add info about i2np.udp.disablePeerTest to advanced help
+
+2022-08-04 dr|z3d
+ * Console: Use snark icon in sidebar service tunnels section
+
+2022-07-25 dr|z3d
+ * Router: Reduce default peer test timeout to 800ms (was 1s)
+
+2022-07-24 dr|z3d
+ * Console:
+   - Ensure meta refresh tag is removed from <head> when console
+     becomes visible
+   - Link to /profiles from Peer Test Average label in sidebar
+
+2022-07-23 dr|z3d
+ * Console: Use sliders on /confignet
+ * I2PTunnel: Add option for +/-3 tunnel hop variance for server tunnels
+   in advanced mode
+
+2022-07-21 dr|z3d
+ * ClientManager: Increase default max sessions to 512
+
+2022-07-19 dr|z3d
+ * Router: Increase max floodfills to push new leaseset to
+
+2022-07-13 dr|z3d
+ * Router: Add short temporary ban for routers when throttled for
+   excessive participating tunnel requests
+
+2022-07-02 dr|z3d
+ * Router
+   - Increase timeout for iterative search job and increase concurrency
+     for non-slow routers
+ * Increase max floodfills we attempt to store keys with and increase
+   parallelization
+
+2022-06-14 dr|z3d
+ * I2PTunnel: Generic 503 (service unavailable) error page
+
+2022-06-09 dr|z3d
+ * Router: Modifications to job queue scheduler to reduce job lag
+
+2022-05-31 dr|z3d
+ * Console: Add router.overrideIsSlow to advanced config help page
+
+2022-05-29 dr|z3d
+ * Core: Add router.overrideIsSlow={true|false} config to enable
+   overriding isSlow() system classification
+ * Console: Show avilable core count and isSlow() status on /info
+
+2022-05-28 dr|z3d
+ * Core: Only mark 64bit single core systems slow if maxram < 384MB
+
 2022-05-23 I2P+ 1.8.0+ released
 
 2022-05-15 dr|z3d
