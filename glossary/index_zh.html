@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>术语表 - I2P+</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="console.css" rel="stylesheet" type="text/css">
+    <link href="override.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type=image/png href=/favicon.ico>
+</head>
+
+<body>
+    <h1 class="hlp">术语表 <a href="/">[I2P+]</a> </h1>
+    <div class="main" id="help">
+        <div id="glossary">
+            <h2>I2P 术语<br><span style="font-size: 8pt;">来自 I2P+ 帮助部分</span></h2>
+            <div id="terms">
+                <p><b>地址簿</b><br>一个管理网络的服务目的地的I2P网络应用程序，也被称为SusiDNS。用于将B64哈希值映射为人类可读的名称。目的地可以手动添加，或通过订阅hosts.txt文件添加。欲了解更多信息，请参见 <a href="https://geti2p.net/en/docs/naming" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>Base32 (B32) / Base64 (B64)</b><br>A <a href="https://en.wikipedia.org/wiki/Base32" class="sitelink external" target="_blank">Base32</a> 链接（总是以.b32.i2p结尾）是一个<a href="https://en.wikipedia.org/wiki/Base64" class="sitelink external" target="_blank">Base64</a> 目的地的哈希值。对于网络上的服务，Base64哈希值通常被映射到地址簿中的一个.i2p域。</p>
+                <p><b>BOB</b><br>BOB (Basic Open Bridge) 是一个简单的应用程序到路由器的协议，在很大程度上被 <i>SAM</i>所取代。 了解更多，请查看 <a href="https://geti2p.net/en/docs/api/bob" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>Clearnet/表网</b><br>Clearnet通常指的是可公开访问的互联网，与建立在I2P、Tor等基础上的加密、匿名服务的暗网相反。欲了解更多信息，请参见 <a href="https://en.wikipedia.org/wiki/Clearnet_(networking)" class="sitelink external" target="_blank">Wikipedia article</a>。</p>
+                <p><b>Destination/目的地</b><br>提供访问I2P网络服务的隧道入站端点的唯一加密身份，以公钥的Base32或Base64哈希值表示。相当于一个IP地址+端口。</p>
+                <p><b>Eepget</b><br>一个随I2P提供的命令行应用程序，用于请求URL资源，类似于 <a href="https://www.gnu.org/software/wget/" class="sitelink external" target="_blank">wget</a> 或者 <a href="https://curl.haxx.se/" class="sitelink external" target="_blank">curl</a>. Eepget也被路由器内部使用，例如从补种服务器补种。Eepget默认使用HTTP代理 <code>127.0.0.1:4444</code>.</p>
+                <p><b>Eepsite</b><br>一个托管在I2P网络上的网站。 默认情况下一个 <a href="https://www.eclipse.org/jetty/about.html" class="sitelink external" target="_blank">Jetty 服务器</a> 被配置和运行在 <a href="http://127.0.0.1:7658/" target="_blank">http://127.0.0.1:7658/</a>.</p>
+                <p><b>探索隧道</b><br>路由器用于与其他路由器通信的隧道，用于执行各种维护功能，如获取和发布<i>租约集</i>，测试客户端隧道，以及获取和验证网络中的其他路由器。这些隧道通常是低带宽的。</p>
+                <p><b>Floodfill/洪泛路由</b><br>网络上的一个路由器，其任务是提供和接收网络上其他路由器的信息。目前，一个路由器被认为有能力执行洪泛任务的最小共享带宽是128 KBytes/秒，尽管可以使用<a href="http://127.0.0.1:7657/configadvanced">高级配置</a>无视这一点强制启用洪泛模式。 了解更多，请参阅 <a href="https://geti2p.net/en/docs/how/network-database#floodfill" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>Garlic Routing/大蒜路由</b><br>洋葱路由的一种变体，将多条消息加密在一起，使攻击者更难以执行流量分析并提高数据传输速度。 了解更多，请参阅  <a href="https://geti2p.net/en/docs/how/garlic-routing" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>隐藏模式</b><br>配置为在隐藏模式下运行的路由器不会将其详细信息发布到 网络数据库 ，也不会中继其他路由器的流量。 在严格的国家/地区运行的路由器会自动以隐藏模式运行。 </p>
+                <p><b>I2CP</b><br>I2P 客户端协议 (I2CP) 允许外部应用程序（客户端）通过单个 TCP 连接与 I2P 进行通信，默认情况下使用端口 7654。有关更多信息，请参阅 <a href="https://geti2p.net/en/docs/protocol/i2cp" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>I2NP</b><br>I2P 网络协议 (I2NP) 管理路由器之间消息的路由和混合，以及与其他节点通信时的协议选择（支持多种协议）。 有在线文档 <a href="https://geti2p.net/en/docs/protocol/i2np" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>I2P+</b><br>Java I2P 软件的软分支，保留了完全的兼容性以及增强的用户界面和网络性能的改进。 查看 <a href="http://skank.i2p/static/i2p+.html" class="sitelink" target="_blank">http://skank.i2p/static/i2p+.html</a> 了解更多</p>
+                <p><b>I2PBote (plugin)</b><br>一个 I2P 插件，可在 I2P 网络中提供无服务器的端到端加密电子邮件。 网站位于 <a href="http://bote.i2p/" class="sitelink" target="_blank">http://bote.i2p/</a>. 源代码可在 <a href="https://github.com/i2p/i2p.i2p-bote" class="sitelink external" target="_blank">github</a>查看。</p>
+                <p><b>i2pd</b><br>用 C++ 编写的 I2P 路由。 更多信息请查看 <a href="https://i2pd.website/" class="sitelink external" target="_blank">https://i2pd.website/</a>.</p>
+                <p><b>I2PSnark</b><br><a href="http://www.klomp.org/snark/" class="sitelink external" target="_blank">Snark BitTorrent </a> 为I2P网络设计的分支，通常作为 Java I2P 默认应用程序套件的一部分提供，也可作为独立的 Java 应用程序使用。 </p>
+                <p><b>Introducer/中介</b><br>便于连接到防火墙后面的另一个路由器的路由器。 </p>
+                <p><b>跳转服务</b><br>一个简单的 CGI 应用程序，它将主机名作为参数并返回 301 重定向到正确的 URL，并带有 <code>?i2paddresshelper=key</code> 附加的字符串。 HTTP 代理将解读附加的字符串并将密钥用作实际目的地。 此外，代理将缓存密钥，因此在重新启动之前不需要地址助手，并提供将解析的地址添加到地址簿的选项。 </p>
+                <p><b>笔记本模式</b><br>一个可选<a href="http://127.0.0.1:7657/confignet#ipchange">配置</a> 以自动更改 <a href="http://127.0.0.1:7657/netdb?r=.">路由器身份</a> 和 <a href="http://127.0.0.1:7657/confignet#udpconfig">外部端口</a> 。当您的系统所在的公共 IP 地址发生更改时 ，这可以防止攻击者将您的路由器身份和 IP 地址关联起来。尤其是 IP 地址可能会经常更改，例如当您从多个位置在笔记本电脑上运行 I2P 时。 </p>
+                <p><b>租约</b><br>定义某条隧道接收针对某个<i>目的地</i>的信息的授权。
+                <p><b>租约集合</b><br>一个<i>目的地</i>的一组隧道入口点（租约）。 注意：无论配置了多少个隧道，一个 0 跳服务器隧道都只有一个租约。 </p>
+                <p><b>Monotone / mtn</b><br>用于维护 I2P 的源代码的分布式版本控制系统 (DVCS) 。 更多信息请查看 <a href="https://geti2p.net/en/get-involved/guides/monotone" class="sitelink external" target="_blank">在线文档</a>。</p>
+                <p><b>Multihoming/多宿主</b><br>通过为目的地共享相同的私钥，服务可以同时托管在多个路由器上（类似Anycast）。多宿主可以通过提供冗余来进一步增强服务器的安全性和稳定性； 如果服务器是多宿主服务器，当池中的服务器脱机时，所提供的服务将保持可用，这使得将服务器停机时间与路由器脱机相关联变得更加困难。 </p>
+                <p><b>网络数据库</b><br>包含路由器联系信息（RouterInfos）和目的地联系信息（LeaseSets）的分布式数据库。 单个路由器维护自己的（部分）数据库，用于与网络上的其他路由器进行通信； 没有单个路由器会维护所有路由器的列表。 RouterInfos 存储在磁盘上，并在路由器启动或获取新的RouterInfos 时读入内存。也称为  <i>NetDb</i>. 有关详细信息，请参阅 <a href="https://geti2p.net/en/docs/how/network-database" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>NTCP / NTCP2</b><br>NTCP（基于 NIO 的 TCP）和 NTCP2 是基于 TCP 的网络传输，它们使用 Java 的 NIO（新 I/O）TCP 实现在网络上的路由器之间传递 I2NP 消息。 NTCP2 提高了 NTCP 对各种攻击和自动流量识别方法的抵抗力。 有关详细信息，请参阅 <a href="https://geti2p.net/en/docs/transport/ntcp" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>Orchid (插件)</b><br>Tor 客户端的 Java 实现，可作为 I2P 插件使用。  可以设置为默认的 <i>出口代理</i> 如果在 <i>隧道管理器</i>中配置. 可以从 <a href="http://stats.i2p/i2p/plugins">http://stats.i2p/i2p/plugins</a>获得。源代码位于 <a href="https://github.com/i2p/i2p.plugins.orchid" class="sitelink external" target="_blank">github</a>。</p>
+                <p><b>出口代理</b><br>网络上的一项服务，提供与<i>表网</i>代理。  默认情况下，I2P 配置了一个 HTTP 代理，在 <code>127.0.0.1:4444</code>。</p>
+                <p><b>参与中继</b><br>通过允许其他路由器在隧道链中使用您的路由器来构建隧道来为网络做出贡献的行为。 至少需要分配 12KB/s 的上行带宽才能参与。 请注意，防火墙路由器的参与程度将受到限制，隐藏模式的路由器将根本不能参与。 </p>
+                <p><b>补种</b><br>获取其他路由器信息的过程，通常通过  <i>表网</i> 服务器，以确保您的路由器可以与网络上的其他路由器通信并建立隧道。 当路由器没有其他对等方的路由器身份时（通常在安装后立即），重新播种的过程也称为 <i>bootstrapping（引导）</i>。</p>
+                <p><b>路由器 </b><br>核心 I2P 软件，在 I2P 网络上路由加密数据包。 默认情况下，所有路由器都参与网络，除了在被认为是敌对国家（见 <i>严格国家</i>）的路由器之外，这既有助于网络，又为通过路由器连接到 I2P 网络的任何客户端或服务器提供掩护流量。 </p>
+                <p><b>路由器身份 </b><br>定义网络上路由器唯一身份的信息，包括其 IP 地址（或中继的 IP 地址）和侦听端口、公共签名和加密密钥。 路由器身份与 NetDB中的对等节点相关联。 也称为<i>RouterInfo</i>.</p>
+                <p><b>SAM</b><br>SAM（简单匿名消息）是一种协议，它允许使用任何编程语言编写的客户端应用程序通过 I2P 进行通信，方法是使用与 I2P 路由器的基于socket的接口。 有关详细信息，请参阅 <a href="https://geti2p.net/en/docs/api/samv3" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>SSU</b><br>SSU（安全半可靠 UDP）是一种 I2P 网络传输，除了 IP 地址检测和 NAT 穿越服务外，还提供加密的、面向连接的、点对点连接。  有关详细信息，请参阅 <a href="https://geti2p.net/en/docs/transport/ssu" class="sitelink external" target="_blank">在线文档</a>.</p>
+                <p><b>严格国家 </b><br>来自 <a href="https://freedomhouse.org/report/countries-world-freedom-2019" class="sitelink external" target="_blank">世界自由报告</a> 的公民自由声誉不佳的国家名单。 此列表用于将在指定国家/地区运行的路由器置于 <i>隐藏模式</i> 为用户提供增强的安全性。 以下国家被指定为严格：阿富汗、阿塞拜疆、巴林、白俄罗斯、文莱、布隆迪、喀麦隆、中非共和国、乍得、中国、古巴、刚果民主共和国、埃及、赤道几内亚、厄立特里亚、埃塞俄比亚、伊朗、哈萨克斯坦、老挝、利比亚、缅甸、朝鲜、巴勒斯坦领土、卢旺达、沙特阿拉伯、索马里、南苏丹、苏丹、斯威士兰（斯威士兰）、叙利亚、塔吉克斯坦、泰国、土耳其、土库曼斯坦、委内瑞拉、阿拉伯联合酋长国、乌兹别克斯坦、西撒哈拉, 也门。 </p>
+                <p><b>隧道</b><br>I2P网络上的客户端或服务器之间的<a href="https://geti2p.net/en/docs/tunnels/unidirectional" class="sitelink external" target="_blank">单向</a>加密通信途径，类似于Tor中的线路，只是Tor线路是双向的。 </p>
+                <p><b>隧道终点</b><br>隧道中的最后一个路由器，它可能是 <i>出境端点</i>, 客户端隧道与 <i>入站网关</i> 目的地服务器的隧道，或者是 <i>入站终点</i> ,这是该链中连接到目标服务器的最后一个路由器。</p>
+                <p><b>隧道网关</b><br>隧道中的第一个路由器。对于入站隧道，这是发表于 <i>网络数据库</i>中的 <i>租约集</i> 。对于出站隧道，发起路由器是网关。</p>
+                <p><b>隧道管理器</b><br>一个随路由器提供的网络应用程序，允许创建和配置客户和服务器隧道。也被称为  <i>隐藏服务管理器</i>.</p>
+                <p><b>隧道参与者</b><br>隧道中未指定为网关或端点的路由器。</p>
+                <p><b>ZzzOT (插件)</b><br>一个BitTorrent <a href="https://en.wikipedia.org/wiki/Opentracker" class="sitelink external" target="_blank">Open Tracker</a>的Java I2P插件的实现。可在 <a href="http://stats.i2p/i2p/plugins">http://stats.i2p/i2p/plugins</a>安装。源代码可以在 <a href="https://github.com/i2p/i2p.plugins.zzzot" class="sitelink external" target="_blank">github</a>获得。</p>
+            </div>
+            <hr>
+            <p id="footnote">主题: I2P+ Light Console theme override Charcoal</p>
+        </div>
+    </div>
+</body>
+
+</html>
