@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>I2P+ | 当前版本：1.9.0+</title>
+  <title>I2P+ | 当前版本：2.0.0+</title>
   <link rel="preload" href="/resources/t.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="/resources/s.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link href="/i2p+.css" rel="stylesheet" type="text/css">
@@ -15,6 +15,7 @@
     b,strong,th,p,a {font-weight:400 !important}
     p, ol, p + ul { font-size: 80%}
     p code {font-size:110%}
+    td code{font-size:90%}
   </style>
 </head>
 
@@ -55,7 +56,7 @@
    </p>
     <p>如果您运行从 Java 安装程序手动安装的 I2P 版本（不是 repo 或 .deb 安装版本），更新就像将 <a class="download" href="/i2pupdate.zip">i2pupdate.zip</a> 文件放入 I2P 应用程序文件夹并重新启动路由器一样简单。</p>
     <p class="attention infowarn"><b>注意：</b>不要解压缩 zip 文件，只需将其复制到 I2P 应用程序文件夹并重新启动 I2P... I2P 将自动解压缩 zip 并更新。</p>
-    <p>或者，如果您尚未安装 I2P，您可以下载完整的 <a class="download" href="/installers/i2pinstall_1.9.0+.exe"> 跨平台（Win / Lin / BSD / Mac OS）</a> 安装程序</p>
+    <p>或者，如果您尚未安装 I2P，您可以下载完整的 <a class="download" href="/installers/i2pinstall_2.0.0+.exe"> 跨平台（Win / Lin / BSD / Mac OS）</a> 安装程序</p>
     <p class="attention infowarn">从 0.9.46+ 开始，完整安装将启用 <code>https://</code>访问路由控制台；<br>您需要先允许自签名证书，然后才能访问路由器控制台。<br>要禁用 :7657 上的 http:// 版本的路由器控制台自动重定向到 :7667 上的 https://<br>请将以下行添加到您的<code>router.config</code>位于 I2P<span class="super">+</span> 设置目录中的文件：<code>routerconsole.redirectToHTTPS=false</code></p>
     <p>（标准安装的）I2P 应用程序文件夹的默认位置因操作系统而异：</p>
     <ul>
@@ -114,7 +115,7 @@
     <p>如果您想向  <span class="nowrap">推广I2P<span class="super">+</span></span> 地址簿中可能没有 skank.i2p 域的其他用户，<a href="/?i2paddresshelper=kagASzrpRCxoEzpKoGiA1KBTl-8-VAoDqaqq-iheMu5jmOt69pVIzsKJ571klT30zUCPJkW~6eTY3Kt4HhUoCcBxQOOdTc2yrW7wHmHjt~q~Ci92Cmz8xd~NwiZzdjONpA6AD~fQkl7oN4pKjmk58ZrOHNEXJYjZzceCtlCnoOgXMCUigTFr45nvTeloDOgCnU5vdjNbv-28Cwfy0hXEAHrPcEJdOdguD9HNiTeexjb0hxrl8ugwRaNBMFpMMhQgKwR1NJuvqol87XXvv2DE9mp2Gs~hdaHuJL2DGXitoq-OT3Si~~axGUyKKpo~unfwy9JSAA0aNkzRJ6SPBFNnsqZDzsMMnhupT3YDVeEzMjQSb08kYaHeBWM-hz7IUGI7tGNcb2g3kZlUKYAB9~QHF7m6kS0xbvwx8L~nDRpLpX~UURCsvy5LxoQkebvn7UGa1r6AAbDbaJoqPWeY98RU5m3V-cbG-1D4iSB8OvRUELjlE3vL7y7JCyMdJhAJxGCzBQAEAAcAAA=="> 您可以分享地址助手链接</a> 。</p>
     <p>如需在线支持，请访问在 I2P IRC 网络和 <a href="https://libera.chat/" target="_blank">libera irc 网络</a> (irc.libera.chat) 上的 <code>#i2p+</code>和 <code>#saltR</code></p>
     <h3 id="download">下载  <span class="nowrap">I2P<span class="super">+</span></span></h3>
-    <p class="attention infowarn"><b>注意：</b> 当可能影响网络性能的重大错误得到修复或缓解时，I2P<span class="super">+</span> 开发版本会在正式发布之前上传到正式发布通道；<br>有关值得预发布的足够严重的问题示例， 请参阅<a href="https://i2pgit.org/i2p-hackers/i2p.i2p/-/commit/568b5e303f9a23cf5ea020979f0aa89207eaa960" tagret="_blank">此上游补丁</a></p>
+    <p class="attention infowarn"><b>注意：</b> 当可能影响网络性能的重大错误得到修复或缓解时，I2P<span class="super">+</span> 开发版本会在正式发布之前上传到正式发布通道； 有关值得预发布的足够严重的问题示例， 请参阅 <a href="https://i2pgit.org/i2p-hackers/i2p.i2p/-/commit/568b5e303f9a23cf5ea020979f0aa89207eaa960" tagret="_blank">此上游补丁</a>. Unless otherwise stated, downloads are compatible with Java8 or later.</p>
     <table id="dl">
       <tbody>
         <tr>
@@ -124,64 +125,63 @@
           <th><a href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/" target="_blank">Gitlab 自动构建</a> </th>
         </tr>
         <tr>
-          <td>1.9.0<span class="super">+</span> 安装程序*<br>
+          <td>2.0.0<span class="super">+</span> 安装程序*<br>
             Windows / Linux / BSD / macOS</td>
           <td>
-            <a class="download i2p" href="/installers/i2pinstall_1.9.0+.exe" title="通过 I2P">I2P网络</a>
-            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_1.9.0+.exe" title="下载 从 Tor .onion 站点下载">洋葱网络</a>
-            <a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_1.9.0+.exe">Clearnet</a> <br>
-          </td>
+            <a class="download i2p" href="/installers/i2pinstall_2.0.0+.exe" title="通过 I2P">I2P网络</a>
+            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_2.0.0+.exe" title="下载 从 Tor .onion 站点下载">洋葱网络</a>
+            <a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_2.0.0+.exe">Clearnet</a> <br>
+         </td>
           <td title="Torrent 需要启用 I2P 的客户端才能下载，例如 I2PSnark 或 BiglyBT">
-            <a class="download torrent" href="/installers/i2pinstall_1.9.0+.exe.torrent">I2P内部 Torrent</a>
-          </td>
+            <a class="download torrent" href="/installers/i2pinstall_2.0.0+.exe.torrent">I2P内部 Torrent</a>
+         </td>
           <td>不适用</td>
         </tr>
         <tr>
           <td colspan="4">
-            *对于非 Windows 安装，以下命令将从命令行运行安装程序（.exe 是 .jar 文件的特定于 Windows 的封装）：<br>
-            <code>java -jar ./i2pinstall_1.9.0+.exe</code>
-          </td>
+            *对于非 Windows 安装，以下命令将从命令行运行安装程序（.exe 是 .jar 文件的特定于 Windows 的封装）： <code>java -jar ./i2pinstall_2.0.0+.exe</code>
+         </td>
         </tr>
         <tr>
-          <td><span>1.9.0<span class="super">+</span> 更新</span> </td>
+          <td><span>2.0.0<span class="super">+</span> 更新</span></td>
           <td>
-            <a class="download i2p" href="/i2pupdate.zip" title="通过 I2P">通过I2P下载 [1.9.0-12+]</a> <br>
-            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/i2pupdate.zip" title="下载 从 Tor .onion 站点">通过.onion下载[1.9.0-12+]</a> <br>
-            <a class="download web" href="http://i2pplus.github.io/i2pupdate.zip" title="下载 从 Github 下载">Clearnet下载[1.9.0-12+]</a> <br>
-          </td>
-          <td title="Torrent 需要启用 I2P 的客户端才能下载，例如 I2PSnark 或 BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download="">I2P内部 Torrent</a> </td>
+            <a class="download i2p" href="/i2pupdate.zip" title="通过 I2P">通过I2P下载 [2.0.0-12+]</a> <br>
+            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/i2pupdate.zip" title="下载 从 Tor .onion 站点">通过.onion下载[2.0.0-12+]</a> <br>
+            <a class="download web" href="http://i2pplus.github.io/i2pupdate.zip" title="下载 从 Github 下载">Clearnet下载[2.0.0-12+]</a> <br>
+         </td>
+          <td title="Torrent 需要启用 I2P 的客户端才能下载，例如 I2PSnark 或 BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download="">I2P内部 Torrent</a></td>
           <td>不适用</td>
         </tr>
         <tr>
-          <td><span>开发版安装程序</span> </td>
+          <td><span>开发版安装程序</span><br>*Java11 or later required</td>
           <td>不适用</td>
           <td>不适用</td>
-          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/install.jar?job=Java8">所有平台 (.jar)</a> <br><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2pinstall.exe?job=Java8">所有平台 (.exe)</a> <br><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2p.tar.bz2?job=Java8">所有平台 (.tar.bz2)</a> </td>
+          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/install.jar?job=Java11">所有平台 (.jar)</a> <br><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2pinstall.exe?job=Java11">所有平台 (.exe)</a><!-- <br><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2p.tar.bz2?job=Java11">所有平台 (.tar.bz2)</a>--></td>
         </tr>
         <tr>
-          <td><span>开发版更新</span> </td>
+          <td><span>开发版更新</span></td>
           <td>
             <a class="download i2p" href="/dev/i2pupdate.zip" title="通过I2P下载">i2pupdate.zip</a> <br>
             <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/dev/i2pupdate.zip" title="从 .onion 站点下载">i2pupdate.zip</a>
-          </td>
+         </td>
           <td>不适用</td>
-          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2pupdate.zip?job=Java8" title="从Clearnet下载">i2pupdate.zip</a> </td>
+          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2pupdate.zip?job=Java11" title="从Clearnet下载">i2pupdate.zip</a><br>*Java11 or later required</td>
         </tr>
         <tr>
-          <td>I2PSnark 独立版 </td>
+          <td>I2PSnark 独立版</td>
           <td>
-            <a class="download i2p" href="/installers/I2P+_1.9.0+_i2psnark-standalone.zip" title="通过 I2P下载">i2psnark-standalone.zip</a> <br>
-            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/I2P+_1.9.0+_i2psnark-standalone.zip" title="从 Tor .onion 站点下载">i2psnark-standalone.zip</a> <br>
-            <a class="download web" href="http://i2pplus.github.io/installers/I2P+_1.9.0+_i2psnark-standalone.zip" title="从 Github 下载">i2psnark-standalone.zip</a> <br>
-          </td>
-          <td title="Torrent 需要支持 I2P 的客户端才能下载，例如 I2PSnark 或 BiglyBT"><a class="download torrent" href="/installers/I2P+_1.8.0+_i2psnark-standalone.zip.torrent" download="">I2P内部 Torrent</a> </td>
-          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2psnark-standalone.zip?job=Java8" title="从Clearnet下载">i2psnark-standalone.zip</a> </td>
+            <a class="download i2p" href="/installers/I2P+_2.0.0+_i2psnark-standalone.zip" title="通过 I2P下载">i2psnark-standalone.zip</a> <br>
+            <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/I2P+_2.0.0+_i2psnark-standalone.zip" title="从 Tor .onion 站点下载">i2psnark-standalone.zip</a> <br>
+            <a class="download web" href="http://i2pplus.github.io/installers/I2P+_2.0.0+_i2psnark-standalone.zip" title="从 Github 下载">i2psnark-standalone.zip</a> <br>
+         </td>
+          <td title="Torrent 需要支持 I2P 的客户端才能下载，例如 I2PSnark 或 BiglyBT"><a class="download torrent" href="/installers/I2P+_1.8.0+_i2psnark-standalone.zip.torrent" download="">I2P内部 Torrent</a></td>
+          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2psnark-standalone.zip?job=Java11" title="从Clearnet下载">i2psnark-standalone.zip</a><br>*Java11 or later required</td>
         </tr>
         <tr>
-          <td><span>I2P<span class="super">+</span> API 文档</span> </td>
+          <td><span>I2P<span class="super">+</span> API 文档</span></td>
           <td>不适用</td>
           <td>不适用</td>
-          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/javadoc.zip?job=Java14">javadoc.zip</a> </td>
+          <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/javadoc.zip?job=Java20">javadoc.zip</a></td>
         </tr>
       </tbody>
     </table>
