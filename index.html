@@ -79,7 +79,7 @@
 <li>Download the universal <a href="/installers/i2pinstall_2.0.0+.exe">I2P<span class="super">+</span> Java I2P installer</a></li>
 <li>Run the Java GUI installer by typing from a command prompt: <code>java -jar ./i2pinstall_2.0.0.exe</code> (replace the i2pinstall filename with the file you downloaded, and change to the download directory before running the command). To run the installer headless (console install with no GUI): <code>java -jar ./i2pinstall_2.0.0.exe -console</code></li>
 <li>If you see <i style="color: #900">Exception in thread "main" java.awt.AWTError: Assistive Technology not found: org.GNOME.</i> when attempting to install, try running the following command: <code>sudo sed -i -e '/^assistive_technologies=/s/^/#/' /etc/java-*-openjdk/accessibility.properties</code></li>
-<li>Install I2P to the default directory location which is: <code>$HOME/i2p</code>
+<li>Install I2P to the default directory location which is: <code>$HOME/i2p</code><br><b>Note that you will need to manually specify the install directory when running the installer headlessly (via -console) or it will install all the files into the directory from which the installer was run.</b>
 <li>Check if you have a $HOME/.i2p directory, and if so change the ownership of the directory recursively to your normal logged in user: <code>sudo chown -R yourusername:yourusername ~/.i2p/</code></li>
 <li>If you're running I2P as a service (installed from repo), stop the service and disable it from running: <code>sudo service i2p stop && sudo systemctl disable i2p</code></li>
 <li>Now it's time to run the version you've just manually installed: <code>~/i2p/i2prouter start</code></li>
