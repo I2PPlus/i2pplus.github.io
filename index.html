@@ -1,18 +1,20 @@
 <!DOCTYPE HTML>
-<html>
+<html lang=en style=background:#080000>
 
 <head>
+<style type=text/css>body{pointer-events:none}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> I2P+ | Current: 2.0.0-8+</title>
+<title> I2P+ | Current: 2.1.0+</title>
+<link rel="preload" href="i2p+.css" as="style" type="text/css">
 <link rel="preload" href="/resources/t.woff2" as="font" type="font/woff2" crossorigin=anonymous>
 <link rel="preload" href="/resources/s.woff2" as="font" type="font/woff2" crossorigin=anonymous>
-<link href="i2p+.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="/favicon.svg">
+<link href="i2p+.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-<div id="toplinks">
+<body hidden>
+<div id="toplinks" hidden>
 <h1>I2P<span class="super title">+</span></h1>
 <span id="logo" hidden><a href=/ hidden></a></span>
 <a href="#download">Download</a>
@@ -23,7 +25,7 @@
 <a href="hosts.txt" target="_blank">hosts.txt</a>
 <span id="lang"><a href="/"><img alt="EN" src="/resources/us.svg" width="20" height="16"></a>&nbsp;<a href="index_zh.html"><img alt="ZH" src="/resources/cn.svg" width="20" height="16"></a></span>
 </div>
-<div id="container">
+<div id="container" hidden>
 
 <h3>What is <span class="nowrap">I2P<span class="super">+</span></span>?</h3>
 <p><span class="nowrap">I2P<span class="super">+</span></span> is an enhanced version of the <a href="http://geti2p.net" target="_blank">Java I2P</a> anonymizing network platform that aims to deliver a superior user experience and improved network performance while retaining full compatibility with upstream I2P.</p>
@@ -110,8 +112,8 @@
 
 <h3 id="download">Download <span class="nowrap">I2P<span class="super">+</span></span></h3>
 
-<p class="attention infowarn"><b>Note:</b> Occasionally I2P<span class="super">+</span> development builds will be uploaded to the release channel prior to an official release when significant bugs that may impact network performance are fixed or mitigated; see <a href="https://i2pgit.org/i2p-hackers/i2p.i2p/-/commit/568b5e303f9a23cf5ea020979f0aa89207eaa960" tagret="_blank">this upstream patch</a> for an example of a sufficiently serious issue that merits a pre-release. Unless otherwise stated, downloads are compatible with Java8 or later.</p>
 
+<p class="attention infowarn"><b>Note:</b> Occasionally I2P<span class="super">+</span> development builds will be uploaded to the release channel prior to an official release when significant bugs are fixed or mitigated. Unless otherwise stated, downloads are compatible with Java8 or later. Also note that the <a href=http://skank.i2p/dev/i2pupdate.zip>.i2p</a> or <a href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/dev/i2pupdate.zip">.onion</a> links to the development <code>i2pupdate.zip</code> will soon require a pre-exisiting <span class="nowrap">I2P<span class="super">+</span></span> installation with pack200 support, or <a href=http://127.0.0.1:7657/info target=_blank title="Check Java version being used by I2P+">Java13 or less</a>; this will result in development updates approximately 50% smaller. You can check for the presence of <code>pack200.jar</code> on the <a href=http://127.0.0.1:7657/jars target=_blank>console /jars page</a>.</p>
 <table id="dl">
 <tr>
 <th></th>
@@ -124,29 +126,29 @@
 <td>2.0.0<span class="super">+</span> Installer*<br>
 Win / Lin / BSD / MacOS</td>
 <td>
-<a class="download i2p" href="http://skank.i2p/installers/i2pinstall_2.0.0+.exe" title="Download via I2P">Universal</a>
-<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_2.0.0+.exe" title="Download from the Tor .onion site">Universal</a>
-<a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_2.0.0+.exe">Universal</a><br>
+<a class="download i2p" href="http://skank.i2p/installers/i2pinstall_2.1.0+.exe" title="Download via I2P">Universal</a>
+<a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/i2pinstall_2.1.0+.exe" title="Download from the Tor .onion site">Universal</a>
+<a class="download web" href="http://i2pplus.github.io/installers/i2pinstall_2.1.0+.exe">Universal</a><br>
 </td>
 <td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT">
-<a class="download torrent" href="/installers/i2pinstall_2.0.0+.exe.torrent">Universal</a>
+<a class="download torrent" href="/installers/i2pinstall_2.1.0+.exe.torrent">Universal</a>
 </td>
 <td>n/a</td>
 </tr>
 <tr>
 <td colspan="4">
 *For non-Windows installations, the following command will work from the command line (the .exe is a windows-specific wrapper to the .jar file):<br>
-<code>java -jar ./i2pinstall_2.0.0+.exe</code>
+<code>java -jar ./i2pinstall_2.1.0+.exe</code>
 </td>
 </tr>
 <tr>
-<td><span>2.0.0-8<span class="super">+</span> Update*</span><br><span class=note>*Contains SSU2 bug fixes</span></td>
+<td><span>2.1.0<span class="super">+</span> Update*</span><br><span class=note>*Contains SSU2 bug fixes</span></td>
 <td>
 <a class="download i2p" href="http://skank.i2p/i2pupdate.zip" title="Download via I2P">i2pupdate.zip</a><br>
 <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/i2pupdate.zip" title="Download from the Tor .onion site">i2pupdate.zip</a><br>
 <a class="download web" href="http://i2pplus.github.io/i2pupdate.zip" title="Download from Github">i2pupdate.zip</a><br>
 </td>
-<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download>Torrent [2.0.0+]</a></td>
+<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/i2pupdate.zip.torrent" download>Torrent [2.1.0+]</a></td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -173,7 +175,7 @@ Win / Lin / BSD / MacOS</td>
 <a class="download tor" href="http://eekmit7xiyu3vjgovu756xj3rzbhycwzgx4gmnyqxau64yzckiluoxad.onion/installers/I2P+_2.0.0+_i2psnark-standalone.zip" title="Download from the Tor .onion site">i2psnark-standalone.zip</a><br>
 <a class="download web" href="http://i2pplus.github.io/installers/I2P+_2.0.0+_i2psnark-standalone.zip" title="Download from Github">i2psnark-standalone.zip</a><br>
 </td>
-<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/installers/I2P+_1.8.0+_i2psnark-standalone.zip.torrent" download>Torrent</a></td>
+<td title="Torrent requires an I2P-enabled client to download e.g. I2PSnark or BiglyBT"><a class="download torrent" href="/installers/I2P+_2.0.0.+_i2psnark-standalone.zip.torrent" download>Torrent</a></td>
 <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2psnark-standalone.zip?job=Java8">i2psnark-standalone.zip</a></td>
 </tr>
 
@@ -182,6 +184,13 @@ Win / Lin / BSD / MacOS</td>
 <td>n/a</td>
 <td>n/a</td>
 <td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/javadoc.zip?job=Java8">javadoc.zip</a></td>
+</tr>
+
+<tr>
+<td><span>I2P<span class="super">+</span> Source Code Archive</span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td><a class="download" href="https://gitlab.com/i2pplus/I2P.Plus/-/jobs/artifacts/master/raw/i2pplus_latest_source.tar.gz?job=Java8">i2pplus_latest_source.tar.gz</a></td>
 </tr>
 
 </table>
@@ -203,6 +212,7 @@ Win / Lin / BSD / MacOS</td>
 <style type="text/css">
 @font-face {font-family: "s"; src: url(/resources/s.woff2) format("woff2")}
 @font-face {font-family: "t"; src: url(/resources/t.woff2) format("woff2")}
+body,#toplinks,#container{pointer-events:auto!important;display:block!important}
 </style>
 </body>
 
