@@ -3,6 +3,229 @@
 *** A full changelog of all recent changes is available in the update
 --------------------------------------------------------------------------------
 
+2023-03-15 dr|z3d
+ * Wrapper: Upgrade to 3.5.51
+
+2023-03-14 I2P+ 2.2.0+
+
+2023-03-13 dr|z3d
+ * Router:
+   - Don't flood unsolicited RIs we always reject
+   - Don't accept unsolicited RIs for banned routers
+
+2023-03-12 dr|z3d
+ * Router: Never accept unsolicited store of RIs for various categories of
+   router (old and unreachable, floodfill with SSU disabled etc)
+
+2023-03-11 dr|z3d
+ * Router:
+   - Don't activate connection throttler until connections 2/3 of limit
+   - Immediately disconnect from banned floodfills
+
+2023-03-08 dr|z3d
+ * Console: Add indicators to router b/w widgets for congestion caps
+
+2023-03-07 dr|z3d
+ * Console/Webapps: Replace monospaced font Droid Sans Mono with Fira Code
+ * Router:
+   - Perform reverse lookup when writing RIs to disk if reverse lookups enabled
+
+2023-03-06 dr|z3d
+ * Console: Shorten sidebar restart notification msg if advancedmode
+
+2023-02-23 dr|z3d
+ * Router: Ignore tunnel requests from older, unreachable routers
+
+2023-02-22 dr|z3d
+ * Console: Add tunnel accept/reject count to /profiles
+ * Router: Add blocklist for Tor exit nodes
+
+2023-02-21 dr|z3d
+ * Installer: Upgrade launch4j from 3.0.1 to 3.5.0
+
+2023-02-19 dr|z3d
+ * Console: Add b/w tier counter to /peers table headings
+
+2023-02-18 dr|z3d
+ * Console: Ensure sort order on ntcp/ssu connection pages is sticky
+
+2023-02-16 dr|z3d
+ * Console: Show simplified SSU table & advanced view tab when in adv mode
+
+2023-02-15 dr|z3d
+ * Console: Make columns sortable for NTCP/SSU peers tables
+
+2023-02-12 dr|z3d
+ * Console: Add link to tunnel build success graph from sidebar label
+
+2023-02-11 dr|z3d
+ * Router: Prevent incoming connections from banlisted peers
+
+2023-02-09 dr|z3d
+ * Router: Add N tier to caps we demote from fast/high cap tiers
+
+2023-02-07 dr|z3d
+ * Router: Retain profiles for longer if interesting
+
+2023-02-06 dr|z3d
+ * Console:
+   - Add indicators for unreachable/floodfill peers on RI widgets
+   - Add fastest transit tunnel page; limit to max 200 peers
+
+2023-02-05 dr|z3d
+ * Console:
+   - Don't show single shot or disabled jobs on jobqueue stats
+   - Overhaul flag + hash router representation
+    - Display b/w tier in separate column on peers pages
+
+2023-02-02 dr|z3d
+ * Console:
+   - Optional reverse dns lookups for peers on transit & tunnels
+     by count pages (enable with routerconsole.enableReverseLookups=true)
+
+2023-02-01 dr|z3d
+ * Console: Cancel sidebar refresh timer when browser tab not active
+
+2023-01-31 dr|z3d
+ * Console: Limit display to max 50 peers on transit summary page
+ * Router:
+   - Add peer flag renderer to CommSystemFacade
+   - Increase PumperTunnelGateway buffers and make ~ symmetrical
+   - Halve PTG queues if under sustained CPU load
+
+2023-01-29 dr|z3d
+ * Console:
+   - Increase threads and allocation memory for graph rendering
+   - Add additional default graphs
+
+2023-01-27 dr|z3d
+ * Router: Throttle tunnel builds if CPU load average  > 95
+ * Console: Sidebar refresh optimizations
+
+2023-01-26 dr|z3d
+ * Router: Upgrade out of date router log event to critical
+ * Console: Don't show peer count if 0 in NetDb b/w tier section
+
+2023-01-23 dr|z3d
+ * Console: Prevent auto-update to vanilla I2P
+
+2023-01-20 dr|z3d
+ * Console:
+   - Add tunnel build success indicator to sidebar tunnel section
+   - Add optional build success graph
+
+2023-01-19 dr|z3d
+ * Router: Disable SSU1 by default
+
+2023-01-18 dr|z3d
+ * I2PSnark: Add required attribute to search input
+ * Core: Add getCPULoadAvg() to SystemVersion
+
+2023-01-17 dr|z3d
+ * Console:
+   - Split peer b/w tier into own column on /tunnelpeercount
+   - Ensure sidebar max part tunnels displays the correct value
+ * Router:
+   - Slow down refresh routers job if under high cpu load
+   - Delay Explorer Job if under high cpu load
+ * I2PSnark: Apply filters to all loaded torrents if multi-page
+
+2023-01-16 dr|z3d
+ * Router:
+   - Slow down peer test job if we're under load
+   - Increase minimum fast tier routers to 200 (was 150)
+ * Console:
+   - Add stackoverflow search (via ddg) to /home
+   - Don't load sidebar assets when refreshing via XHR
+
+2023-01-15 dr|z3d
+ * I2PSnark: Add pagesize query param (patch by zzz)
+
+2023-01-14 dr|z3d
+ * I2PSnark:
+   - Simplify ajax refresh
+   - Don't refresh when browser tab not visible
+ * Core:
+   - Add getSystemLoad() and getCPULoad() to SystemVersion
+ * Router:
+   - Increase EventPumper interval and Iterative Search concurrency
+     if under high load
+ * Console:
+   - Add optional JVM CPU bar to /configsidebar
+   - Add system load average to CPU bar tooltip
+
+2023-01-13 dr|z3d
+ * Console: Add additional site searches to /home
+
+2023-01-07 dr|z3d
+ * Router: Increase max outbound bandwidth share if >=8 cores && >=4096MB
+
+2023-01-06 dr|z3d
+ * Router: Enhance participating throttler logging
+
+2023-01-05 dr|z3d
+ * Console: Add b33 definition to glossary
+
+2023-01-04 dr|z3d
+* Router:
+  - Reduce tunnel growth factor for transit tunnels (was 1.3, now 1.2)
+  - Increase timeout/first hop timeout for tunnel local requests
+
+2023-01-03 dr|z3d
+ * Router:
+   - Exclude M tier routers from local tunnel builds by default and
+     don't store on RIs on disk
+   - Standardize temp ban for hostile / excessive tunnel requests to 30m
+
+2023-01-03 dr|z3d
+ * Router: Add temp banning to RequestThrottler
+
+2022-12-31 dr|z3d
+ * Console: Add licensing exception for I2P to help/legal
+
+2022-12-28 dr|z3d
+ * Router: Adjust min tunnels before throttle, default max part tunnels
+
+2022-12-22 dr|z3d
+ * Router: Vary NTCP event pumper thread sleep according to system specs
+
+2022-12-21 dr|z3d
+ * Tunnels: Harden participating throttler to mitigate against observed abuse
+ * I2Tunnel: Standardize error pages sent by http server tunnel
+ * Console: Add sub-titles to various tabbed pages (NetDb, Profiles, etc)
+
+2022-12-19 dr|z3d
+ * Router: Don't bother with lookups for uninteresting peers
+
+2022-12-17 dr|z3d
+ * I2PSnark: Various javascript improvements/optimizations
+
+2022-12-16 dr|z3d
+ * Console: Persist error level logs in addition to critical logs
+
+2022-12-14 dr|z3d
+ * Console: Finish implementation of collapsible sidebar sections
+ * Router: Adjust minimum/maximum share bandwidth limits
+
+2022-12-11 dr|z3d
+ * Imagegen: Display identicon/QR form submissions in situ;
+   add 1024x1024 scaled examples
+
+2022-12-09 dr|z3d
+ * Console: Add link to eventlog on router logs header if in advanced mode
+
+2022-11-28 dr|z3d
+ * Console: Updates to NetDb lookup page (dropdowns from upstream etc)
+ * I2PSnark: Persist screenlog toggle state
+
+2022-11-26 dr|z3d
+ * Router: Don't publish extended stats to netdb unless enabled via config
+
+2022-11-24 dr|z3d
+ * Console: Add auto-refresh toggle to peers SSU/NTCP table headers
+
+2022-11-21 I2P+ 2.0.0+ released
+
 2022-11-19 dr|z3d
  * Router:
    - Reduce iterative search concurrency if known routers > 4000
