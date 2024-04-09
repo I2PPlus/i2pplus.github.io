@@ -2,17 +2,226 @@
 *** I2P+ Recent Changes
 *** A full changelog of all recent changes is available in the update
 --------------------------------------------------------------------------------
+2024-04-08 I2P+ 2.5.0+ released
 
-2023-06-30 I2P+ 2.3.0+ released
+2024-04-07 dr|z3d
+ * SusiMail: Display blocked image count in html messages if
+   view.html.blockedImages=false
 
-2023-06-30 dr|z3d
- * Console: Fix display of floodfills in /profiles section
+2024-04-06 dr|z3d
+ * SusiMail:
+   - Enable dark mode for HTML messages when dark themes active:
+     view.html.darkMode={true|false}
+   - Hide blocked images in HTML messages by default:
+     view.html.blockedImages={true|false}
 
-2023-06-28 dr|z3d
- * Router: Add info level logging for replies as floodfill to lookup requests
+2024-04-04 dr|z3d
+ * SusiMail:
+   - Add icon indicators in list view for HTML attachments
+   - Add config option to disable html remote content warning:
+     view.html.warning={true|false}
 
-2023-06-21 dr|z3d
- * I2PTunnel: Add server/client status counters to index page
+2024-04-03 dr|z3d
+ * SusiMail:
+   - Merge zzz's html mail viewer code, enhance presentation
+   - Fix various potential display issues with html messages,
+     swapout broken remote images for a blocked image icon
+
+2024-03-03 dr|z3d
+ * I2PSnark: Activate snex's create torrent filtering
+
+2024-02-10 snex
+ * I2PSnark: Implement create torrent file filtering
+
+2024-01-29 dr|z3d
+ * Reseeding: Add StormyCloud server
+
+2024-01-12 dr|z3d
+ * Console: Add auto-refresh toggle button to /logs
+
+2024-01-11 dr|z3d
+ * Console: Add tunnelId toggler to /tunnels if advanced mode enabled
+
+2023-12-31 dr|z3d
+ * Console: Add support for Noto Sans / Source Sans CJK fonts for graphs
+
+2023-12-30 dr|z3d
+ * Router: Fix out-of-bounds error for RDNS domain truncation
+ * I2PTunnel: Case-insensitivity when detecting existing http server headers
+
+2023-12-27 dr|z3d
+ * Console: Ensure sidebar continues auto-refresh after router restart
+
+2023-12-27 dr|z3d
+ * SusiMail: enable image attachment thumbnail previews;
+   display file icons for non-images
+ * Router: bump minimum version in various places for RI storage,
+   selective transit tunnel hosting etc
+
+2023-12-23 dr|z3d
+ * Console: Add redirect for /help/changelog at /changelog
+
+2023-12-22 dr|z3d
+ * Console: Fix sticky sidebar misbehavior at < 1500px viewport width
+
+2023-12-20 dr|z3d
+ * I2PSnark: Fix display of bottom page navigation buttons
+
+2023-12-18 I2P+ 2.4.0+ released
+
+2023-12-18 dr|z3d
+ * Console: Ensure we write out the news.xml feeds in utf-8 (fix by zzz)
+ * Router: stat when we receive a good search reply
+
+2023-12-17 dr|z3d
+ * Console: Ensure correct sidebar tunnel status visuals for translations
+
+2023-12-16 dr|z3d
+ * I2PTunnel: Process tunnel control events in situ, don't reload page
+
+2023-12-15 dr|z3d
+ * Tor blocklist update
+
+2023-12-11 dr|z3d
+ * Console: Selectively show shutdown errors in wrapper logs
+ * Console: Don't display untagged strings language option on wizard page
+
+2023-12-09 dr|z3d
+ * Console: When update is available, display on configupdate
+
+2023-12-08 dr|z3d
+ * Installer Fix rare misidentification of OS (patch from zzz)
+
+2023-12-07 dr|z3d
+ * SusiMail: Show spam flags for all in spam folder (patch from zzz)
+ * Console: Make Check for Updates button more prominent on configupdate
+
+2023-12-06 dr|z3d
+ * Console:
+   - Refactor configupdate
+   - Remove obsolete oldHome pref and conditionals from NewsHelper
+   - Add Router Updates link to home
+
+2023-12-04 dr|z3d
+ * Console: Form submission improvements in config section
+
+2023-12-02 dr|z3d
+ * Console: Iconize help section nav menu
+
+2023-11-23 dr|z3d
+ * Console: Streamline /profiles display
+
+2023-11-12 dr|z3d
+ * Router: Don't log ban events if router is already banned
+ * Sybil Don't ban NAT64 addresses (patch from zzz)
+
+2023-11-11 dr|z3d
+ * Router: Fix congestion cap publishing
+
+2023-11-10 dr|z3d
+ * I2PTunnel: Exempt tunnel name from XSS filter (upstream Gitlab #467)
+ * NetDB Lookup handler throttler fixes (upstream Gitlab #468)
+
+2023-10-22 dr|z3d
+ * Core: Update clearnet user agent string as per latest Tor browser
+ * I2PSnark: Show correct count on filter badge when search is active
+ * Router: Reimplement no GeoIP router bans 10m grace period after startup
+
+2023-10-17 dr|z3d
+ * Console:
+   - Remove some cruft from home and searchbar
+   - Allow vertical resize for configlogging textarea
+
+2023-10-12 dr|z3d
+ * I2PTunnel
+   - Add some default mimetypes in case we don't find any in the response headers
+   - Add some header null checks, source cleanups
+   - Add cache control, referrer policy, x-xss-protection headers if missing in HTTPServer
+
+2023-10-11 dr|z3d
+ * Reseeding: Add prestium reseed hosts and certs
+ * I2PTunnel
+   - Increase max packet size in I2PTunnelRunner
+   - Increase cache size for http response
+
+2023-10-10 dr|z3d
+ * Router: Fix in-console rendering of flags
+ * Console: Improve rendering time of tunnels pages
+
+2023-10-09 dr|z3d
+ * Console Unsigned update notification improvements courtesy of zzz
+
+2023-10-07 dr|z3d
+ * Console: home and graphs pages rendering speedup
+
+2023-10-02 dr|z3d
+ * I2PSnark:
+   - Speed up rendering of main torrents table
+   - Preload fonts
+ * Console
+   - Speed up rendering of /tunnelpeercount and js fixes
+
+2023-09-30 dr|z3d
+ * SSU2: Prevent rare IAE in peer test timer Gitlab 433
+ * I2PSnark: eventlistener improvements in refreshTorrents.js
+ * Console: I2PTunnel unique names for xhr requests
+ * Console/Webapps: Don't use capturing phase in js unless needed
+
+2023-09-27 dr|z3d
+ * Console: Check for presence of countries table before adding sort listeners
+ * Console: Ensure sidebar section toggler works when refresh disabled
+
+2023-09-26 dr|z3d
+ * Imagegen: Speed up generation of identicons
+
+2023-09-25 dr|z3d
+ * Console/Webapps/eepsite: Remove svg xlink namespace, convert xlinks to hrefs
+
+2023-09-22 dr|z3d
+ * SusiDNS: Remove mimetype sniffing from headers.jsi since we're just using the URI
+ * Console: Suppress logging the file extraction process for reseed zips
+
+2023-09-20 dr|z3d
+ * Console: Reduce max threads from 24 to 8
+ * Console: Indicate updated table cells when refreshing on /jobs
+
+2023-09-19 dr|z3d
+ * Eepsite: Don't serve cookies (max-age: 0)
+
+2023-09-18 dr|z3d
+ * I2PSnark: Reduce max messages in screenlog to 50 was 100
+
+2023-09-15 dr|z3d
+ * I2PSnark: Remove redundant IE8 9 workarounds and checks in lightbox.js
+
+2023-09-14 dr|z3d
+ * Console: Display wrapper logs newest entry at top to match router logs and
+            presentational improvements
+
+2023-08-29 dr|z3d
+ * Console: Don't display Tunnel lag indicator in sidebar if 0
+
+2023-08-27 dr|z3d
+ * Router: Add reverse DNS lookup file cache when RDNS is enabled
+
+2023-08-20 dr|z3d
+ * Console: Update url for /i2ptunnelmgr to /tunnelmanager
+ * Console: Rename some pages with auto redirects from old page names
+
+2023-08-19 dr|z3d
+ * Console: Sticky sidebar improvements
+
+2023-08-09 dr|z3d
+ * I2PSnark: Add new magnets column to main view toggled via javascript
+
+2023-08-01 dr|z3d
+ * Router: Don't build client tunnels with congestion cap peers
+
+2023-07-12 dr|z3d
+ * Jetty update default eepsite caching policies
+
+2023-07-11 dr|z3d
+ * Console: swapout home news bg image dark
 
 2023-06-15 dr|z3d
  * Console: Add UI toggle to enable/disable alternative display font for console
@@ -25,7 +234,7 @@
  * Console: Switch from post to get for netdb lookups
 
 2023-06-07 dr|z3d
- * Console: Merge upstream comsetic fixes for graph rendering
+ * Console: Merge upstream cosmetic fixes for graph rendering
 
 2023-05-14 dr|z3d
  * Console: Iconize navbar links in configuration section
