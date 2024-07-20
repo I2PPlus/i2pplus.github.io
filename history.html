@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="shortcut icon" href=/favicon.svg>
 <style type="text/css">
 @import url(chromescroll.css);
@@ -12,6 +11,107 @@ pre {margin: 0; display: inline-block; color: #fed; font-size: 11pt; font-family
 </style>
 <body>
 <pre>
+2024-07-19 2.6.0+ (API 0.9.63) released
+
+2024-07-19 dr|z3d
+ * Console: Ensure /help section and /sitemap also display
+   routerconsole.pageTitlePrefix when configured
+ * Scripts: Add --no-location optional flag to remove_fuzzies.sh
+
+2024-07-16 dr|z3d
+ * Console: Add js toggle to translation report to permit toggling of
+   completed translations
+
+2024-07-16 dr|z3d
+ * Scripts: add remove_fuzzies.sh script to purge all .po files in specified
+   dir and sub-dirs recursively of fuzzy translations with optional --no-wrap
+   flag to remove wrapping
+
+2024-07-16 zzz / dr|z3d
+ * Console: Add translation report to debug section as per upstream MR and
+   add flags and percentage bars and enhance presentation
+
+2024-07-09 dr|z3d
+ * I2PSnark:
+   - Complete overhaul of zilvero theme
+   - Fix link to config section in multipage view when not on first page
+
+2024-07-09 dr|z3d
+ * Graphs: Use relative coordinates for svg paths to reduce filesize
+
+2024-06-29 dr|z3d
+ * I2PSnark: Enforce absolute max down/up speeds of 9999KB in Bandwidth Manager
+
+2024-06-27 dr|z3d
+ * I2PSnark: Fix assigning download priorities to files (spotted by postman)
+
+2024-06-23 dr|z3d
+ * Console: Add experimental router world map at /netdbmap
+
+2024-06-20 dr|z3d
+ * Console: Add configuration routerconsole.pageTitlePrefix={text} to set a
+   prefix for console page titles (requested by postman) and associated help
+
+2024-06-19 dr|z3d
+ * SusiDNS: SVG identicons with fallback to original bitmaps when no js
+
+2024-06-12 dr|z3d
+ * Console: Add floodfill indicator to sidebar network status when ff is active
+
+2024-06-12 dr|z3d
+ * I2PTunnel: Resolve non-i2p addresses served by the HTTP Server tunnel to
+   identify 404s and block attempts to access localhost/loopback addresses via
+   hostname
+
+2024-06-11 dr|z3d
+ * I2PSnark: If peer client has version string, display on tooltip only
+ * Graphs: Downsample graph data progressively as the display period increases
+
+2024-06-10 dr|z3d
+ * Console: Move "Select Stats" link on /graphs config panel header to button
+   inside panel and indicate panel toggle status on header
+
+2024-06-08 dr|z3d
+ * Console: Add toggle for inbound/outbound tunnels on /tunnels page
+
+2024-06-06 dr|z3d
+ * Graphs: Tweak decimal places on legends
+
+2024-06-05 dr|z3d
+ * Router: Don't temp ban peers for sending unsolicted NetDb store requests
+ * Console: Improve graphs loading and detecting/setting dimensions
+ * Graphs: Only show time label every other major gridline if spacing between
+   labels is less than the width of a single label
+
+2024-06-03 dr|z3d
+ * I2PSnark: Enhance and streamline debug panel presentation
+
+2024-06-01 dr|z3d
+ * I2PSnark: Use AJAX for page navigation
+
+2024-05-31 dr|z3d
+ * I2PSnark: Toggle debug mode inline without page reload
+
+2024-05-30 dr|z3d
+ * I2PSnark: Don't display toggle peers icon when no peers connected
+
+2024-05-29 dr|z3d
+ * Graphs: Various presentational improvements
+
+2024-05-28 dr|z3d
+ * I2PSnark:
+   - Fixes for single torrent peer toggle
+   - Distinguish between active and inactive seeding torrents
+ * Console: Display I2PChat icon instead of server icon in sidebar when active
+
+2024-05-27 dr|z3d
+ * I2PSnark: Use AJAX for torrent filters and sort navigation
+
+2024-05-17 dr|z3d
+ * I2PTunnel: URL based blocking for HTTP Server Tunnel - enabled with a url
+   blocklist at .i2p/http_blocklist.txt, one entry per line, blocked clients
+   logged at .i2p/http_blocklist_clients.txt for adding to tunnel filter
+
 2024-04-11 dr|z3d
  * I2PSnark: Modify logging output for snark create torrent file filtering
    so we only display path relative to the data dir, not full paths
@@ -19,6 +119,154 @@ pre {margin: 0; display: inline-block; color: #fed; font-size: 11pt; font-family
 2024-04-11 snex
  * I2PSnark: Fix create torrent filtering when applying a "." filter and
    log filtered files or filtered file count to screenlogs and terminal
+
+2024-05-09 dr|z3d
+ * Console: Update graphs and handle graph manipulation using AJAX
+
+2024-05-15 2.5.2+ (API 0.9.62) released
+
+2024-05-15 dr|z3d
+ * Console:
+   - Add realtime js logging filter for router logs on /logs
+   - Linkify ip addresses in router logs on /logs
+
+2024-05-14 dr|z3d
+ * Console: Add refresh interval feature (js) to /logs to permit manually
+   configuring the interval, with persistence via local storage
+
+2024-05-12 dr|z3d
+ * Console:
+   - Add Unknown country to NetDb summary for non-GeoIP resolved peers
+   - Ensure pages linked in iframes load at top
+   - Migrate inline javascript on /jobqueue to refreshElements.js
+
+2024-05-11 dr|z3d
+ * Console: Add Show/Hide Legend button on single graph page
+
+2024-05-09 dr|z3d
+ * Console: Update graphs and handle graph manipulation using AJAX
+
+2024-05-09 dr|z3d
+ * Console: Update graphs and handle graph manipulation using AJAX
+
+2024-05-06 I2P+ 2.5.1+ released
+
+2024-05-06 dr|z3d
+ * Console: Display graphs as SVGs using jfreesvg library
+   (I2P integration courtesy of zzz)
+
+2024-04-26 dr|z3d
+ * Console: Add delete sybil blocklist button to sybil section
+ * Router: Don't tolerate routers sending unsolicited DbSearch reply messages
+
+2024-04-24 dr|z3d
+ * I2PSnark: Display free space info at startup
+
+2024-04-23 dr|z3d
+ * Router: Add bans at SSU2 Establishment phase for various suspect behaviors
+
+2024-04-21 dr|z3d
+ * SusiDNS: Enhance presentation of subscription logs and linkify new hosts
+
+2024-04-19 dr|z3d
+ * SusiDNS: Reverse the order of the subscription logs so newest
+   added domains appear first
+ * I2PSnark: Fix display of progress bars on details page
+
+2024-04-16 dr|z3d
+ * Console: Optimize progressx.js and add support for theme-specific colors
+
+2024-04-08 I2P+ 2.5.0+ released
+
+2024-04-07 dr|z3d
+ * SusiMail: Display blocked image count in html messages if
+   view.html.blockedImages=false
+
+2024-04-06 dr|z3d
+ * SusiMail:
+   - Enable dark mode for HTML messages when dark themes active:
+     view.html.darkMode={true|false}
+   - Hide blocked images in HTML messages by default:
+     view.html.blockedImages={true|false}
+
+2024-04-04 dr|z3d
+ * SusiMail:
+   - Add icon indicators in list view for HTML attachments
+   - Add config option to disable html remote content warning:
+     view.html.warning={true|false}
+
+2024-04-03 dr|z3d
+ * SusiMail:
+   - Merge zzz's html mail viewer code, enhance presentation
+   - Fix various potential display issues with html messages,
+     swapout broken remote images for a blocked image icon
+
+2024-03-03 dr|z3d
+ * I2PSnark: Activate snex's create torrent filtering
+
+2024-02-10 snex
+ * I2PSnark: Implement create torrent file filtering
+
+2024-01-29 dr|z3d
+ * Reseeding: Add StormyCloud server
+
+2024-01-12 dr|z3d
+ * Console: Add auto-refresh toggle button to /logs
+
+2024-01-11 dr|z3d
+ * Console: Add tunnelId toggler to /tunnels if advanced mode enabled
+
+2023-12-31 dr|z3d
+ * Console: Add support for Noto Sans / Source Sans CJK fonts for graphs
+
+2023-12-30 dr|z3d
+ * Router: Fix out-of-bounds error for RDNS domain truncation
+ * I2PTunnel: Case-insensitivity when detecting existing http server headers
+
+2023-12-27 dr|z3d
+ * Console: Ensure sidebar continues auto-refresh after router restart
+
+2023-12-27 dr|z3d
+ * SusiMail: enable image attachment thumbnail previews;
+   display file icons for non-images
+ * Router: bump minimum version in various places for RI storage,
+   selective transit tunnel hosting etc
+
+2023-12-23 dr|z3d
+ * Console: Add redirect for /help/changelog at /changelog
+
+2023-12-22 dr|z3d
+ * Console: Fix sticky sidebar misbehavior at < 1500px viewport width
+
+2023-12-20 dr|z3d
+ * I2PSnark: Fix display of bottom page navigation buttons
+
+2024-05-06 I2P+ 2.5.1+ released
+
+2024-05-06 dr|z3d
+ * Console: Display graphs as SVGs using jfreesvg library
+   (I2P integration courtesy of zzz)
+
+2024-04-26 dr|z3d
+ * Console: Add delete sybil blocklist button to sybil section
+ * Router: Don't tolerate routers sending unsolicited DbSearch reply messages
+
+2024-04-24 dr|z3d
+ * I2PSnark: Display free space info at startup
+
+2024-04-23 dr|z3d
+ * Router: Add bans at SSU2 Establishment phase for various suspect behaviors
+
+2024-04-21 dr|z3d
+ * SusiDNS: Enhance presentation of subscription logs and linkify new hosts
+
+2024-04-19 dr|z3d
+ * SusiDNS: Reverse the order of the subscription logs so newest
+   added domains appear first
+ * I2PSnark: Fix display of progress bars on details page
+
+2024-04-16 dr|z3d
+ * Console: Optimize progressx.js and add support for theme-specific colors
 
 2024-04-08 I2P+ 2.5.0+ released
 
@@ -241,17 +489,6 @@ pre {margin: 0; display: inline-block; color: #fed; font-size: 11pt; font-family
 2023-07-11 dr|z3d
  * Console: swapout home news bg image dark
 
-2023-06-30 I2P+ 2.3.0+ released
-
-2023-06-30 dr|z3d
- * Console: Fix display of floodfills in /profiles section
-
-2023-06-28 dr|z3d
- * Router: Add info level logging for replies as floodfill to lookup requests
-
-2023-06-21 dr|z3d
- * I2PTunnel: Add server/client status counters to index page
-
 2023-06-15 dr|z3d
  * Console: Add UI toggle to enable/disable alternative display font for console
    and default web apps
@@ -263,7 +500,7 @@ pre {margin: 0; display: inline-block; color: #fed; font-size: 11pt; font-family
  * Console: Switch from post to get for netdb lookups
 
 2023-06-07 dr|z3d
- * Console: Merge upstream comsetic fixes for graph rendering
+ * Console: Merge upstream cosmetic fixes for graph rendering
 
 2023-05-14 dr|z3d
  * Console: Iconize navbar links in configuration section
