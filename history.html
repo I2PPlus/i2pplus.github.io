@@ -11,6 +11,246 @@ pre {margin: 0; display: inline-block; color: #fed; font-size: 11pt; font-family
 </style>
 <body>
 <pre>
+2026-02-11 2.11.0+ (API 0.9.68) released
+
+2026-02-11 dr|z3d
+ * Router:
+   - Enforce concurrent tunnel build cap per inbound/outbound pool
+ * Console:
+   - TunnelRenderer tweaks and presentational improvements on /tunnels page
+
+2026-02-10 dr|z3d
+ * Router:
+   - Sybil Analysis: log IP address in ban reason when available
+   - GhostPeerManager: tweak fail count and intervals for faster detection
+   - Log IP and reverse DNS for session bans
+   - Quadruple floodfill search limit and double timeout when under attack
+ * Addressbook:
+   - Double HostChecker floodfill lookup timeout to 30s when under attack
+ * Console:
+   - Refactor session bans page, add flags and IP/hostname parsing
+   - Parse hostname from sessionbans.txt to avoid redundant reverse DNS lookups
+
+2026-02-09 dr|z3d
+ * Router:
+   - Proactively remove slow tunnels (>2x avg latency per hop) from pools
+     to maintain efficient tunnel performance without marking them as failed
+   - Enforce 2-hop minimum for client tunnel fallbacks; continue building
+     indefinitely until successful rather than settling for short tunnels
+   - Allow 1-hop fallbacks for client pools configured for 1 hop; allow
+     0-hop fallbacks only for exploratory pools or when allowZeroHop configured
+   - Remove 0-hop tunnels when pool has 3+ total tunnels available
+   - Extend tunnel test timeout to 25s during attacks (up from 15s) to
+     accommodate network delays
+ * Console:
+   - Display last known tunnel latency on /tunnels page showing round-trip
+     time from last successful test
+
+2026-02-08 dr|z3d
+ * Router:
+   - Ban XG (fast, no transit) routers by default
+   - Improve tunnel build success calculation to use combined client and
+     exploratory stats for consistency
+   - Retain duplicate tunnels during attacks since replacements are hard
+     to build
+   - Ban peers sending 3+ corrupt fragments in 10min for 8h
+   - Relaxed peer selection under attack (<40% tunnel build success)
+   - Consolidate session bans to sessionbans/sessionbans.txt with disk sync
+   - Ban corrupt NTCP handshake attackers for 8 hours
+   - Raise tunnel build timeout to 1 hour under attack
+   - Relax peer exclusions during attacks - allow P cap, 1/6 E cap,
+     U-cap for M/N/O/P/X tiers
+   - Increase MAX_TIME_TO_REBUILD to 30min for LeaseSets resilience
+   - Allow client tunnels to retry and fallback to >0-hop exploratory
+   - Add last-hop exclusion for client tunnels to limit the same peer
+     at the last hop in pools
+   - Prevent tunnel pools from dropping to 0 and implement defensive
+     building under attack
+   - Scale NTCP connections under attack (20 per 1%, min 100, max 800);
+   - Add router.throttleNTCPunderAttack config property (default false)
+   - Enforce max 3 hops for client and exploratory tunnels when under attack
+ * Console:
+   - Add IP, hostname columns and sessionbans IP-only bans to banlist
+   - Move Blocklist IP to IP column on session bans page
+
+2026-02-07 dr|z3d
+ * Router:
+   - Add periodic cleanup to remove tunnels with duplicate peer sequences,
+     ensuring at least one tunnel remains per pool
+   - Prevent 0-hop tunnels from being added to client pools unless
+     explicitly configured to allow them
+   - Fix duplicate tunnel rejection logic to keep existing tunnels and
+     reject new duplicates instead of clearing pools
+   - Fix zero-hop cleanup to properly fail removed tunnels
+   - Add gap-based pre-emptive botnet detection
+   - Separate exploratory and client tunnel peer percentage limits
+   - Lower burst thresholds and add 1s immediate ban for severe bursts
+   - Rate-limit tunnel unavailable logs to 1 per minute after 10min uptime
+   - Display max of 1m and 10m tunnel build success averages in sidebar
+   - Relax LeaseSet validation during attacks to accommodate tunnel delays
+   - Increase stored profile limits and use lastHeardFrom for eviction
+   - Add warn logging for client 0-hop tunnels and extend cleanup to
+     client pools
+   - Fix fallback tunnel selection to properly enforce hop count for
+     client tunnels
+   - Adaptive tier classification; protect client tunnel hop count
+   - Extend profile expiration to 2x when under attack
+   - Don't persist ghost tunnel history, add periodic ghost reset,
+     bootstrap from fastest tiers
+   - Fix profile manager to bootstrap fast peers from NetDB and improve
+     ghost peer handling during attacks
+   - Reduce ClientPeerSelector log spam during attacks
+   - Improve predictive banning with recovery, caching and higher
+     thresholds
+ * Console:
+   - Fix fast peer count discrepancy on profiles page
+   - Show tunnel build success faster using 1-minute average
+ * Core: Allow slight LeaseSet expiry during attacks for tunnel delay
+   tolerance
+
+2026-02-06 dr|z3d
+ * Router:
+   - Adaptive peer testing - double concurrency under attack, limit
+     when job queue backed up
+   - Log flood throttle offenders and auto-ban abusers
+   - Reduce lease renewal interval under attack
+
+2026-02-05 dr|z3d
+ * Router:
+   - Add BanLogger and HashPatternDetector for botnet detection and
+     sessionbans logging
+   - Integrate BanLogger for netDB, transport layer, and tunnel pool
+     ban event logging
+   - Add duplicate tunnel sequence detection; display duplicate status
+     in tunnel list, mark and fail duplicates appropriately
+   - Increase tunnel test capacity and peer tunnel limit under low
+     build success to mitigate attacks
+   - Add 10-minute sliding window to bad packet counter to avoid false
+     positives
+   - Increase floodfill query concurrency under attack
+   - Do not ban floodfills for version mismatches
+
+2026-02-04 dr|z3d
+ * Router:
+   - Track and ban routers for unsolicited DbSearchReply after 3
+     occurrences
+   - Track and ban repeat offenders for corrupt SSU2 SessionConfirmed
+     messages
+   - Add per-IP tracking for SSU2 TERMINATION and establishment failures
+
+2026-02-01 dr|z3d
+ * Console: Display tunnel test status on /tunnels; don't display
+   transient HostChecker ping tables
+ * Addressbook: Throttle hostchecker concurrency based on router job lag
+ * Router:
+   - Implement job lag-based concurrency and batched staggered
+     scheduling for sendStore to eliminate blocking
+   - Add JobQueueScaler for job runner scaling based on system load
+   - Increase LeaseSet republishing interval and implement 15-second
+     batching window for republishing
+
+2026-01-31 dr|z3d
+ * Router:
+   - Implement async delegation for tunnel build reply processing to
+     prevent InNetMessagePool lag
+   - Optimize UDP packet memory usage with buffer pooling/reduced zeroing
+   - Add early packet drop mechanisms for UDP queue backpressure
+   - Reduce NTCP/SSU buffer and queue over-allocation
+   - Add nanosecond precision timing for sub-millisecond job duration
+     tracking
+
+2026-01-30 dr|z3d
+ * I2PSnark: Optimize DHT for more efficient memory management
+ * Console: Enhance and declutter presentation of jobs on /jobqueue
+ * Router:
+   - TestJob optimizations with deduplication and pool coverage tracking
+   - Batch tunnel expirations via ExpireJobManager
+   - Improve job dropping logic to prevent lag buildup and memory bloat
+   - Reduce lock contention in TunnelRemovalJob
+
+2026-01-26 dr|z3d
+ * Router: Improve tunnel test performance with faster failure detection
+   and higher limits
+ * Console/Webapps: Tibetan translation
+
+2026-01-24 dr|z3d
+ * Router:
+   - Implement adaptive tunnel testing frequency with success rate tracking
+   - Grace period of 10m after startup before banning for excessive lookups
+
+2026-01-18 dr|z3d
+ * I2PTunnel: Add graceful shutdown and destination limit to AccessFilter
+ * Router: Add cache cleanup to prevent memory leaks in RepublishLeaseSetJob
+
+2026-01-09 dr|z3d
+ * I2PTunnel: Implement optional random startup delay for automatically
+   started server tunnels
+
+2025-12-26 dr|z3d
+ * SusiDNS: Add support for Blacklisting host(s) via "Blacklist selected"
+   button on addressbook pages
+
+2025-12-19 dr|z3d
+ * SusiDNS: Display site categories in host lists, classifications
+   courtesy of notbob.i2p
+
+2025-12-17 dr|z3d
+ * SusiDNS: Implement blacklist feature to hide blacklisted hosts from
+   addressbook lists
+ * I2PTunnel: Use SusiDNS blacklist to block access to hosts via http proxy
+
+2025-12-13 dr|z3d
+ * SusiDNS: Implement automated host checker to determine reachability
+   and display status in host lists
+
+2025-12-10 dr|z3d
+ * Router: Reduce memory footprint by optimizing stats collection
+
+2025-12-08 dr|z3d
+ * Console: Add Tibetan translation to console and webapps
+
+2025-12-07 dr|z3d
+ * SusiDNS: Add source and date added columns to main hostlist tables
+
+2025-11-18 dr|z3d
+ * Console:
+   - Migrate various auto-refreshing pages to refreshElements.js,
+     leverage morphdom.js for improved refresh rendering performance,
+     and use shared worker for background updates
+   - Fixup and enhance column sorting on eligible tables
+   - Add auto-refresh to leasesets and netdb listings pages
+
+2025-10-08 dr|z3d
+ * Console: Rendering speedups for tunnels pages and routerinfo listings
+
+2025-10-03 dr|z3d
+ * Console: Indicate errors on logs sidebar icon and tooltip
+
+2025-10-01 dr|z3d
+ * Console: Replace combined logs view with error view and remove
+   error logs from /routerlogs page; add error logs counter on nav
+
+2025-09-29 dr|z3d
+ * Console: Iconize and add tooltips to peer status on /profiles
+ * Transports: Optimize and refactor NTCP EventPumper to reduce CPU
+   usage and improve connection management
+
+2025-09-24 dr|z3d
+ * Console: Add compact NetDb search form to /netdb pages
+ * Transports: Fix syntax bug preventing inbound SSU connections
+
+2025-09-22 dr|z3d
+ * Console: Add optional fallback whois lookups for routers when
+   reverse dns lookups are enabled
+
+2025-09-17 dr|z3d
+ * Router: Implement reverse DNS lookup file cache with LRU eviction
+   policy and configurable memory limits
+
+2025-09-12 dr|z3d
+ * Console: Add UI option to toggle sticky sidebar on /configsidebar
+
+
 2025-09-09 2.10.0+ (API 0.9.67) released
 
 2025-09-02 dr|z3d
