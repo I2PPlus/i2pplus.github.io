@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang=ru" style=background:#080000>
+
+<head>
+<style type=text/css>body{pointer-events:none}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="i2p+,темы,настройка,override.css,dark,light,midnight,консоль">
+<title>I2P+ Руководство по темам | i2pplus.github.io</title>
+<link rel="preload" href="/assets/css/i2p+.css" as="style" type="text/css">
+<link rel="preload" href="/assets/fonts/t.woff2" as="font" type="font/woff2" crossorigin=anonymous>
+<link rel="preload" href="/assets/fonts/s.woff2" as="font" type="font/woff2" crossorigin=anonymous>
+<link rel="shortcut icon" href="/assets/favicon.svg">
+<link href="/assets/css/i2p+.css" rel="stylesheet" type="text/css">
+<style>
+  body {line-height:1.8}
+  b,strong,th,p,a {font-weight:400 !important}
+  p, ol, p + ul { font-size: 80%}
+</style>
+</head>
+
+<body hidden>
+<div id="toplinks" hidden>
+<h1>I2P<span class="super title">+</span></h1>
+<span id="logo"><a href=/ aria-label="I2P+ Главная"></a></span>
+<a href="download.html">Скачать</a>
+<span class="dropdown"><a href="installation.html">Документы</a><span class="dropdown-menu">
+<a href="installation.html">Установка</a>
+<a href="screenshots.html">Скриншоты</a>
+<a href="compatibility.html">Совместимость</a>
+<a href="support.html">FAQ и поддержка</a>
+<a href="/changelog.html">Журнал изменений</a>
+<a href="glossary.html">Глоссарий</a>
+<a href="theming.html">Темы</a>
+</span></span>
+<span class="dropdown"><a href="https://github.com/i2pplus/i2pplus/" target=_blank>Ресурсы</a><span class="dropdown-menu">
+<a href="http://javadoc.skank.i2p/?i2paddresshelper=eVXrzsw9BaM81HngLg9DGWXY1Iri5s-1hsB8-oatdaaWfGJyB6UvSEnTSzotl3ZARtaV8v94eF9EQW5e47-jZ-kAnnLQZ128ek1bTtl3-l4pSxa-rjrRPu8ZsrRsZR1ygJ6CFSmhNXIYsZeRY7G1IySSrNcrPt8foiMKX~WtZ35BxMqv5ok-If9GFQ9LIEOz3d8GujMmvx80Ci8wvi1ymDqfqxVmZZ8KG2B-AIOVPBJx2cmgfZJYI0tBf~sv-3w2r8b3rfYd07E~~~oI8BpyDhzxDRBzZdPAA7pcHkRE8l9n6EzWlZWp-u825uiscki9RdCG4m-oQS2N6sffcvakj2qvvhzaruYTlJg88tJj07lEAWPR4H~s1dAJHr7MGLrEawgRUIMb7AeLVUv~laZkEoLKuv0E7XdeVMzL4IcwHbVG~AzqBsNzuuJRpsqAzbEaFZrqXhLiN54fV1tYDObeF5dGq0aqt1VRVizXrJjIvKLM1ECY23SjlvrC0f4CqrpNBQAEAAcAAA=" target=_blank>API</a>
+<a href="https://github.com/i2pplus/i2pplus/" target=_blank>Github</a>
+<a href="/hosts.txt" target=_blank>hosts.txt</a>
+</span></span>
+<span id="lang"><a href="/theming.html"><img alt="EN" src="/assets/images/flags/us.svg" width=20 height=16></a>&nbsp;<a href="/zh/theming.html"><img alt="ZH" src="/assets/images/flags/cn.svg" width=20 height=16></a>&nbsp;<a href="/ru/theming.html"><img alt="RU" src="/assets/images/flags/ru.svg" width=20 height=16></a></span>
+</div>
+<div id="container" hidden>
+
+<section>
+<h3>I2P+ Руководство по темам</h3>
+<p><span class="nowrap">I2P<span class="super">+</span></span> поддерживает четыре встроенные темы и полную настройку через файлы <code>override.css</code>. Темы охватывают консоль маршрутизатора и все веб-приложения.</p>
+</section>
+
+<section>
+<h3>Встроенные темы</h3>
+<p>Четыре темы включены из коробки:</p>
+<ul>
+<li><b>Dark</b> — тема по умолчанию с тёмным фоном и оранжевыми/зелёными акцентами</li>
+<li><b>Light</b> — яркая тема со светлым фоном</li>
+<li><b>Midnight</b> — тёмная тема с фиолетовыми оттенками</li>
+<li><b>Classic</b> — традиционный вид консоли I2P</li>
+</ul>
+<p>Темы применяются к консоли маршрутизатора и всем веб-приложениям (SusiMail, SusiDNS, I2PSnark, страница входа). Когда <code>routerconsole.universal.theme=true</code>, все веб-приложения используют одну тему. Когда false, каждое веб-приложение может иметь собственный выбор темы.</p>
+</section>
+
+<section>
+<h3>Выбор темы</h3>
+<p>Установите активную тему в консоли маршрутизатора в <b>Конфигурация → Интерфейс</b> или отредактируйте <code>router.config</code>:</p>
+<code>routerconsole.theme=dark</code>
+<p>Допустимые значения — любое имя каталога темы в <code>docs/themes/console/</code>.</p>
+</section>
+
+<section>
+<h3>Система override.css</h3>
+<p><code>override.css</code> — основной механизм настройки. Это файл CSS, созданный пользователем и размещённый в каталоге темы. Поскольку он загружается после всего остального CSS, любое правило в <code>override.css</code> имеет приоритет над темами по умолчанию.</p>
+
+<h3>Как это работает</h3>
+<ol>
+<li>Создайте файл: поместите <code>override.css</code> в <code>$I2P/docs/themes/console/&lt;theme&gt;/override.css</code></li>
+<li>Он проверяется при каждой загрузке страницы</li>
+<li>Он сохраняется после обновлений — никогда не перезаписывается маршрутизатором</li>
+</ol>
+
+<h3>Пример: Ocean Blue</h3>
+<pre><code>/* Переопределение тёмной темы поворотом цветового тона на синий */
+html {
+    filter: hue-rotate(120deg);
+}
+body {
+    background: repeating-linear-gradient(to right, rgba(0,0,0,0.8) 1px,
+                rgba(0,0,0,0.8) 2px, rgba(0,0,32,0.6) 3px) #000;
+}
+img, #sb_localtunnels img, .sb *::before, #routerlogs li, .tunnelBuildStatus {
+    filter: hue-rotate(-120deg) !important;
+}</code></pre>
+
+<h3>Быстрый трюк с поворотом цветового тона</h3>
+<p>Однострочное переопределение может полностью изменить цветовую схему:</p>
+<pre><code>/* Превратить зелёную тему в океанскую синюю */
+html { filter: hue-rotate(120deg); }
+/* Обратный поворот изображений, чтобы они сохранили естественные цвета */
+img { filter: hue-rotate(-120deg) !important; }</code></pre>
+
+<h3>Темизация всех веб-приложений</h3>
+<p>Чтобы применить <code>override.css</code> ко всем веб-приложениям, создайте его в каталоге темы каждого веб-приложения или создайте символическую ссылку:</p>
+<pre><code>ln -s ../console/dark/override.css $I2P/docs/themes/susimail/dark/override.css
+ln -s ../console/dark/override.css $I2P/docs/themes/susidns/dark/override.css
+ln -s ../console/dark/override.css $I2P/docs/themes/snark/dark/override.css</code></pre>
+</section>
+
+<section>
+<h3>Примеры файлов переопределений</h3>
+<p>Каждая тема поставляется с примерами файлов переопределений, которые можно переименовать для активации:</p>
+
+<h3>Тема Dark</h3>
+<ul>
+<li><code>override.css.ocean.blue</code> — поворот на синий/холодный тон</li>
+<li><code>override.css.purple</code> — фиолетовые тона</li>
+<li><code>override.css.red</code> — красные акценты</li>
+</ul>
+
+<h3>Тема Light</h3>
+<ul>
+<li><code>override.css.charcoal</code> — тёмный вариант светлой темы</li>
+<li><code>override.css.flat</code> — плоский дизайн без градиентов</li>
+<li><code>override.css.lowlight</code> — сниженная яркость</li>
+<li><code>override.css.solar.green</code> — соляризованная зелёная</li>
+<li><code>override.css.solarsurprise</code> — вариант соляризации</li>
+</ul>
+
+<h3>Тема Midnight</h3>
+<ul>
+<li><code>override.css.purple</code> — фиолетовые тона</li>
+</ul>
+</section>
+
+<section>
+<h3>Создание пользовательской темы</h3>
+
+<h3>Шаг 1: Создайте каталог темы</h3>
+<pre><code>mkdir -p $I2P/docs/themes/console/mytheme/images</code></pre>
+
+<h3>Шаг 2: Создайте <code>global.css</code></h3>
+<p>Определите пользовательские свойства CSS. Минимум:</p>
+<pre><code>:root {
+    --a: #494;
+    --active: #f90;
+    --hover: #f60;
+    --ink: #ee9;
+    --ink_bright: #aa3;
+    --bodybg: #000;
+    --border: 1px solid #242;
+    --btn: linear-gradient(180deg, #001000, #000);
+    --badge: linear-gradient(180deg, #020, #010);
+}</code></pre>
+
+<h3>Шаг 3: Создайте <code>console.css</code></h3>
+<pre><code>@import url(global.css);
+@import url(../shared.css);
+@import url(../images/itooplus.css);
+
+body {
+    background: var(--bodybg);
+    color: var(--ink);
+}
+a { color: var(--a); }
+a:hover { color: var(--hover); }</code></pre>
+
+<h3>Шаг 4: Создайте изображения темы</h3>
+<p>Разместите как минимум:</p>
+<ul>
+<li><code>images/thumbnail.png</code> — миниатюра 48×48 для выбора</li>
+<li><code>images/i2plogo.png</code> — логотип консоли</li>
+<li><code>images/favicon.svg</code> — иконка сайта</li>
+</ul>
+
+<h3>Шаг 5: Создайте каталоги тем веб-приложений</h3>
+<p>Для каждого веб-приложения создайте параллельный каталог со собственным CSS, импортирующим <code>global.css</code> консоли:</p>
+<pre><code>$I2P/docs/themes/susimail/mytheme/susimail.css
+$I2P/docs/themes/susidns/mytheme/susidns.css
+$I2P/docs/themes/snark/mytheme/snark.css
+$I2P/docs/themes/login/mytheme/login.css</code></pre>
+
+<h3>Шаг 6: Установите тему</h3>
+<p>Установите в консоли маршрутизатора → Конфигурация → Интерфейс или отредактируйте <code>router.config</code>:</p>
+<code>routerconsole.theme=mytheme</code>
+</section>
+
+</div>
+
+<style type="text/css">
+@font-face {font-family: "s"; src: url(/assets/fonts/s.woff2) format("woff2")}
+@font-face {font-family: "t"; src: url(/assets/fonts/t.woff2) format("woff2")}
+body,#toplinks,#container{pointer-events:auto!important;display:block!important}
+</style>
+</body>
+</html>

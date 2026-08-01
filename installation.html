@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#080000">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete installation guide for I2P+ enhanced anonymizing network platform.">
+<meta name="keywords" content="i2p+,installation,guide,setup,configure,java,router">
+<meta name="author" content="I2P+ Project">
+<meta property="og:title" content="I2P+ Installation Guide">
+<meta property="og:description" content="Complete installation guide for I2P+ enhanced anonymizing network platform.">
+<meta property="og:url" content="https://i2pplus.github.io/installation.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i2pplus.github.io/assets/images/logo.png">
+<title>I2P+ Installation Guide | Enhanced I2P Anonymizing Network</title>
+<link rel="preload" href="/assets/css/i2p+.css" as="style" type="text/css">
+<link rel="preload" href="/assets/fonts/t.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/assets/fonts/s.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="shortcut icon" href="/assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link href="/assets/css/i2p+.css" rel="stylesheet" type="text/css">
+</head>
+
+<body hidden>
+<div id="toplinks" hidden>
+<h1>I2P<span class="super title">+</span></h1>
+<span id="logo"><a href=/ aria-label="I2P+ Home"></a></span>
+<a href="/download.html">Download</a>
+<span class="dropdown"><a href="/installation.html">Docs</a><span class="dropdown-menu">
+<a href="/installation.html">Installation</a>
+<a href="/screenshots.html">Screenshots</a>
+<a href="/compatibility.html">Compatibility</a>
+<a href="/support.html">FAQ &amp; Support</a>
+<a href="/changelog.html">Changelog</a>
+<a href="/glossary/">Glossary</a>
+<a href="/theming.html">Theming</a>
+</span></span>
+<span class="dropdown"><a href="https://github.com/i2pplus/i2pplus/" target=_blank>Resources</a><span class="dropdown-menu">
+<a href="http://javadoc.skank.i2p/?i2paddresshelper=eVXrzsw9BaM81HngLg9DGWXY1Iri5s-1hsB8-oatdaaWfGJyB6UvSEnTSzotl3ZARtaV8v94eF9EQW5e47-jZ-kAnnLQZ128ek1bTtl3-l4pSxa-rjrRPu8ZsrRsZR1ygJ6CFSmhNXIYsZeRY7G1IySSrNcrPt8foiMKX~WtZ35BxMqv5ok-If9GFQ9LIEOz3d8GujMmvx80Ci8wvi1ymDqfqxVmZZ8KG2B-AIOVPBJx2cmgfZJYI0tBf~sv-3w2r8b3rfYd07E~~~oI8BpyDhzxDRBzZdPAA7pcHkRE8l9n6EzWlZWp-u825uiscki9RdCG4m-oQS2N6sffcvakj2qvvhzaruYTlJg88tJj07lEAWPR4H~s1dAJHr7MGLrEawgRUIMb7AeLVUv~laZkEoLKuv0E7XdeVMzL4IcwHbVG~AzqBsNzuuJRpsqAzbEaFZrqXhLiN54fV1tYDObeF5dGq0aqt1VRVizXrJjIvKLM1ECY23SjlvrC0f4CqrpNBQAEAAcAAA=" target=_blank>API</a>
+<a href="https://github.com/i2pplus/i2pplus/" target=_blank>Github</a>
+<a href="/hosts.txt" target=_blank>hosts.txt</a>
+</span></span>
+<span id="lang"><a href="/"><img alt="EN" src="/assets/images/flags/us.svg" width=20 height=16></a>&nbsp;<a href="/zh/"><img alt="ZH" src="/assets/images/flags/cn.svg" width=20 height=16></a>&nbsp;<a href="/ru/installation.html"><img alt="RU" src="/assets/images/flags/ru.svg" width=20 height=16></a></span>
+</div>
+<div id="container" hidden>
+
+<section>
+<h4>I2P+ Installation Guide</h4>
+<p>This comprehensive guide will help you install and configure <span class="nowrap">I2P<span class="super">+</span></span> on your system.</p>
+</section>
+
+<section>
+<h4>Before You Begin</h4>
+<p class="attention infowarn"><b>Important:</b> If you installed I2P via the <i>Easy Installer bundle</i> you will need to uninstall it and remove or rename your <code>%appdata%\i2p</code> folder before installing I2P<span class="super">+</span>. You may also need to manually download and install a Java JDK or JRE &mdash; <a href="https://learn.microsoft.com/en-us/java/openjdk/download" target="_blank" rel="noopener noreferrer">Microsoft's latest build</a> recommended.</p>
+</section>
+
+<section>
+<h4>Installation Methods</h4>
+
+<h3>Method 1: Universal Installer</h3>
+<p>Download the universal <a class="download" href="/installers/i2pinstall.exe">I2P<span class="super">+</span> Java I2P installer</a> compatible with Windows, Linux, BSD, and macOS.</p>
+
+<h4>Installation Steps:</h4>
+<ol>
+<li>Download the installer from the <a href="#download">downloads section</a></li>
+<li>Run the Java GUI installer by typing from a command prompt: <code>java -jar ./i2pinstall.exe</code></li>
+<li>For headless installation (no GUI): <code>java -jar ./i2pinstall.exe -console</code></li>
+<li>Install to the default directory location for your operating system</li>
+<li>Start I2P+ using the appropriate method for your system</li>
+</ol>
+
+<p class="attention infowarn">If you see <i style="color: #900">Exception in thread "main" java.awt.AWTError: Assistive Technology not found: org.GNOME.</i> when attempting to install, try running: <code>sudo sed -i -e '/^assistive_technologies=/s/^/#/' /etc/java-*-openjdk/accessibility.properties</code></p>
+
+<h3>Method 2: Update Existing Installation</h3>
+<p>If you're running a manually installed version of I2P from the Java installer (<b>not</b> a repo or .deb installed version), updating is simple:</p>
+<ol>
+<li>Download the <a class="download" href="/i2pupdate.zip">i2pupdate.zip</a> file</li>
+<li>Copy the zip file to your I2P application folder</li>
+<li>Restart the router</li>
+</ol>
+
+<p class="attention infowarn"><b>Note:</b> Do not extract the zip file, simply copy it to the I2P application folder and restart I2P... I2P will extract the zip automatically and update.</p>
+</section>
+
+<section>
+<h4>Default Installation Locations</h4>
+<p>The default location of the (non-repo installed) I2P application folder varies by operating system:</p>
+<ul>
+<li><b>Windows:</b> <code>Program Files\i2p\</code> or <code>Program Files (x86)\i2p\</code></li>
+<li><b>Apple:</b> <code>/Applications/i2p/</code></li>
+<li><b>Linux:</b> <code>~/i2p/</code></li>
+</ul>
+</section>
+
+<section>
+<h4>Linux Repository Installation</h4>
+<p>If you have installed I2P from a software repository, you will need to disable the I2P service and download the I2P<span class="super">+</span> Linux Java installer:</p>
+
+<ol>
+<li>Download the universal <a href="/installers/i2pinstall.exe">I2P<span class="super">+</span> Java I2P installer</a></li>
+<li>Run the Java GUI installer: <code>java -jar ./i2pinstall.exe</code></li>
+<li>Install to the default directory: <code>$HOME/i2p</code></li>
+<li>Check for existing <code>$HOME/.i2p</code> directory and change ownership: <code>sudo chown -R yourusername:yourusername ~/.i2p/</code></li>
+<li>Stop and disable the repo I2P service: <code>sudo service i2p stop && sudo systemctl disable i2p</code></li>
+<li>Start the manually installed version: <code>~/i2p/i2prouter start</code></li>
+<li>Verify I2P+ is running at <a href="http://127.0.0.1:7657" target="_blank">http://127.0.0.1:7657</a></li>
+</ol>
+
+<h4>Startup Options:</h4>
+<ul>
+<li>Add <code>/bin/su yourusername -c "/home/yourusername/i2p/i2prouter start"</code> to /etc/rc.local</li>
+<li>Add <code>~/i2p/i2prouter start</code> to your session startup configuration</li>
+<li>Run <code>~/i2p/i2prouter install</code> (uncomment <code>#RUN_AS_USER=</code> in <code>~/i2p/i2prouter</code> and add your username)</li>
+</ul>
+</section>
+
+<section>
+<h4>HTTPS Configuration</h4>
+<p class="attention infowarn">As of 0.9.46+, the full installation will enable <code>https://</code> access to the console by default; you will need to allow the (self-signed) certificate before you can access the router console.</p>
+<p>To disable automatic redirection from http:// on :7657 to https:// on :7667, add this line to your <code>router.config</code> file:</p>
+<code>routerconsole.redirectToHTTPS=false</code>
+</section>
+
+<section>
+<h4>Settings Folder Locations</h4>
+<p>Location of I2P settings folder (for non-repo installed I2P):</p>
+<ul>
+<li><b>Windows:</b> <code>%APPDATA%\I2P\</code></li>
+<li><b>Apple OS X:</b> <code>/Users/<i>username</i>/Library/Application Support/i2p</code></li>
+<li><b>Linux/*BSD:</b> <code>~/.i2p/</code></li>
+</ul>
+</section>
+
+<section>
+<h4>Troubleshooting</h4>
+
+<h3>Windows Service Issues</h3>
+<p class="attention infowarn">Note: On Windows, the Windows service to control I2P will be installed, for which you will require administrative privileges. The service control shortcuts may need to be run as an administrator to work.</p>
+
+<h3>Headless Installation</h3>
+<p class="attention infowarn">When installing I2P<span class="super">+</span> headlessly via the <code>-console</code> argument, the installer will default to installing to the current working directory. Create the desired installation directory first (usually <code>~/i2p/</code>) and move the install.jar file into that directory before starting, or manually specify the installation path when prompted.</p>
+</section>
+
+</div>
+
+<style type="text/css">
+@font-face {font-family: "s"; src: url(/assets/fonts/s.woff2) format("woff2")}
+@font-face {font-family: "t"; src: url(/assets/fonts/t.woff2) format("woff2")}
+body,#toplinks,#container{pointer-events:auto!important;display:block!important}
+</style>
+</body>
+</html>
