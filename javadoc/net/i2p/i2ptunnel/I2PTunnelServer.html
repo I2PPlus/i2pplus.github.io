@@ -1,859 +1,109 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>I2PTunnelServer - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p.i2ptunnel, class: I2PTunnelServer">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PTunnelServer.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.i2ptunnel</a></div>
-<h1 title="Class I2PTunnelServer" class="title">Class I2PTunnelServer</h1>
-</div>
-<div class="contentContainer">
-<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
-<div class="inheritance"><a href="../util/EventDispatcherImpl.html" title="class in net.i2p.util">net.i2p.util.EventDispatcherImpl</a>
-<div class="inheritance"><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelTask</a>
-<div class="inheritance">net.i2p.i2ptunnel.I2PTunnelServer</div>
-</div>
-</div>
-</div>
-<section class="description">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a></code>, <code><a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a></code></dd>
-</dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="irc/I2PTunnelDCCServer.html" title="class in net.i2p.i2ptunnel.irc">I2PTunnelDCCServer</a></code>, <code><a href="I2PTunnelHTTPServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPServer</a></code>, <code><a href="I2PTunnelIRCServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelIRCServer</a></code></dd>
-</dl>
-<hr>
-<pre>public class <span class="typeNameLabel">I2PTunnelServer</span>
-extends <a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a>
-implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a></pre>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldSummary"><a id="field.summary">
-</a>
-<h2>Field Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>protected static long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#__serverId">__serverId</a></span></code></th>
-<td class="colLast">
-<div class="block">apparently unused</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">ThreadPoolExecutor</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_clientExecutor">_clientExecutor</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../util/Log.html" title="class in net.i2p.util">Log</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_log">_log</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bidir">bidir</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../client/streaming/I2PServerSocket.html" title="interface in net.i2p.client.streaming">I2PServerSocket</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#i2pss">i2pss</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#l">l</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#localPort">localPort</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_ALT_PKF">PROP_ALT_PKF</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_UNIQUE_LOCAL">PROP_UNIQUE_LOCAL</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROP_USE_SSL">PROP_USE_SSL</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readTimeout">readTimeout</a></span></code></th>
-<td class="colLast">
-<div class="block">default timeout - override if desired</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remoteHost">remoteHost</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remotePort">remotePort</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#slock">slock</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../client/streaming/I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sockMgr">sockMgr</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sslLock">sslLock</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#task">task</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="inheritedList">
-<h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
-<a id="fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
-</a><code><a href="I2PTunnelTask.html#open">open</a></code></div>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorSummary"><a id="constructor.summary">
-</a>
-<h2>Constructor Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Constructor</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.io.File,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<!doctype html><html lang=en><meta charset=utf-8><title>I2PTunnelServer (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../../javadoc.css title=Style><script src=../../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="I2PTunnelServer (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:10,i1:10,i2:10,i3:10,i4:10,i5:10,i6:10,i7:10,i8:10,i9:10,i10:10,i11:10},tabs={65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PTunnelServer.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelRunner.SuccessCallback.html title="interface in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/I2PTunnelServer.html target=_top>Frames</a><li><a href=I2PTunnelServer.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p.i2ptunnel</div><h2 title="Class I2PTunnelServer" class=title>Class I2PTunnelServer</h2></div><div class=contentContainer><ul class=inheritance><li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a><li><ul class=inheritance><li><a href=../../../net/i2p/util/EventDispatcherImpl.html title="class in net.i2p.util">net.i2p.util.EventDispatcherImpl</a><li><ul class=inheritance><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelTask</a><li><ul class=inheritance><li>net.i2p.i2ptunnel.I2PTunnelServer</ul></ul></ul></ul><div class=description><ul class=blockList><li class=blockList><dl><dt>All Implemented Interfaces:<dd><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>, <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a></dl><dl><dt>Direct Known Subclasses:<dd><a href=../../../net/i2p/i2ptunnel/irc/I2PTunnelDCCServer.html title="class in net.i2p.i2ptunnel.irc">I2PTunnelDCCServer</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html title="class in net.i2p.i2ptunnel">I2PTunnelHTTPServer</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelIRCServer.html title="class in net.i2p.i2ptunnel">I2PTunnelIRCServer</a></dl><hr><br><pre>public class <span class=typeNameLabel>I2PTunnelServer</span>
+extends <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a>
+implements <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></pre><div class=block>Base I2P tunnel server for handling incoming connections.<p>I2PTunnelServer is the foundation for all I2P server tunnels that accept
+incoming I2P connections and forward them to local TCP services. It manages
+the lifecycle of I2PSocketManager, handles connection acceptance, and
+provides connection forwarding to configured local destinations.<p><b>Key Features:</b><ul><li>Accepts incoming I2P connections via I2PServerSocket<li>Forwards connections to configurable local TCP destinations<li>Supports SSL/TLS connections via I2PSSLSocketFactory<li>Provides port-based destination mapping (targetForPort.xx)<li>Implements connection filtering via StatefulConnectionFilter<li>Uses thread pool for concurrent connection handling</ul><p><b>Connection Flow:</b><ol><li>Client connects to I2P destination via I2PServerSocket<li>blockingHandle() is called with the I2PSocket<li>Local TCP socket is created via getSocket()<li>I2PTunnelRunner handles bidirectional data streaming</ol><p><b>Subclasses:</b> I2PTunnelHTTPServer, I2PTunnelIRCServer, and others
+extend this class to provide protocol-specific handling while reusing
+the core connection management infrastructure.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html title="class in net.i2p.i2ptunnel"><code>I2PTunnelHTTPServer</code></a>,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnelIRCServer.html title="class in net.i2p.i2ptunnel"><code>I2PTunnelIRCServer</code></a>,
+<a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming"><code>I2PSocketManager</code></a></dl></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.summary></a><h3>Field Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Field Summary table, listing fields, and an explanation"><caption><span>Fields</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Field and Description<tr class=altColor><td class=colFirst><code>protected static long</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z__serverId>__serverId</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html?is-external=true" title="class or interface in java.util.concurrent">ThreadPoolExecutor</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z_clientExecutor>_clientExecutor</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>protected <a href=../../../net/i2p/util/Log.html title="class in net.i2p.util">Log</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z_log>_log</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>protected boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#bidir>bidir</a></span></code><div class=block>True for HTTP bidirectional server mode.</div><tr class=altColor><td class=colFirst><code>protected <a href=../../../net/i2p/client/streaming/I2PServerSocket.html title="interface in net.i2p.client.streaming">I2PServerSocket</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#i2pss>i2pss</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>protected <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#l>l</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>protected int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#localPort>localPort</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_ALT_PKF>PROP_ALT_PKF</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_UNIQUE_LOCAL>PROP_UNIQUE_LOCAL</a></span></code><div class=block>Config key to enable unique local address.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_USE_SSL>PROP_USE_SSL</a></span></code><div class=block>Config key to enable SSL.</div><tr class=altColor><td class=colFirst><code>protected long</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#readTimeout>readTimeout</a></span></code><div class=block>default timeout - override if desired</div><tr class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#remoteHost>remoteHost</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>protected int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#remotePort>remotePort</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#slock>slock</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>protected <a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#sockMgr>sockMgr</a></span></code>&nbsp;<tr class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#sslLock>sslLock</a></span></code>&nbsp;<tr class=altColor><td class=colFirst><code>protected <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#task>task</a></span></code><div class=block>HTTP bidirectional server task, null for standard tunnel server.</div></table><ul class=blockList><li class=blockList><a name=fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask></a><h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#open>open</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#tunnel>tunnel</a></code></ul></ul><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colOne scope=col>Constructor and Description<tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#I2PTunnelServer-java.net.InetAddress-int-java.io.File-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;privkey,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Non-blocking</div>
-</td>
-</tr>
-<tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.io.InputStream,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;privkey,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Non-blocking</div><tr class=rowColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#I2PTunnelServer-java.net.InetAddress-int-net.i2p.client.streaming.I2PSocketManager-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Non-blocking</div>
-</td>
-</tr>
-<tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a>&nbsp;sktMgr,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Non-blocking</div><tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#I2PTunnelServer-java.net.InetAddress-int-java.io.InputStream-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privData,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Non-blocking</div>
-</td>
-</tr>
-<tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,net.i2p.client.streaming.I2PSocketManager,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privData,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Non-blocking</div><tr class=rowColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#I2PTunnelServer-java.net.InetAddress-int-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="../client/streaming/I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a>&nbsp;sktMgr,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Non-blocking</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#blockingHandle(net.i2p.client.streaming.I2PSocket)">blockingHandle</a></span>&#8203;(<a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</code></th>
-<td class="colLast">
-<div class="block">This is run in a thread from a limited-size thread pool via Handler.run(),
-  except for a standard server (this class, no extension, as determined in getUsePool()),
-  it is run directly in the acceptor thread (see run()).</div>
-</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close(boolean)">close</a></span>&#8203;(boolean&nbsp;forced)</code></th>
-<td class="colLast">
-<div class="block">Note that the tunnel can be reopened after this by calling startRunning().</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroy()">destroy</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Note that the tunnel cannot be reopened after this by calling startRunning(),
-  as it will destroy the underlying socket manager.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandlerCount()">getHandlerCount</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReadTimeout()">getReadTimeout</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Get the read idle timeout for newly-created connections (in
- milliseconds).</div>
-</td>
-</tr>
-<tr class="rowColor" id="i5">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSocket(net.i2p.data.Hash,int)">getSocket</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
-int&nbsp;incomingPort)</code></th>
-<td class="colLast">
-<div class="block">Get a regular or SSL socket depending on config and the incoming port.</div>
-</td>
-</tr>
-<tr class="altColor" id="i6">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSocket(net.i2p.data.Hash,java.net.InetAddress,int)">getSocket</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;remoteHost,
-int&nbsp;remotePort)</code></th>
-<td class="colLast">
-<div class="block">Get a regular or SSL socket depending on config.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i7">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></span>&#8203;(<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Update the I2PSocketManager.</div>
-</td>
-</tr>
-<tr class="altColor" id="i8">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
-<td class="colLast">
-<div class="block">If usePool is set, this starts the executor pool.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i9">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReadTimeout(long)">setReadTimeout</a></span>&#8203;(long&nbsp;ms)</code></th>
-<td class="colLast">
-<div class="block">Set the read idle timeout for newly-created connections (in
- milliseconds).</div>
-</td>
-</tr>
-<tr class="altColor" id="i10">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldUsePool()">shouldUsePool</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i11">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startRunning()">startRunning</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Start running the I2PTunnelServer.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
-<a id="methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
-</a><code><a href="I2PTunnelTask.html#connected(net.i2p.client.I2PSession)">connected</a>, <a href="I2PTunnelTask.html#disconnected(net.i2p.client.I2PSession)">disconnected</a>, <a href="I2PTunnelTask.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a>, <a href="I2PTunnelTask.html#getId()">getId</a>, <a href="I2PTunnelTask.html#getTunnel()">getTunnel</a>, <a href="I2PTunnelTask.html#isOpen()">isOpen</a>, <a href="I2PTunnelTask.html#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a>, <a href="I2PTunnelTask.html#routerDisconnected()">routerDisconnected</a>, <a href="I2PTunnelTask.html#setId(int)">setId</a>, <a href="I2PTunnelTask.html#setName(java.lang.String)">setName</a>, <a href="I2PTunnelTask.html#setTunnel(net.i2p.i2ptunnel.I2PTunnel)">setTunnel</a>, <a href="I2PTunnelTask.html#toString()">toString</a></code></div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;net.i2p.util.<a href="../util/EventDispatcherImpl.html" title="class in net.i2p.util">EventDispatcherImpl</a></h3>
-<a id="methods.inherited.from.class.net.i2p.util.EventDispatcherImpl">
-</a><code><a href="../util/EventDispatcherImpl.html#attachEventDispatcher(net.i2p.util.EventDispatcher)">attachEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#detachEventDispatcher(net.i2p.util.EventDispatcher)">detachEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#getEventDispatcher()">getEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#getEvents()">getEvents</a>, <a href="../util/EventDispatcherImpl.html#getEventValue(java.lang.String)">getEventValue</a>, <a href="../util/EventDispatcherImpl.html#ignoreEvents()">ignoreEvents</a>, <a href="../util/EventDispatcherImpl.html#notifyEvent(java.lang.String,java.lang.Object)">notifyEvent</a>, <a href="../util/EventDispatcherImpl.html#unIgnoreEvents()">unIgnoreEvents</a>, <a href="../util/EventDispatcherImpl.html#waitEventValue(java.lang.String)">waitEventValue</a></code></div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<a id="methods.inherited.from.class.java.lang.Object">
-</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldDetails"><a id="field.detail">
-</a>
-<h2>Field Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="_log">_log</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../util/Log.html" title="class in net.i2p.util">Log</a></span>&nbsp;<span class="memberName">_log</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sockMgr">sockMgr</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../client/streaming/I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a></span>&nbsp;<span class="memberName">sockMgr</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="i2pss">i2pss</a></h3>
-<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType"><a href="../client/streaming/I2PServerSocket.html" title="interface in net.i2p.client.streaming">I2PServerSocket</a></span>&nbsp;<span class="memberName">i2pss</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="slock">slock</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">slock</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sslLock">sslLock</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></span>&nbsp;<span class="memberName">sslLock</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="remoteHost">remoteHost</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a></span>&nbsp;<span class="memberName">remoteHost</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="remotePort">remotePort</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">remotePort</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="l">l</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a></span>&nbsp;<span class="memberName">l</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="readTimeout">readTimeout</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">readTimeout</span></div>
-<div class="block">default timeout - override if desired</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROP_USE_SSL">PROP_USE_SSL</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_USE_SSL</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_USE_SSL">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROP_UNIQUE_LOCAL">PROP_UNIQUE_LOCAL</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_UNIQUE_LOCAL</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_UNIQUE_LOCAL">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROP_ALT_PKF">PROP_ALT_PKF</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">PROP_ALT_PKF</span></div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.30</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_ALT_PKF">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="__serverId">__serverId</a></h3>
-<div class="memberSignature"><span class="modifiers">protected static volatile</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">__serverId</span></div>
-<div class="block">apparently unused</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="task">task</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></span>&nbsp;<span class="memberName">task</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="bidir">bidir</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">bidir</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_clientExecutor">_clientExecutor</a></h3>
-<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">ThreadPoolExecutor</a></span>&nbsp;<span class="memberName">_clientExecutor</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="localPort">localPort</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">localPort</span></div>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorDetails"><a id="constructor.detail">
-</a>
-<h2>Constructor Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privData,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block">Non-blocking</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>privData</code> - Base64-encoded private key data,
-                 format is specified in <a href="../data/PrivateKeyFile.html" title="class in net.i2p.data"><code>PrivateKeyFile</code></a></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
-                                  badly that we cant create a socketManager</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.io.File,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;privkey,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block">Non-blocking</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>privkey</code> - file containing the private key data,
-                format is specified in <a href="../data/PrivateKeyFile.html" title="class in net.i2p.data"><code>PrivateKeyFile</code></a></dd>
-<dd><code>privkeyname</code> - the name of the privKey file, just for logging</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
-                                  badly that we cant create a socketManager</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.io.InputStream,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block">Non-blocking</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>privData</code> - stream containing the private key data,
-                 format is specified in <a href="../data/PrivateKeyFile.html" title="class in net.i2p.data"><code>PrivateKeyFile</code></a></dd>
-<dd><code>privkeyname</code> - the name of the privKey file, just for logging</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
-                                  badly that we cant create a socketManager</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,net.i2p.client.streaming.I2PSocketManager,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="../client/streaming/I2PSocketManager.html" title="interface in net.i2p.client.streaming">I2PSocketManager</a>&nbsp;sktMgr,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block">Non-blocking</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>sktMgr</code> - the existing socket manager</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.9</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="startRunning()">startRunning</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startRunning</span>()</div>
-<div class="block">Start running the I2PTunnelServer.
- Warning, blocks while connecting to router and building tunnels;</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
-                                  badly that we cant create a socketManager</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setReadTimeout(long)">setReadTimeout</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setReadTimeout</span>&#8203;(<span class="arguments">long&nbsp;ms)</span></div>
-<div class="block">Set the read idle timeout for newly-created connections (in
- milliseconds).  After this time expires without data being reached from
- the I2P network, the connection itself will be closed.
-
- Less than or equal to 0 means forever.
- Default -1 (forever) as of 0.9.36 for standard tunnels,
- but extending classes may override.
- Prior to that, default was 5 minutes, but did not work
- due to streaming bugs.
-
- Applies only to future connections;
- calling this does not affect existing connections.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ms</code> - in ms</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getReadTimeout()">getReadTimeout</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getReadTimeout</span>()</div>
-<div class="block">Get the read idle timeout for newly-created connections (in
- milliseconds).
-
- Less than or equal to 0 means forever.
- Default -1 (forever) as of 0.9.36 for standard tunnels,
- but extending classes may override.
- Prior to that, default was 5 minutes, but did not work
- due to streaming bugs.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The read timeout used for connections</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="close(boolean)">close</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">close</span>&#8203;(<span class="arguments">boolean&nbsp;forced)</span></div>
-<div class="block">Note that the tunnel can be reopened after this by calling startRunning().
-  This does not release all resources. In particular, the I2PSocketManager remains
-  and it may have timer threads that continue running.
-
-  To release all resources permanently, call destroy().</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="I2PTunnelTask.html#close(boolean)">close</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="destroy()">destroy</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">destroy</span>()</div>
-<div class="block">Note that the tunnel cannot be reopened after this by calling startRunning(),
-  as it will destroy the underlying socket manager.
-  This releases all resources.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelTask.html#destroy()">destroy</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.17</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">optionsUpdated</span>&#8203;(<span class="arguments"><a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block">Update the I2PSocketManager.
-  And since 0.9.15, the target host and port.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelTask.html#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getHandlerCount()">getHandlerCount</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getHandlerCount</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="run()">run</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">run</span>()</div>
-<div class="block">If usePool is set, this starts the executor pool.
-  Then, do the accept() loop, and either
-  hands each I2P socket to the executor or runs it in-line.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true#run()" title="class or interface in java.lang" class="externalLink">run</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="shouldUsePool()">shouldUsePool</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldUsePool</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="blockingHandle(net.i2p.client.streaming.I2PSocket)">blockingHandle</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">blockingHandle</span>&#8203;(<span class="arguments"><a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</span></div>
-<div class="block">This is run in a thread from a limited-size thread pool via Handler.run(),
-  except for a standard server (this class, no extension, as determined in getUsePool()),
-  it is run directly in the acceptor thread (see run()).
-
-  In either case, this method and any overrides must spawn a thread and return quickly.
-  If blocking while reading the headers (as in HTTP and IRC), the thread pool
-  may be exhausted.
-
-  See PROP_USE_POOL, DEFAULT_USE_POOL, PROP_HANDLER_COUNT, DEFAULT_HANDLER_COUNT</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getSocket(net.i2p.data.Hash,int)">getSocket</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></span>&nbsp;<span class="memberName">getSocket</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
-int&nbsp;incomingPort)</span>
-                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
-<div class="block">Get a regular or SSL socket depending on config and the incoming port.
-  To configure a specific host:port as the server for incoming port xx,
-  set option targetForPort.xx=host:port</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>from</code> - may be used to construct local address since 0.9.13</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.9</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getSocket(net.i2p.data.Hash,java.net.InetAddress,int)">getSocket</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net" class="externalLink">Socket</a></span>&nbsp;<span class="memberName">getSocket</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;from,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;remoteHost,
-int&nbsp;remotePort)</span>
-                    throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
-<div class="block">Get a regular or SSL socket depending on config.
-  The SSL config applies to all hosts/ports.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>from</code> - may be used to construct local address since 0.9.13</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.9</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PTunnelServer.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privData,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Non-blocking</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t4 class=tableTab><span><a href=javascript:show(8);>Concrete Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>protected void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#blockingHandle-net.i2p.client.streaming.I2PSocket->blockingHandle</a></span>(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</code><div class=block>This is run in a thread from a limited-size thread pool via Handler.run(),
+except for a standard server (this class, no extension, as determined in getUsePool()),
+it is run directly in the acceptor thread (see run()).</div><tr id=i1 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#close-boolean->close</a></span>(boolean&nbsp;forced)</code><div class=block>Note that the tunnel can be reopened after this by calling startRunning().</div><tr id=i2 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#destroy-->destroy</a></span>()</code><div class=block>Note that the tunnel cannot be reopened after this by calling startRunning(),
+as it will destroy the underlying socket manager.</div><tr id=i3 class=rowColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getReadTimeout-->getReadTimeout</a></span>()</code><div class=block>Get the read idle timeout for newly-created connections (in milliseconds).</div><tr id=i4 class=altColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-java.net.InetAddress-int->getSocket</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;from,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;remoteHost,
+int&nbsp;remotePort)</code><div class=block>Creates a TCP socket connection to the specified destination.</div><tr id=i5 class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int->getSocket</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;from,
+int&nbsp;incomingPort)</code><div class=block>Creates a TCP socket connection to the configured destination.</div><tr id=i6 class=altColor><td class=colFirst><code><a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocketManager-->getSocketManager</a></span>()</code><div class=block>Return the socket manager, or null if destroyed.</div><tr id=i7 class=rowColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocketString-int->getSocketString</a></span>(int&nbsp;incomingPort)</code><div class=block>Gets a human-readable string representation of the target socket.</div><tr id=i8 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#optionsUpdated-net.i2p.i2ptunnel.I2PTunnel->optionsUpdated</a></span>(<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Update the I2PSocketManager.</div><tr id=i9 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#run-->run</a></span>()</code><div class=block>Runs the I2PTunnelServer to accept and handle incoming connections asynchronously.</div><tr id=i10 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#setReadTimeout-long->setReadTimeout</a></span>(long&nbsp;ms)</code><div class=block>Set the read idle timeout for newly-created connections (in milliseconds).</div><tr id=i11 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#startRunning-->startRunning</a></span>()</code><div class=block>Start running the I2PTunnelServer.</div></table><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask></a><h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#connected-net.i2p.client.I2PSession->connected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#disconnected-net.i2p.client.I2PSession->disconnected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#errorOccurred-net.i2p.client.I2PSession-java.lang.String-java.lang.Throwable->errorOccurred</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getBooleanOption-java.lang.String-boolean->getBooleanOption</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getId-->getId</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getTunnel-->getTunnel</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#isOpen-->isOpen</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#reportAbuse-net.i2p.client.I2PSession-int->reportAbuse</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#routerDisconnected-->routerDisconnected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setId-int->setId</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setName-java.lang.String->setName</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setTunnel-net.i2p.i2ptunnel.I2PTunnel->setTunnel</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#toString-->toString</a></code></ul><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.net.i2p.util.EventDispatcherImpl></a><h3>Methods inherited from class&nbsp;net.i2p.util.<a href=../../../net/i2p/util/EventDispatcherImpl.html title="class in net.i2p.util">EventDispatcherImpl</a></h3><code><a href=../../../net/i2p/util/EventDispatcherImpl.html#attachEventDispatcher-net.i2p.util.EventDispatcher->attachEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#detachEventDispatcher-net.i2p.util.EventDispatcher->detachEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEventDispatcher-->getEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEvents-->getEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEventValue-java.lang.String->getEventValue</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#ignoreEvents-->ignoreEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#notifyEvent-java.lang.String-java.lang.Object->notifyEvent</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#unIgnoreEvents-->unIgnoreEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#waitEventValue-java.lang.String->waitEventValue</a></code></ul><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.java.lang.Object></a><h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></ul></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.detail></a><h3>Field Detail</h3><a name=Z:Z__serverId></a><ul class=blockList><li class=blockList><h4>__serverId</h4><pre>protected static volatile&nbsp;long __serverId</pre></ul><a name=Z:Z_clientExecutor></a><ul class=blockList><li class=blockList><h4>_clientExecutor</h4><pre>protected volatile&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html?is-external=true" title="class or interface in java.util.concurrent">ThreadPoolExecutor</a> _clientExecutor</pre></ul><a name=Z:Z_log></a><ul class=blockList><li class=blockList><h4>_log</h4><pre>protected final&nbsp;<a href=../../../net/i2p/util/Log.html title="class in net.i2p.util">Log</a> _log</pre></ul><a name=bidir></a><ul class=blockList><li class=blockList><h4>bidir</h4><pre>protected&nbsp;boolean bidir</pre><div class=block>True for HTTP bidirectional server mode.</div></ul><a name=i2pss></a><ul class=blockList><li class=blockList><h4>i2pss</h4><pre>protected volatile&nbsp;<a href=../../../net/i2p/client/streaming/I2PServerSocket.html title="interface in net.i2p.client.streaming">I2PServerSocket</a> i2pss</pre></ul><a name=l></a><ul class=blockList><li class=blockList><h4>l</h4><pre>protected final&nbsp;<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a> l</pre></ul><a name=localPort></a><ul class=blockList><li class=blockList><h4>localPort</h4><pre>protected&nbsp;int localPort</pre></ul><a name=PROP_ALT_PKF></a><ul class=blockList><li class=blockList><h4>PROP_ALT_PKF</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PROP_ALT_PKF</pre><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_ALT_PKF>Constant Field Values</a></dl></ul><a name=PROP_UNIQUE_LOCAL></a><ul class=blockList><li class=blockList><h4>PROP_UNIQUE_LOCAL</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PROP_UNIQUE_LOCAL</pre><div class=block>Config key to enable unique local address.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_UNIQUE_LOCAL>Constant Field Values</a></dl></ul><a name=PROP_USE_SSL></a><ul class=blockList><li class=blockList><h4>PROP_USE_SSL</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PROP_USE_SSL</pre><div class=block>Config key to enable SSL.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelServer.PROP_USE_SSL>Constant Field Values</a></dl></ul><a name=readTimeout></a><ul class=blockList><li class=blockList><h4>readTimeout</h4><pre>protected volatile&nbsp;long readTimeout</pre><div class=block>default timeout - override if desired</div></ul><a name=remoteHost></a><ul class=blockList><li class=blockList><h4>remoteHost</h4><pre>protected volatile&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a> remoteHost</pre></ul><a name=remotePort></a><ul class=blockList><li class=blockList><h4>remotePort</h4><pre>protected volatile&nbsp;int remotePort</pre></ul><a name=slock></a><ul class=blockList><li class=blockList><h4>slock</h4><pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> slock</pre></ul><a name=sockMgr></a><ul class=blockList><li class=blockList><h4>sockMgr</h4><pre>protected final&nbsp;<a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a> sockMgr</pre></ul><a name=sslLock></a><ul class=blockList><li class=blockList><h4>sslLock</h4><pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> sslLock</pre></ul><a name=task></a><ul class=blockListLast><li class=blockList><h4>task</h4><pre>protected&nbsp;<a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a> task</pre><div class=block>HTTP bidirectional server task, null for standard tunnel server.</div></ul></ul><ul class=blockList><li class=blockList><a name=constructor.detail></a><h3>Constructor Detail</h3><a name=I2PTunnelServer-java.net.InetAddress-int-java.io.File-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>I2PTunnelServer</h4><pre>public&nbsp;I2PTunnelServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                       int&nbsp;port,
+                       <a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;privkey,
+                       <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+                       <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                       <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                       <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Non-blocking</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>privkey</code> - file containing the private key data,
+format is specified in <a href=../../../net/i2p/data/PrivateKeyFile.html title="class in net.i2p.data"><code>PrivateKeyFile</code></a><dd><code>privkeyname</code> - the name of the privKey file, just for logging<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
+badly that we cant create a socketManager</dl></ul><a name=I2PTunnelServer-java.net.InetAddress-int-net.i2p.client.streaming.I2PSocketManager-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>I2PTunnelServer</h4><pre>public&nbsp;I2PTunnelServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                       int&nbsp;port,
+                       <a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a>&nbsp;sktMgr,
+                       <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                       <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                       <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Non-blocking</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>sktMgr</code> - the existing socket manager</dl></ul><a name=I2PTunnelServer-java.net.InetAddress-int-java.io.InputStream-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>I2PTunnelServer</h4><pre>public&nbsp;I2PTunnelServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                       int&nbsp;port,
+                       <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privData,
+                       <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+                       <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                       <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                       <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Non-blocking</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>privData</code> - stream containing the private key data,
+format is specified in <a href=../../../net/i2p/data/PrivateKeyFile.html title="class in net.i2p.data"><code>PrivateKeyFile</code></a><dd><code>privkeyname</code> - the name of the privKey file, just for logging<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
+badly that we cant create a socketManager</dl></ul><a name=I2PTunnelServer-java.net.InetAddress-int-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockListLast><li class=blockList><h4>I2PTunnelServer</h4><pre>public&nbsp;I2PTunnelServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                       int&nbsp;port,
+                       <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privData,
+                       <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                       <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                       <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Non-blocking</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>privData</code> - Base64-encoded private key data,
+format is specified in <a href=../../../net/i2p/data/PrivateKeyFile.html title="class in net.i2p.data"><code>PrivateKeyFile</code></a><dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
+badly that we cant create a socketManager</dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=blockingHandle-net.i2p.client.streaming.I2PSocket-></a><ul class=blockList><li class=blockList><h4>blockingHandle</h4><pre>protected&nbsp;void&nbsp;blockingHandle(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</pre><div class=block>This is run in a thread from a limited-size thread pool via Handler.run(),
+except for a standard server (this class, no extension, as determined in getUsePool()),
+it is run directly in the acceptor thread (see run()).
+Handles an incoming I2P connection by forwarding it to the local TCP destination.<p>This method is called by the server socket's acceptance thread when a new
+I2P connection arrives. It creates a local TCP socket connection and spawns
+an I2PTunnelRunner to handle bidirectional data streaming between the
+I2P and TCP connections.<p><b>Implementation Notes:</b><ul><li>Subclasses that override this must call super.blockingHandle() or implement
+full connection handling themselves<li>For protocol-specific handling (HTTP, IRC), spawn a handler thread and return<li>For simple forwarding, this base implementation handles all cases<li>Performance: local connections are fast enough to handle synchronously</ul><p><b>Error Handling:</b> SocketException and IOException are caught and logged,
+with the socket being reset to notify the peer of the failure.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>socket</code> - the incoming I2P connection from a remote peer; never null<dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int-><code>getSocket(Hash, int)</code></a>,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnelRunner.html title="class in net.i2p.i2ptunnel"><code>I2PTunnelRunner</code></a></dl></ul><a name=close-boolean-></a><ul class=blockList><li class=blockList><h4>close</h4><pre>public&nbsp;boolean&nbsp;close(boolean&nbsp;forced)</pre><div class=block>Note that the tunnel can be reopened after this by calling startRunning().
+This does not release all resources. In particular, the I2PSocketManager remains
+and it may have timer threads that continue running.
+To release all resources permanently, call destroy().</div><dl><dt><span class=overrideSpecifyLabel>Specified by:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#close-boolean->close</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code><dt><span class=returnLabel>Returns:</span><dd>true if the tunnel was closed successfully, false if connections exist and forced is false</dl></ul><a name=destroy--></a><ul class=blockList><li class=blockList><h4>destroy</h4><pre>public&nbsp;boolean&nbsp;destroy()</pre><div class=block>Note that the tunnel cannot be reopened after this by calling startRunning(),
+as it will destroy the underlying socket manager.
+This releases all resources.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#destroy-->destroy</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code><dt><span class=returnLabel>Returns:</span><dd>success</dl></ul><a name=getReadTimeout--></a><ul class=blockList><li class=blockList><h4>getReadTimeout</h4><pre>public&nbsp;long&nbsp;getReadTimeout()</pre><div class=block>Get the read idle timeout for newly-created connections (in milliseconds).
+Less than or equal to 0 means forever.
+Default -1 (forever) as of 0.9.36 for standard tunnels, but extending classes may override.
+Prior to that, default was 5 minutes, but did not work due to streaming bugs.</div><dl><dt><span class=returnLabel>Returns:</span><dd>The read timeout used for connections</dl></ul><a name=getSocket-net.i2p.data.Hash-java.net.InetAddress-int-></a><ul class=blockList><li class=blockList><h4>getSocket</h4><pre>protected&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</a>&nbsp;getSocket(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;from,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;remoteHost,
+                           int&nbsp;remotePort)
+                    throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre><div class=block>Creates a TCP socket connection to the specified destination.<p>This convenience method delegates to getSocket() with forceNonSSL=false,
+allowing SSL configuration to be controlled by client options.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>from</code> - the hash of the peer's destination<dd><code>remoteHost</code> - the target InetAddress to connect to<dd><code>remotePort</code> - the target port to connect to<dt><span class=returnLabel>Returns:</span><dd>a connected TCP Socket<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the socket cannot be created or connected<dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int-><code>getSocket(Hash, int)</code></a></dl></ul><a name=getSocket-net.i2p.data.Hash-int-></a><ul class=blockList><li class=blockList><h4>getSocket</h4><pre>protected&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/net/Socket.html?is-external=true" title="class or interface in java.net">Socket</a>&nbsp;getSocket(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;from,
+                           int&nbsp;incomingPort)
+                    throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre><div class=block>Creates a TCP socket connection to the configured destination.<p>This method resolves the target host and port for the incoming connection,
+supporting port-based destination mapping via the client options. If a port
+has a specific mapping (targetForPort.xx=host:port), that destination is used;
+otherwise, the default remoteHost and remotePort are used.<p><b>Port Mapping Configuration:</b><pre>
+ targetForPort.80=localhost:8080
+ targetForPort.443=localhost:8443
+ </pre><p><b>Special Ports:</b> Ports 443 and 22 are automatically flagged for non-SSL
+handling to prevent SSL-over-SSL issues.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>from</code> - the hash of the peer's destination; used for local address binding<dd><code>incomingPort</code> - the port on which the I2P connection was received<dt><span class=returnLabel>Returns:</span><dd>a connected TCP Socket to the appropriate local destination<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the socket cannot be created or connected<dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-java.net.InetAddress-int-><code>getSocket(Hash, InetAddress, int)</code></a></dl></ul><a name=getSocketManager--></a><ul class=blockList><li class=blockList><h4>getSocketManager</h4><pre>public&nbsp;<a href=../../../net/i2p/client/streaming/I2PSocketManager.html title="interface in net.i2p.client.streaming">I2PSocketManager</a>&nbsp;getSocketManager()</pre><div class=block>Return the socket manager, or null if destroyed.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getSocketManager-->getSocketManager</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code><dt><span class=returnLabel>Returns:</span><dd>the socket manager, or null</dl></ul><a name=getSocketString-int-></a><ul class=blockList><li class=blockList><h4>getSocketString</h4><pre>protected&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSocketString(int&nbsp;incomingPort)</pre><div class=block>Gets a human-readable string representation of the target socket.<p>This method is used for logging and error messages when socket creation
+fails. It returns the configured destination address, taking into account
+any port-specific mappings that may have been configured.<p>The returned string is formatted as "host:port" without any protocol prefix.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>incomingPort</code> - the incoming I2P connection port for lookup<dt><span class=returnLabel>Returns:</span><dd>the target host and port as a string, or default if not configured<dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int-><code>getSocket(Hash, int)</code></a></dl></ul><a name=optionsUpdated-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>optionsUpdated</h4><pre>public&nbsp;void&nbsp;optionsUpdated(<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Update the I2PSocketManager.
+And since 0.9.15, the target host and port.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#optionsUpdated-net.i2p.i2ptunnel.I2PTunnel->optionsUpdated</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></code></dl></ul><a name=run--></a><ul class=blockList><li class=blockList><h4>run</h4><pre>public&nbsp;void&nbsp;run()</pre><div class=block>Runs the I2PTunnelServer to accept and handle incoming connections asynchronously.
+Accepts connections in a loop, submitting each to the thread pool via CompletableFuture.
+Handles expected exceptions with retries and logs errors. On shutdown, gracefully terminates the pool.</div><dl><dt><span class=overrideSpecifyLabel>Specified by:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true#run--" title="class or interface in java.lang">run</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></code></dl></ul><a name=setReadTimeout-long-></a><ul class=blockList><li class=blockList><h4>setReadTimeout</h4><pre>public&nbsp;void&nbsp;setReadTimeout(long&nbsp;ms)</pre><div class=block>Set the read idle timeout for newly-created connections (in milliseconds).
+After this time expires without data being reached from the I2P network,
+the connection itself will be closed.
+Less than or equal to 0 means forever.
+Default -1 (forever) as of 0.9.36 for standard tunnels, but extending classes may override.
+Prior to that, default was 5 minutes, but did not work due to streaming bugs.
+Applies only to future connections; calling this does not affect existing connections.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>ms</code> - in ms</dl></ul><a name=startRunning--></a><ul class=blockListLast><li class=blockList><h4>startRunning</h4><pre>public&nbsp;void&nbsp;startRunning()</pre><div class=block>Start running the I2PTunnelServer.
+Warning, blocks while connecting to router and building tunnels;</div><dl><dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the I2CP configuration is b0rked so
+badly that we cant create a socketManager</dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PTunnelServer.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelRunner.SuccessCallback.html title="interface in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/I2PTunnelServer.html target=_top>Frames</a><li><a href=I2PTunnelServer.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>

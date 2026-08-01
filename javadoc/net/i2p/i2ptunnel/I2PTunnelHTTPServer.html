@@ -1,716 +1,90 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>I2PTunnelHTTPServer - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p.i2ptunnel, class: I2PTunnelHTTPServer">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":9,"i5":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PTunnelHTTPServer.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.i2ptunnel</a></div>
-<h1 title="Class I2PTunnelHTTPServer" class="title">Class I2PTunnelHTTPServer</h1>
-</div>
-<div class="contentContainer">
-<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
-<div class="inheritance"><a href="../util/EventDispatcherImpl.html" title="class in net.i2p.util">net.i2p.util.EventDispatcherImpl</a>
-<div class="inheritance"><a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelTask</a>
-<div class="inheritance"><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelServer</a>
-<div class="inheritance">net.i2p.i2ptunnel.I2PTunnelHTTPServer</div>
-</div>
-</div>
-</div>
-</div>
-<section class="description">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a></code>, <code><a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a></code></dd>
-</dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="I2PTunnelHTTPBidirServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirServer</a></code></dd>
-</dl>
-<hr>
-<pre>public class <span class="typeNameLabel">I2PTunnelHTTPServer</span>
-extends <a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></pre>
-<div class="block">Simple extension to the I2PTunnelServer that filters the HTTP
- headers sent from the client to the server, replacing the Host
- header with whatever this instance has been configured with, and
- if the browser set Accept-Encoding: x-i2p-gzip, gzip the http
- message body and set Content-Encoding: x-i2p-gzip.</div>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldSummary"><a id="field.summary">
-</a>
-<h2>Field Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POST_BAN_TIME">DEFAULT_POST_BAN_TIME</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POST_MAX">DEFAULT_POST_MAX</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POST_TOTAL_BAN_TIME">DEFAULT_POST_TOTAL_BAN_TIME</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POST_TOTAL_MAX">DEFAULT_POST_TOTAL_MAX</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEFAULT_POST_WINDOW">DEFAULT_POST_WINDOW</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ERR_REQUEST_TIMEOUT">ERR_REQUEST_TIMEOUT</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_POST_BAN_TIME">OPT_POST_BAN_TIME</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_POST_MAX">OPT_POST_MAX</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_POST_TOTAL_BAN_TIME">OPT_POST_TOTAL_BAN_TIME</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_POST_TOTAL_MAX">OPT_POST_TOTAL_MAX</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_POST_WINDOW">OPT_POST_WINDOW</a></span></code></th>
-<td class="colLast">
-<div class="block">all of these in SECONDS</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_REJECT_INPROXY">OPT_REJECT_INPROXY</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_REJECT_REFERER">OPT_REJECT_REFERER</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_REJECT_USER_AGENTS">OPT_REJECT_USER_AGENTS</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#OPT_USER_AGENTS">OPT_USER_AGENTS</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="inheritedList">
-<h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></h3>
-<a id="fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelServer">
-</a><code><a href="I2PTunnelServer.html#__serverId">__serverId</a>, <a href="I2PTunnelServer.html#_clientExecutor">_clientExecutor</a>, <a href="I2PTunnelServer.html#_log">_log</a>, <a href="I2PTunnelServer.html#bidir">bidir</a>, <a href="I2PTunnelServer.html#i2pss">i2pss</a>, <a href="I2PTunnelServer.html#l">l</a>, <a href="I2PTunnelServer.html#localPort">localPort</a>, <a href="I2PTunnelServer.html#PROP_ALT_PKF">PROP_ALT_PKF</a>, <a href="I2PTunnelServer.html#PROP_UNIQUE_LOCAL">PROP_UNIQUE_LOCAL</a>, <a href="I2PTunnelServer.html#PROP_USE_SSL">PROP_USE_SSL</a>, <a href="I2PTunnelServer.html#readTimeout">readTimeout</a>, <a href="I2PTunnelServer.html#remoteHost">remoteHost</a>, <a href="I2PTunnelServer.html#remotePort">remotePort</a>, <a href="I2PTunnelServer.html#slock">slock</a>, <a href="I2PTunnelServer.html#sockMgr">sockMgr</a>, <a href="I2PTunnelServer.html#sslLock">sslLock</a>, <a href="I2PTunnelServer.html#task">task</a></code></div>
-<div class="inheritedList">
-<h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
-<a id="fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
-</a><code><a href="I2PTunnelTask.html#open">open</a></code></div>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorSummary"><a id="constructor.summary">
-</a>
-<h2>Constructor Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Constructor</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.io.File,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<!doctype html><html lang=en><meta charset=utf-8><title>I2PTunnelHTTPServer (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../../javadoc.css title=Style><script src=../../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="I2PTunnelHTTPServer (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:9,i1:10,i2:10,i3:9,i4:9,i5:10,i6:9,i7:9,i8:9,i9:10},tabs={65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PTunnelHTTPServer.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPClientRunner.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelIRCClient.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/I2PTunnelHTTPServer.html target=_top>Frames</a><li><a href=I2PTunnelHTTPServer.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p.i2ptunnel</div><h2 title="Class I2PTunnelHTTPServer" class=title>Class I2PTunnelHTTPServer</h2></div><div class=contentContainer><ul class=inheritance><li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a><li><ul class=inheritance><li><a href=../../../net/i2p/util/EventDispatcherImpl.html title="class in net.i2p.util">net.i2p.util.EventDispatcherImpl</a><li><ul class=inheritance><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelTask</a><li><ul class=inheritance><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">net.i2p.i2ptunnel.I2PTunnelServer</a><li><ul class=inheritance><li>net.i2p.i2ptunnel.I2PTunnelHTTPServer</ul></ul></ul></ul></ul><div class=description><ul class=blockList><li class=blockList><dl><dt>All Implemented Interfaces:<dd><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>, <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a></dl><dl><dt>Direct Known Subclasses:<dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPBidirServer.html title="class in net.i2p.i2ptunnel">I2PTunnelHTTPBidirServer</a></dl><hr><br><pre>public class <span class=typeNameLabel>I2PTunnelHTTPServer</span>
+extends <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></pre><div class=block>HTTP server tunnel that filters headers and provides compression.<p>Extends I2PTunnelServer to filter HTTP headers from client to server,
+replacing the Host header with configured value. Compresses HTTP message
+body and sets Content-Encoding: x-i2p-gzip when browser requests
+Accept-Encoding: x-i2p-gzip.<p>Features include POST/PUT rate limiting, referer and user-agent rejection,
+inproxy detection, HTTP blocklist support, keepalive management,
+and response header security filtering.</div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.summary></a><h3>Field Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Field Summary table, listing fields, and an explanation"><caption><span>Fields</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Field and Description<tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#DEFAULT_POST_BAN_TIME>DEFAULT_POST_BAN_TIME</a></span></code><div class=block>Post throttle window (seconds).</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#DEFAULT_POST_MAX>DEFAULT_POST_MAX</a></span></code><div class=block>Default max posts per window.</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#DEFAULT_POST_TOTAL_BAN_TIME>DEFAULT_POST_TOTAL_BAN_TIME</a></span></code><div class=block>Default total ban time for excessive posts.</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#DEFAULT_POST_TOTAL_MAX>DEFAULT_POST_TOTAL_MAX</a></span></code><div class=block>Default max total posts before ban.</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#DEFAULT_POST_WINDOW>DEFAULT_POST_WINDOW</a></span></code><div class=block>Default post rate-limit window (seconds).</div><tr class=rowColor><td class=colFirst><code>(package private) static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#ERR_FORBIDDEN>ERR_FORBIDDEN</a></span></code><div class=block>403 Forbidden error response</div><tr class=altColor><td class=colFirst><code>(package private) static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#ERR_NOT_FOUND>ERR_NOT_FOUND</a></span></code><div class=block>404 Not Found error response</div><tr class=rowColor><td class=colFirst><code>protected static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#ERR_REQUEST_TIMEOUT>ERR_REQUEST_TIMEOUT</a></span></code><div class=block>HTTP 408 Request Timeout error response.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_ADD_RESPONSE_HEADER_ALLOW>OPT_ADD_RESPONSE_HEADER_ALLOW</a></span></code><div class=block>Config key to add Allow response header.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL>OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL</a></span></code><div class=block>Config key to add Cache-Control response header.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_ADD_RESPONSE_HEADER_NOSNIFF>OPT_ADD_RESPONSE_HEADER_NOSNIFF</a></span></code><div class=block>Config key to add X-Content-Type-Options: nosniff.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY>OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY</a></span></code><div class=block>Config key to add Referrer-Policy response header.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_KEEPALIVE>OPT_KEEPALIVE</a></span></code><div class=block>Config key to enable keepalive.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_POST_BAN_TIME>OPT_POST_BAN_TIME</a></span></code><div class=block>Config key for post ban time.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_POST_MAX>OPT_POST_MAX</a></span></code><div class=block>Config key for max posts.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_POST_TOTAL_BAN_TIME>OPT_POST_TOTAL_BAN_TIME</a></span></code><div class=block>Config key for post total ban time.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_POST_TOTAL_MAX>OPT_POST_TOTAL_MAX</a></span></code><div class=block>Config key for max total posts.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_POST_WINDOW>OPT_POST_WINDOW</a></span></code><div class=block>Config key for post check time window.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_REJECT_INPROXY>OPT_REJECT_INPROXY</a></span></code><div class=block>Config key to reject requests from inproxy.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_REJECT_REFERER>OPT_REJECT_REFERER</a></span></code><div class=block>Config key to reject requests with Referer header.</div><tr class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_REJECT_USER_AGENTS>OPT_REJECT_USER_AGENTS</a></span></code><div class=block>Config key to reject specific User-Agents.</div><tr class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#OPT_USER_AGENTS>OPT_USER_AGENTS</a></span></code><div class=block>Config key for User-Agent reject list.</div></table><ul class=blockList><li class=blockList><a name=fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelServer></a><h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z__serverId>__serverId</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z_clientExecutor>_clientExecutor</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#Z:Z_log>_log</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#bidir>bidir</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#i2pss>i2pss</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#l>l</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#localPort>localPort</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_ALT_PKF>PROP_ALT_PKF</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_UNIQUE_LOCAL>PROP_UNIQUE_LOCAL</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#PROP_USE_SSL>PROP_USE_SSL</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#readTimeout>readTimeout</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#remoteHost>remoteHost</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#remotePort>remotePort</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#slock>slock</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#sockMgr>sockMgr</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#sslLock>sslLock</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#task>task</a></code></ul><ul class=blockList><li class=blockList><a name=fields.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask></a><h3>Fields inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#open>open</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#tunnel>tunnel</a></code></ul></ul><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colOne scope=col>Constructor and Description<tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#I2PTunnelHTTPServer-java.net.InetAddress-int-java.io.File-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelHTTPServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;privkey,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.io.InputStream,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;privkey,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Create an HTTP tunnel server from a private key file.</div><tr class=rowColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#I2PTunnelHTTPServer-java.net.InetAddress-int-java.io.InputStream-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelHTTPServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.net.InetAddress,int,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privData,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Create an HTTP tunnel server from a private key stream.</div><tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#I2PTunnelHTTPServer-java.net.InetAddress-int-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel->I2PTunnelHTTPServer</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
 int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#blockingHandle(net.i2p.client.streaming.I2PSocket)">blockingHandle</a></span>&#8203;(<a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</code></th>
-<td class="colLast">
-<div class="block">Called by the thread pool of I2PSocket handlers</div>
-</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close(boolean)">close</a></span>&#8203;(boolean&nbsp;forced)</code></th>
-<td class="colLast">
-<div class="block">Note that the tunnel can be reopened after this by calling startRunning().</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#formatHeaders(java.util.Map,java.lang.StringBuilder)">formatHeaders</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;headers,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a>&nbsp;command)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></span>&#8203;(<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code></th>
-<td class="colLast">
-<div class="block">Update the I2PSocketManager.</div>
-</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>(package private) static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readHeaders(net.i2p.client.streaming.I2PSocket,java.io.InputStream,java.lang.StringBuilder,java.lang.String%5B%5D,net.i2p.I2PAppContext)">readHeaders</a></span>&#8203;(<a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a>&nbsp;command,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;skipHeaders,
-<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</code></th>
-<td class="colLast">
-<div class="block">From I2P to server: socket non-null, in null.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i5">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startRunning()">startRunning</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Start running the I2PTunnelServer.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></h3>
-<a id="methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelServer">
-</a><code><a href="I2PTunnelServer.html#destroy()">destroy</a>, <a href="I2PTunnelServer.html#getHandlerCount()">getHandlerCount</a>, <a href="I2PTunnelServer.html#getReadTimeout()">getReadTimeout</a>, <a href="I2PTunnelServer.html#getSocket(net.i2p.data.Hash,int)">getSocket</a>, <a href="I2PTunnelServer.html#getSocket(net.i2p.data.Hash,java.net.InetAddress,int)">getSocket</a>, <a href="I2PTunnelServer.html#run()">run</a>, <a href="I2PTunnelServer.html#setReadTimeout(long)">setReadTimeout</a>, <a href="I2PTunnelServer.html#shouldUsePool()">shouldUsePool</a></code></div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href="I2PTunnelTask.html" title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3>
-<a id="methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask">
-</a><code><a href="I2PTunnelTask.html#connected(net.i2p.client.I2PSession)">connected</a>, <a href="I2PTunnelTask.html#disconnected(net.i2p.client.I2PSession)">disconnected</a>, <a href="I2PTunnelTask.html#errorOccurred(net.i2p.client.I2PSession,java.lang.String,java.lang.Throwable)">errorOccurred</a>, <a href="I2PTunnelTask.html#getId()">getId</a>, <a href="I2PTunnelTask.html#getTunnel()">getTunnel</a>, <a href="I2PTunnelTask.html#isOpen()">isOpen</a>, <a href="I2PTunnelTask.html#reportAbuse(net.i2p.client.I2PSession,int)">reportAbuse</a>, <a href="I2PTunnelTask.html#routerDisconnected()">routerDisconnected</a>, <a href="I2PTunnelTask.html#setId(int)">setId</a>, <a href="I2PTunnelTask.html#setName(java.lang.String)">setName</a>, <a href="I2PTunnelTask.html#setTunnel(net.i2p.i2ptunnel.I2PTunnel)">setTunnel</a>, <a href="I2PTunnelTask.html#toString()">toString</a></code></div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;net.i2p.util.<a href="../util/EventDispatcherImpl.html" title="class in net.i2p.util">EventDispatcherImpl</a></h3>
-<a id="methods.inherited.from.class.net.i2p.util.EventDispatcherImpl">
-</a><code><a href="../util/EventDispatcherImpl.html#attachEventDispatcher(net.i2p.util.EventDispatcher)">attachEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#detachEventDispatcher(net.i2p.util.EventDispatcher)">detachEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#getEventDispatcher()">getEventDispatcher</a>, <a href="../util/EventDispatcherImpl.html#getEvents()">getEvents</a>, <a href="../util/EventDispatcherImpl.html#getEventValue(java.lang.String)">getEventValue</a>, <a href="../util/EventDispatcherImpl.html#ignoreEvents()">ignoreEvents</a>, <a href="../util/EventDispatcherImpl.html#notifyEvent(java.lang.String,java.lang.Object)">notifyEvent</a>, <a href="../util/EventDispatcherImpl.html#unIgnoreEvents()">unIgnoreEvents</a>, <a href="../util/EventDispatcherImpl.html#waitEventValue(java.lang.String)">waitEventValue</a></code></div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<a id="methods.inherited.from.class.java.lang.Object">
-</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldDetails"><a id="field.detail">
-</a>
-<h2>Field Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_POST_WINDOW">OPT_POST_WINDOW</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_POST_WINDOW</span></div>
-<div class="block">all of these in SECONDS</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_WINDOW">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_POST_BAN_TIME">OPT_POST_BAN_TIME</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_POST_BAN_TIME</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_BAN_TIME">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_POST_TOTAL_BAN_TIME">OPT_POST_TOTAL_BAN_TIME</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_POST_TOTAL_BAN_TIME</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_TOTAL_BAN_TIME">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_POST_MAX">OPT_POST_MAX</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_POST_MAX</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_MAX">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_POST_TOTAL_MAX">OPT_POST_TOTAL_MAX</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_POST_TOTAL_MAX</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_TOTAL_MAX">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_REJECT_INPROXY">OPT_REJECT_INPROXY</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_REJECT_INPROXY</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_INPROXY">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_REJECT_REFERER">OPT_REJECT_REFERER</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_REJECT_REFERER</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_REFERER">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_REJECT_USER_AGENTS">OPT_REJECT_USER_AGENTS</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_REJECT_USER_AGENTS</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_USER_AGENTS">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="OPT_USER_AGENTS">OPT_USER_AGENTS</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">OPT_USER_AGENTS</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_USER_AGENTS">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEFAULT_POST_WINDOW">DEFAULT_POST_WINDOW</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_POST_WINDOW</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_WINDOW">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEFAULT_POST_BAN_TIME">DEFAULT_POST_BAN_TIME</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_POST_BAN_TIME</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_BAN_TIME">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEFAULT_POST_TOTAL_BAN_TIME">DEFAULT_POST_TOTAL_BAN_TIME</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_POST_TOTAL_BAN_TIME</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_TOTAL_BAN_TIME">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEFAULT_POST_MAX">DEFAULT_POST_MAX</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_POST_MAX</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_MAX">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEFAULT_POST_TOTAL_MAX">DEFAULT_POST_TOTAL_MAX</a></h3>
-<div class="memberSignature"><span class="modifiers">public static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEFAULT_POST_TOTAL_MAX</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_TOTAL_MAX">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="ERR_REQUEST_TIMEOUT">ERR_REQUEST_TIMEOUT</a></h3>
-<div class="memberSignature"><span class="modifiers">protected static final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">ERR_REQUEST_TIMEOUT</span></div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>protected since 0.9.33 for I2PTunnelHTTPClientBase, was private</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.ERR_REQUEST_TIMEOUT">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorDetails"><a id="constructor.detail">
-</a>
-<h2>Constructor Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelHTTPServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.io.File,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelHTTPServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a>&nbsp;privkey,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.net.InetAddress,int,java.io.InputStream,java.lang.String,java.lang.String,net.i2p.i2ptunnel.Logging,net.i2p.util.EventDispatcher,net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelHTTPServer</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PTunnelHTTPServer</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net" class="externalLink">InetAddress</a>&nbsp;host,
-int&nbsp;port,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privData,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;privkeyname,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;spoofHost,
-<a href="Logging.html" title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
-<a href="../util/EventDispatcher.html" title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
-<a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="startRunning()">startRunning</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">startRunning</span>()</div>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="I2PTunnelServer.html#startRunning()">I2PTunnelServer</a></code></span></div>
-<div class="block">Start running the I2PTunnelServer.
- Warning, blocks while connecting to router and building tunnels;</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelServer.html#startRunning()">startRunning</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="close(boolean)">close</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">close</span>&#8203;(<span class="arguments">boolean&nbsp;forced)</span></div>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="I2PTunnelServer.html#close(boolean)">I2PTunnelServer</a></code></span></div>
-<div class="block">Note that the tunnel can be reopened after this by calling startRunning().
-  This does not release all resources. In particular, the I2PSocketManager remains
-  and it may have timer threads that continue running.
-
-  To release all resources permanently, call destroy().</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelServer.html#close(boolean)">close</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.9</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">optionsUpdated</span>&#8203;(<span class="arguments"><a href="I2PTunnel.html" title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</span></div>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="I2PTunnelServer.html#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">I2PTunnelServer</a></code></span></div>
-<div class="block">Update the I2PSocketManager.
-  And since 0.9.15, the target host and port.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelServer.html#optionsUpdated(net.i2p.i2ptunnel.I2PTunnel)">optionsUpdated</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.9</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="blockingHandle(net.i2p.client.streaming.I2PSocket)">blockingHandle</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">blockingHandle</span>&#8203;(<span class="arguments"><a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</span></div>
-<div class="block">Called by the thread pool of I2PSocket handlers</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="I2PTunnelServer.html#blockingHandle(net.i2p.client.streaming.I2PSocket)">blockingHandle</a></code>&nbsp;in class&nbsp;<code><a href="I2PTunnelServer.html" title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="formatHeaders(java.util.Map,java.lang.StringBuilder)">formatHeaders</a></h3>
-<div class="memberSignature"><span class="modifiers">protected static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">formatHeaders</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;&nbsp;headers,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a>&nbsp;command)</span></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the command followed by the header lines</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="readHeaders(net.i2p.client.streaming.I2PSocket,java.io.InputStream,java.lang.StringBuilder,java.lang.String[],net.i2p.I2PAppContext)">readHeaders</a></h3>
-<div class="memberSignature"><span class="modifiers">static</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util" class="externalLink">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>,&#8203;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&gt;</span>&nbsp;<span class="memberName">readHeaders</span>&#8203;(<span class="arguments"><a href="../client/streaming/I2PSocket.html" title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;in,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang" class="externalLink">StringBuilder</a>&nbsp;command,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>[]&nbsp;skipHeaders,
-<a href="../I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</span>
-                                     throws <span class="exceptions"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></span></div>
-<div class="block">From I2P to server: socket non-null, in null.
-  From server to I2P: socket null, in non-null.
-
-  Note: This does not handle RFC 2616 header line splitting,
-  which is obsoleted in RFC 7230.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>socket</code> - if null, use in as InputStream</dd>
-<dd><code>in</code> - if null, use socket.getInputStream() as InputStream</dd>
-<dd><code>command</code> - out parameter, first line</dd>
-<dd><code>skipHeaders</code> - MUST be lower case</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/SocketTimeoutException.html?is-external=true" title="class or interface in java.net" class="externalLink">SocketTimeoutException</a></code> - if timeout is reached before newline</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/EOFException.html?is-external=true" title="class or interface in java.io" class="externalLink">EOFException</a></code> - if EOF is reached before newline</dd>
-<dd><code>net.i2p.i2ptunnel.I2PTunnelHTTPServer.LineTooLongException</code> - if one header too long, or too many headers, or total size too big</dd>
-<dd><code>net.i2p.i2ptunnel.I2PTunnelHTTPServer.RequestTooLongException</code> - if too long</dd>
-<dd><code>net.i2p.i2ptunnel.I2PTunnelHTTPServer.BadRequestException</code> - on bad headers</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code> - on other errors in the underlying stream</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PTunnelHTTPServer.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privData,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+<a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+<a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Create an HTTP tunnel server with a private key string.</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t1 class=tableTab><span><a href=javascript:show(1);>Static Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t4 class=tableTab><span><a href=javascript:show(8);>Concrete Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>(package private) static void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#addEntry-java.util.Map-java.lang.String-java.lang.String->addEntry</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>>&nbsp;headers,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code><div class=block>Add an entry to the multimap.</div><tr id=i1 class=rowColor><td class=colFirst><code>protected void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#blockingHandle-net.i2p.client.streaming.I2PSocket->blockingHandle</a></span>(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</code><div class=block>Called by the thread pool of I2PSocket handlers.</div><tr id=i2 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#close-boolean->close</a></span>(boolean&nbsp;forced)</code><div class=block>Close the tunnel and stop the POST throttler.</div><tr id=i3 class=rowColor><td class=colFirst><code>protected static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#formatHeaders-java.util.Map-java.lang.StringBuilder->formatHeaders</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>>&nbsp;headers,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command)</code><div class=block>Format headers as a string for transmission to the server.</div><tr id=i4 class=altColor><td class=colFirst><code>protected static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#formatHeadersCompact-java.util.Map-java.lang.StringBuilder->formatHeadersCompact</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>>&nbsp;headers,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command)</code><div class=block>Format headers as a compact string for logging.</div><tr id=i5 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#optionsUpdated-net.i2p.i2ptunnel.I2PTunnel->optionsUpdated</a></span>(<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</code><div class=block>Called when tunnel options are updated.</div><tr id=i6 class=altColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#readHeaders-net.i2p.client.streaming.I2PSocket-java.io.InputStream-java.lang.StringBuilder-java.util.Set-net.i2p.I2PAppContext-long->readHeaders</a></span>(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>&nbsp;skipHeaders,
+<a href=../../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;initialTimeout)</code><div class=block>From I2P to server: socket non-null, in null.</div><tr id=i7 class=rowColor><td class=colFirst><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#readHeaders-net.i2p.client.streaming.I2PSocket-java.io.InputStream-java.lang.StringBuilder-java.lang.String:A-net.i2p.I2PAppContext-long->readHeaders</a></span>(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;skipHeaders,
+<a href=../../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+long&nbsp;initialTimeout)</code><div class=block>Read headers from the input stream, using an array of skip headers.</div><tr id=i8 class=altColor><td class=colFirst><code>(package private) static void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#setEntry-java.util.Map-java.lang.String-java.lang.String->setEntry</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>>>&nbsp;headers,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code><div class=block>Remove the other matching entries and set this entry as the only one.</div><tr id=i9 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPServer.html#startRunning-->startRunning</a></span>()</code><div class=block>Start the tunnel and initialize timing and throttling.</div></table><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelServer></a><h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#destroy-->destroy</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getReadTimeout-->getReadTimeout</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-java.net.InetAddress-int->getSocket</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int->getSocket</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocketManager-->getSocketManager</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocketString-int->getSocketString</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#run-->run</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#setReadTimeout-long->setReadTimeout</a></code></ul><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.net.i2p.i2ptunnel.I2PTunnelTask></a><h3>Methods inherited from class&nbsp;net.i2p.i2ptunnel.<a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html title="class in net.i2p.i2ptunnel">I2PTunnelTask</a></h3><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#connected-net.i2p.client.I2PSession->connected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#disconnected-net.i2p.client.I2PSession->disconnected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#errorOccurred-net.i2p.client.I2PSession-java.lang.String-java.lang.Throwable->errorOccurred</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getBooleanOption-java.lang.String-boolean->getBooleanOption</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getId-->getId</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#getTunnel-->getTunnel</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#isOpen-->isOpen</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#reportAbuse-net.i2p.client.I2PSession-int->reportAbuse</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#routerDisconnected-->routerDisconnected</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setId-int->setId</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setName-java.lang.String->setName</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#setTunnel-net.i2p.i2ptunnel.I2PTunnel->setTunnel</a>, <a href=../../../net/i2p/i2ptunnel/I2PTunnelTask.html#toString-->toString</a></code></ul><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.net.i2p.util.EventDispatcherImpl></a><h3>Methods inherited from class&nbsp;net.i2p.util.<a href=../../../net/i2p/util/EventDispatcherImpl.html title="class in net.i2p.util">EventDispatcherImpl</a></h3><code><a href=../../../net/i2p/util/EventDispatcherImpl.html#attachEventDispatcher-net.i2p.util.EventDispatcher->attachEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#detachEventDispatcher-net.i2p.util.EventDispatcher->detachEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEventDispatcher-->getEventDispatcher</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEvents-->getEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#getEventValue-java.lang.String->getEventValue</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#ignoreEvents-->ignoreEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#notifyEvent-java.lang.String-java.lang.Object->notifyEvent</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#unIgnoreEvents-->unIgnoreEvents</a>, <a href=../../../net/i2p/util/EventDispatcherImpl.html#waitEventValue-java.lang.String->waitEventValue</a></code></ul><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.java.lang.Object></a><h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></ul></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.detail></a><h3>Field Detail</h3><a name=DEFAULT_POST_BAN_TIME></a><ul class=blockList><li class=blockList><h4>DEFAULT_POST_BAN_TIME</h4><pre>public static final&nbsp;int DEFAULT_POST_BAN_TIME</pre><div class=block>Post throttle window (seconds).</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_BAN_TIME>Constant Field Values</a></dl></ul><a name=DEFAULT_POST_MAX></a><ul class=blockList><li class=blockList><h4>DEFAULT_POST_MAX</h4><pre>public static final&nbsp;int DEFAULT_POST_MAX</pre><div class=block>Default max posts per window.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_MAX>Constant Field Values</a></dl></ul><a name=DEFAULT_POST_TOTAL_BAN_TIME></a><ul class=blockList><li class=blockList><h4>DEFAULT_POST_TOTAL_BAN_TIME</h4><pre>public static final&nbsp;int DEFAULT_POST_TOTAL_BAN_TIME</pre><div class=block>Default total ban time for excessive posts.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_TOTAL_BAN_TIME>Constant Field Values</a></dl></ul><a name=DEFAULT_POST_TOTAL_MAX></a><ul class=blockList><li class=blockList><h4>DEFAULT_POST_TOTAL_MAX</h4><pre>public static final&nbsp;int DEFAULT_POST_TOTAL_MAX</pre><div class=block>Default max total posts before ban.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_TOTAL_MAX>Constant Field Values</a></dl></ul><a name=DEFAULT_POST_WINDOW></a><ul class=blockList><li class=blockList><h4>DEFAULT_POST_WINDOW</h4><pre>public static final&nbsp;int DEFAULT_POST_WINDOW</pre><div class=block>Default post rate-limit window (seconds).</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.DEFAULT_POST_WINDOW>Constant Field Values</a></dl></ul><a name=ERR_FORBIDDEN></a><ul class=blockList><li class=blockList><h4>ERR_FORBIDDEN</h4><pre>static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ERR_FORBIDDEN</pre><div class=block>403 Forbidden error response</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.ERR_FORBIDDEN>Constant Field Values</a></dl></ul><a name=ERR_NOT_FOUND></a><ul class=blockList><li class=blockList><h4>ERR_NOT_FOUND</h4><pre>static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ERR_NOT_FOUND</pre><div class=block>404 Not Found error response</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.ERR_NOT_FOUND>Constant Field Values</a></dl></ul><a name=ERR_REQUEST_TIMEOUT></a><ul class=blockList><li class=blockList><h4>ERR_REQUEST_TIMEOUT</h4><pre>protected static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ERR_REQUEST_TIMEOUT</pre><div class=block>HTTP 408 Request Timeout error response.
+Includes a meta refresh to retry after 5 seconds.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.ERR_REQUEST_TIMEOUT>Constant Field Values</a></dl></ul><a name=OPT_ADD_RESPONSE_HEADER_ALLOW></a><ul class=blockList><li class=blockList><h4>OPT_ADD_RESPONSE_HEADER_ALLOW</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_ADD_RESPONSE_HEADER_ALLOW</pre><div class=block>Config key to add Allow response header.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_ADD_RESPONSE_HEADER_ALLOW>Constant Field Values</a></dl></ul><a name=OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL></a><ul class=blockList><li class=blockList><h4>OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL</pre><div class=block>Config key to add Cache-Control response header.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_ADD_RESPONSE_HEADER_CACHE_CONTROL>Constant Field Values</a></dl></ul><a name=OPT_ADD_RESPONSE_HEADER_NOSNIFF></a><ul class=blockList><li class=blockList><h4>OPT_ADD_RESPONSE_HEADER_NOSNIFF</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_ADD_RESPONSE_HEADER_NOSNIFF</pre><div class=block>Config key to add X-Content-Type-Options: nosniff.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_ADD_RESPONSE_HEADER_NOSNIFF>Constant Field Values</a></dl></ul><a name=OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY></a><ul class=blockList><li class=blockList><h4>OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY</pre><div class=block>Config key to add Referrer-Policy response header.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_ADD_RESPONSE_HEADER_REFERRER_POLICY>Constant Field Values</a></dl></ul><a name=OPT_KEEPALIVE></a><ul class=blockList><li class=blockList><h4>OPT_KEEPALIVE</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_KEEPALIVE</pre><div class=block>Config key to enable keepalive.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_KEEPALIVE>Constant Field Values</a></dl></ul><a name=OPT_POST_BAN_TIME></a><ul class=blockList><li class=blockList><h4>OPT_POST_BAN_TIME</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_POST_BAN_TIME</pre><div class=block>Config key for post ban time.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_BAN_TIME>Constant Field Values</a></dl></ul><a name=OPT_POST_MAX></a><ul class=blockList><li class=blockList><h4>OPT_POST_MAX</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_POST_MAX</pre><div class=block>Config key for max posts.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_MAX>Constant Field Values</a></dl></ul><a name=OPT_POST_TOTAL_BAN_TIME></a><ul class=blockList><li class=blockList><h4>OPT_POST_TOTAL_BAN_TIME</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_POST_TOTAL_BAN_TIME</pre><div class=block>Config key for post total ban time.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_TOTAL_BAN_TIME>Constant Field Values</a></dl></ul><a name=OPT_POST_TOTAL_MAX></a><ul class=blockList><li class=blockList><h4>OPT_POST_TOTAL_MAX</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_POST_TOTAL_MAX</pre><div class=block>Config key for max total posts.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_TOTAL_MAX>Constant Field Values</a></dl></ul><a name=OPT_POST_WINDOW></a><ul class=blockList><li class=blockList><h4>OPT_POST_WINDOW</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_POST_WINDOW</pre><div class=block>Config key for post check time window.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_POST_WINDOW>Constant Field Values</a></dl></ul><a name=OPT_REJECT_INPROXY></a><ul class=blockList><li class=blockList><h4>OPT_REJECT_INPROXY</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_REJECT_INPROXY</pre><div class=block>Config key to reject requests from inproxy.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_INPROXY>Constant Field Values</a></dl></ul><a name=OPT_REJECT_REFERER></a><ul class=blockList><li class=blockList><h4>OPT_REJECT_REFERER</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_REJECT_REFERER</pre><div class=block>Config key to reject requests with Referer header.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_REFERER>Constant Field Values</a></dl></ul><a name=OPT_REJECT_USER_AGENTS></a><ul class=blockList><li class=blockList><h4>OPT_REJECT_USER_AGENTS</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_REJECT_USER_AGENTS</pre><div class=block>Config key to reject specific User-Agents.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_REJECT_USER_AGENTS>Constant Field Values</a></dl></ul><a name=OPT_USER_AGENTS></a><ul class=blockListLast><li class=blockList><h4>OPT_USER_AGENTS</h4><pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPT_USER_AGENTS</pre><div class=block>Config key for User-Agent reject list.</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.i2ptunnel.I2PTunnelHTTPServer.OPT_USER_AGENTS>Constant Field Values</a></dl></ul></ul><ul class=blockList><li class=blockList><a name=constructor.detail></a><h3>Constructor Detail</h3><a name=I2PTunnelHTTPServer-java.net.InetAddress-int-java.io.File-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>I2PTunnelHTTPServer</h4><pre>public&nbsp;I2PTunnelHTTPServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                           int&nbsp;port,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;privkey,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+                           <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                           <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                           <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Create an HTTP tunnel server from a private key file.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>host</code> - the local address to bind to<dd><code>port</code> - the local port<dd><code>privkey</code> - the private key file<dd><code>privkeyname</code> - the name for the private key<dd><code>spoofHost</code> - the hostname to spoof in the Host header, or null<dd><code>l</code> - the logging instance<dd><code>notifyThis</code> - the event dispatcher for notifications<dd><code>tunnel</code> - the parent tunnel configuration</dl></ul><a name=I2PTunnelHTTPServer-java.net.InetAddress-int-java.io.InputStream-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>I2PTunnelHTTPServer</h4><pre>public&nbsp;I2PTunnelHTTPServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                           int&nbsp;port,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privData,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privkeyname,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+                           <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                           <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                           <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Create an HTTP tunnel server from a private key stream.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>host</code> - the local address to bind to<dd><code>port</code> - the local port<dd><code>privData</code> - the input stream containing the private key data<dd><code>privkeyname</code> - the name for the private key<dd><code>spoofHost</code> - the hostname to spoof in the Host header, or null<dd><code>l</code> - the logging instance<dd><code>notifyThis</code> - the event dispatcher for notifications<dd><code>tunnel</code> - the parent tunnel configuration</dl></ul><a name=I2PTunnelHTTPServer-java.net.InetAddress-int-java.lang.String-java.lang.String-net.i2p.i2ptunnel.Logging-net.i2p.util.EventDispatcher-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockListLast><li class=blockList><h4>I2PTunnelHTTPServer</h4><pre>public&nbsp;I2PTunnelHTTPServer(<a href="http://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html?is-external=true" title="class or interface in java.net">InetAddress</a>&nbsp;host,
+                           int&nbsp;port,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;privData,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;spoofHost,
+                           <a href=../../../net/i2p/i2ptunnel/Logging.html title="interface in net.i2p.i2ptunnel">Logging</a>&nbsp;l,
+                           <a href=../../../net/i2p/util/EventDispatcher.html title="interface in net.i2p.util">EventDispatcher</a>&nbsp;notifyThis,
+                           <a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Create an HTTP tunnel server with a private key string.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>host</code> - the local address to bind to<dd><code>port</code> - the local port<dd><code>privData</code> - the private key data as a Base64 string<dd><code>spoofHost</code> - the hostname to spoof in the Host header, or null<dd><code>l</code> - the logging instance<dd><code>notifyThis</code> - the event dispatcher for notifications<dd><code>tunnel</code> - the parent tunnel configuration</dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=addEntry-java.util.Map-java.lang.String-java.lang.String-></a><ul class=blockList><li class=blockList><h4>addEntry</h4><pre>static&nbsp;void&nbsp;addEntry(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;headers,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre><div class=block>Add an entry to the multimap. If the key already exists, appends
+the value to the existing list.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>headers</code> - the header multimap to modify<dd><code>key</code> - the header name<dd><code>value</code> - the header value to add</dl></ul><a name=blockingHandle-net.i2p.client.streaming.I2PSocket-></a><ul class=blockList><li class=blockList><h4>blockingHandle</h4><pre>protected&nbsp;void&nbsp;blockingHandle(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket)</pre><div class=block>Called by the thread pool of I2PSocket handlers.
+Handles a single client connection through the HTTP proxy lifecycle:
+read headers, validate, apply spoofing, compress, and forward.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#blockingHandle-net.i2p.client.streaming.I2PSocket->blockingHandle</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code><dt><span class=paramLabel>Parameters:</span><dd><code>socket</code> - the incoming I2P socket from the client<dt><span class=seeLabel>See Also:</span><dd><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#getSocket-net.i2p.data.Hash-int-><code>I2PTunnelServer.getSocket(Hash, int)</code></a>,
+<a href=../../../net/i2p/i2ptunnel/I2PTunnelRunner.html title="class in net.i2p.i2ptunnel"><code>I2PTunnelRunner</code></a></dl></ul><a name=close-boolean-></a><ul class=blockList><li class=blockList><h4>close</h4><pre>public&nbsp;boolean&nbsp;close(boolean&nbsp;forced)</pre><div class=block>Close the tunnel and stop the POST throttler.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#close-boolean->close</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code><dt><span class=paramLabel>Parameters:</span><dd><code>forced</code> - true to force close<dt><span class=returnLabel>Returns:</span><dd>true if closed successfully</dl></ul><a name=formatHeaders-java.util.Map-java.lang.StringBuilder-></a><ul class=blockList><li class=blockList><h4>formatHeaders</h4><pre>protected static&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;formatHeaders(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;headers,
+                                      <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command)</pre><div class=block>Format headers as a string for transmission to the server.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>headers</code> - the header multimap<dd><code>command</code> - the request line (e.g. "GET / HTTP/1.1")<dt><span class=returnLabel>Returns:</span><dd>the command followed by the header lines</dl></ul><a name=formatHeadersCompact-java.util.Map-java.lang.StringBuilder-></a><ul class=blockList><li class=blockList><h4>formatHeadersCompact</h4><pre>protected static&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;formatHeadersCompact(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;headers,
+                                             <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command)</pre><div class=block>Format headers as a compact string for logging.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>headers</code> - the header multimap<dd><code>command</code> - the request line (e.g. "GET / HTTP/1.1")<dt><span class=returnLabel>Returns:</span><dd>the command followed by the header lines (compact version for logging)</dl></ul><a name=optionsUpdated-net.i2p.i2ptunnel.I2PTunnel-></a><ul class=blockList><li class=blockList><h4>optionsUpdated</h4><pre>public&nbsp;void&nbsp;optionsUpdated(<a href=../../../net/i2p/i2ptunnel/I2PTunnel.html title="class in net.i2p.i2ptunnel">I2PTunnel</a>&nbsp;tunnel)</pre><div class=block>Called when tunnel options are updated.
+Re-initializes the POST throttler and updates the spoofed host.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#optionsUpdated-net.i2p.i2ptunnel.I2PTunnel->optionsUpdated</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code><dt><span class=paramLabel>Parameters:</span><dd><code>tunnel</code> - the tunnel</dl></ul><a name=readHeaders-net.i2p.client.streaming.I2PSocket-java.io.InputStream-java.lang.StringBuilder-java.util.Set-net.i2p.I2PAppContext-long-></a><ul class=blockList><li class=blockList><h4>readHeaders</h4><pre>public static&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;readHeaders(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;skipHeaders,
+                                                   <a href=../../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+                                                   long&nbsp;initialTimeout)
+                                            throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre><div class=block>From I2P to server: socket non-null, in null.
+From server to I2P: socket null, in non-null.
+Note: This does not handle RFC 2616 header line splitting,
+which is obsoleted in RFC 7230.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>socket</code> - if null, use in as InputStream<dd><code>in</code> - if null, use socket.getInputStream() as InputStream<dd><code>command</code> - out parameter, first line<dd><code>skipHeaders</code> - MUST be lower case<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/net/SocketTimeoutException.html?is-external=true" title="class or interface in java.net">SocketTimeoutException</a></code> - if timeout is reached before newline<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/EOFException.html?is-external=true" title="class or interface in java.io">EOFException</a></code> - if EOF is reached before newline<dd><code>LineTooLongException</code> - if one header too long, or too many headers, or total size too big<dd><code>RequestTooLongException</code> - if too long<dd><code>BadRequestException</code> - on bad headers<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - on other errors in the underlying stream</dl></ul><a name=readHeaders-net.i2p.client.streaming.I2PSocket-java.io.InputStream-java.lang.StringBuilder-java.lang.String:A-net.i2p.I2PAppContext-long-></a><ul class=blockList><li class=blockList><h4>readHeaders</h4><pre>public static&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;readHeaders(<a href=../../../net/i2p/client/streaming/I2PSocket.html title="interface in net.i2p.client.streaming">I2PSocket</a>&nbsp;socket,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html?is-external=true" title="class or interface in java.lang">StringBuilder</a>&nbsp;command,
+                                                   <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;skipHeaders,
+                                                   <a href=../../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx,
+                                                   long&nbsp;initialTimeout)
+                                            throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre><div class=block>Read headers from the input stream, using an array of skip headers.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>socket</code> - if non-null, read from socket; otherwise read from in<dd><code>in</code> - if non-null and socket is null, read from this stream<dd><code>command</code> - output buffer for the first request line<dd><code>skipHeaders</code> - array of lower-case header names to filter out<dd><code>ctx</code> - I2P app context for clock and timeout<dd><code>initialTimeout</code> - timeout for the first line read<dt><span class=returnLabel>Returns:</span><dd>the parsed header multimap<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - on I/O errors</dl></ul><a name=setEntry-java.util.Map-java.lang.String-java.lang.String-></a><ul class=blockList><li class=blockList><h4>setEntry</h4><pre>static&nbsp;void&nbsp;setEntry(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;headers,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre><div class=block>Remove the other matching entries and set this entry as the only one.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>headers</code> - the header multimap to modify<dd><code>key</code> - the header name<dd><code>value</code> - the header value to set (replaces all existing values for this key)</dl></ul><a name=startRunning--></a><ul class=blockListLast><li class=blockList><h4>startRunning</h4><pre>public&nbsp;void&nbsp;startRunning()</pre><div class=block>Start the tunnel and initialize timing and throttling.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html#startRunning-->startRunning</a></code>&nbsp;in class&nbsp;<code><a href=../../../net/i2p/i2ptunnel/I2PTunnelServer.html title="class in net.i2p.i2ptunnel">I2PTunnelServer</a></code></dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PTunnelHTTPServer.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelHTTPClientRunner.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/I2PTunnelIRCClient.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/I2PTunnelHTTPServer.html target=_top>Frames</a><li><a href=I2PTunnelHTTPServer.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>

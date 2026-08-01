@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#080000">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I2P+ theming guide: built-in themes, override.css customization, and creating custom themes.">
+<meta name="keywords" content="i2p+,themes,customization,override.css,dark,light,midnight,console">
+<meta name="author" content="I2P+ Project">
+<meta property="og:title" content="I2P+ Theming Guide">
+<meta property="og:description" content="I2P+ theming guide: built-in themes, override.css customization, and creating custom themes.">
+<meta property="og:url" content="https://skank.i2p/theming.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://skank.i2p/assets/images/logo.png">
+<title>I2P+ Theming Guide | Enhanced I2P Anonymizing Network</title>
+<link rel="preload" href="/assets/css/i2p+.css" as="style" type="text/css">
+<link rel="preload" href="/assets/fonts/t.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/assets/fonts/s.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="shortcut icon" href="/assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link href="/assets/css/i2p+.css" rel="stylesheet" type="text/css">
+</head>
+
+<body hidden>
+<div id="toplinks" hidden>
+<h1>I2P<span class="super title">+</span></h1>
+<span id="logo"><a href=/ aria-label="I2P+ Home"></a></span>
+<a href="/download.html">Download</a>
+<span class="dropdown"><a href="/installation.html">Docs</a><span class="dropdown-menu">
+<a href="/installation.html">Installation</a>
+<a href="/screenshots.html">Screenshots</a>
+<a href="/compatibility.html">Compatibility</a>
+<a href="/support.html">FAQ &amp; Support</a>
+<a href="/changelog.html">Changelog</a>
+<a href="/glossary/">Glossary</a>
+<a href="/theming.html">Theming</a>
+</span></span>
+<span class="dropdown"><a href="https://github.com/i2pplus/i2pplus/" target=_blank>Resources</a><span class="dropdown-menu">
+<a href="http://javadoc.skank.i2p/?i2paddresshelper=eVXrzsw9BaM81HngLg9DGWXY1Iri5s-1hsB8-oatdaaWfGJyB6UvSEnTSzotl3ZARtaV8v94eF9EQW5e47-jZ-kAnnLQZ128ek1bTtl3-l4pSxa-rjrRPu8ZsrRsZR1ygJ6CFSmhNXIYsZeRY7G1IySSrNcrPt8foiMKX~WtZ35BxMqv5ok-If9GFQ9LIEOz3d8GujMmvx80Ci8wvi1ymDqfqxVmZZ8KG2B-AIOVPBJx2cmgfZJYI0tBf~sv-3w2r8b3rfYd07E~~~oI8BpyDhzxDRBzZdPAA7pcHkRE8l9n6EzWlZWp-u825uiscki9RdCG4m-oQS2N6sffcvakj2qvvhzaruYTlJg88tJj07lEAWPR4H~s1dAJHr7MGLrEawgRUIMb7AeLVUv~laZkEoLKuv0E7XdeVMzL4IcwHbVG~AzqBsNzuuJRpsqAzbEaFZrqXhLiN54fV1tYDObeF5dGq0aqt1VRVizXrJjIvKLM1ECY23SjlvrC0f4CqrpNBQAEAAcAAA=" target=_blank>API</a>
+<a href="https://github.com/i2pplus/i2pplus/" target=_blank>Github</a>
+<a href="/hosts.txt" target=_blank>hosts.txt</a>
+</span></span>
+<span id="lang"><a href="/theming.html"><img alt="EN" src="/assets/images/flags/us.svg" width=20 height=16></a>&nbsp;<a href="/zh/theming.html"><img alt="ZH" src="/assets/images/flags/cn.svg" width=20 height=16></a>&nbsp;<a href="/ru/theming.html"><img alt="RU" src="/assets/images/flags/ru.svg" width=20 height=16></a></span>
+</div>
+<div id="container" hidden>
+
+<section>
+<h3>I2P+ Theming Guide</h3>
+<p><span class="nowrap">I2P<span class="super">+</span></span> supports four built-in themes and full customization via <code>override.css</code> files. Themes span the router console and all webapps.</p>
+</section>
+
+<section>
+<h3>Built-in Themes</h3>
+<p>Four themes are included out of the box:</p>
+<ul>
+<li><b>Dark</b> — the default theme with dark backgrounds and orange/green accents</li>
+<li><b>Light</b> — a bright theme with light backgrounds</li>
+<li><b>Midnight</b> — a deep purple-toned dark theme</li>
+<li><b>Classic</b> — the traditional I2P console look</li>
+</ul>
+<p>Themes apply across the router console and all webapps (SusiMail, SusiDNS, I2PSnark, login page). When <code>routerconsole.universal.theme=true</code>, all webapps share the same theme. When false, each webapp can have its own theme preference.</p>
+</section>
+
+<section>
+<h3>Theme Selection</h3>
+<p>Set the active theme in the router console under <b>Config → UI</b>, or edit <code>router.config</code>:</p>
+<code>routerconsole.theme=dark</code>
+<p>Valid values are any theme directory name under <code>docs/themes/console/</code>.</p>
+</section>
+
+<section>
+<h3>The override.css System</h3>
+<p><code>override.css</code> is the primary customization mechanism. It is a user-created CSS file placed in a theme directory. Because it loads after all other CSS, any rule in <code>override.css</code> wins over the theme defaults.</p>
+
+<h3>How it works</h3>
+<ol>
+<li>Create the file: place <code>override.css</code> in <code>$I2P/docs/themes/console/&lt;theme&gt;/override.css</code></li>
+<li>It's checked on every page load</li>
+<li>It survives upgrades — never overwritten by the router</li>
+</ol>
+
+<h3>Example: Ocean Blue override</h3>
+<pre><code>/* Override the dark theme with a blue hue rotation */
+html {
+    filter: hue-rotate(120deg);
+}
+body {
+    background: repeating-linear-gradient(to right, rgba(0,0,0,0.8) 1px,
+                rgba(0,0,0,0.8) 2px, rgba(0,0,32,0.6) 3px) #000;
+}
+img, #sb_localtunnels img, .sb *::before, #routerlogs li, .tunnelBuildStatus {
+    filter: hue-rotate(-120deg) !important;
+}</code></pre>
+
+<h3>Quick hue rotation trick</h3>
+<p>A single-line override can completely shift the color scheme:</p>
+<pre><code>/* Turn green theme to ocean blue */
+html { filter: hue-rotate(120deg); }
+/* Un-rotate images so they stay natural colors */
+img { filter: hue-rotate(-120deg) !important; }</code></pre>
+
+<h3>Theming all webapps</h3>
+<p>To apply <code>override.css</code> to all webapps, create it in each webapp theme directory, or symlink:</p>
+<pre><code>ln -s ../console/dark/override.css $I2P/docs/themes/susimail/dark/override.css
+ln -s ../console/dark/override.css $I2P/docs/themes/susidns/dark/override.css
+ln -s ../console/dark/override.css $I2P/docs/themes/snark/dark/override.css</code></pre>
+</section>
+
+<section>
+<h3>Example Override Files</h3>
+<p>Each theme ships with example override files you can rename to activate:</p>
+
+<h3>Dark theme</h3>
+<ul>
+<li><code>override.css.ocean.blue</code> — blue/cold hue rotation</li>
+<li><code>override.css.purple</code> — purple tones</li>
+<li><code>override.css.red</code> — red accents</li>
+</ul>
+
+<h3>Light theme</h3>
+<ul>
+<li><code>override.css.charcoal</code> — dark variant of the light theme</li>
+<li><code>override.css.flat</code> — flat design without gradients</li>
+<li><code>override.css.lowlight</code> — reduced brightness</li>
+<li><code>override.css.solar.green</code> — solarized green</li>
+<li><code>override.css.solarsurprise</code> — solarized variant</li>
+</ul>
+
+<h3>Midnight theme</h3>
+<ul>
+<li><code>override.css.purple</code> — purple tones</li>
+</ul>
+</section>
+
+<section>
+<h3>Creating a Custom Theme</h3>
+
+<h3>Step 1: Create the theme directory</h3>
+<pre><code>mkdir -p $I2P/docs/themes/console/mytheme/images</code></pre>
+
+<h3>Step 2: Create <code>global.css</code></h3>
+<p>Define your CSS custom properties. At minimum:</p>
+<pre><code>:root {
+    --a: #494;
+    --active: #f90;
+    --hover: #f60;
+    --ink: #ee9;
+    --ink_bright: #aa3;
+    --bodybg: #000;
+    --border: 1px solid #242;
+    --btn: linear-gradient(180deg, #001000, #000);
+    --badge: linear-gradient(180deg, #020, #010);
+}</code></pre>
+
+<h3>Step 3: Create <code>console.css</code></h3>
+<pre><code>@import url(global.css);
+@import url(../shared.css);
+@import url(../images/itooplus.css);
+
+body {
+    background: var(--bodybg);
+    color: var(--ink);
+}
+a { color: var(--a); }
+a:hover { color: var(--hover); }</code></pre>
+
+<h3>Step 4: Create theme images</h3>
+<p>Place at minimum:</p>
+<ul>
+<li><code>images/thumbnail.png</code> — 48×48 picker thumbnail</li>
+<li><code>images/i2plogo.png</code> — console logo</li>
+<li><code>images/favicon.svg</code> — favicon</li>
+</ul>
+
+<h3>Step 5: Create webapp theme directories</h3>
+<p>For each webapp, create a parallel directory with its own CSS that imports the console's <code>global.css</code>:</p>
+<pre><code>$I2P/docs/themes/susimail/mytheme/susimail.css
+$I2P/docs/themes/susidns/mytheme/susidns.css
+$I2P/docs/themes/snark/mytheme/snark.css
+$I2P/docs/themes/login/mytheme/login.css</code></pre>
+
+<h3>Step 6: Set the theme</h3>
+<p>Set in router console → Config → UI, or edit <code>router.config</code>:</p>
+<code>routerconsole.theme=mytheme</code>
+</section>
+
+</div>
+
+<style type="text/css">
+@font-face {font-family: "s"; src: url(/assets/fonts/s.woff2) format("woff2")}
+@font-face {font-family: "t"; src: url(/assets/fonts/t.woff2) format("woff2")}
+body,#toplinks,#container{pointer-events:auto!important;display:block!important}
+</style>
+</body>
+</html>

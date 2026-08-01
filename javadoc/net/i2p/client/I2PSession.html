@@ -1,1220 +1,148 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>I2PSession - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p.client, interface: I2PSession">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6,"i27":6,"i28":6,"i29":6,"i30":6,"i31":6,"i32":6,"i33":6,"i34":6,"i35":6,"i36":6,"i37":6,"i38":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PSession.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.client</a></div>
-<h1 title="Interface I2PSession" class="title">Interface I2PSession</h1>
-</div>
-<div class="contentContainer">
-<section class="description">
-<dl>
-<dt>All Known Implementing Classes:</dt>
-<dd><code><a href="impl/I2PSessionImpl.html" title="class in net.i2p.client.impl">I2PSessionImpl</a></code>, <code><a href="impl/I2PSessionImpl2.html" title="class in net.i2p.client.impl">I2PSessionImpl2</a></code>, <code><a href="impl/I2PSessionMuxedImpl.html" title="class in net.i2p.client.impl">I2PSessionMuxedImpl</a></code>, <code><a href="impl/I2PSimpleSession.html" title="class in net.i2p.client.impl">I2PSimpleSession</a></code>, <code><a href="impl/SubSession.html" title="class in net.i2p.client.impl">SubSession</a></code></dd>
-</dl>
-<hr>
-<pre>public interface <span class="typeNameLabel">I2PSession</span></pre>
-<div class="block"><p>Define the standard means of sending and receiving messages on the 
- I2P network by using the I2CP (the client protocol).  This is done over a 
- bidirectional TCP socket.
-
- End to end encryption in I2PSession was disabled in release 0.6.
-
- Periodically the router will ask the client to authorize a new set of
- tunnels to be allocated to the client, which the client can accept by sending a
- <a href="../data/LeaseSet.html" title="class in net.i2p.data"><code>LeaseSet</code></a> signed by the <a href="../data/Destination.html" title="class in net.i2p.data"><code>Destination</code></a>.  
- In addition, the router may on occasion provide the client with an updated 
- clock offset so that the client can stay in sync with the network (even if 
- the host computer's clock is off).</p></div>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldSummary"><a id="field.summary">
-</a>
-<h2>Field Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PORT_ANY">PORT_ANY</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PORT_UNSPECIFIED">PORT_UNSPECIFIED</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROTO_ANY">PROTO_ANY</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROTO_DATAGRAM">PROTO_DATAGRAM</a></span></code></th>
-<td class="colLast">
-<div class="block">Generally a signed datagram, but could
-  also be a raw datagram, depending on the application</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROTO_DATAGRAM_RAW">PROTO_DATAGRAM_RAW</a></span></code></th>
-<td class="colLast">
-<div class="block">A raw (unsigned) datagram</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROTO_STREAMING">PROTO_STREAMING</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#PROTO_UNSPECIFIED">PROTO_UNSPECIFIED</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addMuxedSessionListener(net.i2p.client.I2PSessionMuxedListener,int,int)">addMuxedSessionListener</a></span>&#8203;(<a href="I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a>&nbsp;l,
+<!doctype html><html lang=en><meta charset=utf-8><title>I2PSession (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../../javadoc.css title=Style><script src=../../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="I2PSession (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:6,i1:6,i2:6,i3:6,i4:6,i5:6,i6:6,i7:6,i8:6,i9:6,i10:6,i11:6,i12:6,i13:6,i14:6,i15:6,i16:6,i17:6,i18:6,i19:6,i20:6,i21:6,i22:6,i23:6,i24:6,i25:6,i26:6,i27:6,i28:6,i29:6,i30:6,i31:6,i32:6,i33:6,i34:6,i35:6,i36:6,i37:6,i38:6,i39:6,i40:6,i41:6,i42:6,i43:6,i44:6,i45:6,i46:6},tabs={65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PSession.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/client/I2PClientFactory.html title="class in net.i2p.client"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/client/I2PSession.html target=_top>Frames</a><li><a href=I2PSession.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li><a href=#nested.class.summary>Nested</a>&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li>Constr&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li>Constr&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p.client</div><h2 title="Interface I2PSession" class=title>Interface I2PSession</h2></div><div class=contentContainer><div class=description><ul class=blockList><li class=blockList><dl><dt>All Known Implementing Classes:<dd><a href=../../../net/i2p/client/impl/I2PSessionImpl.html title="class in net.i2p.client.impl">I2PSessionImpl</a>, <a href=../../../net/i2p/client/impl/I2PSessionImpl2.html title="class in net.i2p.client.impl">I2PSessionImpl2</a>, <a href=../../../net/i2p/client/impl/I2PSessionMuxedImpl.html title="class in net.i2p.client.impl">I2PSessionMuxedImpl</a>, <a href=../../../net/i2p/client/impl/I2PSimpleSession.html title="class in net.i2p.client.impl">I2PSimpleSession</a>, <a href=../../../net/i2p/client/impl/SubSession.html title="class in net.i2p.client.impl">SubSession</a></dl><hr><br><pre>public interface <span class=typeNameLabel>I2PSession</span></pre><div class=block><p>Define the standard means of sending and receiving messages on the
+I2P network by using the I2CP (the client protocol). This is done over a
+bidirectional TCP socket.
+End to end encryption in I2PSession was disabled in release 0.6.
+Periodically the router will ask the client to authorize a new set of
+tunnels to be allocated to the client, which the client can accept by sending a
+<a href=../../../net/i2p/data/LeaseSet.html title="class in net.i2p.data"><code>LeaseSet</code></a> signed by the <a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data"><code>Destination</code></a>.
+In addition, the router may on occasion provide the client with an updated
+clock offset so that the client can stay in sync with the network (even if
+the host computer's clock is off).</div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=nested.class.summary></a><h3>Nested Class Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Nested Class Summary table, listing nested classes, and an explanation"><caption><span>Nested Classes</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Interface and Description<tr class=altColor><td class=colFirst><code>static class&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client">I2PSession.TunnelPair</a></span></code><div class=block>Simple holder for tunnel pair information.</div></table></ul><ul class=blockList><li class=blockList><a name=field.summary></a><h3>Field Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Field Summary table, listing fields, and an explanation"><caption><span>Fields</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Field and Description<tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PORT_ANY>PORT_ANY</a></span></code><div class=block>Any port</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PORT_UNSPECIFIED>PORT_UNSPECIFIED</a></span></code><div class=block>Unspecified port</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_ANY>PROTO_ANY</a></span></code><div class=block>Any protocol</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_DATAGRAM>PROTO_DATAGRAM</a></span></code><div class=block>A repliable and signed datagram</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_DATAGRAM_RAW>PROTO_DATAGRAM_RAW</a></span></code><div class=block>A raw (unsigned, unrepliable) datagram</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_DATAGRAM2>PROTO_DATAGRAM2</a></span></code><div class=block>A repliable and signed datagram.</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_DATAGRAM3>PROTO_DATAGRAM3</a></span></code><div class=block>A repliable but unsigned datagram.</div><tr class=rowColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_STREAMING>PROTO_STREAMING</a></span></code><div class=block>Streaming protocol</div><tr class=altColor><td class=colFirst><code>static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#PROTO_UNSPECIFIED>PROTO_UNSPECIFIED</a></span></code><div class=block>Unspecified protocol</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t3 class=tableTab><span><a href=javascript:show(4);>Abstract Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#addMuxedSessionListener-net.i2p.client.I2PSessionMuxedListener-int-int->addMuxedSessionListener</a></span>(<a href=../../../net/i2p/client/I2PSessionMuxedListener.html title="interface in net.i2p.client">I2PSessionMuxedListener</a>&nbsp;l,
 int&nbsp;proto,
-int&nbsp;port)</code></th>
-<td class="colLast">
-<div class="block">Listen on specified protocol and port, and receive notification
-  of proto, fromPort, and toPort for every message.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSessionListener(net.i2p.client.I2PSessionListener,int,int)">addSessionListener</a></span>&#8203;(<a href="I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr,
+int&nbsp;port)</code><div class=block>Listen on specified protocol and port, and receive notification
+of proto, fromPort, and toPort for every message.</div><tr id=i1 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#addSessionListener-net.i2p.client.I2PSessionListener-int-int->addSessionListener</a></span>(<a href=../../../net/i2p/client/I2PSessionListener.html title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr,
 int&nbsp;proto,
-int&nbsp;port)</code></th>
-<td class="colLast">
-<div class="block">Listen on specified protocol and port.</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code><a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code>int[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#bandwidthLimits()">bandwidthLimits</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Get the current bandwidth limits.</div>
-</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#connect()">connect</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Actually connect the session and start receiving/sending messages.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i5">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#destroySession()">destroySession</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Tear down the session and release any resources.</div>
-</td>
-</tr>
-<tr class="altColor" id="i6">
-<td class="colFirst"><code><a href="../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDecryptionKey()">getDecryptionKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Retrieve the decryption PrivateKey associated with the Destination</div>
-</td>
-</tr>
-<tr class="rowColor" id="i7">
-<td class="colFirst"><code><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMyDestination()">getMyDestination</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Retrieve the Destination this session serves as the endpoint for.</div>
-</td>
-</tr>
-<tr class="altColor" id="i8">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineExpiration()">getOfflineExpiration</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Get the offline expiration</div>
-</td>
-</tr>
-<tr class="rowColor" id="i9">
-<td class="colFirst"><code><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOfflineSignature()">getOfflineSignature</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i10">
-<td class="colFirst"><code><a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPrivateKey()">getPrivateKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Retrieve the signing SigningPrivateKey associated with the Destination.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i11">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterVersion()">getRouterVersion</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Always valid in RouterContext.</div>
-</td>
-</tr>
-<tr class="altColor" id="i12">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubsessions()">getSubsessions</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i13">
-<td class="colFirst"><code><a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTransientSigningPublicKey()">getTransientSigningPublicKey</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i14">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isClosed()">isClosed</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Have we closed the session?</div>
-</td>
-</tr>
-<tr class="rowColor" id="i15">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isOffline()">isOffline</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Does this session have offline and transient keys?</div>
-</td>
-</tr>
-<tr class="altColor" id="i16">
-<td class="colFirst"><code><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(java.lang.String)">lookupDest</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</code></th>
-<td class="colLast">
-<div class="block">Ask the router to lookup a Destination by host name.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i17">
-<td class="colFirst"><code><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(java.lang.String,long)">lookupDest</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-long&nbsp;maxWait)</code></th>
-<td class="colLast">
-<div class="block">Ask the router to lookup a Destination by host name.</div>
-</td>
-</tr>
-<tr class="altColor" id="i18">
-<td class="colFirst"><code><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(net.i2p.data.Hash)">lookupDest</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
-<td class="colLast">
-<div class="block">Lookup a Destination by Hash.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i19">
-<td class="colFirst"><code><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest(net.i2p.data.Hash,long)">lookupDest</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h,
-long&nbsp;maxWait)</code></th>
-<td class="colLast">
-<div class="block">Lookup a Destination by Hash.</div>
-</td>
-</tr>
-<tr class="altColor" id="i20">
-<td class="colFirst"><code><a href="LookupResult.html" title="interface in net.i2p.client">LookupResult</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lookupDest2(java.lang.String,long)">lookupDest2</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-long&nbsp;maxWait)</code></th>
-<td class="colLast">
-<div class="block">Ask the router to lookup a Destination by host name.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i21">
-<td class="colFirst"><code>byte[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#receiveMessage(int)">receiveMessage</a></span>&#8203;(int&nbsp;msgId)</code></th>
-<td class="colLast">
-<div class="block">Receive a message that the router has notified the client about, returning
- the payload.</div>
-</td>
-</tr>
-<tr class="altColor" id="i22">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeListener(int,int)">removeListener</a></span>&#8203;(int&nbsp;proto,
-int&nbsp;port)</code></th>
-<td class="colLast">
-<div class="block">removes the specified listener (only)</div>
-</td>
-</tr>
-<tr class="rowColor" id="i23">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></span>&#8203;(<a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i24">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reportAbuse(int,int)">reportAbuse</a></span>&#8203;(int&nbsp;msgId,
-int&nbsp;severity)</code></th>
-<td class="colLast">
-<div class="block">Instruct the router that the message received was abusive (including how
- abusive on a 1-100 scale) in the hopes the router can do something to
- minimize receiving abusive messages like that in the future.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i25">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendBlindingInfo(net.i2p.data.BlindData)">sendBlindingInfo</a></span>&#8203;(<a href="../data/BlindData.html" title="class in net.i2p.data">BlindData</a>&nbsp;bd)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i26">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload)</code></th>
-<td class="colLast">
-<div class="block">Send a new message to the given destination, containing the specified
- payload, returning true if the router feels confident that the message
- was delivered.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i27">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;port)</code><div class=block>Listen on specified protocol and port.</div><tr id=i2 class=altColor><td class=colFirst><code><a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#addSubsession-java.io.InputStream-java.util.Properties->addSubsession</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privateKeyStream,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;opts)</code><div class=block>Add a subsession.</div><tr id=i3 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#addTunnelStatusListener-net.i2p.client.TunnelStatusListener->addTunnelStatusListener</a></span>(<a href=../../../net/i2p/client/TunnelStatusListener.html title="interface in net.i2p.client">TunnelStatusListener</a>&nbsp;lsnr)</code><div class=block>Add a listener for tunnel status changes.</div><tr id=i4 class=altColor><td class=colFirst><code>int[]</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#bandwidthLimits-->bandwidthLimits</a></span>()</code><div class=block>Get the current bandwidth limits.</div><tr id=i5 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#connect-->connect</a></span>()</code><div class=block>Actually connect the session and start receiving/sending messages.</div><tr id=i6 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#destroySession-->destroySession</a></span>()</code><div class=block>Tear down the session and release any resources.</div><tr id=i7 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client">I2PSession.TunnelPair</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getCurrentTunnelPair-->getCurrentTunnelPair</a></span>()</code><div class=block>Get the tunnel IDs currently in use by this session.</div><tr id=i8 class=altColor><td class=colFirst><code><a href=../../../net/i2p/data/PrivateKey.html title="class in net.i2p.data">PrivateKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getDecryptionKey-->getDecryptionKey</a></span>()</code><div class=block>Retrieve the decryption PrivateKey associated with the Destination.</div><tr id=i9 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getMyDestination-->getMyDestination</a></span>()</code><div class=block>Retrieve the Destination this session serves as the endpoint for.</div><tr id=i10 class=altColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getOfflineExpiration-->getOfflineExpiration</a></span>()</code><div class=block>Get the offline expiration</div><tr id=i11 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/data/Signature.html title="class in net.i2p.data">Signature</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getOfflineSignature-->getOfflineSignature</a></span>()</code><div class=block>Get the offline signature.</div><tr id=i12 class=altColor><td class=colFirst><code><a href=../../../net/i2p/data/SigningPrivateKey.html title="class in net.i2p.data">SigningPrivateKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getPrivateKey-->getPrivateKey</a></span>()</code><div class=block>Retrieve the signing SigningPrivateKey associated with the Destination.</div><tr id=i13 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getRouterVersion-->getRouterVersion</a></span>()</code><div class=block>Always valid in RouterContext.</div><tr id=i14 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a>></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getSubsessions-->getSubsessions</a></span>()</code><div class=block>Get the list of subsessions.</div><tr id=i15 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/data/SigningPublicKey.html title="class in net.i2p.data">SigningPublicKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#getTransientSigningPublicKey-->getTransientSigningPublicKey</a></span>()</code><div class=block>Get the transient signing public key.</div><tr id=i16 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#isClosed-->isClosed</a></span>()</code><div class=block>Have we closed the session?</div><tr id=i17 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#isOffline-->isOffline</a></span>()</code><div class=block>Does this session have offline and transient keys?</div><tr id=i18 class=altColor><td class=colFirst><code><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-net.i2p.data.Hash->lookupDest</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h)</code><div class=block>Lookup a Destination by Hash.</div><tr id=i19 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-net.i2p.data.Hash-long->lookupDest</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h,
+long&nbsp;maxWait)</code><div class=block>Lookup a Destination by Hash.</div><tr id=i20 class=altColor><td class=colFirst><code><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-net.i2p.data.Hash-long-net.i2p.client.LookupCallback->lookupDest</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h,
+long&nbsp;maxWait,
+<a href=../../../net/i2p/client/LookupCallback.html title="interface in net.i2p.client">LookupCallback</a>&nbsp;callback)</code><div class=block>Lookup a Destination by hash.</div><tr id=i21 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-java.lang.String->lookupDest</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code><div class=block>Ask the router to lookup a Destination by host name.</div><tr id=i22 class=altColor><td class=colFirst><code><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-java.lang.String-long->lookupDest</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+long&nbsp;maxWait)</code><div class=block>Ask the router to lookup a Destination by host name.</div><tr id=i23 class=rowColor><td class=colFirst><code><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest-java.lang.String-long-net.i2p.client.LookupCallback->lookupDest</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+long&nbsp;maxWait,
+<a href=../../../net/i2p/client/LookupCallback.html title="interface in net.i2p.client">LookupCallback</a>&nbsp;callback)</code><div class=block>Lookup a Destination by hostname.</div><tr id=i24 class=altColor><td class=colFirst><code><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#lookupDest2-java.lang.String-long->lookupDest2</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+long&nbsp;maxWait)</code><div class=block>Ask the router to lookup a Destination by host name.</div><tr id=i25 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#rebuildTunnels-->rebuildTunnels</a></span>()</code><div class=block>Force immediate tunnel rebuild.</div><tr id=i26 class=altColor><td class=colFirst><code>byte[]</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#receiveMessage-int->receiveMessage</a></span>(int&nbsp;msgId)</code><div class=block>Receive a message that the router has notified the client about, returning
+the payload.</div><tr id=i27 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#removeListener-int-int->removeListener</a></span>(int&nbsp;proto,
+int&nbsp;port)</code><div class=block>removes the specified listener (only)</div><tr id=i28 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#removeSubsession-net.i2p.client.I2PSession->removeSubsession</a></span>(<a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</code><div class=block>Remove a subsession.</div><tr id=i29 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#removeTunnelStatusListener-net.i2p.client.TunnelStatusListener->removeTunnelStatusListener</a></span>(<a href=../../../net/i2p/client/TunnelStatusListener.html title="interface in net.i2p.client">TunnelStatusListener</a>&nbsp;lsnr)</code><div class=block>Remove a tunnel status listener.</div><tr id=i30 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#reportAbuse-int-int->reportAbuse</a></span>(int&nbsp;msgId,
+int&nbsp;severity)</code><div class=block>Instruct the router that the message received was abusive (including how
+abusive on a 1-100 scale) in the hopes the router can do something to
+minimize receiving abusive messages like that in the future.</div><tr id=i31 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendBlindingInfo-net.i2p.data.BlindData->sendBlindingInfo</a></span>(<a href=../../../net/i2p/data/BlindData.html title="class in net.i2p.data">BlindData</a>&nbsp;bd)</code><div class=block>Send blinding info to the router.</div><tr id=i32 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+byte[]&nbsp;payload)</code><div class=block>Send a new message to the given destination, containing the specified
+payload, returning true if the router feels confident that the message
+was delivered.</div><tr id=i33 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
-int&nbsp;size)</code></th>
-<td class="colLast">
-<div class="block">Send a new message to the given destination, containing the specified
- payload, returning true if the router feels confident that the message
- was delivered.</div>
-</td>
-</tr>
-<tr class="altColor" id="i28">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;size)</code><div class=block>Send a new message to the given destination, containing the specified
+payload, returning true if the router feels confident that the message
+was delivered.</div><tr id=i34 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-int->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;proto,
 int&nbsp;fromport,
-int&nbsp;toport)</code></th>
-<td class="colLast">
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i29">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int,int,int,net.i2p.client.SendMessageOptions)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;toport)</code><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><tr id=i35 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-int-int-int-net.i2p.client.SendMessageOptions->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
 int&nbsp;proto,
 int&nbsp;fromPort,
 int&nbsp;toPort,
-<a href="SendMessageOptions.html" title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options)</code></th>
-<td class="colLast">
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-</td>
-</tr>
-<tr class="altColor" id="i30">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,int,int,int,net.i2p.client.SendMessageOptions,net.i2p.client.SendMessageStatusListener)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href=../../../net/i2p/client/SendMessageOptions.html title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options)</code><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><tr id=i36 class=altColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-int-int-int-net.i2p.client.SendMessageOptions-net.i2p.client.SendMessageStatusListener->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
 int&nbsp;proto,
 int&nbsp;fromPort,
 int&nbsp;toPort,
-<a href="SendMessageOptions.html" title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options,
-<a href="SendMessageStatusListener.html" title="interface in net.i2p.client">SendMessageStatusListener</a>&nbsp;listener)</code></th>
-<td class="colLast">
-<div class="block">Send a message and request an asynchronous notification of delivery status.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i31">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href=../../../net/i2p/client/SendMessageOptions.html title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options,
+<a href=../../../net/i2p/client/SendMessageStatusListener.html title="interface in net.i2p.client">SendMessageStatusListener</a>&nbsp;listener)</code><div class=block>Send a message and request an asynchronous notification of delivery status.</div><tr id=i37 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)</code></th>
-<td class="colLast">
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored.</div>
-</td>
-</tr>
-<tr class="altColor" id="i32">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,int,int,int)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent)</code><div class=block>End-to-End Crypto is disabled, tags and keys are ignored.</div><tr id=i38 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-int-int-int->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent,
 int&nbsp;proto,
 int&nbsp;fromPort,
-int&nbsp;toPort)</code></th>
-<td class="colLast">
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i33">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;toPort)</code><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><tr id=i39 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
-long&nbsp;expire)</code></th>
-<td class="colLast">
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored.</div>
-</td>
-</tr>
-<tr class="altColor" id="i34">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent,
+long&nbsp;expire)</code><div class=block>End-to-End Crypto is disabled, tags and keys are ignored.</div><tr id=i40 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long-int-int-int->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent,
 long&nbsp;expire,
 int&nbsp;proto,
 int&nbsp;fromPort,
-int&nbsp;toPort)</code></th>
-<td class="colLast">
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i35">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int,int)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;toPort)</code><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><tr id=i41 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long-int-int-int-int->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
 int&nbsp;offset,
 int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent,
 long&nbsp;expire,
 int&nbsp;proto,
 int&nbsp;fromPort,
 int&nbsp;toPort,
-int&nbsp;flags)</code></th>
-<td class="colLast">
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-</td>
-</tr>
-<tr class="altColor" id="i36">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sendMessage(net.i2p.data.Destination,byte%5B%5D,net.i2p.data.SessionKey,java.util.Set)">sendMessage</a></span>&#8203;(<a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
+int&nbsp;flags)</code><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><tr id=i42 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#sendMessage-net.i2p.data.Destination-byte:A-net.i2p.data.SessionKey-java.util.Set->sendMessage</a></span>(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
 byte[]&nbsp;payload,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)</code></th>
-<td class="colLast">
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored!
- 
- Like sendMessage above, except the key used and the tags sent are exposed to the 
- application.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i37">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSessionListener(net.i2p.client.I2PSessionListener)">setSessionListener</a></span>&#8203;(<a href="I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</code></th>
-<td class="colLast">
-<div class="block">Instruct the I2PSession where it should send event notifications
-
-  WARNING: It is recommended that you use a method that specifies the protocol and ports.</div>
-</td>
-</tr>
-<tr class="altColor" id="i38">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateOptions(java.util.Properties)">updateOptions</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</code></th>
-<td class="colLast">
-<div class="block">Pass updated options to the router.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldDetails"><a id="field.detail">
-</a>
-<h2>Field Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="PORT_ANY">PORT_ANY</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PORT_ANY</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PORT_ANY">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PORT_UNSPECIFIED">PORT_UNSPECIFIED</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PORT_UNSPECIFIED</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PORT_UNSPECIFIED">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROTO_ANY">PROTO_ANY</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PROTO_ANY</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PROTO_ANY">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROTO_UNSPECIFIED">PROTO_UNSPECIFIED</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PROTO_UNSPECIFIED</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PROTO_UNSPECIFIED">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROTO_STREAMING">PROTO_STREAMING</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PROTO_STREAMING</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PROTO_STREAMING">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROTO_DATAGRAM">PROTO_DATAGRAM</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PROTO_DATAGRAM</span></div>
-<div class="block">Generally a signed datagram, but could
-  also be a raw datagram, depending on the application</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="PROTO_DATAGRAM_RAW">PROTO_DATAGRAM_RAW</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">PROTO_DATAGRAM_RAW</span></div>
-<div class="block">A raw (unsigned) datagram</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.2</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM_RAW">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[])">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Send a new message to the given destination, containing the specified
- payload, returning true if the router feels confident that the message
- was delivered.
-
- WARNING: It is recommended that you use a method that specifies the protocol and ports.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dest</code> - location to send the message</dd>
-<dd><code>payload</code> - body of the message to be sent (unencrypted)</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether it was accepted by the router for delivery or not</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Send a new message to the given destination, containing the specified
- payload, returning true if the router feels confident that the message
- was delivered.
-
- WARNING: It is recommended that you use a method that specifies the protocol and ports.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dest</code> - location to send the message</dd>
-<dd><code>payload</code> - body of the message to be sent (unencrypted)</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,int)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;proto,
-int&nbsp;fromport,
-int&nbsp;toport)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">See I2PSessionMuxedImpl for proto/port details.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],net.i2p.data.SessionKey,java.util.Set)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored!
- 
- Like sendMessage above, except the key used and the tags sent are exposed to the 
- application.  <p> 
- 
- If some application layer message delivery confirmation is used,
- rather than i2p's (slow) built in confirmation via guaranteed delivery mode, the 
- application can update the SessionKeyManager, ala:
- <pre>
-   SessionKeyManager.getInstance().tagsDelivered(dest.getPublicKey(), keyUsed, tagsSent);
- </pre>
- If an application is using guaranteed delivery mode, this is not useful, but for 
- applications using best effort delivery mode, if they can know with certainty that a message
- was delivered and can update the SessionKeyManager appropriately, a significant performance
- boost will occur (subsequent message encryption and decryption will be done via AES and a SessionTag,
- rather than ElGamal+AES, which is 1000x slower).</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dest</code> - location to send the message</dd>
-<dd><code>payload</code> - body of the message to be sent (unencrypted)</dd>
-<dd><code>keyUsed</code> - UNUSED, IGNORED. Session key delivered to the destination for association with the tags sent.  This is essentially
-                an output parameter - keyUsed.getData() is ignored during this call, but after the call completes,
-                it will be filled with the bytes of the session key delivered.  Typically the key delivered is the
-                same one as the key encrypted with, but not always.  If this is null then the key data will not be
-                exposed.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED. Set of tags delivered to the peer and associated with the keyUsed.  This is also an output parameter -
-                 the contents of the set is ignored during the call, but afterwards it contains a set of SessionTag 
-                 objects that were sent along side the given keyUsed.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,net.i2p.data.SessionKey,java.util.Set)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>keyUsed</code> - UNUSED, IGNORED.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,net.i2p.data.SessionKey,java.util.Set,long)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
-long&nbsp;expire)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">End-to-End Crypto is disabled, tags and keys are ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>keyUsed</code> - UNUSED, IGNORED.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED.</dd>
-<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,net.i2p.data.SessionKey,java.util.Set,int,int,int)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
-int&nbsp;proto,
-int&nbsp;fromPort,
-int&nbsp;toPort)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">See I2PSessionMuxedImpl for proto/port details.
- End-to-End Crypto is disabled, tags and keys are ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>keyUsed</code> - UNUSED, IGNORED.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED.</dd>
-<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
-         I2PSession.PROTO_UNSPECIFIED
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>fromPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>toPort</code> - 1-65535 or 0 for unset</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
-long&nbsp;expire,
-int&nbsp;proto,
-int&nbsp;fromPort,
-int&nbsp;toPort)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">See I2PSessionMuxedImpl for proto/port details.
- End-to-End Crypto is disabled, tags and keys are ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>keyUsed</code> - UNUSED, IGNORED.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED.</dd>
-<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now</dd>
-<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
-         I2PSession.PROTO_UNSPECIFIED
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>fromPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>toPort</code> - 1-65535 or 0 for unset</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,net.i2p.data.SessionKey,java.util.Set,long,int,int,int,int)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-<a href="../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="../data/SessionTag.html" title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
-long&nbsp;expire,
-int&nbsp;proto,
-int&nbsp;fromPort,
-int&nbsp;toPort,
-int&nbsp;flags)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">See I2PSessionMuxedImpl for proto/port details.
- End-to-End Crypto is disabled, tags and keys are ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>keyUsed</code> - UNUSED, IGNORED.</dd>
-<dd><code>tagsSent</code> - UNUSED, IGNORED.</dd>
-<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now</dd>
-<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
-         I2PSession.PROTO_UNSPECIFIED
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>fromPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>toPort</code> - 1-65535 or 0 for unset</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.4</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,int,int,int,net.i2p.client.SendMessageOptions)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-int&nbsp;proto,
-int&nbsp;fromPort,
-int&nbsp;toPort,
-<a href="SendMessageOptions.html" title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options)</span>
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">See I2PSessionMuxedImpl for proto/port details.
- See SendMessageOptions for option details.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
-         I2PSession.PROTO_UNSPECIFIED
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>fromPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>toPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>options</code> - to be passed to the router</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.2</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendMessage(net.i2p.data.Destination,byte[],int,int,int,int,int,net.i2p.client.SendMessageOptions,net.i2p.client.SendMessageStatusListener)">sendMessage</a></h3>
-<div class="memberSignature"><span class="returnType">long</span>&nbsp;<span class="memberName">sendMessage</span>&#8203;(<span class="arguments"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a>&nbsp;dest,
-byte[]&nbsp;payload,
-int&nbsp;offset,
-int&nbsp;size,
-int&nbsp;proto,
-int&nbsp;fromPort,
-int&nbsp;toPort,
-<a href="SendMessageOptions.html" title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options,
-<a href="SendMessageStatusListener.html" title="interface in net.i2p.client">SendMessageStatusListener</a>&nbsp;listener)</span>
-          throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Send a message and request an asynchronous notification of delivery status.
- Notifications will be delivered at least up to the expiration specified in the options,
- or 60 seconds if not specified.
-
- See I2PSessionMuxedImpl for proto/port details.
- See SendMessageOptions for option details.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
-         I2PSession.PROTO_UNSPECIFIED
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>fromPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>toPort</code> - 1-65535 or 0 for unset</dd>
-<dd><code>options</code> - to be passed to the router</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the message ID to be used for later notification to the listener</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code> - on all errors</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.14</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="receiveMessage(int)">receiveMessage</a></h3>
-<div class="memberSignature"><span class="returnType">byte[]</span>&nbsp;<span class="memberName">receiveMessage</span>&#8203;(<span class="arguments">int&nbsp;msgId)</span>
-               throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Receive a message that the router has notified the client about, returning
- the payload.
- This may only be called once for a given msgId (until the counter wraps)</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>msgId</code> - message to fetch</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>unencrypted body of the message, or null if not found</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="reportAbuse(int,int)">reportAbuse</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">reportAbuse</span>&#8203;(<span class="arguments">int&nbsp;msgId,
-int&nbsp;severity)</span>
-          throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Instruct the router that the message received was abusive (including how
- abusive on a 1-100 scale) in the hopes the router can do something to
- minimize receiving abusive messages like that in the future.
-
- Unused. Not fully implemented.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>msgId</code> - message that was abusive (or -1 for not message related)</dd>
-<dd><code>severity</code> - how abusive</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setSessionListener(net.i2p.client.I2PSessionListener)">setSessionListener</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">setSessionListener</span>&#8203;(<span class="arguments"><a href="I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</span></div>
-<div class="block">Instruct the I2PSession where it should send event notifications
-
-  WARNING: It is recommended that you use a method that specifies the protocol and ports.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>lsnr</code> - listener to retrieve events</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="destroySession()">destroySession</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">destroySession</span>()
-             throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Tear down the session and release any resources.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="addSubsession(java.io.InputStream,java.util.Properties)">addSubsession</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a></span>&nbsp;<span class="memberName">addSubsession</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io" class="externalLink">InputStream</a>&nbsp;privateKeyStream,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;opts)</span>
-                  throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>privateKeyStream</code> - null for transient, if non-null must have same encryption keys as primary session
-                          and different signing keys</dd>
-<dd><code>opts</code> - subsession options if any, may be null</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new subsession, non-null</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.21</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="removeSubsession(net.i2p.client.I2PSession)">removeSubsession</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">removeSubsession</span>&#8203;(<span class="arguments"><a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</span></div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.21</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getSubsessions()">getSubsessions</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="I2PSession.html" title="interface in net.i2p.client">I2PSession</a>&gt;</span>&nbsp;<span class="memberName">getSubsessions</span>()</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a list of subsessions, non-null, does not include the primary session</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.21</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="connect()">connect</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">connect</span>()
-      throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Actually connect the session and start receiving/sending messages.
- Connecting a primary session will not automatically connect subsessions.
- Connecting a subsession will automatically connect the primary session
- if not previously connected.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="isClosed()">isClosed</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isClosed</span>()</div>
-<div class="block">Have we closed the session?</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the session is closed, OR connect() has not been called yet</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getMyDestination()">getMyDestination</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">getMyDestination</span>()</div>
-<div class="block">Retrieve the Destination this session serves as the endpoint for.
- Returns null if no destination is available.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getDecryptionKey()">getDecryptionKey</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/PrivateKey.html" title="class in net.i2p.data">PrivateKey</a></span>&nbsp;<span class="memberName">getDecryptionKey</span>()</div>
-<div class="block">Retrieve the decryption PrivateKey associated with the Destination</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getPrivateKey()">getPrivateKey</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/SigningPrivateKey.html" title="class in net.i2p.data">SigningPrivateKey</a></span>&nbsp;<span class="memberName">getPrivateKey</span>()</div>
-<div class="block">Retrieve the signing SigningPrivateKey associated with the Destination.
- As of 0.9.38, this will be the transient key if offline signed.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="isOffline()">isOffline</a></h3>
-<div class="memberSignature"><span class="returnType">boolean</span>&nbsp;<span class="memberName">isOffline</span>()</div>
-<div class="block">Does this session have offline and transient keys?</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.38</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getOfflineExpiration()">getOfflineExpiration</a></h3>
-<div class="memberSignature"><span class="returnType">long</span>&nbsp;<span class="memberName">getOfflineExpiration</span>()</div>
-<div class="block">Get the offline expiration</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Java time (ms) or 0 if not initialized or does not have offline keys</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.38</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getOfflineSignature()">getOfflineSignature</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Signature.html" title="class in net.i2p.data">Signature</a></span>&nbsp;<span class="memberName">getOfflineSignature</span>()</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null on error or if not initialized or does not have offline keys</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.38</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTransientSigningPublicKey()">getTransientSigningPublicKey</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/SigningPublicKey.html" title="class in net.i2p.data">SigningPublicKey</a></span>&nbsp;<span class="memberName">getTransientSigningPublicKey</span>()</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null on error or if not initialized or does not have offline keys</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.38</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="lookupDest(net.i2p.data.Hash)">lookupDest</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span>
-                throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Lookup a Destination by Hash.
- Blocking. Waits a max of 10 seconds by default.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="lookupDest(net.i2p.data.Hash,long)">lookupDest</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h,
-long&nbsp;maxWait)</span>
-                throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Lookup a Destination by Hash.
-  Blocking.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maxWait</code> - ms</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null on failure</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.3</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="lookupDest(java.lang.String)">lookupDest</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</span>
-                throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Ask the router to lookup a Destination by host name.
-  Blocking. Waits a max of 10 seconds by default.
-
-  This only makes sense for a b32 hostname, OR outside router context.
-  Inside router context, just query the naming service.
-  Outside router context, this does NOT query the context naming service.
-  Do that first if you expect a local addressbook.
-
-  This will log a warning for non-b32 in router context.
-
-  Suggested implementation:
-
-<pre>
+<a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>>&nbsp;tagsSent)</code><div class=block>End-to-End Crypto is disabled, tags and keys are ignored!
+Like sendMessage above, except the key used and the tags sent are exposed to the
+application.</div><tr id=i43 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#setCurrentTunnelPair-net.i2p.client.I2PSession.TunnelPair->setCurrentTunnelPair</a></span>(<a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client">I2PSession.TunnelPair</a>&nbsp;pair)</code><div class=block>Set the tunnel IDs actively in use by this session.</div><tr id=i44 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#setSessionListener-net.i2p.client.I2PSessionListener->setSessionListener</a></span>(<a href=../../../net/i2p/client/I2PSessionListener.html title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</code><div class=block>Instruct the I2PSession where it should send event notifications
+WARNING: It is recommended that you use a method that specifies the protocol and ports.</div><tr id=i45 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#switchToNewTunnel-->switchToNewTunnel</a></span>()</code><div class=block>Switch to a new tunnel for this session.</div><tr id=i46 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/client/I2PSession.html#updateOptions-java.util.Properties->updateOptions</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;options)</code><div class=block>Pass updated options to the router.</div></table></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.detail></a><h3>Field Detail</h3><a name=PORT_ANY></a><ul class=blockList><li class=blockList><h4>PORT_ANY</h4><pre>static final&nbsp;int PORT_ANY</pre><div class=block>Any port</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PORT_ANY>Constant Field Values</a></dl></ul><a name=PORT_UNSPECIFIED></a><ul class=blockList><li class=blockList><h4>PORT_UNSPECIFIED</h4><pre>static final&nbsp;int PORT_UNSPECIFIED</pre><div class=block>Unspecified port</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PORT_UNSPECIFIED>Constant Field Values</a></dl></ul><a name=PROTO_ANY></a><ul class=blockList><li class=blockList><h4>PROTO_ANY</h4><pre>static final&nbsp;int PROTO_ANY</pre><div class=block>Any protocol</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_ANY>Constant Field Values</a></dl></ul><a name=PROTO_DATAGRAM></a><ul class=blockList><li class=blockList><h4>PROTO_DATAGRAM</h4><pre>static final&nbsp;int PROTO_DATAGRAM</pre><div class=block>A repliable and signed datagram</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM>Constant Field Values</a></dl></ul><a name=PROTO_DATAGRAM_RAW></a><ul class=blockList><li class=blockList><h4>PROTO_DATAGRAM_RAW</h4><pre>static final&nbsp;int PROTO_DATAGRAM_RAW</pre><div class=block>A raw (unsigned, unrepliable) datagram</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM_RAW>Constant Field Values</a></dl></ul><a name=PROTO_DATAGRAM2></a><ul class=blockList><li class=blockList><h4>PROTO_DATAGRAM2</h4><pre>static final&nbsp;int PROTO_DATAGRAM2</pre><div class=block>A repliable and signed datagram.
+See Proposal 163 and datagrams/Datagram2</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM2>Constant Field Values</a></dl></ul><a name=PROTO_DATAGRAM3></a><ul class=blockList><li class=blockList><h4>PROTO_DATAGRAM3</h4><pre>static final&nbsp;int PROTO_DATAGRAM3</pre><div class=block>A repliable but unsigned datagram.
+See Proposal 163 and datagrams/Datagram3</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_DATAGRAM3>Constant Field Values</a></dl></ul><a name=PROTO_STREAMING></a><ul class=blockList><li class=blockList><h4>PROTO_STREAMING</h4><pre>static final&nbsp;int PROTO_STREAMING</pre><div class=block>Streaming protocol</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_STREAMING>Constant Field Values</a></dl></ul><a name=PROTO_UNSPECIFIED></a><ul class=blockListLast><li class=blockList><h4>PROTO_UNSPECIFIED</h4><pre>static final&nbsp;int PROTO_UNSPECIFIED</pre><div class=block>Unspecified protocol</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../constant-values.html#net.i2p.client.I2PSession.PROTO_UNSPECIFIED>Constant Field Values</a></dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=addMuxedSessionListener-net.i2p.client.I2PSessionMuxedListener-int-int-></a><ul class=blockList><li class=blockList><h4>addMuxedSessionListener</h4><pre>void&nbsp;addMuxedSessionListener(<a href=../../../net/i2p/client/I2PSessionMuxedListener.html title="interface in net.i2p.client">I2PSessionMuxedListener</a>&nbsp;l,
+                             int&nbsp;proto,
+                             int&nbsp;port)</pre><div class=block>Listen on specified protocol and port, and receive notification
+of proto, fromPort, and toPort for every message.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>l</code> - the listener to add<dd><code>proto</code> - 1-254 or PROTO_ANY (0) for all; 255 disallowed<dd><code>port</code> - 1-65535 or PORT_ANY (0) for all</dl></ul><a name=addSessionListener-net.i2p.client.I2PSessionListener-int-int-></a><ul class=blockList><li class=blockList><h4>addSessionListener</h4><pre>void&nbsp;addSessionListener(<a href=../../../net/i2p/client/I2PSessionListener.html title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr,
+                        int&nbsp;proto,
+                        int&nbsp;port)</pre><div class=block>Listen on specified protocol and port.
+An existing listener with the same proto and port is replaced.
+Only the listener with the best match is called back for each message.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>lsnr</code> - the listener to add<dd><code>proto</code> - 1-254 or PROTO_ANY (0) for all; recommended:
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>port</code> - 1-65535 or PORT_ANY (0) for all</dl></ul><a name=addSubsession-java.io.InputStream-java.util.Properties-></a><ul class=blockList><li class=blockList><h4>addSubsession</h4><pre><a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a>&nbsp;addSubsession(<a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;privateKeyStream,
+                         <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;opts)
+                  throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Add a subsession.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>privateKeyStream</code> - null for transient, if non-null must have same encryption keys as primary session
+and different signing keys<dd><code>opts</code> - subsession options if any, may be null<dt><span class=returnLabel>Returns:</span><dd>a new subsession, non-null<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=addTunnelStatusListener-net.i2p.client.TunnelStatusListener-></a><ul class=blockList><li class=blockList><h4>addTunnelStatusListener</h4><pre>void&nbsp;addTunnelStatusListener(<a href=../../../net/i2p/client/TunnelStatusListener.html title="interface in net.i2p.client">TunnelStatusListener</a>&nbsp;lsnr)</pre><div class=block>Add a listener for tunnel status changes.
+This is used by the streaming library to react to tunnel failures and removals.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>lsnr</code> - the listener to add</dl></ul><a name=bandwidthLimits--></a><ul class=blockList><li class=blockList><h4>bandwidthLimits</h4><pre>int[]&nbsp;bandwidthLimits()
+               throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Get the current bandwidth limits. Blocking.</div><dl><dt><span class=returnLabel>Returns:</span><dd>int array of [inbound, outbound] Bps, or null on error<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=connect--></a><ul class=blockList><li class=blockList><h4>connect</h4><pre>void&nbsp;connect()
+      throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Actually connect the session and start receiving/sending messages.
+Connecting a primary session will not automatically connect subsessions.
+Connecting a subsession will automatically connect the primary session
+if not previously connected.</div><dl><dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=destroySession--></a><ul class=blockList><li class=blockList><h4>destroySession</h4><pre>void&nbsp;destroySession()
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Tear down the session and release any resources.</div><dl><dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=getCurrentTunnelPair--></a><ul class=blockList><li class=blockList><h4>getCurrentTunnelPair</h4><pre><a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client">I2PSession.TunnelPair</a>&nbsp;getCurrentTunnelPair()</pre><div class=block>Get the tunnel IDs currently in use by this session.
+This allows the streaming library to track which tunnels are being used
+and react when those specific tunnels are removed.</div><dl><dt><span class=returnLabel>Returns:</span><dd>TunnelPair containing inbound and outbound tunnel IDs, or null if none</dl></ul><a name=getDecryptionKey--></a><ul class=blockList><li class=blockList><h4>getDecryptionKey</h4><pre><a href=../../../net/i2p/data/PrivateKey.html title="class in net.i2p.data">PrivateKey</a>&nbsp;getDecryptionKey()</pre><div class=block>Retrieve the decryption PrivateKey associated with the Destination.
+Obsolete — retained for PrivateKeyFile compatibility.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the decryption key</dl></ul><a name=getMyDestination--></a><ul class=blockList><li class=blockList><h4>getMyDestination</h4><pre><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;getMyDestination()</pre><div class=block>Retrieve the Destination this session serves as the endpoint for.
+Returns null if no destination is available.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the Destination, or null</dl></ul><a name=getOfflineExpiration--></a><ul class=blockList><li class=blockList><h4>getOfflineExpiration</h4><pre>long&nbsp;getOfflineExpiration()</pre><div class=block>Get the offline expiration</div><dl><dt><span class=returnLabel>Returns:</span><dd>Java time (ms) or 0 if not initialized or does not have offline keys</dl></ul><a name=getOfflineSignature--></a><ul class=blockList><li class=blockList><h4>getOfflineSignature</h4><pre><a href=../../../net/i2p/data/Signature.html title="class in net.i2p.data">Signature</a>&nbsp;getOfflineSignature()</pre><div class=block>Get the offline signature.</div><dl><dt><span class=returnLabel>Returns:</span><dd>null on error or if not initialized or does not have offline keys</dl></ul><a name=getPrivateKey--></a><ul class=blockList><li class=blockList><h4>getPrivateKey</h4><pre><a href=../../../net/i2p/data/SigningPrivateKey.html title="class in net.i2p.data">SigningPrivateKey</a>&nbsp;getPrivateKey()</pre><div class=block>Retrieve the signing SigningPrivateKey associated with the Destination.
+As of 0.9.38, this will be the transient key if offline signed.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the signing key</dl></ul><a name=getRouterVersion--></a><ul class=blockList><li class=blockList><h4>getRouterVersion</h4><pre><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRouterVersion()</pre><div class=block>Always valid in RouterContext. Returns null if not yet connected in I2PAppContext.</div><dl><dt><span class=returnLabel>Returns:</span><dd>null if unknown</dl></ul><a name=getSubsessions--></a><ul class=blockList><li class=blockList><h4>getSubsessions</h4><pre><a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a>&gt;&nbsp;getSubsessions()</pre><div class=block>Get the list of subsessions.</div><dl><dt><span class=returnLabel>Returns:</span><dd>a list of subsessions, non-null, does not include the primary session</dl></ul><a name=getTransientSigningPublicKey--></a><ul class=blockList><li class=blockList><h4>getTransientSigningPublicKey</h4><pre><a href=../../../net/i2p/data/SigningPublicKey.html title="class in net.i2p.data">SigningPublicKey</a>&nbsp;getTransientSigningPublicKey()</pre><div class=block>Get the transient signing public key.</div><dl><dt><span class=returnLabel>Returns:</span><dd>null on error or if not initialized or does not have offline keys</dl></ul><a name=isClosed--></a><ul class=blockList><li class=blockList><h4>isClosed</h4><pre>boolean&nbsp;isClosed()</pre><div class=block>Have we closed the session?</div><dl><dt><span class=returnLabel>Returns:</span><dd>true if the session is closed, OR connect() has not been called yet</dl></ul><a name=isOffline--></a><ul class=blockList><li class=blockList><h4>isOffline</h4><pre>boolean&nbsp;isOffline()</pre><div class=block>Does this session have offline and transient keys?</div><dl><dt><span class=returnLabel>Returns:</span><dd>true if offline</dl></ul><a name=lookupDest-net.i2p.data.Hash-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;lookupDest(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h)
+                throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Lookup a Destination by Hash.
+Blocking. Waits a max of 10 seconds by default.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>h</code> - the hash to look up<dt><span class=returnLabel>Returns:</span><dd>the Destination, or null on failure<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest-net.i2p.data.Hash-long-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;lookupDest(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h,
+                       long&nbsp;maxWait)
+                throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Lookup a Destination by Hash.
+Blocking.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>h</code> - the hash to look up<dd><code>maxWait</code> - ms<dt><span class=returnLabel>Returns:</span><dd>null on failure<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest-net.i2p.data.Hash-long-net.i2p.client.LookupCallback-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a>&nbsp;lookupDest(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h,
+                        long&nbsp;maxWait,
+                        <a href=../../../net/i2p/client/LookupCallback.html title="interface in net.i2p.client">LookupCallback</a>&nbsp;callback)
+                 throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Lookup a Destination by hash.
+Non-blocking.
+If the result is cached or there is an immediate failure,
+the result code will be something other than RESULT_DEFERRED, and the callback will NOT be called.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>h</code> - the hash to look up<dd><code>maxWait</code> - ms<dd><code>callback</code> - to return the result, non-null<dt><span class=returnLabel>Returns:</span><dd>non-null. If result code is RESULT_DEFERRED, callback will be called later<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest-java.lang.String-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;lookupDest(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)
+                throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Ask the router to lookup a Destination by host name.
+Blocking. Waits a max of 10 seconds by default.
+This only makes sense for a b32 hostname, OR outside router context.
+Inside router context, just query the naming service.
+Outside router context, this does NOT query the context naming service.
+Do that first if you expect a local addressbook.
+This will log a warning for non-b32 in router context.
+Suggested implementation:<pre>
   if (name.length() == 60 &amp;&amp; name.toLowerCase(Locale.US).endsWith(".b32.i2p")) {
       if (session != null)
           return session.lookup(Hash.create(Base32.decode(name.toLowerCase(Locale.US).substring(0, 52))));
@@ -1245,212 +173,161 @@ long&nbsp;maxWait)</span>
       }
       return rv;
   }
-</pre>
-
-  Requires router side to be 0.9.11 or higher. If the router is older,
-  this will return null immediately.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.11</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="lookupDest(java.lang.String,long)">lookupDest</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="../data/Destination.html" title="class in net.i2p.data">Destination</a></span>&nbsp;<span class="memberName">lookupDest</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-long&nbsp;maxWait)</span>
-                throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Ask the router to lookup a Destination by host name.
-  Blocking. See above for details.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maxWait</code> - ms</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null on failure</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.11</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="lookupDest2(java.lang.String,long)">lookupDest2</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="LookupResult.html" title="interface in net.i2p.client">LookupResult</a></span>&nbsp;<span class="memberName">lookupDest2</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
-long&nbsp;maxWait)</span>
-                  throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Ask the router to lookup a Destination by host name.
-  Blocking. See above for details.
-  Same as lookupDest() but with a failure code in the return value</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maxWait</code> - ms</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>non-null</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.43</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="updateOptions(java.util.Properties)">updateOptions</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">updateOptions</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;options)</span></div>
-<div class="block">Pass updated options to the router.
-  Does not remove properties previously present but missing from this options parameter.
-  Fails silently if session is not connected.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>options</code> - non-null</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.4</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="bandwidthLimits()">bandwidthLimits</a></h3>
-<div class="memberSignature"><span class="returnType">int[]</span>&nbsp;<span class="memberName">bandwidthLimits</span>()
-               throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<div class="block">Get the current bandwidth limits. Blocking.</div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.3</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sendBlindingInfo(net.i2p.data.BlindData)">sendBlindingInfo</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">sendBlindingInfo</span>&#8203;(<span class="arguments"><a href="../data/BlindData.html" title="class in net.i2p.data">BlindData</a>&nbsp;bd)</span>
-               throws <span class="exceptions"><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="I2PSessionException.html" title="class in net.i2p.client">I2PSessionException</a></code></dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.43</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getRouterVersion()">getRouterVersion</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getRouterVersion</span>()</div>
-<div class="block">Always valid in RouterContext. Returns null if not yet connected in I2PAppContext.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null if unknown</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="addSessionListener(net.i2p.client.I2PSessionListener,int,int)">addSessionListener</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">addSessionListener</span>&#8203;(<span class="arguments"><a href="I2PSessionListener.html" title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr,
-int&nbsp;proto,
-int&nbsp;port)</span></div>
-<div class="block">Listen on specified protocol and port.
-
-  An existing listener with the same proto and port is replaced.
-  Only the listener with the best match is called back for each message.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>proto</code> - 1-254 or PROTO_ANY (0) for all; recommended:
-         I2PSession.PROTO_STREAMING
-         I2PSession.PROTO_DATAGRAM
-         255 disallowed</dd>
-<dd><code>port</code> - 1-65535 or PORT_ANY (0) for all</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="addMuxedSessionListener(net.i2p.client.I2PSessionMuxedListener,int,int)">addMuxedSessionListener</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">addMuxedSessionListener</span>&#8203;(<span class="arguments"><a href="I2PSessionMuxedListener.html" title="interface in net.i2p.client">I2PSessionMuxedListener</a>&nbsp;l,
-int&nbsp;proto,
-int&nbsp;port)</span></div>
-<div class="block">Listen on specified protocol and port, and receive notification
-  of proto, fromPort, and toPort for every message.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>proto</code> - 1-254 or PROTO_ANY (0) for all; 255 disallowed</dd>
-<dd><code>port</code> - 1-65535 or PORT_ANY (0) for all</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="removeListener(int,int)">removeListener</a></h3>
-<div class="memberSignature"><span class="returnType">void</span>&nbsp;<span class="memberName">removeListener</span>&#8203;(<span class="arguments">int&nbsp;proto,
-int&nbsp;port)</span></div>
-<div class="block">removes the specified listener (only)</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PSession.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+</pre>Requires router side to be 0.9.11 or higher. If the router is older,
+this will return null immediately.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>name</code> - the hostname to look up<dt><span class=returnLabel>Returns:</span><dd>the Destination, or null on failure<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest-java.lang.String-long-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;lookupDest(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                       long&nbsp;maxWait)
+                throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Ask the router to lookup a Destination by host name.
+Blocking. See above for details.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>name</code> - the hostname to look up<dd><code>maxWait</code> - ms<dt><span class=returnLabel>Returns:</span><dd>null on failure<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest-java.lang.String-long-net.i2p.client.LookupCallback-></a><ul class=blockList><li class=blockList><h4>lookupDest</h4><pre><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a>&nbsp;lookupDest(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                        long&nbsp;maxWait,
+                        <a href=../../../net/i2p/client/LookupCallback.html title="interface in net.i2p.client">LookupCallback</a>&nbsp;callback)
+                 throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Lookup a Destination by hostname.
+Non-blocking.
+If the result is cached or there is an immediate failure,
+the result code will be something other than RESULT_DEFERRED, and the callback will NOT be called.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>name</code> - the hostname to look up<dd><code>maxWait</code> - ms<dd><code>callback</code> - to return the result, non-null<dt><span class=returnLabel>Returns:</span><dd>non-null. If result code is RESULT_DEFERRED, callback will be called later<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=lookupDest2-java.lang.String-long-></a><ul class=blockList><li class=blockList><h4>lookupDest2</h4><pre><a href=../../../net/i2p/client/LookupResult.html title="interface in net.i2p.client">LookupResult</a>&nbsp;lookupDest2(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                         long&nbsp;maxWait)
+                  throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Ask the router to lookup a Destination by host name.
+Blocking. See above for details.
+Same as lookupDest() but with a failure code in the return value</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>name</code> - the hostname to look up<dd><code>maxWait</code> - ms<dt><span class=returnLabel>Returns:</span><dd>non-null<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=rebuildTunnels--></a><ul class=blockList><li class=blockList><h4>rebuildTunnels</h4><pre>void&nbsp;rebuildTunnels()</pre><div class=block>Force immediate tunnel rebuild.
+This triggers the tunnel pool to build new tunnels to replace failed ones.
+Useful when a connection fails and we want to ensure fresh tunnels before retry.</div></ul><a name=receiveMessage-int-></a><ul class=blockList><li class=blockList><h4>receiveMessage</h4><pre>byte[]&nbsp;receiveMessage(int&nbsp;msgId)
+               throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Receive a message that the router has notified the client about, returning
+the payload.
+This may only be called once for a given msgId (until the counter wraps)</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>msgId</code> - message to fetch<dt><span class=returnLabel>Returns:</span><dd>unencrypted body of the message, or null if not found<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=removeListener-int-int-></a><ul class=blockList><li class=blockList><h4>removeListener</h4><pre>void&nbsp;removeListener(int&nbsp;proto,
+                    int&nbsp;port)</pre><div class=block>removes the specified listener (only)</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>proto</code> - protocol number<dd><code>port</code> - port number</dl></ul><a name=removeSubsession-net.i2p.client.I2PSession-></a><ul class=blockList><li class=blockList><h4>removeSubsession</h4><pre>void&nbsp;removeSubsession(<a href=../../../net/i2p/client/I2PSession.html title="interface in net.i2p.client">I2PSession</a>&nbsp;session)</pre><div class=block>Remove a subsession.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>session</code> - the subsession to remove</dl></ul><a name=removeTunnelStatusListener-net.i2p.client.TunnelStatusListener-></a><ul class=blockList><li class=blockList><h4>removeTunnelStatusListener</h4><pre>void&nbsp;removeTunnelStatusListener(<a href=../../../net/i2p/client/TunnelStatusListener.html title="interface in net.i2p.client">TunnelStatusListener</a>&nbsp;lsnr)</pre><div class=block>Remove a tunnel status listener.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>lsnr</code> - the listener to remove</dl></ul><a name=reportAbuse-int-int-></a><ul class=blockList><li class=blockList><h4>reportAbuse</h4><pre>void&nbsp;reportAbuse(int&nbsp;msgId,
+                 int&nbsp;severity)
+          throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Instruct the router that the message received was abusive (including how
+abusive on a 1-100 scale) in the hopes the router can do something to
+minimize receiving abusive messages like that in the future.
+Unused. Not fully implemented.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>msgId</code> - message that was abusive (or -1 for not message related)<dd><code>severity</code> - how abusive<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendBlindingInfo-net.i2p.data.BlindData-></a><ul class=blockList><li class=blockList><h4>sendBlindingInfo</h4><pre>void&nbsp;sendBlindingInfo(<a href=../../../net/i2p/data/BlindData.html title="class in net.i2p.data">BlindData</a>&nbsp;bd)
+               throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Send blinding info to the router.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>bd</code> - the blind data<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Send a new message to the given destination, containing the specified
+payload, returning true if the router feels confident that the message
+was delivered.
+WARNING: It is recommended that you use a method that specifies the protocol and ports.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dt><span class=returnLabel>Returns:</span><dd>whether it was accepted by the router for delivery or not<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Send a new message to the given destination, containing the specified
+payload, returning true if the router feels confident that the message
+was delivered.
+WARNING: It is recommended that you use a method that specifies the protocol and ports.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-int-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;proto,
+                    int&nbsp;fromport,
+                    int&nbsp;toport)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>See I2PSessionMuxedImpl for proto/port details.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>proto</code> - protocol number<dd><code>fromport</code> - source port<dd><code>toport</code> - destination port<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-int-int-int-net.i2p.client.SendMessageOptions-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    int&nbsp;proto,
+                    int&nbsp;fromPort,
+                    int&nbsp;toPort,
+                    <a href=../../../net/i2p/client/SendMessageOptions.html title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>See I2PSessionMuxedImpl for proto/port details.
+See SendMessageOptions for option details.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
+I2PSession.PROTO_UNSPECIFIED
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>fromPort</code> - 1-65535 or 0 for unset<dd><code>toPort</code> - 1-65535 or 0 for unset<dd><code>options</code> - to be passed to the router<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-int-int-int-net.i2p.client.SendMessageOptions-net.i2p.client.SendMessageStatusListener-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>long&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                 byte[]&nbsp;payload,
+                 int&nbsp;offset,
+                 int&nbsp;size,
+                 int&nbsp;proto,
+                 int&nbsp;fromPort,
+                 int&nbsp;toPort,
+                 <a href=../../../net/i2p/client/SendMessageOptions.html title="class in net.i2p.client">SendMessageOptions</a>&nbsp;options,
+                 <a href=../../../net/i2p/client/SendMessageStatusListener.html title="interface in net.i2p.client">SendMessageStatusListener</a>&nbsp;listener)
+          throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>Send a message and request an asynchronous notification of delivery status.
+Notifications will be delivered at least up to the expiration specified in the options,
+or 60 seconds if not specified.
+See I2PSessionMuxedImpl for proto/port details.
+See SendMessageOptions for option details.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
+I2PSession.PROTO_UNSPECIFIED
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>fromPort</code> - 1-65535 or 0 for unset<dd><code>toPort</code> - 1-65535 or 0 for unset<dd><code>options</code> - to be passed to the router<dd><code>listener</code> - for delivery status notification<dt><span class=returnLabel>Returns:</span><dd>the message ID to be used for later notification to the listener<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on all errors</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>End-to-End Crypto is disabled, tags and keys are ignored.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>keyUsed</code> - UNUSED, IGNORED.<dd><code>tagsSent</code> - UNUSED, IGNORED.<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-int-int-int-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+                    int&nbsp;proto,
+                    int&nbsp;fromPort,
+                    int&nbsp;toPort)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>See I2PSessionMuxedImpl for proto/port details.
+End-to-End Crypto is disabled, tags and keys are ignored.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>keyUsed</code> - UNUSED, IGNORED.<dd><code>tagsSent</code> - UNUSED, IGNORED.<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
+I2PSession.PROTO_UNSPECIFIED
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>fromPort</code> - 1-65535 or 0 for unset<dd><code>toPort</code> - 1-65535 or 0 for unset<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+                    long&nbsp;expire)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>End-to-End Crypto is disabled, tags and keys are ignored.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>keyUsed</code> - UNUSED, IGNORED.<dd><code>tagsSent</code> - UNUSED, IGNORED.<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long-int-int-int-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+                    long&nbsp;expire,
+                    int&nbsp;proto,
+                    int&nbsp;fromPort,
+                    int&nbsp;toPort)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>See I2PSessionMuxedImpl for proto/port details.
+End-to-End Crypto is disabled, tags and keys are ignored.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>keyUsed</code> - UNUSED, IGNORED.<dd><code>tagsSent</code> - UNUSED, IGNORED.<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
+I2PSession.PROTO_UNSPECIFIED
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>fromPort</code> - 1-65535 or 0 for unset<dd><code>toPort</code> - 1-65535 or 0 for unset<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-int-int-net.i2p.data.SessionKey-java.util.Set-long-int-int-int-int-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    int&nbsp;offset,
+                    int&nbsp;size,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent,
+                    long&nbsp;expire,
+                    int&nbsp;proto,
+                    int&nbsp;fromPort,
+                    int&nbsp;toPort,
+                    int&nbsp;flags)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>See I2PSessionMuxedImpl for proto/port details.
+End-to-End Crypto is disabled, tags and keys are ignored.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>offset</code> - offset into the payload<dd><code>size</code> - number of bytes to send<dd><code>keyUsed</code> - UNUSED, IGNORED.<dd><code>tagsSent</code> - UNUSED, IGNORED.<dd><code>expire</code> - absolute expiration timestamp, NOT interval from now<dd><code>proto</code> - 1-254 or 0 for unset; recommended:
+I2PSession.PROTO_UNSPECIFIED
+I2PSession.PROTO_STREAMING
+I2PSession.PROTO_DATAGRAM
+255 disallowed<dd><code>fromPort</code> - 1-65535 or 0 for unset<dd><code>toPort</code> - 1-65535 or 0 for unset<dd><code>flags</code> - message flags<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=sendMessage-net.i2p.data.Destination-byte:A-net.i2p.data.SessionKey-java.util.Set-></a><ul class=blockList><li class=blockList><h4>sendMessage</h4><pre>boolean&nbsp;sendMessage(<a href=../../../net/i2p/data/Destination.html title="class in net.i2p.data">Destination</a>&nbsp;dest,
+                    byte[]&nbsp;payload,
+                    <a href=../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;keyUsed,
+                    <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../net/i2p/data/SessionTag.html title="class in net.i2p.data">SessionTag</a>&gt;&nbsp;tagsSent)
+             throws <a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></pre><div class=block>End-to-End Crypto is disabled, tags and keys are ignored!
+Like sendMessage above, except the key used and the tags sent are exposed to the
+application.<p>If some application layer message delivery confirmation is used,
+rather than i2p's (slow) built in confirmation via guaranteed delivery mode, the
+application can update the SessionKeyManager, ala:<pre>
+   SessionKeyManager.getInstance().tagsDelivered(dest.getPublicKey(), keyUsed, tagsSent);
+ </pre>If an application is using guaranteed delivery mode, this is not useful, but for
+applications using best effort delivery mode, if they can know with certainty that a message
+was delivered and can update the SessionKeyManager appropriately, a significant performance
+boost will occur (subsequent message encryption and decryption will be done via AES and a SessionTag,
+rather than ElGamal+AES, which is 1000x slower).</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>dest</code> - location to send the message<dd><code>payload</code> - body of the message to be sent (unencrypted)<dd><code>keyUsed</code> - UNUSED, IGNORED. Session key delivered to the destination for association with the tags sent. This is essentially
+an output parameter - keyUsed.getData() is ignored during this call, but after the call completes,
+it will be filled with the bytes of the session key delivered. Typically the key delivered is the
+same one as the key encrypted with, but not always. If this is null then the key data will not be
+exposed.<dd><code>tagsSent</code> - UNUSED, IGNORED. Set of tags delivered to the peer and associated with the keyUsed. This is also an output parameter -
+the contents of the set is ignored during the call, but afterwards it contains a set of SessionTag
+objects that were sent along side the given keyUsed.<dt><span class=returnLabel>Returns:</span><dd>success<dt><span class=throwsLabel>Throws:</span><dd><code><a href=../../../net/i2p/client/I2PSessionException.html title="class in net.i2p.client">I2PSessionException</a></code> - on error</dl></ul><a name=setCurrentTunnelPair-net.i2p.client.I2PSession.TunnelPair-></a><ul class=blockList><li class=blockList><h4>setCurrentTunnelPair</h4><pre>void&nbsp;setCurrentTunnelPair(<a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client">I2PSession.TunnelPair</a>&nbsp;pair)</pre><div class=block>Set the tunnel IDs actively in use by this session.
+Called by the streaming library when it learns which tunnels are being used.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>pair</code> - the tunnel pair in use</dl></ul><a name=setSessionListener-net.i2p.client.I2PSessionListener-></a><ul class=blockList><li class=blockList><h4>setSessionListener</h4><pre>void&nbsp;setSessionListener(<a href=../../../net/i2p/client/I2PSessionListener.html title="interface in net.i2p.client">I2PSessionListener</a>&nbsp;lsnr)</pre><div class=block>Instruct the I2PSession where it should send event notifications
+WARNING: It is recommended that you use a method that specifies the protocol and ports.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>lsnr</code> - listener to retrieve events</dl></ul><a name=switchToNewTunnel--></a><ul class=blockList><li class=blockList><h4>switchToNewTunnel</h4><pre>boolean&nbsp;switchToNewTunnel()</pre><div class=block>Switch to a new tunnel for this session.
+This forces the session to abandon its current tunnels and acquire fresh ones.
+Useful when connections are failing and we need to switch to better tunnels.</div><dl><dt><span class=returnLabel>Returns:</span><dd>true if switch was initiated successfully</dl></ul><a name=updateOptions-java.util.Properties-></a><ul class=blockListLast><li class=blockList><h4>updateOptions</h4><pre>void&nbsp;updateOptions(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;options)</pre><div class=block>Pass updated options to the router.
+Does not remove properties previously present but missing from this options parameter.
+Fails silently if session is not connected.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>options</code> - non-null</dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PSession.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/client/I2PClientFactory.html title="class in net.i2p.client"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/client/I2PSession.TunnelPair.html title="class in net.i2p.client"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/client/I2PSession.html target=_top>Frames</a><li><a href=I2PSession.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li><a href=#nested.class.summary>Nested</a>&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li>Constr&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li>Constr&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>

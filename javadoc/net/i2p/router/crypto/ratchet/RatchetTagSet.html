@@ -1,815 +1,91 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>RatchetTagSet - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p.router.crypto.ratchet, class: RatchetTagSet">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../../../../script.js"></script>
-<script type="text/javascript" src="../../../../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../../../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../../../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/RatchetTagSet.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.router.crypto.ratchet</a></div>
-<h1 title="Class RatchetTagSet" class="title">Class RatchetTagSet</h1>
-</div>
-<div class="contentContainer">
-<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
-<div class="inheritance">net.i2p.router.crypto.ratchet.RatchetTagSet</div>
-</div>
-<section class="description">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../../crypto/TagSetHandle.html" title="interface in net.i2p.crypto">TagSetHandle</a></code></dd>
-</dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="SingleTagSet.html" title="class in net.i2p.router.crypto.ratchet">SingleTagSet</a></code></dd>
-</dl>
-<hr>
-<pre>class <span class="typeNameLabel">RatchetTagSet</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
-implements <a href="../../../crypto/TagSetHandle.html" title="interface in net.i2p.crypto">TagSetHandle</a></pre>
-<div class="block">A tagset class for one direction, either inbound or outbound.
-
-  For outbound, uses very little memory. Tags and keys are generated on demand.
-  See proposal 144.
-
-  For inbound, generates the tags in advance, maintaining minSize lookahead.
-  Keys are generated as required.
-
-  Caller must synch on all methods.</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.44</dd>
-</dl>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldSummary"><a id="field.summary">
-</a>
-<h2>Field Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_key">_key</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>(package private) static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEBUG_IB_NSR">DEBUG_IB_NSR</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>(package private) static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEBUG_OB_NSR">DEBUG_OB_NSR</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>(package private) static int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#DEBUG_SINGLE_ES">DEBUG_SINGLE_ES</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorSummary"><a id="constructor.summary">
-</a>
-<h2>Constructor Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier</th>
-<th class="colSecond" scope="col">Constructor</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.HKDF,com.southernstorm.noise.protocol.HandshakeState,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long)">RatchetTagSet</a></span>&#8203;(<a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
-long&nbsp;date)</code></th>
-<td class="colLast">
-<div class="block">Outbound NSR Tagset</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.HKDF,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int)">RatchetTagSet</a></span>&#8203;(<a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+<!doctype html><html lang=en><meta charset=utf-8><title>RatchetTagSet (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../../../../javadoc.css title=Style><script src=../../../../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="RatchetTagSet (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:10,i1:10,i2:10,i3:10,i4:10,i5:10,i6:10,i7:10,i8:10,i9:10,i10:10,i11:10,i12:10,i13:10,i14:10,i15:10,i16:10,i17:10,i18:10,i19:10,i20:10,i21:10},tabs={65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/RatchetTagSet.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../../../index-all.html>Index</a><li><a href=../../../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSKM.html title="class in net.i2p.router.crypto.ratchet"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../../../net/i2p/router/crypto/ratchet/ReplyCallback.html title="interface in net.i2p.router.crypto.ratchet"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../../../index.html?net/i2p/router/crypto/ratchet/RatchetTagSet.html target=_top>Frames</a><li><a href=RatchetTagSet.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p.router.crypto.ratchet</div><h2 title="Class RatchetTagSet" class=title>Class RatchetTagSet</h2></div><div class=contentContainer><ul class=inheritance><li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a><li><ul class=inheritance><li>net.i2p.router.crypto.ratchet.RatchetTagSet</ul></ul><div class=description><ul class=blockList><li class=blockList><dl><dt>All Implemented Interfaces:<dd><a href=../../../../../net/i2p/crypto/TagSetHandle.html title="interface in net.i2p.crypto">TagSetHandle</a></dl><dl><dt>Direct Known Subclasses:<dd><a href=../../../../../net/i2p/router/crypto/ratchet/SingleTagSet.html title="class in net.i2p.router.crypto.ratchet">SingleTagSet</a></dl><hr><br><pre>class <span class=typeNameLabel>RatchetTagSet</span>
+extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href=../../../../../net/i2p/crypto/TagSetHandle.html title="interface in net.i2p.crypto">TagSetHandle</a></pre><div class=block>Manages session tags and keys for a single ratchet direction with automatic key generation, supporting both inbound lookahead and on-demand outbound operations
+For outbound, uses very little memory. Tags and keys are generated on demand.
+See proposal 144.
+For inbound, generates tags in advance, maintaining minSize lookahead.
+Keys are generated as required.
+Caller must synch on all methods.</div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.summary></a><h3>Field Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Field Summary table, listing fields, and an explanation"><caption><span>Fields</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Field and Description<tr class=altColor><td class=colFirst><code>protected <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#Z:Z_key>_key</a></span></code><div class=block>The session key</div><tr class=rowColor><td class=colFirst><code>(package private) static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#DEBUG_IB_NSR>DEBUG_IB_NSR</a></span></code><div class=block>D e b u g i b n s r</div><tr class=altColor><td class=colFirst><code>(package private) static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#DEBUG_OB_NSR>DEBUG_OB_NSR</a></span></code><div class=block>D e b u g o b n s r</div><tr class=rowColor><td class=colFirst><code>(package private) static int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#DEBUG_SINGLE_ES>DEBUG_SINGLE_ES</a></span></code><div class=block>D e b u g s i n g l e e s</div></table></ul><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier<th class=colLast scope=col>Constructor and Description<tr class=altColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#RatchetTagSet-net.i2p.crypto.HKDF-com.southernstorm.noise.protocol.HandshakeState-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long->RatchetTagSet</a></span>(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+<a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+long&nbsp;date)</code><div class=block>Outbound NSR Tagset</div><tr class=rowColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int->RatchetTagSet</a></span>(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
 long&nbsp;date,
 int&nbsp;tagsetid,
-int&nbsp;keyid)</code></th>
-<td class="colLast">
-<div class="block">Outbound ES Tagset</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.HKDF,net.i2p.router.crypto.ratchet.SessionTagListener,com.southernstorm.noise.protocol.HandshakeState,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int)">RatchetTagSet</a></span>&#8203;(<a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+int&nbsp;keyid)</code><div class=block>Outbound ES Tagset</div><tr class=altColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.router.crypto.ratchet.SessionTagListener-com.southernstorm.noise.protocol.HandshakeState-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int->RatchetTagSet</a></span>(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+<a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+<a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
 long&nbsp;date,
 int&nbsp;minSize,
-int&nbsp;maxSize)</code></th>
-<td class="colLast">
-<div class="block">Inbound NSR Tagset</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.crypto.HKDF,net.i2p.router.crypto.ratchet.SessionTagListener,net.i2p.data.PublicKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int,int,int)">RatchetTagSet</a></span>&#8203;(<a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;remoteKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+int&nbsp;maxSize)</code><div class=block>Inbound NSR Tagset</div><tr class=rowColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.router.crypto.ratchet.SessionTagListener-net.i2p.data.PublicKey-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int-int-int->RatchetTagSet</a></span>(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+<a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+<a href=../../../../../net/i2p/data/PublicKey.html title="class in net.i2p.data">PublicKey</a>&nbsp;remoteKey,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
 long&nbsp;date,
 int&nbsp;tagsetid,
 int&nbsp;keyid,
 int&nbsp;minSize,
-int&nbsp;maxSize)</code></th>
-<td class="colLast">
-<div class="block">Inbound ES Tagset</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(net.i2p.router.crypto.ratchet.SessionTagListener,net.i2p.data.SessionKey,long,long)">RatchetTagSet</a></span>&#8203;(<a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+int&nbsp;maxSize)</code><div class=block>Inbound ES Tagset</div><tr class=altColor><td class=colFirst><code>protected</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#RatchetTagSet-net.i2p.router.crypto.ratchet.SessionTagListener-net.i2p.data.SessionKey-long-long->RatchetTagSet</a></span>(<a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
 long&nbsp;date,
-long&nbsp;timeout)</code></th>
-<td class="colLast">
-<div class="block">For SingleTagSet</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code><a href="SessionKeyAndNonce.html" title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#consume(net.i2p.router.crypto.ratchet.RatchetSessionTag)">consume</a></span>&#8203;(<a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</code></th>
-<td class="colLast">
-<div class="block">inbound only</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code><a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#consumeNext()">consumeNext</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Public for outbound only.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code><a href="SessionKeyAndNonce.html" title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#consumeNextKey()">consumeNextKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For outbound, call after consumeNextTag().</div>
-</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAcked()">getAcked</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound, returns true after first consume() call.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i5">
-<td class="colFirst"><code><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAssociatedKey()">getAssociatedKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The root key for the tag set.</div>
-</td>
-</tr>
-<tr class="altColor" id="i6">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCreated()">getCreated</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound and outbound: creation time, for debugging only</div>
-</td>
-</tr>
-<tr class="rowColor" id="i7">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDate()">getDate</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound and outbound: last used time
-  Expiration is getDate() + getTimeout().</div>
-</td>
-</tr>
-<tr class="altColor" id="i8">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDebugID()">getDebugID</a></span>()</code></th>
-<td class="colLast">
-<div class="block">A unique ID for debugging only</div>
-</td>
-</tr>
-<tr class="rowColor" id="i9">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpiration()">getExpiration</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound and outbound: Expiration.</div>
-</td>
-</tr>
-<tr class="altColor" id="i10">
-<td class="colFirst"><code><a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHandshakeState()">getHandshakeState</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound/outbound NSR only, else null.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i11">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getID()">getID</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The TagSet ID, starting at 0.</div>
-</td>
-</tr>
-<tr class="altColor" id="i12">
-<td class="colFirst"><code><a href="NextSessionKey.html" title="class in net.i2p.router.crypto.ratchet">NextSessionKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextKey()">getNextKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Next Forward Key if applicable (outbound ES and we're running low).</div>
-</td>
-</tr>
-<tr class="rowColor" id="i13">
-<td class="colFirst"><code><a href="../../../crypto/KeyPair.html" title="class in net.i2p.crypto">KeyPair</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextKeys()">getNextKeys</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Next Forward KeyPair if applicable (we're running low).</div>
-</td>
-</tr>
-<tr class="altColor" id="i14">
-<td class="colFirst"><code><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNextRootKey()">getNextRootKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Root key for the next DH ratchet.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i15">
-<td class="colFirst"><code><a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRemoteKey()">getRemoteKey</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The far-end's public key.</div>
-</td>
-</tr>
-<tr class="altColor" id="i16">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeout()">getTimeout</a></span>()</code></th>
-<td class="colLast">
-<div class="block">For inbound and outbound: Idle timeout interval.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i17">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remaining()">remaining</a></span>()</code></th>
-<td class="colLast">
-<div class="block">tags remaining</div>
-</td>
-</tr>
-<tr class="altColor" id="i18">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDate(long)">setDate</a></span>&#8203;(long&nbsp;when)</code></th>
-<td class="colLast">
-<div class="block">For inbound and outbound: last used time</div>
-</td>
-</tr>
-<tr class="rowColor" id="i19">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#size()">size</a></span>()</code></th>
-<td class="colLast">
-<div class="block">unused tags generated</div>
-</td>
-</tr>
-<tr class="altColor" id="i20">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<a id="methods.inherited.from.class.java.lang.Object">
-</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldDetails"><a id="field.detail">
-</a>
-<h2>Field Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="_key">_key</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">_key</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEBUG_OB_NSR">DEBUG_OB_NSR</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEBUG_OB_NSR</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_OB_NSR">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEBUG_IB_NSR">DEBUG_IB_NSR</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEBUG_IB_NSR</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_IB_NSR">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="DEBUG_SINGLE_ES">DEBUG_SINGLE_ES</a></h3>
-<div class="memberSignature"><span class="modifiers">static final</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">DEBUG_SINGLE_ES</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_SINGLE_ES">Constant Field Values</a></dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorDetails"><a id="constructor.detail">
-</a>
-<h2>Constructor Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(net.i2p.crypto.HKDF,com.southernstorm.noise.protocol.HandshakeState,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long)">RatchetTagSet</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RatchetTagSet</span>&#8203;(<span class="arguments"><a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
-long&nbsp;date)</span></div>
-<div class="block">Outbound NSR Tagset</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - For outbound: creation time</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(net.i2p.crypto.HKDF,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int)">RatchetTagSet</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RatchetTagSet</span>&#8203;(<span class="arguments"><a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
-long&nbsp;date,
-int&nbsp;tagsetid,
-int&nbsp;keyid)</span></div>
-<div class="block">Outbound ES Tagset</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - For outbound: creation time</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(net.i2p.crypto.HKDF,net.i2p.router.crypto.ratchet.SessionTagListener,com.southernstorm.noise.protocol.HandshakeState,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int)">RatchetTagSet</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RatchetTagSet</span>&#8203;(<span class="arguments"><a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
-long&nbsp;date,
-int&nbsp;minSize,
-int&nbsp;maxSize)</span></div>
-<div class="block">Inbound NSR Tagset</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - For inbound: creation time</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(net.i2p.crypto.HKDF,net.i2p.router.crypto.ratchet.SessionTagListener,net.i2p.data.PublicKey,net.i2p.data.SessionKey,net.i2p.data.SessionKey,long,int,int,int,int)">RatchetTagSet</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">RatchetTagSet</span>&#8203;(<span class="arguments"><a href="../../../crypto/HKDF.html" title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
-<a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a>&nbsp;remoteKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;data,
-long&nbsp;date,
-int&nbsp;tagsetid,
-int&nbsp;keyid,
-int&nbsp;minSize,
-int&nbsp;maxSize)</span></div>
-<div class="block">Inbound ES Tagset</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>date</code> - For inbound: creation time</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(net.i2p.router.crypto.ratchet.SessionTagListener,net.i2p.data.SessionKey,long,long)">RatchetTagSet</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">RatchetTagSet</span>&#8203;(<span class="arguments"><a href="SessionTagListener.html" title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
-<a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
-long&nbsp;date,
-long&nbsp;timeout)</span></div>
-<div class="block">For SingleTagSet</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="clear()">clear</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getRemoteKey()">getRemoteKey</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/PublicKey.html" title="class in net.i2p.data">PublicKey</a></span>&nbsp;<span class="memberName">getRemoteKey</span>()</div>
-<div class="block">The far-end's public key.
-  Valid for NSR and inbound ES tagsets.
-  Returns null for outbound ES tagsets.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getAssociatedKey()">getAssociatedKey</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">getAssociatedKey</span>()</div>
-<div class="block">The root key for the tag set.
-  Used to match the OB and IB ES tagset 0, where both
-  will have the same root key.
-  Not used for cryptographic operations after setup.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getHandshakeState()">getHandshakeState</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../../../com/southernstorm/noise/protocol/HandshakeState.html" title="class in com.southernstorm.noise.protocol">HandshakeState</a></span>&nbsp;<span class="memberName">getHandshakeState</span>()</div>
-<div class="block">For inbound/outbound NSR only, else null.
-  MUST be cloned before processing NSR.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getDate()">getDate</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getDate</span>()</div>
-<div class="block">For inbound and outbound: last used time
-  Expiration is getDate() + getTimeout().</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setDate(long)">setDate</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setDate</span>&#8203;(<span class="arguments">long&nbsp;when)</span></div>
-<div class="block">For inbound and outbound: last used time</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getCreated()">getCreated</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getCreated</span>()</div>
-<div class="block">For inbound and outbound: creation time, for debugging only</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTimeout()">getTimeout</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getTimeout</span>()</div>
-<div class="block">For inbound and outbound: Idle timeout interval.
-  Expiration is getDate() + getTimeout().</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getExpiration()">getExpiration</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getExpiration</span>()</div>
-<div class="block">For inbound and outbound: Expiration.
-  Expiration is getDate() + getTimeout() if acked.
-  May be shorter if not acked.</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="size()">size</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">size</span>()</div>
-<div class="block">unused tags generated</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>0 for outbound</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="remaining()">remaining</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">remaining</span>()</div>
-<div class="block">tags remaining</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>0 - 65536</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getNextKey()">getNextKey</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="NextSessionKey.html" title="class in net.i2p.router.crypto.ratchet">NextSessionKey</a></span>&nbsp;<span class="memberName">getNextKey</span>()</div>
-<div class="block">Next Forward Key if applicable (outbound ES and we're running low).
-  Null if NSR or inbound or remaining is sufficient.
-  Once non-null, will be constant for the remaining life of the tagset.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>key or null</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getNextKeys()">getNextKeys</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../crypto/KeyPair.html" title="class in net.i2p.crypto">KeyPair</a></span>&nbsp;<span class="memberName">getNextKeys</span>()</div>
-<div class="block">Next Forward KeyPair if applicable (we're running low).
-  Null if remaining is sufficient.
-  Once non-null, will be constant for the remaining life of the tagset.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>keys or null</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getNextRootKey()">getNextRootKey</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../../../data/SessionKey.html" title="class in net.i2p.data">SessionKey</a></span>&nbsp;<span class="memberName">getNextRootKey</span>()</div>
-<div class="block">Root key for the next DH ratchet.
-  Should only be needed for ES, but valid for NSR also.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>key</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.46</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="consume(net.i2p.router.crypto.ratchet.RatchetSessionTag)">consume</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SessionKeyAndNonce.html" title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></span>&nbsp;<span class="memberName">consume</span>&#8203;(<span class="arguments"><a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</span></div>
-<div class="block">inbound only</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>associated SessionKey or null if not found.</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="consumeNext()">consumeNext</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="RatchetSessionTag.html" title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a></span>&nbsp;<span class="memberName">consumeNext</span>()</div>
-<div class="block">Public for outbound only. Used internally for inbound.
-  Call before consumeNextKey();</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a tag or null if we ran out</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="consumeNextKey()">consumeNextKey</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="SessionKeyAndNonce.html" title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></span>&nbsp;<span class="memberName">consumeNextKey</span>()</div>
-<div class="block">For outbound, call after consumeNextTag().
-  Also called by consume() to catch up for inbound.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a key and nonce, non-null</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getAcked()">getAcked</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getAcked</span>()</div>
-<div class="block">For inbound, returns true after first consume() call.
-  For outbound, returns true after first consumeNextKey() call.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getID()">getID</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getID</span>()</div>
-<div class="block">The TagSet ID, starting at 0.
- After that = 1 + my key id + his key id</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getDebugID()">getDebugID</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getDebugID</span>()</div>
-<div class="block">A unique ID for debugging only</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="toString()">toString</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">toString</span>()</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/RatchetTagSet.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+long&nbsp;timeout)</code><div class=block>For SingleTagSet</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t4 class=tableTab><span><a href=javascript:show(8);>Concrete Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#clear-->clear</a></span>()</code><div class=block>Clear all tags and keys.</div><tr id=i1 class=rowColor><td class=colFirst><code><a href=../../../../../net/i2p/router/crypto/ratchet/SessionKeyAndNonce.html title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#consume-net.i2p.router.crypto.ratchet.RatchetSessionTag->consume</a></span>(<a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</code><div class=block>inbound only</div><tr id=i2 class=altColor><td class=colFirst><code><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#consumeNext-->consumeNext</a></span>()</code><div class=block>Public for outbound only.</div><tr id=i3 class=rowColor><td class=colFirst><code><a href=../../../../../net/i2p/router/crypto/ratchet/SessionKeyAndNonce.html title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#consumeNextKey-->consumeNextKey</a></span>()</code><div class=block>For outbound, call after consumeNextTag().</div><tr id=i4 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getAcked-->getAcked</a></span>()</code><div class=block>For inbound, returns true after first consume() call.</div><tr id=i5 class=rowColor><td class=colFirst><code><a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getAssociatedKey-->getAssociatedKey</a></span>()</code><div class=block>The root key for the tag set.</div><tr id=i6 class=altColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getCreated-->getCreated</a></span>()</code><div class=block>For inbound and outbound: creation time, for debugging only</div><tr id=i7 class=rowColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getDate-->getDate</a></span>()</code><div class=block>For inbound and outbound: last used time
+Expiration is getDate() + getTimeout().</div><tr id=i8 class=altColor><td class=colFirst><code>int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getDebugID-->getDebugID</a></span>()</code><div class=block>A unique ID for debugging only</div><tr id=i9 class=rowColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getExpiration-->getExpiration</a></span>()</code><div class=block>For inbound and outbound: Expiration.</div><tr id=i10 class=altColor><td class=colFirst><code><a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getHandshakeState-->getHandshakeState</a></span>()</code><div class=block>For inbound/outbound NSR only, else null.</div><tr id=i11 class=rowColor><td class=colFirst><code>int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getID-->getID</a></span>()</code><div class=block>The TagSet ID, starting at 0.</div><tr id=i12 class=altColor><td class=colFirst><code><a href=../../../../../net/i2p/router/crypto/ratchet/NextSessionKey.html title="class in net.i2p.router.crypto.ratchet">NextSessionKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getNextKey-->getNextKey</a></span>()</code><div class=block>Next Forward Key if applicable (outbound ES and we're running low).</div><tr id=i13 class=rowColor><td class=colFirst><code><a href=../../../../../net/i2p/crypto/KeyPair.html title="class in net.i2p.crypto">KeyPair</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getNextKeys-->getNextKeys</a></span>()</code><div class=block>Next Forward KeyPair if applicable (we're running low).</div><tr id=i14 class=altColor><td class=colFirst><code><a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getNextRootKey-->getNextRootKey</a></span>()</code><div class=block>Root key for the next DH ratchet.</div><tr id=i15 class=rowColor><td class=colFirst><code>(package private) <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getRegisteredTags-->getRegisteredTags</a></span>()</code><div class=block>Return the set of tags registered in the SKM's _inboundTagSets map.</div><tr id=i16 class=altColor><td class=colFirst><code><a href=../../../../../net/i2p/data/PublicKey.html title="class in net.i2p.data">PublicKey</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getRemoteKey-->getRemoteKey</a></span>()</code><div class=block>The far-end's public key.</div><tr id=i17 class=rowColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#getTimeout-->getTimeout</a></span>()</code><div class=block>For inbound and outbound: Idle timeout interval.</div><tr id=i18 class=altColor><td class=colFirst><code>int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#remaining-->remaining</a></span>()</code><div class=block>tags remaining</div><tr id=i19 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#setDate-long->setDate</a></span>(long&nbsp;when)</code><div class=block>For inbound and outbound: set last used time</div><tr id=i20 class=altColor><td class=colFirst><code>int</code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#size-->size</a></span>()</code><div class=block>unused tags generated</div><tr id=i21 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetTagSet.html#toString-->toString</a></span>()</code><div class=block>toString.</div></table><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.java.lang.Object></a><h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></ul></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.detail></a><h3>Field Detail</h3><a name=Z:Z_key></a><ul class=blockList><li class=blockList><h4>_key</h4><pre>protected final&nbsp;<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a> _key</pre><div class=block>The session key</div></ul><a name=DEBUG_IB_NSR></a><ul class=blockList><li class=blockList><h4>DEBUG_IB_NSR</h4><pre>static final&nbsp;int DEBUG_IB_NSR</pre><div class=block>D e b u g i b n s r</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_IB_NSR>Constant Field Values</a></dl></ul><a name=DEBUG_OB_NSR></a><ul class=blockList><li class=blockList><h4>DEBUG_OB_NSR</h4><pre>static final&nbsp;int DEBUG_OB_NSR</pre><div class=block>D e b u g o b n s r</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_OB_NSR>Constant Field Values</a></dl></ul><a name=DEBUG_SINGLE_ES></a><ul class=blockListLast><li class=blockList><h4>DEBUG_SINGLE_ES</h4><pre>static final&nbsp;int DEBUG_SINGLE_ES</pre><div class=block>D e b u g s i n g l e e s</div><dl><dt><span class=seeLabel>See Also:</span><dd><a href=../../../../../constant-values.html#net.i2p.router.crypto.ratchet.RatchetTagSet.DEBUG_SINGLE_ES>Constant Field Values</a></dl></ul></ul><ul class=blockList><li class=blockList><a name=constructor.detail></a><h3>Constructor Detail</h3><a name=RatchetTagSet-net.i2p.crypto.HKDF-com.southernstorm.noise.protocol.HandshakeState-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-></a><ul class=blockList><li class=blockList><h4>RatchetTagSet</h4><pre>public&nbsp;RatchetTagSet(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+                     <a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+                     long&nbsp;date)</pre><div class=block>Outbound NSR Tagset</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>hkdf</code> - the HKDF instance<dd><code>state</code> - the handshake state<dd><code>rootKey</code> - the root key<dd><code>data</code> - the data key<dd><code>date</code> - For outbound: creation time</dl></ul><a name=RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int-></a><ul class=blockList><li class=blockList><h4>RatchetTagSet</h4><pre>public&nbsp;RatchetTagSet(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+                     long&nbsp;date,
+                     int&nbsp;tagsetid,
+                     int&nbsp;keyid)</pre><div class=block>Outbound ES Tagset</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>hkdf</code> - the HKDF instance<dd><code>rootKey</code> - the root key<dd><code>data</code> - the data key<dd><code>date</code> - For outbound: creation time<dd><code>tagsetid</code> - the tagset ID<dd><code>keyid</code> - the key ID</dl></ul><a name=RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.router.crypto.ratchet.SessionTagListener-com.southernstorm.noise.protocol.HandshakeState-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int-></a><ul class=blockList><li class=blockList><h4>RatchetTagSet</h4><pre>public&nbsp;RatchetTagSet(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+                     <a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+                     <a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;state,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+                     long&nbsp;date,
+                     int&nbsp;minSize,
+                     int&nbsp;maxSize)</pre><div class=block>Inbound NSR Tagset</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>hkdf</code> - the HKDF instance<dd><code>lsnr</code> - the session tag listener<dd><code>state</code> - the handshake state<dd><code>rootKey</code> - the root key<dd><code>data</code> - the data key<dd><code>date</code> - For inbound: creation time<dd><code>minSize</code> - the minimum tag set size<dd><code>maxSize</code> - the maximum tag set size</dl></ul><a name=RatchetTagSet-net.i2p.crypto.HKDF-net.i2p.router.crypto.ratchet.SessionTagListener-net.i2p.data.PublicKey-net.i2p.data.SessionKey-net.i2p.data.SessionKey-long-int-int-int-int-></a><ul class=blockList><li class=blockList><h4>RatchetTagSet</h4><pre>public&nbsp;RatchetTagSet(<a href=../../../../../net/i2p/crypto/HKDF.html title="class in net.i2p.crypto">HKDF</a>&nbsp;hkdf,
+                     <a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+                     <a href=../../../../../net/i2p/data/PublicKey.html title="class in net.i2p.data">PublicKey</a>&nbsp;remoteKey,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+                     <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;data,
+                     long&nbsp;date,
+                     int&nbsp;tagsetid,
+                     int&nbsp;keyid,
+                     int&nbsp;minSize,
+                     int&nbsp;maxSize)</pre><div class=block>Inbound ES Tagset</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>hkdf</code> - the HKDF instance<dd><code>lsnr</code> - the session tag listener<dd><code>remoteKey</code> - the remote public key<dd><code>rootKey</code> - the root key<dd><code>data</code> - the data key<dd><code>date</code> - For inbound: creation time<dd><code>tagsetid</code> - the tagset ID<dd><code>keyid</code> - the key ID<dd><code>minSize</code> - the minimum tag set size<dd><code>maxSize</code> - the maximum tag set size</dl></ul><a name=RatchetTagSet-net.i2p.router.crypto.ratchet.SessionTagListener-net.i2p.data.SessionKey-long-long-></a><ul class=blockListLast><li class=blockList><h4>RatchetTagSet</h4><pre>protected&nbsp;RatchetTagSet(<a href=../../../../../net/i2p/router/crypto/ratchet/SessionTagListener.html title="interface in net.i2p.router.crypto.ratchet">SessionTagListener</a>&nbsp;lsnr,
+                        <a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;rootKey,
+                        long&nbsp;date,
+                        long&nbsp;timeout)</pre><div class=block>For SingleTagSet</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>lsnr</code> - the session tag listener<dd><code>rootKey</code> - the root key<dd><code>date</code> - the creation time<dd><code>timeout</code> - the timeout duration</dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=clear--></a><ul class=blockList><li class=blockList><h4>clear</h4><pre>public&nbsp;void&nbsp;clear()</pre><div class=block>Clear all tags and keys.</div></ul><a name=consume-net.i2p.router.crypto.ratchet.RatchetSessionTag-></a><ul class=blockList><li class=blockList><h4>consume</h4><pre>public&nbsp;<a href=../../../../../net/i2p/router/crypto/ratchet/SessionKeyAndNonce.html title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a>&nbsp;consume(<a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;tag)</pre><div class=block>inbound only</div><dl><dt><span class=returnLabel>Returns:</span><dd>associated SessionKey or null if not found.</dl></ul><a name=consumeNext--></a><ul class=blockList><li class=blockList><h4>consumeNext</h4><pre>public&nbsp;<a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&nbsp;consumeNext()</pre><div class=block>Public for outbound only. Used internally for inbound.
+Call before consumeNextKey();</div><dl><dt><span class=returnLabel>Returns:</span><dd>a tag or null if we ran out</dl></ul><a name=consumeNextKey--></a><ul class=blockList><li class=blockList><h4>consumeNextKey</h4><pre>public&nbsp;<a href=../../../../../net/i2p/router/crypto/ratchet/SessionKeyAndNonce.html title="class in net.i2p.router.crypto.ratchet">SessionKeyAndNonce</a>&nbsp;consumeNextKey()</pre><div class=block>For outbound, call after consumeNextTag().
+Also called by consume() to catch up for inbound.</div><dl><dt><span class=returnLabel>Returns:</span><dd>a key and nonce, non-null</dl></ul><a name=getAcked--></a><ul class=blockList><li class=blockList><h4>getAcked</h4><pre>public&nbsp;boolean&nbsp;getAcked()</pre><div class=block>For inbound, returns true after first consume() call.
+For outbound, returns true after first consumeNextKey() call.</div><dl><dt><span class=returnLabel>Returns:</span><dd>true if acked</dl></ul><a name=getAssociatedKey--></a><ul class=blockList><li class=blockList><h4>getAssociatedKey</h4><pre>public&nbsp;<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;getAssociatedKey()</pre><div class=block>The root key for the tag set.
+Used to match the OB and IB ES tagset 0, where both
+will have the same root key.
+Not used for cryptographic operations after setup.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the associated key</dl></ul><a name=getCreated--></a><ul class=blockList><li class=blockList><h4>getCreated</h4><pre>public&nbsp;long&nbsp;getCreated()</pre><div class=block>For inbound and outbound: creation time, for debugging only</div><dl><dt><span class=returnLabel>Returns:</span><dd>the creation time</dl></ul><a name=getDate--></a><ul class=blockList><li class=blockList><h4>getDate</h4><pre>public&nbsp;long&nbsp;getDate()</pre><div class=block>For inbound and outbound: last used time
+Expiration is getDate() + getTimeout().</div><dl><dt><span class=returnLabel>Returns:</span><dd>the last used time</dl></ul><a name=getDebugID--></a><ul class=blockList><li class=blockList><h4>getDebugID</h4><pre>public&nbsp;int&nbsp;getDebugID()</pre><div class=block>A unique ID for debugging only</div><dl><dt><span class=returnLabel>Returns:</span><dd>the debug ID</dl></ul><a name=getExpiration--></a><ul class=blockList><li class=blockList><h4>getExpiration</h4><pre>public&nbsp;long&nbsp;getExpiration()</pre><div class=block>For inbound and outbound: Expiration.
+Expiration is getDate() + getTimeout() if acked.
+Before acked, uses _created + _timeout (full lifetime).
+Previously this used Math.min(_timeout, SESSION_PENDING_DURATION_MS)
+which capped unacked ES tagsets at 3 minutes instead of their designed
+10-minute SESSION_LIFETIME_MAX_MS. With i2cp.disableLoopback=true,
+the NSR round-trip through the full tunnel path could exceed 3 minutes,
+causing tags to expire before the first ES message arrived.
+NSR tagsets are unaffected — they have _timeout = SESSION_PENDING_DURATION_MS
+(3 min), so the min() was a no-op for them.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the expiration time</dl></ul><a name=getHandshakeState--></a><ul class=blockList><li class=blockList><h4>getHandshakeState</h4><pre>public&nbsp;<a href=../../../../../com/southernstorm/noise/protocol/HandshakeState.html title="class in com.southernstorm.noise.protocol">HandshakeState</a>&nbsp;getHandshakeState()</pre><div class=block>For inbound/outbound NSR only, else null.
+MUST be cloned before processing NSR.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the handshake state, or null</dl></ul><a name=getID--></a><ul class=blockList><li class=blockList><h4>getID</h4><pre>public&nbsp;int&nbsp;getID()</pre><div class=block>The TagSet ID, starting at 0.
+After that = 1 + my key id + his key id</div><dl><dt><span class=returnLabel>Returns:</span><dd>the tagset ID</dl></ul><a name=getNextKey--></a><ul class=blockList><li class=blockList><h4>getNextKey</h4><pre>public&nbsp;<a href=../../../../../net/i2p/router/crypto/ratchet/NextSessionKey.html title="class in net.i2p.router.crypto.ratchet">NextSessionKey</a>&nbsp;getNextKey()</pre><div class=block>Next Forward Key if applicable (outbound ES and we're running low).
+Null if NSR or inbound or remaining is sufficient.
+Once non-null, will be constant for the remaining life of the tagset.</div><dl><dt><span class=returnLabel>Returns:</span><dd>key or null</dl></ul><a name=getNextKeys--></a><ul class=blockList><li class=blockList><h4>getNextKeys</h4><pre>public&nbsp;<a href=../../../../../net/i2p/crypto/KeyPair.html title="class in net.i2p.crypto">KeyPair</a>&nbsp;getNextKeys()</pre><div class=block>Next Forward KeyPair if applicable (we're running low).
+Null if remaining is sufficient.
+Once non-null, will be constant for the remaining life of the tagset.</div><dl><dt><span class=returnLabel>Returns:</span><dd>keys or null</dl></ul><a name=getNextRootKey--></a><ul class=blockList><li class=blockList><h4>getNextRootKey</h4><pre>public&nbsp;<a href=../../../../../net/i2p/data/SessionKey.html title="class in net.i2p.data">SessionKey</a>&nbsp;getNextRootKey()</pre><div class=block>Root key for the next DH ratchet.
+Should only be needed for ES, but valid for NSR also.</div><dl><dt><span class=returnLabel>Returns:</span><dd>key</dl></ul><a name=getRegisteredTags--></a><ul class=blockList><li class=blockList><h4>getRegisteredTags</h4><pre><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSessionTag.html title="class in net.i2p.router.crypto.ratchet">RatchetSessionTag</a>&gt;&nbsp;getRegisteredTags()</pre><div class=block>Return the set of tags registered in the SKM's _inboundTagSets map.
+Used for O(tags_in_set) removal in RatchetSKM.consumeTag().</div></ul><a name=getRemoteKey--></a><ul class=blockList><li class=blockList><h4>getRemoteKey</h4><pre>public&nbsp;<a href=../../../../../net/i2p/data/PublicKey.html title="class in net.i2p.data">PublicKey</a>&nbsp;getRemoteKey()</pre><div class=block>The far-end's public key.
+Valid for NSR and inbound ES tagsets.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the remote key, or null for outbound ES tagsets</dl></ul><a name=getTimeout--></a><ul class=blockList><li class=blockList><h4>getTimeout</h4><pre>public&nbsp;long&nbsp;getTimeout()</pre><div class=block>For inbound and outbound: Idle timeout interval.
+Expiration is getDate() + getTimeout().</div><dl><dt><span class=returnLabel>Returns:</span><dd>the timeout duration</dl></ul><a name=remaining--></a><ul class=blockList><li class=blockList><h4>remaining</h4><pre>public&nbsp;int&nbsp;remaining()</pre><div class=block>tags remaining</div><dl><dt><span class=returnLabel>Returns:</span><dd>0 - 65536</dl></ul><a name=setDate-long-></a><ul class=blockList><li class=blockList><h4>setDate</h4><pre>public&nbsp;void&nbsp;setDate(long&nbsp;when)</pre><div class=block>For inbound and outbound: set last used time</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>when</code> - the last used time</dl></ul><a name=size--></a><ul class=blockList><li class=blockList><h4>size</h4><pre>public&nbsp;int&nbsp;size()</pre><div class=block>unused tags generated</div><dl><dt><span class=returnLabel>Returns:</span><dd>0 for outbound</dl></ul><a name=toString--></a><ul class=blockListLast><li class=blockList><h4>toString</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;toString()</pre><div class=block>toString.</div><dl><dt><span class=overrideSpecifyLabel>Overrides:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/RatchetTagSet.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../../../index-all.html>Index</a><li><a href=../../../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../../../net/i2p/router/crypto/ratchet/RatchetSKM.html title="class in net.i2p.router.crypto.ratchet"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../../../net/i2p/router/crypto/ratchet/ReplyCallback.html title="interface in net.i2p.router.crypto.ratchet"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../../../index.html?net/i2p/router/crypto/ratchet/RatchetTagSet.html target=_top>Frames</a><li><a href=RatchetTagSet.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>

@@ -1,1396 +1,158 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>I2PAppContext - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p, class: I2PAppContext">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../script.js"></script>
-<script type="text/javascript" src="../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":9,"i14":10,"i15":9,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":9,"i44":10,"i45":10,"i46":42,"i47":42,"i48":10,"i49":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PAppContext.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../index-files/index-1.html">Index</a></li>
-<li><a href="../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p</a></div>
-<h1 title="Class I2PAppContext" class="title">Class I2PAppContext</h1>
-</div>
-<div class="contentContainer">
-<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
-<div class="inheritance">net.i2p.I2PAppContext</div>
-</div>
-<section class="description">
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="router/RouterContext.html" title="class in net.i2p.router">RouterContext</a></code></dd>
-</dl>
-<hr>
-<pre>public class <span class="typeNameLabel">I2PAppContext</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block"><p>Provide a base scope for accessing singletons that I2P exposes.  Rather than
- using the traditional singleton, where any component can access the component
- in question directly, all of those I2P related singletons are exposed through
- a particular I2PAppContext.  This helps not only with understanding their use
- and the components I2P exposes, but it also allows multiple isolated 
- environments to operate concurrently within the same JVM - particularly useful
- for stubbing out implementations of the rooted components and simulating the
- software's interaction between multiple instances.</p>
-
- As a simplification, there is also a global context - if some component needs
- access to one of the singletons but doesn't have its own context from which
- to root itself, it binds to the I2PAppContext's globalAppContext(), which is
- the first context that was created within the JVM, or a new one if no context
- existed already.  This functionality is often used within the I2P core for 
- logging - e.g. <pre>
+<!doctype html><html lang=en><meta charset=utf-8><title>I2PAppContext (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../javadoc.css title=Style><script src=../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="I2PAppContext (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:10,i1:10,i2:10,i3:10,i4:10,i5:10,i6:10,i7:10,i8:10,i9:10,i10:10,i11:10,i12:10,i13:9,i14:10,i15:9,i16:10,i17:10,i18:10,i19:10,i20:10,i21:10,i22:10,i23:10,i24:10,i25:10,i26:10,i27:10,i28:10,i29:10,i30:10,i31:10,i32:10,i33:10,i34:10,i35:10,i36:10,i37:10,i38:10,i39:10,i40:10,i41:10,i42:10,i43:10,i44:10,i45:10,i46:9,i47:10,i48:10,i49:10,i50:10},tabs={65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PAppContext.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../index-all.html>Index</a><li><a href=../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../net/i2p/CoreVersion.html title="class in net.i2p"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../net/i2p/I2PException.html title="class in net.i2p"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../index.html?net/i2p/I2PAppContext.html target=_top>Frames</a><li><a href=I2PAppContext.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p</div><h2 title="Class I2PAppContext" class=title>Class I2PAppContext</h2></div><div class=contentContainer><ul class=inheritance><li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a><li><ul class=inheritance><li>net.i2p.I2PAppContext</ul></ul><div class=description><ul class=blockList><li class=blockList><dl><dt>Direct Known Subclasses:<dd><a href=../../net/i2p/router/RouterContext.html title="class in net.i2p.router">RouterContext</a></dl><hr><br><pre>public class <span class=typeNameLabel>I2PAppContext</span>
+extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre><div class=block><p>Provide a base scope for accessing singletons that I2P exposes. Rather than
+using the traditional singleton, where any component can access the component
+in question directly, all of those I2P related singletons are exposed through
+a particular I2PAppContext. This helps not only with understanding their use
+and the components I2P exposes, but it also allows multiple isolated
+environments to operate concurrently within the same JVM - particularly useful
+for stubbing out implementations of the rooted components and simulating the
+software's interaction between multiple instances.</p>As a simplification, there is also a global context - if some component needs
+access to one of the singletons but doesn't have its own context from which
+to root itself, it binds to the I2PAppContext's globalAppContext(), which is
+the first context that was created within the JVM, or a new one if no context
+existed already. This functionality is often used within the I2P core for
+logging - e.g.<pre>
      private static final Log _log = new Log(someClass.class);
- </pre>
- It is for this reason that applications that care about working with multiple
- contexts should build their own context as soon as possible (within the main(..))
- so that any referenced components will latch on to that context instead of 
- instantiating a new one.  However, there are situations in which both can be
- relevant.</div>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldSummary"><a id="field.summary">
-</a>
-<h2>Field Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="util/Clock.html" title="class in net.i2p.util">Clock</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_clock">_clock</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_clockInitialized">_clockInitialized</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected static <a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_globalAppContext">_globalAppContext</a></span></code></th>
-<td class="colLast">
-<div class="block">the context that components without explicit root are bound</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_keyRing">_keyRing</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_keyRingInitialized">_keyRingInitialized</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="util/I2PProperties.html" title="class in net.i2p.util">I2PProperties</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_overrideProps">_overrideProps</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="crypto/SessionKeyManager.html" title="class in net.i2p.crypto">SessionKeyManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_sessionKeyManager">_sessionKeyManager</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_sessionKeyManagerInitialized">_sessionKeyManagerInitialized</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#_shutdownTasks">_shutdownTasks</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorSummary"><a id="constructor.summary">
-</a>
-<h2>Constructor Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier</th>
-<th class="colSecond" scope="col">Constructor</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">I2PAppContext</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Create a brand new context.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(boolean,java.util.Properties)">I2PAppContext</a></span>&#8203;(boolean&nbsp;doInit,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</code></th>
-<td class="colLast">
-<div class="block">Create a brand new context.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.Properties)">I2PAppContext</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</code></th>
-<td class="colLast">
-<div class="block">Create a brand new context.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t1" class="tableTab" onclick="show(1);">Static Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t6" class="tableTab" onclick="show(32);">Deprecated Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">addPropertyCallback</a></span>&#8203;(<a href="util/I2PProperties.I2PPropertyCallback.html" title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</code></th>
-<td class="colLast">
-<div class="block">Add a callback, which will fire upon changes in the property
- given in the specific callback.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addShutdownTask(java.lang.Runnable)">addShutdownTask</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;task)</code></th>
-<td class="colLast">
-<div class="block">WARNING - Shutdown tasks are not executed in an I2PAppContext.</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code><a href="crypto/AESEngine.html" title="class in net.i2p.crypto">AESEngine</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#aes()">aes</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Ok, I'll admit it.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code><a href="app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clientAppManager()">clientAppManager</a></span>()</code></th>
-<td class="colLast">
-<div class="block">As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext.</div>
-</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code><a href="util/Clock.html" title="class in net.i2p.util">Clock</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clock()">clock</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The context's synchronized clock, which is kept context specific only to
- enable simulators to play with clock skew among different instances.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i5">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteTempDir()">deleteTempDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">don't rely on deleteOnExit()</div>
-</td>
-</tr>
-<tr class="altColor" id="i6">
-<td class="colFirst"><code><a href="crypto/DSAEngine.html" title="class in net.i2p.crypto">DSAEngine</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dsa()">dsa</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Our DSA engine (see HMAC and SHA above)</div>
-</td>
-</tr>
-<tr class="rowColor" id="i7">
-<td class="colFirst"><code><a href="crypto/ElGamalEngine.html" title="class in net.i2p.crypto">ElGamalEngine</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#elGamalEngine()">elGamalEngine</a></span>()</code></th>
-<td class="colLast">
-<div class="block">This is the ElGamal engine used within this context.</div>
-</td>
-</tr>
-<tr class="altColor" id="i8">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAppDir()">getAppDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Where applications may store data.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i9">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBaseDir()">getBaseDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">This is the installation dir, often referred to as $I2P.</div>
-</td>
-</tr>
-<tr class="altColor" id="i10">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBooleanProperty(java.lang.String)">getBooleanProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</code></th>
-<td class="colLast">
-<div class="block">Default false</div>
-</td>
-</tr>
-<tr class="rowColor" id="i11">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBooleanPropertyDefaultTrue(java.lang.String)">getBooleanPropertyDefaultTrue</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i12">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConfigDir()">getConfigDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The base dir for config files.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i13">
-<td class="colFirst"><code>static <a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCurrentContext()">getCurrentContext</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Pull the default context, WITHOUT creating a new one.</div>
-</td>
-</tr>
-<tr class="altColor" id="i14">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEstimatedDowntime()">getEstimatedDowntime</a></span>()</code></th>
-<td class="colLast">
-<div class="block">How long this router was down before it started, or 0 if unknown.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i15">
-<td class="colFirst"><code>static <a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGlobalContext()">getGlobalContext</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Pull the default context, creating a new one if necessary, else using 
- the first one created.</div>
-</td>
-</tr>
-<tr class="altColor" id="i16">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLogDir()">getLogDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Where the router keeps its log directory.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i17">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPIDDir()">getPIDDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Where router.ping goes.</div>
-</td>
-</tr>
-<tr class="altColor" id="i18">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperties()">getProperties</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Access the configuration attributes of this context, listing the properties 
- provided during the context construction, as well as the ones included in
- System.getProperties.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i19">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</code></th>
-<td class="colLast">
-<div class="block">Access the configuration attributes of this context, using properties 
- provided during the context construction, or falling back on 
- System.getProperty if no properties were provided during construction
- (or the specified prop wasn't included).</div>
-</td>
-</tr>
-<tr class="altColor" id="i20">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,boolean)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-boolean&nbsp;defaultVal)</code></th>
-<td class="colLast">
-<div class="block">Return a boolean with a boolean default</div>
-</td>
-</tr>
-<tr class="rowColor" id="i21">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,int)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-int&nbsp;defaultVal)</code></th>
-<td class="colLast">
-<div class="block">Return an int with an int default</div>
-</td>
-</tr>
-<tr class="altColor" id="i22">
-<td class="colFirst"><code>long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,long)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-long&nbsp;defaultVal)</code></th>
-<td class="colLast">
-<div class="block">Return a long with a long default</div>
-</td>
-</tr>
-<tr class="rowColor" id="i23">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProperty(java.lang.String,java.lang.String)">getProperty</a></span>&#8203;(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</code></th>
-<td class="colLast">
-<div class="block">Access the configuration attributes of this context, using properties 
- provided during the context construction, or falling back on 
- System.getProperty if no properties were provided during construction
- (or the specified prop wasn't included).</div>
-</td>
-</tr>
-<tr class="altColor" id="i24">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPropertyNames()">getPropertyNames</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Access the configuration attributes of this context, listing the properties 
- provided during the context construction, as well as the ones included in
- System.getProperties.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i25">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRouterDir()">getRouterDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Where the router keeps its files.</div>
-</td>
-</tr>
-<tr class="altColor" id="i26">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getShutdownTasks()">getShutdownTasks</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i27">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTempDir()">getTempDir</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Where anybody may store temporary data.</div>
-</td>
-</tr>
-<tr class="altColor" id="i28">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasWrapper()">hasWrapper</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Is the wrapper present?</div>
-</td>
-</tr>
-<tr class="rowColor" id="i29">
-<td class="colFirst"><code><a href="crypto/HMAC256Generator.html" title="class in net.i2p.crypto">HMAC256Generator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hmac256()">hmac256</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Un-deprecated in 0.9.38</div>
-</td>
-</tr>
-<tr class="altColor" id="i30">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeClock()">initializeClock</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i31">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeKeyRing()">initializeKeyRing</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i32">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeSessionKeyManager()">initializeSessionKeyManager</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i33">
-<td class="colFirst"><code><a href="internal/InternalClientManager.html" title="interface in net.i2p.internal">InternalClientManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#internalClientManager()">internalClientManager</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Use this to connect to the router in the same JVM.</div>
-</td>
-</tr>
-<tr class="altColor" id="i34">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isRouterContext()">isRouterContext</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Use this instead of context instanceof RouterContext</div>
-</td>
-</tr>
-<tr class="rowColor" id="i35">
-<td class="colFirst"><code><a href="crypto/KeyGenerator.html" title="class in net.i2p.crypto">KeyGenerator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyGenerator()">keyGenerator</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Component to generate ElGamal, DSA, and Session keys.</div>
-</td>
-</tr>
-<tr class="altColor" id="i36">
-<td class="colFirst"><code><a href="util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyRing()">keyRing</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Basic hash map</div>
-</td>
-</tr>
-<tr class="rowColor" id="i37">
-<td class="colFirst"><code><a href="util/LogManager.html" title="class in net.i2p.util">LogManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#logManager()">logManager</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Query the log manager for this context, which may in turn have its own
- set of configuration settings (loaded from the context's properties).</div>
-</td>
-</tr>
-<tr class="altColor" id="i38">
-<td class="colFirst"><code><a href="client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#namingService()">namingService</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Pull up the naming service used in this context.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i39">
-<td class="colFirst"><code><a href="util/PortMapper.html" title="class in net.i2p.util">PortMapper</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#portMapper()">portMapper</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Basic mapping from service names to ports</div>
-</td>
-</tr>
-<tr class="altColor" id="i40">
-<td class="colFirst"><code><a href="util/RandomSource.html" title="class in net.i2p.util">RandomSource</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#random()">random</a></span>()</code></th>
-<td class="colLast">
-<div class="block">[insert snarky comment here]</div>
-</td>
-</tr>
-<tr class="rowColor" id="i41">
-<td class="colFirst"><code><a href="data/RoutingKeyGenerator.html" title="class in net.i2p.data">RoutingKeyGenerator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#routingKeyGenerator()">routingKeyGenerator</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Determine how much do we want to mess with the keys to turn them 
- into something we can route.</div>
-</td>
-</tr>
-<tr class="altColor" id="i42">
-<td class="colFirst"><code><a href="crypto/SessionKeyManager.html" title="class in net.i2p.crypto">SessionKeyManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sessionKeyManager()">sessionKeyManager</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The session key manager which coordinates the sessionKey / sessionTag
- data.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i43">
-<td class="colFirst"><code>protected static boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGlobalContext(net.i2p.I2PAppContext)">setGlobalContext</a></span>&#8203;(<a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</code></th>
-<td class="colLast">
-<div class="block">Sets the default context, unless there is one already.</div>
-</td>
-</tr>
-<tr class="altColor" id="i44">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLogManager(net.i2p.util.LogManager)">setLogManager</a></span>&#8203;(<a href="util/LogManager.html" title="class in net.i2p.util">LogManager</a>&nbsp;logManager)</code></th>
-<td class="colLast">
-<div class="block">Overwrites the LogManager instance to be used by the router.</div>
-</td>
-</tr>
-<tr class="rowColor" id="i45">
-<td class="colFirst"><code><a href="crypto/SHA256Generator.html" title="class in net.i2p.crypto">SHA256Generator</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sha()">sha</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Our SHA256 instance (see the hmac discussion for why its context specific)</div>
-</td>
-</tr>
-<tr class="altColor" id="i46">
-<td class="colFirst"><code><a href="util/SimpleScheduler.html" title="class in net.i2p.util">SimpleScheduler</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#simpleScheduler()">simpleScheduler</a></span>()</code></th>
-<td class="colLast">
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">in 0.9.20, use simpleTimer2()</div>
-</div>
-</td>
-</tr>
-<tr class="rowColor" id="i47">
-<td class="colFirst"><code><a href="util/SimpleTimer.html" title="class in net.i2p.util">SimpleTimer</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#simpleTimer()">simpleTimer</a></span>()</code></th>
-<td class="colLast">
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">use SimpleTimer2</div>
-</div>
-</td>
-</tr>
-<tr class="altColor" id="i48">
-<td class="colFirst"><code><a href="util/SimpleTimer2.html" title="class in net.i2p.util">SimpleTimer2</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#simpleTimer2()">simpleTimer2</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Use instead of SimpleTimer2.getInstance()</div>
-</td>
-</tr>
-<tr class="rowColor" id="i49">
-<td class="colFirst"><code><a href="stat/StatManager.html" title="class in net.i2p.stat">StatManager</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#statManager()">statManager</a></span>()</code></th>
-<td class="colLast">
-<div class="block">The statistics component with which we can track various events
- over time.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<a id="methods.inherited.from.class.java.lang.Object">
-</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="fieldDetails"><a id="field.detail">
-</a>
-<h2>Field Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="_globalAppContext">_globalAppContext</a></h3>
-<div class="memberSignature"><span class="modifiers">protected static volatile</span>&nbsp;<span class="returnType"><a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">_globalAppContext</span></div>
-<div class="block">the context that components without explicit root are bound</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_overrideProps">_overrideProps</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="util/I2PProperties.html" title="class in net.i2p.util">I2PProperties</a></span>&nbsp;<span class="memberName">_overrideProps</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_sessionKeyManager">_sessionKeyManager</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="crypto/SessionKeyManager.html" title="class in net.i2p.crypto">SessionKeyManager</a></span>&nbsp;<span class="memberName">_sessionKeyManager</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_clock">_clock</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="util/Clock.html" title="class in net.i2p.util">Clock</a></span>&nbsp;<span class="memberName">_clock</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_keyRing">_keyRing</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType"><a href="util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></span>&nbsp;<span class="memberName">_keyRing</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_sessionKeyManagerInitialized">_sessionKeyManagerInitialized</a></h3>
-<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">_sessionKeyManagerInitialized</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_clockInitialized">_clockInitialized</a></h3>
-<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">_clockInitialized</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_keyRingInitialized">_keyRingInitialized</a></h3>
-<div class="memberSignature"><span class="modifiers">protected volatile</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">_keyRingInitialized</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="_shutdownTasks">_shutdownTasks</a></h3>
-<div class="memberSignature"><span class="modifiers">protected final</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</span>&nbsp;<span class="memberName">_shutdownTasks</span></div>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="constructorDetails"><a id="constructor.detail">
-</a>
-<h2>Constructor Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;()">I2PAppContext</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PAppContext</span>()</div>
-<div class="block">Create a brand new context.
- WARNING: In almost all cases, you should use getGlobalContext() instead,
- to avoid creating additional contexts, which may spawn numerous
- additional resources and threads, and may be the cause of logging
- problems or hard-to-isolate bugs.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(java.util.Properties)">I2PAppContext</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">I2PAppContext</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</span></div>
-<div class="block">Create a brand new context.
- WARNING: In almost all cases, you should use getGlobalContext() instead,
- to avoid creating additional contexts, which may spawn numerous
- additional resources and threads, and may be the cause of logging
- problems or hard-to-isolate bugs.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(boolean,java.util.Properties)">I2PAppContext</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="memberName">I2PAppContext</span>&#8203;(<span class="arguments">boolean&nbsp;doInit,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a>&nbsp;envProps)</span></div>
-<div class="block">Create a brand new context.
- WARNING: In almost all cases, you should use getGlobalContext() instead,
- to avoid creating additional contexts, which may spawn numerous
- additional resources and threads, and may be the cause of logging
- problems or hard-to-isolate bugs.
-
- NOT a public API, for use by RouterContext only, NOT for external use.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>doInit</code> - should this context be used as the global one (if necessary)?
-               Will only apply if there is no global context now.</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>protected since 0.9.33, NOT for external use</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="getGlobalContext()">getGlobalContext</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">getGlobalContext</span>()</div>
-<div class="block">Pull the default context, creating a new one if necessary, else using 
- the first one created.
-
- Warning - do not save the returned value, or the value of any methods below,
- in a static field, or you will get the old context if a new router is
- started in the same JVM after the first is shut down,
- e.g. on Android.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setGlobalContext(net.i2p.I2PAppContext)">setGlobalContext</a></h3>
-<div class="memberSignature"><span class="modifiers">protected static</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">setGlobalContext</span>&#8203;(<span class="arguments"><a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</span></div>
-<div class="block">Sets the default context, unless there is one already.
- NOT a public API, for use by RouterContext only, NOT for external use.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ctx</code> - context constructed with doInit = false</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>success (false if previously set)</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.33</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getCurrentContext()">getCurrentContext</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="I2PAppContext.html" title="class in net.i2p">I2PAppContext</a></span>&nbsp;<span class="memberName">getCurrentContext</span>()</div>
-<div class="block">Pull the default context, WITHOUT creating a new one.
- Use this in static methods used early in router initialization,
- where creating a context messes things up.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>context or null</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.2</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getBaseDir()">getBaseDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getBaseDir</span>()</div>
-<div class="block">This is the installation dir, often referred to as $I2P.
-  Applilcations should consider this directory read-only and never
-  attempt to write to it.
-  It may actually be read-only on a multi-user installation.
-  The config files in this directory are templates for user
-  installations and should not be accessed by applications.
-  The only thing that may be useful in here is the lib/ dir
-  containing the .jars.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getConfigDir()">getConfigDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getConfigDir</span>()</div>
-<div class="block">The base dir for config files.
-  Applications may use this to access router configuration files if necessary.
-  Usually ~/.i2p on Linux and %APPDIR%\I2P on Windows.
-  In installations originally installed with 0.7.5 or earlier, and in
-  "portable" installations, this will be the same as the base dir.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getRouterDir()">getRouterDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getRouterDir</span>()</div>
-<div class="block">Where the router keeps its files.
-  Applications should not use this.
-  The same as the config dir for now.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getPIDDir()">getPIDDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getPIDDir</span>()</div>
-<div class="block">Where router.ping goes.
-  Applications should not use this.
-  The same as the router dir by default as of 0.8.12
-  Was the same as the system temp dir prior to that.
-  Which was a problem for multi-user installations.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getLogDir()">getLogDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getLogDir</span>()</div>
-<div class="block">Where the router keeps its log directory.
-  Applications should not use this.
-  The same as the config dir for now.
-  (i.e. ~/.i2p, NOT ~/.i2p/logs)</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getAppDir()">getAppDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getAppDir</span>()</div>
-<div class="block">Where applications may store data.
-  The same as the config dir for now, but may change in the future.
-  Apps should be careful not to overwrite router files.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTempDir()">getTempDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io" class="externalLink">File</a></span>&nbsp;<span class="memberName">getTempDir</span>()</div>
-<div class="block">Where anybody may store temporary data.
-  This is a directory created in the system temp dir on the
-  first call in this context, and is deleted on JVM exit.
-  Applications should create their own directory inside this directory
-  to avoid collisions with other apps.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>dir constant for the life of the context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.6</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="deleteTempDir()">deleteTempDir</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">deleteTempDir</span>()</div>
-<div class="block">don't rely on deleteOnExit()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperty(java.lang.String)">getProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</span></div>
-<div class="block">Access the configuration attributes of this context, using properties 
- provided during the context construction, or falling back on 
- System.getProperty if no properties were provided during construction
- (or the specified prop wasn't included).</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperty(java.lang.String,java.lang.String)">getProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;defaultValue)</span></div>
-<div class="block">Access the configuration attributes of this context, using properties 
- provided during the context construction, or falling back on 
- System.getProperty if no properties were provided during construction
- (or the specified prop wasn't included).</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperty(java.lang.String,int)">getProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">int</span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-int&nbsp;defaultVal)</span></div>
-<div class="block">Return an int with an int default</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperty(java.lang.String,long)">getProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-long&nbsp;defaultVal)</span></div>
-<div class="block">Return a long with a long default</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.4</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperty(java.lang.String,boolean)">getProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName,
-boolean&nbsp;defaultVal)</span></div>
-<div class="block">Return a boolean with a boolean default</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.12</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getBooleanProperty(java.lang.String)">getBooleanProperty</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getBooleanProperty</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</span></div>
-<div class="block">Default false</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.12</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getBooleanPropertyDefaultTrue(java.lang.String)">getBooleanPropertyDefaultTrue</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getBooleanPropertyDefaultTrue</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;propName)</span></div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.12</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getPropertyNames()">getPropertyNames</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;</span>&nbsp;<span class="memberName">getPropertyNames</span>()</div>
-<div class="block">Access the configuration attributes of this context, listing the properties 
- provided during the context construction, as well as the ones included in
- System.getProperties.
-
- WARNING - not overridden in RouterContext, doesn't contain router config settings,
- use getProperties() instead.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>set of Strings containing the names of defined system properties</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getProperties()">getProperties</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util" class="externalLink">Properties</a></span>&nbsp;<span class="memberName">getProperties</span>()</div>
-<div class="block">Access the configuration attributes of this context, listing the properties 
- provided during the context construction, as well as the ones included in
- System.getProperties.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>new Properties with system and context properties</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.4</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="addPropertyCallback(net.i2p.util.I2PProperties.I2PPropertyCallback)">addPropertyCallback</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addPropertyCallback</span>&#8203;(<span class="arguments"><a href="util/I2PProperties.I2PPropertyCallback.html" title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</span></div>
-<div class="block">Add a callback, which will fire upon changes in the property
- given in the specific callback.
- Unimplemented in I2PAppContext: this only makes sense in a router context.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>callback</code> - The implementation of the callback.</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="statManager()">statManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="stat/StatManager.html" title="class in net.i2p.stat">StatManager</a></span>&nbsp;<span class="memberName">statManager</span>()</div>
-<div class="block">The statistics component with which we can track various events
- over time.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sessionKeyManager()">sessionKeyManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/SessionKeyManager.html" title="class in net.i2p.crypto">SessionKeyManager</a></span>&nbsp;<span class="memberName">sessionKeyManager</span>()</div>
-<div class="block">The session key manager which coordinates the sessionKey / sessionTag
- data.  This component allows transparent operation of the 
- ElGamal/AES+SessionTag algorithm, and contains all of the session tags
- for one particular application.
-
- This is deprecated for client use, it should be used only by the router
- as its own key manager. Not that clients are doing end-to-end crypto anyway.
-
- For client crypto within the router,
- use RouterContext.clientManager.getClientSessionKeyManager(dest)
-
- As of 0.9.15, this returns a dummy SessionKeyManager in I2PAppContext.
- The dummy SKM does NOT handle session tags.
- Overridden in RouterContext to return the full TransientSessionKeyManager.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="initializeSessionKeyManager()">initializeSessionKeyManager</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeSessionKeyManager</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="namingService()">namingService</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="client/naming/NamingService.html" title="class in net.i2p.client.naming">NamingService</a></span>&nbsp;<span class="memberName">namingService</span>()</div>
-<div class="block">Pull up the naming service used in this context.  The naming service itself
- works by querying the context's properties, so those props should be 
- specified to customize the naming service exposed.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="elGamalEngine()">elGamalEngine</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/ElGamalEngine.html" title="class in net.i2p.crypto">ElGamalEngine</a></span>&nbsp;<span class="memberName">elGamalEngine</span>()</div>
-<div class="block">This is the ElGamal engine used within this context.  While it doesn't
- really have anything substantial that is context specific (the algorithm
- just does the algorithm), it does transparently use the context for logging
- its performance and activity.  In addition, the engine can be swapped with
- the context's properties (though only someone really crazy should mess with
- it ;)</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="aes()">aes</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/AESEngine.html" title="class in net.i2p.crypto">AESEngine</a></span>&nbsp;<span class="memberName">aes</span>()</div>
-<div class="block">Ok, I'll admit it.  there is no good reason for having a context specific
- AES engine.  We dont really keep stats on it, since its just too fast to
- matter.  Though for the crazy people out there, we do expose a way to 
- disable it.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="logManager()">logManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/LogManager.html" title="class in net.i2p.util">LogManager</a></span>&nbsp;<span class="memberName">logManager</span>()</div>
-<div class="block">Query the log manager for this context, which may in turn have its own
- set of configuration settings (loaded from the context's properties).  
- Each context's logManager keeps its own isolated set of Log instances with
- their own log levels, output locations, and rotation configuration.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setLogManager(net.i2p.util.LogManager)">setLogManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLogManager</span>&#8203;(<span class="arguments"><a href="util/LogManager.html" title="class in net.i2p.util">LogManager</a>&nbsp;logManager)</span></div>
-<div class="block">Overwrites the LogManager instance to be used by the router.
- This should only be called after the Router is instantiated but
- before it is started.  Calling this at any other time can have
- unpredictable side effects.</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.41</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="hmac256()">hmac256</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/HMAC256Generator.html" title="class in net.i2p.crypto">HMAC256Generator</a></span>&nbsp;<span class="memberName">hmac256</span>()</div>
-<div class="block">Un-deprecated in 0.9.38</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="sha()">sha</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/SHA256Generator.html" title="class in net.i2p.crypto">SHA256Generator</a></span>&nbsp;<span class="memberName">sha</span>()</div>
-<div class="block">Our SHA256 instance (see the hmac discussion for why its context specific)</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="dsa()">dsa</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/DSAEngine.html" title="class in net.i2p.crypto">DSAEngine</a></span>&nbsp;<span class="memberName">dsa</span>()</div>
-<div class="block">Our DSA engine (see HMAC and SHA above)</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="keyGenerator()">keyGenerator</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="crypto/KeyGenerator.html" title="class in net.i2p.crypto">KeyGenerator</a></span>&nbsp;<span class="memberName">keyGenerator</span>()</div>
-<div class="block">Component to generate ElGamal, DSA, and Session keys.  For why it is in
- the appContext, see the DSA, HMAC, and SHA comments above.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="clock()">clock</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/Clock.html" title="class in net.i2p.util">Clock</a></span>&nbsp;<span class="memberName">clock</span>()</div>
-<div class="block">The context's synchronized clock, which is kept context specific only to
- enable simulators to play with clock skew among different instances.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="initializeClock()">initializeClock</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeClock</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="routingKeyGenerator()">routingKeyGenerator</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="data/RoutingKeyGenerator.html" title="class in net.i2p.data">RoutingKeyGenerator</a></span>&nbsp;<span class="memberName">routingKeyGenerator</span>()</div>
-<div class="block">Determine how much do we want to mess with the keys to turn them 
- into something we can route.  This is context specific because we 
- may want to test out how things react when peers don't agree on 
- how to skew.
-
- As of 0.9.16, returns null in I2PAppContext.
- You must be in RouterContext to get a generator.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>null always</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="keyRing()">keyRing</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/KeyRing.html" title="class in net.i2p.util">KeyRing</a></span>&nbsp;<span class="memberName">keyRing</span>()</div>
-<div class="block">Basic hash map</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="initializeKeyRing()">initializeKeyRing</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">initializeKeyRing</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="random()">random</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/RandomSource.html" title="class in net.i2p.util">RandomSource</a></span>&nbsp;<span class="memberName">random</span>()</div>
-<div class="block">[insert snarky comment here]</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="addShutdownTask(java.lang.Runnable)">addShutdownTask</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">addShutdownTask</span>&#8203;(<span class="arguments"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&nbsp;task)</span></div>
-<div class="block">WARNING - Shutdown tasks are not executed in an I2PAppContext.
-  You must be in a RouterContext for the tasks to be executed
-  at shutdown.
-  This method moved from Router in 0.7.1 so that clients
-  may use it without depending on router.jar.</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getShutdownTasks()">getShutdownTasks</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util" class="externalLink">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang" class="externalLink">Runnable</a>&gt;</span>&nbsp;<span class="memberName">getShutdownTasks</span>()</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an unmodifiable Set</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.1</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="isRouterContext()">isRouterContext</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">isRouterContext</span>()</div>
-<div class="block">Use this instead of context instanceof RouterContext</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.7.9</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="internalClientManager()">internalClientManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="internal/InternalClientManager.html" title="interface in net.i2p.internal">InternalClientManager</a></span>&nbsp;<span class="memberName">internalClientManager</span>()</div>
-<div class="block">Use this to connect to the router in the same JVM.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>always null in I2PAppContext, the client manager if in RouterContext</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.3</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="hasWrapper()">hasWrapper</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">hasWrapper</span>()</div>
-<div class="block">Is the wrapper present?</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.8</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="portMapper()">portMapper</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/PortMapper.html" title="class in net.i2p.util">PortMapper</a></span>&nbsp;<span class="memberName">portMapper</span>()</div>
-<div class="block">Basic mapping from service names to ports</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.8.12</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="simpleScheduler()">simpleScheduler</a></h3>
-<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/SimpleScheduler.html" title="class in net.i2p.util">SimpleScheduler</a></span>&nbsp;<span class="memberName">simpleScheduler</span>()</div>
-<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">in 0.9.20, use simpleTimer2()</div>
-</div>
-<div class="block">Use instead of SimpleScheduler.getInstance()</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9 to replace static instance in the class</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="simpleTimer()">simpleTimer</a></h3>
-<div class="memberSignature"><span class="annotations"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang" class="externalLink">@Deprecated</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/SimpleTimer.html" title="class in net.i2p.util">SimpleTimer</a></span>&nbsp;<span class="memberName">simpleTimer</span>()</div>
-<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">use SimpleTimer2</div>
-</div>
-<div class="block">Use instead of SimpleTimer.getInstance()</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9 to replace static instance in the class</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="simpleTimer2()">simpleTimer2</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="util/SimpleTimer2.html" title="class in net.i2p.util">SimpleTimer2</a></span>&nbsp;<span class="memberName">simpleTimer2</span>()</div>
-<div class="block">Use instead of SimpleTimer2.getInstance()</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9 to replace static instance in the class</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="clientAppManager()">clientAppManager</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="app/ClientAppManager.html" title="interface in net.i2p.app">ClientAppManager</a></span>&nbsp;<span class="memberName">clientAppManager</span>()</div>
-<div class="block">As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext.
-  Prior to that, returned null always.
-  Overridden in RouterContext to return the RouterAppManager.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.11, in RouterContext since 0.9.4</dd>
-</dl>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getEstimatedDowntime()">getEstimatedDowntime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">long</span>&nbsp;<span class="memberName">getEstimatedDowntime</span>()</div>
-<div class="block">How long this router was down before it started, or 0 if unknown.
-
-  This may be used for a determination of whether to regenerate keys, for example.
-  We use the timestamp of the previous ping file left behind on crash,
-  as set by isOnlyRouterRunning(), if present.
-  Otherwise, the last STOPPED entry in the event log.
-
-  May take a while to run the first time, if it has to go through the event log.
-  Once called, the result is cached.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>0 always in app context</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.0.47</dd>
-</dl>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/I2PAppContext.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../index-files/index-1.html">Index</a></li>
-<li><a href="../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+ </pre>It is for this reason that applications that care about working with multiple
+contexts should build their own context as soon as possible (within the main(..))
+so that any referenced components will latch on to that context instead of
+instantiating a new one. However, there are situations in which both can be
+relevant.</div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.summary></a><h3>Field Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Field Summary table, listing fields, and an explanation"><caption><span>Fields</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Field and Description<tr class=altColor><td class=colFirst><code>protected <a href=../../net/i2p/util/Clock.html title="class in net.i2p.util">Clock</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_clock>_clock</a></span></code><div class=block>The context clock, overridden in RouterContext</div><tr class=rowColor><td class=colFirst><code>protected boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_clockInitialized>_clockInitialized</a></span></code><div class=block>Whether the clock is initialized, used in RouterContext</div><tr class=altColor><td class=colFirst><code>protected static <a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_globalAppContext>_globalAppContext</a></span></code><div class=block>The context that components without explicit root are bound</div><tr class=rowColor><td class=colFirst><code>protected <a href=../../net/i2p/util/KeyRing.html title="class in net.i2p.util">KeyRing</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_keyRing>_keyRing</a></span></code><div class=block>The key ring, overridden in RouterContext</div><tr class=altColor><td class=colFirst><code>protected boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_keyRingInitialized>_keyRingInitialized</a></span></code><div class=block>Whether the key ring is initialized, used in RouterContext</div><tr class=rowColor><td class=colFirst><code>protected <a href=../../net/i2p/util/I2PProperties.html title="class in net.i2p.util">I2PProperties</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_overrideProps>_overrideProps</a></span></code><div class=block>Override properties for this context</div><tr class=altColor><td class=colFirst><code>protected <a href=../../net/i2p/crypto/SessionKeyManager.html title="class in net.i2p.crypto">SessionKeyManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_sessionKeyManager>_sessionKeyManager</a></span></code><div class=block>The session key manager</div><tr class=rowColor><td class=colFirst><code>protected boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_sessionKeyManagerInitialized>_sessionKeyManagerInitialized</a></span></code><div class=block>Whether the session key manager has been initialized.</div><tr class=altColor><td class=colFirst><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#Z:Z_shutdownTasks>_shutdownTasks</a></span></code><div class=block>Shutdown tasks to run on context shutdown</div></table></ul><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colFirst scope=col>Modifier<th class=colLast scope=col>Constructor and Description<tr class=altColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#I2PAppContext-->I2PAppContext</a></span>()</code><div class=block>Create a brand new context.</div><tr class=rowColor><td class=colFirst><code>protected</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#I2PAppContext-boolean-java.util.Properties->I2PAppContext</a></span>(boolean&nbsp;doInit,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;envProps)</code><div class=block>Create a brand new context.</div><tr class=altColor><td class=colFirst><code>&nbsp;</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#I2PAppContext-java.util.Properties->I2PAppContext</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;envProps)</code><div class=block>Create a brand new context.</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t1 class=tableTab><span><a href=javascript:show(1);>Static Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t4 class=tableTab><span><a href=javascript:show(8);>Concrete Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#addPropertyCallback-net.i2p.util.I2PProperties.I2PPropertyCallback->addPropertyCallback</a></span>(<a href=../../net/i2p/util/I2PProperties.I2PPropertyCallback.html title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</code><div class=block>Add a callback, which will fire upon changes in the property
+given in the specific callback.</div><tr id=i1 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#addShutdownTask-java.lang.Runnable->addShutdownTask</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&nbsp;task)</code><div class=block>WARNING - Shutdown tasks are not executed in an I2PAppContext.</div><tr id=i2 class=altColor><td class=colFirst><code><a href=../../net/i2p/crypto/AESEngine.html title="class in net.i2p.crypto">AESEngine</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#aes-->aes</a></span>()</code><div class=block>Ok, I'll admit it, there is no good reason for having a context specific AES engine.</div><tr id=i3 class=rowColor><td class=colFirst><code><a href=../../net/i2p/app/ClientAppManager.html title="interface in net.i2p.app">ClientAppManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#clientAppManager-->clientAppManager</a></span>()</code><div class=block>As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext.</div><tr id=i4 class=altColor><td class=colFirst><code><a href=../../net/i2p/util/Clock.html title="class in net.i2p.util">Clock</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#clock-->clock</a></span>()</code><div class=block>The context's synchronized clock, which is kept context specific only to
+enable simulators to play with clock skew among different instances.</div><tr id=i5 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#deleteTempDir-->deleteTempDir</a></span>()</code><div class=block>Don't rely on deleteOnExit()</div><tr id=i6 class=altColor><td class=colFirst><code><a href=../../net/i2p/crypto/DSAEngine.html title="class in net.i2p.crypto">DSAEngine</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#dsa-->dsa</a></span>()</code><div class=block>Our DSA engine (see HMAC and SHA above)</div><tr id=i7 class=rowColor><td class=colFirst><code><a href=../../net/i2p/crypto/ElGamalEngine.html title="class in net.i2p.crypto">ElGamalEngine</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#elGamalEngine-->elGamalEngine</a></span>()</code><div class=block>This is the ElGamal engine used within this context.</div><tr id=i8 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getAppDir-->getAppDir</a></span>()</code><div class=block>Where applications may store data.</div><tr id=i9 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getBaseDir-->getBaseDir</a></span>()</code><div class=block>This is the installation dir, often referred to as $I2P.</div><tr id=i10 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getBooleanProperty-java.lang.String->getBooleanProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</code><div class=block>Default false</div><tr id=i11 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getBooleanPropertyDefaultTrue-java.lang.String->getBooleanPropertyDefaultTrue</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</code><div class=block>Boolean property, defaulting to true if not set.</div><tr id=i12 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getConfigDir-->getConfigDir</a></span>()</code><div class=block>The base dir for config files.</div><tr id=i13 class=rowColor><td class=colFirst><code>static <a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getCurrentContext-->getCurrentContext</a></span>()</code><div class=block>Pull the default context, WITHOUT creating a new one.</div><tr id=i14 class=altColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getEstimatedDowntime-->getEstimatedDowntime</a></span>()</code><div class=block>How long this router was down before it started, or 0 if unknown.</div><tr id=i15 class=rowColor><td class=colFirst><code>static <a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getGlobalContext-->getGlobalContext</a></span>()</code><div class=block>Pull the default context, creating a new one if necessary, else using
+the first one created.</div><tr id=i16 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getLibDir-->getLibDir</a></span>()</code><div class=block>This is the library dir, which is usually $I2P/lib.</div><tr id=i17 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getLogDir-->getLogDir</a></span>()</code><div class=block>Where the router keeps its log directory.</div><tr id=i18 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getPIDDir-->getPIDDir</a></span>()</code><div class=block>Where router.ping goes.</div><tr id=i19 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperties-->getProperties</a></span>()</code><div class=block>Access the configuration attributes of this context, listing the properties
+provided during the context construction, as well as the ones included in
+System.getProperties.</div><tr id=i20 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</code><div class=block>Access the configuration attributes of this context, using properties
+provided during the context construction, or falling back on
+System.getProperty if no properties were provided during construction
+(or the specified prop wasn't included).</div><tr id=i21 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String-boolean->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+boolean&nbsp;defaultVal)</code><div class=block>Return a boolean with a boolean default</div><tr id=i22 class=altColor><td class=colFirst><code>float</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String-float->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+float&nbsp;defaultVal)</code><div class=block>Return a float with a float default</div><tr id=i23 class=rowColor><td class=colFirst><code>int</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String-int->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+int&nbsp;defaultVal)</code><div class=block>Return an int with an int default</div><tr id=i24 class=altColor><td class=colFirst><code>long</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String-long->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+long&nbsp;defaultVal)</code><div class=block>Return a long with a long default</div><tr id=i25 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getProperty-java.lang.String-java.lang.String->getProperty</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultValue)</code><div class=block>Access the configuration attributes of this context, using properties
+provided during the context construction, or falling back on
+System.getProperty if no properties were provided during construction
+(or the specified prop wasn't included).</div><tr id=i26 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getPropertyNames-->getPropertyNames</a></span>()</code><div class=block>Access the configuration attributes of this context, listing the properties
+provided during the context construction, as well as the ones included in
+System.getProperties.</div><tr id=i27 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getRouterDir-->getRouterDir</a></span>()</code><div class=block>Where the router keeps its files.</div><tr id=i28 class=altColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getShutdownTasks-->getShutdownTasks</a></span>()</code><div class=block>List of shutdown tasks.</div><tr id=i29 class=rowColor><td class=colFirst><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#getTempDir-->getTempDir</a></span>()</code><div class=block>Where anybody may store temporary data.</div><tr id=i30 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#hasWrapper-->hasWrapper</a></span>()</code><div class=block>Is the wrapper present?</div><tr id=i31 class=rowColor><td class=colFirst><code><a href=../../net/i2p/crypto/HMAC256Generator.html title="class in net.i2p.crypto">HMAC256Generator</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#hmac256-->hmac256</a></span>()</code><div class=block>Un-deprecated in 0.9.38</div><tr id=i32 class=altColor><td class=colFirst><code>protected void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#initializeClock-->initializeClock</a></span>()</code><div class=block>Initialize the clock.</div><tr id=i33 class=rowColor><td class=colFirst><code>protected void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#initializeKeyRing-->initializeKeyRing</a></span>()</code><div class=block>Initialize the key ring.</div><tr id=i34 class=altColor><td class=colFirst><code>protected void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#initializeSessionKeyManager-->initializeSessionKeyManager</a></span>()</code><div class=block>Initialize the session key manager.</div><tr id=i35 class=rowColor><td class=colFirst><code><a href=../../net/i2p/internal/InternalClientManager.html title="interface in net.i2p.internal">InternalClientManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#internalClientManager-->internalClientManager</a></span>()</code><div class=block>Use this to connect to the router in the same JVM.</div><tr id=i36 class=altColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#isRouterContext-->isRouterContext</a></span>()</code><div class=block>Use this instead of context instanceof RouterContext</div><tr id=i37 class=rowColor><td class=colFirst><code><a href=../../net/i2p/crypto/KeyGenerator.html title="class in net.i2p.crypto">KeyGenerator</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#keyGenerator-->keyGenerator</a></span>()</code><div class=block>Component to generate ElGamal, DSA, and Session keys.</div><tr id=i38 class=altColor><td class=colFirst><code><a href=../../net/i2p/util/KeyRing.html title="class in net.i2p.util">KeyRing</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#keyRing-->keyRing</a></span>()</code><div class=block>Basic hash map</div><tr id=i39 class=rowColor><td class=colFirst><code><a href=../../net/i2p/util/LogManager.html title="class in net.i2p.util">LogManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#logManager-->logManager</a></span>()</code><div class=block>Query the log manager for this context, which may in turn have its own
+set of configuration settings (loaded from the context's properties).</div><tr id=i40 class=altColor><td class=colFirst><code><a href=../../net/i2p/client/naming/NamingService.html title="class in net.i2p.client.naming">NamingService</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#namingService-->namingService</a></span>()</code><div class=block>Pull up the naming service used in this context.</div><tr id=i41 class=rowColor><td class=colFirst><code><a href=../../net/i2p/util/PortMapper.html title="class in net.i2p.util">PortMapper</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#portMapper-->portMapper</a></span>()</code><div class=block>Basic mapping from service names to ports</div><tr id=i42 class=altColor><td class=colFirst><code><a href=../../net/i2p/util/RandomSource.html title="class in net.i2p.util">RandomSource</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#random-->random</a></span>()</code><div class=block>[insert snarky comment here]</div><tr id=i43 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#removeShutdownTask-java.lang.Runnable->removeShutdownTask</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&nbsp;task)</code><div class=block>Remove a shutdown task.</div><tr id=i44 class=altColor><td class=colFirst><code><a href=../../net/i2p/data/RoutingKeyGenerator.html title="class in net.i2p.data">RoutingKeyGenerator</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#routingKeyGenerator-->routingKeyGenerator</a></span>()</code><div class=block>Determine how much do we want to mess with the keys to turn them
+into something we can route.</div><tr id=i45 class=rowColor><td class=colFirst><code><a href=../../net/i2p/crypto/SessionKeyManager.html title="class in net.i2p.crypto">SessionKeyManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#sessionKeyManager-->sessionKeyManager</a></span>()</code><div class=block>The session key manager which coordinates the sessionKey / sessionTag
+data.</div><tr id=i46 class=altColor><td class=colFirst><code>protected static boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#setGlobalContext-net.i2p.I2PAppContext->setGlobalContext</a></span>(<a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</code><div class=block>Default context, unless there is one already.</div><tr id=i47 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#setLogManager-net.i2p.util.LogManager->setLogManager</a></span>(<a href=../../net/i2p/util/LogManager.html title="class in net.i2p.util">LogManager</a>&nbsp;logManager)</code><div class=block>Overwrites the LogManager instance to be used by the router.</div><tr id=i48 class=altColor><td class=colFirst><code><a href=../../net/i2p/crypto/SHA256Generator.html title="class in net.i2p.crypto">SHA256Generator</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#sha-->sha</a></span>()</code><div class=block>Our SHA256 instance (see the hmac discussion for why its context specific)</div><tr id=i49 class=rowColor><td class=colFirst><code><a href=../../net/i2p/util/SimpleTimer2.html title="class in net.i2p.util">SimpleTimer2</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#simpleTimer2-->simpleTimer2</a></span>()</code><div class=block>Use instead of SimpleTimer2.getInstance()</div><tr id=i50 class=altColor><td class=colFirst><code><a href=../../net/i2p/stat/StatManager.html title="class in net.i2p.stat">StatManager</a></code><td class=colLast><code><span class=memberNameLink><a href=../../net/i2p/I2PAppContext.html#statManager-->statManager</a></span>()</code><div class=block>The statistics component with which we can track various events
+over time.</div></table><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.java.lang.Object></a><h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></ul></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=field.detail></a><h3>Field Detail</h3><a name=Z:Z_clock></a><ul class=blockList><li class=blockList><h4>_clock</h4><pre>protected&nbsp;<a href=../../net/i2p/util/Clock.html title="class in net.i2p.util">Clock</a> _clock</pre><div class=block>The context clock, overridden in RouterContext</div></ul><a name=Z:Z_clockInitialized></a><ul class=blockList><li class=blockList><h4>_clockInitialized</h4><pre>protected volatile&nbsp;boolean _clockInitialized</pre><div class=block>Whether the clock is initialized, used in RouterContext</div></ul><a name=Z:Z_globalAppContext></a><ul class=blockList><li class=blockList><h4>_globalAppContext</h4><pre>protected static volatile&nbsp;<a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a> _globalAppContext</pre><div class=block>The context that components without explicit root are bound</div></ul><a name=Z:Z_keyRing></a><ul class=blockList><li class=blockList><h4>_keyRing</h4><pre>protected&nbsp;<a href=../../net/i2p/util/KeyRing.html title="class in net.i2p.util">KeyRing</a> _keyRing</pre><div class=block>The key ring, overridden in RouterContext</div></ul><a name=Z:Z_keyRingInitialized></a><ul class=blockList><li class=blockList><h4>_keyRingInitialized</h4><pre>protected volatile&nbsp;boolean _keyRingInitialized</pre><div class=block>Whether the key ring is initialized, used in RouterContext</div></ul><a name=Z:Z_overrideProps></a><ul class=blockList><li class=blockList><h4>_overrideProps</h4><pre>protected final&nbsp;<a href=../../net/i2p/util/I2PProperties.html title="class in net.i2p.util">I2PProperties</a> _overrideProps</pre><div class=block>Override properties for this context</div></ul><a name=Z:Z_sessionKeyManager></a><ul class=blockList><li class=blockList><h4>_sessionKeyManager</h4><pre>protected&nbsp;<a href=../../net/i2p/crypto/SessionKeyManager.html title="class in net.i2p.crypto">SessionKeyManager</a> _sessionKeyManager</pre><div class=block>The session key manager</div></ul><a name=Z:Z_sessionKeyManagerInitialized></a><ul class=blockList><li class=blockList><h4>_sessionKeyManagerInitialized</h4><pre>protected volatile&nbsp;boolean _sessionKeyManagerInitialized</pre><div class=block>Whether the session key manager has been initialized.</div></ul><a name=Z:Z_shutdownTasks></a><ul class=blockListLast><li class=blockList><h4>_shutdownTasks</h4><pre>protected final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&gt; _shutdownTasks</pre><div class=block>Shutdown tasks to run on context shutdown</div></ul></ul><ul class=blockList><li class=blockList><a name=constructor.detail></a><h3>Constructor Detail</h3><a name=I2PAppContext--></a><ul class=blockList><li class=blockList><h4>I2PAppContext</h4><pre>public&nbsp;I2PAppContext()</pre><div class=block>Create a brand new context.
+WARNING: In almost all cases, you should use getGlobalContext() instead,
+to avoid creating additional contexts, which may spawn numerous
+additional resources and threads, and may be the cause of logging
+problems or hard-to-isolate bugs.</div></ul><a name=I2PAppContext-boolean-java.util.Properties-></a><ul class=blockList><li class=blockList><h4>I2PAppContext</h4><pre>protected&nbsp;I2PAppContext(boolean&nbsp;doInit,
+                        <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;envProps)</pre><div class=block>Create a brand new context.
+WARNING: In almost all cases, you should use getGlobalContext() instead,
+to avoid creating additional contexts, which may spawn numerous
+additional resources and threads, and may be the cause of logging
+problems or hard-to-isolate bugs.
+NOT a public API, for use by RouterContext only, NOT for external use.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>doInit</code> - should this context be used as the global one (if necessary)?
+Will only apply if there is no global context now.<dd><code>envProps</code> - environment properties, may be null</dl></ul><a name=I2PAppContext-java.util.Properties-></a><ul class=blockListLast><li class=blockList><h4>I2PAppContext</h4><pre>public&nbsp;I2PAppContext(<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;envProps)</pre><div class=block>Create a brand new context.
+WARNING: In almost all cases, you should use getGlobalContext() instead,
+to avoid creating additional contexts, which may spawn numerous
+additional resources and threads, and may be the cause of logging
+problems or hard-to-isolate bugs.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>envProps</code> - environment properties, may be null</dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=addPropertyCallback-net.i2p.util.I2PProperties.I2PPropertyCallback-></a><ul class=blockList><li class=blockList><h4>addPropertyCallback</h4><pre>public&nbsp;void&nbsp;addPropertyCallback(<a href=../../net/i2p/util/I2PProperties.I2PPropertyCallback.html title="interface in net.i2p.util">I2PProperties.I2PPropertyCallback</a>&nbsp;callback)</pre><div class=block>Add a callback, which will fire upon changes in the property
+given in the specific callback.
+Unimplemented in I2PAppContext: this only makes sense in a router context.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>callback</code> - The implementation of the callback.</dl></ul><a name=addShutdownTask-java.lang.Runnable-></a><ul class=blockList><li class=blockList><h4>addShutdownTask</h4><pre>public&nbsp;void&nbsp;addShutdownTask(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&nbsp;task)</pre><div class=block>WARNING - Shutdown tasks are not executed in an I2PAppContext.
+You must be in a RouterContext for the tasks to be executed
+at shutdown.
+This method moved from Router in 0.7.1 so that clients
+may use it without depending on router.jar.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>task</code> - the task</dl></ul><a name=aes--></a><ul class=blockList><li class=blockList><h4>aes</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/AESEngine.html title="class in net.i2p.crypto">AESEngine</a>&nbsp;aes()</pre><div class=block>Ok, I'll admit it, there is no good reason for having a context specific AES engine.
+We don't really keep stats on it, since its just too fast to matter.
+Though for the crazy people out there, we do expose a way to disable it.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the AES engine</dl></ul><a name=clientAppManager--></a><ul class=blockList><li class=blockList><h4>clientAppManager</h4><pre>public&nbsp;<a href=../../net/i2p/app/ClientAppManager.html title="interface in net.i2p.app">ClientAppManager</a>&nbsp;clientAppManager()</pre><div class=block>As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext.
+Prior to that, returned null always.
+Overridden in RouterContext to return the RouterAppManager.</div><dl><dt><span class=returnLabel>Returns:</span><dd>As of 0.9.30, returns non-null in I2PAppContext, null in RouterContext</dl></ul><a name=clock--></a><ul class=blockList><li class=blockList><h4>clock</h4><pre>public&nbsp;<a href=../../net/i2p/util/Clock.html title="class in net.i2p.util">Clock</a>&nbsp;clock()</pre><div class=block>The context's synchronized clock, which is kept context specific only to
+enable simulators to play with clock skew among different instances.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the clock</dl></ul><a name=deleteTempDir--></a><ul class=blockList><li class=blockList><h4>deleteTempDir</h4><pre>public&nbsp;void&nbsp;deleteTempDir()</pre><div class=block>Don't rely on deleteOnExit()</div></ul><a name=dsa--></a><ul class=blockList><li class=blockList><h4>dsa</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/DSAEngine.html title="class in net.i2p.crypto">DSAEngine</a>&nbsp;dsa()</pre><div class=block>Our DSA engine (see HMAC and SHA above)</div><dl><dt><span class=returnLabel>Returns:</span><dd>the DSA engine</dl></ul><a name=elGamalEngine--></a><ul class=blockList><li class=blockList><h4>elGamalEngine</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/ElGamalEngine.html title="class in net.i2p.crypto">ElGamalEngine</a>&nbsp;elGamalEngine()</pre><div class=block>This is the ElGamal engine used within this context. While it doesn't
+really have anything substantial that is context specific (the algorithm
+just does the algorithm), it does transparently use the context for logging
+its performance and activity. In addition, the engine can be swapped with
+the context's properties (though only someone really crazy should mess with
+it ;)</div><dl><dt><span class=returnLabel>Returns:</span><dd>the ElGamal engine</dl></ul><a name=getAppDir--></a><ul class=blockList><li class=blockList><h4>getAppDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getAppDir()</pre><div class=block>Where applications may store data.
+The same as the config dir for now, but may change in the future.
+Apps should be careful not to overwrite router files.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getBaseDir--></a><ul class=blockList><li class=blockList><h4>getBaseDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getBaseDir()</pre><div class=block>This is the installation dir, often referred to as $I2P.
+Applilcations should consider this directory read-only and never
+attempt to write to it.
+It may actually be read-only on a multi-user installation.
+The config files in this directory are templates for user
+installations and should not be accessed by applications.
+The only thing that may be useful in here is the lib/ dir
+containing the .jars.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getBooleanProperty-java.lang.String-></a><ul class=blockList><li class=blockList><h4>getBooleanProperty</h4><pre>public&nbsp;boolean&nbsp;getBooleanProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</pre><div class=block>Default false</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dt><span class=returnLabel>Returns:</span><dd>the boolean property</dl></ul><a name=getBooleanPropertyDefaultTrue-java.lang.String-></a><ul class=blockList><li class=blockList><h4>getBooleanPropertyDefaultTrue</h4><pre>public&nbsp;boolean&nbsp;getBooleanPropertyDefaultTrue(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</pre><div class=block>Boolean property, defaulting to true if not set.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dt><span class=returnLabel>Returns:</span><dd>the boolean property default true</dl></ul><a name=getConfigDir--></a><ul class=blockList><li class=blockList><h4>getConfigDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getConfigDir()</pre><div class=block>The base dir for config files.
+Applications may use this to access router configuration files if necessary.
+Usually ~/.i2p on Linux and %APPDIR%\I2P on Windows.
+In installations originally installed with 0.7.5 or earlier, and in
+"portable" installations, this will be the same as the base dir.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getCurrentContext--></a><ul class=blockList><li class=blockList><h4>getCurrentContext</h4><pre>public static&nbsp;<a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;getCurrentContext()</pre><div class=block>Pull the default context, WITHOUT creating a new one.
+Use this in static methods used early in router initialization,
+where creating a context messes things up.</div><dl><dt><span class=returnLabel>Returns:</span><dd>context or null</dl></ul><a name=getEstimatedDowntime--></a><ul class=blockList><li class=blockList><h4>getEstimatedDowntime</h4><pre>public&nbsp;long&nbsp;getEstimatedDowntime()</pre><div class=block>How long this router was down before it started, or 0 if unknown.
+This may be used for a determination of whether to regenerate keys, for example.
+We use the timestamp of the previous ping file left behind on crash,
+as set by isOnlyRouterRunning(), if present.
+Otherwise, the last STOPPED entry in the event log.
+May take a while to run the first time, if it has to go through the event log.
+Once called, the result is cached.</div><dl><dt><span class=returnLabel>Returns:</span><dd>0 always in app context</dl></ul><a name=getGlobalContext--></a><ul class=blockList><li class=blockList><h4>getGlobalContext</h4><pre>public static&nbsp;<a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;getGlobalContext()</pre><div class=block>Pull the default context, creating a new one if necessary, else using
+the first one created.
+Warning - do not save the returned value, or the value of any methods below,
+in a static field, or you will get the old context if a new router is
+started in the same JVM after the first is shut down,
+e.g. on Android.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the global context for this JVM</dl></ul><a name=getLibDir--></a><ul class=blockList><li class=blockList><h4>getLibDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getLibDir()</pre><div class=block>This is the library dir, which is usually $I2P/lib.
+It contains all the jars (i.e. the classpath).
+Most applications will not need this, and must treat this directory as read-only.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getLogDir--></a><ul class=blockList><li class=blockList><h4>getLogDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getLogDir()</pre><div class=block>Where the router keeps its log directory.
+Applications should not use this.
+The same as the config dir for now.
+(i.e. ~/.i2p, NOT ~/.i2p/logs)</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getPIDDir--></a><ul class=blockList><li class=blockList><h4>getPIDDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getPIDDir()</pre><div class=block>Where router.ping goes.
+Applications should not use this.
+The same as the router dir by default as of 0.8.12
+Was the same as the system temp dir prior to that.
+Which was a problem for multi-user installations.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getProperties--></a><ul class=blockList><li class=blockList><h4>getProperties</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;getProperties()</pre><div class=block>Access the configuration attributes of this context, listing the properties
+provided during the context construction, as well as the ones included in
+System.getProperties.</div><dl><dt><span class=returnLabel>Returns:</span><dd>new Properties with system and context properties</dl></ul><a name=getProperty-java.lang.String-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName)</pre><div class=block>Access the configuration attributes of this context, using properties
+provided during the context construction, or falling back on
+System.getProperty if no properties were provided during construction
+(or the specified prop wasn't included).</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dt><span class=returnLabel>Returns:</span><dd>the property value, or null</dl></ul><a name=getProperty-java.lang.String-boolean-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public final&nbsp;boolean&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                                 boolean&nbsp;defaultVal)</pre><div class=block>Return a boolean with a boolean default</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dd><code>defaultVal</code> - the default value<dt><span class=returnLabel>Returns:</span><dd>the property value, or the default</dl></ul><a name=getProperty-java.lang.String-float-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public final&nbsp;float&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                               float&nbsp;defaultVal)</pre><div class=block>Return a float with a float default</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dd><code>defaultVal</code> - the default value<dt><span class=returnLabel>Returns:</span><dd>the property value, or the default</dl></ul><a name=getProperty-java.lang.String-int-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public&nbsp;int&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                       int&nbsp;defaultVal)</pre><div class=block>Return an int with an int default</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dd><code>defaultVal</code> - the default value<dt><span class=returnLabel>Returns:</span><dd>the property value, or the default</dl></ul><a name=getProperty-java.lang.String-long-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public&nbsp;long&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                        long&nbsp;defaultVal)</pre><div class=block>Return a long with a long default</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dd><code>defaultVal</code> - the default value<dt><span class=returnLabel>Returns:</span><dd>the property value, or the default</dl></ul><a name=getProperty-java.lang.String-java.lang.String-></a><ul class=blockList><li class=blockList><h4>getProperty</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getProperty(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propName,
+                          <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultValue)</pre><div class=block>Access the configuration attributes of this context, using properties
+provided during the context construction, or falling back on
+System.getProperty if no properties were provided during construction
+(or the specified prop wasn't included).</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>propName</code> - the property name<dd><code>defaultValue</code> - the default value<dt><span class=returnLabel>Returns:</span><dd>the property value, or the default</dl></ul><a name=getPropertyNames--></a><ul class=blockList><li class=blockList><h4>getPropertyNames</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getPropertyNames()</pre><div class=block>Access the configuration attributes of this context, listing the properties
+provided during the context construction, as well as the ones included in
+System.getProperties.
+WARNING - not overridden in RouterContext, doesn't contain router config settings,
+use getProperties() instead.</div><dl><dt><span class=returnLabel>Returns:</span><dd>set of Strings containing the names of defined system properties</dl></ul><a name=getRouterDir--></a><ul class=blockList><li class=blockList><h4>getRouterDir</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getRouterDir()</pre><div class=block>Where the router keeps its files.
+Applications should not use this.
+The same as the config dir for now.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=getShutdownTasks--></a><ul class=blockList><li class=blockList><h4>getShutdownTasks</h4><pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&gt;&nbsp;getShutdownTasks()</pre><div class=block>List of shutdown tasks.</div><dl><dt><span class=returnLabel>Returns:</span><dd>an unmodifiable Set of shutdown tasks</dl></ul><a name=getTempDir--></a><ul class=blockList><li class=blockList><h4>getTempDir</h4><pre>public final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getTempDir()</pre><div class=block>Where anybody may store temporary data.
+This is a directory created in the system temp dir on the
+first call in this context, and is deleted on JVM exit.
+Applications should create their own directory inside this directory
+to avoid collisions with other apps.</div><dl><dt><span class=returnLabel>Returns:</span><dd>dir constant for the life of the context</dl></ul><a name=hasWrapper--></a><ul class=blockList><li class=blockList><h4>hasWrapper</h4><pre>public&nbsp;boolean&nbsp;hasWrapper()</pre><div class=block>Is the wrapper present?</div><dl><dt><span class=returnLabel>Returns:</span><dd>true if the wrapper is present</dl></ul><a name=hmac256--></a><ul class=blockList><li class=blockList><h4>hmac256</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/HMAC256Generator.html title="class in net.i2p.crypto">HMAC256Generator</a>&nbsp;hmac256()</pre><div class=block>Un-deprecated in 0.9.38</div><dl><dt><span class=returnLabel>Returns:</span><dd>the HMAC256 generator</dl></ul><a name=initializeClock--></a><ul class=blockList><li class=blockList><h4>initializeClock</h4><pre>protected&nbsp;void&nbsp;initializeClock()</pre><div class=block>Initialize the clock.</div></ul><a name=initializeKeyRing--></a><ul class=blockList><li class=blockList><h4>initializeKeyRing</h4><pre>protected&nbsp;void&nbsp;initializeKeyRing()</pre><div class=block>Initialize the key ring.</div></ul><a name=initializeSessionKeyManager--></a><ul class=blockList><li class=blockList><h4>initializeSessionKeyManager</h4><pre>protected&nbsp;void&nbsp;initializeSessionKeyManager()</pre><div class=block>Initialize the session key manager.</div></ul><a name=internalClientManager--></a><ul class=blockList><li class=blockList><h4>internalClientManager</h4><pre>public&nbsp;<a href=../../net/i2p/internal/InternalClientManager.html title="interface in net.i2p.internal">InternalClientManager</a>&nbsp;internalClientManager()</pre><div class=block>Use this to connect to the router in the same JVM.</div><dl><dt><span class=returnLabel>Returns:</span><dd>always null in I2PAppContext, the client manager if in RouterContext</dl></ul><a name=isRouterContext--></a><ul class=blockList><li class=blockList><h4>isRouterContext</h4><pre>public&nbsp;boolean&nbsp;isRouterContext()</pre><div class=block>Use this instead of context instanceof RouterContext</div><dl><dt><span class=returnLabel>Returns:</span><dd>false always in I2PAppContext</dl></ul><a name=keyGenerator--></a><ul class=blockList><li class=blockList><h4>keyGenerator</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/KeyGenerator.html title="class in net.i2p.crypto">KeyGenerator</a>&nbsp;keyGenerator()</pre><div class=block>Component to generate ElGamal, DSA, and Session keys. For why it is in
+the appContext, see the DSA, HMAC, and SHA comments above.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the key generator</dl></ul><a name=keyRing--></a><ul class=blockList><li class=blockList><h4>keyRing</h4><pre>public&nbsp;<a href=../../net/i2p/util/KeyRing.html title="class in net.i2p.util">KeyRing</a>&nbsp;keyRing()</pre><div class=block>Basic hash map</div><dl><dt><span class=returnLabel>Returns:</span><dd>the key ring</dl></ul><a name=logManager--></a><ul class=blockList><li class=blockList><h4>logManager</h4><pre>public&nbsp;<a href=../../net/i2p/util/LogManager.html title="class in net.i2p.util">LogManager</a>&nbsp;logManager()</pre><div class=block>Query the log manager for this context, which may in turn have its own
+set of configuration settings (loaded from the context's properties).
+Each context's logManager keeps its own isolated set of Log instances with
+their own log levels, output locations, and rotation configuration.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the log manager</dl></ul><a name=namingService--></a><ul class=blockList><li class=blockList><h4>namingService</h4><pre>public&nbsp;<a href=../../net/i2p/client/naming/NamingService.html title="class in net.i2p.client.naming">NamingService</a>&nbsp;namingService()</pre><div class=block>Pull up the naming service used in this context. The naming service itself
+works by querying the context's properties, so those props should be
+specified to customize the naming service exposed.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the naming service</dl></ul><a name=portMapper--></a><ul class=blockList><li class=blockList><h4>portMapper</h4><pre>public&nbsp;<a href=../../net/i2p/util/PortMapper.html title="class in net.i2p.util">PortMapper</a>&nbsp;portMapper()</pre><div class=block>Basic mapping from service names to ports</div><dl><dt><span class=returnLabel>Returns:</span><dd>the port mapper</dl></ul><a name=random--></a><ul class=blockList><li class=blockList><h4>random</h4><pre>public&nbsp;<a href=../../net/i2p/util/RandomSource.html title="class in net.i2p.util">RandomSource</a>&nbsp;random()</pre><div class=block>[insert snarky comment here]</div><dl><dt><span class=returnLabel>Returns:</span><dd>the random source</dl></ul><a name=removeShutdownTask-java.lang.Runnable-></a><ul class=blockList><li class=blockList><h4>removeShutdownTask</h4><pre>public&nbsp;void&nbsp;removeShutdownTask(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>&nbsp;task)</pre><div class=block>Remove a shutdown task.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>task</code> - the task</dl></ul><a name=routingKeyGenerator--></a><ul class=blockList><li class=blockList><h4>routingKeyGenerator</h4><pre>public&nbsp;<a href=../../net/i2p/data/RoutingKeyGenerator.html title="class in net.i2p.data">RoutingKeyGenerator</a>&nbsp;routingKeyGenerator()</pre><div class=block>Determine how much do we want to mess with the keys to turn them
+into something we can route. This is context specific because we
+may want to test out how things react when peers don't agree on
+how to skew.
+As of 0.9.16, returns null in I2PAppContext.
+You must be in RouterContext to get a generator.</div><dl><dt><span class=returnLabel>Returns:</span><dd>null always</dl></ul><a name=sessionKeyManager--></a><ul class=blockList><li class=blockList><h4>sessionKeyManager</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/SessionKeyManager.html title="class in net.i2p.crypto">SessionKeyManager</a>&nbsp;sessionKeyManager()</pre><div class=block>The session key manager which coordinates the sessionKey / sessionTag
+data. This component allows transparent operation of the
+ElGamal/AES+SessionTag algorithm, and contains all of the session tags
+for one particular application.
+This is deprecated for client use, it should be used only by the router
+as its own key manager. Not that clients are doing end-to-end crypto anyway.
+For client crypto within the router,
+use RouterContext.clientManager.getClientSessionKeyManager(dest)
+As of 0.9.15, this returns a dummy SessionKeyManager in I2PAppContext.
+The dummy SKM does NOT handle session tags.
+Overridden in RouterContext to return the full TransientSessionKeyManager.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the session key manager</dl></ul><a name=setGlobalContext-net.i2p.I2PAppContext-></a><ul class=blockList><li class=blockList><h4>setGlobalContext</h4><pre>protected static&nbsp;boolean&nbsp;setGlobalContext(<a href=../../net/i2p/I2PAppContext.html title="class in net.i2p">I2PAppContext</a>&nbsp;ctx)</pre><div class=block>Default context, unless there is one already.
+NOT a public API, for use by RouterContext only, NOT for external use.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>ctx</code> - context constructed with doInit = false<dt><span class=returnLabel>Returns:</span><dd>success (false if previously set)</dl></ul><a name=setLogManager-net.i2p.util.LogManager-></a><ul class=blockList><li class=blockList><h4>setLogManager</h4><pre>public&nbsp;void&nbsp;setLogManager(<a href=../../net/i2p/util/LogManager.html title="class in net.i2p.util">LogManager</a>&nbsp;logManager)</pre><div class=block>Overwrites the LogManager instance to be used by the router.
+This should only be called after the Router is instantiated but
+before it is started. Calling this at any other time can have
+unpredictable side effects.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>logManager</code> - the LogManager instance to use</dl></ul><a name=sha--></a><ul class=blockList><li class=blockList><h4>sha</h4><pre>public&nbsp;<a href=../../net/i2p/crypto/SHA256Generator.html title="class in net.i2p.crypto">SHA256Generator</a>&nbsp;sha()</pre><div class=block>Our SHA256 instance (see the hmac discussion for why its context specific)</div><dl><dt><span class=returnLabel>Returns:</span><dd>the SHA256 generator</dl></ul><a name=simpleTimer2--></a><ul class=blockList><li class=blockList><h4>simpleTimer2</h4><pre>public&nbsp;<a href=../../net/i2p/util/SimpleTimer2.html title="class in net.i2p.util">SimpleTimer2</a>&nbsp;simpleTimer2()</pre><div class=block>Use instead of SimpleTimer2.getInstance()</div><dl><dt><span class=returnLabel>Returns:</span><dd>the SimpleTimer2 instance</dl></ul><a name=statManager--></a><ul class=blockListLast><li class=blockList><h4>statManager</h4><pre>public&nbsp;<a href=../../net/i2p/stat/StatManager.html title="class in net.i2p.stat">StatManager</a>&nbsp;statManager()</pre><div class=block>The statistics component with which we can track various events
+over time.</div><dl><dt><span class=returnLabel>Returns:</span><dd>the stat manager</dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/I2PAppContext.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../index-all.html>Index</a><li><a href=../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../net/i2p/CoreVersion.html title="class in net.i2p"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../net/i2p/I2PException.html title="class in net.i2p"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../index.html?net/i2p/I2PAppContext.html target=_top>Frames</a><li><a href=I2PAppContext.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li><a href=#field.summary>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li><a href=#field.detail>Field</a>&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>

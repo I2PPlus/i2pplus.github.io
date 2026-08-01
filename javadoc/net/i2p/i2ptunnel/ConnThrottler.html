@@ -1,307 +1,33 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-<title>ConnThrottler - Javadocs [I2P+ 0.9.50]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: net.i2p.i2ptunnel, class: ConnThrottler">
-<meta name="generator" content="javadoc/ClassWriterImpl">
-<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
-<script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip/dist/jszip.min.js"></script>
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jszip-utils/dist/jszip-utils-ie.min.js"></script>
-
-<script type="text/javascript" src="../../../script-dir/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-ui.js"></script>
-</head>
-<body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
-var pathtoroot = "../../../";
-loadScripts(document, 'script');</script>
-<noscript>
-<style type="text/css">.script{display:none!important}</style>
-
-</noscript>
-<div class="flexBox">
-<header role="banner" class="flexHeader">
-<nav role="navigation">
-<div class="topNav"><a id="navbar.top">
-</a>
-<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.top.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/ConnThrottler.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-<div class="navListSearch script"><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</div>
-</div>
-<div class="skipNav"><a id="skip.navbar.top">
-</a></div>
-</nav>
-</header>
-<div class="flexContent">
-<main role="main">
-<div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">net.i2p.i2ptunnel</a></div>
-<h1 title="Class ConnThrottler" class="title">Class ConnThrottler</h1>
-</div>
-<div class="contentContainer">
-<div class="inheritance" title="Inheritance Tree"><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a>
-<div class="inheritance">net.i2p.i2ptunnel.ConnThrottler</div>
-</div>
-<section class="description">
-<hr>
-<pre>class <span class="typeNameLabel">ConnThrottler</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block">Count how often something happens with a particular peer and all peers.
- This offers basic DOS protection but is not a complete solution.
-
- This is a little different from the one in streaming, in that the
- ban time is different from the check time, and we keep a separate
- map of throttled peers with individual time stamps.
- The streaming version is lightweight but "sloppy" since it
- uses a single time bucket for all.</div>
-<dl>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>0.9.9</dd>
-</dl>
-</section>
-<section class="summary">
-<ul class="blockList">
-<li class="blockList">
-<section class="constructorSummary"><a id="constructor.summary">
-</a>
-<h2>Constructor Summary</h2>
-<div class="memberSummary">
-<table>
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<thead>
-<tr>
-<th class="colFirst" scope="col">Constructor</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,int,long,long,long,java.lang.String,net.i2p.util.Log)">ConnThrottler</a></span>&#8203;(int&nbsp;max,
+<!doctype html><html lang=en><meta charset=utf-8><title>ConnThrottler (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)</title><link rel=stylesheet href=../../../javadoc.css title=Style><script src=../../../script.js></script><script>try{location.href.indexOf("is-external=true")==-1&&(parent.document.title="ConnThrottler (Javadocs [I2P+ 2.13.0+] - API Version 0.9.70+)")}catch{}var methods={i0:10,i1:10,i2:10,i3:10,i4:10},tabs={65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]},altColor="altColor",rowColor="rowColor",tableTab="tableTab",activeTableTab="activeTableTab"</script><noscript><div>JavaScript is disabled on your browser.</div></noscript><div class=topNav><a name=navbar.top></a><div class=skipNav><a href=#skip.navbar.top title="Skip navigation links">Skip navigation links</a></div><a name=navbar.top.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/ConnThrottler.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/BlocklistManager.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/HttpHeaderFormatter.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/ConnThrottler.html target=_top>Frames</a><li><a href=ConnThrottler.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_top><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_top"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li>Field&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li>Field&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.top></a></div><div class=header><div class=subTitle>net.i2p.i2ptunnel</div><h2 title="Class ConnThrottler" class=title>Class ConnThrottler</h2></div><div class=contentContainer><ul class=inheritance><li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a><li><ul class=inheritance><li>net.i2p.i2ptunnel.ConnThrottler</ul></ul><div class=description><ul class=blockList><li class=blockList><hr><br><pre>class <span class=typeNameLabel>ConnThrottler</span>
+extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre><div class=block>Connection rate limiter providing basic DoS protection.<p>Counts events per peer and across all peers. Ban time differs from check time,
+with separate map of throttled peers and individual timestamps.<p>Differs from streaming version: more precise tracking vs. lightweight
+but "sloppy" single time bucket approach.</div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colOne scope=col>Constructor and Description<tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#ConnThrottler-int-int-long-long-long-java.lang.String-net.i2p.util.Log->ConnThrottler</a></span>(int&nbsp;max,
 int&nbsp;totalMax,
 long&nbsp;period,
 long&nbsp;throttlePeriod,
 long&nbsp;totalThrottlePeriod,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;action,
-<a href="../util/Log.html" title="class in net.i2p.util">Log</a>&nbsp;log)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</li>
-<li class="blockList">
-<section class="methodSummary"><a id="method.summary">
-</a>
-<h2>Method Summary</h2>
-<div class="memberSummary">
-<div class="script" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
-<thead>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Method</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="altColor" id="i0">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clear()">clear</a></span>()</code></th>
-<td class="colLast">
-<div class="block">start over</div>
-</td>
-</tr>
-<tr class="rowColor" id="i1">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldThrottle(net.i2p.data.Hash)">shouldThrottle</a></span>&#8203;(<a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</code></th>
-<td class="colLast">
-<div class="block">Checks both individual and total.</div>
-</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateLimits(int,int,long,long,long)">updateLimits</a></span>&#8203;(int&nbsp;max,
+<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action,
+<a href=../../../net/i2p/util/Log.html title="class in net.i2p.util">Log</a>&nbsp;log)</code><div class=block>Constructor.</div></table></ul><ul class=blockList><li class=blockList><a name=method.summary></a><h3>Method Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Method Summary table, listing methods, and an explanation"><caption><span id=t0 class=activeTableTab><span>All Methods</span><span class=tabEnd>&nbsp;</span></span><span id=t2 class=tableTab><span><a href=javascript:show(2);>Instance Methods</a></span><span class=tabEnd>&nbsp;</span></span><span id=t4 class=tableTab><span><a href=javascript:show(8);>Concrete Methods</a></span><span class=tabEnd>&nbsp;</span></span></caption><tr><th class=colFirst scope=col>Modifier and Type<th class=colLast scope=col>Method and Description<tr id=i0 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#clear-->clear</a></span>()</code><div class=block>Resets all throttling state.</div><tr id=i1 class=rowColor><td class=colFirst><code>boolean</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#shouldThrottle-net.i2p.data.Hash->shouldThrottle</a></span>(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h)</code><div class=block>Checks if a peer or the total connection rate exceeds configured limits.</div><tr id=i2 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#start-->start</a></span>()</code><div class=block>Starts the throttler by scheduling the cleanup timer.</div><tr id=i3 class=rowColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#stop-->stop</a></span>()</code><div class=block>Stops the throttler and resets all state.</div><tr id=i4 class=altColor><td class=colFirst><code>void</code><td class=colLast><code><span class=memberNameLink><a href=../../../net/i2p/i2ptunnel/ConnThrottler.html#updateLimits-int-int-long-long-long->updateLimits</a></span>(int&nbsp;max,
 int&nbsp;totalMax,
 long&nbsp;checkPeriod,
 long&nbsp;throttlePeriod,
-long&nbsp;totalThrottlePeriod)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="inheritedList">
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<a id="methods.inherited.from.class.java.lang.Object">
-</a><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang" class="externalLink">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang" class="externalLink">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></div>
-</section>
-</li>
-</ul>
-</section>
-<section class="details">
-<ul class="blockList">
-<li class="blockList">
-<section class="constructorDetails"><a id="constructor.detail">
-</a>
-<h2>Constructor Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="&lt;init&gt;(int,int,long,long,long,java.lang.String,net.i2p.util.Log)">ConnThrottler</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">ConnThrottler</span>&#8203;(<span class="arguments">int&nbsp;max,
-int&nbsp;totalMax,
-long&nbsp;period,
-long&nbsp;throttlePeriod,
-long&nbsp;totalThrottlePeriod,
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;action,
-<a href="../util/Log.html" title="class in net.i2p.util">Log</a>&nbsp;log)</span></div>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="methodDetails"><a id="method.detail">
-</a>
-<h2>Method Details</h2>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h3><a id="start()">start</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">start</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="stop()">stop</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">stop</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="updateLimits(int,int,long,long,long)">updateLimits</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">updateLimits</span>&#8203;(<span class="arguments">int&nbsp;max,
-int&nbsp;totalMax,
-long&nbsp;checkPeriod,
-long&nbsp;throttlePeriod,
-long&nbsp;totalThrottlePeriod)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="shouldThrottle(net.i2p.data.Hash)">shouldThrottle</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">shouldThrottle</span>&#8203;(<span class="arguments"><a href="../data/Hash.html" title="class in net.i2p.data">Hash</a>&nbsp;h)</span></div>
-<div class="block">Checks both individual and total. Increments before checking.</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="clear()">clear</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">clear</span>()</div>
-<div class="block">start over</div>
-</section>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</div>
-</main>
-<footer role="contentinfo">
-<nav role="navigation">
-<div class="bottomNav"><a id="navbar.bottom">
-</a>
-<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
-<a id="navbar.bottom.firstrow">
-</a>
-<ul class="navList" title="Navigation">
-<li><a href="../../../index.html">Overview</a></li>
-<li><a href="package-summary.html">Package</a></li>
-<li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/ConnThrottler.html">Use</a></li>
-<li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../deprecated-list.html">Deprecated</a></li>
-<li><a href="../../../index-files/index-1.html">Index</a></li>
-<li><a href="../../../help-doc.html">Help</a></li>
-</ul>
-</div>
-<div class="subNav">
-<div>
-<ul class="subNavList">
-<li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
-</ul>
-<ul class="subNavList">
-<li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
-</ul>
-</div>
-</div>
-<a id="skip.navbar.bottom">
-</a>
-</nav>
-</footer>
-</div>
-</div>
-</body>
-</html>
+long&nbsp;totalThrottlePeriod)</code><div class=block>Updates the rate limiting configuration.</div></table><ul class=blockList><li class=blockList><a name=methods.inherited.from.class.java.lang.Object></a><h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></ul></ul></ul></div><div class=details><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=constructor.detail></a><h3>Constructor Detail</h3><a name=ConnThrottler-int-int-long-long-long-java.lang.String-net.i2p.util.Log-></a><ul class=blockListLast><li class=blockList><h4>ConnThrottler</h4><pre>public&nbsp;ConnThrottler(int&nbsp;max,
+                     int&nbsp;totalMax,
+                     long&nbsp;period,
+                     long&nbsp;throttlePeriod,
+                     long&nbsp;totalThrottlePeriod,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action,
+                     <a href=../../../net/i2p/util/Log.html title="class in net.i2p.util">Log</a>&nbsp;log)</pre><div class=block>Constructor.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>max</code> - per-peer max, 0 for unlimited<dd><code>totalMax</code> - for all peers, 0 for unlimited<dd><code>period</code> - check window (ms)<dd><code>throttlePeriod</code> - how long to ban a peer (ms)<dd><code>totalThrottlePeriod</code> - how long to ban all peers (ms)<dd><code>action</code> - name to note in log<dd><code>log</code> - the logger</dl></ul></ul><ul class=blockList><li class=blockList><a name=method.detail></a><h3>Method Detail</h3><a name=clear--></a><ul class=blockList><li class=blockList><h4>clear</h4><pre>public&nbsp;void&nbsp;clear()</pre><div class=block>Resets all throttling state.<p>This method clears all peer records, resets the total connection counter,
+and clears the total throttle timer. After calling this method, all
+connections will be allowed until limits are exceeded again.</div></ul><a name=shouldThrottle-net.i2p.data.Hash-></a><ul class=blockList><li class=blockList><h4>shouldThrottle</h4><pre>public&nbsp;boolean&nbsp;shouldThrottle(<a href=../../../net/i2p/data/Hash.html title="class in net.i2p.data">Hash</a>&nbsp;h)</pre><div class=block>Checks if a peer or the total connection rate exceeds configured limits.<p>This method increments the connection counter for the given peer and
+checks if either the per-peer limit or the total connection limit has
+been exceeded. If a limit is exceeded, the peer (or all peers) is
+throttled for the configured throttle period.<p><b>Throttle Logic:</b><ul><li>Individual: If max connections exceeded in checkPeriod, throttle for throttlePeriod<li>Total: If total connections exceeded, throttle all for totalThrottlePeriod</ul></div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>h</code> - the peer's destination hash to check<dt><span class=returnLabel>Returns:</span><dd>true if the peer should be throttled (request denied), false otherwise</dl></ul><a name=start--></a><ul class=blockList><li class=blockList><h4>start</h4><pre>public&nbsp;void&nbsp;start()</pre><div class=block>Starts the throttler by scheduling the cleanup timer.<p>This method must be called to begin rate limiting. The cleanup timer
+will run periodically to check for expired throttles and clean up
+stale peer records.<p>If already started, this method has no effect.</div></ul><a name=stop--></a><ul class=blockList><li class=blockList><h4>stop</h4><pre>public&nbsp;void&nbsp;stop()</pre><div class=block>Stops the throttler and resets all state.<p>This method cancels the cleanup timer, clears all peer records,
+and resets the total connection counter. The throttler may be
+restarted by calling start() again.</div></ul><a name=updateLimits-int-int-long-long-long-></a><ul class=blockListLast><li class=blockList><h4>updateLimits</h4><pre>public&nbsp;void&nbsp;updateLimits(int&nbsp;max,
+                         int&nbsp;totalMax,
+                         long&nbsp;checkPeriod,
+                         long&nbsp;throttlePeriod,
+                         long&nbsp;totalThrottlePeriod)</pre><div class=block>Updates the rate limiting configuration.<p>All period values are enforced with a minimum of 10 seconds.</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>max</code> - the maximum number of connections per peer (0 for unlimited)<dd><code>totalMax</code> - the maximum total connections from all peers (0 for unlimited)<dd><code>checkPeriod</code> - the time window for counting connections, in milliseconds<dd><code>throttlePeriod</code> - how long to throttle individual peers, in milliseconds<dd><code>totalThrottlePeriod</code> - how long to throttle all peers, in milliseconds</dl></ul></ul></ul></div></div><div class=bottomNav><a name=navbar.bottom></a><div class=skipNav><a href=#skip.navbar.bottom title="Skip navigation links">Skip navigation links</a></div><a name=navbar.bottom.firstrow></a><ul class=navList title=Navigation><li><a href=../../../overview-summary.html>Overview</a><li><a href=package-summary.html>Package</a><li class=navBarCell1Rev>Class<li><a href=class-use/ConnThrottler.html>Use</a><li><a href=package-tree.html>Tree</a><li><a href=../../../index-all.html>Index</a><li><a href=../../../help-doc.html>Help</a></ul></div><div class=subNav><ul class=navList><li><a href=../../../net/i2p/i2ptunnel/BlocklistManager.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Prev&nbsp;Class</span></a><li><a href=../../../net/i2p/i2ptunnel/HttpHeaderFormatter.html title="class in net.i2p.i2ptunnel"><span class=typeNameLink>Next&nbsp;Class</span></a></ul><ul class=navList><li><a href=../../../index.html?net/i2p/i2ptunnel/ConnThrottler.html target=_top>Frames</a><li><a href=ConnThrottler.html target=_top>No&nbsp;Frames</a></ul><ul class=navList id=allclasses_navbar_bottom><li><a href=../../../allclasses-noframe.html>All&nbsp;Classes</a></ul><div><script>allClassesLink=document.getElementById("allclasses_navbar_bottom"),window==top?allClassesLink.style.display="block":allClassesLink.style.display="none"</script></div><div><ul class=subNavList><li>Summary:&nbsp;<li>Nested&nbsp;|&nbsp;<li>Field&nbsp;|&nbsp;<li><a href=#constructor.summary>Constr</a>&nbsp;|&nbsp;<li><a href=#method.summary>Method</a></ul><ul class=subNavList><li>Detail:&nbsp;<li>Field&nbsp;|&nbsp;<li><a href=#constructor.detail>Constr</a>&nbsp;|&nbsp;<li><a href=#method.detail>Method</a></ul></div><a name=skip.navbar.bottom></a></div>
