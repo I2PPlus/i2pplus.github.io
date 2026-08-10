@@ -1,0 +1,248 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/progressx.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/progressx.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module progressx
+ * @file ProgressX 1.1, 2025-09-09
+ * @description A lightweight progress bar library with theme support, optimized by dr|z3d
+ * @author Ryad Pasha
+ * @license MIT
+ * @see https://github.com/ryadpasha/progressx
+ */
+
+/**
+ * @function initProgressX
+ * @param {Window} window - The window object
+ * @param {Document} document - The document object
+ * @returns {void}
+ */
+function initProgressX(window, document) {
+  "use strict";
+
+  if (!window.requestAnimationFrame) {
+    window.progressx = { config: () => {}, show: () => {}, progress: () => {}, hide: () => {} };
+    return;
+  }
+
+  let canvas, context, gradient = null;
+  let fadeTimer = null;
+  let currentProgress = 0, isVisible = false;
+  let lastColors = null;
+  let frameRequested = false;
+  let animationFrameId = null;
+  let animationLocked = false;
+
+  const defaultColors = {"0.0": "rgba(220,48,16,.8)", "1.0": "rgba(255,96,0,.8)"};
+
+  const options = {
+    autoRun: true,
+    barThickness: 3,
+    barColors: {
+      default: defaultColors,
+      classic: {"0.0": "rgba(48,64,192,.7)", "1.0": "rgba(48,64,255,.7)"},
+      midnight: {"0.0": "rgba(72,0,72,.8)", "1.0": "rgba(160,0,160,.8)"},
+      current: defaultColors
+    }
+  };
+
+  let currentColorSetName = "default";
+
+  function createCanvas() {
+    if (canvas) { return; }
+    canvas = document.createElement("canvas");
+    canvas.id = "pageloader";
+    canvas.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:100001;" +
+                           "margin:0;padding:0;display:none;opacity:1";
+    injectCanvas();
+    context = canvas.getContext("2d");
+    window.addEventListener("resize", onResized, { passive: true });
+  }
+
+  function injectCanvas() {
+    const html = document.documentElement;
+    html.firstChild
+      ? html.insertBefore(canvas, html.firstChild)
+      : html.appendChild(canvas);
+  }
+
+  let ticking = false;
+  function onResized() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        draw();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  function colorsEqual(a, b) {
+    if (!a || !b) { return false; }
+    const keysA = Object.keys(a), keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) { return false; }
+    for (let key of keysA) {
+      if (a[key] !== b[key]) { return false; }
+    }
+    return true;
+  }
+
+  function draw() {
+    if (!canvas || !context) { return; }
+
+    const width = window.innerWidth;
+    const height = options.barThickness;
+    const colors = options.barColors[currentColorSetName] || options.barColors.default;
+    options.barColors.current = colors;
+
+    if (canvas.width !== width) { canvas.width = width; }
+    if (canvas.height !== height) { canvas.height = height; }
+
+    if (!colorsEqual(colors, lastColors)) {
+      gradient = context.createLinearGradient(0, 0, width, 0);
+      for (const stop in colors) {
+        gradient.addColorStop(parseFloat(stop), colors[stop]);
+      }
+      lastColors = { ...colors };
+    }
+
+    context.clearRect(0, 0, width, height);
+    context.lineWidth = height;
+    context.beginPath();
+    context.moveTo(0, height / 2);
+    context.lineTo(Math.ceil(currentProgress * width), height / 2);
+    context.strokeStyle = gradient;
+    context.stroke();
+  }
+
+  function runProgressLoop() {
+    if (animationLocked) { return; }
+    animationLocked = true;
+
+    function animate() {
+      const increment = 0.05 * Math.pow(1 - Math.sqrt(currentProgress), 2);
+      if (currentProgress &lt; 1) {
+        progressxProgress(currentProgress + increment, false);
+        requestAnimationFrame(animate);
+      } else {
+        animationLocked = false;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  function progressxShow(colorSet) {
+    if (isVisible || animationLocked) { return; }
+    isVisible = true;
+
+    if (fadeTimer) {
+      cancelAnimationFrame(fadeTimer);
+      fadeTimer = null;
+    }
+
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+
+    if (!canvas) { createCanvas(); }
+    window.addEventListener("resize", onResized, { passive: true });
+    canvas.style.opacity = "1";
+    canvas.style.display = "block";
+    currentProgress = 0;
+    currentColorSetName = colorSet || "default";
+    requestAnimationFrame(draw);
+    animationLocked = true;
+
+    if (options.autoRun) { runProgressLoop(); }
+  }
+
+  function progressxHide() {
+    if (!isVisible) { return; }
+    isVisible = false;
+
+    let opacity = 1;
+    function fadeLoop() {
+      if (progressxProgress("+0.1", false) >= 1) {
+        opacity -= 0.045;
+        canvas.style.opacity = opacity.toString();
+        if (opacity &lt;= 0.2) {
+          canvas.style.display = "none";
+          fadeTimer = null;
+          animationLocked = false;
+          return;
+        }
+      }
+      fadeTimer = requestAnimationFrame(fadeLoop);
+    }
+
+    fadeLoop();
+  }
+
+  function progressxProgress(value, animate = true) {
+    if (!canvas || !context) return currentProgress;
+
+    const oldValue = currentProgress;
+
+    if (typeof value === "string") {
+      const op = value[0], num = parseFloat(value.slice(1));
+      value = op === "+" ? currentProgress + num : op === "-" ? currentProgress - num : num;
+    }
+
+    const target = Math.min(1, Math.max(0, value));
+
+    if (!animate || target === oldValue) {
+      currentProgress = target;
+      if (!frameRequested) {
+        frameRequested = true;
+        requestAnimationFrame(() => {
+          draw();
+          frameRequested = false;
+        });
+      }
+      return currentProgress;
+    }
+
+    if (animationLocked) return currentProgress;
+
+    animationLocked = true;
+
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+    const duration = 300;
+    const start = performance.now();
+
+    const animateProgress = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      currentProgress = oldValue + (target - oldValue) * easeOut;
+      draw();
+
+      if (progress &lt; 1) {
+        animationFrameId = requestAnimationFrame(animateProgress);
+      } else {
+        currentProgress = target;
+        animationLocked = false;
+        animationFrameId = null;
+        draw();
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animateProgress);
+    return currentProgress;
+  }
+
+  function progressxConfig(opts) {
+    if (!opts) return;
+    Object.assign(options, opts);
+    if (opts.barColors) {
+      Object.assign(options.barColors, opts.barColors);
+    }
+    options.barColors.current = options.barColors[currentColorSetName] || options.barColors.default;
+  }
+
+  window.progressx = { config: progressxConfig, show: progressxShow, progress: progressxProgress, hide: progressxHide };
+}
+
+initProgressX(window, document);
+
+window.addEventListener("load", () => { progressx.hide(); });</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

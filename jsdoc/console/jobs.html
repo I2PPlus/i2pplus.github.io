@@ -1,0 +1,353 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/jobs.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/jobs.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module jobs
+ * @description Handles auto-refresh, table sorting, and section toggle state
+ * persistence for the /jobs pages. Manages expand/collapse state of finished
+ * and scheduled job sections via localStorage.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+(function() {
+  const jobs = document.getElementById("jobstats");
+  const STORAGE_KEY = "jobqueueExpandedSections";
+  let isFirstLoad = true;
+
+  /**
+   * Loads expanded section IDs from localStorage.
+   * @function loadExpandedSections
+   * @returns {Set&lt;string>} Set of expanded section IDs
+   */
+  function loadExpandedSections() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        return new Set(JSON.parse(stored));
+      }
+    } catch (e) {
+      // localStorage not available or parse error
+    }
+    return new Set();
+  }
+
+  /**
+   * Saves the expanded section IDs to localStorage.
+   * @function saveExpandedSections
+   * @param {Set&lt;string>} expandedSections - Set of section IDs to save
+   * @returns {void}
+   */
+  function saveExpandedSections(expandedSections) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...expandedSections]));
+    } catch (e) {
+      // localStorage not available
+    }
+  }
+
+  let expandedSections = loadExpandedSections();
+
+  // Default states: true = expanded, false = collapsed
+  const defaultStates = {
+    "finishedjobs": false,  // Completed jobs collapsed by default
+    "scheduledjobs": true   // Scheduled jobs expanded by default
+  };
+
+  /**
+   * Initializes section toggles for the jobqueue page, applying default and
+   * stored expand/collapse states.
+   * @function initJobqueueToggles
+   * @returns {boolean} True if toggles were initialized, false if not applicable
+   */
+  function initJobqueueToggles() {
+    const joblog = document.querySelector(".joblog");
+    if (!joblog) return false;
+
+    // Add toggle classes and collapse/expand based on stored state
+    const sectionToggles = joblog.querySelectorAll("h3");
+    sectionToggles.forEach(toggle => {
+      toggle.classList.add("sectionToggle");
+      toggle.classList.add("toggle");
+      const dropdown = document.createElement("span");
+      dropdown.classList.add("dropdown");
+      toggle.appendChild(dropdown);
+      const content = toggle.nextElementSibling;
+      if (content &amp;&amp; content.nodeType === Node.ELEMENT_NODE) {
+        const sectionId = toggle.id;
+        // On first load, apply default states if section not in localStorage
+        if (isFirstLoad &amp;&amp; !expandedSections.has(sectionId)) {
+          // Check if user has ever set a preference (localStorage exists)
+          const hasUserPreference = localStorage.getItem(STORAGE_KEY) !== null;
+          if (!hasUserPreference &amp;&amp; defaultStates.hasOwnProperty(sectionId)) {
+            if (defaultStates[sectionId]) {
+              expandedSections.add(sectionId);
+            }
+          }
+        }
+        if (expandedSections.has(sectionId)) {
+          toggle.classList.add("expanded");
+          content.style.display = "block";
+        } else {
+          toggle.classList.remove("expanded");
+          content.style.display = "none";
+        }
+        if (toggle.classList.contains("nojobs")) {
+          toggle.style.pointerEvents = "none";
+        } else {
+          toggle.style.pointerEvents = "";
+        }
+      }
+    });
+
+    isFirstLoad = false;
+
+    if (sectionToggles.length > 0) {
+      document.body.classList.add("toggleElementsActive");
+      if (expandedSections.size > 0) {
+        document.body.classList.add("hasExpandedElement");
+        document.documentElement.classList.remove("hasCollapsedElement");
+      } else {
+        document.body.classList.remove("hasExpandedElement");
+        document.documentElement.classList.add("hasCollapsedElement");
+      }
+    }
+    return true;
+  }
+
+  // Event delegation for toggle clicks - attached to document level
+  document.documentElement.addEventListener("click", function(e) {
+    const toggle = e.target.closest(".joblog h3");
+    if (!toggle) return;
+
+    const content = toggle.nextElementSibling;
+    if (!content || content.nodeType !== Node.ELEMENT_NODE) return;
+
+    const sectionId = toggle.id;
+    const isExpanded = toggle.classList.contains("expanded");
+
+    // Toggle current section independently
+    if (!isExpanded) {
+      content.style.display = "block";
+      toggle.classList.add("expanded");
+      expandedSections.add(sectionId);
+    } else {
+      content.style.display = "none";
+      toggle.classList.remove("expanded");
+      expandedSections.delete(sectionId);
+    }
+
+    // Save to localStorage
+    saveExpandedSections(expandedSections);
+
+    // Update document/body classes based on any expanded sections
+    if (expandedSections.size > 0) {
+      document.documentElement.classList.remove("hasCollapsedElement");
+      document.body.classList.add("hasExpandedElement");
+    } else {
+      document.documentElement.classList.add("hasCollapsedElement");
+      document.body.classList.remove("hasExpandedElement");
+    }
+  });
+
+  // Initialize on load
+  if (initJobqueueToggles()) {
+    // Listen for refreshComplete event to restore toggle state
+    document.addEventListener("refreshComplete", function() {
+      initJobqueueToggles();
+    });
+    return;
+  }
+
+  if (!jobs) {return;}
+
+  const REFRESH_INTERVAL = 5000;
+  const sorter = new Tablesort(jobs, { descending: true });
+  const progressx = window.progressx;
+  const theme = window.theme;
+  const header = document.getElementById("totaljobstats");
+  const headerText = header ? header.innerHTML.trim() : "";
+
+  let refreshIntervalId = null;
+  let oldRowsMap = new Map();
+  let lastQueryParams = window.location.search;
+
+  /**
+   * Fetches job data from /jobs, compares with existing rows, and updates the DOM
+   * with new, modified, or removed rows.
+   * @async
+   * @function fetchJobs
+   * @returns {Promise&lt;void>}
+   */
+  async function fetchJobs() {
+    try {
+      // Clear old rows if query param changed (switching between 30s/all mode)
+      if (window.location.search !== lastQueryParams) {
+        oldRowsMap.clear();
+        lastQueryParams = window.location.search;
+      }
+
+      const response = await fetch("/jobs" + window.location.search);
+      if (!response.ok) throw new Error("Fetch failed");
+      const text = await response.text();
+      const doc = new DOMParser().parseFromString(text, "text/html");
+      const jobsResponse = doc.getElementById("jobstats");
+      if (!jobsResponse) return;
+
+      const oldTbody = jobs.querySelector("#statCount");
+      const newTbody = jobsResponse.querySelector("#statCount");
+      if (!oldTbody || !newTbody) return;
+
+      // If no rows in recent mode, show placeholder and force refresh
+      const isRecentMode = !window.location.search.includes("period=all");
+      const hasPlaceholder = oldTbody.querySelector("#init");
+      const isAdvanced = jobs.classList.contains("advmode");
+      const cols = isAdvanced ? "11" : "7";
+      if (isRecentMode &amp;&amp; newTbody.rows.length === 0 &amp;&amp; !hasPlaceholder) {
+        oldTbody.innerHTML = "&lt;tr id=init>&lt;td colspan=" + cols + ">...&lt;/td>&lt;/tr>";
+        setTimeout(fetchJobs, REFRESH_INTERVAL);
+        return;
+      }
+
+      const thead = jobs.querySelector("thead");
+      const tfoot = jobs.querySelector("#statTotals");
+      const newTfoot = jobsResponse.querySelector("#statTotals");
+      if (newTbody.rows.length === 0) {
+        thead.style.display = "none";
+        tfoot.style.display = "none";
+      } else {
+        thead.style.display = "";
+        tfoot.style.display = "";
+      }
+
+      // Update statTotals footer with new data
+      if (tfoot &amp;&amp; newTfoot) {
+        const currentContent = tfoot.innerHTML.trim();
+        const newContent = newTfoot.innerHTML.trim();
+        if (currentContent !== newContent) {
+          tfoot.innerHTML = newContent;
+        }
+      }
+
+      // Always repopulate oldRowsMap to stay in sync with current DOM
+      oldRowsMap.clear();
+      Array.from(oldTbody.rows).forEach(row => {
+        const name = row.cells[0]?.textContent.trim();
+        if (name) oldRowsMap.set(name, row);
+      });
+
+      progressx.show(theme);
+      requestAnimationFrame(() => {
+        const newRows = Array.from(newTbody.rows);
+        const fragment = document.createDocumentFragment();
+        const updatedRows = [];
+
+        newRows.forEach(newRow => {
+          const jobName = newRow.cells[0]?.textContent.trim();
+          if (!jobName) return;
+
+          const oldRow = oldRowsMap.get(jobName);
+          if (!oldRow) {
+            fragment.appendChild(newRow.cloneNode(true));
+            oldRowsMap.set(jobName, newRow.cloneNode(true));
+            return;
+          }
+
+          const oldCells = Array.from(oldRow.cells);
+          const newCells = Array.from(newRow.cells);
+          let changed = false;
+
+          newCells.forEach((newCell, j) => {
+            const oldCell = oldCells[j];
+            if (!oldCell) return;
+
+            const oldSpan = oldCell.querySelector("span");
+            const newSpan = newCell.querySelector("span");
+            const oldText = (oldSpan ? oldSpan.textContent : oldCell.textContent).trim();
+            const newText = (newSpan ? newSpan.textContent : newCell.textContent).trim();
+
+            if (oldText !== newText) {
+              oldCell.innerHTML = newCell.innerHTML;
+              oldCell.classList.add("updated");
+              changed = true;
+            }
+          });
+
+          if (changed) {
+            oldRowsMap.set(jobName, oldRow);
+            updatedRows.push(oldRow);
+            setTimeout(() => {
+              oldCells.forEach(cell => cell.classList.remove("updated"));
+            }, REFRESH_INTERVAL - 500);
+          }
+        });
+
+        // Remove rows only in recent mode that are no longer in the data
+        const isRecentMode = !window.location.search.includes("period=all");
+        if (isRecentMode) {
+          const newRowNames = new Set(newRows.map(r => r.cells[0]?.textContent.trim()).filter(n => n));
+          oldRowsMap.forEach((row, name) => {
+            if (!newRowNames.has(name)) {
+              row.remove();
+              oldRowsMap.delete(name);
+            }
+          });
+        }
+
+        // Add new rows that didn't exist before
+        if (fragment.hasChildNodes()) {
+          oldTbody.appendChild(fragment);
+        }
+
+        const footer = jobs.querySelector(".tablefooter");
+
+        sorter.refresh();
+        setTimeout(() => progressx.hide(), 500);
+      });
+    } catch (e) {
+      progressx.hide();
+    }
+  }
+
+  /**
+   * Starts the periodic job data refresh interval.
+   * @function startRefresh
+   * @returns {void}
+   */
+  function startRefresh() {
+    if (!refreshIntervalId) {
+      fetchJobs();
+      refreshIntervalId = setInterval(fetchJobs, REFRESH_INTERVAL);
+    }
+  }
+
+  /**
+   * Stops the periodic job data refresh interval.
+   * @function stopRefresh
+   * @returns {void}
+   */
+  function stopRefresh() {
+    if (refreshIntervalId) {
+      clearInterval(refreshIntervalId);
+      refreshIntervalId = null;
+    }
+  }
+
+  jobs.addEventListener("beforeSort", () => {
+    progressx.show(theme);
+    progressx.progress(0.5);
+  });
+
+  jobs.addEventListener("afterSort", () => {
+    setTimeout(() => progressx.hide(), 500);
+  });
+
+  if (document.visibilityState === "visible") { startRefresh(); }
+
+  document.addEventListener("visibilitychange", () => {
+    document.visibilityState === "visible" ? startRefresh() : stopRefresh();
+  });
+
+  requestAnimationFrame(() => {
+    sorter.refresh();
+  });
+})();
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

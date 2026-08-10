@@ -1,0 +1,224 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/tablesort/sortShared.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/tablesort/sortShared.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module sortShared
+ * @description Pure comparison functions shared between tablesort.js (main thread)
+ * and sortWorker.js (web worker). All comparators return ascending order;
+ * empty/null cells always sort to the bottom, regardless of sort direction.
+ * Based on tristen/tablesort (MIT) https://github.com/tristen/tablesort,
+ * ported to standalone functions by dr|z3d for I2P+ (AGPLv3).
+ * @license AGPLv3 or later
+ */
+
+/** @returns {boolean} True if null, undefined, or whitespace-only. */
+function empty(v) { return v == null || String(v).trim() === ""; }
+
+/**
+ * Wrap a comparator so empty cells always sort to the bottom, regardless of direction.
+ * @param {function(string, string): number} cmp - Ascending comparator
+ * @returns {function(string, string): number}
+ */
+function emptyLast(cmp) {
+  return function(a, b) {
+    const ae = empty(a), be = empty(b);
+    if (ae || be) return ae &amp;&amp; be ? 0 : ae ? 1 : -1;
+    return cmp(a, b);
+  };
+}
+
+/**
+ * Number comparator — strips non-numeric chars except E/e/%.
+ * @param {string} a
+ * @param {string} b
+ * @returns {number}
+ */
+function numberCmp(a, b) {
+  const clean = v => typeof v === "string" ? v.replace(/[^-0-9.Ee%]/g, "") : "";
+  const na = parseFloat(clean(a)), nb = parseFloat(clean(b));
+  if (isNaN(na) &amp;&amp; isNaN(nb)) return 0;
+  if (isNaN(na)) return 1;
+  if (isNaN(nb)) return -1;
+  return na - nb;
+}
+
+/**
+ * Match only pure numbers/percentages. Previously any string containing a digit
+ * matched (e.g. "0.9.69" -> 0.9, "3KiB" -> 3, "Aug 5, 2026" -> 520261148), which
+ * hijacked columns that need dotsep, filesize or date sorting.
+ * @param {string} item
+ */
+function numberPattern(item) {
+  if (typeof item !== "string" || item.trim() === "") return false;
+  return /^[+-]?(\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?%?$/.test(item.trim());
+}
+
+/**
+ * Natural sort — splits text into numeric/text chunks for human-friendly ordering.
+ * @param {string} a
+ * @param {string} b
+ * @returns {number}
+ */
+function naturalCmp(a, b) {
+  if (a === b) return 0;
+  if (a === "unknown") return 1;
+  if (b === "unknown") return -1;
+  const aParts = a.toLowerCase().match(/(\.\d+)|(\d+(\.\d+)?)|([^\d.]+)/g) || [];
+  const bParts = b.toLowerCase().match(/(\.\d+)|(\d+(\.\d+)?)|([^\d.]+)/g) || [];
+  const min = Math.min(aParts.length, bParts.length);
+  for (let i = 0; i &lt; min; i++) {
+    const aNum = parseFloat(aParts[i]), bNum = parseFloat(bParts[i]);
+    if (!isNaN(aNum) &amp;&amp; !isNaN(bNum)) {
+      if (aNum !== bNum) return aNum - bNum;
+    } else if (aParts[i] !== bParts[i]) {
+      return aParts[i] &lt; bParts[i] ? -1 : 1;
+    }
+  }
+  return aParts.length - bParts.length;
+}
+
+/** @param {string} item */
+function naturalPattern(item) { return item != null &amp;&amp; item.trim() !== ""; }
+
+/**
+ * Dot-separated comparator (IPs, version numbers).
+ * Pads shorter segment lists with zeros for unequal-length comparison.
+ * @param {string} a
+ * @param {string} b
+ * @returns {number}
+ */
+function dotsepCmp(a, b) {
+  const aParts = a.split("."), bParts = b.split(".");
+  const len = Math.max(aParts.length, bParts.length);
+  for (let i = 0; i &lt; len; i++) {
+    const ai = parseInt(aParts[i] || "0", 10), bi = parseInt(bParts[i] || "0", 10);
+    if (ai !== bi) return ai - bi;
+  }
+  return 0;
+}
+
+/** @param {string} item */
+function dotsepPattern(item) { return /^(\d+\.)+\d+$/.test(item); }
+
+/**
+ * Filesize comparator — converts with/without suffix to bytes (1024-base).
+ * @param {string} a
+ * @param {string} b
+ * @returns {number}
+ */
+function filesizeCmp(a, b) {
+  const toBytes = f => {
+    const m = f.match(/^(\d+(\.\d+)?) ?((K|M|G|T|P|E|Z|Y|B$)i?B?)$/i);
+    if (!m) return 0;
+    const num = parseFloat(m[1].replace(/[^\-?0-9.]/g, ""));
+    const suf = (m[3][0] || "").toLowerCase();
+    const mult = suf === "k" ? 1024 : suf === "m" ? 1048576 : suf === "g" ? 1073741824 :
+                 suf === "t" ? 1099511627776 : suf === "p" ? 1125899906842624 :
+                 suf === "e" ? 1152921504606846976 : suf === "z" ? 1180591620717411303424 :
+                 suf === "y" ? 1208925819614629174706176 : 1;
+    return num * mult;
+  };
+  return toBytes(a) - toBytes(b);
+}
+
+/** @param {string} item */
+function filesizePattern(item) {
+  return /^\d+(\.\d+)? ?(K|M|G|T|P|E|Z|Y|B$)i?B?$/i.test(item);
+}
+
+/** Month-name comparator. @param {string} a @param {string} b @returns {number} */
+function monthnameCmp(a, b) {
+  const names = ["January", "February", "March", "April", "May", "June",
+                 "July", "August", "September", "October", "November", "December"];
+  return names.indexOf(a) - names.indexOf(b);
+}
+
+/** @param {string} item */
+function monthnamePattern(item) {
+  return /January|February|March|April|May|June|July|August|September|October|November|December/i.test(item);
+}
+
+/**
+ * Date comparator — normalises separators and formats before parsing.
+ * @param {string} a
+ * @param {string} b
+ * @returns {number}
+ */
+function dateCmp(a, b) {
+  const parseDate = d => {
+    d = d.replace(/-/g, "/").replace(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/, "$3-$2-$1");
+    const t = new Date(d).getTime();
+    return isNaN(t) ? -1 : t;
+  };
+  return parseDate(a.toLowerCase()) - parseDate(b.toLowerCase());
+}
+
+/** @param {string} item */
+function datePattern(item) {
+  const parseDate = d => {
+    d = d.replace(/-/g, "/").replace(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/, "$3-$2-$1");
+    return isNaN(new Date(d).getTime()) ? -1 : new Date(d).getTime();
+  };
+  if (parseDate(item) === -1) return false;
+  return /(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*/i.test(item) ||
+         /\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/.test(item) ||
+         /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(item);
+}
+
+/** Intl.Collator comparator (locale-aware). @param {string} a @param {string} b @returns {number} */
+function intlCmp(a, b) { return new Intl.Collator().compare(a, b); }
+
+/** Intl never auto-detects; requires data-sort-method="intl". @returns {boolean} */
+function intlPattern() { return false; }
+
+/** Default string fallback (case-insensitive). @param {string} a @param {string} b @returns {number} */
+function stringCmp(a, b) {
+  a = String(a).toLowerCase();
+  b = String(b).toLowerCase();
+  return a &lt; b ? -1 : (a > b ? 1 : 0);
+}
+
+// Exported comparators (empty-last wrapped)
+const numberCmpEL = emptyLast(numberCmp);
+const naturalCmpEL = emptyLast(naturalCmp);
+const dotsepCmpEL = emptyLast(dotsepCmp);
+const filesizeCmpEL = emptyLast(filesizeCmp);
+const monthnameCmpEL = emptyLast(monthnameCmp);
+const dateCmpEL = emptyLast(dateCmp);
+const intlCmpEL = emptyLast(intlCmp);
+const stringCmpEL = emptyLast(stringCmp);
+
+/**
+ * Sort an array of row data in place by a column, applying the selected comparator and
+ * direction. Empty cells always sort to the bottom, regardless of direction.
+ * Shared between the main thread fallback and the sort worker.
+ *
+ * @param {Array&lt;Object&lt;string, string>>} rows - Objects mapping the sort column to a string
+ * @param {string} sortColumn - Key holding the cell text
+ * @param {string} direction - "ascending" or "descending"
+ * @param {string} columnType - Comparator key, or the default string sort
+ * @returns {Array&lt;Object&lt;string, string>>} the sorted array
+ */
+function sortRows(rows, sortColumn, direction, columnType) {
+  const multiplier = direction === "descending" ? -1 : 1;
+  rows.sort((a, b) => {
+    const valA = a[sortColumn], valB = b[sortColumn];
+    const aEmpty = empty(valA), bEmpty = empty(valB);
+    if (aEmpty || bEmpty) {
+      if (aEmpty &amp;&amp; bEmpty) return 0;
+      return aEmpty ? 1 : -1;
+    }
+    let res;
+    switch (columnType) {
+      case "number":    res = numberCmp(valA, valB); break;
+      case "date":      res = dateCmp(valA, valB); break;
+      case "natural":   res = naturalCmp(valA, valB); break;
+      case "dotsep":    res = dotsepCmp(valA, valB); break;
+      case "filesize":  res = filesizeCmp(valA, valB); break;
+      case "monthname": res = monthnameCmp(valA, valB); break;
+      case "intl":      res = intlCmp(valA, valB); break;
+      default:          res = stringCmp(valA, valB); break;
+    }
+    return res * multiplier;
+  });
+  return rows;
+}
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

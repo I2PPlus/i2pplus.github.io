@@ -1,0 +1,336 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>susimail/src/js/previewMail.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=susimail><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>susimail/src/js/previewMail.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module previewMail
+ * @file SusiMail message preview on hover.
+ * Displays a floating preview popup when hovering over mail subject links
+ * in the folder list, with caching, timeout handling, and theme-aware styling.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+/**
+ * Sets up the preview-popup system. Wires up mouseenter/mouseleave
+ * event delegation on the document, creates the popup element, and
+ * manages fetch caching for message previews.
+ * @function previewMail
+ * @returns {void}
+ */
+function previewMail() {
+  const PREVIEW_DELAY_MS = 150;
+  const PREVIEW_HIDE_DELAY_MS = 250;
+  const FETCH_TIMEOUT_MS = 3000;
+  const MAX_PREVIEW_SIZE = 300000;
+  const previewCache = new Map();
+  let hoverTimer = null;
+  let hideTimer = null;
+  let popup = null;
+  let currentPreviewUrl = null;
+
+  /**
+   * Returns the preview text for the given URL, using an in-memory cache
+   * and deduplicating concurrent requests for the same resource.
+   *
+   * @async
+   * @function fetchPreview
+   * @param {string} showValue - The URL to fetch the mail preview from.
+   * @param {number} [depth=0] - Current recursion depth (max 1) for iframe/attachment follow.
+   * @returns {Promise&lt;string>} The cleaned preview text, or empty string on failure.
+   */
+  async function fetchPreview(showValue, depth = 0) {
+    const cacheKey = `${depth}:${showValue}`;
+    if (previewCache.has(cacheKey)) {
+      const cached = previewCache.get(cacheKey);
+      if (typeof cached === "string") return cached;
+      if (cached instanceof Promise) {
+        try {
+          const result = await cached;
+          return result || "";
+        } catch {
+          previewCache.delete(cacheKey);
+          return "";
+        }
+      }
+    }
+
+    const fetchPromise = _doFetchPreview(showValue, depth);
+    previewCache.set(cacheKey, fetchPromise);
+
+    try {
+      const result = await fetchPromise;
+      previewCache.set(cacheKey, result);
+      return result;
+    } catch (err) {
+      previewCache.delete(cacheKey);
+      return "";
+    }
+  }
+
+  /**
+   * Performs the actual fetch and parses the response. Handles binary
+   * content detection, size limits, iframe/attachment recursion, and
+   * extracts mailbody paragraph text.
+   *
+   * @async
+   * @function _doFetchPreview
+   * @param {string} showValue - The URL to fetch.
+   * @param {number} [depth=0] - Recursion depth; stops at 1.
+   * @returns {Promise&lt;string>} Preview text or status message string.
+   */
+  async function _doFetchPreview(showValue, depth = 0) {
+    if (depth > 1) return "";
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+    let response;
+    try {
+      response = await fetch(showValue, {
+        credentials: "same-origin",
+        headers: { Accept: "text/html" },
+        signal: controller.signal
+      });
+    } catch (e) {
+      clearTimeout(timeoutId);
+      if (e.name === "AbortError") {
+        return "Could not preview mail (not downloaded?)";
+      }
+      return "Network error loading preview.";
+    }
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) return "";
+
+    const contentType = (response.headers.get("content-type") || "").toLowerCase();
+    if (contentType.includes("image/") ||
+        contentType.includes("application/pdf") ||
+        contentType.includes("application/zip") ||
+        contentType.includes("application/x-rar-compressed") ||
+        contentType.includes("application/x-7z-compressed") ||
+        contentType.includes("application/octet-stream") ||
+        contentType.includes("application/msword") ||
+        contentType.includes("application/vnd.openxmlformats-officedocument")) {
+      return `Binary file attachment detected: ${contentType.split(";")[0]}.`;
+    }
+
+    const contentLength = response.headers.get("content-length");
+    if (contentLength &amp;&amp; parseInt(contentLength, 10) > MAX_PREVIEW_SIZE) {
+      return "Preview skipped: message too large.";
+    }
+
+    let text;
+    try {
+      text = await response.text();
+    } catch (e) {
+      return "Failed to read message content.";
+    }
+
+    if (text.length === 0) return "";
+    if (text.length > MAX_PREVIEW_SIZE) {
+      return "Preview skipped: message too large.";
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    const doc = new DOMParser().parseFromString(text, "text/html");
+
+    const mailbodyParagraphs = Array.from(doc.querySelectorAll("p.mailbody"))
+      .map(p => p.textContent.trim())
+      .filter(t => t.length > 0);
+
+    if (mailbodyParagraphs.length > 0) {
+      return cleanText(mailbodyParagraphs.join("\n\n"));
+    }
+
+    const iframe = doc.querySelector('iframe[src*="?att="][src*="msg="]');
+    if (iframe?.src) {
+      const iframeUrl = new URL(iframe.src, window.location.origin).href;
+      return await fetchPreview(iframeUrl, depth + 1);
+    }
+
+    const attLink = doc.querySelector('a[href*="?att="][href*="msg="]');
+    if (attLink?.href) {
+      const attUrl = new URL(attLink.href, window.location.origin).href;
+      return await fetchPreview(attUrl, depth + 1);
+    }
+
+    return cleanText(doc.body?.textContent || "") || "";
+  }
+
+  /**
+   * Normalises raw extracted text by collapsing whitespace, removing
+   * boilerplate "view online" lines, and stripping residual HTML tags.
+   *
+   * @function cleanText
+   * @param {string} raw - Unprocessed text content.
+   * @returns {string} Cleaned and trimmed text.
+   */
+  function cleanText(raw) {
+    if (!raw) return "";
+    raw = raw.replace(/Having[\s\u00A0\u2000-\u200B\u3000]+problems[\s\u00A0\u2000-\u200B\u3000]+viewing[\s\u00A0\u2000-\u200B\u3000]+this[\s\u00A0\u2000-\u200B\u3000]+email\?View[\s\u00A0\u2000-\u200B\u3000]+email[\s\u00A0\u2000-\u200B\u3000]+online/gi, "");
+    raw = raw.replace(/[\s\u00A0\u2000-\u200B\u3000]+/g, " ");
+    raw = raw.replace(/,(?=\S)/g, ", ");
+    raw = raw.replace(/&lt;([a-zA-Z][\w-]*)[^>]*>(.*?)&lt;\/\1>/gi, "$2");
+    raw = raw.replace(/&lt;([a-zA-Z][\w-]*)\b[^>]*\/>/g, "");
+    return raw.trim();
+  }
+
+  /**
+   * Lazily creates the preview popup `&lt;div>` element with theme-aware
+   * styling and hover-persistence listeners, appending it to the document body.
+   *
+   * @function ensurePopup
+   * @returns {HTMLElement} The popup element.
+   */
+  function ensurePopup() {
+    if (popup) return popup;
+    const htmlTag = document.documentElement;
+    popup = document.createElement("div");
+    popup.id = "mail-preview-popup";
+    let popupBg = "#000";
+    let popupBorder = "#555";
+    if (
+      (window.theme &amp;&amp; ["light", "classic"].includes(window.theme)) ||
+      htmlTag.classList.contains("light") ||
+      htmlTag.classList.contains("classic")
+    ) {
+      popupBg = "#f2f2f2";
+      popupBorder = "2px solid #bbc";
+    }
+
+    Object.assign(popup.style, {
+      padding: "10px 16px",
+      maxWidth: "70%",
+      minWidth: "480px",
+      display: "none",
+      position: "absolute",
+      zIndex: "9999",
+      wordBreak: "break-word",
+      border: popupBorder,
+      borderRadius: "2px",
+      background: popupBg,
+      boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+    });
+
+    const inner = document.createElement("div");
+    inner.className = "mail-preview-content";
+    inner.textContent = "Loading…";
+    Object.assign(inner.style, {
+      padding: "4px 8px",
+      maxHeight: "300px",
+      display: "inline-block",
+      overflow: "auto"
+    });
+
+    popup.appendChild(inner);
+    document.body.appendChild(popup);
+
+    popup.addEventListener("mouseenter", () => {
+      clearTimeout(hideTimer);
+    });
+    popup.addEventListener("mouseleave", () => {
+      hideTimer = setTimeout(() => hidePopup(), PREVIEW_HIDE_DELAY_MS);
+    });
+
+    return popup;
+  }
+
+  /**
+   * Positions the popup element relative to the target anchor, preferring
+   * below but flipping above if space is insufficient, and clamping to
+   * the viewport width.
+   *
+   * @function positionPopup
+   * @param {HTMLElement} targetEl - The element to position the popup near.
+   * @returns {void}
+   */
+  function positionPopup(targetEl) {
+    const rect = targetEl.getBoundingClientRect();
+    const popupRect = popup.getBoundingClientRect();
+
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+
+    let top;
+    if (spaceBelow >= popupRect.height + 16) {
+      top = window.scrollY + rect.bottom + 8;
+    } else if (spaceAbove >= popupRect.height + 16) {
+      top = window.scrollY + rect.top - popupRect.height - 8;
+    } else {
+      top = window.scrollY + rect.bottom + 8;
+    }
+
+    let left = window.scrollX + rect.left;
+    if (left + popupRect.width > window.innerWidth) {
+      left = window.scrollX + Math.max(0, window.innerWidth - popupRect.width - 16);
+    }
+
+    popup.style.top = `${top}px`;
+    popup.style.left = `${left}px`;
+  }
+
+  /**
+   * Displays the preview popup anchored to the given element, fetches
+   * the preview content, and updates the popup text once loaded.
+   *
+   * @async
+   * @function showPopup
+   * @param {HTMLElement} el - The anchor element triggering the preview.
+   * @param {string} showValue - The URL of the mail to preview.
+   * @returns {Promise&lt;void>}
+   */
+  async function showPopup(el, showValue) {
+    const p = ensurePopup();
+    const content = p.querySelector(".mail-preview-content");
+
+    clearTimeout(hideTimer);
+    clearTimeout(hoverTimer);
+
+    content.textContent = "Loading…";
+    content.classList.add("fetching");
+    currentPreviewUrl = showValue;
+    positionPopup(el);
+    popup.style.display = "block";
+
+    const preview = await fetchPreview(showValue);
+    if (currentPreviewUrl === showValue) {
+      if (preview) {
+        content.textContent = preview;
+      } else {
+        content.textContent = "No preview available";
+      }
+      content.classList.remove("fetching");
+    }
+  }
+
+  /**
+   * Hides the preview popup if it exists.
+   *
+   * @function hidePopup
+   * @returns {void}
+   */
+  function hidePopup() {
+    if (popup) popup.style.display = "none";
+  }
+
+  document.documentElement.addEventListener("mouseenter", (e) => {
+    const anchor = e.target.closest(".mailListSubject a");
+    if (!anchor) return;
+    const showValue = anchor.getAttribute("href");
+    if (!showValue) return;
+    clearTimeout(hideTimer);
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => showPopup(anchor, showValue), PREVIEW_DELAY_MS);
+  }, true);
+
+  document.documentElement.addEventListener("mouseleave", (e) => {
+    const anchor = e.target.closest(".mailListSubject a");
+    if (!anchor) return;
+    clearTimeout(hoverTimer);
+    hideTimer = setTimeout(() => hidePopup(), PREVIEW_HIDE_DELAY_MS);
+  }, true);
+
+  ensurePopup();
+}
+
+document.addEventListener("DOMContentLoaded", previewMail);</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

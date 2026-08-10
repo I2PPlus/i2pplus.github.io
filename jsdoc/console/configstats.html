@@ -1,0 +1,150 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/configstats.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/configstats.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module configstats
+ * @description Sorts stat groups using natural sort order and displays dynamic
+ * counts of checked/total configured stats on the /configstats page.
+ * Tracks checkbox changes to indicate unsaved state.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /**
+   * Updates or creates a count span in the table header showing checked/total stats.
+   * @function updateCountSpan
+   * @param {HTMLTableHeaderCellElement} thElement - The table header element to update
+   * @param {number} checkedItems - Number of checked checkboxes
+   * @param {number} totalItems - Total number of checkboxes
+   * @param {boolean} needsSaving - Whether the state differs from initial state
+   * @returns {void}
+   */
+  function updateCountSpan(thElement, checkedItems, totalItems, needsSaving) {
+    let countSpan = thElement.querySelector("span") || document.createElement("span");
+    countSpan.classList.add("statcount");
+    countSpan.textContent = (needsSaving ? "* " : "") + `${checkedItems} / ${totalItems}`;
+    thElement.appendChild(countSpan);
+  }
+
+  /**
+   * Captures the current checked state of all checkboxes as an object.
+   * @function getCheckboxState
+   * @param {NodeList} checkboxes - The checkbox elements to capture state from
+   * @returns {Object&lt;string, boolean>} Map of checkbox value to checked state
+   */
+  function getCheckboxState(checkboxes) {
+    return Array.from(checkboxes).reduce((acc, cb) => ({ ...acc, [cb.value]: cb.checked }), {});
+  }
+
+  /**
+   * Performs a natural (human-friendly) sort comparison between two strings.
+   * @function naturalSort
+   * @param {string} a - First string to compare
+   * @param {string} b - Second string to compare
+   * @returns {number} Negative if a &lt; b, positive if a > b, zero if equal
+   */
+  function naturalSort(a, b) {
+    const re = /(\d+)|(\D+)/g;
+    const aParts = a.match(re);
+    const bParts = b.match(re);
+
+    for (let i = 0; i &lt; Math.min(aParts.length, bParts.length); i++) {
+      const aPart = aParts[i];
+      const bPart = bParts[i];
+
+      if (aPart !== bPart) {
+        const aIsNumber = !isNaN(aPart);
+        const bIsNumber = !isNaN(bPart);
+
+        if (aIsNumber &amp;&amp; bIsNumber) {
+          return parseInt(aPart, 10) - parseInt(bPart, 10);
+        }
+        if (aIsNumber) {
+          return -1;
+        }
+        if (bIsNumber) {
+          return 1;
+        }
+        return aPart.localeCompare(bPart);
+      }
+    }
+    return aParts.length - bParts.length;
+  }
+
+  /**
+   * Initializes stat group rows with checkbox listeners and count displays.
+   * @function initialize
+   * @returns {Object&lt;string, Object&lt;string, boolean>>} Map of section IDs to their initial checkbox states
+   */
+  function initialize() {
+    const graphableStatRows = document.querySelectorAll(".graphableStat");
+    const initialState = {};
+
+    graphableStatRows.forEach(row => {
+      const td = row.querySelector("td");
+      const checkboxes = td.querySelectorAll("input[type=checkbox]");
+      const totalItems = checkboxes.length;
+      const checkedItems = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+      const thElement = row.previousElementSibling.querySelector("th");
+      if (thElement) {updateCountSpan(thElement, checkedItems, totalItems, false);}
+      const sectionId = thElement.textContent.trim();
+      initialState[sectionId] = getCheckboxState(checkboxes);
+
+      checkboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+          const currentSectionState = getCheckboxState(checkboxes);
+          const needsSaving = JSON.stringify(currentSectionState) !== JSON.stringify(initialState[sectionId]);
+          updateCountSpan(thElement, Array.from(checkboxes).filter(cb => cb.checked).length, totalItems, needsSaving);
+        });
+      });
+    });
+
+    return initialState;
+  }
+
+  /**
+   * Renders the sorted stat sections back into the table body.
+   * @function renderSortedSections
+   * @param {Array&lt;{header: HTMLElement, content: HTMLElement[]}>} sections - Sorted sections to render
+   * @returns {void}
+   */
+  function renderSortedSections(sections) {
+    const tableBody = document.querySelector("#configstats tbody");
+    tableBody.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+
+    sections.forEach(section => {
+      fragment.appendChild(section.header);
+      section.content.forEach(content => fragment.appendChild(content));
+    });
+
+    tableBody.appendChild(fragment);
+  }
+
+  const initialState = initialize(), sections = [];
+  let currentSection = null;
+
+  document.querySelectorAll(".statgroup, .graphableStat").forEach(element => {
+    if (element.classList.contains("statgroup")) {
+      if (currentSection) {sections.push(currentSection);}
+      currentSection = { header: element, content: [] };
+    } else {currentSection.content.push(element);}
+  });
+
+  if (currentSection) { sections.push(currentSection); }
+  sections.sort((a, b) => naturalSort(a.header.querySelector("th").textContent.trim(), b.header.querySelector("th").textContent.trim()));
+  renderSortedSections(sections);
+
+  document.querySelectorAll("tr.statgroup th b").forEach(b => {
+    b.textContent = b.textContent.replace(/([a-z])([A-Z])/g, "$1 $2");
+    b.textContent = b.textContent.replace("Co Del", "CoDel");
+    b.innerHTML = b.innerHTML.replace(/\[([^\]]+)\]/g, "&lt;span class=subcat>$1&lt;/span>");
+  });
+
+  document.querySelector("#configstats .optionsave>.cancel").addEventListener("click", (event) => {
+    event.preventDefault();
+    location.reload();
+  });
+
+});</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

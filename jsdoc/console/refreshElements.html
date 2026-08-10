@@ -1,0 +1,419 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/refreshElements.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/refreshElements.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module refreshElements
+ * @description Refreshes DOM elements via fetch using a SharedWorker for background
+ * requests. Uses morphdom for efficient DOM diffing and supports visibility-based
+ * refresh scheduling. Each refreshElements() call runs its own refresh loop, fetch
+ * port, and patch state, so multiple loops can coexist on one page.
+ *
+ * Fragment mode: with the fragmentIds parameter the fetch URL gains a
+ * contentonly parameter and the server renders only the named elements.
+ * Row-diff mode: with the diffRows parameter set to a tbody id, rows of that
+ * tbody are diffed in a SharedWorker (diffWorker.js) against the previous
+ * snapshot and only changed rows are patched, skipping the main-thread parse
+ * and morphdom pass entirely when nothing changed. In row-diff mode the
+ * response is never patched via morphdom, so companion elements must use
+ * their own refreshElements call.
+ *
+ * All parsing happens in the SharedWorker: diffWorker.js turns fragment HTML
+ * into a serializable VDOM tree (vdomParser.js) and this module realizes only
+ * the rows or elements it receives. No DOMParser runs on the main thread.
+ *
+ * Patch application is deferred while the user is actively scrolling so
+ * DOM mutation never lands inside a scroll frame; a deferred result is
+ * flushed once scrolling settles, coalescing any refreshes that arrived
+ * during the scroll.
+ * @author dr|z3d
+ * @license AGPLv3 or later
+ */
+
+import morphdom from "/js/morphdom.js";
+
+/**
+ * Reports the page's visibility to the SharedWorker so the fetch worker can
+ * suspend requests for tabs that aren't visible.
+ * @function reportVisibility
+ * @param {MessagePort} port - The fetch worker port
+ * @returns {void}
+ */
+function reportVisibility(port) {
+  port.postMessage({ visibility: !document.hidden });
+}
+
+/**
+ * Splits a selector string or array into trimmed selector strings.
+ * @function normalizeSelectors
+ * @param {string|string[]} targetSelectors - CSS selector(s)
+ * @returns {string[]}
+ */
+function normalizeSelectors(targetSelectors) {
+  if (typeof targetSelectors === "string") {
+    return targetSelectors.split(",").map(s => s.trim());
+  }
+  if (Array.isArray(targetSelectors)) {
+    return targetSelectors.map(s => s.trim());
+  }
+  return [];
+}
+
+/**
+ * Joins fragment element ids into a comma-separated contentonly parameter value.
+ * @function normalizeFragmentIds
+ * @param {string|string[]} fragmentIds - Element ids rendered by the server
+ * @returns {string|null} The joined id list, or null when not using fragments
+ */
+function normalizeFragmentIds(fragmentIds) {
+  if (!fragmentIds) { return null; }
+  const ids = typeof fragmentIds === "string" ? fragmentIds.split(",") : fragmentIds;
+  return ids.map(s => s.trim()).filter(s => s.length > 0).join(",") || null;
+}
+
+let isPageScrolling = false;
+let scrollCleanupTimer = null;
+let scrollGateInstalled = false;
+const SCROLL_DEBOUNCE_MS = 150;
+
+/**
+ * Shared per-page scroll gate: flips a flag while the user is actively
+ * scrolling and clears it after scrolling stops. One capture listener
+ * serves every refreshElements instance; the flag is module-global so all
+ * instances defer their DOM work together.
+ * @function installScrollGate
+ * @returns {void}
+ */
+function installScrollGate() {
+  if (scrollGateInstalled) { return; }
+  scrollGateInstalled = true;
+  window.addEventListener("scroll", () => {
+    isPageScrolling = true;
+    clearTimeout(scrollCleanupTimer);
+    scrollCleanupTimer = setTimeout(() => { isPageScrolling = false; }, SCROLL_DEBOUNCE_MS);
+  }, { passive: true, capture: true });
+}
+
+/**
+ * Runs an apply function immediately, or holds the latest one until the
+ * user stops scrolling. Concurrent calls while scrolling coalesce (latest
+ * wins), so a burst of refresh results flushed after a scroll settle into
+ * one later patch.
+ * @function createScrollDeferred
+ * @returns {Function} A deferred-apply function for one target slot
+ */
+function createScrollDeferred() {
+  let pending = null;
+  let retry = null;
+
+  function flush() {
+    const fn = pending;
+    pending = null;
+    retry = null;
+    if (document.hidden) { return; }
+    if (fn) { fn(); }
+  }
+
+  return function(applyFn) {
+    if (!isPageScrolling) { applyFn(); return; }
+    pending = applyFn;
+    if (retry) { return; }
+    retry = setTimeout(function tick() {
+      if (isPageScrolling) {
+        retry = setTimeout(tick, 100);
+        return;
+      }
+      flush();
+    }, 100);
+  };
+}
+
+/**
+ * Appends the contentonly parameter to a fetch URL.
+ * @function appendContentOnly
+ * @param {string} url - The fetch URL
+ * @param {string} ids - The comma-joined element ids
+ * @returns {string} The URL with the contentonly parameter appended
+ */
+function appendContentOnly(url, ids) {
+  return url + (url.includes("?") ? "&amp;" : "?") + "contentonly=" + ids;
+}
+
+/**
+ * Realizes a serializable VDOM node (from diffWorker.js) as a live DOM node.
+ * Script elements are dropped: refresh fragments are server-rendered rows and
+ * never carry executable scripts, and the DOMParser-based flow they replace
+ * kept parsed scripts inert anyway. Dropping keeps the same visible DOM at
+ * lower cost.
+ * @function realizeVdom
+ * @param {Object} vnode - The VDOM node ({tagName, attributes, children} or
+ * {nodeName:"#text"|"#comment", nodeValue})
+ * @returns {Node|null} The realized node, or null for skipped script elements
+ */
+function realizeVdom(vnode) {
+  if (!vnode) { return null; }
+  if (vnode.nodeName === "#text") { return document.createTextNode(vnode.nodeValue); }
+  if (vnode.nodeName === "#comment") { return document.createComment(vnode.nodeValue); }
+  if (vnode.tagName === "script") { return null; }
+  const el = document.createElement(vnode.tagName);
+  const attrs = vnode.attributes;
+  if (attrs) {
+    for (const name in attrs) { el.setAttribute(name, attrs[name]); }
+  }
+  const kids = vnode.children;
+  if (Array.isArray(kids)) {
+    for (let i = 0; i &lt; kids.length; i++) {
+      const child = realizeVdom(kids[i]);
+      if (child) { el.appendChild(child); }
+    }
+  }
+  return el;
+}
+
+/**
+ * Sets up periodic element refresh using a SharedWorker for fetch requests.
+ * Automatically pauses when the document is hidden and resumes on visibility.
+ * Each call registers an independent loop; multiple calls may run concurrently.
+ * @function refreshElements
+ * @param {string|string[]} targetSelectors - CSS selector(s) for elements to refresh
+ * @param {string} url - The URL to fetch content from
+ * @param {number} delay - The refresh interval in milliseconds
+ * @param {boolean} [immediate=false] - Fetch right away on setup, or wait for the first interval tick
+ * @param {boolean} [silent=false] - Skip the progress bar on each refresh
+ * @param {string|string[]} [fragmentIds=null] - Element ids the server should render (contentonly fragment mode)
+ * @param {string} [diffRows=null] - Id of a tbody whose rows are diffed in a worker; only changed rows are patched
+ * @param {number} [minInterval=0] - Minimum period between refreshes in ms. A refresh request (interval tick or visibility regain) is skipped when the last refresh started less than this long ago; zero disables the check
+ * @returns {Function} The stop function that halts the refresh loop
+ * @example refreshElements("#sidebar", "/sidebar", 10000)
+ * @example refreshElements(["#peers", "#status"], "/peers", 5000)
+ */
+export function refreshElements(targetSelectors, url, delay, immediate = false, silent = false, fragmentIds = null, diffRows = null, minInterval = 0) {
+  const selectors = normalizeSelectors(targetSelectors);
+  const contentOnlyIds = normalizeFragmentIds(fragmentIds);
+  const fetchUrl = contentOnlyIds ? appendContentOnly(url, contentOnlyIds) : url;
+  installScrollGate();
+  const deferPatch = createScrollDeferred();
+
+  const fetchWorker = new SharedWorker("/js/fetchWorker.js");
+  fetchWorker.port.start();
+  const visibilityListener = () => reportVisibility(fetchWorker.port);
+  document.addEventListener("visibilitychange", visibilityListener);
+  reportVisibility(fetchWorker.port);
+
+  const diffWorker = new SharedWorker("/js/diffWorker.js");
+  diffWorker.port.start();
+
+  let instanceIntervalId = null;
+  let isRefreshing = false;
+  let lastRefreshAt = 0;
+
+  /**
+   * Dispatches the refresh events after a patch is applied.
+   * @function dispatchDone
+   * @returns {void}
+   */
+  function dispatchDone() {
+    document.dispatchEvent(new Event("refreshComplete"));
+    document.dispatchEvent(new CustomEvent("elementsRefreshed", { detail: { selectors } }));
+  }
+
+  /**
+   * Applies a row-level diff result to the live tbody. Inserted rows carry
+   * their target position (the key of the following row in server order) and
+   * are inserted before it; an unknown predecessor falls back to appending,
+   * which the sorter refresh on refreshComplete corrects when the user has
+   * an active sort. Rows arrive as VDOM and are realized per row.
+   * @function patchRows
+   * @param {string} tbodyId - The tbody element id
+   * @param {Object} result - The diff result (changed, inserts, removed)
+   * @returns {boolean} True when a lazy row was inserted (re-scan needed)
+   */
+  function patchRows(tbodyId, result) {
+    const tbody = document.getElementById(tbodyId);
+    if (!tbody) { return false; }
+    let lazyAdded = false;
+    const rowByKey = key => tbody.querySelector('tr[data-key="' + key + '"]');
+    const morphOptions = {
+      onBeforeElUpdated: (fromEl, toEl) => {
+        if (fromEl.isEqualNode(toEl)) { return false; }
+        return true;
+      }
+    };
+    (result.changed || []).forEach(vdom => {
+      const row = realizeVdom(vdom);
+      if (!row) { return; }
+      const key = row.getAttribute("data-key");
+      const existing = key ? rowByKey(key) : null;
+      if (existing) { morphdom(existing, row, morphOptions); }
+    });
+    (result.inserts || []).slice().reverse().forEach(insert => {
+      const row = realizeVdom(insert.vdom);
+      if (!row) { return; }
+      if (row.classList.contains("lazy")) { lazyAdded = true; }
+      const before = insert.before ? rowByKey(insert.before) : null;
+      if (before) { tbody.insertBefore(row, before); }
+      else { tbody.appendChild(row); }
+    });
+    (result.removed || []).forEach(key => {
+      const row = rowByKey(key);
+      if (row) { row.remove(); }
+    });
+    return lazyAdded;
+  }
+
+  /**
+   * Full fallback: replace the tbody contents wholesale (first tick, row
+   * order changes, or rows without keys).
+   * @function patchFull
+   * @param {string} tbodyId - The tbody element id
+   * @param {Object} vdom - The tbody VDOM from the diff worker
+   * @returns {{changed: boolean, lazyAdded: boolean}} Whether the DOM changed and whether new lazy rows were added
+   */
+  function patchFull(tbodyId, vdom) {
+    const tbody = document.getElementById(tbodyId);
+    if (!tbody || !vdom) { return { changed: false, lazyAdded: false }; }
+    let changed = false;
+    let lazyAdded = false;
+    const newTbody = realizeVdom(vdom);
+    if (!newTbody) { return { changed: false, lazyAdded: false }; }
+    morphdom(tbody, newTbody, {
+      onBeforeElUpdated: (fromEl, toEl) => {
+        if (fromEl.isEqualNode(toEl)) { return false; }
+        return true;
+      },
+      onElUpdated: () => { changed = true; },
+      onNodeAdded: (el) => {
+        changed = true;
+        if (el.classList &amp;&amp; el.classList.contains("lazy")) { lazyAdded = true; }
+      }
+    });
+    return { changed, lazyAdded };
+  }
+
+  /**
+   * Patch the document from a fetched response with morphdom (no row diff).
+   * The response arrived as VDOM from the diff worker; the fragment roots are
+   * realized into a detached container before the selectors are matched.
+   * @function patchResponse
+   * @param {Object} vdom - The parsed fragment VDOM (nodeName "#document")
+   * @returns {void}
+   */
+  function patchResponse(vdom) {
+    let lazyAdded = false;
+    const container = document.createElement("div");
+    const kids = vdom.children || [];
+    for (let i = 0; i &lt; kids.length; i++) {
+      const el = realizeVdom(kids[i]);
+      if (el) { container.appendChild(el); }
+    }
+    selectors.forEach(selector => {
+      const targetElements = document.querySelectorAll(selector);
+      const targetElementsResponse = container.querySelectorAll(selector);
+      targetElements.forEach((targetElement, index) => {
+        const targetElementResponse = targetElementsResponse[index];
+        if (targetElement &amp;&amp; targetElementResponse) {
+          morphdom(targetElement, targetElementResponse, {
+            onBeforeElUpdated: (fromEl, toEl) => {
+              if (fromEl.isEqualNode(toEl)) { return false; }
+              return true;
+            },
+            onNodeAdded: (el) => {
+              if (el.classList &amp;&amp; el.classList.contains("lazy")) { lazyAdded = true; }
+            }
+          });
+        }
+      });
+    });
+    if (lazyAdded) { document.dispatchEvent(new Event("elementsPatched")); }
+    dispatchDone();
+  }
+
+  fetchWorker.port.onmessage = function(e) {
+    const { responseText } = e.data;
+    if (!responseText) { return; }
+
+    const arrivedHidden = document.hidden;
+    requestAnimationFrame(() => {
+      // Response fetched while the tab was hidden: drop it. rAF is suspended
+      // while hidden, so it would otherwise render stale data on regain before
+      // the visibilitychange-triggered refresh replaces it.
+      if (arrivedHidden || document.hidden) { return; }
+      diffWorker.port.postMessage({
+        url: fetchUrl,
+        html: responseText,
+        ...(diffRows ? { tbodyId: diffRows } : {})
+      });
+    });
+  };
+
+  diffWorker.port.onmessage = function(e) {
+    const data = e.data;
+    if (!data || data.action === "unchanged") { return; }
+    if (data.action === "rows") {
+      deferPatch(() => {
+        const lazyAdded = patchRows(diffRows, data);
+        if (lazyAdded) { document.dispatchEvent(new Event("elementsPatched")); }
+        dispatchDone();
+      });
+    } else if (data.action === "full") {
+      deferPatch(() => {
+        const result = patchFull(diffRows, data.vdom);
+        if (result.lazyAdded) { document.dispatchEvent(new Event("elementsPatched")); }
+        if (result.changed) { dispatchDone(); }
+      });
+    } else if (data.action === "parsed") {
+      deferPatch(() => { patchResponse(data.vdom); });
+    }
+  };
+
+  function refresh() {
+    if (document.visibilityState !== "visible" || isRefreshing) { return; }
+    const now = Date.now();
+    if (minInterval > 0 &amp;&amp; now - lastRefreshAt &lt; minInterval) { return; }
+
+    isRefreshing = true;
+    lastRefreshAt = now;
+    if (!silent) { progressx?.show(theme); }
+
+    fetchWorker.port.postMessage({ url: fetchUrl });
+
+    setTimeout(() => {
+      if (!silent) { progressx?.hide(); }
+      isRefreshing = false;
+    }, 1000);
+  }
+
+  if (document.visibilityState === "visible") {
+    if (immediate) { refresh(); }
+    instanceIntervalId = setInterval(refresh, delay);
+  }
+
+  function handleVisibilityChange() {
+    if (document.visibilityState === "visible") {
+      refresh();
+      if (!instanceIntervalId) {
+        instanceIntervalId = setInterval(refresh, delay);
+      }
+    } else {
+      clearInterval(instanceIntervalId);
+      instanceIntervalId = null;
+      isRefreshing = false;
+    }
+  }
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  /**
+   * Halts the refresh loop for this instance.
+   * @function stop
+   * @returns {void}
+   */
+  function stop() {
+    clearInterval(instanceIntervalId);
+    instanceIntervalId = null;
+    isRefreshing = false;
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+    document.removeEventListener("visibilitychange", visibilityListener);
+    fetchWorker.port.close();
+    if (diffWorker) { diffWorker.port.close(); }
+  }
+
+  return stop;
+}
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

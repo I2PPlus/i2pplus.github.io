@@ -1,0 +1,351 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/graphs.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/graphs.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module graphs
+ * @description Handles AJAX graph refresh, configuration panel toggle, and
+ * graph filtering on the /graphs page. Supports lazy loading of graph images,
+ * visibility-based refresh scheduling, and persistent filter state via localStorage.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+import { onVisible, onHidden } from "/js/onVisible.js";
+
+(() => {
+  const d = document,
+    $ = (id) => d.getElementById(id),
+    query = (s) => d.querySelector(s);
+
+  const form = $("gform"),
+    configs = $("graphConfigs"),
+    allgraphs = $("allgraphs"),
+    h3 = $("graphdisplay"),
+    sb = $("sidebar");
+
+  let graphsTimerId,
+    longestLoadTime = 500,
+    lastRefreshTime = 0,
+    debugging = false;
+
+  /**
+   * Creates and appends a search filter UI element above the graph list.
+   * @function initializeSearchFilter
+   * @returns {{searchInput: HTMLInputElement, clearButton: HTMLButtonElement}} The created filter elements
+   */
+  function initializeSearchFilter() {
+    const container = query("h1.perf");
+    if (!container) return {};
+    const searchContainer = d.createElement("div");
+    searchContainer.id = "graphFilter";
+    const searchInput = d.createElement("input");
+    searchInput.type = "text";
+    searchInput.id = "searchInput";
+    const clearButton = d.createElement("button");
+    clearButton.textContent = "Clear Filter";
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
+      localStorage.removeItem("graphsFilter");
+    });
+    searchContainer.append(searchInput, clearButton);
+    container.insertBefore(searchContainer, container.firstChild);
+    return { searchInput, clearButton };
+  }
+
+  /**
+   * Filters graph containers based on the search input text and alias map.
+   * @function applyFilter
+   * @param {HTMLInputElement} input - The search input element containing the filter text
+   * @returns {void}
+   */
+  function applyFilter(input) {
+    const text = input.value.trim().toLowerCase(),
+      aliasMap = {
+        bandwidth: { include: ["bw", "bps", "bandwidth", "combined"], exclude: ["jobwait"] },
+        count: { include: ["count", "participatingtunnels"], exclude: [] },
+        ssu: { include: ["udp", "ssu"], exclude: [] },
+        tco: { include: ["ntcp", "tcp"], exclude: [] },
+        transit: { include: ["participating", "transit"], exclude: [] },
+      },
+      entry = aliasMap[text];
+
+    d.querySelectorAll(".graphContainer").forEach((container) => {
+      const img = container.querySelector("img");
+      if (!img) {
+        container.style.display = "none";
+        return;
+      }
+      const alt = (img.alt || "").toLowerCase();
+      if (!text) {
+        container.style.display = "";
+        container.classList.remove("loading");
+        return;
+      }
+      if (!entry) {
+        const matched = alt.includes(text);
+        container.style.display = matched ? "" : "none";
+        if (matched) container.classList.remove("loading");
+        return;
+      }
+      const includesAny = entry.include.some((inc) => alt.includes(inc)),
+        excludesAny = entry.exclude.some((exc) => alt.includes(exc)),
+        matched = includesAny &amp;&amp; !excludesAny;
+      container.style.display = matched ? "" : "none";
+      if (matched) container.classList.remove("loading");
+    });
+
+    localStorage.setItem("graphsFilter", input.value.trim());
+  }
+
+  /**
+   * Creates a debounced version of the filter function.
+   * @function debounceFilter
+   * @param {Function} func - The function to debounce
+   * @param {number} [delay=500] - Debounce delay in milliseconds
+   * @param {HTMLInputElement} input - The input element to pass to the function
+   * @returns {Function} The debounced filter function
+   */
+  function debounceFilter(func, delay = 500, input) {
+    let timeoutId;
+    return () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(input), delay);
+    };
+  }
+
+  let imgObservers = [];
+
+  /**
+   * Disconnects all active IntersectionObservers and clears the array.
+   * @function disconnectObservers
+   * @returns {void}
+   */
+  function disconnectObservers() {
+    imgObservers.forEach((obs) => obs.disconnect());
+    imgObservers.length = 0;
+  }
+
+  /**
+   * Sets up MutationObserver on the target and IntersectionObservers for each graph image.
+   * @function initializeObservers
+   * @param {HTMLElement} target - The container element to observe for mutations
+   * @param {Function} debouncedFunc - The debounced filter function to call on changes
+   * @param {HTMLInputElement} input - The filter input element
+   * @returns {void}
+   */
+  function initializeObservers(target, debouncedFunc, input) {
+    disconnectObservers();
+    if (target) new MutationObserver(debouncedFunc).observe(target, { childList: true, subtree: true });
+    d.querySelectorAll(".graphContainer").forEach((container) => {
+      if (container.style.display === "none") return;
+      const img = container.querySelector("img");
+      if (!img) return;
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              debouncedFunc();
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "200px 0px 200px 0px" }
+      );
+      io.observe(img);
+      imgObservers.push(io);
+    });
+  }
+
+  /**
+   * Applies the natural dimensions of the first graph image to the container style.
+   * @async
+   * @function applyDimensions
+   * @returns {Promise&lt;boolean>} True if dimensions were applied successfully
+   */
+  async function applyDimensions() {
+    const styleElem = query("style#gwrap");
+    if (!styleElem) return false;
+
+    const firstImg = query(".statimage");
+    if (!firstImg) return false;
+
+    try {
+      await firstImg.decode();
+    } catch (error) {
+      return false;
+    }
+
+    const w = firstImg.naturalWidth;
+    const h = firstImg.naturalHeight;
+    if (w &lt;= 40 || h &lt;= 20) {
+      return false;
+    }
+
+    const css = `.graphContainer { width: ${w + 4}px; height: ${h + 4}px; }`;
+    if (styleElem.innerText !== css) {
+      styleElem.innerText = css;
+    }
+    return true;
+  }
+
+  /**
+   * Retries applying dimensions until successful or no images remain.
+   * @function ensureDimensions
+   * @returns {void}
+   */
+  function ensureDimensions() {
+    const success = applyDimensions();
+    if (!success &amp;&amp; d.querySelector(".statimage")) {
+      setTimeout(ensureDimensions, 200);
+    }
+  }
+
+  /**
+   * Refreshes all graph images via preloaded images and updates the display.
+   * @async
+   * @function updateGraphs
+   * @param {HTMLInputElement} input - The filter input element
+   * @param {Function} debouncedFunc - The debounced filter function to reapply after update
+   * @returns {Promise&lt;void>}
+   */
+  async function updateGraphs(input, debouncedFunc) {
+    if (typeof graphRefreshInterval === "undefined" || graphRefreshInterval &lt;= 0) return;
+    progressx.show(theme);
+    clearTimeout(graphsTimerId);
+    graphsTimerId = setInterval(() => updateGraphs(input, debouncedFunc), graphRefreshInterval);
+    const images = Array.from(d.querySelectorAll(".statimage"));
+    images.forEach((img) => img.classList.add("lazy"));
+    const now = Date.now(),
+      timeSinceLast = now - lastRefreshTime,
+      allLoaded = images.every((img) => img.complete);
+    lastRefreshTime = now;
+    if (timeSinceLast &lt; longestLoadTime || !allLoaded) {
+      const nextInterval = Math.max(longestLoadTime + 1000 - timeSinceLast, graphRefreshInterval);
+      clearInterval(graphsTimerId);
+      graphsTimerId = setTimeout(() => updateGraphs(input, debouncedFunc), nextInterval);
+    }
+    const visibleImgs = images.filter((img) => !img.classList.contains("lazyhide")),
+      lazyImgs = images.filter((img) => img.classList.contains("lazyhide")),
+      start = Date.now();
+    try {
+      await Promise.all(
+        visibleImgs.map(
+          (img) =>
+            new Promise((res, rej) => {
+              const src = img.src.replace(/time=\d+/, `time=${now}`);
+              const pre = new Image();
+              pre.onload = () => {
+                img.src = src;
+                res();
+              };
+              pre.onerror = rej;
+              pre.src = src;
+            })
+        )
+      );
+    } catch {}
+    debouncedFunc?.();
+    progressx.hide();
+    longestLoadTime = Math.max(longestLoadTime, Date.now() - start);
+    if (debugging) console.log(`Total load time for all visible images: ${longestLoadTime}ms`);
+    await new Promise((res) => setTimeout(res, 5000));
+    try {
+      await Promise.all(
+        lazyImgs.map(async (img) => {
+          const src = img.src.replace(/time=\d+/, `time=${Date.now()}`);
+          const resp = await fetch(src);
+          if (resp.ok) img.src = src;
+        })
+      );
+    } catch(error) {}
+  }
+
+  if (typeof graphRefreshInterval !== "undefined" &amp;&amp; graphRefreshInterval > 0) {
+    updateGraphs();
+  }
+
+
+  /**
+   * Toggles the visibility of the graph configuration panel.
+   * @function toggleView
+   * @returns {void}
+   */
+  function toggleView() {
+    const toggle = $("toggleSettings");
+    if (!toggle) return;
+    const hidden = !toggle.checked;
+    form.hidden = hidden;
+    toggle.checked = !hidden;
+    h3.classList.toggle("visible", !hidden);
+    if (!hidden) {
+      $("gwidth")?.focus();
+      if (sb &amp;&amp; sb.scrollHeight &lt; d.body.scrollHeight)
+        setTimeout(() => window.scrollTo({ top: d.body.scrollHeight, behavior: "smooth" }), 500);
+    }
+  }
+
+  /**
+   * Dynamically loads the graph configuration toggle CSS if not already loaded.
+   * @function loadToggleCss
+   * @returns {void}
+   */
+  function loadToggleCss() {
+    if (!query("#graphToggleCss")) {
+      const link = d.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/themes/console/graphConfig.css";
+      link.id = "graphToggleCss";
+      d.head.appendChild(link);
+    }
+  }
+
+  /**
+   * Checks if graph images are present; shows an error message if none are loaded.
+   * @function isDown
+   * @returns {void}
+   */
+  function isDown() {
+    const images = [...d.querySelectorAll(".statimage")];
+    if (!images.length) {
+      allgraphs.innerHTML = '&lt;span id=nographs>&lt;b>No connection to Router&lt;/b>&lt;/span>';
+      progressx.hide();
+    }
+    setTimeout(ensureDimensions, 5000);
+  }
+
+  /**
+   * Stops the graph refresh interval timer.
+   * @function stopRefresh
+   * @returns {void}
+   */
+  const stopRefresh = () => clearInterval(graphsTimerId);
+
+  d.addEventListener("DOMContentLoaded", () => {
+    if (!d.body.classList.contains("loaded") &amp;&amp; !d.body.classList.contains("ready")) {
+      d.body.classList.add("loaded", "ready");
+    }
+    const { searchInput } = initializeSearchFilter();
+    if (!searchInput) return;
+    searchInput.value = localStorage.getItem("graphsFilter") || "";
+    applyFilter(searchInput);
+    const debouncedApplyFilter = debounceFilter(applyFilter, 100, searchInput);
+    searchInput.addEventListener("input", () => {
+      const val = searchInput.value.trim();
+      localStorage.setItem("graphsFilter", val);
+      if (val) applyFilter(searchInput);
+      initializeObservers(allgraphs, debouncedApplyFilter, searchInput);
+    });
+    initializeObservers(allgraphs, debouncedApplyFilter, searchInput);
+    ensureDimensions();
+    onVisible(allgraphs, () => {
+      updateGraphs(searchInput, debouncedApplyFilter);
+      debouncedApplyFilter();
+    });
+    onHidden(allgraphs, stopRefresh);
+    loadToggleCss();
+    toggleView();
+    $("graphConfigs").removeAttribute("hidden");
+    $("toggleSettings")?.addEventListener("click", toggleView);
+    setTimeout(isDown, 60000);
+    if (debugging) console.log(`Refresh interval is: ${graphRefreshInterval / 1000}s`);
+  });
+})();</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

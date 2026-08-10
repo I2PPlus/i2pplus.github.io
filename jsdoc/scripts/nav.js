@@ -1,0 +1,1 @@
+function scrollToNavItem(){var e=window.location.href.split("/").pop().replace(/\.html/,"");document.querySelectorAll("nav a").forEach(function(t){var n=t.attributes.href.value.replace(/\.html/,"");if(e===n){t.scrollIntoView({block:"center"});return}})}scrollToNavItem()

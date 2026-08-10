@@ -1,0 +1,323 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/lsCompact.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/lsCompact.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module lsCompact
+ * @description Compacts non-debug Leaseset tables, adds signature and encryption
+ * type counters, sorts leasesets by priority, and implements periodic auto-refresh.
+ * Handles both single and summary leaseset views.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+import { lsDebug } from "/js/lsDebug.js"; // NOSONAR S1128
+import { searchLS } from "/js/searchLS.js";
+
+const isSingleLS = document.getElementById("singleLS") !== null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  let container = document.querySelector(".leasesets_container");
+  let refreshInterval = null;
+  let isRefreshing = false;
+  let lsCount = 0;
+  const debug = document.getElementById("leasesetdebug");
+
+  /**
+   * Compacts leaseset tables by repositioning encryption keys after expiry cells.
+   * @function compact
+   * @returns {void}
+   */
+  function compact() {
+    if (!container || document.getElementById("leasesetdebug")) { return; }
+    document.querySelectorAll("table.leaseset").forEach(table => {
+      const expiry = table.querySelector(".expiry");
+      const ekeys = Array.from(table.querySelectorAll(".ekey"));
+      if (expiry &amp;&amp; ekeys.length > 0) {
+        ekeys.forEach(el => el.remove());
+        ekeys.forEach(ekey => expiry.insertAdjacentElement("afterend", ekey));
+        const oldTr = table.querySelector("tr.ekeys");
+        if (oldTr) { oldTr.remove(); }
+      }
+    });
+  }
+
+  /**
+   * Counts signature and encryption types across all leasesets and displays
+   * summary counters in the summary table.
+   * @function countTypes
+   * @returns {void}
+   */
+  function countTypes() {
+    const summary = document.getElementById("leasesetsummary") || document.getElementById("leasesetdebug");
+    if (!summary) { return; }
+
+    const signatureCounts = {};
+    document.querySelectorAll("span.nowrap.stype").forEach(span => {
+      if (!span.classList.contains("bullet")) {
+        const boldElement = span.querySelector("b");
+        const signatureSpan = boldElement?.nextElementSibling;
+        if (signatureSpan) {
+          const signatureType = signatureSpan.textContent.trim().split(/\s+/)[0];
+          signatureCounts[signatureType] = (signatureCounts[signatureType] || 0) + 1;
+        }
+      }
+    });
+
+    const encryptionCounts = {};
+    document.querySelectorAll("span.nowrap.ekey").forEach(span => {
+      if (!span.classList.contains("bullet")) {
+        const boldElement = span.querySelector("b");
+        const encryptionSpan = boldElement?.nextElementSibling;
+        if (encryptionSpan) {
+          const encryptionType = encryptionSpan.textContent.trim().split(/\s+/)[0];
+          encryptionCounts[encryptionType] = (encryptionCounts[encryptionType] || 0) + 1;
+        }
+      }
+    });
+
+    const tbody = summary.querySelector("tbody") || summary;
+    const existingRow = tbody.querySelector("#sigEncCount");
+        if (existingRow) { existingRow.remove(); }
+
+    const row = document.createElement("tr");
+    row.id = "sigEncCount";
+
+    const sigCell = document.createElement("td");
+    sigCell.innerHTML = `&lt;b>${translate_sigTypes}&lt;/b>`;
+
+    const sigText = Object.entries(signatureCounts)
+      .sort()
+      .map(([type, count]) => `&lt;span class=counterLS>&lt;span class="lsLabel sigType" title="${translate_sigType}">${type} &lt;span class=lsCounter>${count}&lt;/span>&lt;/span>&lt;/span>`)
+      .join(" &amp;nbsp;");
+    const sigValueCell = document.createElement("td");
+    sigValueCell.innerHTML = sigText;
+
+    const encCell = document.createElement("td");
+    encCell.innerHTML = `&lt;b>${translate_encTypes}&lt;/b>`;
+
+    const encText = Object.entries(encryptionCounts)
+      .sort()
+      .map(([type, count]) => `&lt;span class=counterLS>&lt;span class="lsLabel encType"  title="${translate_encType}">${type} &lt;span class=lsCounter>${count}&lt;/span>&lt;/span>&lt;/span>`)
+      .join(" &amp;nbsp;");
+    const encValueCell = document.createElement("td");
+    encValueCell.innerHTML = encText;
+
+    if (!debug) {
+      const mergedCell = document.createElement("td");
+      mergedCell.colSpan = 4;
+      mergedCell.style.textAlign = "center";
+      mergedCell.innerHTML = `
+        ${sigValueCell.innerHTML}
+        &lt;span class=vsep>&lt;/span>
+        &amp;nbsp;${encValueCell.innerHTML}
+      `;
+      row.appendChild(mergedCell);
+    } else {
+      row.appendChild(sigCell);
+      row.appendChild(sigValueCell);
+      row.appendChild(encCell);
+      row.appendChild(encValueCell);
+    }
+
+    tbody.appendChild(row);
+
+    const lsLocalCount = document.getElementById("lsLocalCount");
+    if (lsLocalCount) {
+      const leaseCountsRow = document.getElementById("leasesetCounts");
+      if (leaseCountsRow) {
+        const counters = leaseCountsRow.querySelectorAll(".lsCounter.sets");
+        if (counters.length > 0) {
+          const totalCount = Array.from(counters).reduce((sum, el) => {
+            const val = parseInt(el.textContent, 10);
+            return val ? sum + val : sum;
+          }, 0);
+          lsLocalCount.textContent = totalCount;
+        }
+      }
+    }
+    summary.removeAttribute("hidden");
+  }
+
+  /**
+   * Injects CSS styles for leaseset counter labels and badges.
+   * @function styleLabels
+   * @returns {void}
+   */
+  function styleLabels() {
+    const style = document.createElement("style");
+    style.type = "text/css";
+    style.id = "lsLabels";
+    style.textContent = `
+      .counterLS{padding:2px;display:inline-block;vertical-align:middle;border:var(--border_soft);box-shadow:var(--highlight);background:var(--badge)}
+      .counterLS .published{background:var(--globe) no-repeat 4px center/14px}
+      .counterLS .unpublished{background:var(--hardhat) no-repeat 4px center/14px}
+      .counterLS .clientB32{background:var(--ping) no-repeat 4px center/14px}
+      .counterLS .clientHostname{background:var(--link) no-repeat 4px center/14px}
+      .lsCounter,.lsBadge{margin:-3px -1px -3px 0;padding:2px 6px;min-width:28px;display:inline-block;text-align:center;font-weight:700}
+      .lsLabel{padding:1px 4px 1px 22px;display:inline-block;font-weight:500}
+      .lsLabel.encType,.lsLabel.sigType{margin-right:-4px}
+      .lsLabel.encType .lsCounter,.lsLabel.sigType .lsCounter{margin-left:4px}
+      .lsLabel.encType{background:var(--crypto) no-repeat 4px center/14px}
+      .lsLabel.sigType{background:var(--lock) no-repeat 4px center/14px}`;
+    document.head.appendChild(style);
+  }
+
+  /**
+   * Sorts leaseset tables by priority (published > unpublished > known client > client b32)
+   * and adds count rows for each category.
+   * @function sortLeasesets
+   * @returns {void}
+   */
+  function sortLeasesets() {
+    document.querySelectorAll("table.leaseset").forEach(table => {
+      const lastTh = table.querySelector("th:last-child");
+      let sortPriority = 4;
+      let sortText = "";
+      if (lastTh) {
+        sortText = lastTh.textContent.trim().toLowerCase();
+        const span = lastTh.querySelector("span.lsdest");
+        if (span) {
+          sortPriority = span.classList.contains("published") ? 0 : 1;
+        } else {
+          const a = lastTh.querySelector("a");
+          if (a) {
+            sortPriority = a.classList.contains("destlink") ? 2 : 3;
+          }
+        }
+      }
+      table.dataset.sortPriority = sortPriority;
+      table.dataset.sortText = sortText;
+    });
+
+    const tables = Array.from(document.querySelectorAll("table.leaseset"));
+    tables.sort((a, b) => {
+      const prioA = parseInt(a.dataset.sortPriority, 10);
+      const prioB = parseInt(b.dataset.sortPriority, 10);
+      if (prioA !== prioB) { return prioA - prioB; }
+      return a.dataset.sortText.localeCompare(b.dataset.sortText);
+    });
+
+    tables.forEach(table => {
+      if (table.parentNode) {
+        table.parentNode.appendChild(table);
+      }
+    });
+
+    if (window.location.search.includes("l=3")) {
+      const summaryTable = document.getElementById("leasesetsummary");
+      const publishedCount = document.querySelectorAll("table.leaseset th:last-child span.lsdest.published").length;
+      const unpublishedCount = document.querySelectorAll("table.leaseset th:last-child span.lsdest:not(.published)").length;
+      const knownClientCount = document.querySelectorAll("table.leaseset th:last-child a.destlink").length;
+      const clientCount = document.querySelectorAll("table.leaseset th:last-child a:not(.destlink)").length;
+
+      if (summaryTable) {
+        const tbody = summaryTable.querySelector("tbody") || summaryTable;
+        const existingRow = tbody.querySelector("#leasesetCounts");
+    if (existingRow) { existingRow.remove(); }
+
+        const row = document.createElement("tr");
+        row.id = "leasesetCounts";
+
+        const cell = document.createElement("td");
+        const cell_r = document.createElement("td");
+        cell.colSpan = 4;
+        cell.style.textAlign = "center";
+        cell.innerHTML = `
+          &lt;span class=counterLS title="${translate_localPublic}">&lt;span class="lsLabel published">Published&lt;/span> &lt;span class="lsCounter sets">${publishedCount}&lt;/span>&lt;/span> &amp;nbsp;
+          &lt;span class=counterLS title="${translate_localPrivate}">&lt;span class="lsLabel unpublished">Unpublished&lt;/span> &lt;span class="lsCounter sets">${unpublishedCount}&lt;/span>&lt;/span> &amp;nbsp;
+          &lt;span class=counterLS title="${translate_requestedLS}">&lt;span class="lsLabel clientHostname">Client (hostname)&lt;/span> &lt;span class="lsCounter sets">${knownClientCount}&lt;/span>&lt;/span> &amp;nbsp;
+          &lt;span class=counterLS title="${translate_requestedLS}">&lt;span class="lsLabel clientB32">Client (b32)&lt;/span> &lt;span class="lsCounter sets">${clientCount}&lt;/span>&lt;/span>
+        `;
+        row.appendChild(cell);
+        tbody.appendChild(row);
+        lsCount = Array.from(document.querySelectorAll("#leasesetCounts span.lsCounter")).reduce((sum, el) => sum + parseInt(el.textContent, 10) || 0, 0);
+        lsLocalCount.textContent = lsCount;
+      }
+    }
+  }
+
+  /**
+   * Fetches updated leaseset content and replaces the current container.
+   * @function refreshLeasesets
+   * @returns {void}
+   */
+  function refreshLeasesets() {
+    if (!container) { return; }
+    progressx.show(theme); progressx.progress(.7);
+    const url = window.location.href;
+    fetch(url)
+      .then(response => {
+        if (!response.ok) { throw new Error("Network response was not ok"); }
+        progressx.progress(.8);
+        return response.text();
+      })
+      .then(html => {
+        const lsLabels = document.getElementById("lsLabels");
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const newContainer = temp.querySelector(".leasesets_container");
+        if (!newContainer) { return; }
+        const oldContainer = document.querySelector(".leasesets_container");
+        if (!oldContainer) { return; }
+        oldContainer.parentNode.replaceChild(newContainer, oldContainer);
+        container = newContainer;
+        progressx.progress(.9)
+        compact();
+        lsDebug();
+        countTypes();
+        if (!lsLabels) { styleLabels(); }
+        if (!debug) { sortLeasesets(); }
+        if (isSingleLS) { searchLS(); }
+        progressx.progress(1);
+        setTimeout(() => { progressx.hide(); }, 100);
+      })
+      .catch(() => { });
+  }
+
+  /**
+   * Starts the periodic leaseset refresh interval.
+   * @function startRefresh
+   * @returns {void}
+   */
+  function startRefresh() {
+    if (isRefreshing) { return; }
+    isRefreshing = true;
+    refreshInterval = setInterval(() => { requestAnimationFrame(refreshLeasesets); }, 15000);
+  }
+
+  /**
+   * Stops the periodic leaseset refresh interval.
+   * @function stopRefresh
+   * @returns {void}
+   */
+  function stopRefresh() {
+    if (!isRefreshing) { return; }
+    isRefreshing = false;
+    clearInterval(refreshInterval);
+    refreshInterval = null;
+    progressx.hide();
+  }
+
+  /**
+   * Initializes the leaseset compact view with refresh, styling, sorting, and debug.
+   * @function initLSCompact
+   * @returns {void}
+   */
+  function initLSCompact() {
+    startRefresh();
+    progressx.show(theme);
+    compact();
+    lsDebug();
+    countTypes();
+    styleLabels();
+    if (!debug) { sortLeasesets(); }
+    if (isSingleLS) { searchLS(); }
+    progressx.hide();
+  }
+
+  initLSCompact();
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") { stopRefresh(); }
+    else { initLSCompact(); }
+  });
+
+});</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

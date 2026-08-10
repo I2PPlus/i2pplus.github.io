@@ -1,0 +1,221 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/viewprofile.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/viewprofile.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module viewprofile
+ * @description Parses raw profile text data from the #viewprofile pre element
+ * into a structured HTML table with section headers, formatted values (speed in MB/s,
+ * readable dates, response times), and collapsible section toggles.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+(function() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const viewprofile = document.getElementById("viewprofile");
+    const profileContainer = document.querySelector("#viewprofile pre");
+    const profile = profileContainer.innerText;
+    const lines = profile.split("\n");
+    profileContainer.style.display = "none";
+
+    let manualSpeedScoreAdjustment = 0; // Initialize the adjustment value
+    let speedValue = null; // Initialize the speed value
+
+    // First pass to collect all relevant values
+    lines.forEach((line) => {
+      if (line.startsWith("# ---")) {} // skip
+      else if (line.startsWith("# ") &amp;&amp; line.includes(":")) {
+        const [key, ...rest] = line.slice(2).split(":");
+        const value = rest.join(":").trim();
+        const cleanedKey = key.replace("(ms since the epoch)", "").trim();
+        const cleanedValue = cleanValue(value);
+
+        if (cleanedKey === "Manual Speed Score adjustment") {
+          manualSpeedScoreAdjustment = parseFloat(cleanedValue);
+        }
+
+        if (cleanedKey === "Speed") {
+          speedValue = parseFloat(cleanedValue);
+        }
+      }
+    });
+
+    // Second pass to generate the table HTML
+    let tableHTML = "&lt;table>";
+    lines.forEach((line) => {
+      if (line.startsWith("# ---")) {} // skip
+      else if (line.startsWith("# ") &amp;&amp; line.includes(":")) {
+        const [key, ...rest] = line.slice(2).split(":");
+        const value = rest.join(":").trim();
+        const cleanedKey = key.replace("(ms since the epoch)", "").replace("(ms)", "").trim();
+        const cleanedValue = cleanValue(value);
+
+        if (cleanedKey === "Speed") {
+          const speed = speedValue - manualSpeedScoreAdjustment;
+          if (speed > 0) { // Only display if speed is greater than 0 B/s
+            let convertedSpeed;
+            if (!isNaN(speed)) {
+              if (speed >= 1024) {
+                convertedSpeed = (speed / 1024).toFixed(2); // Convert to MB/s
+                tableHTML += "&lt;tr class=stat>&lt;td>" + cleanedKey + "&lt;/td>&lt;td>" + convertedSpeed + " MB/s&lt;/td>&lt;/tr>";
+              } else {
+                convertedSpeed = speed.toFixed(0);
+                tableHTML += "&lt;tr class=stat>&lt;td>" + cleanedKey + "&lt;/td>&lt;td>" + convertedSpeed + " B/s&lt;/td>&lt;/tr>";
+              }
+            }
+          }
+        } else if (cleanedKey === "Time of last failed lookup from peer" ||
+            cleanedKey === "Time of last successful lookup from peer" ||
+            cleanedKey === "Time of last failed store to peer" ||
+            cleanedKey === "Time of last successful store to peer") {
+          const convertedDate = convertEpochToReadableDate(cleanedValue);
+          tableHTML += "&lt;tr class=stat>&lt;td>" + cleanedKey + "&lt;/td>&lt;td>" + convertedDate + "&lt;/td>&lt;/tr>";
+        } else if (cleanedKey === "Period") {
+          const concatenatedValue = cleanedKey + ": " + cleanedValue;
+          tableHTML += "&lt;tr class='subheading period'>&lt;th colspan=2>" + concatenatedValue + "&lt;/th>&lt;/tr>";
+        } else if (cleanedKey === "Average peer response time") {
+          const responseTime = parseFloat(cleanedValue);
+          let formattedResponseTime;
+          if (!isNaN(responseTime)) {
+            if (responseTime > 1000) {
+              formattedResponseTime = (responseTime / 1000).toFixed(1) + " seconds";
+            } else {
+              formattedResponseTime = responseTime.toFixed(0) + " milliseconds";
+            }
+          }
+          tableHTML += "&lt;tr class=stat>&lt;td>" + cleanedKey + "&lt;/td>&lt;td>" + formattedResponseTime + "&lt;/td>&lt;/tr>";
+        } else {
+          tableHTML += "&lt;tr class=stat>&lt;td>" + cleanedKey + "&lt;/td>&lt;td>" + cleanedValue + "&lt;/td>&lt;/tr>";
+        }
+      } else if (line.startsWith("# ") &amp;&amp; !line.includes(":")) {
+        const sectionTitle = line.slice(2).trim();
+        const [text, title] = extractTooltip(sectionTitle);
+        if (text === "Router Information") {
+          tableHTML += "&lt;tr class='section heading ri expanded'>&lt;th colspan='2' title='" + title + "'>" + text + "&lt;/th>&lt;/tr>";
+        } else if (text === "NetDb History") {
+          tableHTML += "&lt;tr class='section heading db expanded'>&lt;th colspan='2' title='" + title + "'>" + text + "&lt;/th>&lt;/tr>";
+        } else if (text === "Tunnel History") {
+          tableHTML += "&lt;tr class='section heading tnl expanded'>&lt;th colspan='2' title='" + title + "'>" + text + "&lt;/th>&lt;/tr>";
+        } else {
+          tableHTML += "&lt;tr class=section>&lt;th colspan='2' title='" + title + "'>" + text + "&lt;/th>&lt;/tr>";
+        }
+      }
+    });
+
+    tableHTML += "&lt;/table>";
+    viewprofile.innerHTML = tableHTML;
+    viewprofile.classList.add("tabulated");
+    setTimeout(addToggles, 50);
+  });
+
+  /**
+   * Extracts tooltip content from bracketed text in a title string.
+   * @function extractTooltip
+   * @param {string} title - The title string potentially containing [tooltip] text
+   * @returns {string[]} Tuple of [clean title, tooltip content]
+   */
+  function extractTooltip(title) {
+    const match = title.match(/\[(.*?)\]/);
+    if (match) {
+      const titleContent = match[1];
+      const text = title.replace(match[0], "").trim();
+      return [text, titleContent];
+    }
+    return [title, ""];
+  }
+
+  /**
+   * Cleans and formats a raw profile value by removing brackets, GMT suffixes,
+   * and replacing special codes with readable text.
+   * @function cleanValue
+   * @param {string} value - The raw value string to clean
+   * @returns {string} The cleaned and formatted value
+   */
+  function cleanValue(value) {
+    let cleanedValue = value.replace(/\[.*?\]/g, "").trim();
+    cleanedValue = cleanedValue.replace(/GMT/g, "");
+    cleanedValue = cleanedValue.replace(/_/g, " ");
+    cleanedValue = cleanedValue.replace(/0\.0/g, "0");
+    cleanedValue = cleanedValue.replace(/9999999/g, "9999999 (Low latency)")
+    cleanedValue = cleanedValue.replace(/-30/g, "-30 (High latency)")
+    if (cleanedValue.endsWith(".0")) {cleanedValue = cleanedValue.slice(0, -2);}
+    return cleanedValue;
+  }
+
+  /**
+   * Converts an epoch millisecond timestamp to a human-readable date string.
+   * @function convertEpochToReadableDate
+   * @param {string} epoch - The epoch timestamp as a string
+   * @returns {string} A formatted date string or "Never" if epoch is "0"
+   */
+  function convertEpochToReadableDate(epoch) {
+    if (epoch === "0") {return "Never";}
+    const date = new Date(parseInt(epoch, 10));
+    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    const dayOfWeek = weekdays[date.getUTCDay()];
+    const month = months[date.getUTCMonth()];
+    const dayOfMonth = date.getUTCDate();
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+
+    return `${dayOfWeek} ${month} ${dayOfMonth} ${hours}:${minutes}:${seconds} ${date.getFullYear()}`;
+  }
+
+  /**
+   * Converts bytes to kilobytes with two decimal places.
+   * @function convertBtoKB
+   * @param {number} bytes - The value in bytes
+   * @returns {string} The value in KB as a formatted string
+   */
+  function convertBtoKB(bytes) {
+    return (bytes / 1024).toFixed(2);
+  }
+
+/**
+ * Sets up collapsible section toggles for the profile table, expanding
+ * router info, NetDb history, and tunnel history sections by default.
+ * @function addToggles
+ * @returns {void}
+ */
+function addToggles() {
+  document.querySelectorAll(".section").forEach(section => {
+    let next = section.nextElementSibling;
+    while (next &amp;&amp; !next.classList.contains("section")) {
+      next.classList.add("hidden");
+      next = next.nextElementSibling;
+    }
+  });
+
+  document.querySelectorAll(".section").forEach(section => {
+    section.addEventListener("click", function() {
+      this.classList.toggle("expanded");
+      let next = this.nextElementSibling;
+      while (next &amp;&amp; !next.classList.contains("section")) {
+        next.classList.toggle("hidden");
+        next = next.nextElementSibling;
+      }
+      if (this.classList.contains("expanded")) {
+        window.scrollTo(0, this.offsetTop);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+
+  // Expand the .ri, .tnl, and .db sections by default
+  const sectionsToExpand = document.querySelectorAll(".ri, .tnl, .db");
+  if (sectionsToExpand.length > 0) {
+    Array.from(sectionsToExpand).forEach(section => {
+      section.classList.add("expanded");
+      let next = section.nextElementSibling;
+      while (next &amp;&amp; !next.classList.contains("section")) {
+        next.classList.remove("hidden");
+        next = next.nextElementSibling;
+      }
+    });
+  }
+  setTimeout(() => viewprofile.removeAttribute("hidden"), 100);
+}
+
+})();</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

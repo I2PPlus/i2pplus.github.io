@@ -1,0 +1,253 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/tablesort/tablesort.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/tablesort/tablesort.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module tablesort
+ * @description Sortable HTML tables with auto-detected column types.
+ * All sorting is delegated to a dedicated web worker (sortWorker.js), with a
+ * main-thread fallback when Workers are unavailable.
+ * Comparison functions shared between the main thread and the worker
+ * via sortShared.js. Extends Tablesort.extend().
+ * Derived from tristen/tablesort (MIT) https://github.com/tristen/tablesort;
+ * worker integration, empty-last sort, keyboard nav, and direction swap
+ * by dr|z3d for I2P+ (AGPLv3).
+ * @license AGPLv3 or later
+ */
+
+;(function() {
+  /**
+   * @param {HTMLTableElement} el
+   * @param {Object} [options]
+   * @param {boolean} [options.descending] - Default to descending on first click
+   */
+  function Tablesort(el, options) {
+    if (!(this instanceof Tablesort)) return new Tablesort(el, options);
+    if (!el || el.tagName !== "TABLE") throw new Error("Element must be a table");
+    this.init(el, options || {});
+  }
+
+  let sortWorker = null;
+  let sortGen = 0;
+  const getSortWorker = () => {
+    if (sortWorker) return sortWorker;
+    try {
+      // Fall back to main-thread sorting when Workers are unavailable (private browsing,
+      // some embedded browsers) or the worker script fails to load.
+      sortWorker = new Worker("/js/tablesort/sortWorker.js");
+    } catch (e) {
+      sortWorker = null;
+    }
+    return sortWorker;
+  };
+
+  /** Registered sort extensions (name, pattern, sort). */
+  const sortOptions = [];
+
+  /**
+   * Create a CustomEvent (old-browser fallback).
+   * @param {string} name
+   * @returns {CustomEvent}
+   */
+  const createEvent = (name) =>
+    typeof CustomEvent === "function" ? new CustomEvent(name) : (() => {
+      const evt = document.createEvent("CustomEvent");
+      evt.initCustomEvent(name, false, false, undefined);
+      return evt;
+    })();
+
+  /**
+   * Read cell text; prefers data-sort attribute.
+   * @param {HTMLElement} el
+   * @returns {string}
+   */
+  const getInnerText = (el) => el.getAttribute("data-sort") ?? el.textContent ?? el.innerText ?? "";
+
+  /**
+   * Find a cell by data-sort-column-key attribute.
+   * @param {HTMLCollection} cells
+   * @param {string} key
+   * @returns {HTMLElement|undefined}
+   */
+  const getCellByKey = (cells, key) => Array.from(cells).find(cell => cell.getAttribute("data-sort-column-key") === key);
+
+  /**
+   * Register a named sort extension.
+   * @param {string} name
+   * @param {function(string): boolean} pattern - Auto-detection predicate
+   * @param {function(string, string): number} sort - Ascending comparator
+   */
+  Tablesort.extend = (name, pattern, sort) => {
+    if (typeof pattern !== "function" || typeof sort !== "function")
+      throw new Error("Pattern and sort must be functions");
+    sortOptions.push({ name, pattern, sort });
+  };
+
+  Tablesort.prototype = {
+    /**
+     * Attach click and keydown listeners to header cells.
+     * Skips cells with data-sort-method="none".
+     * @param {HTMLTableElement} el
+     * @param {Object} options
+     */
+    init(el, options) {
+      this.table = el; this.options = options;
+      this.thead = !!el.tHead &amp;&amp; el.tHead.rows.length > 0;
+      let headerRow = this.thead ? [...el.tHead.rows].find(r => r.getAttribute("data-sort-method") === "thead") || el.tHead.rows[el.tHead.rows.length - 1] : el.rows[0];
+      if (!headerRow) return;
+      const onClick = e => {
+        if (this.current &amp;&amp; this.current !== e.currentTarget) this.current.removeAttribute("aria-sort");
+        this.current = e.currentTarget; this.sortTable(this.current);
+      };
+      for (const cell of headerRow.cells) {
+        cell.setAttribute("role", "columnheader");
+        if (cell.getAttribute("data-sort-method") !== "none") {
+          cell.tabIndex = 0;
+          cell.addEventListener("click", onClick);
+          cell.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              onClick.call(cell, event);
+            }
+          });
+          if (cell.hasAttribute("data-sort-default")) this.current = cell;
+        }
+      }
+      if (this.current) this.sortTable(this.current);
+    },
+
+    /**
+     * Sort the table by the clicked header.
+     * Dispatches beforeSort / afterSort events.
+     * Delegates to the web worker for all row counts.
+     * @param {HTMLElement} header
+     * @param {boolean} [update] - True to refresh without toggling direction
+     */
+    sortTable(header, update) {
+      const columnKey = header.getAttribute("data-sort-column-key"), column = header.cellIndex;
+      const sortMethod = header.getAttribute("data-sort-method"), sortOrder = header.getAttribute("aria-sort");
+      const caseInsensitive = header.hasAttribute("data-sort-caseinsensitive");
+
+      this.table.dispatchEvent(createEvent("beforeSort"));
+
+      this.sortWithWorker(header, update, columnKey, column, sortMethod, sortOrder, caseInsensitive);
+    },
+
+    /**
+     * Sort table rows. Extracts row text and determines the sort type, then sorts via
+     * the web worker, or on the main thread when Workers are unavailable, re-appending
+     * rows in sorted order within a single DocumentFragment.
+     * @param {HTMLElement} header
+     * @param {boolean} update
+     * @param {string|null} columnKey
+     * @param {number} column
+     * @param {string|null} sortMethod
+     * @param {string} sortOrder
+     * @param {boolean} [caseInsensitive]
+     */
+    sortWithWorker(header, update, columnKey, column, sortMethod, sortOrder, caseInsensitive) {
+      sortGen++;
+      const gen = sortGen;
+      const tbody = this.table.tBodies[0];
+      if (!tbody) return;
+
+      const rowData = [];
+      const rowElements = [];
+      for (let j = 0; j &lt; tbody.rows.length; j++) {
+        const row = tbody.rows[j];
+        if (row.getAttribute("data-sort-method") === "none") continue;
+        const cell = columnKey ? getCellByKey(row.cells, columnKey) : row.cells[column];
+        const text = cell ? getInnerText(cell) : "";
+        rowData.push({
+          td: caseInsensitive ? text.toLowerCase() : text,
+          index: j
+        });
+        rowElements.push(row);
+      }
+
+      let columnType = "string";
+      const knownTypes = ["number","date","natural","dotsep","filesize","monthname","intl"];
+      if (sortMethod) {
+        if (knownTypes.includes(sortMethod)) {columnType = sortMethod;}
+      } else {
+        if (!caseInsensitive) {
+          const sampleItems = rowData.slice(0, 3).map(r => r.td).filter(t => t);
+          for (const opt of sortOptions) {
+            if (sampleItems.every(opt.pattern)) {
+              columnType = opt.name;
+              break;
+            }
+          }
+        }
+      }
+
+      if (!update) {
+        const columnDirection = header.getAttribute("data-sort-direction");
+        let defaultDescending = this.options.descending;
+        if (columnDirection === "ascending") defaultDescending = false;
+        else if (columnDirection === "descending") defaultDescending = true;
+        sortOrder = sortOrder === "ascending" ? "descending" :
+                    sortOrder === "descending" ? "ascending" :
+                    defaultDescending ? "descending" : "ascending";
+        header.setAttribute("aria-sort", sortOrder);
+      }
+
+      this.col = column;
+      const direction = sortOrder;
+
+      const handleMessage = (e) => {
+        if (gen !== sortGen) return;
+        const sorted = e.data.sorted;
+        worker.removeEventListener("message", handleMessage);
+
+        const fragment = document.createDocumentFragment();
+        sorted.forEach(item => {
+          fragment.appendChild(rowElements[item.index]);
+        });
+        tbody.appendChild(fragment);
+
+        this.table.dispatchEvent(createEvent("afterSort"));
+      };
+
+      const worker = getSortWorker();
+      if (worker) {
+        worker.addEventListener("message", handleMessage);
+        worker.postMessage({
+          rows: rowData,
+          sortColumn: "td",
+          direction,
+          columnType
+        });
+      } else {
+        // Worker unavailable (private browsing, some embedded browsers). Sort on the main
+        // thread with the same shared comparators. Events fire synchronously so the
+        // afterSort handler runs the same as with a worker.
+        const sorted = sortRows([...rowData], "td", direction, columnType);
+        const fragment = document.createDocumentFragment();
+        sorted.forEach(item => {
+          fragment.appendChild(rowElements[item.index]);
+        });
+        tbody.appendChild(fragment);
+        this.table.dispatchEvent(createEvent("afterSort"));
+      }
+    },
+
+    /**
+     * Re-apply current sort without toggling direction.
+     * Use after row data changes.
+     */
+    refresh() {
+      if (this.current) this.sortTable(this.current, true);
+    }
+  }
+
+  // Register all sort extensions (shared with worker via sortShared.js)
+  Tablesort.extend("number", numberPattern, numberCmpEL);
+  Tablesort.extend("date", datePattern, dateCmpEL);
+  Tablesort.extend("dotsep", dotsepPattern, dotsepCmpEL);
+  Tablesort.extend("filesize", filesizePattern, filesizeCmpEL);
+  Tablesort.extend("monthname", monthnamePattern, monthnameCmpEL);
+  Tablesort.extend("natural", naturalPattern, naturalCmpEL);
+  Tablesort.extend("intl", intlPattern, intlCmpEL);
+
+  if (typeof module !== "undefined" &amp;&amp; module.exports) module.exports = Tablesort;
+  else window.Tablesort = Tablesort;
+})();
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

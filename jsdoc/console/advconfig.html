@@ -1,0 +1,304 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/advconfig.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/advconfig.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module advconfig
+ * @description Enhances the /configadvanced page in advanced mode by converting
+ * the raw textarea configuration into an editable table with inline key-value editing,
+ * delete buttons, filtering, and form submission handling.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+/**
+ * Initializes the advanced configuration interface by converting the textarea
+ * into an editable table with key-value pairs, filter, and CRUD operations.
+ * @function advConfigInit
+ * @returns {void}
+ */
+const advConfigInit = () => {
+  const d = document;
+
+  const query = selector => d.querySelector(selector);
+  const queryAll = selector => d.querySelectorAll(selector);
+
+  const selectors = {
+    container: query("td.tabletextarea"),
+    textarea: query("textarea#advancedsettings"),
+    table: query("#advconf"),
+    infohelp: query("#advconf thead td.infohelp"),
+    header: query("h3#advancedconfig"),
+    advForm: query("#advConfigForm"),
+    saveButton: query("#saveConfig input.accept"),
+    cancelButton: query("#saveConfig input.cancel")
+  };
+
+  const { container, textarea, table, infohelp, header, advForm, saveButton, cancelButton } = selectors;
+
+  d.body.classList.add("js");
+  textarea.style.display = "none";
+  infohelp.setAttribute("colspan", "3");
+
+  /**
+   * Removes old configuration rows from the DOM before rebuilding the table.
+   * @function clearOldRows
+   * @returns {void}
+   */
+  const clearOldRows = () => {
+    while (container.parentNode.firstChild &amp;&amp; container.parentNode.firstChild.firstChild !== textarea) {
+      container.parentNode.removeChild(container.parentNode.firstChild);
+    }
+  };
+  clearOldRows();
+
+  const configItems = textarea.value.split("\n")
+    .map(item => item.split("="))
+    .filter(parts => parts.length === 2)
+    .sort((a, b) => a[0].localeCompare(b[0]));
+
+  /**
+   * Creates a table row with editable key and value cells and a delete cell.
+   * @function createRow
+   * @param {string} key - The configuration key name
+   * @param {string} value - The configuration value
+   * @returns {HTMLTableRowElement} The created table row element
+   * @example createRow("i2np.bandwidth.inboundKByteSec", "1024")
+   */
+  const createRow = (key, value) => {
+    const row = d.createElement("tr");
+    row.className = "configline";
+
+    const keyCell = d.createElement("td");
+    const valueCell = d.createElement("td");
+    const delCell = d.createElement("td");
+
+    keyCell.textContent = key;
+    valueCell.textContent = value;
+    keyCell.setAttribute("contenteditable", "true");
+    valueCell.setAttribute("contenteditable", "true");
+
+    [keyCell, valueCell, delCell].forEach(cell => cell.setAttribute("spellcheck", "false"));
+    [keyCell.className, valueCell.className, delCell.className] = ["key", "value", "delete"];
+
+    row.append(keyCell, valueCell, delCell);
+    return row;
+  };
+
+  let lastConfigRow = null;
+  configItems.forEach(([key, value]) => {
+    const row = createRow(key, value);
+    lastConfigRow = table.querySelector("#advconf tbody tr:last-child");
+    lastConfigRow.insertAdjacentElement("afterend", row);
+    lastConfigRow = row;
+  });
+
+  const addNewRow = d.createElement("tr");
+  addNewRow.id = "addNew";
+  const newKeyCell = d.createElement("td");
+  const newValueCell = d.createElement("td");
+  const newDelCell = d.createElement("td");
+
+  addNewRow.append(newKeyCell, newValueCell, newDelCell);
+  [newKeyCell, newValueCell].forEach(cell => {
+    cell.contentEditable = true;
+    cell.setAttribute("spellcheck", "false");
+  });
+  newKeyCell.className = "newKey";
+  newValueCell.className = "newValue";
+  newDelCell.className = "delete";
+
+  const firstConfigRow = table.querySelector(".configline");
+  if (firstConfigRow) { firstConfigRow.insertAdjacentElement("beforebegin", addNewRow); }
+
+  const observer = new MutationObserver(mutationsList => {
+    mutationsList.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.tagName === "TD") { updateTextarea(); }
+      });
+    });
+  });
+
+  observer.observe(table, { childList: true, subtree: true });
+
+  /**
+   * Synchronizes the hidden textarea with the current state of the editable table rows.
+   * @function updateTextarea
+   * @returns {void}
+   */
+  const updateTextarea = () => {
+    const updatedItems = [];
+    const rows = table.querySelectorAll(".configline");
+    rows.forEach(row => {
+      const key = row.querySelector(".key").textContent.trim();
+      const value = row.querySelector(".value").textContent.trim();
+      if (key) { updatedItems.push(`${key}=${value}`); }
+    });
+    textarea.value = updatedItems.join("\n");
+  };
+
+  table.addEventListener("click", event => {
+    const target = event.target;
+    if (target.classList.contains("delete")) {
+      const row = target.closest("tr");
+      if (row.id !== "addNew") {
+        const removedKey = row.querySelector("td:first-child").textContent;
+        row.remove();
+        updateTextarea();
+        table.querySelector("thead").removeAttribute("hidden");
+        infohelp.id = "removeKey";
+        infohelp.innerHTML = msgKeyRemove.replace("{0}", removedKey);
+        infohelp.scrollIntoView();
+      } else {
+        newKeyCell.textContent = "";
+        newValueCell.textContent = "";
+      }
+    }
+  });
+
+  /**
+   * Submits a new key-value pair by creating a row and clearing the input fields.
+   * @function submitNewKeyValue
+   * @returns {void}
+   */
+  const submitNewKeyValue = () => {
+    const newKey = newKeyCell.textContent.trim();
+    const existingKey = configItems.some(item => item[0] === newKey);
+    const newValue = newValueCell.textContent.trim();
+    if (newKey) {
+      const newRow = createRow(newKey, newValue);
+      addNewRow.insertAdjacentElement("beforebegin", newRow);
+      newKeyCell.textContent = "";
+      newValueCell.textContent = "";
+      updateTextarea();
+    }
+  };
+
+  /**
+   * Adds a filter input to the configuration header for searching key-value pairs.
+   * @function addFilter
+   * @returns {void}
+   */
+  const addFilter = () => {
+    let filterValue = "";
+    const advFilter = d.createElement("span");
+    advFilter.id = "advfilter";
+
+    const filterInput = d.createElement("input");
+    filterInput.type = "text";
+    filterInput.id = "filterInput";
+    advFilter.appendChild(filterInput);
+
+    filterInput.addEventListener("input", event => {
+      filterValue = event.target.value.toLowerCase();
+      const rows = table.querySelectorAll(".configline");
+      rows.forEach(row => {
+        const key = row.querySelector(".key").textContent.toLowerCase();
+        const value = row.querySelector(".value").textContent.toLowerCase();
+        row.style.display = (key.includes(filterValue) || value.includes(filterValue)) ? "table-row" : "none";
+      });
+    });
+
+    const clearFilter = d.createElement("button");
+    clearFilter.textContent = "X";
+    clearFilter.addEventListener("click", () => {
+      const activeFilter = document.getElementById("filterInput");
+      activeFilter.value = "";
+      const event = new Event('input', { bubbles: true });
+      activeFilter.dispatchEvent(event);
+      window.scrollTo(0,0);
+    });
+
+    advFilter.appendChild(clearFilter);
+    header.appendChild(advFilter);
+  };
+  addFilter();
+
+  /**
+   * Handles save logic: validates new key-value inputs, checks for duplicates,
+   * and triggers form submission.
+   * @function doSave
+   * @param {Event} event - The keyboard or click event
+   * @returns {void}
+   */
+  const doSave = event => {
+    const modalActive = query("#modalActive");
+    if (modalActive) {return;}
+    updateTextarea();
+    const newKey = newKeyCell.textContent.trim();
+    const newValue = newValueCell.textContent.trim();
+
+    if (newValue &amp;&amp; !newKey) {
+      modal("No keyname provided for the submitted value.&lt;br>Please supply a keyname.");
+      newKeyCell.focus();
+      return;
+    }
+
+    if (newKey) {
+      const existingKey = configItems.some(item => item[0] === newKey);
+      if (existingKey) {
+        modal(`Duplicate key &lt;b>${newKey}&lt;/b> submitted. Please modify the existing key.`);
+        newKeyCell.textContent = "";
+        newValueCell.textContent = "";
+        const filterInput = query("#advfilter input");
+        filterInput.value = newKey;
+        filterInput.dispatchEvent(new Event("input", { bubbles: true }));
+        return;
+      }
+      submitNewKeyValue();
+    }
+
+    if (event.key === "Enter" || event.type === "click") {
+      saveButton.click();
+    }
+  };
+
+  d.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      doSave(event);
+    } else if (event.key === "Escape") {
+      event.preventDefault();
+      resetForm(event);
+    }
+  });
+
+  /**
+   * Resets the form to the original configuration stored in a hidden input.
+   * @function resetForm
+   * @param {Event} event - The event that triggered the reset
+   * @returns {void}
+   */
+  const resetForm = event => {
+    event.preventDefault();
+    textarea.value = query("input[name=nofilter_oldConfig]").value;
+    advForm.requestSubmit(saveButton);
+  };
+
+  cancelButton.addEventListener("click", resetForm);
+  saveButton.addEventListener("click", event => {
+    doSave(event);
+  });
+
+  let statusAdded = false;
+  /**
+   * Polls for the floodfill config element and adds a status badge to the header.
+   * @function floodfillStatus
+   * @returns {void}
+   */
+  function floodfillStatus() {
+    const h3ff = document.querySelector("#ffconf");
+    if (h3ff) {
+      const info = document.createElement("span");
+      info.id = "ffstatus";
+      const ffstatus = document.querySelector("#floodfillconfig .infohelp").textContent.match(/\(.*?\)/);
+      if (ffstatus &amp;&amp; ffstatus.length > 0) {
+        info.textContent = ffstatus[0].replace(/[\(\).]/g, "");
+        if (!statusAdded) {
+          h3ff.appendChild(info);
+          statusAdded = true;
+        }
+      }
+    } else {setTimeout(floodfillStatus, 100);}
+  };
+  floodfillStatus();
+}
+
+document.addEventListener("DOMContentLoaded", advConfigInit);</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

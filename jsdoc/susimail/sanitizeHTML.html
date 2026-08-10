@@ -1,0 +1,158 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>susimail/src/js/sanitizeHTML.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=susimail><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>susimail/src/js/sanitizeHTML.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module sanitizeHTML
+ * @file SusiMail HTML sanitizer and display fixer.
+ * Addresses layout and security issues in iframed HTML messages:
+ * removes !important declarations, normalises div margins, blocks
+ * remote images, and surfaces blocked-image/web-bug counts.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+/**
+ * Iterates every element in the document, normalising inline styles,
+ * hiding remote images behind a blocked placeholder, and updating
+ * the blocked-image and web-bug UI counters in the parent frame.
+ * @function sanitizeHTML
+ * @returns {void}
+ */
+function sanitizeHTML() {
+  "use strict";
+  const elements = document.querySelectorAll("*");
+  elements.forEach(function(element) {
+    const blockedImages = window.parent.document.getElementById("blockedImages");
+    const blockedImgCount = window.parent.document.getElementById("blockedImgCount");
+    const iframe = document.getElementById("iframeSusiHtmlView") || window.parent.document.getElementById("iframeSusiHtmlView");
+    const style = element.style.cssText;
+    const webBugs = iframe.contentWindow.document.querySelectorAll(".webBug");
+    var imgCount = 0;
+    if (style) {
+      if (style.toLowerCase().includes("height") &amp;&amp; style.includes("100%")) {
+        element.style.removeProperty("height");
+      }
+      // remove all !important declarations
+      if (style.toLowerCase().indexOf("!important") !== -1) {
+        const newStyle = style.replace(/!important/gi, "");
+        element.setAttribute("style", newStyle);
+      }
+    }
+    /* setup script counter
+    var script = 0;
+    if (element.tagName.toLowerCase() === "script") {
+      script++;
+    }
+    */
+    // set divs without explicit margins to auto
+    if (element.tagName.toLowerCase() === "div") {
+      var marginStyle = getComputedStyle(element).getPropertyValue("margin");
+      if (marginStyle === "0px") {element.style.margin = "auto";}
+    }
+    // change remote img src attribute to data-src, replace with inline blocked image icon
+    if (element.tagName.toLowerCase() === "img") {
+      if (element.getAttribute("data-src-blocked") !== null) {
+        // hide all remote images unless configured to be shown
+        if (iframe &amp;&amp; !iframe.classList.contains("showBlockedImages")) {
+          const remoteImages = iframe.contentWindow.document.querySelectorAll("img");
+          // Hide all the images within the iframe
+          if (remoteImages) {
+            remoteImages.forEach(function(image) {
+              image.style.removeProperty("display");
+              image.style.display = "none";
+              imgCount++;
+            });
+            // display blocked image count if > 0
+            if (blockedImages &amp;&amp; imgCount > 0) {
+              blockedImages.removeAttribute("hidden");
+              blockedImgCount.textContent = imgCount;
+            }
+          }
+          if (webBugs &amp;&amp; webBugs.length > 0) {
+            const info = window.parent.document.querySelector("#blockedImages .info");
+            const linebreak = window.parent.document.querySelector("#webBugs br");
+            const bullet = "&amp;nbsp; &amp;bullet; &amp;nbsp;";
+            window.parent.document.getElementById("webBugs").removeAttribute("hidden");
+            window.parent.document.getElementById("webBugCount").innerText = webBugs.length;
+            info.classList.add("hasWebBugs");
+            if (((imgCount &amp;&amp; imgCount &lt; 1) || !imgCount) &amp;&amp; linebreak) {linebreak.remove();}
+            else if (linebreak) {linebreak.outerHTML = bullet;}
+          }
+        }
+        //element.setAttribute("data-src", element.getAttribute("src"));
+        const domImages = document.querySelectorAll("img");
+        domImages.forEach(function(image) {
+          const blockedURL = image.getAttribute("data-src-blocked");
+          image.setAttribute("title", blockedURL);
+          image.setAttribute("src", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg transform='translate(-5.33 -5.33)'%3E%3Cpath fill='%2374bbf0' d='M52.14 8H11.86C9.71 8 8 10.05 8 12.54v38.91C8 54.03 9.71 56 11.86 56h40.29c2.14 0 3.86-2.06 3.86-4.54V12.54C56 9.97 54.29 8 52.14 8z'/%3E%3Cpath fill='%23fff' d='M8 29.17a13.76 13.76 0 0 1 6.17-1.46c4.46 0 8.14 1.89 9.43 4.46 1.76-.62 3.62-.91 5.49-.86 5.49 0 10.03 2.57 10.63 6.09 4.71.34 8.4 2.91 8.57 6l-11.57 7.46H8z'/%3E%3Cpath fill='%236c994e' d='M21.2 45.54S13.49 43.4 8 48.28v5.57C8 55.14 9.29 56 10.91 56l11.57-6.6z'/%3E%3Cpath d='M8 51.11c5.57-4.8 13.2-2.66 13.2-2.66l.43 1.37.86-.43-1.29-3.86S13.49 43.4 8 48.28z' opacity='.1'/%3E%3Cpath fill='%237eb35b' d='M10.91 56c3.86-7.71 15.94-16.89 26.06-11.74l-3.43 8.14-8.4 3.6z'/%3E%3Cpath d='m36.63 45.11.34-.86C26.86 39.11 14.77 48.28 10.91 56h3.69c4.29-6.43 13.46-13.03 22.03-10.89z' opacity='.1'/%3E%3Cpath fill='%23a5eb78' d='M56 53.77V39.11C36.63 37.65 25.14 56 25.14 56h27.94c1.63 0 2.91-.94 2.91-2.23z'/%3E%3Cpath d='M56 41v-1.89C36.63 37.65 25.14 56 25.14 56H29c3.43-4.37 12.94-14.83 27-15z' opacity='.1'/%3E%3Ccircle cx='44.69' cy='19.31' r='8.57' fill='%23ffe97a'/%3E%3Cpath fill='red' d='M32 12.51a19.49 19.49 0 1 0 0 38.98 19.49 19.49 0 1 0 0-38.98zm0 4.87A14.62 14.62 0 0 1 46.62 32a14.62 14.62 0 0 1-2.44 7.92l-20.1-20.1A14.62 14.62 0 0 1 32 17.38zm-12.18 6.7 20.1 20.1A14.62 14.62 0 0 1 32 46.62 14.62 14.62 0 0 1 17.38 32a14.62 14.62 0 0 1 2.44-7.92z'/%3E%3C/g%3E%3C/svg%3E");
+        });
+      }
+    }
+  });
+  // set html background color
+  document.documentElement.style.background = "#fff";
+}
+
+/**
+ * Toggles the visibility of all blocked images and web bugs inside the
+ * HTML mail iframe. Updates the toggle button state accordingly.
+ * @function toggleBlockedImages
+ * @returns {void}
+ */
+function toggleBlockedImages() {
+  const button = window.parent.document.getElementById("toggleBlockedImages");
+  const iframe = document.getElementById("iframeSusiHtmlView") || window.parent.document.getElementById("iframeSusiHtmlView");
+  const blockedImgs = Array.from(iframe.contentWindow.document.querySelectorAll("img"));
+  const webBugs = Array.from(iframe.contentWindow.document.querySelectorAll(".webBug"));
+  const images = [...blockedImgs, ...webBugs];
+
+  if (!iframe || !button) {return;}
+
+  webBugs.forEach(webBug => {
+    webBug.style.background = "url(/themes/susimail/images/webBug.svg) no-repeat center center/32px";
+    webBug.style.width = "32px";
+    webBug.style.height = "32px";
+  });
+
+  button.classList.toggle("on");
+
+  images.forEach(image => {
+    if (button.classList.contains("on")) {
+      image.style.display = "none";
+      image.setAttribute("hidden", "hidden");
+    } else {
+      image.style.display = "inline-block";
+      image.removeAttribute("hidden");
+    }
+  });
+}
+
+/**
+ * Creates a "Toggle Images" button and appends it to the blocked-images
+ * info bar if the iframe does not have the `showBlockedImages` class.
+ * @function createButton
+ * @returns {void}
+ */
+function createButton() {
+  const iframe = document.getElementById("iframeSusiHtmlView") || window.parent.document.getElementById("iframeSusiHtmlView");
+  const toggle = window.parent.document.getElementById("toggleBlockedImages");
+  if (!iframe) {return;}
+  if (iframe &amp;&amp; !iframe.classList.contains("showBlockedImages")) {
+    const remoteImages = iframe.contentWindow.document.querySelectorAll("img") || iframe.contentWindow.document.querySelectorAll(".webBug");
+    if (!remoteImages) {return;}
+    if (toggle) {toggle.remove();}
+    const button = document.createElement("button");
+    button.id = "toggleBlockedImages";
+    button.innerText = "Toggle Images";
+    button.className = "on";
+    button.addEventListener("click", function(event) {
+      event.preventDefault();
+      toggleBlockedImages();
+    });
+    const info = window.parent.document.querySelector("#blockedImages .info");
+    info.appendChild(button);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  sanitizeHTML();
+  createButton();
+});</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

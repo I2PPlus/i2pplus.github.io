@@ -1,0 +1,283 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>i2psnark/res/js/click.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=i2psnark><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>i2psnark/res/js/click.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module click
+ * @file click.js - Simulate longer button clicks and custom confirm dialogs for I2PSnark.
+ * @description Adds a .depress CSS class to input elements on click for visual feedback,
+ * with extended timing for action buttons. Provides custom confirmation dialogs for
+ * remove and delete torrent operations, with keyboard support (Enter/Escape), iframe-aware
+ * positioning, and animated transitions.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+import {refreshScreenLog} from "./refreshTorrents.js";
+
+/**
+ * @type {boolean}
+ * @description Whether the main event listener has been registered.
+ */
+let eventListenerActive = false;
+
+/**
+ * @type {?HTMLElement}
+ * @description The main configuration page element, used to skip initialization on config pages.
+ */
+const configPage = document.getElementById("mainconfig");
+
+/**
+ * @type {?HTMLElement}
+ * @description The snark info element, used to skip initialization on info pages.
+ */
+const snarkInfo = document.getElementById("snarkInfo");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (eventListenerActive || configPage !== null || snarkInfo !== null) {return;}
+
+  const page = document.getElementById("page") || document.querySelector(".page");
+  const htmlTag = document.documentElement;
+
+  /**
+   * @function injectCss
+   * @description Injects the confirmation dialog CSS styles into the document head.
+   * Creates styles for the modal overlay, dialog box, buttons, and slide/fade animations.
+   * Inserts the stylesheet before the #snarkTheme element if present.
+   * @returns {void}
+   */
+  (function injectCss() {
+    const head = document.head;
+    const modalCss = document.getElementById("modalCss");
+    const fragment = document.createDocumentFragment();
+    const css = document.createElement("style");
+    css.id = "modalCss";
+    css.textContent =
+      ".modal{overflow:hidden;contain:paint}" +
+      "#confirmDialog:not(.cancelled):not(.postMsg){animation:slide-up .8s ease-out .2s both reverse}" +
+      "#confirmButtons{margin:0 -14px -20px;padding:15px;text-align:center}" +
+      "#confirmYes,#confirmNo{margin:4px 12px;padding:6px 8px;width:120px;font-weight:700;cursor:pointer}" +
+      "#confirmButtons button:hover{opacity:1}" +
+      "#confirmYes:active,#confirmNo:active{transform:scale(0.9)}" +
+      "#confirmDialog{padding:10px 15px 21px;width:480px;position:absolute;left:50%;z-index:100000;user-select:none;transform:translate(-50%,-50%)}" +
+      "#confirmDialog.postMsg{animation:slide-down .2s ease-in .1s both reverse,fade .1s ease 0s both}" +
+      "#confirmDialog.cancelled{animation:slide-down .2s ease-in .1s both reverse,fade .1s ease 0s both}" +
+      "#confirmOverlay{width:100%;height:100%;position:fixed;left:0;bottom:0;right:0;z-index:99999}" +
+      "#confirmOverlay.cancelled{animation:fade .3s ease .2s both reverse}" +
+      "#confirmOverlay.done{animation:fade .3s ease 0s both reverse}" +
+      "#msg{margin:-9px -14px 0;padding:30px 20px 30px 88px;text-align:left;font-size:110%}" +
+      "#msg b{max-width:384px;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}" +
+      "#msg .hr{margin:11px 0 10px;height:0;width:100%;display:block}" +
+      "#msg.deleting{margin-bottom:-20px}" +
+      "@keyframes slide-down{0%{transform:translate(-50%, -3000px)}100%{transform:translate(-50%, -50%)}}" +
+      "@keyframes slide-up{0%{transform:translate(-50%, -50%)}100%{transform:translate(-50%, -500px)}}";
+    fragment.appendChild(css);
+    const snarkTheme = head.querySelector("#snarkTheme");
+    if (snarkTheme) head.insertBefore(css, snarkTheme);
+    else head.appendChild(css);
+    fragment.textContent = "";
+  })();
+
+  /**
+   * @async
+   * @function handleInputClick
+   * @description Handles clicks on interactive UI elements (toggle views, tabs, navigation,
+   * filters, action buttons, form buttons). Adds a .depress class for visual feedback,
+   * manages action button state (disabling other buttons during processing), and submits
+   * action forms with the clicked button as submitter.
+   * @param {HTMLElement} clickTarget - The element that was clicked.
+   * @param {Event} event - The originating click event.
+   * @returns {Promise&lt;void>}
+   */
+  async function handleInputClick(clickTarget, event) {
+    const clickable = ".toggleview, .tab_label, .snarkNav, .filter, input[class^='action'], input[id^='action'], input.add, input.create";
+    if (!clickTarget.closest(clickable)) {return;}
+
+    const targetElement = clickTarget.matches(clickable) ? clickTarget : clickTarget.closest(clickable);
+    if (!targetElement) {return;}
+
+    const isAction = targetElement.matches("input[class^='action'], input[id^='action']");
+    const isFormButton = targetElement.matches("input[type=submit]");
+
+    let currentForm;
+    let delay = 360;
+
+    targetElement.classList.add("depress");
+
+    if (isAction) {
+      const iframe = document.getElementById("processForm");
+      currentForm = document.getElementById("torrentlist");
+      if (!iframe || !currentForm) {return;}
+      const formTarget = targetElement.form.target;
+      if (formTarget === "processForm") {delay = 4000;}
+      const nonClickedActionButtons = currentForm.querySelectorAll("input[type=submit][class^='action']:not(.depress), input[type=submit][id^='action']:not(.depress)");
+      nonClickedActionButtons.forEach((el) => el.classList.add("tempDisabled"));
+      setTimeout(() => {
+        nonClickedActionButtons.forEach((input) => input.classList.remove("tempDisabled"));
+      }, 4000);
+      event.preventDefault();
+      currentForm.requestSubmit(targetElement);
+    } else if (isFormButton) {
+      setTimeout(async () => {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        await refreshScreenLog(undefined, true);
+        clickTarget.classList.replace("depress", "inert");
+      }, delay);
+    } else {
+      setTimeout(async() => { clickTarget.classList.replace("depress", "inert"); }, delay);
+    }
+    setTimeout(async () => {
+      targetElement.classList.remove("depress");
+      targetElement.classList.remove("inert");
+    }, delay);
+  };
+
+  page.addEventListener("click", async (event) => {
+    eventListenerActive = true;
+    const clickTarget = event.target;
+    const form = document.getElementById("torrentlist");
+
+    if (clickTarget.classList.contains("actionDelete") || clickTarget.classList.contains("actionRemove")) {
+      event.preventDefault();
+      let torrent = clickTarget.getAttribute("data-name");
+      if (torrent.length > 50) {torrent = torrent.substring(0, 48) + "&amp;hellip;";}
+      const msg = clickTarget.classList.contains("actionRemove") ? `&lt;p id=msg>${removeMsg}&lt;span class=hr>&lt;/span>${removeMsg2}&lt;/p>` : `&lt;p id=msg>${deleteMsg}&lt;/p>`;
+      const name = clickTarget.name;
+      const value = clickTarget.value;
+      const action = clickTarget.dataset.action;
+
+      const confirmed = await showConfirmationDialog(clickTarget, msg.replace("{0}", `&lt;b>${torrent}&lt;/b>`), name, value, action);
+      if (form &amp;&amp; confirmed) {
+        form.requestSubmit(clickTarget);
+      }
+    } else {
+      if ((clickTarget.matches("input.add") || clickTarget.matches("input.create"))) {
+        event.preventDefault();
+        event.stopPropagation();
+        clickTarget.form.requestSubmit(clickTarget);
+      }
+      handleInputClick(clickTarget, event);
+    }
+    if (clickTarget.classList.contains("action") || clickTarget.id.includes("action")) {
+      clickTarget.disabled = true;
+      clickTarget.classList.add("depress");
+    }
+  });
+
+  /**
+   * @async
+   * @function showConfirmationDialog
+   * @description Creates and displays a modal confirmation dialog with the given message.
+   * Supports "yes" (confirm) and "no" (cancel) actions. Handles keyboard events
+   * (Enter to confirm, Escape to cancel), window resize repositioning, and animated
+   * entrance/exit transitions. Returns a Promise that resolves to true if confirmed.
+   * @param {HTMLElement} targetElement - The element that triggered the dialog.
+   * @param {string} message - The HTML message to display in the dialog body.
+   * @param {string} inputName - The form input name attribute for the confirmed action.
+   * @param {string} inputValue - The form input value for the confirmed action.
+   * @param {string} inputAction - The data-action attribute value for the confirmed action.
+   * @returns {Promise&lt;boolean>} Resolves to true if the user confirms, false if cancelled.
+   */
+  async function showConfirmationDialog(targetElement, message, inputName, inputValue, inputAction) {
+      htmlTag.classList.add("modal");
+      const dialog = document.createElement("div");
+      const overlay = document.createElement("div");
+      dialog.innerHTML = `${message}&lt;p id=confirmButtons>&lt;button id=confirmNo data-action=no>Cancel&lt;/button>&lt;button id=confirmYes data-action=yes>Delete&lt;/button>&lt;/p>`;
+      dialog.id = "confirmDialog";
+      overlay.id = "confirmOverlay";
+      document.body.appendChild(overlay);
+      document.body.appendChild(dialog);
+
+      requestAnimationFrame(() => {
+          scrollToTop();
+          handleResize();
+      });
+
+      window.addEventListener("resize", handleResize, {passive: true});
+
+      overlay.addEventListener("click", event => event.stopPropagation());
+
+      const promise = new Promise((resolve) => {
+          let confirmed = false;
+          dialog.addEventListener("click", event => {
+              const target = event.target;
+              if (target.tagName === "BUTTON") {
+                  const action = target.dataset.action;
+                  if (action === "yes") {
+                      dialog.classList.add("postMsg");
+                      overlay.classList.add("done");
+                      confirmed = true;
+                  } else if (action === "no") {
+                      dialog.classList.add("cancelled");
+                      overlay.classList.add("cancelled");
+                  }
+                  removeDialog();
+                  resolve(confirmed);
+              }
+          });
+      });
+
+      htmlTag.addEventListener("keydown", captureKeyDown);
+
+      /**
+       * @function scrollToTop
+       * @description Scrolls both the window and parent window (if iframed) to the top
+       * to ensure the confirmation dialog is visible.
+       * @returns {void}
+       */
+      function scrollToTop() {
+          window.scrollTo(0, 0);
+          if (htmlTag.classList.contains("iframed")) { parent.window.scrollTo(0, 0); }
+      }
+
+      /**
+       * @function captureKeyDown
+       * @description Handles keyboard events for the confirmation dialog. Enter triggers
+       * the confirm (yes) button, Escape triggers the cancel (no) button.
+       * @param {KeyboardEvent} event - The keyboard event.
+       * @returns {void}
+       */
+      function captureKeyDown(event) {
+          if (event.key === "Enter") {
+              const confirmYesButton = document.querySelector("#confirmYes");
+              if (confirmYesButton) { confirmYesButton.click(); }
+          } else if (event.key === "Escape") {
+              const confirmNoButton = document.querySelector("#confirmNo");
+              if (confirmNoButton) { confirmNoButton.click(); }
+          }
+      }
+
+      /**
+       * @function removeDialog
+       * @description Removes the confirmation dialog and overlay from the DOM, cleans up
+       * keyboard and resize listeners, and removes the modal class.
+       * @returns {void}
+       */
+      function removeDialog() {
+          document.removeEventListener("keydown", captureKeyDown);
+          window.removeEventListener("resize", handleResize);
+          document.getElementById("confirmDialog")?.remove();
+          document.getElementById("confirmOverlay")?.remove();
+          htmlTag.classList.remove("modal");
+      }
+
+      /**
+       * @function handleResize
+       * @description Repositions the confirmation dialog vertically centered in the viewport,
+       * accounting for iframe mode and a small offset for better visual placement on taller
+       * viewports.
+       * @returns {void}
+       */
+      function handleResize() {
+          const dialog = document.getElementById("confirmDialog");
+          if (!dialog) {return;}
+          const dialogHeight = dialog.offsetHeight;
+          const viewportHeight = htmlTag.classList.contains("iframed") ? parent.window.innerHeight : window.innerHeight;
+          const topOffset = viewportHeight > 600 ? viewportHeight * 0.05 : 0;
+          let topPosition = ((viewportHeight - dialogHeight) / 2) - topOffset;
+          if (topPosition &lt; 0) { topPosition = 0; }
+          else if (topPosition + dialogHeight > viewportHeight) { topPosition = viewportHeight - dialogHeight; }
+          dialog.style.top = `${topPosition}px`;
+      }
+
+      return promise;
+  }
+});
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

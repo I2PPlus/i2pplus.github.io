@@ -1,0 +1,212 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>i2psnark/res/js/filterBar.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=i2psnark><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>i2psnark/res/js/filterBar.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module filterBar
+ * @file filterBar.js - Setup I2PSnark torrent display filter buttons and AJAX filter loading.
+ * @description Manages the filter bar UI for showing/hiding torrents by status (all, seeding,
+ * downloading, etc.). Handles badge count display, filter state persistence to localStorage,
+ * URL updates for sort icons, and AJAX-based loading of filtered content.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+import {doRefresh} from "./refreshTorrents.js"; // NOSONAR S1128
+
+/**
+ * @type {?HTMLElement}
+ * @description The #torrents container element.
+ */
+const torrents = document.getElementById("torrents");
+
+/**
+ * @type {?HTMLElement}
+ * @description The filter bar element.
+ */
+let filterbar;
+
+/**
+ * @type {?MutationObserver}
+ * @description MutationObserver watching the torrents container for child list changes.
+ */
+let observer;
+
+/**
+ * @type {boolean}
+ * @description Guards against scheduling multiple badge count updates per animation frame.
+ */
+let countPending = false;
+
+/**
+ * @type {number}
+ * @description Count of snark torrents matching the current filter.
+ */
+let snarkCount;
+
+/**
+ * @type {?string}
+ * @description The id of the currently active filter, used to detect filter changes.
+ */
+let activeFilterId = null;
+
+/**
+ * @function scheduleBadgeUpdate
+ * @description Coalesces torrent-count badge updates triggered by DOM mutations into a
+ * single requestAnimationFrame callback. Re-queries the active filter's badge by id so
+ * the observer stays valid across filter-bar re-renders.
+ * @returns {void}
+ */
+function scheduleBadgeUpdate() {
+  if (countPending) {return;}
+  countPending = true;
+  requestAnimationFrame(() => {
+    countPending = false;
+    const filterElement = document.getElementById(activeFilterId);
+    const badge = filterElement ? filterElement.querySelector(".badge") : null;
+    if (!filterElement || !badge) {return;}
+    if (activeFilterId !== "all") {badge.textContent = countSnarks();}
+    badge.hidden = false;
+  });
+}
+
+/**
+ * @function ensureObserver
+ * @description Creates the badge-count MutationObserver once and attaches it to the
+ * torrents container. Reused across showBadge calls because its callback reads module
+ * state instead of capturing filter elements.
+ * @returns {void}
+ */
+function ensureObserver() {
+  if (observer || !torrents) {return;}
+  observer = new MutationObserver(scheduleBadgeUpdate);
+  observer.observe(torrents, { childList: true, subtree: true });
+}
+
+/**
+ * @async
+ * @function showBadge
+ * @description Updates the filter bar badge display based on the current URL filter/search
+ * parameters. Highlights the active filter, disables inactive filters, sets up a
+ * MutationObserver on the active filter to track torrent count changes, and persists
+ * the active filter to localStorage.
+ * @returns {Promise&lt;void>}
+ */
+async function showBadge() {
+  const filterbar = document.getElementById("filterBar");
+  if (!filterbar) {return;}
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterQuery = urlParams.get("filter");
+  const searchQuery = urlParams.get("search");
+  const filterId = searchQuery !== null ? "search" : (filterQuery || "all");
+
+  const allFilters = filterbar.querySelectorAll(".filter");
+
+  const activeFilter = document.getElementById(filterId) || filterbar.querySelector(".filter#all");
+  if (!activeFilter) {return;}
+  const filterChanged = activeFilterId !== activeFilter.id;
+  activeFilterId = activeFilter.id;
+  const activeBadge = activeFilter.querySelector(".badge");
+  if (!activeBadge) {return;}
+  activeBadge.id = "filtercount";
+  if (activeFilter.id === "all") {
+    activeBadge.hidden = false;
+  } else {activeBadge.hidden = true;}
+
+  allFilters.forEach(filter => {
+    if (filter !== activeFilter) {
+      filter.classList.remove("enabled");
+      if (filterChanged) {
+        filter.style.pointerEvents = "none";
+        filter.style.opacity = ".5";
+      }
+
+      const badges = filter.querySelectorAll(".badge");
+      badges.forEach(badge => {
+        const filterAll = badge.closest(".filter#all");
+        if (filterAll) { badge.hidden = true; badge.id = ""; }
+        else if (filter &amp;&amp; filter.id !== "all") { badge.hidden = true; badge.textContent = ""; badge.id = ""; }
+      });
+    } else {
+      ensureObserver();
+    }
+
+    if (filter !== activeFilter &amp;&amp; filterChanged) {
+      setTimeout(() => {
+        filter.style.pointerEvents = "";
+        filter.style.opacity = "";
+      }, 1000);
+    }
+  });
+
+  if (activeFilter) {
+    if (!activeFilter.classList.contains("enabled")) {
+      activeFilter.classList.add("enabled");
+      window.localStorage.setItem("snarkFilter", activeFilter.id);
+    }
+  }
+}
+
+/**
+ * @function countSnarks
+ * @description Counts the number of visible torrent rows (volatile, non-peerinfo rows)
+ * in the current table.
+ * @returns {number} The count of visible torrent rows.
+ */
+function countSnarks() {
+  return torrents?.querySelectorAll("#snarkTbody tr.volatile:not(.peerinfo)").length;
+}
+
+/**
+ * @function updateURLs
+ * @description Sets up click handlers on sort icon elements to save the current query string
+ * to localStorage when a sort is applied.
+ * @returns {void}
+ */
+function updateURLs() {
+  const sortIcon = document.querySelectorAll(".sorter");
+
+  sortIcon.forEach((item) => { item.addEventListener("click", () => { setQuery(); }); });
+
+  /**
+   * @function setQuery
+   * @description Saves the current URL query string to localStorage for persistence across
+   * page loads.
+   * @returns {void}
+   */
+  function setQuery() {
+    const params = window.location.search;
+    if (params) {window.localStorage.setItem("queryString", params);}
+  }
+}
+
+/**
+ * @async
+ * @function filterNav
+ * @description Sets up the filter bar click handler. Intercepts clicks on filter elements,
+ * constructs an AJAX-compatible URL, updates the browser history, refreshes the badge,
+ * and loads filtered content via doRefresh. Retries with a delay if the filter bar
+ * is not yet available.
+ * @returns {Promise&lt;void>}
+ */
+async function filterNav() {
+  const filterbar = document.getElementById("filterBar");
+  if (!filterbar) { setTimeout(filterNav, 1500); return; }
+  const pagenavtop = document.getElementById("pagenavtop");
+  filterbar.addEventListener("click", async function(event) {
+    const filterElement = event.target.closest(".filter");
+    if (filterElement) {
+      event.preventDefault();
+      if (!filterElement.classList.contains("enabled")) {filterElement.classList.add("enabled");}
+      const filterURL = new URL(filterElement.href);
+      const xhrURL = "/i2psnark/.ajax/xhr1.html" + filterURL.search;
+      history.replaceState({}, "", filterURL);
+      showBadge();
+      try {await doRefresh({url: xhrURL, forceFetch: true});}
+      catch {}
+      if (pagenavtop) {pagenavtop.hidden = filterElement.id !== "all";}
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() { updateURLs(); filterNav(); countSnarks(); showBadge(); });
+
+export {updateURLs, showBadge};</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

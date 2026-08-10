@@ -1,0 +1,283 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>i2psnark/res/js/textView.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=i2psnark><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>i2psnark/res/js/textView.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module textView
+ * @file textView.js - Inline text viewer for I2PSnark file browser.
+ * @description Provides an inline text viewing overlay for supported text file types
+ * (.asc, .bat, .css, .ini, .js, .json, .md5, .nfo, .sh, .srt, .txt, .url, and CSV).
+ * Supports line-numbered display for code-like files, iframe-aware fullscreen mode,
+ * response caching, scroll locking, and open-in-new-tab links.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /**
+   * @type {string[]}
+   * @description CSS selectors for links to supported text file types. Used to identify
+   * clickable elements that should open in the inline text viewer.
+   */
+  const viewLinks = [
+    'td.fileIcon.text>a',
+    'td.snarkFileName>a[href$=".asc"]',
+    'td.snarkFileName>a[href$=".bat"]',
+    'td.snarkFileName>a[href$=".css"]',
+    'td.snarkFileName>a[href$=".ini"]',
+    'td.snarkFileName>a[href$=".js"]',
+    'td.snarkFileName>a[href$=".json"]',
+    'td.snarkFileName>a[href$=".md5"]',
+    'td.snarkFileName>a[href$=".nfo"]',
+    'td.snarkFileName>a[href$=".sh"]',
+    'td.snarkFileName>a[href$=".srt"]',
+    'td.snarkFileName>a[href$=".txt"]',
+    'td.snarkFileName>a[href$=".url"]'
+  ];
+
+  const doc = document;
+  const parentDoc = window.parent.document;
+  const isIframed = doc.documentElement.classList.contains("iframed") || window.top !== window.self;
+  const snarkFileNameLinks = doc.querySelectorAll(":where(" + viewLinks.join(",") + ")");
+  /**
+   * @type {Set&lt;string>}
+   * @description Set of supported file extensions for the inline text viewer.
+   */
+  const supportedFileTypes = new Set(["asc", "bat", "css", "csv", "ini", "js", "json", "md5", "nfo", "txt", "sh", "srt", "url"]);
+
+  /**
+   * @type {Set&lt;string>}
+   * @description Set of file extensions that should display with line numbers.
+   */
+  const numberedFileExts = new Set(["bat", "css", "ini", "js", "sh"]);
+
+  /**
+   * @type {string}
+   * @description URL path to the text viewer stylesheet.
+   */
+  const cssHref = "/i2psnark/.res/textView.css";
+
+  /**
+   * @type {?HTMLElement}
+   * @description The text view content container element.
+   */
+  const textviewContent = doc.getElementById("textview-content");
+
+  /**
+   * @type {Map&lt;string, string>}
+   * @description Cache mapping fetched file URLs to their text content.
+   */
+  const responseCache = new Map();
+
+  /**
+   * @type {DOMParser}
+   * @description Reusable DOMParser for escaping HTML in fetched content.
+   */
+  const parser = new DOMParser();
+
+  /**
+   * @type {boolean}
+   * @description Whether event listeners have already been attached.
+   */
+  let listenersActive = false;
+
+  /** @type {?HTMLElement} */
+  let viewerWrapper;
+
+  /** @type {?HTMLElement} */
+  let viewerContent;
+
+  /** @type {?HTMLElement} */
+  let viewerFilename;
+
+  const fragment = doc.createDocumentFragment();
+  snarkFileNameLinks.forEach(link => {
+    if (link.closest("td.snarkFileName")) {
+      const newTabSpan = doc.createElement("span");
+      newTabSpan.className = "newtab";
+      const newTabLink = doc.createElement("a");
+      newTabLink.href = link.href;
+      newTabLink.target = "_blank";
+      newTabLink.title = "Open in new tab";
+      newTabSpan.appendChild(newTabLink);
+      fragment.appendChild(newTabSpan);
+      link.parentNode.insertBefore(newTabSpan, link.nextSibling);
+    }
+  });
+
+  /**
+   * @function loadCSS
+   * @description Dynamically loads a CSS stylesheet by inserting a &lt;link> element before
+   * the #snarkTheme element in the document head.
+   * @param {string} href - The URL of the CSS file to load.
+   * @returns {void}
+   */
+  function loadCSS(href) {
+    const snarkTheme = doc.getElementById("snarkTheme");
+    if (!snarkTheme) {return;}
+    const css = doc.createElement("link");
+    css.rel = "stylesheet";
+    css.href = href;
+    snarkTheme.parentNode.insertBefore(css, snarkTheme);
+  }
+
+  /**
+   * @function createTextViewer
+   * @description Creates the text viewer DOM structure (wrapper, content, filename elements)
+   * if it doesn't already exist. Loads the viewer CSS and appends the wrapper to the body.
+   * @returns {?Object} An object with viewerWrapper, viewerContent, and viewerFilename references, or undefined if already created.
+   */
+  function createTextViewer() {
+    if (!viewerWrapper) {
+      loadCSS(cssHref);
+      viewerWrapper = doc.createElement("div");
+      viewerContent = doc.createElement("div");
+      viewerFilename = doc.createElement("div");
+      viewerWrapper.id = "textview";
+      viewerWrapper.hidden = true;
+      viewerContent.id = "textview-content";
+      viewerFilename.id = "viewerFilename";
+      viewerContent.appendChild(viewerFilename);
+      viewerWrapper.appendChild(viewerContent);
+      doc.body.appendChild(viewerWrapper);
+      return { viewerWrapper, viewerContent, viewerFilename };
+    }
+  }
+
+  ({ viewerWrapper, viewerContent, viewerFilename } = createTextViewer());
+
+  /**
+   * @function displayWithLineNumbers
+   * @description Converts plain text into an ordered list with each line as a list item,
+   * providing numbered line display for code-like files.
+   * @param {string} text - The raw text content to format.
+   * @returns {string} HTML string with line numbers as an ordered list.
+   */
+  const displayWithLineNumbers = text => {
+    const lines = text.split("\n").map(line => `&lt;li>${line}&lt;/li>`);
+    return `&lt;ol>${lines.join("")}&lt;/ol>`;
+  };
+
+  /**
+   * @function displayText
+   * @description Fetches and displays the content of a text file in the viewer. Uses the
+   * response cache to avoid redundant fetches. Shows the file icon and filename in the viewer header.
+   * @param {HTMLElement} link - The clicked file link element.
+   * @param {string} fileName - The decoded filename to display.
+   * @param {string} fileExt - The lowercase file extension.
+   * @param {string} linkHref - The URL to fetch the file content from.
+   * @returns {void}
+   */
+  const displayText = (link, fileName, fileExt, linkHref) => {
+    if (responseCache.has(linkHref)) {
+      renderContent(fileName, fileExt, responseCache.get(linkHref));
+      return;
+    }
+
+    viewerFilename.innerHTML = "";
+    const fileIconTd = link.closest("tr").querySelector("td.fileIcon");
+    if (fileIconTd) {
+      const fileIcon = fileIconTd.querySelector("img");
+      if (fileIcon) { viewerFilename.prepend(fileIcon.cloneNode(true)); }
+    }
+
+    fetch(linkHref).then(response => response.text()).then(data => {
+      if (responseCache.size >= 50) {responseCache.delete(responseCache.keys().next().value);}
+      responseCache.set(linkHref, data);
+      renderContent(fileName, fileExt, data);
+    }).catch(() => {});
+
+    const fileNameSpan = doc.createElement("span");
+    fileNameSpan.textContent = fileName;
+    viewerFilename.appendChild(fileNameSpan);
+  };
+
+  /**
+   * @function resetScrollPosition
+   * @description Resets the text view content scroll position to the top. Retries after
+   * a short delay if the content element is not yet rendered.
+   * @returns {void}
+   */
+  const resetScrollPosition = () => {
+    const txtContent = doc.getElementById("textview-content");
+    if (txtContent &amp;&amp; txtContent.innerHTML !== "") { txtContent.scrollTop = 0; }
+  }
+
+  /**
+   * @function preventScroll
+   * @description Adds or removes scroll prevention on the given elements by toggling
+   * overflow:hidden, which locks scrolling while the text viewer is open.
+   * @param {Element[]} elements - Elements to lock/unlock scrolling on.
+   * @param {boolean} prevent - Whether to enable (true) or disable (false) scroll prevention.
+   * @returns {void}
+   */
+  function preventScroll(elements, prevent) {
+    elements.forEach(element => {
+      if (element) {element.style.overflow = prevent ? "hidden" : "";}
+    });
+  }
+
+  /**
+   * @function renderContent
+   * @description Renders fetched text content into the viewer. Applies pre-formatted styling
+   * for non-plain-text files, HTML-escapes the content, displays with or without line numbers
+   * based on file type, and shows the viewer wrapper.
+   * @param {string} fileName - The filename to display in the viewer header.
+   * @param {string} fileExt - The file extension determining display format.
+   * @param {string} data - The raw text content to render.
+   * @returns {void}
+   */
+  const renderContent = (fileName, fileExt, data) => {
+    if (fileExt !== "txt" &amp;&amp; fileExt !== "srt") { viewerContent.classList.add("pre"); }
+    const escaped = parser.parseFromString(data, "text/html").body.textContent || data;
+    const needsHardSpaces = numberedFileExts.has(fileExt) || viewerContent.classList.contains("pre");
+    const encoded = needsHardSpaces ? escaped.replace(/ /g, "\u00A0") : escaped;
+    viewerContent.innerHTML = numberedFileExts.has(fileExt) ? displayWithLineNumbers(encoded) : encoded;
+    viewerContent.classList.toggle("lines", numberedFileExts.has(fileExt));
+    viewerContent.insertBefore(viewerFilename, viewerContent.firstChild);
+    viewerWrapper.hidden = false;
+    requestAnimationFrame(resetScrollPosition);
+    preventScroll([doc.documentElement, doc.body], true);
+  };
+
+  /**
+   * @function addListeners
+   * @description Registers a delegated click handler that opens the text viewer for
+   * file links, and click handlers on the viewer for closing it. Prevents duplicate
+   * listener attachment.
+   * @returns {void}
+   */
+  const addListeners = () => {
+    if (listenersActive) { return; }
+    doc.addEventListener("click", event => {
+      const link = event.target.closest(viewLinks.join(","));
+      if (!link) { return; }
+      if (event.target.classList.contains("newtab")) { return; }
+      event.preventDefault();
+      const fileIconLink = link.closest("tr").querySelector("td.fileIcon > a");
+      if (fileIconLink) {
+        doc.documentElement.classList.add("textviewer");
+        if (isIframed &amp;&amp; !parentDoc.documentElement.classList.contains("fullscreen")) {
+          parentDoc.documentElement.classList.add("textviewer", "fullscreen");
+        }
+        const fileName = decodeURIComponent(fileIconLink.href.split("/").pop());
+        const fileExt = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+        if (supportedFileTypes.has(fileExt)) { displayText(fileIconLink, fileName, fileExt, fileIconLink.href); }
+      }
+    });
+
+    viewerContent.addEventListener("click", event => event.stopPropagation());
+    viewerWrapper.addEventListener("click", () => {
+      viewerWrapper.hidden = true;
+      doc.documentElement.classList.remove("textviewer", "fullscreen");
+      preventScroll([doc.documentElement, doc.body], false);
+      if (isIframed) {
+        parentDoc.documentElement.classList.remove("textviewer", "fullscreen");
+        preventScroll([parentDoc.documentElement, parentDoc.body], false);
+      }
+    });
+    listenersActive = true;
+  };
+
+  addListeners();
+
+});
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

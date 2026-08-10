@@ -1,0 +1,225 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/fetchWorker.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/fetchWorker.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module fetchWorker
+ * @description A general-purpose SharedWorker for background fetch requests with
+ * concurrency control, debouncing, and queue management. Handles both HTML text
+ * and binary blob responses.
+ * @author dr|z3d
+ * @license AGPLv3 or later
+ */
+
+/** @type {number} */
+const MAX_CONCURRENT_REQUESTS = 16;
+/** @type {number} */
+const MAX_QUEUE_SIZE = 16;
+/** @type {number} */
+const MIN_INTERVAL = 500;
+/** @type {number} */
+const DEBOUNCE_DELAY = 200;
+/** @type {number} */
+const FETCH_TIMEOUT = 10000;
+/** @type {Map&lt;string, {lastRequestTime: number}>} */
+const responseCountMap = new Map();
+
+/** @type {number} */
+let activeRequests = 0;
+/** @type {Array&lt;{url: string, now: number, clientData: Object}>} */
+let fetchQueue = [];
+/** @type {number} */
+let noResponse = 0;
+/** @type {Map&lt;string, {timeoutId: number, clientId: string}>} */
+let debounceTimeouts = new Map();
+
+/**
+ * Handles new SharedWorker connections by setting up message and close handlers.
+ * Each connection gets its own unique id so closing one tab cannot purge the
+ * shared queue or rate limit for other tabs.
+ * @function self.onconnect
+ * @param {MessageEvent} e - The connection event containing ports
+ * @returns {void}
+ */
+self.onconnect = function(e) {
+  const port = e.ports[0];
+  const clientData = { port, clientId: Math.random().toString(36).substr(2, 9), visible: true };
+  port.onmessage = function(event) {handleClientMessage(event, clientData);};
+  port.onclose = () => {cleanupClient(clientData);};
+};
+
+/**
+ * Processes incoming messages from a client port, debouncing or force-enqueueing fetch requests.
+ * Clients report their visibility with `{visibility: bool}` so hidden tabs are
+ * suspended (their pending work is purged and new requests ignored) until they
+ * report visible again.
+ * @function handleClientMessage
+ * @param {MessageEvent} event - The message event containing fetch data
+ * @param {Object} clientData - Client data with port and clientId
+ * @param {MessagePort} clientData.port - The communication port
+ * @param {string} clientData.clientId - The client's unique identifier
+ * @returns {void}
+ */
+function handleClientMessage(event, clientData) {
+  const { url, force = false, visibility } = event.data;
+
+  if (visibility !== undefined) {
+    setClientVisibility(clientData, visibility);
+    return;
+  }
+  if (!url || !clientData.visible) { return; }
+
+  const now = Date.now();
+  const lastRequestTime = responseCountMap.get(clientData.clientId)?.lastRequestTime || 0;
+
+  if (!force &amp;&amp; (now - lastRequestTime &lt; MIN_INTERVAL)) { return; }
+  if (fetchQueue.length >= MAX_QUEUE_SIZE) { return; }
+  if (force) {enqueueFetchRequest(url, now, clientData); return;}
+  if (debounceTimeouts.has(url)) {clearTimeout(debounceTimeouts.get(url).timeoutId);}
+
+  const timeoutId = setTimeout(() => {
+    enqueueFetchRequest(url, now, clientData);
+    debounceTimeouts.delete(url);
+  }, DEBOUNCE_DELAY);
+  debounceTimeouts.set(url, { timeoutId, clientId: clientData.clientId });
+}
+
+/**
+ * Updates a client's visibility state, purging all its pending work when it
+ * becomes hidden so nothing fetches for an invisible tab.
+ * @function setClientVisibility
+ * @param {Object} clientData - Client data with port and clientId
+ * @param {boolean} visible - Whether the client's page is visible
+ * @returns {void}
+ */
+function setClientVisibility(clientData, visible) {
+  if (clientData.visible === visible) { return; }
+  clientData.visible = visible;
+  if (!visible) { purgeClientWork(clientData.clientId); }
+}
+
+/**
+ * Removes all pending debounce timers and queued fetches for a client.
+ * @function purgeClientWork
+ * @param {string} clientId - The client's unique identifier
+ * @returns {void}
+ */
+function purgeClientWork(clientId) {
+  for (const [url, entry] of debounceTimeouts) {
+    if (entry.clientId === clientId) {
+      clearTimeout(entry.timeoutId);
+      debounceTimeouts.delete(url);
+    }
+  }
+  fetchQueue = fetchQueue.filter(item => item.clientData.clientId !== clientId);
+}
+
+/**
+ * Enqueues a fetch request, executing immediately if concurrency limit not reached.
+ * @function enqueueFetchRequest
+ * @param {string} url - The URL to fetch
+ * @param {number} now - Timestamp of the request
+ * @param {Object} clientData - Client data with port and clientId
+ * @returns {void}
+ */
+function enqueueFetchRequest(url, now, clientData) {
+  if (activeRequests &lt; MAX_CONCURRENT_REQUESTS) {
+    activeRequests++;
+    processFetchRequest(url, now, clientData);
+  } else {
+    fetchQueue.push({ url, now, clientData });
+  }
+}
+
+/**
+ * Executes a fetch request and posts the response back to the client port.
+ * Requests are aborted after FETCH_TIMEOUT so a stalled connection cannot
+ * pin a concurrency slot (or the page's in-flight guard) forever.
+ * @function processFetchRequest
+ * @param {string} url - The URL to fetch
+ * @param {number} now - Timestamp of the request
+ * @param {Object} clientData - Client data with port and clientId
+ * @returns {Promise&lt;void>}
+ */
+async function processFetchRequest(url, now, clientData) {
+  const {port, clientId} = clientData;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => {controller.abort();}, FETCH_TIMEOUT);
+  try {
+    const response = await fetch(url, { signal: controller.signal });
+    let messagePayload;
+
+    if (response.ok) {
+      const contentType = response.headers.get("Content-Type");
+      if (contentType &amp;&amp; contentType.includes("text/html")) {
+        const responseText = await response.text();
+        messagePayload = { url, responseText, isDown: false, noResponse: 0, status: response.status };
+      } else {
+        const responseBlob = await response.blob();
+        messagePayload = { url, responseBlob, isDown: false, noResponse: 0, status: response.status };
+      }
+      updateLastRequestTime(clientId, now);
+      noResponse = 0;
+    } else {
+      messagePayload = { url, isDown: true, noResponse: incrementNoResponse(), status: response.status };
+    }
+
+    port.postMessage(messagePayload);
+  } catch (error) {
+    port.postMessage({ url, isDown: true, noResponse: incrementNoResponse(), status: 0 });
+  } finally {
+    clearTimeout(timeoutId);
+    decrementActiveRequests();
+    processNextFetchRequest();
+  }
+}
+
+/**
+ * Updates the last request timestamp for a given client.
+ * @function updateLastRequestTime
+ * @param {string} clientId - The client's unique identifier
+ * @param {number} now - The current timestamp
+ * @returns {void}
+ */
+function updateLastRequestTime(clientId, now) {
+  responseCountMap.set(clientId, { lastRequestTime: now });
+}
+
+/**
+ * Increments and returns the no-response counter.
+ * @function incrementNoResponse
+ * @returns {number} The incremented counter value
+ */
+function incrementNoResponse() {return ++noResponse;}
+
+/**
+ * Decrements the active request counter.
+ * @function decrementActiveRequests
+ * @returns {void}
+ */
+function decrementActiveRequests() {activeRequests--;}
+
+/**
+ * Processes the next fetch request in the queue if concurrency limit allows.
+ * Skips queued items belonging to clients that went hidden since enqueue.
+ * @function processNextFetchRequest
+ * @returns {void}
+ */
+function processNextFetchRequest() {
+  while (activeRequests &lt; MAX_CONCURRENT_REQUESTS &amp;&amp; fetchQueue.length > 0) {
+    const { url, now, clientData } = fetchQueue.shift();
+    if (!clientData.visible) { continue; }
+    activeRequests++;
+    processFetchRequest(url, now, clientData);
+  }
+}
+
+/**
+ * Cleans up resources associated with a disconnected client.
+ * @function cleanupClient
+ * @param {Object} clientData - Client data with port and clientId
+ * @returns {void}
+ */
+function cleanupClient(clientData) {
+  const { clientId } = clientData;
+  responseCountMap.delete(clientId);
+  purgeClientWork(clientId);
+}
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>

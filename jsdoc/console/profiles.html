@@ -1,0 +1,281 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>routerconsole/jsp/js/profiles.js - I2P+ JavaScript API Documentation</title><meta name=description content="API documentation for I2P+ JavaScript components"><meta name=keywords content="i2p,anonymizing network,javascript,api"><meta name=keyword content="i2p, anonymizing network, javascript, api"><script src=../scripts/prettify/prettify.js></script><script src=../scripts/prettify/lang-css.js></script><link rel=stylesheet href=../styles/prettify.css><link rel=stylesheet href=../styles/jsdoc.css><link rel=stylesheet href=../styles/fonts.css><link rel=stylesheet href=../styles/jsdoc-dark.css><script src=../scripts/nav.js defer></script><meta name=viewport content="width=device-width,initial-scale=1"><body id=console><input type=checkbox id=nav-trigger class=nav-trigger>
+<label for=nav-trigger class="navicon-button x"><div class=navicon></div></label><label for=nav-trigger class=overlay></label><nav class=wrap><input id=nav-search placeholder=Search><h2><a href=../index.html>I2P+ JSDoc Index</a></h2><ul><li class="section-heading console"><h4><a href=../console/index.html>Console</a></h4><li class=console><a href=../console/advconfig.html>advconfig</a><li class=console><a href=../console/autologout.html>autologout</a><li class=console><a href=../console/changelog.html>changelog</a><li class=console><a href=../console/clearSelected.html>clearSelected</a><li class=console><a href=../console/clickToClose.html>clickToClose</a><li class=console><a href=../console/configclients.html>configclients</a><li class=console><a href=../console/configplugins.html>configplugins</a><li class=console><a href=../console/configstats.html>configstats</a><li class=console><a href=../console/configtunnels.html>configtunnels</a><li class=console><a href=../console/convertKBtoMB.html>convertKBtoMB</a><li class=console><a href=../console/csrf.html>csrf</a><li class=console><a href=../console/detectPageZoom.html>detectPageZoom</a><li class=console><a href=../console/diffWorker.html>diffWorker</a><li class=console><a href=../console/fetchWorker.html>fetchWorker</a><li class=console><a href=../console/formsubmit.html>formsubmit</a><li class=console><a href=../console/geomap.html>geomap</a><li class=console><a href=../console/graphs.html>graphs</a><li class=console><a href=../console/graphSingle.html>graphSingle</a><li class=console><a href=../console/jobs.html>jobs</a><li class=console><a href=../console/lazyload.html>lazyload</a><li class=console><a href=../console/lsCompact.html>lsCompact</a><li class=console><a href=../console/lsDebug.html>lsDebug</a><li class=console><a href=../console/miniGraph.html>miniGraph</a><li class=console><a href=../console/netdb.html>netdb</a><li class=console><a href=../console/netdbLookup.html>netdbLookup</a><li class=console><a href=../console/newHosts.html>newHosts</a><li class=console><a href=../console/ok.html>ok</a><li class=console><a href=../console/onVisible.html>onVisible</a><li class=console><a href=../console/peers.html>peers</a><li class=console><a href=../console/profiles.html>profiles</a><li class=console><a href=../console/refreshElements.html>refreshElements</a><li class=console><a href=../console/refreshKick.html>refreshKick</a><li class=console><a href=../console/refreshLogs.html>refreshLogs</a><li class=console><a href=../console/refreshOnClick.html>refreshOnClick</a><li class=console><a href=../console/refreshSidebar.html>refreshSidebar</a><li class=console><a href=../console/resetScroll.html>resetScroll</a><li class=console><a href=../console/jdenticon.html>jdenticon</a><li class=console><a href=../console/progressx.html>progressx</a><li class=console><a href=../console/scrollTo.html>scrollTo</a><li class=console><a href=../console/searchLS.html>searchLS</a><li class=console><a href=../console/sectionToggle.html>sectionToggle</a><li class=console><a href=../console/selectAll.html>selectAll</a><li class=console><a href=../console/setupIframe.html>setupIframe</a><li class=console><a href=../console/sidebarState.html>sidebarState</a><li class=console><a href=../console/sortShared.html>sortShared</a><li class=console><a href=../console/sortWorker.html>sortWorker</a><li class=console><a href=../console/stats.html>stats</a><li class=console><a href=../console/stickySidebar.html>stickySidebar</a><li class=console><a href=../console/streams.html>streams</a><li class=console><a href=../console/tableSectionToggler.html>tableSectionToggler</a><li class=console><a href=../console/tablesort.html>tablesort</a><li class=console><a href=../console/textareaResize.html>textareaResize</a><li class=console><a href=../console/toggleElements.html>toggleElements</a><li class=console><a href=../console/togglePassword.html>togglePassword</a><li class=console><a href=../console/transit.html>transit</a><li class=console><a href=../console/transit-common.html>transit-common</a><li class=console><a href=../console/transitfast.html>transitfast</a><li class=console><a href=../console/transitsummary.html>transitsummary</a><li class=console><a href=../console/translationReport.html>translationReport</a><li class=console><a href=../console/tuning.html>tuning</a><li class=console><a href=../console/tunnelpeercount.html>tunnelpeercount</a><li class=console><a href=../console/tunnels.html>tunnels</a><li class=console><a href=../console/viewprofile.html>viewprofile</a><li class="section-heading i2psnark"><h4><a href=../i2psnark/index.html>I2PSnark</a></h4><li class=i2psnark><a href=../i2psnark/click.html>click</a><li class=i2psnark><a href=../i2psnark/convertTooltips.html>convertTooltips</a><li class=i2psnark><a href=../i2psnark/filterBar.html>filterBar</a><li class=i2psnark><a href=../i2psnark/getImgDimensions.html>getImgDimensions</a><li class=i2psnark><a href=../i2psnark/graphRefresh.html>graphRefresh</a><li class=i2psnark><a href=../i2psnark/lightbox.html>lightbox</a><li class=i2psnark><a href=../i2psnark/messageTypes.html>messageTypes</a><li class=i2psnark><a href=../i2psnark/pageNav.html>pageNav</a><li class=i2psnark><a href=../i2psnark/realtimeSearch.html>realtimeSearch</a><li class=i2psnark><a href=../i2psnark/refreshPayload.html>refreshPayload</a><li class=i2psnark><a href=../i2psnark/refreshTorrents.html>refreshTorrents</a><li class=i2psnark><a href=../i2psnark/setFilterQuery.html>setFilterQuery</a><li class=i2psnark><a href=../i2psnark/snarkAlert.html>snarkAlert</a><li class=i2psnark><a href=../i2psnark/snarkSort.html>snarkSort</a><li class=i2psnark><a href=../i2psnark/snarkWork.html>snarkWork</a><li class=i2psnark><a href=../i2psnark/textView.html>textView</a><li class=i2psnark><a href=../i2psnark/toggleAddCreate.html>toggleAddCreate</a><li class=i2psnark><a href=../i2psnark/toggleConfigs.html>toggleConfigs</a><li class=i2psnark><a href=../i2psnark/toggleDebug.html>toggleDebug</a><li class=i2psnark><a href=../i2psnark/toggleLinks.html>toggleLinks</a><li class=i2psnark><a href=../i2psnark/toggleLog.html>toggleLog</a><li class=i2psnark><a href=../i2psnark/togglePriorities.html>togglePriorities</a><li class=i2psnark><a href=../i2psnark/toggleVaryTunnelLength.html>toggleVaryTunnelLength</a><li class=i2psnark><a href=../i2psnark/tunnelCounter.html>tunnelCounter</a><li class="section-heading i2ptunnel"><h4><a href=../i2ptunnel/index.html>I2PTunnel</a></h4><li class=i2ptunnel><a href=../i2ptunnel/delete.html>delete</a><li class=i2ptunnel><a href=../i2ptunnel/filterTunnels.html>filterTunnels</a><li class=i2ptunnel><a href=../i2ptunnel/refreshIndex.html>refreshIndex</a><li class=i2ptunnel><a href=../i2ptunnel/toggleThrottler.html>toggleThrottler</a><li class=i2ptunnel><a href=../i2ptunnel/toggleTunnelInfo.html>toggleTunnelInfo</a><li class="section-heading susidns"><h4><a href=../susidns/index.html>SusiDNS</a></h4><li class=susidns><a href=../susidns/clearSearch.html>clearSearch</a><li class=susidns><a href=../susidns/deleteHosts.html>deleteHosts</a><li class=susidns><a href=../susidns/refreshStatus.html>refreshStatus</a><li class=susidns><a href=../susidns/toggleAllHosts.html>toggleAllHosts</a><li class=susidns><a href=../susidns/togglePanels.html>togglePanels</a><li class="section-heading susimail"><h4><a href=../susimail/index.html>SusiMail</a></h4><li class=susimail><a href=../susimail/compose.html>compose</a><li class=susimail><a href=../susimail/deleteMail.html>deleteMail</a><li class=susimail><a href=../susimail/folder.html>folder</a><li class=susimail><a href=../susimail/HtmlSanitizer.html>HtmlSanitizer</a><li class=susimail><a href=../susimail/htmlView.html>htmlView</a><li class=susimail><a href=../susimail/markdown.html>markdown</a><li class=susimail><a href=../susimail/notifications.html>notifications</a><li class=susimail><a href=../susimail/previewMail.html>previewMail</a><li class=susimail><a href=../susimail/refreshInbox.html>refreshInbox</a><li class=susimail><a href=../susimail/sanitizeHTML.html>sanitizeHTML</a><li class=susimail><a href=../susimail/toggleHeaders.html>toggleHeaders</a></ul></nav><div id=main><h1 class=page-title>routerconsole/jsp/js/profiles.js</h1><section><article><pre class="prettyprint source linenums"><code>/**
+ * @module profiles
+ * @description Handles auto-refresh, table sorting, and session ban summaries
+ * for the /profiles pages, including profile lists, floodfill profiles, and banlist.
+ * @author dr|z3d
+ * @license AGPL3 or later
+ */
+
+import { refreshElements } from "./refreshElements.js";
+
+(function() {
+  const banlist = document.getElementById("banlist");
+  const banBody = document.getElementById("sessionBanlist");
+  const bfoot = document.getElementById("sessionBanlistFooter");
+  const ff = document.getElementById("floodfills");
+  const ffprofiles = document.getElementById("ffProfiles");
+  const main = document.getElementById("profiles");
+  const pbody = document.getElementById("pbody");
+  const plist = document.getElementById("profilelist");
+  const rings = document.getElementById("profilestats");
+  const sessionBans = document.getElementById("sbans");
+  const uri = window.location.search.substring(1) !== "" ? window.location.pathname + "?" + window.location.search.substring(1) : window.location.pathname;
+  let sorterFF = null;
+  let sorterP = null;
+  let sorterBans = null;
+  /** Reasons hidden from the ban table (auto-disabled or toggled off). */
+  const disabledReasons = new Set();
+  /** Reasons the user explicitly enabled despite any auto-disable threshold. */
+  const userForcedActive = new Set();
+  const LS_KEY = "profiles_banFilter_" + location.search;
+
+  /**
+   * Persist filter state to localStorage so it survives page refresh.
+   * Saves both disabled-reason and forced-active sets separately.
+   * @function saveFilterState
+   * @returns {void}
+   */
+  function saveFilterState() {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify([...disabledReasons]));
+      localStorage.setItem(LS_KEY + "_forced", JSON.stringify([...userForcedActive]));
+    } catch (e) {}
+  }
+
+  /**
+   * Restore filter state from localStorage on page load.
+   * Populates both disabled-reason and forced-active sets.
+   * Called once from DOMContentLoaded, before the ban summary is rendered.
+   * @function loadFilterState
+   * @returns {void}
+   */
+  function loadFilterState() {
+    try {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved) {
+        JSON.parse(saved).forEach(r => disabledReasons.add(r));
+      }
+      const forced = localStorage.getItem(LS_KEY + "_forced");
+      if (forced) {
+        JSON.parse(forced).forEach(r => userForcedActive.add(r));
+      }
+    } catch (e) {}
+  }
+
+  /**
+   * Initializes sort listeners and refresh schedules for profile pages.
+   * @function initRefresh
+   * @returns {void}
+   */
+  function initRefresh() {
+    addSortListeners();
+    setupRefreshes();
+  }
+
+  /**
+   * Sets up Tablesort instances and progress bar handlers for profile tables.
+   * @function addSortListeners
+   * @returns {void}
+   */
+  function addSortListeners() {
+    if (ff &amp;&amp; sorterFF === null) {
+      sorterFF = new Tablesort(ff, {descending: true});
+      ff.addEventListener("beforeSort", () => progressx.show(theme));
+      ff.addEventListener("afterSort", () => progressx.hide());
+    } else if (plist &amp;&amp; sorterP === null) {
+      sorterP = new Tablesort(plist, {descending: true});
+      plist.addEventListener("beforeSort", () => progressx.show(theme));
+      plist.addEventListener("afterSort", () => progressx.hide());
+    } else if (sessionBans &amp;&amp; sorterBans === null) {
+      sorterBans = new Tablesort(sessionBans, {descending: false});
+      sessionBans.addEventListener("beforeSort", () => progressx.show(theme));
+      sessionBans.addEventListener("afterSort", () => progressx.hide());
+    }
+  }
+
+  /**
+   * Configures periodic element refresh for profile rings, lists, floodfills, and bans.
+   * @function setupRefreshes
+   * @returns {void}
+   */
+  function setupRefreshes() {
+    // Refresh the profile summary rings every 15 seconds, silently
+    if (rings) {
+      refreshElements("#profilestats", uri, 15000, false, true, "profilestats");
+    }
+
+    // Refresh profile list every 15 seconds; rows are diffed in a worker.
+    // 10s min interval suppresses the redundant fetch when a short tab hide
+    // falls right after a completed refresh
+    if (plist) {
+      const targetSelectors = pbody ? `#pbody` : `#profilelist`;
+      refreshElements(targetSelectors, uri, 15000, false, false, pbody ? "pbody" : null, pbody ? "pbody" : null, 10000);
+    }
+
+    // Refresh floodfill profiles every 15 seconds; rows are diffed in a worker
+    if (ff) {
+      const targetSelectors = ffprofiles ? `#ffProfiles` : `#floodfills`;
+      refreshElements(targetSelectors, uri, 15000, false, false, ffprofiles ? "ffProfiles" : "floodfills", ffprofiles ? "ffProfiles" : null);
+      // Refresh the floodfill health rings, silently
+      refreshElements("#ffstats", uri, 15000, false, true, "ffstats");
+    }
+
+    // Refresh session bans every 15 seconds; rows are diffed in a worker.
+    // 10s min interval suppresses the redundant fetch when a short tab hide
+    // falls right after a completed refresh
+    if (sessionBans) {
+      refreshElements("#sessionBanlist", uri, 15000, false, false, "sessionBanlist", "sessionBanlist", 10000);
+    }
+
+    document.addEventListener("refreshComplete", () => {
+      addSortListeners();
+      if (sorterP) {sorterP.refresh();}
+      if (sorterFF) {sorterFF.refresh();}
+      if (sorterBans) {sorterBans.refresh();}
+      if (banBody) {updateBanSummary(banBody);}
+    });
+
+  }
+
+  /**
+   * Filters the session ban table based on active reasons in the summary list.
+   * @function filterBanTable
+   * @returns {void}
+   */
+  function filterBanTable() {
+    if (!banBody) return;
+    const activeReasons = new Set();
+    document.querySelectorAll("#banSummary ul.ban-reasons li.active").forEach(li => {
+      let reason = li.textContent.replace(/^\d+\s*/, "").trim();
+      activeReasons.add(reason);
+    });
+    banBody.querySelectorAll("tr").forEach(row => {
+      const reasonCell = row.querySelector("td.reason");
+      if (!reasonCell) { return; }
+      let reason = reasonCell.textContent;
+      reason = reason.split("(")[0].trim();
+      reason = reason.replace("&lt;b> -&amp;gt; &lt;/b>", "")
+                     .replace("&lt;b> -> &lt;/b>", "")
+                     .replace(/>\s*/, "")
+                     .replace(/->\s*/, "")
+                     .replace(/➜\s*/, "")
+                     .replace(/^-\s*/, "")
+                     .replace(/^ \-> /, "")
+                     .replace("Excessive NTCP connection", "Excessive connection")
+                     .replace(/Blocklist:\s*[\d.:a-f]+/i, "Blocklist");
+      reason = reason.trim();
+      row.style.display = activeReasons.has(reason) ? "" : "none";
+    });
+  }
+
+  /**
+   * Generates and displays a summary of session bans grouped by reason.
+   * @function updateBanSummary
+   * @param {HTMLElement} banBody - The table body containing ban rows
+   * @returns {void}
+   */
+  function updateBanSummary(banBody) {
+    if (!banBody) {return;}
+    const rows = banBody.querySelectorAll("tr");
+    const reasonCounts = {};
+    const total = rows.length;
+
+    rows.forEach((row) => {
+      const reasonCell = row.querySelector("td.reason");
+      if (reasonCell) {
+        let reason = reasonCell.textContent;
+        reason = reason.split("(")[0].trim();
+        reason = reason.replace("&lt;b> -&amp;gt; &lt;/b>", "")
+                       .replace("&lt;b> -> &lt;/b>", "")
+                       .replace(/>\s*/, "")
+                       .replace(/->\s*/, "")
+                       .replace(/➜\s*/, "")
+                       .replace(/^-\s*/, "")  // Remove leading dash
+                       .replace(/^ \-> /, "") // Remove leading " -> "
+                       .replace("Excessive NTCP connection", "Excessive connection")
+                       .replace(/Blocklist:\s*[\d.:a-f]+/i, "Blocklist");
+        reason = reason.trim();
+        if (reason) { reasonCounts[reason] = (reasonCounts[reason] || 0) + 1; }
+      }
+    });
+
+    let sorted = Object.entries(reasonCounts).sort((a, b) => {
+      if (b[1] !== a[1]) { return b[1] - a[1]; }
+      return a[0].localeCompare(b[0]);
+    });
+
+    // Auto-disable categories with >= 1000 entries for performance,
+    // but respect user's explicit enable override
+    sorted.forEach(([reason, count]) => {
+      if (count >= 1000 &amp;&amp; !userForcedActive.has(reason)) { disabledReasons.add(reason); }
+    });
+
+    let summaryDiv = document.getElementById("banSummary");
+    let html = `&lt;h2>Total Session Bans: ${total}&lt;/h2>\n&lt;ul class="ban-reasons">`;
+    sorted.forEach(([reason, count]) => {
+      const cls = disabledReasons.has(reason) ? "" : " active";
+      html += `&lt;li class="${cls}">&lt;span class=badge>${count}&lt;/span> ${reason}&lt;/li>\n`;
+    });
+    html += "&lt;/ul>";
+
+    if (!summaryDiv) {
+      summaryDiv = document.createElement("div");
+      summaryDiv.id = "banSummary";
+      if (sessionBans &amp;&amp; sessionBans.parentNode) {
+        sessionBans.parentNode.insertBefore(summaryDiv, sessionBans);
+      }
+    }
+    summaryDiv.innerHTML = html;
+    filterBanTable();
+    const footer = document.getElementById("sessionBanlistFooter");
+    if (footer) {footer.remove();}
+  }
+
+  document.addEventListener("click", (e) => {
+    const li = e.target.closest("#banSummary ul.ban-reasons li");
+    if (!li) return;
+    li.classList.toggle("active");
+    const reason = li.textContent.replace(/^\d+\s*/, "").trim();
+    if (li.classList.contains("active")) {
+      disabledReasons.delete(reason);
+      userForcedActive.add(reason);
+    } else {
+      disabledReasons.add(reason);
+      userForcedActive.delete(reason);
+    }
+    saveFilterState();
+    filterBanTable();
+  });
+
+  let banObserver;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    loadFilterState();
+    initRefresh();
+    if (banBody) {
+      updateBanSummary(banBody);
+      banObserver = new MutationObserver(() => updateBanSummary(banBody));
+      banObserver.observe(banBody, {childList: true});
+    }
+  });
+
+  function reattachBanObserver() {
+    if (banBody &amp;&amp; !banObserver) {
+      banObserver = new MutationObserver(() => updateBanSummary(banBody));
+      banObserver.observe(banBody, {childList: true});
+    } else if (banBody &amp;&amp; banObserver) {
+      banObserver.observe(banBody, {childList: true});
+    }
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden &amp;&amp; banObserver) {
+      banObserver.disconnect();
+    } else if (!document.hidden) {
+      reattachBanObserver();
+      updateBanSummary(banBody);
+    }
+  });
+})();
+</code></pre></article></section></div><br class=clear><footer><a href=../api-table.html>API Summary</a></footer><script>prettyPrint()</script><script src=../scripts/polyfill.js></script><script src=../scripts/linenumber.js></script><script src=../scripts/search.js defer></script><script src=../scripts/collapse.js defer></script>
