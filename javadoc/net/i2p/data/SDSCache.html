@@ -6,19 +6,19 @@ This caches the SDS objects, and also uses SimpleByteCache to cache
 the unused byte arrays themselves
 Following is sample usage:<pre>
 
- private static final SDSCache&lt; Foo&gt; _cache = new SDSCache(Foo.class, LENGTH, 1024);
+  private static final SDSCache&lt; Foo&gt; _cache = new SDSCache(Foo.class, LENGTH, 1024);
 
- public static Foo create(byte[] data) {
- return _cache.get(data);
- }
+  public static Foo create(byte[] data) {
+  return _cache.get(data);
+  }
 
- public static Foo create(byte[] data, int off) {
- return _cache.get(data, off);
- }
+  public static Foo create(byte[] data, int off) {
+  return _cache.get(data, off);
+  }
 
- public static Foo create(InputStream in) throws IOException {
- return _cache.get(in);
- }
+  public static Foo create(InputStream in) throws IOException {
+  return _cache.get(in);
+  }
 
   </pre></div></ul></div><div class=summary><ul class=blockList><li class=blockList><ul class=blockList><li class=blockList><a name=constructor.summary></a><h3>Constructor Summary</h3><table class=memberSummary border=0 cellpadding=3 cellspacing=0 summary="Constructor Summary table, listing constructors, and an explanation"><caption><span>Constructors</span><span class=tabEnd>&nbsp;</span></caption><tr><th class=colOne scope=col>Constructor and Description<tr class=altColor><td class=colOne><code><span class=memberNameLink><a href=../../../net/i2p/data/SDSCache.html#SDSCache-java.lang.Class-int-int->SDSCache</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;<a href=../../../net/i2p/data/SDSCache.html title="type parameter in SDSCache">V</a>>&nbsp;rvClass,
 int&nbsp;len,

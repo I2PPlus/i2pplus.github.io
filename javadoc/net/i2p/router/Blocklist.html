@@ -9,9 +9,9 @@ which allows the transports to terminate an inbound connection before
 the router ident handshake.
 And the on-disk blocklist can also contain router hashes to be banlisted.
 So, this class maintains three separate lists:<pre>
-   1) The list of IP ranges, read in from a file at startup
-   2) The list of hashes, read in from the same file
-   3) A list of single IPs, initially empty, added to as needed
+ 1) The list of IP ranges, read in from a file at startup
+ 2) The list of hashes, read in from the same file
+ 3) A list of single IPs, initially empty, added to as needed
 </pre>Read in the IP blocklist from a file, store it in-memory as efficiently
 as we can, and perform tests against it as requested.
 When queried for a peer that is blocklisted but isn't banlisted,
