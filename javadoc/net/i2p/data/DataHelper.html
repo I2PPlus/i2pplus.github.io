@@ -383,7 +383,8 @@ This is the same behavior as String.split().</div><dl><dt><span class=paramLabel
                               <a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)
                        throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre><div class=block>Writes the props to the file, unsorted (unless props is an OrderedProperties)
 Note that this does not escape the \r or \n that are unescaped in loadProps() above.
-As of 0.8.1, file will be mode 600.
+As of 0.8.1, file will be mode 600 (best effort; group read/write is
+also granted where POSIX permissions are supported, e.g. 660 on Linux).
 Properties from the defaults table of props (if any) are not written out by this method.
 Leading or trailing whitespace in values is not checked but
 will be trimmed by loadProps()</div><dl><dt><span class=paramLabel>Parameters:</span><dd><code>props</code> - properties to store<dd><code>file</code> - the file to write to<dt><span class=throwsLabel>Throws:</span><dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if a key contains any of "#=\n" or starts with ';',
