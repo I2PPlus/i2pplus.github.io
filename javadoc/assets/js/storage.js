@@ -1,1 +1,0 @@
-export function readLocal(key){try{return localStorage.getItem(key)}catch{return null}}export function writeLocal(key,value){try{localStorage.setItem(key,value)}catch{}}export function readSession(key){try{return sessionStorage.getItem(key)}catch{return null}}export function writeSession(key,value){try{sessionStorage.setItem(key,value)}catch{}}
